@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidimus — Nooit meer woord tegen woord.</title>
+  <meta name="description" content="De verankeringslaag voor uw registraties. Cryptografisch vastgezet, nooit meer aan te passen of te wissen." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <meta name="theme-color" content="#f7f4ee" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vidimus" />
+  <meta property="og:title" content="Vidimus — Nooit meer woord tegen woord." />
+  <meta property="og:description" content="De verankeringslaag voor uw registraties. Cryptografisch vastgezet, nooit meer aan te passen of te wissen." />
+  <meta property="og:url" content="https://vidimus.be/" />
+  <meta property="og:image" content="https://vidimus.be/assets/og.png" />
+  <meta property="og:locale" content="nl_BE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="Vidimus — home">
+      <svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true">
+        <circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" />
+        <circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" />
+        <path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span>vidimus<br /><em>verankeringslaag</em></span>
+    </a>
+    <nav aria-label="Hoofdnavigatie">
+      <a href="#werkwijze">Werkwijze</a>
+      <a href="#tamper">De demo</a>
+      <a href="#sectoren">Sectoren</a>
+      <a href="#rekensom">Rekensom</a>
+      <a href="#techniek">Techniek</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu">
+    <a href="#werkwijze">Werkwijze</a>
+    <a href="#tamper">De demo</a>
+    <a href="#sectoren">Sectoren</a>
+    <a href="#rekensom">Rekensom</a>
+    <a href="#techniek">Techniek</a>
+    <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">Boek de demo — 15 min</a>
+  </nav>
+
+  <main>
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">
+        <strong>Vidimus.<br />Nooit meer woord tegen woord.</strong>
+      </h1>
+      <p class="hero-rotator" aria-live="polite">
+        <span id="rotator-text">Een telefonisch "doe maar" voor meerwerk.
+        En bij de eindafrekening: "dat hebben wij nooit goedgekeurd."</span>
+      </p>
+      <button class="rotator-counter mono" id="rotator-next" type="button" aria-label="Volgende voorbeeld">
+        <span id="rotator-count">1 van 4</span> <span aria-hidden="true">›</span>
+      </button>
+
+      <!-- Handtekeningblok -->
+      <figure class="signature-block" aria-label="Handtekening en verankeringszegel">
+        <svg class="signature-line" viewBox="0 0 717 196" aria-hidden="true">
+          <!-- Echte handtekening (assets/handtekening.png), onthuld langs de schrijfrichting -->
+          <defs>
+            <mask id="sig-mask" maskUnits="userSpaceOnUse">
+              <path class="sig-mask-path" pathLength="1"
+                    d="M 8 98 L 712 98"
+                    fill="none" stroke="#fff" stroke-width="235"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </mask>
+          </defs>
+          <image href="assets/handtekening.png" width="717" height="196" mask="url(#sig-mask)" />
+        </svg>
+        <div class="signature-rule" aria-hidden="true"></div>
+        <figcaption class="signature-meta">
+          <span><strong>Oskar Verschoren</strong> — Vidimus, de verankeringslaag</span>
+          <span>Antwerpen, op <span data-date-now>07.08.2026</span></span>
+        </figcaption>
+      </figure>
+
+      <p class="anchor-chip mono">
+        <svg class="check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.6l3.2 3.2L13 4.9" /></svg>
+        sha256 · <span title="c34a277d9ea3130351f279e548ebc10ff07c3dbbfd8b7906e8a6b18ec8f313cf">c34a27…13cf</span>
+        · <a href="colofon.html#handtekening">verklaring</a>
+      </p>
+    </section>
+
+    <!-- ── Welkom ───────────────────────────────────────────── -->
+    <section class="welcome" aria-label="Over Vidimus">
+      <h2>Welkom bij Vidimus, de verankeringslaag<br class="br-wide" /> voor uw registraties.</h2>
+      <p>
+        Ons doel: elke registratie die voor u van waarde is — een passcan aan
+        de poort, een sensormeting, een getekende overdracht — cryptografisch
+        vastzetten tot <strong>één onuitwisbaar spoor</strong>. Uw systeem
+        blijft de bron; wij maken het onweerlegbaar. Want in een gewone
+        databank kan een record achteraf veranderen: een vergissing, een
+        migratie, een goedbedoelde correctie — en <strong>bij uw tegenpartij
+        kan exact hetzelfde gebeuren</strong>. Sta dan bij een geschil of
+        audit maar eens tegenover een versie die niet meer overeenkomt met
+        de uwe, zonder te kunnen bewijzen welke de echte is. Zolang dat kan,
+        is elke discussie woord tegen woord. Wij maken er
+        <strong>wiskunde tegen woord</strong> van. U kiest de vorm:
+        <strong>één interne, onveranderbare waarheid</strong> binnen uw
+        organisatie, of <strong>één gedeelde waarheid onder partners</strong> —
+        in beide gevallen kan niemand er achteraf nog aan.
+      </p>
+      <p class="name-note mono">
+        vidimus — Latijn voor "wij hebben gezien": de eeuwenoude
+        kanselarijformule waarmee bevestigd werd dat een afschrift
+        eensluidend was met het origineel. Precies wat wij doen,
+        maar dan met wiskunde.
+      </p>
+    </section>
+
+    <!-- ── Wie hier tekent ──────────────────────────────────── -->
+    <section class="founder" aria-labelledby="founder-heading">
+      <h2 id="founder-heading">Wie hier tekent.</h2>
+      <figure class="founder-photo">
+        <img src="assets/oskar.jpg?v=3" alt="Oskar Verschoren, oprichter van Vidimus"
+             loading="lazy" width="640" height="800"
+             onerror="this.parentElement.classList.add('img-missing')" />
+        <span class="img-note mono">foto volgt — assets/oskar.jpg</span>
+      </figure>
+      <div class="founder-copy">
+        <blockquote class="founder-quote">
+          <p>
+            "De handtekening bovenaan deze pagina staat er niet voor de
+            sier: wij tekenen met naam en gezicht voor wat we bouwen.
+            Elke pilot begeleiden we persoonlijk, van de eerste koppeling
+            tot de eerste verankerde registratie. U belt niet met een
+            supportdesk — u belt rechtstreeks met wie het gebouwd heeft."
+          </p>
+        </blockquote>
+        <p class="founder-meta mono">Oskar Verschoren · oprichter · VO Initiatives BV · Antwerpen</p>
+      </div>
+    </section>
+
+    <!-- ── Werkwijze ────────────────────────────────────────── -->
+    <section id="werkwijze" class="numbered-cards" aria-label="Werkwijze">
+      <article class="ncard">
+        <p class="ncard-num">01</p>
+        <h3>Koppelen aan uw systeem</h3>
+        <p>
+          Uw ERP, poortsysteem of sensorplatform stuurt elke registratie via
+          API of webhook door. Eén dunne koppeling — <strong>geen migratie,
+          geen vervanging</strong>, uw data blijft waar ze staat.
+        </p>
+        <p class="ncard-artifact mono">bron: uw systeem → api · webhook</p>
+      </article>
+      <article class="ncard">
+        <p class="ncard-num">02</p>
+        <h3>Verankeren, registratie per registratie</h3>
+        <p>
+          Elke registratie wordt gehasht, krijgt een RFC 3161-tijdstempel en
+          gaat als Merkle-root de Hyperledger Fabric-keten in. Vanaf dat
+          moment is aanpassen of wissen <strong>wiskundig uitgesloten —
+          ook door ons</strong>.
+        </p>
+        <p class="ncard-artifact mono">anchor: merkle-root → fabric tx</p>
+      </article>
+      <article class="ncard">
+        <p class="ncard-num">03</p>
+        <h3>Verifiëren, door wie u kiest</h3>
+        <p>
+          Iedere partij — de tegenpartij, een auditor jaren later —
+          controleert het bewijs op een verificatiepagina: publiek, of
+          besloten binnen uw partnernetwerk. <strong>Zonder account,
+          zonder ons te moeten geloven.</strong>
+        </p>
+        <p class="ncard-artifact mono">verify: publiek · besloten · geen account</p>
+      </article>
+    </section>
+
+    <!-- ── Illustratieband: badge-scan wordt verankerd ──────── -->
+    <figure class="illu-band" id="badge-illu" aria-label="Illustratie: een badge wordt gescand en de registratie wordt verankerd">
+      <svg viewBox="0 0 900 250" role="img" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Badge aan keycord -->
+          <g transform="rotate(-10 205 135)">
+            <path d="M150 30 l40 44 M262 18 l-52 56" stroke-width="2" />
+            <rect x="196" y="70" width="22" height="12" rx="3" />
+            <rect x="150" y="86" width="112" height="76" rx="10" />
+            <circle cx="180" cy="118" r="13" />
+            <path d="M166 146 c4 -9 24 -9 28 0" />
+            <path d="M208 112 h36 M208 128 h28 M208 144 h32" stroke-width="2.2" />
+          </g>
+          <!-- Signaalbogen -->
+          <path class="arc arc-1" d="M300 108 a30 30 0 0 1 0 54" stroke-width="2.2" />
+          <path class="arc arc-2" d="M318 96 a46 46 0 0 1 0 78" stroke-width="2.2" opacity="0.65" />
+          <path class="arc arc-3" d="M336 84 a62 62 0 0 1 0 102" stroke-width="2.2" opacity="0.35" />
+          <!-- Badgelezer op paal -->
+          <rect x="380" y="78" width="64" height="106" rx="14" />
+          <circle cx="412" cy="104" r="5" fill="currentColor" stroke="none" />
+          <path d="M396 156 h32" />
+          <path d="M412 184 v46" />
+          <!-- Stippellijn naar het zegel -->
+          <path d="M460 132 C 530 132, 560 110, 630 110" stroke-dasharray="1 9" stroke-width="3" />
+          <!-- Zegel -->
+          <circle cx="700" cy="112" r="42" stroke-width="2.8" />
+          <circle cx="700" cy="112" r="30" stroke-width="1.6" stroke-dasharray="3 5" />
+          <path class="hover-check" pathLength="1" d="M684 113 l11 11 21 -23" stroke-width="3.2" />
+        </g>
+        <text x="700" y="186" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="14" letter-spacing="1" fill="currentColor">VERANKERD</text>
+        <text x="700" y="208" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="currentColor" opacity="0.65">09:41:03 UTC · 0x4f2a…9c1b</text>
+      </svg>
+      <figcaption class="illu-caption mono">gate-in · geregistreerd én verankerd op het moment zelf</figcaption>
+    </figure>
+
+    <!-- ── De demo (tamper) ─────────────────────────────────── -->
+    <section id="tamper" class="tamper" aria-labelledby="tamper-heading">
+      <header class="section-head">
+        <h2 id="tamper-heading">Probeer het te wijzigen.</h2>
+        <p>
+          Onze tekenmodule is de demo van de verankeringslaag. Hieronder
+          wordt een getekende overdracht live verankerd — met een
+          <strong>echte SHA-256-hash</strong>, in uw browser berekend.
+          Pas een veld aan en kijk wat er met de verificatie gebeurt.
+          Wat u hier ziet, gebeurt met <strong>élke registratie die wij
+          voor u vastzetten</strong>.
+        </p>
+      </header>
+
+      <figure class="illu-inline" aria-label="Illustratie: tekenen op een telefoon via een QR-code, meteen verankerd">
+        <svg viewBox="0 0 420 330" role="img" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Telefoon -->
+            <rect x="148" y="28" width="126" height="246" rx="20" />
+            <path d="M196 44 h30" stroke-width="2" />
+            <!-- QR-code op het scherm -->
+            <g stroke-width="2">
+              <rect x="176" y="66" width="20" height="20" />
+              <rect x="181" y="71" width="10" height="10" fill="currentColor" stroke="none" />
+              <rect x="226" y="66" width="20" height="20" />
+              <rect x="231" y="71" width="10" height="10" fill="currentColor" stroke="none" />
+              <rect x="176" y="116" width="20" height="20" />
+              <rect x="181" y="121" width="10" height="10" fill="currentColor" stroke="none" />
+              <g fill="currentColor" stroke="none">
+                <rect x="206" y="70" width="8" height="8" />
+                <rect x="216" y="84" width="8" height="8" />
+                <rect x="204" y="98" width="8" height="8" />
+                <rect x="228" y="100" width="8" height="8" />
+                <rect x="238" y="118" width="8" height="8" />
+                <rect x="214" y="122" width="8" height="8" />
+                <rect x="228" y="128" width="8" height="8" />
+              </g>
+            </g>
+            <!-- Handtekeninglijn op het scherm -->
+            <path d="M170 196 h82" stroke-width="1.4" stroke-dasharray="2 5" opacity="0.7" />
+            <path class="hover-sig" pathLength="1" d="M172 192 c10 -18 20 -20 24 -8 c4 12 -10 16 -6 4 c6 -16 22 -14 30 -6 c6 6 16 4 24 -4" stroke-width="2.6" />
+            <!-- Zegel over de rand van de telefoon -->
+            <circle cx="278" cy="238" r="36" stroke-width="2.8" fill="#f2eee6" fill-opacity="0.88" />
+            <circle cx="278" cy="238" r="25" stroke-width="1.5" stroke-dasharray="3 5" />
+            <path class="hover-check" pathLength="1" d="M264 239 l10 10 18 -21" stroke-width="3.2" />
+          </g>
+          <text x="211" y="308" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" letter-spacing="1" fill="currentColor" opacity="0.65">scan · teken · verankerd</text>
+        </svg>
+        <figcaption class="illu-caption mono">getekend ter plekke — telefoon, QR-code, geen app nodig</figcaption>
+      </figure>
+
+      <div class="tamper-stage">
+        <article class="doc-card" id="doc-card" aria-label="Overdrachtsdocument — bewerkbaar voorbeeld">
+          <header class="doc-head mono">
+            <span class="doc-ref">WERF-2026-0142</span>
+            <span class="doc-kind">PV VAN OPLEVERING</span>
+          </header>
+          <h3 class="doc-title">Residentie Hazelaar — blok B</h3>
+          <dl class="doc-fields">
+            <div class="doc-field">
+              <dt>Aannemer</dt>
+              <dd><span class="editable" contenteditable="true" spellcheck="false" data-field data-original="Bouwbedrijf Verhelst NV">Bouwbedrijf Verhelst NV</span></dd>
+            </div>
+            <div class="doc-field">
+              <dt>Bouwheer</dt>
+              <dd><span class="editable" contenteditable="true" spellcheck="false" data-field data-original="Immo C Hazelaar BV">Immo C Hazelaar BV</span></dd>
+            </div>
+            <div class="doc-field">
+              <dt>Meerwerk</dt>
+              <dd><span class="editable" contenteditable="true" spellcheck="false" data-field data-original="€ 4 380,00">€ 4 380,00</span></dd>
+            </div>
+            <div class="doc-field">
+              <dt>Opgeleverd op</dt>
+              <dd><span class="editable" contenteditable="true" spellcheck="false" data-field data-original="7 augustus 2026, 09:41">7 augustus 2026, 09:41</span></dd>
+            </div>
+          </dl>
+          <p class="doc-hint" id="doc-hint">Klik op een veld en wijzig het — zoals iemand dat achteraf zou proberen.</p>
+          <button class="btn-outline doc-reset" id="doc-reset" type="button" hidden>Herstel het origineel</button>
+        </article>
+
+        <aside class="verify-card" id="verify-card" aria-live="polite" aria-label="Verificatiestatus">
+          <header class="verify-head mono">
+            <span>VERIFICATIE</span>
+            <span class="status-pill status-pending" id="verify-pill">
+              <svg class="check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.6l3.2 3.2L13 4.9" /></svg>
+              <svg class="cross" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.2 4.2l7.6 7.6M11.8 4.2l-7.6 7.6" /></svg>
+              <span id="verify-pill-text">Verankeren…</span>
+            </span>
+          </header>
+          <div class="hash-rows">
+            <div class="hash-row">
+              <span class="hash-label">Verankerde hash</span>
+              <code class="mono" id="hash-anchored">berekenen…</code>
+            </div>
+            <div class="hash-row">
+              <span class="hash-label">Huidige hash</span>
+              <code class="mono" id="hash-current">berekenen…</code>
+            </div>
+          </div>
+          <ol class="verify-steps" id="verify-steps">
+            <li data-step><span class="step-dot"></span>Handtekening aannemer — Ed25519</li>
+            <li data-step><span class="step-dot"></span>Handtekening bouwheer — Ed25519</li>
+            <li data-step><span class="step-dot"></span>Tijdstempel — RFC 3161</li>
+            <li data-step><span class="step-dot"></span>Merkle-root verankerd — Hyperledger Fabric</li>
+          </ol>
+          <p class="verify-verdict" id="verify-verdict">De inhoud wordt gehasht en verankerd…</p>
+        </aside>
+      </div>
+      <p class="tamper-footnote">
+        Dit voorbeeld draait volledig in uw browser. In het product staat de
+        verankerde hash op Hyperledger Fabric — daar kan ook Vidimus zelf
+        niet meer aan. De tekenmodule mag u tijdens uw pilot gewoon meegebruiken.
+      </p>
+    </section>
+
+    <!-- ── Sectoren ─────────────────────────────────────────── -->
+    <section id="sectoren" class="sectors" aria-labelledby="sectors-heading">
+      <h2 id="sectors-heading">Elke sector heeft zijn eigen<br class="br-wide" /> woord-tegen-woord.</h2>
+      <p class="sectors-sub">Herkent u dit? Geen klantverhalen — gewoon de discussies die elke week ergens opnieuw gevoerd worden.</p>
+      <div class="sector-list">
+        <article class="sector-row">
+          <p class="sector-num">01</p>
+          <div>
+            <h3>Haven &amp; logistiek</h3>
+            <p class="sector-story">De logger van de ontvanger toont een temperatuurpiek; die van de vervoerder toont niets. Twee datasets, twee waarheden, één afgekeurde lading.</p>
+            <p>Toegangs- en leveringsregistraties als verankerde feiten. Passcans, gate-in/gate-out, leveringsbevestigingen — <strong>één bewijslaag voor alle partijen in de keten</strong>.</p>
+            <p class="sector-law mono">CMR art. 30 — zonder voorbehoud bij aflevering geldt een vermoeden van correcte levering</p>
+          </div>
+        </article>
+        <article class="sector-row">
+          <p class="sector-num">02</p>
+          <div>
+            <h3>Bouw &amp; aannemers</h3>
+            <p class="sector-story">Een telefonisch "doe maar", extra funderingswerk uitgevoerd — en maanden later bij de eindafrekening: "dat hebben wij nooit goedgekeurd."</p>
+            <p>Meerwerk ter plekke afgetekend en verankerd, mét bedrag. <strong>Wat er goedgekeurd werd en wanneer, staat onbetwistbaar vast</strong> — ook bij de eindafrekening.</p>
+            <p class="sector-law mono">art. 1793 oud BW — meerwerk bij vaste prijs vereist in principe schriftelijk akkoord</p>
+          </div>
+        </article>
+        <article class="sector-row">
+          <p class="sector-num">03</p>
+          <div>
+            <h3>Materieel- &amp; machineverhuur</h3>
+            <p class="sector-story">De hoogtewerker komt terug met een deuk in de gieklift. "Die zat er al bij afgifte." En bewijs maar eens het tegendeel.</p>
+            <p>Sensordata en staatopnames bij afgifte én terugname. Schadediscussies worden een vergelijking van <strong>twee onweerlegbare registraties</strong>.</p>
+          </div>
+        </article>
+        <article class="sector-row">
+          <p class="sector-num">04</p>
+          <div>
+            <h3>Syndici &amp; vastgoed</h3>
+            <p class="sector-story">Parket beschadigd bij vertrek van de huurder. De foto's van de schade? "Genomen twee weken na de sleuteloverdracht," zegt die.</p>
+            <p>Plaatsbeschrijvingen en sleuteloverdrachten, getekend door beide partijen en onwijzigbaar vastgelegd — <strong>jaren later nog verifieerbaar</strong>.</p>
+            <p class="sector-law mono">art. 1731 BW — zonder plaatsbeschrijving bij intrede verhaalt de verhuurder schade zelden</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Rekensom ─────────────────────────────────────────── -->
+    <section id="rekensom" class="calc" aria-labelledby="calc-heading">
+      <h2 id="calc-heading">Wat kost woord tegen woord u?</h2>
+      <p class="calc-intro">
+        Wij beweren niets — vul uw eigen cijfers in, de som is van u.
+        <strong>Alles wordt in uw browser berekend</strong>: er wordt niets
+        opgeslagen, verstuurd of bijgehouden.
+      </p>
+
+      <figure class="illu-inline" aria-label="Illustratie: een factuurregel voor meerwerk met verankeringszegel">
+        <svg viewBox="0 0 520 330" role="img" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Factuurblad met omgevouwen hoek -->
+            <path d="M130 40 h200 l50 50 v200 a8 8 0 0 1 -8 8 h-242 a8 8 0 0 1 -8 -8 v-242 a8 8 0 0 1 8 -8 z" />
+            <path d="M330 40 v42 a8 8 0 0 0 8 8 h42" />
+            <!-- Kopregel + tekstregels -->
+            <path d="M158 84 h96" stroke-width="3.4" />
+            <path d="M158 118 h150 M158 138 h120 M158 158 h138" stroke-width="1.8" opacity="0.55" />
+            <!-- De meerwerk-regel -->
+            <path d="M158 206 h194" stroke-width="1.2" stroke-dasharray="2 5" opacity="0.7" />
+            <path d="M158 236 h194" stroke-width="1.2" stroke-dasharray="2 5" opacity="0.7" />
+          </g>
+          <text x="158" y="196" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="15" letter-spacing="1" fill="currentColor">MEERWERK</text>
+          <text x="352" y="196" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="15" fill="currentColor">€ 4 380,00</text>
+          <text x="158" y="228" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="currentColor" opacity="0.55">getekend · 09:41:03 UTC</text>
+          <!-- Zegel over de rand van het blad -->
+          <g class="seal-g" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="392" cy="222" r="44" stroke-width="2.8" fill="#f7f4ee" fill-opacity="0.85" />
+            <circle cx="392" cy="222" r="31" stroke-width="1.6" stroke-dasharray="3 5" />
+            <path class="hover-check" pathLength="1" d="M375 223 l12 12 22 -25" stroke-width="3.4" />
+          </g>
+        </svg>
+        <figcaption class="illu-caption mono">verankerd meerwerk: inhoud, bedrag en moment staan vast</figcaption>
+      </figure>
+      <div class="calc-card">
+        <div class="calc-fields">
+          <label class="calc-field">
+            <span>Discussies per jaar</span>
+            <input type="number" id="calc-n" value="6" min="0" max="999" inputmode="numeric" />
+          </label>
+          <label class="calc-field">
+            <span>Gemiddeld betwist bedrag (€)</span>
+            <input type="number" id="calc-bedrag" value="5000" min="0" step="100" inputmode="numeric" />
+          </label>
+          <label class="calc-field">
+            <span>Uren per discussie</span>
+            <input type="number" id="calc-uren" value="8" min="0" max="999" inputmode="numeric" />
+          </label>
+          <label class="calc-field">
+            <span>Interne uurkost (€)</span>
+            <input type="number" id="calc-uurkost" value="75" min="0" step="5" inputmode="numeric" />
+          </label>
+        </div>
+        <dl class="calc-results" aria-live="polite">
+          <div>
+            <dt>Interne tijd die discussies u kosten</dt>
+            <dd id="calc-time">€ 3 600 per jaar</dd>
+          </div>
+          <div>
+            <dt>Bedrag dat jaarlijks ter discussie staat</dt>
+            <dd id="calc-amount">€ 30 000 per jaar</dd>
+          </div>
+        </dl>
+        <p class="calc-note">
+          Ter vergelijking: een pilot duurt <strong>30 dagen, vaste prijs</strong> —
+          en van elke verankerde registratie staan <strong>inhoud en moment
+          onbetwistbaar vast</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Techniek ─────────────────────────────────────────── -->
+    <section id="techniek" class="tech" aria-labelledby="tech-heading">
+      <h2 id="tech-heading">Geen magie. Cryptografie.</h2>
+      <dl class="tech-list">
+        <div><dt class="mono">Ed25519</dt><dd>Handtekeningen op naam met X.509-certificaten per organisatie en gebruiker, ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26).</dd></div>
+        <div><dt class="mono">RFC 3161</dt><dd>Onafhankelijke tijdstempels van een externe TSA — niet onze serverklok bepaalt het moment.</dd></div>
+        <div><dt class="mono">Merkle → Fabric</dt><dd>Hashes gebundeld in een Merkle-boom, verankerd op een permissioned blockchain — als privaat netwerk voor intern gebruik, of gedeeld in consortium met uw partners.</dd></div>
+        <div><dt class="mono">SHA-256-keten</dt><dd>De audittrail is zelf hash-gechaind: één gemanipuleerd record en de keten klopt niet meer.</dd></div>
+        <div><dt class="mono">Verificatie · publiek of besloten</dt><dd>Elke registratie heeft een verificatie-URL — publiek waar het mag, besloten onder partners waar het moet. Het bewijs hangt niet aan ons platform.</dd></div>
+        <div><dt class="mono">EU · API-first</dt><dd>Data blijft in de EU. Eén dunne REST-koppeling bovenop uw bestaand systeem.</dd></div>
+      </dl>
+      <p class="tech-honesty">
+        Eerlijk over waar we staan: <strong>de demo is een werkend
+        product</strong>. Gekwalificeerde documentintegraties met externe
+        systemen staan op de roadmap.
+      </p>
+    </section>
+
+    <!-- ── Demo-CTA (Kontakt-stijl) ─────────────────────────── -->
+    <section id="demo" class="contact-card" aria-labelledby="cta-heading">
+      <h2 id="cta-heading">Demo</h2>
+      <div class="contact-links">
+        <a href="mailto:oskar@vo-initiatives.com?subject=Demo%20Vidimus">oskar@vo-initiatives.com</a>
+        <!-- LET OP: gebruikersnaam checken zodra het cal.com-account bestaat (zie DEPLOY.md) -->
+        <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan 15 minuten</a>
+      </div>
+      <p>
+        U ziet een echte registratie: de verankering op de keten en de
+        publieke verificatie. Pilot van <strong>30 dagen, vaste prijs</strong>:
+        wij koppelen één datastroom. Nadien verankering als abonnement per
+        stroom — <strong>de tekenmodule krijgt u erbij</strong>.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span><strong>Vidimus</strong> — een product van VO Initiatives BV</span>
+    <span><a href="colofon.html">Colofon &amp; privacy</a></span>
+    <span class="mono">Conceptpagina · geen klantreferenties of gepubliceerde cijfers</span>
+  </footer>
+
+  <!-- Vaste onderbalk -->
+  <div class="bottom-bar" role="complementary" aria-label="Snelle acties">
+    <a class="bottom-bar-main" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Boek de demo — 15 min</a>
+    <a class="bottom-bar-icon" href="mailto:oskar@vo-initiatives.com" aria-label="Mail ons">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="bottom-bar-icon" href="tel:+32466474115" aria-label="Bel ons: +32 466 47 41 15">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h4l1.5 4-2.5 1.8c1 2.3 2.6 3.9 4.7 4.7l1.8-2.5 4 1.5v4a1.5 1.5 0 0 1-1.6 1.5C10.5 19 5 13.5 4.5 6.1A1.5 1.5 0 0 1 6 4.5z" transform="translate(1,0) scale(0.82)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    (function () {
+      'use strict'
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      var dateEl = document.querySelector('[data-date-now]')
+      if (dateEl) {
+        var n = new Date()
+        var p = function (x) { return String(x).padStart(2, '0') }
+        dateEl.textContent = p(n.getDate()) + '.' + p(n.getMonth() + 1) + '.' + n.getFullYear()
+      }
+      var sentences = [
+        'Een telefonisch "doe maar" voor meerwerk. En bij de eindafrekening: "dat hebben wij nooit goedgekeurd."',
+        '"Die deuk zat er al bij afgifte." Bewijs maar eens het tegendeel.',
+        'Geen plaatsbeschrijving bij intrede? Dan verhaalt u die schade waarschijnlijk nooit.',
+        'Twee temperatuurloggers, twee waarheden, één afgekeurde lading.'
+      ]
+      var textEl = document.getElementById('rotator-text')
+      var countEl = document.getElementById('rotator-count')
+      var nextBtn = document.getElementById('rotator-next')
+      if (!textEl || !countEl || !nextBtn) return
+      var i = 0
+      var timer = null
+
+      function show(idx, instant) {
+        i = (idx + sentences.length) % sentences.length
+        if (instant || reduced) {
+          textEl.textContent = sentences[i]
+          countEl.textContent = (i + 1) + ' van ' + sentences.length
+          return
+        }
+        textEl.style.opacity = '0'
+        setTimeout(function () {
+          textEl.textContent = sentences[i]
+          countEl.textContent = (i + 1) + ' van ' + sentences.length
+          textEl.style.opacity = '1'
+        }, 450)
+      }
+      function startAuto() {
+        if (reduced) return
+        if (timer) clearInterval(timer)
+        timer = setInterval(function () { show(i + 1) }, 8000)
+      }
+      nextBtn.addEventListener('click', function () {
+        show(i + 1)
+        startAuto() // wie klikt, bepaalt het tempo: de klok begint opnieuw
+      })
+      startAuto()
+    })()
+
+    /* Rekensom — draait volledig in de browser, er verlaat niets deze pagina */
+    ;(function () {
+      'use strict'
+      var ids = ['calc-n', 'calc-bedrag', 'calc-uren', 'calc-uurkost']
+      var inputs = ids.map(function (id) { return document.getElementById(id) })
+      var timeEl = document.getElementById('calc-time')
+      var amountEl = document.getElementById('calc-amount')
+      if (inputs.some(function (el) { return !el }) || !timeEl || !amountEl) return
+
+      var eur = new Intl.NumberFormat('nl-BE', {
+        style: 'currency', currency: 'EUR', maximumFractionDigits: 0,
+      })
+      function val(el) {
+        var n = parseFloat(el.value)
+        return isFinite(n) && n >= 0 ? n : 0
+      }
+      function recalc() {
+        var n = val(inputs[0]), bedrag = val(inputs[1])
+        var uren = val(inputs[2]), uurkost = val(inputs[3])
+        timeEl.textContent = eur.format(n * uren * uurkost) + ' per jaar'
+        amountEl.textContent = eur.format(n * bedrag) + ' per jaar'
+      }
+      inputs.forEach(function (el) { el.addEventListener('input', recalc) })
+      recalc()
+    })()
+
+    /* Founder-reveal — kop zwaait open, rest volgt gestaffeld */
+    ;(function () {
+      'use strict'
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      var founder = document.querySelector('.founder')
+      if (reduced || !founder || !('IntersectionObserver' in window)) return
+      document.documentElement.classList.add('js-motion')
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            founder.classList.add('is-in')
+            io.disconnect()
+          }
+        })
+      }, { threshold: 0.3 })
+      io.observe(founder)
+    })()
+
+    /* Handtekening schrijft zichzelf — één keer, bij het laden */
+    ;(function () {
+      'use strict'
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      var sig = document.querySelector('.signature-line')
+      if (reduced || !sig) return
+      document.documentElement.classList.add('js-motion')
+      requestAnimationFrame(function () { sig.classList.add('sig-anim') })
+    })()
+
+    /* Illustratie-motion: speelt één keer, bij de eerste hover */
+    ;(function () {
+      'use strict'
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (reduced) return
+      document.querySelectorAll('.illu-inline, .illu-band').forEach(function (fig) {
+        fig.addEventListener('pointerenter', function () {
+          fig.classList.add('illu-play')
+        }, { once: true })
+      })
+    })()
+
+    /* Mobiel menu */
+    ;(function () {
+      'use strict'
+      var btn = document.getElementById('menu-btn')
+      var menu = document.getElementById('mobile-menu')
+      if (!btn || !menu) return
+      function setOpen(open) {
+        btn.setAttribute('aria-expanded', String(open))
+        btn.classList.toggle('is-open', open)
+        menu.hidden = !open
+        document.body.classList.toggle('menu-open', open)
+      }
+      btn.addEventListener('click', function () {
+        setOpen(btn.getAttribute('aria-expanded') !== 'true')
+      })
+      menu.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setOpen(false)
+      })
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false)
+      })
+    })()
+  </script>
+</body>
+</html>
