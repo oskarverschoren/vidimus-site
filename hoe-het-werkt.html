@@ -38,6 +38,19 @@
       font-weight: 300;
       max-width: var(--measure);
     }
+    /* Meer lucht tussen de sectielijn en de titel */
+    .tech { padding-top: var(--space); }
+    /* Vier stappenkaarten: 2×2, gelijke hoogte, mono-regel onderaan uitgelijnd */
+    @media (min-width: 1024px) {
+      #keten .numbered-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 1fr;
+        max-width: 60rem;
+      }
+    }
+    #keten .ncard { display: flex; flex-direction: column; }
+    #keten .ncard .ncard-artifact { margin-top: auto; padding-top: 0.9rem; }
+    #keten .ncard h3 + p { margin-bottom: 1.4rem; }
     .compare {
       max-width: 60rem;
       margin: 0 auto;
