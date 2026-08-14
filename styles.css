@@ -68,7 +68,7 @@ a:focus-visible, button:focus-visible, .editable:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1.4rem var(--gutter);
+  padding: 0.7rem var(--gutter);
   background: rgba(247, 244, 238, 0.86);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
