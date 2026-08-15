@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vidimus — Hoe het werkt: de volledige keten, van registratie tot bewijs</title>
   <meta name="description" content="De technische werking van de Vidimus-verankeringslaag: aanleveren, hashen, verankeren en bewijzen — met een uitgewerkt voorbeeld per sector." />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <meta name="theme-color" content="#f7f4ee" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vidimus" />
@@ -132,6 +132,7 @@
     </a>
     <nav aria-label="Hoofdnavigatie">
       <a href="#keten">De keten</a>
+      <a href="#document">Het document</a>
       <a href="#vergelijking">Databank vs. anker</a>
       <a href="#voorbeelden">Per sector</a>
       <a href="#vragen">Vragen</a>
@@ -144,6 +145,7 @@
 
   <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu">
     <a href="#keten">De keten</a>
+    <a href="#document">Het document</a>
     <a href="#vergelijking">Databank vs. anker</a>
     <a href="#voorbeelden">Per sector</a>
     <a href="#vragen">Vragen</a>
@@ -235,6 +237,16 @@
         <div><dt class="mono">Het moment</dt><dd>Niet onze serverklok maar een onafhankelijke RFC 3161-tijdstempel bepaalt wanneer. Antidateren kan dus ook niet — door geen enkele partij.</dd></div>
         <div><dt class="mono">De ondertekenaars</dt><dd>Ed25519-handtekeningen op naam, met X.509-certificaten per organisatie en gebruiker — ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26).</dd></div>
         <div><dt class="mono">De geschiedenis</dt><dd>Elke actie erna — bekijken, exporteren, delen — komt in een audittrail die zelf SHA-256-gechaind is: één gemanipuleerd record en de keten klopt zichtbaar niet meer.</dd></div>
+      </dl>
+    </section>
+
+    <!-- ── Wat er met het document zelf gebeurt ─────────────── -->
+    <section id="document" class="tech" aria-labelledby="document-heading">
+      <h2 id="document-heading">En het document zelf? Op slot — en verwijderbaar.</h2>
+      <dl class="tech-list">
+        <div><dt class="mono">Versleuteld</dt><dd>Wilt u dat wij het origineel bewaren, dan gebeurt dat AES-256-GCM-versleuteld met een sleutel per document, die op zijn beurt onder de sleutel van uw organisatie zit. Zonder die sleutels is het bestand ruis — ook voor ons, ook voor de hoster.</dd></div>
+        <div><dt class="mono">Onwisbaar bewaard</dt><dd>De versleutelde versie staat in WORM-opslag (write once, read many): tijdens de wettelijke bewaartermijn van uw sector kan niemand het overschrijven of wissen. Bij elke inzage wordt de inhoud opnieuw gehasht en vergeleken met de verankerde vingerafdruk.</dd></div>
+        <div><dt class="mono">Wissen = sleutel vernietigen</dt><dd>Moet een dossier weg — na de bewaartermijn, of omdat iemand zijn recht op gegevenswissing inroept — dan vernietigen we de sleutel. Het bestand is vanaf dan definitief onleesbaar, terwijl de vingerafdruk op de keten blijft bewijzen dát er iets was, wanneer, en door wie. Bewijs en privacy sluiten elkaar niet meer uit.</dd></div>
       </dl>
     </section>
 
@@ -394,7 +406,7 @@
         </div>
         <div>
           <dt>En persoonsgegevens dan (AVG)?</dt>
-          <dd>Op de keten staan geen persoonsgegevens — alleen hashes. Het recht op gegevenswissing blijft dus uitvoerbaar: het dossier zelf is off-chain en kan verwijderd worden; de losse hash verwijst dan naar niets en bevat niets.</dd>
+          <dd>Op de keten staan geen persoonsgegevens — alleen hashes, en voor persoonsgebonden registraties gesleutelde hashes die zonder de (off-chain) sleutel naar niets te herleiden zijn. Het recht op gegevenswissing blijft uitvoerbaar: het dossier is off-chain versleuteld en wordt gewist door de sleutel te vernietigen; de hash op de keten verwijst dan naar niets en bevat niets.</dd>
         </div>
         <div>
           <dt>Wat als we stoppen — of als Vidimus verdwijnt?</dt>
@@ -423,6 +435,7 @@
       <div class="cta-row">
         <a class="btn-outline" href="index.html#tamper">Probeer de tamper-demo</a>
         <a class="btn-outline" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan 15 minuten</a>
+        <a class="mono" href="assets/vidimus-hoe-het-werkt.pdf" download style="font-size:0.8rem;text-decoration:underline;text-underline-offset:0.2em;">↓ de zeven stappen als A4 (pdf)</a>
       </div>
     </section>
 
