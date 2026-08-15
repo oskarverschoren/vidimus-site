@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vidimus — Hoe het werkt: de volledige keten, van registratie tot bewijs</title>
-  <meta name="description" content="De technische werking van de Vidimus-verankeringslaag: aanleveren, hashen, verankeren en bewijzen — met een uitgewerkt voorbeeld per sector." />
+  <meta name="description" content="De technische werking van de Vidimus-verankeringslaag: zeven stappen van registratie tot bewijs, versleuteling en wissing, met een uitgewerkt voorbeeld per sector." />
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <meta name="theme-color" content="#f7f4ee" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vidimus" />
   <meta property="og:title" content="Vidimus — Hoe het werkt" />
-  <meta property="og:description" content="De volledige keten, van registratie tot bewijs — stap voor stap, met een voorbeeld per sector." />
+  <meta property="og:description" content="Van registratie tot bewijs in zeven stappen — met een voorbeeld per sector en de vragen van uw IT-verantwoordelijke." />
   <meta property="og:url" content="https://vidimus.be/hoe-het-werkt" />
   <meta property="og:image" content="https://vidimus.be/assets/og.png" />
   <meta property="og:locale" content="nl_BE" />
@@ -40,17 +40,22 @@
     }
     /* Meer lucht tussen de sectielijn en de titel */
     .tech { padding-top: var(--space); }
-    /* Vier stappenkaarten: 2×2, gelijke hoogte, mono-regel onderaan uitgelijnd */
-    @media (min-width: 1024px) {
-      #keten .numbered-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-rows: 1fr;
-        max-width: 60rem;
-      }
+    /* Zeven stappenkaarten: 2 kolommen, laatste over de volle breedte */
+    .steps7 { list-style: none; max-width: 60rem; }
+    @media (min-width: 760px) {
+      .steps7 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .steps7 .is-wide { grid-column: 1 / -1; }
+      .steps7 .is-wide > p:not(.ncard-num) { max-width: 46rem; }
     }
-    #keten .ncard { display: flex; flex-direction: column; }
-    #keten .ncard .ncard-artifact { margin-top: auto; padding-top: 0.9rem; }
-    #keten .ncard h3 + p { margin-bottom: 1.4rem; }
+    .steps7 .ncard { display: flex; flex-direction: column; }
+    .steps7 .ncard-num { margin-bottom: 1.6rem; color: var(--blue); }
+    .steps7 .ncard-num span { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted, #6b7085); margin-left: 0.5rem; }
+    .steps7 .ncard h3 { font-size: 1.2rem; }
+    .steps7 .ncard > p:not(.ncard-num):not(.ncard-artifact):not(.ncard-quote) { font-weight: 300; font-size: 0.95rem; }
+    .steps7 .ncard-quote { margin-top: auto; padding: 0.9rem 0 0 0.9rem; border-left: 2px solid var(--blue); font-size: 0.9rem; color: var(--navy); line-height: 1.5; margin-top: 1.4rem; }
+    .steps7 .ncard-artifact { margin-top: auto; padding-top: 0.9rem; }
+    .steps7-download { max-width: 60rem; margin: 1.4rem auto 0; padding: 0 var(--gutter); font-size: 0.8rem; }
+    .steps7-download a { color: var(--blue); text-decoration: underline; text-underline-offset: 0.2em; }
     .compare {
       max-width: 60rem;
       margin: 0 auto;
@@ -132,7 +137,6 @@
     </a>
     <nav aria-label="Hoofdnavigatie">
       <a href="#keten">De keten</a>
-      <a href="#document">Het document</a>
       <a href="#vergelijking">Databank vs. anker</a>
       <a href="#voorbeelden">Per sector</a>
       <a href="#vragen">Vragen</a>
@@ -145,7 +149,6 @@
 
   <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu">
     <a href="#keten">De keten</a>
-    <a href="#document">Het document</a>
     <a href="#vergelijking">Databank vs. anker</a>
     <a href="#voorbeelden">Per sector</a>
     <a href="#vragen">Vragen</a>
@@ -167,66 +170,62 @@
       </p>
     </section>
 
-    <!-- ── De keten in vier stappen ─────────────────────────── -->
+    <!-- ── De keten in zeven stappen ────────────────────────── -->
     <section id="keten" class="tamper" aria-labelledby="keten-heading" style="padding-top: var(--space); padding-bottom: var(--space);">
       <header class="section-head">
-        <h2 id="keten-heading">De keten in vier stappen.</h2>
+        <h2 id="keten-heading">Van registratie tot bewijs, in zeven stappen.</h2>
         <p>
-          Vidimus vervangt niets: uw systeem blijft de bron. Wij leggen er
-          een laag boven die van elke registratie vastlegt <strong>wat er
-          stond en wanneer</strong> — zo dat het achteraf door niemand meer
-          te wijzigen is, ook niet door ons.
+          Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag;
+          wij leggen er een laag onder die van elke registratie vastlegt
+          <strong>wat er stond, wanneer, en door wie</strong> — zo dat niemand
+          het achteraf nog kan wijzigen. Ook wij niet.
         </p>
       </header>
-      <section class="numbered-cards" aria-label="De vier stappen">
-        <article class="ncard">
-          <p class="ncard-num">01</p>
-          <h3>Aanleveren</h3>
-          <p>
-            Uw ERP, poortsysteem, verhuursoftware of sensorplatform stuurt de
-            registratie door via één dunne REST-koppeling of webhook.
-            <strong>Geen migratie, geen nieuwe software voor uw team</strong> —
-            het is een kopie van wat uw systeem toch al vastlegt.
-          </p>
-          <p class="ncard-artifact mono">bron: uw systeem → api · webhook · json</p>
-        </article>
-        <article class="ncard">
-          <p class="ncard-num">02</p>
-          <h3>Vingerafdruk</h3>
-          <p>
-            Van elke registratie wordt een SHA-256-hash berekend: een
-            wiskundige vingerafdruk van exact die inhoud. Eén gewijzigde
-            letter geeft een totaal andere hash. <strong>Het document zelf
-            blijft bij u</strong> — uit de hash valt het niet te
-            reconstrueren.
-          </p>
-          <p class="ncard-artifact mono">sha-256: inhoud → 64 tekens, onomkeerbaar</p>
-        </article>
-        <article class="ncard">
-          <p class="ncard-num">03</p>
-          <h3>Verankeren</h3>
-          <p>
-            De hash krijgt een onafhankelijke RFC 3161-tijdstempel van een
-            externe TSA en gaat, gebundeld in een Merkle-boom, de
-            Hyperledger Fabric-keten in. Verankering loopt asynchroon in
-            batches — typisch binnen minuten. <strong>Vanaf dat moment is
-            aanpassen of wissen wiskundig uitgesloten.</strong>
-          </p>
-          <p class="ncard-artifact mono">anchor: hash + tijdstempel → merkle-root → fabric tx</p>
-        </article>
-        <article class="ncard">
-          <p class="ncard-num">04</p>
-          <h3>Bewijzen</h3>
-          <p>
-            Per verankering ontvangt u een exporteerbare bewijsbundel: de
-            hash, het tijdstempeltoken, de handtekeningen en het
-            Merkle-bewijs. Een expert controleert die
-            <strong>zelfstandig, zonder ons platform en zonder ons te
-            moeten geloven</strong> — en de bundel is en blijft van u.
-          </p>
+      <ol class="numbered-cards steps7" aria-label="De zeven stappen">
+        <li class="ncard">
+          <p class="ncard-num">01 <span>registratie</span></p>
+          <h3>Er gebeurt iets, en dat wordt vastgelegd.</h3>
+          <p>Een chauffeur scant aan de poort. Een sensor meet 4,2 °C in de koelcel. Een aannemer stuurt een meerwerkbon door. Dat doet u vandaag al — alleen belandt het in een systeem waar later iedereen aan kan zitten.</p>
+          <p class="ncard-artifact mono">bron: uw erp · poort · sensor · telefoon</p>
+        </li>
+        <li class="ncard">
+          <p class="ncard-num">02 <span>vingerafdruk</span></p>
+          <h3>Vidimus neemt een vingerafdruk.</h3>
+          <p>Van het document of de meetwaarde berekenen we op dat moment een unieke wiskundige vingerafdruk (SHA-256). Eén gewijzigd cijfer geeft een totaal andere afdruk. Uit de afdruk valt de inhoud nooit te reconstrueren.</p>
+          <p class="ncard-quote">"Een foto van het exacte moment die niemand kan bijwerken."</p>
+        </li>
+        <li class="ncard">
+          <p class="ncard-num">03 <span>wie &amp; wanneer</span></p>
+          <h3>We leggen vast wie en wanneer.</h3>
+          <p>De registratie wordt digitaal ondertekend door de indiener (Ed25519, ontworpen naar de vereisten van een geavanceerde elektronische handtekening) en een <strong>onafhankelijke tijdstempeldienst</strong> — een derde partij, niet wij — stempelt het exacte tijdstip erop (RFC 3161).</p>
+          <p class="ncard-quote">"Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok."</p>
+        </li>
+        <li class="ncard">
+          <p class="ncard-num">04 <span>verankeren</span></p>
+          <h3>De vingerafdruk gaat in de kluis van iedereen.</h3>
+          <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — wordt, gebundeld in een Merkle-boom, verankerd op een gedeeld en onwijzigbaar grootboek (Hyperledger Fabric): privé voor intern gebruik, of gedeeld tussen de partners in uw keten. Typisch binnen minuten.</p>
+          <p class="ncard-quote">"Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen."</p>
+        </li>
+        <li class="ncard">
+          <p class="ncard-num">05 <span>op slot</span></p>
+          <h3>Het origineel gaat op slot.</h3>
+          <p>Wilt u dat wij het origineel bewaren, dan gebeurt dat versleuteld (AES-256-GCM, met een sleutel per document onder de sleutel van uw organisatie) in opslag die tijdens de wettelijke bewaartermijn niet gewist of overschreven kan worden (WORM). Bij elke inzage wordt de inhoud opnieuw gehasht en vergeleken met de verankerde vingerafdruk.</p>
+          <p class="ncard-quote">"Uw data blijft van u. Niemand leest mee — ook onze hoster niet."</p>
+        </li>
+        <li class="ncard">
+          <p class="ncard-num">06 <span>bewijzen</span></p>
+          <h3>Bij discussie: bewijs in plaats van woorden.</h3>
+          <p>"Die temperatuur is nooit gemeten." "Die bon heb ik nooit gezien." U opent het origineel, wij nemen opnieuw de vingerafdruk en leggen ze naast die op het grootboek. Klopt het — en dat kan een advocaat of rechter <strong>zelf nakijken, zonder ons</strong> — dan staat vast: dit exacte document bestond op dat moment, ingediend door die partij, sindsdien onaangeraakt.</p>
           <p class="ncard-artifact mono">bundel: hash · tsa-token · handtekeningen · merkle-bewijs</p>
-        </article>
-      </section>
+        </li>
+        <li class="ncard is-wide">
+          <p class="ncard-num">07 <span>wissen</span></p>
+          <h3>Als iets weg moet, gaat het ook echt weg — terwijl het bewijs blijft staan.</h3>
+          <p>Na de bewaartermijn, of als iemand zijn recht op gegevenswissing (AVG) inroept, vernietigen we de sleutel. Het versleutelde bestand wordt voorgoed onleesbare ruis. De vingerafdruk op het grootboek blijft aantonen <strong>dát</strong> er iets was, wanneer, en door wie — zonder één persoonsgegeven te bewaren.</p>
+          <p class="ncard-quote">"Bewijs en privacy sluiten elkaar niet meer uit."</p>
+        </li>
+      </ol>
+      <p class="steps7-download"><a class="mono" href="assets/vidimus-hoe-het-werkt.pdf" download>↓ de zeven stappen als A4 (pdf)</a></p>
     </section>
 
     <!-- ── Wat er samen vastgezet wordt ─────────────────────── -->
@@ -237,16 +236,6 @@
         <div><dt class="mono">Het moment</dt><dd>Niet onze serverklok maar een onafhankelijke RFC 3161-tijdstempel bepaalt wanneer. Antidateren kan dus ook niet — door geen enkele partij.</dd></div>
         <div><dt class="mono">De ondertekenaars</dt><dd>Ed25519-handtekeningen op naam, met X.509-certificaten per organisatie en gebruiker — ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26).</dd></div>
         <div><dt class="mono">De geschiedenis</dt><dd>Elke actie erna — bekijken, exporteren, delen — komt in een audittrail die zelf SHA-256-gechaind is: één gemanipuleerd record en de keten klopt zichtbaar niet meer.</dd></div>
-      </dl>
-    </section>
-
-    <!-- ── Wat er met het document zelf gebeurt ─────────────── -->
-    <section id="document" class="tech" aria-labelledby="document-heading">
-      <h2 id="document-heading">En het document zelf? Op slot — en verwijderbaar.</h2>
-      <dl class="tech-list">
-        <div><dt class="mono">Versleuteld</dt><dd>Wilt u dat wij het origineel bewaren, dan gebeurt dat AES-256-GCM-versleuteld met een sleutel per document, die op zijn beurt onder de sleutel van uw organisatie zit. Zonder die sleutels is het bestand ruis — ook voor ons, ook voor de hoster.</dd></div>
-        <div><dt class="mono">Onwisbaar bewaard</dt><dd>De versleutelde versie staat in WORM-opslag (write once, read many): tijdens de wettelijke bewaartermijn van uw sector kan niemand het overschrijven of wissen. Bij elke inzage wordt de inhoud opnieuw gehasht en vergeleken met de verankerde vingerafdruk.</dd></div>
-        <div><dt class="mono">Wissen = sleutel vernietigen</dt><dd>Moet een dossier weg — na de bewaartermijn, of omdat iemand zijn recht op gegevenswissing inroept — dan vernietigen we de sleutel. Het bestand is vanaf dan definitief onleesbaar, terwijl de vingerafdruk op de keten blijft bewijzen dát er iets was, wanneer, en door wie. Bewijs en privacy sluiten elkaar niet meer uit.</dd></div>
       </dl>
     </section>
 
@@ -435,7 +424,6 @@
       <div class="cta-row">
         <a class="btn-outline" href="index.html#tamper">Probeer de tamper-demo</a>
         <a class="btn-outline" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan 15 minuten</a>
-        <a class="mono" href="assets/vidimus-hoe-het-werkt.pdf" download style="font-size:0.8rem;text-decoration:underline;text-underline-offset:0.2em;">↓ de zeven stappen als A4 (pdf)</a>
       </div>
     </section>
 
