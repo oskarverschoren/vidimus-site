@@ -75,6 +75,17 @@
     .kp-related a { display: block; border: 1px solid var(--line); background: var(--card); padding: 1rem 1.2rem; text-decoration: none; color: var(--navy); font-weight: 400; font-size: 0.95rem; }
     .kp-related a:hover { border-color: var(--navy); }
     .kp-related a .mono { display: block; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.35rem; }
+
+    .vb { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); background: var(--card); }
+    .vb li { display: grid; grid-template-columns: 3rem 1.15fr 1fr; gap: 0 1.2rem; padding: 1.1rem 1.3rem; border-bottom: 1px solid var(--line-soft); align-items: start; }
+    .vb li:last-child { border-bottom: none; }
+    .vb-n { font-size: 1.3rem; font-weight: 300; color: var(--blue); line-height: 1; padding-top: 0.15rem; }
+    .vb-b h3 { font-size: 0.98rem; font-weight: 500; margin: 0 0 0.45rem; }
+    .vb-b pre { margin: 0; font-size: 0.74rem; line-height: 1.6; color: var(--blue); background: var(--panel, #f2eee6); padding: 0.6rem 0.75rem; overflow-x: auto; white-space: pre; }
+    .vb-m { font-weight: 300; font-size: 0.92rem; line-height: 1.55; color: var(--t2, #4a5068); padding-top: 0.2rem; }
+    .vb-m strong { font-weight: 500; color: var(--navy); display: block; margin-bottom: 0.2rem; }
+    @media (max-width: 860px) { .vb li { grid-template-columns: 2.4rem 1fr; } .vb-m { grid-column: 2; margin-top: 0.7rem; } }
+
     @media (max-width: 860px) {
       .kp-why, .kp-two, .kp-related ul { grid-template-columns: 1fr; }
       .kp-scenario { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -186,6 +197,39 @@
             <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">of plan 15 minuten via cal.com</a>
           </div>
         </div>
+      </section>
+
+
+      <section id="voorbeeld" class="kp kp-block" aria-labelledby="vb-h">
+        <h2 id="vb-h">Eén passcan, van begin tot bewijs — met de echte cijfers erbij.</h2>
+        <p class="kp-lede" style="margin-top:0">Fictief voorbeeld: chauffeur Tom Peeters scant om 09:41:03 aan Kaai 1742. Links wat er technisch ontstaat, rechts wat het in mensentaal betekent. De vingerafdruk en de Merkle-wortel zijn écht berekend op deze registratie.</p>
+        <ol class="vb">
+          <li><div class="vb-n">01</div><div class="vb-b"><h3>De scan</h3><pre class="mono">chauffeur   Tom Peeters · badge BADGE-4471
+vervoerder  Transport Van Uytsel &amp; Co (fictief)
+voertuig    1-ABC-123 · container MSKU 452 118-0
+event       gate-in GI-88412 · Kaai 1742 · 09:41:03 utc</pre></div><div class="vb-m"><strong>Wat u al hebt.</strong> Uw poortsysteem registreert dit vandaag ook. Het probleem is niet de registratie, maar dat ze in één systeem leeft dat achteraf te wijzigen is.</div></li>
+          <li><div class="vb-n">02</div><div class="vb-b"><h3>De vingerafdruk (SHA-256)</h3><pre class="mono">f7585ccf75a163b359933be611f97fe68ba39b5c
+a7e6ec1ece23972ee50203fc</pre></div><div class="vb-m"><strong>Zoals een vingerafdruk van een mens.</strong> Uniek voor precies deze registratie, en je kunt er de registratie niet uit terugtekenen. Verander één teken — 09:41:03 wordt 09:41:04 — en de hele afdruk is anders. Zó zie je later of er geknoeid is.</div></li>
+          <li><div class="vb-n">03</div><div class="vb-b"><h3>Wie: de handtekening (Ed25519)</h3><pre class="mono">ondertekend  poortsysteem Kaai 1742
+certificaat  CN=gate-01.terminal-x.be
+handtekening 3045a1…e8f2 (64 bytes)</pre></div><div class="vb-m"><strong>Zoals een handtekening onder een document — maar niet na te maken.</strong> Alleen wie de sleutel heeft, kan zo tekenen; iedereen kan controleren dát die het was. Zo staat vast wíé de scan indiende.</div></li>
+          <li><div class="vb-n">04</div><div class="vb-b"><h3>Wanneer: het tijdstempel (RFC 3161)</h3><pre class="mono">tijdstempeldienst  Sectigo (derde partij)
+gestempeld op      2026-08-17 09:41:05 utc
+serienummer        0x5b3f…21</pre></div><div class="vb-m"><strong>Zoals een poststempel — van iemand anders.</strong> Niet onze klok en niet de uwe, maar die van een onafhankelijke dienst die er niets bij te winnen heeft. Daarom kan niemand later zeggen dat het tijdstip is aangepast.</div></li>
+          <li><div class="vb-n">05</div><div class="vb-b"><h3>Verankerd: Merkle-wortel → grootboek</h3><pre class="mono">buurscan     e3b0c442…7852b855
+wortel       b96f20a53d5b869e70b6b2745705da9c
+             4e42cfff7b142bec9b6573177ac7e363
+grootboek    Hyperledger Fabric · tx a22f5433…4cc3</pre></div><div class="vb-m"><strong>Zoals een notaris die één zegel zet op een hele stapel.</strong> Alle scans van die minuten worden samengevoegd tot één wortel-afdruk; die gaat in een register dat alle partijen delen en dat niemand — ook wij niet — nog kan wijzigen. Elke afzonderlijke scan blijft toch aantoonbaar, via haar plaats in de stapel.</div></li>
+          <li><div class="vb-n">06</div><div class="vb-b"><h3>Het origineel</h3><pre class="mono">bestand    GI-88412.json + gate-foto.jpg
+versleuteld AES-256-GCM · sleutel per document
+opslag      niet-overschrijfbaar · 7 jaar
+wissen      sleutel vernietigen → bestand is ruis</pre></div><div class="vb-m"><strong>Zoals een kluis waarvan u de sleutel hebt.</strong> Niemand leest mee. En moet het weg (na de bewaartermijn, of om privacyredenen), dan gooit u de sleutel weg: het bestand is voorgoed onleesbaar, terwijl de vingerafdruk nog bewijst dát er iets was.</div></li>
+          <li><div class="vb-n">07</div><div class="vb-b"><h3>De bewijsbundel</h3><pre class="mono">hash herrekend  f7585c… ✓
+pad → wortel    b96f20… ✓
+wortel = tx     a22f54… ✓
+tijdstempel     geldig  ✓</pre></div><div class="vb-m"><strong>Zoals een dossier dat iedere expert zelf kan natellen.</strong> De tegenpartij, de auditor of de rechter hoeft ons niet te geloven: met standaardsoftware controleert hij dat deze scan bestond op 17/08 om 09:41:03, ingediend door gate-01, en sindsdien onaangeraakt is.</div></li>
+        </ol>
+        <p class="kp-disclaimer">Persoon, bedrijf, kenteken en containernummer zijn verzonnen. De SHA-256 en de Merkle-wortel zijn wél echt berekend op de getoonde registratie; handtekening, tijdstempel en tx-id zijn illustratieve waarden.</p>
       </section>
 
       <section class="kp kp-block kp-faq" aria-labelledby="faq-h">
