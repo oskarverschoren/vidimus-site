@@ -41,25 +41,25 @@
     /* Meer lucht tussen de sectielijn en de titel */
     .tech { padding-top: var(--space); }
     /* ── Zeven stappen — 1:1 naar de A4 ───────────────────── */
-    .page-hero { padding-bottom: 0; }
+    .page-hero { padding-bottom: 0; max-width: 66rem; }
     .page-tagline { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-size: 0.8rem; font-weight: 300; color: var(--t2, #4a5068); line-height: 1.5; margin: 0 0 2.4rem; }
     .page-tagline strong { color: var(--navy); font-weight: 500; font-size: 0.9rem; }
     .page-hero .lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.55; }
     .page-hero .lede strong { color: var(--navy); font-weight: 500; }
-    .steps7-wrap { max-width: 60rem; margin: 0 auto; padding: 1.8rem var(--gutter) var(--space); }
+    .steps7-wrap { max-width: 66rem; margin: 0 auto; padding: 1.6rem var(--gutter) var(--space); }
     .steps7 { list-style: none; display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0; padding: 0; }
     .steps7 .ncard {
       display: grid;
-      grid-template-columns: 4.6rem 1fr;
-      column-gap: 0.7rem;
+      grid-template-columns: 4.2rem 1fr;
+      column-gap: 0.6rem;
       align-items: start;
-      padding: 1.4rem 1.4rem 1.3rem;
+      padding: 1.1rem 1.1rem 1.05rem;
       border: 1px solid var(--line);
       background: var(--card);
     }
-    .steps7 .ncard-num { grid-row: 1 / span 4; margin: 0; font-size: 1.9rem; font-weight: 300; line-height: 1; color: var(--blue); padding-top: 0.05rem; }
-    .steps7 .ncard-num span { display: block; margin: 0.3rem 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--t2, #4a5068); line-height: 1.35; }
-    .steps7 h3 { font-size: 1.08rem; font-weight: 500; line-height: 1.25; margin: 0; }
+    .steps7 .ncard-num { grid-row: 1 / span 4; margin: 0; font-size: 1.5rem; font-weight: 300; line-height: 1; color: var(--blue); padding-top: 0.1rem; }
+    .steps7 .ncard-num span { display: block; margin: 0.25rem 0 0; font-family: Poppins, system-ui, sans-serif; font-size: 0.56rem; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; color: var(--t2, #4a5068); line-height: 1.35; }
+    .steps7 h3 { font-size: 1.02rem; font-weight: 500; line-height: 1.25; margin: 0; }
     .steps7 .ncard > p:not(.ncard-num):not(.ncard-artifact):not(.ncard-quote), .steps7 .ncard-col p { font-weight: 300; font-size: 0.92rem; line-height: 1.5; color: var(--t2, #4a5068); margin: 0.45rem 0 0; }
     .steps7 p strong { color: var(--navy); font-weight: 500; }
     .steps7 .ncard-quote { margin: 0.8rem 0 0; padding: 0.1rem 0 0.1rem 0.75rem; border-left: 2px solid var(--blue); font-size: 0.86rem; color: var(--navy); line-height: 1.45; }
@@ -67,7 +67,7 @@
     .steps7 .ncard-col h3 + p { margin-top: 0.4rem; }
     @media (min-width: 880px) {
       .steps7 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .steps7 .is-wide { grid-column: 1 / -1; grid-template-columns: 4.6rem 1fr 1fr; }
+      .steps7 .is-wide { grid-column: 1 / -1; grid-template-columns: 4.2rem 1fr 1fr; }
       .steps7 .is-wide .ncard-num { grid-row: 1 / span 2; }
       .steps7 .is-wide .ncard-col:first-of-type { padding-right: 1.2rem; border-right: 1px solid var(--line); }
       .steps7 .is-wide .ncard-col:last-of-type { padding-left: 1.2rem; }
