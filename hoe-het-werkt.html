@@ -40,68 +40,59 @@
     }
     /* Meer lucht tussen de sectielijn en de titel */
     .tech { padding-top: var(--space); }
-    /* Zeven stappenkaarten — A4-opmaak: nummer + label links, tekst rechts */
-    .steps7 { list-style: none; max-width: 60rem; gap: 1rem; }
+    /* ── Zeven stappen — 1:1 naar de A4 ───────────────────── */
+    .page-hero { padding-bottom: 0; }
+    .page-tagline { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-size: 0.8rem; font-weight: 300; color: var(--t2, #4a5068); line-height: 1.5; margin: 0 0 2.4rem; }
+    .page-tagline strong { color: var(--navy); font-weight: 500; font-size: 0.9rem; }
+    .page-hero .lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.55; }
+    .page-hero .lede strong { color: var(--navy); font-weight: 500; }
+    .steps7-wrap { max-width: 60rem; margin: 0 auto; padding: 1.8rem var(--gutter) var(--space); }
+    .steps7 { list-style: none; display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0; padding: 0; }
     .steps7 .ncard {
       display: grid;
       grid-template-columns: 4.6rem 1fr;
-      column-gap: 0.9rem;
+      column-gap: 0.7rem;
       align-items: start;
-      padding: 1.5rem 1.5rem 1.4rem;
+      padding: 1.4rem 1.4rem 1.3rem;
+      border: 1px solid var(--line);
+      background: var(--card);
     }
-    .steps7 .ncard-num {
-      grid-row: 1 / span 4;
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 300;
-      line-height: 1;
-      color: var(--blue);
-      padding-top: 0.1rem;
-    }
-    .steps7 .ncard-num span {
-      display: block;
-      margin: 0.35rem 0 0;
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted, #6b7085);
-      line-height: 1.35;
-    }
-    .steps7 .ncard h3 { font-size: 1.1rem; font-weight: 500; line-height: 1.3; margin: 0 0 0.45rem; }
-    .steps7 .ncard > p:not(.ncard-num):not(.ncard-artifact):not(.ncard-quote) { font-weight: 300; font-size: 0.93rem; line-height: 1.55; margin: 0; }
-    .steps7 .ncard-quote {
-      margin: 0.9rem 0 0;
-      padding: 0.15rem 0 0.15rem 0.8rem;
-      border-left: 2px solid var(--blue);
-      font-size: 0.88rem;
-      color: var(--navy);
-      line-height: 1.45;
-    }
-    .steps7 .ncard-artifact {
-      margin: 0.9rem 0 0;
-      padding: 0.4rem 0.6rem;
-      border: none;
-      background: #f2eee6;
-      display: inline-block;
-      justify-self: start;
-      font-size: 0.72rem;
-      color: var(--blue);
-    }
+    .steps7 .ncard-num { grid-row: 1 / span 4; margin: 0; font-size: 1.9rem; font-weight: 300; line-height: 1; color: var(--blue); padding-top: 0.05rem; }
+    .steps7 .ncard-num span { display: block; margin: 0.3rem 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--t2, #4a5068); line-height: 1.35; }
+    .steps7 h3 { font-size: 1.08rem; font-weight: 500; line-height: 1.25; margin: 0; }
+    .steps7 .ncard > p:not(.ncard-num):not(.ncard-artifact):not(.ncard-quote), .steps7 .ncard-col p { font-weight: 300; font-size: 0.92rem; line-height: 1.5; color: var(--t2, #4a5068); margin: 0.45rem 0 0; }
+    .steps7 p strong { color: var(--navy); font-weight: 500; }
+    .steps7 .ncard-quote { margin: 0.8rem 0 0; padding: 0.1rem 0 0.1rem 0.75rem; border-left: 2px solid var(--blue); font-size: 0.86rem; color: var(--navy); line-height: 1.45; }
+    .steps7 .ncard-artifact { margin: 0.8rem 0 0; padding: 0.35rem 0.6rem; border: none; background: var(--panel, #f2eee6); display: inline-block; justify-self: start; font-size: 0.72rem; color: var(--blue); }
+    .steps7 .ncard-col h3 + p { margin-top: 0.4rem; }
     @media (min-width: 880px) {
       .steps7 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .steps7 .is-wide { grid-column: 1 / -1; grid-template-columns: 4.6rem 1fr 1fr; }
-      .steps7 .is-wide .ncard-num { grid-row: 1 / span 4; }
-      .steps7 .is-wide h3 { grid-column: 2 / -1; }
-      .steps7 .is-wide > p:not(.ncard-num):not(.ncard-quote) { grid-column: 2; padding-right: 1.4rem; border-right: 1px solid var(--line); }
-      .steps7 .is-wide .ncard-quote { grid-column: 3; grid-row: 2; align-self: start; margin: 0 0 0 1.4rem; }
+      .steps7 .is-wide .ncard-num { grid-row: 1 / span 2; }
+      .steps7 .is-wide .ncard-col:first-of-type { padding-right: 1.2rem; border-right: 1px solid var(--line); }
+      .steps7 .is-wide .ncard-col:last-of-type { padding-left: 1.2rem; }
     }
     @media (max-width: 879px) {
-      .steps7 .ncard { grid-template-columns: 3.6rem 1fr; padding: 1.3rem 1.2rem; }
-      .steps7 .ncard-num { font-size: 1.7rem; }
+      .steps7 .ncard { grid-template-columns: 3.4rem 1fr; padding: 1.2rem 1.1rem; }
+      .steps7 .ncard-num { font-size: 1.6rem; }
+      .steps7 .is-wide .ncard-col + .ncard-col { margin-top: 1rem; }
+      .page-tagline { align-items: flex-start; text-align: left; }
     }
-    .steps7-download { max-width: 60rem; margin: 1.4rem auto 0; padding: 0 var(--gutter); font-size: 0.8rem; }
+    .verdict { margin-top: 1.6rem; background: var(--navy); color: var(--cream); padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+    .verdict h2 { font-size: 1.15rem; font-weight: 500; line-height: 1.3; color: var(--cream); margin: 0; }
+    .verdict p { color: #dfe3f0; font-size: 0.9rem; font-weight: 300; margin: 0.35rem 0 0; max-width: 40rem; }
+    .verdict-cta { flex: 0 0 auto; text-align: right; font-size: 0.86rem; line-height: 1.6; display: flex; flex-direction: column; }
+    .verdict-cta a { color: var(--cream); text-decoration: none; }
+    .verdict-cta a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+    .verdict-cta a b { display: block; font-size: 1rem; font-weight: 500; }
+    @media (max-width: 760px) { .verdict { flex-direction: column; align-items: flex-start; } .verdict-cta { text-align: left; } }
+    .steps7-download { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0 0; padding-top: 0.9rem; border-top: 1px solid var(--line); font-size: 0.74rem; color: var(--t2, #4a5068); }
+    .steps7-download .mono { color: var(--navy); }
     .steps7-download a { color: var(--blue); text-decoration: underline; text-underline-offset: 0.2em; }
+    .deeper-head { max-width: 60rem; margin: 0 auto; padding: var(--space) var(--gutter) 0; border-top: 1px solid var(--line); }
+    .deeper-head h2 { font-size: clamp(1.4rem, 1rem + 1.6vw, 2rem); margin: 0 0 0.8rem; }
+    .deeper-head p { font-weight: 300; max-width: var(--measure); margin: 0; }
+    .deeper-head + .tech { padding-top: 2.4rem; }
     .compare {
       max-width: 60rem;
       margin: 0 auto;
@@ -182,7 +173,7 @@
       <span>vidimus<br /><em>verankeringslaag</em></span>
     </a>
     <nav aria-label="Hoofdnavigatie">
-      <a href="#keten">De keten</a>
+      <a href="#keten">De zeven stappen</a>
       <a href="#vergelijking">Databank vs. anker</a>
       <a href="#voorbeelden">Per sector</a>
       <a href="#vragen">Vragen</a>
@@ -194,7 +185,7 @@
   </header>
 
   <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu">
-    <a href="#keten">De keten</a>
+    <a href="#keten">De zeven stappen</a>
     <a href="#vergelijking">Databank vs. anker</a>
     <a href="#voorbeelden">Per sector</a>
     <a href="#vragen">Vragen</a>
@@ -204,30 +195,20 @@
 
   <main>
 
-    <!-- ── Paginakop ────────────────────────────────────────── -->
+    <!-- ── Paginakop (zoals de A4) ───────────────────────────── -->
     <section class="page-hero" aria-labelledby="page-heading">
-      <h1 id="page-heading">Hoe het werkt.<br /><em>De volledige keten, van registratie tot bewijs.</em></h1>
-      <p>
-        Deze pagina is geschreven voor twee lezers tegelijk: de zaakvoerder
-        die wil begrijpen <strong>wat</strong> er gebeurt, en de
-        IT-verantwoordelijke die wil weten <strong>hoe</strong>. Elke
-        bouwsteen hieronder mag u in twijfel trekken — daar is hij op
-        berekend.
+      <p class="page-tagline"><strong>Nooit meer woord tegen woord.</strong><span>vidimus.be · oskar@vo-initiatives.com · +32 466 47 41 15</span></p>
+      <h1 id="page-heading">Hoe het werkt.<br /><em>Van registratie tot bewijs, in zeven stappen.</em></h1>
+      <p class="lede">
+        Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag; wij leggen er een
+        <strong>verankeringslaag</strong> onder die van elke registratie vastlegt <strong>wat er stond,
+        wanneer, en door wie</strong> — zo dat niemand het achteraf nog kan wijzigen. Ook wij niet.
       </p>
     </section>
 
-    <!-- ── De keten in zeven stappen ────────────────────────── -->
-    <section id="keten" class="tamper" aria-labelledby="keten-heading" style="padding-top: var(--space); padding-bottom: var(--space);">
-      <header class="section-head">
-        <h2 id="keten-heading">Van registratie tot bewijs, in zeven stappen.</h2>
-        <p>
-          Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag;
-          wij leggen er een laag onder die van elke registratie vastlegt
-          <strong>wat er stond, wanneer, en door wie</strong> — zo dat niemand
-          het achteraf nog kan wijzigen. Ook wij niet.
-        </p>
-      </header>
-      <ol class="numbered-cards steps7" aria-label="De zeven stappen">
+    <!-- ── De zeven stappen (zoals de A4) ───────────────────── -->
+    <section id="keten" class="steps7-wrap" aria-labelledby="page-heading">
+      <ol class="steps7" aria-label="De zeven stappen">
         <li class="ncard">
           <p class="ncard-num">01 <span>registratie</span></p>
           <h3>Er gebeurt iets, en dat wordt vastgelegd.</h3>
@@ -249,29 +230,51 @@
         <li class="ncard">
           <p class="ncard-num">04 <span>verankeren</span></p>
           <h3>De vingerafdruk gaat in de kluis van iedereen.</h3>
-          <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — wordt, gebundeld in een Merkle-boom, verankerd op een gedeeld en onwijzigbaar grootboek (Hyperledger Fabric): privé voor intern gebruik, of gedeeld tussen de partners in uw keten. Typisch binnen minuten.</p>
+          <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — wordt verankerd op een gedeeld, onwijzigbaar grootboek (Hyperledger Fabric): privé voor intern gebruik, of gedeeld tussen de partners in uw keten.</p>
           <p class="ncard-quote">"Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen."</p>
         </li>
         <li class="ncard">
           <p class="ncard-num">05 <span>op slot</span></p>
           <h3>Het origineel gaat op slot.</h3>
-          <p>Wilt u dat wij het origineel bewaren, dan gebeurt dat versleuteld (AES-256-GCM, met een sleutel per document onder de sleutel van uw organisatie) in opslag die tijdens de wettelijke bewaartermijn niet gewist of overschreven kan worden (WORM). Bij elke inzage wordt de inhoud opnieuw gehasht en vergeleken met de verankerde vingerafdruk.</p>
+          <p>Het document zelf wordt versleuteld (AES-256, bankklasse) en bewaard in opslag die tijdens de wettelijke bewaartermijn niet gewist of overschreven kan worden (WORM). De sleutel is van uw organisatie, gescheiden van de data.</p>
           <p class="ncard-quote">"Uw data blijft van u. Niemand leest mee — ook onze hoster niet."</p>
         </li>
         <li class="ncard">
           <p class="ncard-num">06 <span>bewijzen</span></p>
           <h3>Bij discussie: bewijs in plaats van woorden.</h3>
           <p>"Die temperatuur is nooit gemeten." "Die bon heb ik nooit gezien." U opent het origineel, wij nemen opnieuw de vingerafdruk en leggen ze naast die op het grootboek. Klopt het — en dat kan een advocaat of rechter <strong>zelf nakijken, zonder ons</strong> — dan staat vast: dit exacte document bestond op dat moment, ingediend door die partij, sindsdien onaangeraakt.</p>
-          <p class="ncard-artifact mono">bundel: hash · tsa-token · handtekeningen · merkle-bewijs</p>
         </li>
         <li class="ncard is-wide">
           <p class="ncard-num">07 <span>wissen</span></p>
-          <h3>Als iets weg moet, gaat het ook echt weg — terwijl het bewijs blijft staan.</h3>
-          <p>Na de bewaartermijn, of als iemand zijn recht op gegevenswissing (AVG) inroept, vernietigen we de sleutel. Het versleutelde bestand wordt voorgoed onleesbare ruis. De vingerafdruk op het grootboek blijft aantonen <strong>dát</strong> er iets was, wanneer, en door wie — zonder één persoonsgegeven te bewaren.</p>
-          <p class="ncard-quote">"Bewijs en privacy sluiten elkaar niet meer uit."</p>
+          <div class="ncard-col">
+            <h3>Als iets weg moet, gaat het ook echt weg.</h3>
+            <p>Na de bewaartermijn, of als iemand zijn recht op gegevenswissing (AVG) inroept, vernietigen we de sleutel. Het versleutelde bestand wordt voorgoed onleesbare ruis.</p>
+          </div>
+          <div class="ncard-col">
+            <h3>… terwijl het bewijs blijft staan.</h3>
+            <p>De vingerafdruk op het grootboek blijft aantonen <strong>dát</strong> er iets was, wanneer, en door wie — zonder één persoonsgegeven te bewaren. Bewijs en privacy sluiten elkaar niet meer uit.</p>
+          </div>
         </li>
       </ol>
-      <p class="steps7-download"><a class="mono" href="assets/vidimus-hoe-het-werkt.pdf" download>↓ de zeven stappen als A4 (pdf)</a></p>
+
+      <div class="verdict">
+        <div>
+          <h2>Zo starten we: één stroom, dertig dagen, vaste prijs.</h2>
+          <p>We kiezen samen de registratie waar de discussies nu het meeste kosten — de meerwerkbonnen, de koelketen, de poortscans — en koppelen alleen die. Na dertig dagen ligt uw eigen bewijsbundel op tafel. U beslist daarna.</p>
+        </div>
+        <div class="verdict-cta">
+          <a href="/#tamper"><b>vidimus.be/#tamper</b>probeer de tamper-demo</a>
+          <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">of plan 15 minuten via cal.com</a>
+        </div>
+      </div>
+
+      <p class="steps7-download"><span class="mono">sha-256 · ed25519 · rfc 3161 · merkle · hyperledger fabric · aes-256-gcm · worm</span><a class="mono" href="assets/vidimus-hoe-het-werkt.pdf" download>↓ deze pagina als A4 (pdf)</a></p>
+    </section>
+
+    <!-- ── Verdieping ───────────────────────────────────────── -->
+    <section class="deeper-head" aria-label="Verdieping">
+      <h2>Voor wie dieper wil.</h2>
+      <p>Hieronder: wat er per registratie exact wordt vastgezet, waarom een gewone databank dit niet kan, één uitgewerkte datastroom per sector, en de vragen die uw IT-verantwoordelijke gaat stellen.</p>
     </section>
 
     <!-- ── Wat er samen vastgezet wordt ─────────────────────── -->
@@ -458,25 +461,10 @@
       </dl>
     </section>
 
-    <!-- ── Slot ─────────────────────────────────────────────── -->
-    <section class="page-cta" aria-label="Volgende stap">
-      <h2>Niet geloven. Proberen.</h2>
-      <p>
-        De tamper-demo op de startpagina berekent een echte SHA-256-hash in
-        uw browser: wijzig één veld en zie de verificatie rood uitslaan.
-        Daarna is de volgende stap een pilot van <strong>30 dagen, één
-        datastroom, vaste prijs</strong> — u beslist na de evaluatie.
-      </p>
-      <div class="cta-row">
-        <a class="btn-outline" href="/#tamper">Probeer de tamper-demo</a>
-        <a class="btn-outline" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan 15 minuten</a>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
-    <span><strong>Vidimus</strong> — een product van VO Initiatives BV</span>
+    <span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span>
     <span><a href="colofon">Colofon &amp; privacy</a></span>
     <span class="mono">Conceptpagina · geen klantreferenties of gepubliceerde cijfers</span>
   </footer>
