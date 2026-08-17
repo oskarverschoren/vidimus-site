@@ -32,6 +32,9 @@
     .row { display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 0.6rem; align-items: center; }
     .row input, .row select, .addons select, .addons input { width: 100%; border: 1px solid var(--line); background: #fff; padding: 0.35rem 0.5rem; font: inherit; font-size: 0.84rem; color: var(--navy); }
     .row .del { border: 1px solid var(--line); background: transparent; color: var(--t2); padding: 0.3rem 0.6rem; cursor: pointer; font: inherit; font-size: 0.84rem; }
+    .presets { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .presets button { border: 1px solid var(--line); background: var(--panel, #f2eee6); color: var(--navy); padding: 0.35rem 0.7rem; font: inherit; font-size: 0.82rem; cursor: pointer; }
+    .presets button:hover { border-color: var(--navy); }
     .btn-add { margin-top: 0.7rem; border: 1px solid var(--navy); background: transparent; color: var(--navy); padding: 0.4rem 0.8rem; font: inherit; font-size: 0.86rem; cursor: pointer; }
     .addons { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.7rem 1.2rem; }
     .addons label { display: flex; align-items: center; gap: 0.6rem; font-weight: 300; font-size: 0.86rem; }
@@ -117,8 +120,13 @@
       <section class="blk calc" id="reken" aria-labelledby="reken-h">
         <h2 id="reken-h">4 · Reken het zelf uit voor uw stromen.</h2>
         <p class="sub">Voeg uw stromen toe en schat het maandvolume — een schatting volstaat, de afrekening gebeurt achteraf op wat er echt was. Richtprijs; de definitieve offerte volgt na een intake van een half uur.</p>
+        <p class="sub" style="margin-bottom:.4rem"><strong style="font-weight:500;color:var(--navy)">Snel starten met uw sector</strong> — zet de typische stromen klaar; u past ze daarna aan:</p>
+        <div class="presets">
+          <button type="button" onclick="preset('bouw')">Bouw</button><button type="button" onclick="preset('verhuur')">Materieelverhuur</button><button type="button" onclick="preset('vastgoed')">Syndicus / vastgoed</button><button type="button" onclick="preset('transport')">Transport / haven</button><button type="button" onclick="preset('koel')">Voeding / farma</button>
+        </div>
+        <p class="sub" style="margin:.9rem 0 .5rem">Elke <strong style="font-weight:500;color:var(--navy)">soort</strong> registratie is één stroom (uw meerwerkbonnen = 1 stroom, uw afgiftestaten = een 2e). Voeg er zoveel toe als u nodig hebt — vanaf 2 stromen krijgt u korting.</p>
         <div class="rows" id="rows"></div>
-        <button class="btn-add" onclick="addRow()">+ stroom toevoegen</button>
+        <button class="btn-add" onclick="addRow()">+ nog een stroom toevoegen</button>
         <div class="addons">
           <label><input type="checkbox" id="qes"> Gekwalificeerde handtekeningen (itsme)</label>
           <div class="num"><span style="font-weight:300;font-size:.86rem">aantal per maand</span><input type="number" id="qesN" value="0" min="0"></div>
@@ -199,6 +207,8 @@
     }
     ['qes','qesN','cons','consN','brand','sla','year','pilotmid'].forEach(function(id){g(id).addEventListener('input',calc);g(id).addEventListener('change',calc)});
     addRow(['Meerwerkbonnen','S','0']);
+    var PRESET={bouw:[['Meerwerkbonnen','S','0'],['Losse documenten','S','0']],verhuur:[['Afgiftestaten / terugnames','S','0']],vastgoed:[['Plaatsbeschrijvingen','S','0'],['Losse documenten','S','0']],transport:[['Poortscans / gate-events','M','1'],['Afleveringen (CMR)','S','1']],koel:[['Temperatuurregistraties','M','0'],['Afleveringen (CMR)','S','1']]};
+    window.preset=function(k){rows.innerHTML='';PRESET[k].forEach(function(r){addRow(r)});if(k==='transport'||k==='koel'){g('cons').checked=(k==='transport')}calc();rows.scrollIntoView({behavior:'smooth',block:'center'})};
     window.__cfg=function(){var L=[].slice.call(document.querySelectorAll('#lines div')).map(function(d){return d.innerText.replace(/\n/g,': ')});
       var rs=[].slice.call(rows.querySelectorAll('.row')).map(function(r){return r.querySelector('.type').value+' · '+r.querySelector('.tier').value+(r.querySelector('.q').value==='1'?' · gekwalificeerd tijdstempel':'')});
       return {streams:rs,lines:L,pilot:g('tPilot').textContent,month:g('tMonth').textContent,year:g('tYear').textContent}};
