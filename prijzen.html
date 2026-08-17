@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prijzen — pilot, abonnement per stroom en add-ons — Vidimus</title>
+  <meta name="description" content="Wat kost verankering? Pilot van 30 dagen tegen vaste prijs, daarna een abonnement per datastroom (S/M/L) met optionele add-ons. Reken het zelf uit voor uw stromen." />
+  <link rel="canonical" href="https://vidimus.be/prijzen" /><link rel="icon" type="image/svg+xml" href="assets/favicon.svg" /><meta name="theme-color" content="#f7f4ee" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Vidimus" /><meta property="og:title" content="Prijzen — Vidimus" /><meta property="og:url" content="https://vidimus.be/prijzen" /><meta property="og:image" content="https://vidimus.be/assets/og.png" /><meta property="og:locale" content="nl_BE" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <style>
+    .kp { max-width: 62rem; margin: 0 auto; padding: 0 var(--gutter); }
+    .kp-hero { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: 1rem; }
+    .kp-eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 0 0 0.8rem; }
+    .kp-hero h1 { font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3rem); font-weight: 600; line-height: 1.15; }
+    .kp-hero h1 em { font-style: normal; font-weight: 300; color: var(--blue); }
+    .kp-lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.6; }
+    .kp-lede strong { color: var(--navy); font-weight: 500; }
+    h2 { font-size: clamp(1.3rem, 1rem + 1.3vw, 1.8rem); margin: 0 0 1rem; }
+    .blk { margin-top: var(--space); }
+    table.pr { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); font-size: 0.93rem; }
+    table.pr th { text-align: left; font-weight: 500; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--t2, #4a5068); padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--line); background: var(--panel, #f2eee6); }
+    table.pr td { padding: 0.75rem 0.9rem; border-bottom: 1px solid var(--line-soft); font-weight: 300; vertical-align: top; }
+    table.pr td.p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--navy); white-space: nowrap; }
+    table.pr tr:last-child td { border-bottom: none; }
+    table.pr strong { font-weight: 500; }
+    .calc { border: 1px solid var(--navy); background: var(--card); padding: 1.4rem 1.6rem; }
+    .calc h2 { margin-bottom: 0.4rem; }
+    .calc .sub { font-weight: 300; color: var(--t2, #4a5068); margin: 0 0 1rem; font-size: 0.93rem; }
+    .rows { display: grid; gap: 0.7rem; }
+    .row { display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 0.6rem; align-items: center; }
+    .row input, .row select, .addons select, .addons input { width: 100%; border: 1px solid var(--line); background: #fff; padding: 0.5rem 0.65rem; font: inherit; color: var(--navy); }
+    .row .del { border: 1px solid var(--line); background: transparent; color: var(--t2); padding: 0.45rem 0.7rem; cursor: pointer; font: inherit; }
+    .btn-add { margin-top: 0.8rem; border: 1px solid var(--navy); background: transparent; color: var(--navy); padding: 0.5rem 0.9rem; font: inherit; cursor: pointer; }
+    .addons { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.7rem 1.2rem; }
+    .addons label { display: flex; align-items: center; gap: 0.6rem; font-weight: 300; font-size: 0.92rem; }
+    .addons label input[type=checkbox] { width: auto; }
+    .addons .num { display: grid; grid-template-columns: 1fr 6rem; gap: 0.6rem; align-items: center; }
+    .tot { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.8rem; }
+    .tot > div { border: 1px solid var(--line); background: var(--panel, #f2eee6); padding: 0.9rem 1rem; }
+    .tot b { display: block; font-size: 1.5rem; font-weight: 300; color: var(--blue); font-family: 'JetBrains Mono', monospace; }
+    .tot span { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--t2, #4a5068); }
+    .tot small { display: block; font-size: 0.78rem; font-weight: 300; color: var(--t2, #4a5068); margin-top: 0.3rem; }
+    .lines { margin-top: 1rem; font-size: 0.85rem; font-weight: 300; }
+    .lines div { display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px dotted var(--line-soft); }
+    .lines .m { font-family: 'JetBrains Mono', monospace; }
+    .note { font-size: 0.8rem; font-weight: 300; color: var(--t2, #4a5068); margin-top: 0.8rem; }
+    .verdict { margin: var(--space) 0 calc(var(--space) + 3rem); background: var(--navy); color: var(--cream); padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+    .verdict h2 { font-size: 1.15rem; font-weight: 500; color: var(--cream); margin: 0; }
+    .verdict p { color: #dfe3f0; font-size: 0.9rem; font-weight: 300; margin: 0.35rem 0 0; max-width: 40rem; }
+    .verdict-cta { flex: 0 0 auto; text-align: right; font-size: 0.86rem; line-height: 1.6; display: flex; flex-direction: column; }
+    .verdict-cta a { color: var(--cream); text-decoration: none; } .verdict-cta a b { display: block; font-size: 1rem; font-weight: 500; }
+    @media (max-width: 760px) { .row { grid-template-columns: 1fr 1fr; } .addons, .tot { grid-template-columns: 1fr; } .verdict { flex-direction: column; align-items: flex-start; } .verdict-cta { text-align: left; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Vidimus — home"><svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" /><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" /><path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>vidimus<br /><em>verankeringslaag</em></span></a>
+    <nav aria-label="Hoofdnavigatie"><a href="#model">Het model</a><a href="#tabel">Tarieven</a><a href="#addons">Add-ons</a><a href="#reken">Reken zelf</a><a href="/hoe-het-werkt">Hoe het werkt</a></nav>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span><span></span></button>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu"><a href="#model">Het model</a><a href="#tabel">Tarieven</a><a href="#addons">Add-ons</a><a href="#reken">Reken zelf</a><a href="/hoe-het-werkt">Hoe het werkt</a><a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">Boek de demo — 15 min</a></nav>
+
+  <main>
+    <header class="kp kp-hero">
+      <p class="kp-eyebrow mono">Prijzen · richtprijzen excl. btw</p>
+      <h1>Wat kost het?<br /><em>Een pilot met vaste prijs, daarna per stroom.</em></h1>
+      <p class="kp-lede">Geen prijs per document en geen kaartgegevens vooraf. U betaalt per <strong>stroom</strong> — één soort registratie die u laat verankeren (de meerwerkbonnen, de afgiftestaten, de poortscans) — en kiest per stroom welke add-ons u nodig hebt. Interne stromen zijn goedkoper dan stromen met partners, en het onafhankelijke tijdstempel is altijd inbegrepen. Onderaan rekent u het zelf uit.</p>
+    </header>
+
+    <div class="kp">
+      <section class="blk" id="model" aria-labelledby="model-h">
+        <h2 id="model-h">1 · Zo starten we: de pilot.</h2>
+        <table class="pr">
+          <tr><th>Pilot (30 dagen, één stroom, vaste prijs)</th><th>Inbegrepen</th><th>Prijs</th></tr>
+          <tr><td><strong>KMO</strong> — aannemer, verhuurder, syndicus, transporteur</td><td>intake ½ dag · koppeling van 1 stroom of tekenmodule · tot 500 verankeringen · bewijsbundel · evaluatiegesprek</td><td class="p">€ 1.900</td></tr>
+          <tr><td><strong>Middelgroot</strong> — haven, farma, IT-afdeling, security-vragenlijst</td><td>idem + beveiligingsverklaring · DPO-gesprek · 2 workshops · tot 5.000 verankeringen</td><td class="p">€ 3.500 – 4.900</td></tr>
+        </table>
+        <p class="note">Gaat u door, dan wordt het pilotbedrag verrekend met de eerste drie maanden abonnement. Gaat u niet door, dan houdt u uw bewijsbundels — die blijven geldig.</p>
+      </section>
+
+      <section class="blk" id="tabel" aria-labelledby="tabel-h">
+        <h2 id="tabel-h">2 · Daarna: abonnement per stroom, per maand.</h2>
+        <table class="pr">
+          <tr><th>Stroom</th><th>Volume &amp; gebruikers</th><th>Voor wie</th><th>Prijs / maand</th></tr>
+          <tr><td><strong>S</strong></td><td>tot 1.000 registraties/maand · 5 gebruikers</td><td>één werf, één verhuurdepot, één syndicusportefeuille</td><td class="p">€ 290</td></tr>
+          <tr><td><strong>M</strong></td><td>tot 10.000/maand · 20 gebruikers · API/webhook</td><td>poortsysteem, sensorpark, ERP-koppeling</td><td class="p">€ 690</td></tr>
+          <tr><td><strong>L</strong></td><td>onbeperkt · SLA · eigen grootboekkanaal · consortium</td><td>haven, farma, multi-partnerketen</td><td class="p">vanaf € 1.500</td></tr>
+        </table>
+        <p class="note">Meerdere stromen: 2e stroom −20 %, vanaf 3 stromen −30 % op alle stromen. Jaarcontract: 2 maanden gratis. Altijd inbegrepen: onafhankelijk RFC 3161-tijdstempel, versleutelde kluis met bewaartermijn, bewijsbundels, publieke verificatiepagina, deellinks voor tegenpartijen, sleutel op eigen toestel.</p>
+      </section>
+
+      <section class="blk" id="addons" aria-labelledby="addons-h">
+        <h2 id="addons-h">3 · Add-ons — alleen waar u ze nodig hebt.</h2>
+        <table class="pr">
+          <tr><th>Add-on</th><th>Wanneer</th><th>Prijs</th></tr>
+          <tr><td><strong>Gekwalificeerd tijdstempel</strong> (QTSP, EU Trusted List) — per stroom in te schakelen</td><td>stromen met partners of auditors, waar u het wettelijk vermoeden van datum en tijd wil (eIDAS art. 41). Intern zelden nodig.</td><td class="p">+ € 90 / stroom / maand</td></tr>
+          <tr><td><strong>Gekwalificeerde handtekening</strong> (QES via itsme)</td><td>alleen voor registraties met een groot bedrag eronder (meerwerk, plaatsbeschrijving) — niet voor poortscans of sensordata</td><td class="p">€ 1,20 / handtekening</td></tr>
+          <tr><td><strong>Consortium-kanaal</strong> — meerdere partijen op één grootboek</td><td>haven, keten met vaste partners</td><td class="p">vanaf € 500 / maand + € 150 / extra partij</td></tr>
+          <tr><td><strong>Extra gebruikers</strong> tekenmodule</td><td>meer werfleiders, verhuurdesks, beheerders</td><td class="p">€ 12 / gebruiker / maand</td></tr>
+          <tr><td><strong>Verificatiepagina in uw huisstijl</strong></td><td>u wil dat uw partners uw naam zien, niet de onze</td><td class="p">€ 150 / maand</td></tr>
+          <tr><td><strong>SLA 99,9 % + responstijd 4 u</strong></td><td>IT/inkoop vraagt garanties</td><td class="p">+ 15 % op abonnement</td></tr>
+          <tr><td><strong>Bewijsbundel-op-maat</strong> voor rechtbank (expertverklaring, uitleg conventies)</td><td>bij een concreet geschil</td><td class="p">€ 450 / bundel</td></tr>
+          <tr><td><strong>Sensor-gateway</strong> (hashen aan de bron)</td><td>koelketen, meetstations</td><td class="p">offerte per site</td></tr>
+        </table>
+      </section>
+
+      <section class="blk calc" id="reken" aria-labelledby="reken-h">
+        <h2 id="reken-h">4 · Reken het zelf uit voor uw stromen.</h2>
+        <p class="sub">Voeg uw stromen toe, kies volume en of er partners bij zijn. Richtprijs; de definitieve offerte volgt na een intake van een half uur.</p>
+        <div class="rows" id="rows"></div>
+        <button class="btn-add" onclick="addRow()">+ stroom toevoegen</button>
+        <div class="addons">
+          <label><input type="checkbox" id="qes"> Gekwalificeerde handtekeningen (itsme)</label>
+          <div class="num"><span style="font-weight:300;font-size:.92rem">aantal per maand</span><input type="number" id="qesN" value="0" min="0"></div>
+          <label><input type="checkbox" id="cons"> Consortium-kanaal (meerdere partijen op één grootboek)</label>
+          <div class="num"><span style="font-weight:300;font-size:.92rem">extra partijen (naast u)</span><input type="number" id="consN" value="1" min="0"></div>
+          <label><input type="checkbox" id="users"> Extra gebruikers</label>
+          <div class="num"><span style="font-weight:300;font-size:.92rem">aantal</span><input type="number" id="usersN" value="0" min="0"></div>
+          <label><input type="checkbox" id="brand"> Verificatiepagina in uw huisstijl</label>
+          <label><input type="checkbox" id="sla"> SLA 99,9 % + responstijd 4 u</label>
+          <label><input type="checkbox" id="year" checked> Jaarcontract (2 maanden gratis)</label>
+          <label><input type="checkbox" id="pilotmid"> Pilot als middelgroot bedrijf (€ 3.500 i.p.v. € 1.900)</label>
+        </div>
+        <div class="tot">
+          <div><span>Pilot (eenmalig, 30 dagen)</span><b id="tPilot">€ 1.900</b><small>verrekend met de eerste 3 maanden bij doorstart</small></div>
+          <div><span>Daarna per maand</span><b id="tMonth">€ 0</b><small id="tMonthNote">alle stromen + add-ons</small></div>
+          <div><span>Per jaar</span><b id="tYear">€ 0</b><small id="tYearNote"></small></div>
+        </div>
+        <div class="lines" id="lines"></div>
+        <p class="note">Richtprijzen excl. btw, augustus 2026. Wat u nooit betaalt: per registratie (behalve gekwalificeerde handtekeningen), per download van een bundel, of voor de verificatie door uw tegenpartij. Wat u wél krijgt: één rekening per maand, en bewijs dat van u blijft.</p>
+      </section>
+
+      <div class="verdict">
+        <div><h2>Twijfel over welke stromen? Begin met de duurste discussie.</h2><p>Reken één stroom uit — de meerwerkbonnen, de afgiftestaten, de poortscans — en zet die tegenover wat één verloren discussie u kost. Meestal is het antwoord er dan al.</p></div>
+        <div class="verdict-cta"><a href="/#rekensom"><b>vidimus.be/#rekensom</b>wat kost woord tegen woord u nu?</a><a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">of plan 15 minuten via cal.com</a></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span><span><a href="/colofon">Colofon &amp; privacy</a></span><span class="mono">Richtprijzen · offerte na intake</span></footer>
+  <div class="bottom-bar" role="complementary" aria-label="Snelle acties"><a class="bottom-bar-main" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Boek de demo — 15 min</a><a class="bottom-bar-icon" href="mailto:oskar@vo-initiatives.com" aria-label="Mail ons"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="bottom-bar-icon" href="tel:+32466474115" aria-label="Bel ons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h4l1.5 4-2.5 1.8c1 2.3 2.6 3.9 4.7 4.7l1.8-2.5 4 1.5v4a1.5 1.5 0 0 1-1.6 1.5C10.5 19 5 13.5 4.5 6.1A1.5 1.5 0 0 1 6 4.5z" transform="translate(1,0) scale(0.82)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+
+  <script>
+  ;(function(){'use strict';var b=document.getElementById('menu-btn'),m=document.getElementById('mobile-menu');if(!b||!m)return;function o(x){b.setAttribute('aria-expanded',String(x));b.classList.toggle('is-open',x);m.hidden=!x;document.body.classList.toggle('menu-open',x)}b.addEventListener('click',function(){o(b.getAttribute('aria-expanded')!=='true')});m.addEventListener('click',function(e){if(e.target.closest('a'))o(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')o(false)})})();
+  ;(function(){'use strict';
+    var TIER={S:290,M:690,L:1500}, QTSA=90, QES=1.2, CONS=500, CONS_P=150, USER=12, BRAND=150, SLA=0.15, PILOT=1900, PILOT_MID=3500;
+    var TYPES=['Meerwerkbonnen','Afgiftestaten / terugnames','Plaatsbeschrijvingen','Poortscans / gate-events','Afleveringen (CMR)','Temperatuurregistraties','Losse documenten','Andere stroom'];
+    var rows=document.getElementById('rows'), n=0;
+    var eur=function(v){return '€ '+Math.round(v).toLocaleString('nl-BE')};
+    window.addRow=function(pre){n++;var d=document.createElement('div');d.className='row';d.innerHTML=
+      '<select class="type">'+TYPES.map(function(t){return '<option>'+t+'</option>'}).join('')+'</select>'+
+      '<select class="tier"><option value="S">S · tot 1.000/maand</option><option value="M">M · tot 10.000/maand</option><option value="L">L · onbeperkt / consortium</option></select>'+
+      '<select class="q"><option value="0">standaard tijdstempel (inbegrepen)</option><option value="1">+ gekwalificeerd tijdstempel (partners)</option></select>'+
+      '<button class="del" title="verwijderen">×</button>';
+      if(pre){d.querySelector('.type').value=pre[0];d.querySelector('.tier').value=pre[1];d.querySelector('.q').value=pre[2]}
+      d.querySelector('.del').onclick=function(){d.remove();calc()};d.querySelectorAll('select').forEach(function(s){s.onchange=calc});rows.appendChild(d);calc()};
+    function g(id){return document.getElementById(id)}
+    function calc(){
+      var rs=[].slice.call(rows.querySelectorAll('.row')),lines=[],base=0,q=0;
+      rs.forEach(function(r){var t=r.querySelector('.tier').value;base+=TIER[t];if(r.querySelector('.q').value==='1')q+=QTSA;});
+      var disc=rs.length>=3?0.30:rs.length===2?0.20:0;
+      var baseD=base*(1-disc);
+      if(rs.length){lines.push(['Stromen ('+rs.length+'× '+rs.map(function(r){return r.querySelector('.tier').value}).join('+')+')',base]);if(disc)lines.push(['Korting meerdere stromen −'+Math.round(disc*100)+' %',-(base-baseD)])}
+      if(q)lines.push(['Gekwalificeerde tijdstempels',q]);
+      var qes=g('qes').checked?(+g('qesN').value||0)*QES:0; if(qes)lines.push(['Gekwalificeerde handtekeningen ('+g('qesN').value+'/maand)',qes]);
+      var cons=g('cons').checked?CONS+Math.max(0,(+g('consN').value||0)-1)*CONS_P:0; if(cons)lines.push(['Consortium-kanaal',cons]);
+      var us=g('users').checked?(+g('usersN').value||0)*USER:0; if(us)lines.push(['Extra gebruikers',us]);
+      var br=g('brand').checked?BRAND:0; if(br)lines.push(['Verificatiepagina in uw huisstijl',br]);
+      var sub=baseD+q+qes+cons+us+br;
+      var sla=g('sla').checked?sub*SLA:0; if(sla)lines.push(['SLA 99,9 % (+15 %)',sla]);
+      var month=sub+sla;
+      var year=g('year').checked?month*10:month*12;
+      var pilot=g('pilotmid').checked?PILOT_MID:PILOT;
+      g('tPilot').textContent=eur(pilot);
+      g('tMonth').textContent=eur(month);
+      g('tYear').textContent=eur(year);
+      g('tYearNote').textContent=g('year').checked?'jaarcontract: 10 × maandprijs (2 maanden gratis)':'12 × maandprijs, maandelijks opzegbaar';
+      g('tMonthNote').textContent=rs.length?rs.length+' stroom/stromen + add-ons':'voeg minstens één stroom toe';
+      var L=g('lines');L.innerHTML=lines.map(function(l){return '<div><span>'+l[0]+'</span><span class="m">'+eur(l[1])+'</span></div>'}).join('')+(rs.length?'<div><strong>Totaal per maand</strong><span class="m"><strong>'+eur(month)+'</strong></span></div>':'');
+    }
+    ['qes','qesN','cons','consN','users','usersN','brand','sla','year','pilotmid'].forEach(function(id){g(id).addEventListener('input',calc);g(id).addEventListener('change',calc)});
+    addRow(['Meerwerkbonnen','S','0']);
+  })();
+  </script>
+</body>
+</html>
