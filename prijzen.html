@@ -45,6 +45,15 @@
     .lines { margin-top: 1rem; font-size: 0.85rem; font-weight: 300; }
     .lines div { display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px dotted var(--line-soft); }
     .lines .m { font-family: 'JetBrains Mono', monospace; }
+    .lead { margin-top: 1.6rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+    .lead h3 { font-size: 1.05rem; font-weight: 500; margin: 0 0 0.3rem; }
+    .lead .lf { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+    .lead label { display: block; margin: 0.5rem 0; font-weight: 300; font-size: 0.88rem; }
+    .lead input, .lead textarea { width: 100%; box-sizing: border-box; border: 1px solid var(--line); background: #fff; padding: 0.5rem 0.65rem; font: inherit; color: var(--navy); }
+    .lead .chk { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.8rem; color: var(--t2, #4a5068); } .lead .chk input { width: auto; margin-top: 0.25rem; }
+    .lead .row { display: flex; gap: 1rem; align-items: center; margin-top: 0.6rem; flex-wrap: wrap; }
+    .btn-send { border: 1px solid var(--navy); background: var(--navy); color: var(--cream); padding: 0.6rem 1.1rem; font: inherit; cursor: pointer; }
+    @media (max-width: 760px) { .lead .lf { grid-template-columns: 1fr; } }
     .note { font-size: 0.8rem; font-weight: 300; color: var(--t2, #4a5068); margin-top: 0.8rem; }
     .verdict { margin: var(--space) 0 calc(var(--space) + 3rem); background: var(--navy); color: var(--cream); padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
     .verdict h2 { font-size: 1.15rem; font-weight: 500; color: var(--cream); margin: 0; }
@@ -129,6 +138,17 @@
           <div><span>Per jaar</span><b id="tYear">€ 0</b><small id="tYearNote"></small></div>
         </div>
         <div class="lines" id="lines"></div>
+        <div class="lead" id="lead">
+          <h3>Vraag een offerte aan met deze samenstelling.</h3>
+          <p class="sub">U krijgt dezelfde samenstelling per mail; Oskar belt u binnen één werkdag voor een intake van een half uur.</p>
+          <form id="leadf" onsubmit="return sendLead(event)">
+            <div class="lf"><label>Naam<input name="name" required></label><label>Bedrijf<input name="company" required></label></div>
+            <div class="lf"><label>E-mail<input name="email" type="email" required></label><label>Telefoon (optioneel)<input name="phone"></label></div>
+            <label>Bericht (optioneel)<textarea name="note" rows="2" placeholder="bv. welke stromen, welke partners, wanneer u wil starten"></textarea></label>
+            <label class="chk"><input type="checkbox" name="consent" required> Ik ga akkoord dat VO Initiatives BV mijn gegevens gebruikt om deze offerte op te maken en mij te contacteren (verwijderd bij geen vervolg binnen 90 dagen).</label>
+            <div class="row"><button type="submit" class="btn-send">Offerte aanvragen</button><span id="leadmsg" class="note" style="margin:0"></span></div>
+          </form>
+        </div>
         <p class="note">Richtprijzen excl. btw, augustus 2026. Wat u nooit betaalt: per registratie (behalve gekwalificeerde handtekeningen), per download van een bundel, of voor de verificatie door uw tegenpartij. Wat u wél krijgt: één rekening per maand, en bewijs dat van u blijft.</p>
       </section>
 
@@ -182,6 +202,16 @@
     }
     ['qes','qesN','cons','consN','users','usersN','brand','sla','year','pilotmid'].forEach(function(id){g(id).addEventListener('input',calc);g(id).addEventListener('change',calc)});
     addRow(['Meerwerkbonnen','S','0']);
+    window.__cfg=function(){var L=[].slice.call(document.querySelectorAll('#lines div')).map(function(d){return d.innerText.replace(/\n/g,': ')});
+      var rs=[].slice.call(rows.querySelectorAll('.row')).map(function(r){return r.querySelector('.type').value+' · '+r.querySelector('.tier').value+(r.querySelector('.q').value==='1'?' · gekwalificeerd tijdstempel':'')});
+      return {streams:rs,lines:L,pilot:g('tPilot').textContent,month:g('tMonth').textContent,year:g('tYear').textContent}};
+    window.sendLead=async function(e){e.preventDefault();var f=e.target,m=g('leadmsg');m.textContent='Versturen…';
+      var body={name:f.name.value,company:f.company.value,email:f.email.value,phone:f.phone.value,note:f.note.value,consent:f.consent.checked,config:window.__cfg()};
+      try{var r=await fetch('https://app.vidimus.be/lead',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
+        if(!r.ok){m.textContent='Mislukt: '+(await r.text());return false}
+        m.textContent='✓ Verstuurd. U ontvangt de samenstelling per mail; we bellen binnen één werkdag.';f.reset();}
+      catch(err){m.textContent='Verbinding mislukt — mail ons: oskar@vo-initiatives.com'}
+      return false};
   })();
   </script>
 </body>
