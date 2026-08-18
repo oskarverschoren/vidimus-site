@@ -28,16 +28,15 @@
     .calc { border: 1px solid var(--navy); background: var(--card); padding: 1.4rem 1.6rem; }
     .calc h2 { margin-bottom: 0.4rem; }
     .calc .sub { font-weight: 300; color: var(--t2, #4a5068); margin: 0 0 1rem; font-size: 0.93rem; }
-    .one { display: grid; grid-template-columns: 14rem 1fr; gap: 1rem; align-items: end; margin-top: 1rem; }
-    .one input[type=number] { width: 100%; border: 1px solid var(--line); background: #fff; padding: 0.45rem 0.6rem; font: inherit; color: var(--navy); }
-    .one input[type=range] { width: 100%; accent-color: var(--blue); margin-bottom: 0.7rem; }
+    .one { margin-top: 1rem; max-width: 16rem; }
+    .one input[type=number] { width: 100%; box-sizing: border-box; border: 1px solid var(--line); background: #fff; padding: 0.45rem 0.6rem; font: inherit; color: var(--navy); }
     .one label { display: block; font-weight: 300; font-size: 0.88rem; }
-    @media (max-width: 760px) { .one { grid-template-columns: 1fr; } }
+    .volr { display: block; width: 100%; accent-color: var(--blue); margin: 0.9rem 0 0.35rem; }
     .rows { display: grid; gap: 0.5rem; }
     .row { display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 0.6rem; align-items: center; }
     .row input, .row select, .addons select, .addons input { width: 100%; border: 1px solid var(--line); background: #fff; padding: 0.35rem 0.5rem; font: inherit; font-size: 0.84rem; color: var(--navy); }
     .row .del { border: 1px solid var(--line); background: transparent; color: var(--t2); padding: 0.3rem 0.6rem; cursor: pointer; font: inherit; font-size: 0.84rem; }
-    .scale { display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--t2, #4a5068); font-weight: 300; margin-top: -0.4rem; }
+    .scale { display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.74rem; color: var(--t2, #4a5068); font-weight: 300; margin-top: 0; }
     .scale small { display: block; font-size: 0.68rem; color: var(--blue); }
     .scale span:nth-child(2) { text-align: center; } .scale span:last-child { text-align: right; }
     .btn-add { margin-top: 0.7rem; border: 1px solid var(--navy); background: transparent; color: var(--navy); padding: 0.4rem 0.8rem; font: inherit; font-size: 0.86rem; cursor: pointer; }
@@ -125,7 +124,8 @@
       <section class="blk calc" id="reken" aria-labelledby="reken-h">
         <h2 id="reken-h">4 · Reken het zelf uit.</h2>
         <p class="sub">Eén vraag: hoeveel registraties denkt u per maand te verankeren, alles samen? Een schatting volstaat — de meter telt, de afrekening gebeurt achteraf. Richtprijs; de definitieve offerte volgt na een intake van een half uur.</p>
-        <div class="one"><label>Registraties per maand (alles samen)<input type="number" id="vol" value="200" min="0" step="50"></label><input type="range" id="volr" min="0" max="1000" step="1" value="200"></div>
+        <div class="one"><label>Registraties per maand (alles samen)<input type="number" id="vol" value="200" min="0" step="50"></label></div>
+        <input type="range" id="volr" min="0" max="1000" step="1" value="200" class="volr" aria-label="Schuif: registraties per maand">
         <div class="scale"><span>≈ 10 per dag<br><small>een paar per werkdag</small></span><span>≈ 300 per dag<br><small>elk kwartier iets</small></span><span>≈ 3.000 per dag<br><small>systemen en sensoren</small></span></div>
         <p class="hint">Alles telt als één registratie: een document, een foto, een meting, een scan, een bevestiging van uw partner. Zit u ernaast? Geen probleem — de meter telt, de afrekening volgt op wat er echt was.</p>
         <div class="addons">
