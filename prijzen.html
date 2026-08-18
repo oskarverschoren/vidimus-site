@@ -94,7 +94,7 @@
         <table class="pr">
           <tr><th>Pilot (30 dagen, één stroom, vaste prijs)</th><th>Inbegrepen</th><th>Prijs</th></tr>
           <tr><td><strong>Pilot</strong></td><td>intake ½ dag · één stroom of de tekenmodule in gebruik · tot 500 verankeringen · bewijsbundel · evaluatiegesprek — ± 2 dagen begeleiding</td><td class="p">€ 1.900</td></tr>
-          <tr><td><strong>Pilot uitgebreid</strong></td><td>idem + <strong>systeemkoppeling</strong> (API/webhook met uw poort-, sensor- of ERP-systeem) · <strong>beveiligingsverklaring</strong> voor uw IT (NIS2-vragenlijst) · <strong>DPO-gesprek</strong> (verwerkersovereenkomst) · 2 workshops · tot 5.000 verankeringen — ± 5 dagen begeleiding</td><td class="p">€ 3.500 – 4.900</td></tr>
+          <tr><td><strong>Pilot uitgebreid</strong></td><td>idem + <strong>systeemkoppeling</strong> (API/webhook met uw poort-, sensor- of ERP-systeem) · <strong>uw beveiligingsvragenlijst</strong> ingevuld voor uw IT (onze beveiligingsverklaring zelf is <a href="/beveiliging" style="color:var(--blue)">gratis voor iedereen</a>) · <strong>DPO-gesprek</strong> (verwerkersovereenkomst) · 2 workshops · tot 5.000 verankeringen — ± 5 dagen begeleiding</td><td class="p">€ 3.500 – 4.900</td></tr>
         </table>
         <p class="note">Gaat u door, dan wordt het pilotbedrag verrekend met de eerste drie maanden abonnement. Gaat u niet door, dan houdt u uw bewijsbundels — die blijven geldig.</p>
       </section>
@@ -104,11 +104,13 @@
         <table class="pr">
           <tr><th>Verankerde registraties in de maand (alle stromen samen)</th><th>Wat u betaalt</th><th>Prijs / maand</th></tr>
           <tr><td><strong>tot 1.000</strong></td><td>de aansluiting — alles inbegrepen</td><td class="p">€ 190</td></tr>
-          <tr><td><strong>1.001 – 10.000</strong></td><td>aansluiting + verbruik schijf 1</td><td class="p">€ 490</td></tr>
-          <tr><td><strong>10.001 – 100.000</strong></td><td>aansluiting + verbruik schijf 2</td><td class="p">€ 990</td></tr>
+          <tr><td><strong>1.001 – 3.000</strong></td><td>aansluiting + verbruik</td><td class="p">€ 290</td></tr>
+          <tr><td><strong>3.001 – 10.000</strong></td><td>aansluiting + verbruik</td><td class="p">€ 490</td></tr>
+          <tr><td><strong>10.001 – 30.000</strong></td><td>aansluiting + verbruik</td><td class="p">€ 690</td></tr>
+          <tr><td><strong>30.001 – 100.000</strong></td><td>aansluiting + verbruik</td><td class="p">€ 990</td></tr>
           <tr><td><strong>meer dan 100.000</strong></td><td>op maat (eigen kanaal, SLA)</td><td class="p">offerte</td></tr>
         </table>
-        <p class="note"><strong>Zo werkt de meter:</strong> op het einde van de maand telt het platform hoeveel registraties u verankerde — poortscans, bonnen, foto's, sensorlijnen, bevestigingen van partners: alles telt als één — en die maand valt in de schijf die daarbij hoort. Een drukke maand is een schijf hoger, een rustige lager; u ziet het de hele maand door in de app. <strong>Wat nooit meetelt:</strong> aantal gebruikers, aantal stromen, bundels downloaden, verificaties door uw tegenpartij, deellinks, wissen. Jaarcontract: 2 maanden gratis.</p>
+        <p class="note"><strong>Zo werkt de meter:</strong> op het einde van de maand telt het platform hoeveel registraties u verankerde — poortscans, bonnen, foto's, sensorlijnen, bevestigingen van partners: alles telt als één — en die maand valt in de schijf die daarbij hoort. Kleine stappen (hoogstens ×1,7), dus geen kliffen: een drukke maand is een schijf hoger, een rustige lager; u ziet het de hele maand door in de app. <strong>Wat nooit meetelt:</strong> aantal gebruikers, aantal stromen, bundels downloaden, verificaties door uw tegenpartij, deellinks, wissen. Jaarcontract: 2 maanden gratis.</p>
       </section>
 
       <section class="blk" id="addons" aria-labelledby="addons-h">
@@ -133,7 +135,7 @@
           <label><input type="checkbox" id="cons"> Gedeeld grootboek met partners (+ € 500)</label>
           <div class="num"><span style="font-weight:300;font-size:.86rem">extra partijen (naast u)</span><input type="number" id="consN" value="1" min="0"></div>
           <label><input type="checkbox" id="year" checked> Jaarcontract (2 maanden gratis)</label>
-          <label><input type="checkbox" id="pilotmid"> Pilot uitgebreid — met systeemkoppeling, beveiligingsverklaring en DPO-gesprek (€ 3.500 i.p.v. € 1.900)</label>
+          <label><input type="checkbox" id="pilotmid"> Pilot uitgebreid — met systeemkoppeling, uw beveiligingsvragenlijst en DPO-gesprek (€ 3.500 i.p.v. € 1.900)</label>
         </div>
         <div class="tot">
           <div><span>Pilot (eenmalig, 30 dagen)</span><b id="tPilot">€ 1.900</b><small>verrekend met de eerste 3 maanden bij doorstart</small></div>
@@ -168,7 +170,7 @@
   <script>
   ;(function(){'use strict';var b=document.getElementById('menu-btn'),m=document.getElementById('mobile-menu');if(!b||!m)return;function o(x){b.setAttribute('aria-expanded',String(x));b.classList.toggle('is-open',x);m.hidden=!x;document.body.classList.toggle('menu-open',x)}b.addEventListener('click',function(){o(b.getAttribute('aria-expanded')!=='true')});m.addEventListener('click',function(e){if(e.target.closest('a'))o(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')o(false)})})();
   ;(function(){'use strict';
-    var CONN=190, INCL=1000, BANDS=[[10000,490],[100000,990]], QTSA=90, CONS=500, CONS_P=150, PILOT=1900, PILOT_MID=3500;
+    var CONN=190, INCL=1000, BANDS=[[3000,290],[10000,490],[30000,690],[100000,990]], QTSA=90, CONS=500, CONS_P=150, PILOT=1900, PILOT_MID=3500;
     var eur=function(v){return '€ '+Math.round(v).toLocaleString('nl-BE')};
     function g(id){return document.getElementById(id)}
     function band(n){if(n<=INCL)return['aansluiting (≤ 1.000 inbegrepen)',CONN];for(var i=0;i<BANDS.length;i++){if(n<=BANDS[i][0])return['aansluiting + verbruik tot '+BANDS[i][0].toLocaleString('nl-BE'),BANDS[i][1]]}return['op maat (> 100.000)',null]}
