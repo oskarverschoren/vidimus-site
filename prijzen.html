@@ -37,9 +37,9 @@
     .row { display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 0.6rem; align-items: center; }
     .row input, .row select, .addons select, .addons input { width: 100%; border: 1px solid var(--line); background: #fff; padding: 0.35rem 0.5rem; font: inherit; font-size: 0.84rem; color: var(--navy); }
     .row .del { border: 1px solid var(--line); background: transparent; color: var(--t2); padding: 0.3rem 0.6rem; cursor: pointer; font: inherit; font-size: 0.84rem; }
-    .presets { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .presets button { border: 1px solid var(--line); background: var(--panel, #f2eee6); color: var(--navy); padding: 0.35rem 0.7rem; font: inherit; font-size: 0.82rem; cursor: pointer; }
-    .presets button:hover { border-color: var(--navy); }
+    .scale { display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--t2, #4a5068); font-weight: 300; margin-top: -0.4rem; }
+    .scale small { display: block; font-size: 0.68rem; color: var(--blue); }
+    .scale span:nth-child(2) { text-align: center; } .scale span:last-child { text-align: right; }
     .btn-add { margin-top: 0.7rem; border: 1px solid var(--navy); background: transparent; color: var(--navy); padding: 0.4rem 0.8rem; font: inherit; font-size: 0.86rem; cursor: pointer; }
     .addons { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.7rem 1.2rem; }
     .addons label { display: flex; align-items: center; gap: 0.6rem; font-weight: 300; font-size: 0.86rem; }
@@ -122,11 +122,9 @@
       <section class="blk calc" id="reken" aria-labelledby="reken-h">
         <h2 id="reken-h">4 · Reken het zelf uit.</h2>
         <p class="sub">Eén vraag: hoeveel registraties denkt u per maand te verankeren, alles samen? Een schatting volstaat — de meter telt, de afrekening gebeurt achteraf. Richtprijs; de definitieve offerte volgt na een intake van een half uur.</p>
-        <p class="sub" style="margin-bottom:.4rem"><strong style="font-weight:500;color:var(--navy)">Geen idee? Kies wat het meest op u lijkt:</strong></p>
-        <div class="presets">
-          <button type="button" onclick="preset(200)">Aannemer, 3 werven · ± 200/maand</button><button type="button" onclick="preset(600)">Verhuurdepot · ± 600/maand</button><button type="button" onclick="preset(150)">Syndicus, 40 gebouwen · ± 150/maand</button><button type="button" onclick="preset(15000)">Terminal / transporteur · ± 15.000/maand</button><button type="button" onclick="preset(40000)">Koelketen, 100 loggers · ± 40.000/maand</button>
-        </div>
-        <div class="one"><label>Registraties per maand (alle stromen samen)<input type="number" id="vol" value="200" min="0" step="50"></label><input type="range" id="volr" min="0" max="120000" step="50" value="200"></div>
+        <div class="one"><label>Registraties per maand (alles samen)<input type="number" id="vol" value="200" min="0" step="50"></label><input type="range" id="volr" min="0" max="1000" step="1" value="200"></div>
+        <div class="scale"><span>≈ 10 per dag<br><small>een paar per werkdag</small></span><span>≈ 300 per dag<br><small>elk kwartier iets</small></span><span>≈ 3.000 per dag<br><small>systemen en sensoren</small></span></div>
+        <p class="hint">Alles telt als één registratie: een document, een foto, een meting, een scan, een bevestiging van uw partner. Zit u ernaast? Geen probleem — de meter telt, de afrekening volgt op wat er echt was.</p>
         <div class="addons">
           <label><input type="checkbox" id="qtsa"> Gekwalificeerd tijdstempel (+ € 90)</label>
           <label><input type="checkbox" id="cons"> Gedeeld grootboek met partners (+ € 500)</label>
@@ -171,7 +169,6 @@
     var eur=function(v){return '€ '+Math.round(v).toLocaleString('nl-BE')};
     function g(id){return document.getElementById(id)}
     function band(n){if(n<=INCL)return['aansluiting (≤ 1.000 inbegrepen)',CONN];for(var i=0;i<BANDS.length;i++){if(n<=BANDS[i][0])return['aansluiting + verbruik tot '+BANDS[i][0].toLocaleString('nl-BE'),BANDS[i][1]]}return['op maat (> 100.000)',null]}
-    window.preset=function(n){g('vol').value=n;g('volr').value=Math.min(n,120000);calc();g('vol').scrollIntoView({behavior:'smooth',block:'center'})};
     function calc(){
       var n=+g('vol').value||0; var b=band(n); var lines=[[b[0],b[1]]];
       var q=g('qtsa').checked?QTSA:0; if(q)lines.push(['Gekwalificeerd tijdstempel',q]);
@@ -185,8 +182,11 @@
       g('tMonthNote').textContent=n.toLocaleString('nl-BE')+' registraties/maand · afgerekend op werkelijk verbruik';
       g('lines').innerHTML=lines.map(function(l){return '<div><span>'+l[0]+'</span><span class="m">'+(l[1]===null?'op maat':eur(l[1]))+'</span></div>'}).join('')+'<div><strong>Totaal per maand</strong><span class="m"><strong>'+(month===null?'op maat':eur(month))+'</strong></span></div>';
     }
-    g('vol').addEventListener('input',function(){g('volr').value=Math.min(+g('vol').value||0,120000);calc()});
-    g('volr').addEventListener('input',function(){g('vol').value=g('volr').value;calc()});
+    // logaritmische schuif: 0..1000 → 0..120.000 (fijn onderaan, grof bovenaan)
+    var toN=function(p){return Math.round(Math.pow(120000+1,p/1000)-1)}, toP=function(n){return Math.round(Math.log(n+1)/Math.log(120001)*1000)};
+    g('volr').value=toP(200);
+    g('vol').addEventListener('input',function(){g('volr').value=toP(Math.min(+g('vol').value||0,120000));calc()});
+    g('volr').addEventListener('input',function(){var n=toN(+g('volr').value);n=n<100?Math.round(n/10)*10:n<1000?Math.round(n/50)*50:n<10000?Math.round(n/100)*100:Math.round(n/1000)*1000;g('vol').value=n;calc()});
     ['qtsa','cons','consN','year','pilotmid'].forEach(function(id){g(id).addEventListener('input',calc);g(id).addEventListener('change',calc)});
     calc();
     window.__cfg=function(){var L=[].slice.call(document.querySelectorAll('#lines div')).map(function(d){return d.innerText.replace(/\n/g,': ')});return {volume:+g('vol').value||0,lines:L,pilot:g('tPilot').textContent,month:g('tMonth').textContent,year:g('tYear').textContent}};
