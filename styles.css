@@ -792,3 +792,8 @@ html.js-motion .founder.is-in .founder-meta { transition-delay: 540ms; }
   .doc-field dd { text-align: left; }
   .sector-row { grid-template-columns: 2.6rem 1fr; }
 }
+
+/* Hero CTA */
+.hero-cta { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; margin: 1.4rem 0 0; }
+.hero-cta .btn-outline { text-decoration: none; }
+.hero-cta-note { font-size: 0.72rem; color: var(--blue); }
