@@ -1,0 +1,23 @@
+# Vidimus — verankeringslaag (vidimus.be)
+
+> Elektronische verankeringsdienst van VO Initiatives BV (Antwerpen, BE 0805.309.143). Bedrijfsregistraties (bonnen, foto's, metingen, scans, documenten, overdrachten) worden gehasht (SHA-256 / HMAC), getekend (Ed25519, sleutel op het toestel van de indiener), van een onafhankelijk RFC 3161-tijdstempel voorzien (Sectigo; optioneel QTSP), per batch in een Merkle-boom samengevoegd en in een onwijzigbaar grootboek verankerd. Per registratie bestaat een bewijsbundel (.zip met inhoud, manifest, certificaten en verify_bundle.py) die een derde zelfstandig kan controleren. Tegenpartijen bevestigen of betwisten via deellink/QR met een eigen sleutel; een ketenreferentie rijgt gebeurtenissen van meerdere partijen aaneen (batchpaspoort). Niet-gekwalificeerde vertrouwensdienst; bewijs wordt vrij gewogen (art. 8.11 BW). Geen juridisch advies.
+
+## Voor AI-agents (hoe u Vidimus gebruikt)
+- Publieke feiten (geen sleutel nodig): GET https://app.vidimus.be/verify/{registration_id} · GET https://app.vidimus.be/passport/{ref} · POST https://app.vidimus.be/verify-upload (bundel .zip als body)
+- Met organisatie-API-sleutel (header x-api-key): GET /registrations?ref=… · GET /registrations/{id}/dossier · GET /registrations/{id}/content · GET /bundle/{id} · POST /lookup {sha256} · POST /ingest · POST /registrations/{id}/share · POST /registrations/{id}/tamper-check · GET /usage · POST /assist {question}
+- OpenAPI: https://app.vidimus.be/openapi.json (Swagger: https://app.vidimus.be/docs)
+- MCP-server: `python -m vidimus.mcp_server` (env VIDIMUS_URL, VIDIMUS_API_KEY) — tools: verify_registration, passport, verify_bundle_file, list_registrations, get_dossier, get_content, download_bundle, lookup_file, register, create_share, tamper_check, usage, explain
+- Zelfstandig verifiëren zonder Vidimus: `python3 verify_bundle.py bundel.zip` (vereist Python 3 + 'cryptography')
+- Uitleg voor agents en mensen: https://vidimus.be/voor-ai
+
+## Pagina's
+- [Hoe het werkt](https://vidimus.be/hoe-het-werkt): zeven stappen van registratie tot bewijs
+- [Scenario's](https://vidimus.be/scenarios): partnerverhalen + advocaat van de duivel (canonicalisatie, origineel in kluis, herexport)
+- [Cases](https://vidimus.be/cases): interactieve cases zonder/met verankering, uitkomst in euro's
+- [Prijzen](https://vidimus.be/prijzen): aansluiting € 190/maand incl. 1.000 registraties; schijven op maandtotaal (3.000 € 290 · 10.000 € 490 · 30.000 € 690 · 100.000 € 990); proefaansluiting gratis tot 100/maand; opties gekwalificeerd tijdstempel + € 90, gedeeld grootboek + € 500
+- [Beveiligingsverklaring](https://vidimus.be/beveiliging): EU-hosting, versleuteling, sleutels, MFA, back-ups, incidenten, wat we nog niet hebben
+- [Colofon](https://vidimus.be/colofon): aard van de dienst, eIDAS-verwijzingen
+- Pijnpagina's: /meerwerk-bewijzen · /plaatsbeschrijving-betwist · /afgiftestaat-schade · /koelketen-registratie · /aflevering-betwist-cmr
+
+## Contact
+oskar@vo-initiatives.com · +32 466 47 41 15 · demo: https://cal.com/oskar-verschoren-vhygeu/15min · aansluiten: https://app.vidimus.be/app#start

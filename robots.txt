@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://vidimus.be/sitemap.xml
+# AI-agents: zie https://vidimus.be/llms.txt en https://vidimus.be/voor-ai

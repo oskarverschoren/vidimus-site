@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voor AI-agents — Vidimus gebruiken vanuit Claude, ChatGPT of uw eigen agent</title>
+<meta name="description" content="Hoe een AI-agent Vidimus gebruikt: publieke verificatie zonder sleutel, organisatie-API met sleutel, OpenAPI, MCP-server met tools (verify, passport, dossier, bundle, lookup, register, share). Voorbeeldopdrachten." />
+<link rel="canonical" href="https://vidimus.be/voor-ai" /><link rel="icon" type="image/svg+xml" href="assets/favicon.svg" /><meta name="theme-color" content="#f7f4ee" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=2" />
+<style>
+.kp{max-width:56rem;margin:0 auto;padding:0 var(--gutter)}.kp-hero{padding-top:clamp(2.5rem,6vw,5rem);padding-bottom:1rem}.kp-eyebrow{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin:0 0 .8rem}
+.kp-hero h1{font-size:clamp(1.7rem,1.2rem + 2.4vw,3rem);font-weight:600;line-height:1.15}.kp-hero h1 em{font-style:normal;font-weight:300;color:var(--blue)}.kp-lede{margin-top:1rem;font-weight:300;color:var(--t2,#4a5068);max-width:46rem;line-height:1.6}.kp-lede strong{color:var(--navy);font-weight:500}
+.blk{margin-top:2.2rem}.blk h2{font-size:1.15rem;font-weight:500;margin:0 0 .6rem}.blk p{font-weight:300;font-size:.95rem}pre{background:var(--card);border:1px solid var(--line);padding:.9rem 1.1rem;font-size:.76rem;line-height:1.6;overflow-x:auto;white-space:pre-wrap}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);font-size:.9rem}th{text-align:left;font-weight:500;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t2,#4a5068);padding:.6rem .9rem;border-bottom:1px solid var(--line);background:var(--panel,#f2eee6)}td{padding:.6rem .9rem;border-bottom:1px solid var(--line-soft);font-weight:300;vertical-align:top}td.m{font-family:'JetBrains Mono',monospace;font-size:.78rem}
+.ex{border:1px solid var(--navy);background:var(--card);padding:1rem 1.2rem;margin-top:1rem}.ex b{font-weight:500}.ex p{margin:.3rem 0 0}.meta{margin:var(--space) 0 calc(var(--space) + 3rem);font-size:.8rem;font-weight:300;color:var(--t2,#4a5068)}
+</style></head><body>
+<header class="site-header"><a class="wordmark" href="/" aria-label="Vidimus — home"><svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" /><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" /><path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>vidimus<br /><em>verankeringslaag</em></span></a>
+<nav aria-label="Hoofdnavigatie"><a href="/hoe-het-werkt">Hoe het werkt</a><a href="/cases">Cases</a><a href="/prijzen">Prijzen</a><a href="/beveiliging">Beveiliging</a><a href="https://app.vidimus.be/docs" target="_blank" rel="noopener">API-docs</a></nav>
+<button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span><span></span></button></header>
+<nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu"><a href="/hoe-het-werkt">Hoe het werkt</a><a href="/cases">Cases</a><a href="/prijzen">Prijzen</a><a href="/beveiliging">Beveiliging</a><a href="https://app.vidimus.be/docs">API-docs</a></nav>
+<main><header class="kp kp-hero"><p class="kp-eyebrow mono">Voor AI-agents · llms.txt · OpenAPI · MCP</p>
+<h1>Laat uw AI-agent het bewijs ophalen.<br /><em>"Ga naar Vidimus en bezorg me het bewijs van dit betwiste geval."</em></h1>
+<p class="kp-lede">Vidimus is gebouwd om ook door <strong>agents</strong> gebruikt te worden — Claude Code, Claude Desktop, ChatGPT-agents of uw eigen automatisering. Drie lagen: een leesbare samenvatting voor modellen (<a href="/llms.txt" style="color:var(--blue)">llms.txt</a>), een volledig beschreven API (<a href="https://app.vidimus.be/openapi.json" style="color:var(--blue)">OpenAPI</a>, <a href="https://app.vidimus.be/docs" style="color:var(--blue)">Swagger</a>) en een <strong>MCP-server</strong> met kant-en-klare tools. Publieke feiten zonder sleutel; uw eigen dossiers met de API-sleutel van uw organisatie.</p></header>
+<div class="kp">
+<section class="blk"><h2>Wat een agent kan doen</h2>
+<table><tr><th>Opdracht van de gebruiker</th><th>Wat de agent doet</th><th>Sleutel</th></tr>
+<tr><td>"Is registratie reg_… nog geldig en onaangeraakt?"</td><td class="m">GET /verify/{id} → zes controles</td><td>nee</td></tr>
+<tr><td>"Toon me alles over zending VAC-2026-007."</td><td class="m">GET /passport/{ref} → alle partijen, tijdlijn (feiten)</td><td>nee</td></tr>
+<tr><td>"Controleer deze bewijsbundel die ik van een leverancier kreeg."</td><td class="m">POST /verify-upload (zip) → oordeel + controles</td><td>nee</td></tr>
+<tr><td>"Bezorg me het bewijs van de meerwerkbon van blok B."</td><td class="m">GET /registrations?ref=… → /dossier → /bundle</td><td>ja</td></tr>
+<tr><td>"Is dit pdf'je de versie die we destijds vastlegden?"</td><td class="m">SHA-256 lokaal → POST /lookup → match + bewijs</td><td>ja</td></tr>
+<tr><td>"Leg deze afleverbon vast en laat de ontvanger tekenen."</td><td class="m">POST /ingest → POST /registrations/{id}/share (QR/mail)</td><td>ja</td></tr>
+<tr><td>"Wat kost ons dit bij 5.000 registraties?"</td><td class="m">GET /usage · POST /assist</td><td>ja</td></tr></table></section>
+<section class="blk"><h2>MCP-server (Claude Code, Claude Desktop, andere clients)</h2>
+<p>Voeg dit toe aan uw MCP-configuratie (bv. <span class="mono">.mcp.json</span> in uw project of <span class="mono">~/.claude.json</span>). Zonder API-sleutel werken enkel de publieke tools.</p>
+<pre>{"mcpServers": {"vidimus": {
+  "command": "python3", "args": ["-m", "vidimus.mcp_server"],
+  "env": {"VIDIMUS_URL": "https://app.vidimus.be", "VIDIMUS_API_KEY": "vk_…uw organisatie-sleutel (Stromen)…"}}}}</pre>
+<p>Tools: <span class="mono">verify_registration · passport · verify_bundle_file · list_registrations · list_streams · get_dossier · get_content · download_bundle · lookup_file · register · create_share · tamper_check · usage · explain</span>. Installatie: <span class="mono">pip install vidimus</span> (binnenkort) of de map <span class="mono">vidimus/</span> uit de broncode; vereist Python 3.11+.</p>
+<div class="ex"><b>Voorbeeld — zo verloopt het:</b><p><em>Gebruiker:</em> "Ga naar Vidimus en bezorg me het bewijs van de betwiste aflevering van vrijdag, container MSKU 452 118-0."</p><p><em>Agent:</em> passport("MSKU 452 118-0") → vindt de aflevering en de bevestiging van de terminal → get_dossier(reg_…) → download_bundle(reg_…) → verify_bundle_file(zip) → "Zes controles ✓. Verankerd 17/08 09:46 UTC met tijdstempel van Sectigo; de terminal bevestigde om 09:50 met een eigen sleutel: 'ontvangen zonder voorbehoud'. Bundel staat klaar in ./vidimus-bundle-reg_….zip; de tegenpartij kan ze zelf natellen met verify_bundle.py."</p></div></section>
+<section class="blk"><h2>Rechtstreeks via de API</h2>
+<pre># publiek — geen sleutel
+curl https://app.vidimus.be/verify/reg_66bfbe7909f2
+curl https://app.vidimus.be/passport/VAC-2026-007
+
+# uw organisatie — sleutel onder Stromen in de app
+curl -H "x-api-key: vk_…" "https://app.vidimus.be/registrations?ref=VAC-2026-007"
+curl -H "x-api-key: vk_…" https://app.vidimus.be/registrations/reg_…/dossier
+curl -H "x-api-key: vk_…" -o bundel.zip https://app.vidimus.be/bundle/reg_…
+curl -H "x-api-key: vk_…" -H "content-type: application/json" -d '{"sha256":"…64 hex…"}' https://app.vidimus.be/lookup
+curl -H "x-api-key: vk_…" -H "content-type: application/json" -d '{"stream_id":"str_…","signer_id":"sgn_…","payload":{"bon":"MW-0047","bedrag":4380},"ref":"WERF-B"}' https://app.vidimus.be/ingest</pre>
+<p>Volledige beschrijving: <a href="https://app.vidimus.be/openapi.json" style="color:var(--blue)">openapi.json</a> · interactief: <a href="https://app.vidimus.be/docs" style="color:var(--blue)">app.vidimus.be/docs</a>.</p></section>
+<section class="blk"><h2>Spelregels voor agents</h2>
+<p>Publieke endpoints tonen alleen feiten (nooit inhoud). De API-sleutel is per organisatie en geeft enkel toegang tot háár data. Een agent mag nooit beweren dat iets "gekwalificeerd" is tenzij het dossier <span class="mono">tier: qualified</span> zegt, en geeft geen juridisch advies: Vidimus levert bewijsmateriaal, de rechter weegt (art. 8.11 BW). Verifiëren kan altijd zonder ons: <span class="mono">python3 verify_bundle.py bundel.zip</span>.</p></section>
+<p class="meta">Vidimus is een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen · <a href="/colofon">colofon</a> · <a href="/beveiliging">beveiligingsverklaring</a></p>
+</div></main>
+<footer class="site-footer"><span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span><span><a href="/colofon">Colofon &amp; privacy</a></span><span class="mono">llms.txt · openapi.json · mcp</span></footer>
+<div class="bottom-bar" role="complementary" aria-label="Snelle acties"><a class="bottom-bar-main" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Boek de demo — 15 min</a><a class="bottom-bar-icon" href="mailto:oskar@vo-initiatives.com" aria-label="Mail ons"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="bottom-bar-icon" href="tel:+32466474115" aria-label="Bel ons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h4l1.5 4-2.5 1.8c1 2.3 2.6 3.9 4.7 4.7l1.8-2.5 4 1.5v4a1.5 1.5 0 0 1-1.6 1.5C10.5 19 5 13.5 4.5 6.1A1.5 1.5 0 0 1 6 4.5z" transform="translate(1,0) scale(0.82)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+<script>;(function(){'use strict';var b=document.getElementById('menu-btn'),m=document.getElementById('mobile-menu');if(!b||!m)return;function o(x){b.setAttribute('aria-expanded',String(x));b.classList.toggle('is-open',x);m.hidden=!x;document.body.classList.toggle('menu-open',x)}b.addEventListener('click',function(){o(b.getAttribute('aria-expanded')!=='true')});m.addEventListener('click',function(e){if(e.target.closest('a'))o(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')o(false)})})()</script>
+</body></html>
