@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
 
@@ -70,7 +70,7 @@
         <span id="rotator-count">1 van 4</span> <span aria-hidden="true">›</span>
       </button>
       <p class="hero-cta">
-        <a class="btn-outline" href="https://app.vidimus.be/app#start" target="_blank" rel="noopener noreferrer">Aansluiten — gratis tot 100 registraties/maand</a>
+        <a class="btn-outline" href="#begin">Aansluiten — gratis tot 100 registraties/maand</a>
         <a class="btn-outline" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Boek de demo — 15 min</a>
         <span class="mono hero-cta-note">geen kaart · geen einddatum · echte tijdstempels</span>
       </p>
@@ -129,6 +129,17 @@
         eensluidend was met het origineel. Precies wat wij doen,
         maar dan met wiskunde.
       </p>
+    </section>
+
+    <!-- ── Begin hier: wizard → account → eerste stroom ────── -->
+    <section class="startwiz" id="begin" aria-labelledby="begin-h">
+      <div class="sw-card">
+        <p class="kp-eyebrow">Begin hier · 3 vragen, dan uw account</p>
+        <h2 id="begin-h">Wat wilt u nooit meer betwist zien?</h2>
+        <div class="sw-bar"><i></i><i></i><i></i></div>
+        <div id="sw"></div>
+        <p class="sw-note mono">geen kaart · gratis tot 100 registraties per maand · u kunt alles later aanpassen</p>
+      </div>
     </section>
 
     <!-- ── Wie hier tekent ──────────────────────────────────── -->
@@ -653,5 +664,36 @@
       })
     })()
   </script>
+
+<script>
+(function(){
+const TPL={"meerwerkbon":["Meerwerkbon (bouw)","aannemer + bouwheer"],"afgiftestaat":["Afgiftestaat / terugname (verhuur)","verhuurder + huurder"],"plaatsbeschrijving":["Plaatsbeschrijving (vastgoed)","verhuurder + huurder"],"gate-event":["Poortscan / gate-event (haven, logistiek)","poortsysteem, automatisch"],"temperatuurlog":["Temperatuurregistratie (voeding, farma)","monitoringsysteem, automatisch"],"overdracht":["Overdracht / handover (QR — twee partijen)","overdrager + ontvanger"],"document":["Los document (algemeen)","indiener"]};
+const S={step:0,tpls:[],who:'mensen',sys:'',org:'',name:'',email:''};
+const el=document.getElementById('sw'); if(!el) return;
+function bar(){document.querySelectorAll('.sw-bar i').forEach((b,i)=>b.classList.toggle('on',i<=S.step))}
+function opt(html,on,cb){const b=document.createElement('button');b.type='button';b.className='sw-opt'+(on?' on':'');b.innerHTML=html;b.onclick=cb;return b}
+function render(){bar();el.innerHTML='';
+ if(S.step===0){const p=document.createElement('p');p.className='sw-q';p.textContent='1 · Wat wilt u vastleggen? Kies één of meer.';el.appendChild(p);
+  Object.entries(TPL).forEach(([k,[l,w]])=>el.appendChild(opt(`<span class="sw-chk">${S.tpls.includes(k)?'✓':''}</span><b>${l}</b><small>${w}</small>`,S.tpls.includes(k),()=>{const i=S.tpls.indexOf(k);i>=0?S.tpls.splice(i,1):S.tpls.push(k);render()})));
+  nav(S.tpls.length>0)}
+ if(S.step===1){const p=document.createElement('p');p.className='sw-q';p.textContent='2 · Wie legt het vast?';el.appendChild(p);
+  el.appendChild(opt('<b>Mensen — op telefoon of computer</b><small>bon, staat, foto; tekenen met een sleutel op hun toestel</small>',S.who==='mensen',()=>{S.who='mensen';S.step=2;render()}));
+  el.appendChild(opt('<b>Een systeem — poort, sensor, ERP</b><small>stuurt zelf door via de API met een systeemsleutel</small>',S.who==='systeem',()=>{S.who='systeem';render()}));
+  if(S.who==='systeem'){const l=document.createElement('label');l.className='sw-lab';l.innerHTML='Naam van het systeem <input id="sw-sys" placeholder="bv. gateway-koelcel-2 of poort-P4">';el.appendChild(l);l.querySelector('input').value=S.sys;l.querySelector('input').oninput=e=>S.sys=e.target.value}
+  nav(S.who==='mensen'||S.sys.trim().length>0)}
+ if(S.step===2){const p=document.createElement('p');p.className='sw-q';p.textContent='3 · Uw organisatie — dan maakt u in de app een wachtwoord en staat uw eerste stroom meteen klaar.';el.appendChild(p);
+  const f=document.createElement('div');f.className='sw-form';f.innerHTML='<label class="sw-lab">Organisatie<input id="sw-org" required placeholder="bv. Aannemer Demo BV"></label><label class="sw-lab">Uw naam<input id="sw-name" required></label><label class="sw-lab">E-mail<input id="sw-email" type="email" required placeholder="u@bedrijf.be"></label>';el.appendChild(f);
+  f.querySelector('#sw-org').value=S.org;f.querySelector('#sw-name').value=S.name;f.querySelector('#sw-email').value=S.email;
+  f.querySelectorAll('input').forEach(i=>i.oninput=()=>{S.org=f.querySelector('#sw-org').value;S.name=f.querySelector('#sw-name').value;S.email=f.querySelector('#sw-email').value;nav(ok3())});
+  nav(ok3())}
+}
+function ok3(){return S.org.trim()&&S.name.trim()&&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(S.email)}
+function nav(can){let n=document.getElementById('sw-nav');if(!n){n=document.createElement('div');n.id='sw-nav';n.className='sw-nav';el.appendChild(n)}else{el.appendChild(n)}
+ n.innerHTML=`<button type="button" class="btn-ghost" ${S.step===0?'disabled':''} id="sw-back">← Terug</button><button type="button" class="btn-solid" ${can?'':'disabled'} id="sw-next">${S.step<2?'Volgende →':'Account aanmaken in de app →'}</button>`;
+ n.querySelector('#sw-back').onclick=()=>{S.step=Math.max(0,S.step-1);render()};
+ n.querySelector('#sw-next').onclick=()=>{if(S.step<2){S.step++;render();return}const pre={tpls:S.tpls,who:S.who,sys:S.sys.trim(),org:S.org.trim(),name:S.name.trim(),email:S.email.trim()};const b=btoa(unescape(encodeURIComponent(JSON.stringify(pre)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');window.open('https://app.vidimus.be/app?start='+b,'_blank','noopener')}}
+render();
+})();
+</script>
 </body>
 </html>
