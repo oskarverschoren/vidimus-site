@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
 
@@ -672,12 +672,12 @@ const S={step:0,tpls:[],who:'mensen',sys:'',org:'',name:'',email:''};
 const el=document.getElementById('sw'); if(!el) return;
 function bar(){document.querySelectorAll('.sw-bar i').forEach((b,i)=>b.classList.toggle('on',i<=S.step))}
 function opt(html,on,cb){const b=document.createElement('button');b.type='button';b.className='sw-opt'+(on?' on':'');b.innerHTML=html;b.onclick=cb;return b}
-function render(){bar();el.innerHTML='';
+function render(scroll){bar();el.innerHTML='';if(scroll){const c=document.querySelector('.sw-card');const y=c.getBoundingClientRect().top+window.scrollY-84;window.scrollTo({top:y,behavior:'smooth'})}
  if(S.step===0){const p=document.createElement('p');p.className='sw-q';p.textContent='1 · Wat wilt u vastleggen? Kies één of meer.';el.appendChild(p);
   Object.entries(TPL).forEach(([k,[l,w]])=>el.appendChild(opt(`<span class="sw-chk">${S.tpls.includes(k)?'✓':''}</span><b>${l}</b><small>${w}</small>`,S.tpls.includes(k),()=>{const i=S.tpls.indexOf(k);i>=0?S.tpls.splice(i,1):S.tpls.push(k);render()})));
   nav(S.tpls.length>0)}
  if(S.step===1){const p=document.createElement('p');p.className='sw-q';p.textContent='2 · Wie legt het vast?';el.appendChild(p);
-  el.appendChild(opt('<b>Mensen — op telefoon of computer</b><small>bon, staat, foto; tekenen met een sleutel op hun toestel</small>',S.who==='mensen',()=>{S.who='mensen';S.step=2;render()}));
+  el.appendChild(opt('<b>Mensen — op telefoon of computer</b><small>bon, staat, foto; tekenen met een sleutel op hun toestel</small>',S.who==='mensen',()=>{S.who='mensen';S.step=2;render(true)}));
   el.appendChild(opt('<b>Een systeem — poort, sensor, ERP</b><small>stuurt zelf door via de API met een systeemsleutel</small>',S.who==='systeem',()=>{S.who='systeem';render()}));
   if(S.who==='systeem'){const l=document.createElement('label');l.className='sw-lab';l.innerHTML='Naam van het systeem <input id="sw-sys" placeholder="bv. gateway-koelcel-2 of poort-P4">';el.appendChild(l);l.querySelector('input').value=S.sys;l.querySelector('input').oninput=e=>S.sys=e.target.value}
   nav(S.who==='mensen'||S.sys.trim().length>0)}
@@ -690,8 +690,8 @@ function render(){bar();el.innerHTML='';
 function ok3(){return S.org.trim()&&S.name.trim()&&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(S.email)}
 function nav(can){let n=document.getElementById('sw-nav');if(!n){n=document.createElement('div');n.id='sw-nav';n.className='sw-nav';el.appendChild(n)}else{el.appendChild(n)}
  n.innerHTML=`<button type="button" class="btn-ghost" ${S.step===0?'disabled':''} id="sw-back">← Terug</button><button type="button" class="btn-solid" ${can?'':'disabled'} id="sw-next">${S.step<2?'Volgende →':'Account aanmaken in de app →'}</button>`;
- n.querySelector('#sw-back').onclick=()=>{S.step=Math.max(0,S.step-1);render()};
- n.querySelector('#sw-next').onclick=()=>{if(S.step<2){S.step++;render();return}const pre={tpls:S.tpls,who:S.who,sys:S.sys.trim(),org:S.org.trim(),name:S.name.trim(),email:S.email.trim()};const b=btoa(unescape(encodeURIComponent(JSON.stringify(pre)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');window.open('https://app.vidimus.be/app?start='+b,'_blank','noopener')}}
+ n.querySelector('#sw-back').onclick=()=>{S.step=Math.max(0,S.step-1);render(true)};
+ n.querySelector('#sw-next').onclick=()=>{if(S.step<2){S.step++;render(true);return}const pre={tpls:S.tpls,who:S.who,sys:S.sys.trim(),org:S.org.trim(),name:S.name.trim(),email:S.email.trim()};const b=btoa(unescape(encodeURIComponent(JSON.stringify(pre)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');window.open('https://app.vidimus.be/app?start='+b,'_blank','noopener')}}
 render();
 })();
 </script>

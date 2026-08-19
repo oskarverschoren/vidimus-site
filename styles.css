@@ -839,3 +839,6 @@ table.pr td.p{background:#f4f0e7}
 .sw-nav{display:flex;justify-content:space-between;gap:.8rem;margin-top:1rem}.sw-nav button[disabled]{opacity:.45;cursor:default}
 .sw-note{font-size:.7rem;color:var(--t2,#4a5068);margin:.9rem 0 0}
 @media(max-width:640px){.sw-form{grid-template-columns:1fr}}
+
+.sw-nav button{font:inherit;font-size:.95rem;cursor:pointer;padding:.65rem 1.1rem;border-radius:7px;border:1px solid var(--navy);color:var(--navy);background:linear-gradient(180deg,#fff,#f1eee6);box-shadow:0 1px 0 #fff inset,0 2px 4px rgba(34,49,92,.08)}
+.sw-nav button.btn-solid{color:var(--cream);background:linear-gradient(180deg,#34477c,#22315c);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 8px 18px rgba(34,49,92,.26)}
