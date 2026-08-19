@@ -841,4 +841,6 @@ table.pr td.p{background:#f4f0e7}
 @media(max-width:640px){.sw-form{grid-template-columns:1fr}}
 
 .sw-nav button{font:inherit;font-size:.95rem;cursor:pointer;padding:.65rem 1.1rem;border-radius:7px;border:1px solid var(--navy);color:var(--navy);background:linear-gradient(180deg,#fff,#f1eee6);box-shadow:0 1px 0 #fff inset,0 2px 4px rgba(34,49,92,.08)}
-.sw-nav button.btn-solid{color:var(--cream);background:linear-gradient(180deg,#34477c,#22315c);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 8px 18px rgba(34,49,92,.26)}
+.sw-nav button.btn-solid,.sw-nav button.btn-solid:hover{color:#f7f4ee!important;background:linear-gradient(180deg,#34477c,#22315c);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 8px 18px rgba(34,49,92,.26)}
+
+.sw-nav button{color:var(--navy)!important}.sw-nav button.btn-solid{color:#f7f4ee!important}
