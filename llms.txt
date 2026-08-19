@@ -21,3 +21,6 @@
 
 ## Contact
 oskar@vo-initiatives.com · +32 466 47 41 15 · demo: https://cal.com/oskar-verschoren-vhygeu/15min · aansluiten: https://app.vidimus.be/app#start
+
+## Uitleg per onderdeel van de app
+- https://vidimus.be/help — korte uitlegvideo's (30–45 s) per scherm: Start, Stromen, Registraties, Bewijs, Partners, Keten, Integraties, Verbruik, Beveiliging. Ook in de app via de knop ▶ Uitleg naast elke titel.

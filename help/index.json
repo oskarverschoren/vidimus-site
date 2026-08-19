@@ -1,0 +1,100 @@
+[
+ {
+  "key": "start",
+  "title": "Start & overzicht",
+  "sub": "Wat u ziet als u aanmeldt.",
+  "seconds": 35,
+  "script": [
+   "Dit is het Start-scherm. Zolang u nog niet begonnen bent, ziet u drie stappen: uw account en sleutel, uw eerste stroom, uw eerste registratie.",
+   "Daarna wordt Start uw overzicht: hoeveel registraties deze maand, wat nog wacht op een anker of handtekening, welke deellinks nog geen antwoord kregen, betwistingen en alarmen.",
+   "Rechts staat de meter van uw aansluiting en snelknoppen. Onderaan rechts kunt u altijd iets vragen aan de assistent."
+  ]
+ },
+ {
+  "key": "stromen",
+  "title": "Stromen",
+  "sub": "Uw ordening: één soort registratie per stroom.",
+  "seconds": 35,
+  "script": [
+   "Een stroom is één soort registratie die u laat verankeren: uw meerwerkbonnen, uw afgiftestaten, de temperatuur van koelcel twee.",
+   "Nieuwe stroom starten opent een doorloop in zes stappen: wat, naam, wie legt vast, partners, tijdstempel, samenvatting. Wij zetten bewaartermijn en privacy goed.",
+   "Klik op een stroom om haar registraties, alarmregels en de koppeling voor uw systeem te zien. Onderaan staan de sleutels: wie tekent."
+  ]
+ },
+ {
+  "key": "registraties",
+  "title": "Registraties",
+  "sub": "Alles wat u vastlegt — handmatig of via de API.",
+  "seconds": 40,
+  "script": [
+   "Hier staat alles wat uw organisatie vastlegde, met stroom, referentie, indiener, moment en status. Verankerd betekent: tijdstempel van een derde en grootboek.",
+   "Bovenaan zoekt u op alles: bonnummer, id, vingerafdruk, datum, indiener. Rechts legt u handmatig iets vast: kies de stroom, vul de velden in, voeg foto's of pdf toe, registreren.",
+   "De verankering gebeurt automatisch, elke paar minuten. Met Auditpakket downloadt u alle bewijsbundels van een maand of periode."
+  ]
+ },
+ {
+  "key": "bewijs",
+  "title": "Bewijs",
+  "sub": "Wat één registratie bewijst — en de knoeitest.",
+  "seconds": 45,
+  "script": [
+   "Elke registratie heeft haar eigen bewijs. Bovenaan de tijdlijn: geregistreerd, getekend, verankerd, gedeeld, bevestigd.",
+   "Links wat werd vastgelegd; rechts het volledige dossier, de bewijsbundel en de publieke verificatiepagina die alleen feiten toont.",
+   "Test het zelf: verander een waarde en klik Controleer. U ziet meteen dat de vingerafdruk niet meer klopt en welk veld verschilt. Zo ziet een tegenpartij of rechter het later ook.",
+   "Onderaan: de zes controles, de deellink of QR om een tegenpartij te laten bevestigen, en het wissen van de inhoud na de bewaartermijn."
+  ]
+ },
+ {
+  "key": "partners",
+  "title": "Partners",
+  "sub": "Met wie u deelt — bevestigd, betwist, open.",
+  "seconds": 36,
+  "script": [
+   "Onder Partners ziet u iedereen die via een deellink bevestigde of betwistte, en ketenpartners die op dezelfde referentie registreren.",
+   "Per partij: hoeveel bevestigd, hoeveel betwist, laatste contact. Klik open voor de registraties met hun status.",
+   "Een deellink maakt u bij een registratie of via Deellink maken. De partner scant, ziet alleen de feiten en bevestigt of betwist met een sleutel op zijn eigen toestel. Ook dat antwoord wordt verankerd."
+  ]
+ },
+ {
+  "key": "keten",
+  "title": "Keten",
+  "sub": "Eén referentie door meerdere stromen en partijen.",
+  "seconds": 33,
+  "script": [
+   "Een keten rijgt registraties van verschillende stromen én partijen aan elkaar met één referentie: een batch, een zending, een dossier.",
+   "Vrijgave, transport, metingen, overdrachten met beide handtekeningen, ontvangst: alles op één tijdlijn. Uw eigen registraties tonen inhoud, die van partners alleen de feiten.",
+   "Elke keten heeft een publiek batchpaspoort dat u aan een klant, inspecteur of verzekeraar kunt geven."
+  ]
+ },
+ {
+  "key": "integraties",
+  "title": "Integraties",
+  "sub": "Uw systemen registreren zelf en luisteren mee.",
+  "seconds": 36,
+  "script": [
+   "Integraties is voor uw IT. Bovenaan de API-sleutel van uw organisatie en uw systeemsleutels; daaronder een voorbeeld dat u kunt plakken.",
+   "Webhooks: geef een URL op en wij verwittigen uw ERP of WMS bij elke registratie, verankering, bevestiging of alarm — getekend, met een log van de leveringen.",
+   "Alarmregels stelt u in per stroom: bijvoorbeeld temperatuur boven acht graden. Een treffer wordt zelf verankerd, gemaild en doorgestuurd."
+  ]
+ },
+ {
+  "key": "verbruik",
+  "title": "Verbruik & factuur",
+  "sub": "De meter en de aansluiting.",
+  "seconds": 31,
+  "script": [
+   "Verbruik toont de meter: hoeveel registraties deze maand, in welke schijf u zit en wat dat kost. Eén aansluiting, alle stromen samen; geen gebruikerslicenties.",
+   "Met een proefaansluiting is alles gratis tot honderd registraties per maand. Meer nodig? Activeer de aansluiting hier — honderdnegentig euro per maand met duizend registraties inbegrepen, factuur achteraf."
+  ]
+ },
+ {
+  "key": "beveiliging",
+  "title": "Beveiliging",
+  "sub": "Uw toegang en uw sleutel.",
+  "seconds": 30,
+  "script": [
+   "Uw account is de toegang, uw sleutel op dit toestel is de handtekening. Bescherm de toegang met tweestapsverificatie: klik MFA instellen, scan de QR met uw authenticator, vul de code in.",
+   "Rechts ziet u waar u aangemeld bent en kunt u sessies afmelden. Onderaan staat uw sleutel: aangemaakt in deze browser, nooit exporteerbaar; wij hebben alleen de publieke helft."
+  ]
+ }
+]
