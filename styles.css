@@ -799,14 +799,14 @@ html.js-motion .founder.is-in .founder-meta { transition-delay: 540ms; }
 .hero-cta-note { font-size: 0.72rem; color: var(--blue); }
 
 /* ── diepte-laag "gegraveerd papier" (kaarten, knoppen) + iconenachtergrond — lettertypes ongewijzigd ── */
-.panel,.ncard,.kp-block,.calc,table.pr,.verdict,.flow-example{
+.panel,.ncard,.kp-block,.blk.calc,table.pr,.verdict,.flow-example{
   position:relative;border-radius:10px;border:1px solid transparent;
   background-image:linear-gradient(var(--card,#fffdf9),var(--card,#fffdf9)),linear-gradient(180deg,#d9d3c5 0%,#aeb6d1 50%,#d9d3c5 100%);
   background-origin:border-box;background-clip:padding-box,border-box;
   box-shadow:0 1px 0 #fff inset,0 12px 30px rgba(34,49,92,.09),0 2px 5px rgba(34,49,92,.05);
   transition:transform .15s ease,box-shadow .15s ease}
 .panel:hover,.ncard:hover,.kp-block:hover{transform:translateY(-2px);box-shadow:0 1px 0 #fff inset,0 18px 40px rgba(34,49,92,.13),0 3px 7px rgba(34,49,92,.06)}
-.calc,.verdict{background-image:linear-gradient(var(--card,#fffdf9),var(--card,#fffdf9)),linear-gradient(180deg,#8f9bc4 0%,#22315c 45%,#8f9bc4 100%);box-shadow:0 1px 0 #fff inset,0 20px 44px rgba(34,49,92,.14),0 3px 7px rgba(34,49,92,.07)}
+.blk.calc,.verdict{background-image:linear-gradient(var(--card,#fffdf9),var(--card,#fffdf9)),linear-gradient(180deg,#8f9bc4 0%,#22315c 45%,#8f9bc4 100%);box-shadow:0 1px 0 #fff inset,0 20px 44px rgba(34,49,92,.14),0 3px 7px rgba(34,49,92,.07)}
 table.pr{overflow:hidden}
 table.pr th{background:linear-gradient(180deg,#f7f4ee,#efeae0)}
 table.pr td.p{background:#f4f0e7}
@@ -815,3 +815,6 @@ table.pr td.p{background:#f4f0e7}
 .btn-outline,.btn-ghost,.btn-add{background:linear-gradient(180deg,#fff,#f1eee6);box-shadow:0 1px 0 #fff inset,0 2px 4px rgba(34,49,92,.08);border-radius:7px}
 .seal-mark{filter:drop-shadow(0 1px 1px rgba(34,49,92,.25))}
 @media (prefers-reduced-motion:reduce){.panel,.ncard,.kp-block{transition:none}}
+
+.panels .panel{padding:1.3rem 1.5rem}
+.tech{margin-top:clamp(2.5rem,5vw,4.5rem)}
