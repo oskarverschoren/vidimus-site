@@ -860,3 +860,12 @@ table.pr td.p{background:#f4f0e7}
 .sw-chips{display:flex;flex-wrap:wrap;gap:.45rem}
 .sw-chip{font:inherit;font-size:.9rem;cursor:pointer;padding:.45rem .9rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--navy)}
 .sw-chip:hover{border-color:var(--blue)}.sw-chip.on{background:var(--navy);border-color:var(--navy);color:#f7f4ee}
+
+.dropzone{max-width:46rem;margin:1.4rem 0 0}
+.dz-t{font-weight:300;font-size:.95rem}
+.dz-box{display:block;border:2px dashed var(--line);border-radius:10px;padding:2rem 1.5rem;text-align:center;cursor:pointer;color:var(--t2,#4a5068);font-weight:300;transition:border-color .15s,background .15s}
+.dz-box:hover,.dz-box.over{border-color:var(--blue);background:rgba(68,89,166,.04)}
+.dz-link{color:var(--blue);text-decoration:underline}
+.dz-name{margin:.9rem 0 .1rem;font-size:.78rem}
+.dz-hash{word-break:break-all;background:var(--panel,#f2eee6);border:1px solid var(--line);border-radius:8px;padding:.6rem .8rem;font-size:.82rem;letter-spacing:.04em}
+.dz-note{font-weight:300;font-size:.9rem;max-width:44rem}
