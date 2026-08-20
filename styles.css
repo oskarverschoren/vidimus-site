@@ -870,3 +870,5 @@ table.pr td.p{background:#f4f0e7}
 .dz-hash{word-break:break-all;background:var(--panel,#f2eee6);border:1px solid var(--line);border-radius:8px;padding:.6rem .8rem;font-size:.82rem;letter-spacing:.04em}
 .dz-note{font-weight:300;font-size:.9rem;max-width:44rem}
 
+
+.startwiz{padding-top:clamp(3rem,6vw,5.5rem);padding-bottom:clamp(3rem,6vw,5.5rem)}
