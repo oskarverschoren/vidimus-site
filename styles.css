@@ -881,3 +881,14 @@ body{background:#f7f7f8}
 .panel,.ncard,.kp-block,.blk.calc,table.pr,.verdict,.flow-example{background-image:none!important;box-shadow:0 1px 2px rgba(15,17,21,.04)!important;border:1px solid #e4e6ea!important;border-radius:10px}
 .dz-box:hover,.dz-box.over{border-color:#1f2328;background:rgba(31,35,40,.04)}
 .bottom-bar{background:#1f2328;border-color:#1f2328}
+
+/* ── twee probeer-kaders in app-stijl ── */
+.tryrow{max-width:76rem;margin:0 auto;padding:0 var(--gutter) var(--space);display:grid;grid-template-columns:1.2fr 1fr;gap:1.6rem;align-items:start}
+.try-card{background:#fff;border:1px solid #e4e6ea;border-radius:12px;padding:1.4rem 1.6rem;box-shadow:0 1px 2px rgba(15,17,21,.04),0 10px 30px rgba(15,17,21,.05)}
+.try-head{margin:0 0 .8rem}
+.try-badge{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:#5f6672;background:#f2f3f5;border:1px solid #e4e6ea;border-radius:999px;padding:.3rem .7rem}
+.try-card .kp-eyebrow{margin-top:0}
+.try-card h2{font-size:clamp(1.2rem,1rem+1vw,1.6rem)}
+.try-card .dropzone{max-width:none;margin:0}
+.try-card .dz-t{margin-top:0}
+@media(max-width:960px){.tryrow{grid-template-columns:1fr}}
