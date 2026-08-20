@@ -856,3 +856,7 @@ table.pr td.p{background:#f4f0e7}
 .sw-grid .sw-chk{position:static;flex:none;width:1rem;height:1rem;line-height:.9rem;font-size:.72rem}
 .sw-grid .sw-grp{margin:.7rem 0 .1rem}
 @media(max-width:760px){.sw-grid{grid-template-columns:1fr}}
+
+.sw-chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.sw-chip{font:inherit;font-size:.9rem;cursor:pointer;padding:.45rem .9rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--navy)}
+.sw-chip:hover{border-color:var(--blue)}.sw-chip.on{background:var(--navy);border-color:var(--navy);color:#f7f4ee}
