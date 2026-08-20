@@ -825,8 +825,8 @@ table.pr td.p{background:#f4f0e7}
 .vid.hero{max-width:40rem;margin:1.6rem 0 0}
 
 /* ── begin-hier wizard op de homepage ── */
-.startwiz{max-width:var(--measure-wide,60rem);margin:0 auto;padding:0 var(--gutter) var(--space)}
-.sw-card{background:var(--card,#fffdf9);border:1px solid transparent;border-radius:12px;padding:clamp(1.4rem,2.5vw,2.2rem);background-image:linear-gradient(var(--card,#fffdf9),var(--card,#fffdf9)),linear-gradient(180deg,#8f9bc4 0%,#22315c 45%,#8f9bc4 100%);background-origin:border-box;background-clip:padding-box,border-box;box-shadow:0 1px 0 #fff inset,0 20px 44px rgba(34,49,92,.14)}
+.startwiz{max-width:72rem;margin:0 auto;padding:0 var(--gutter) var(--space)}
+.sw-card{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
 .sw-card h2{font-size:clamp(1.4rem,1rem+1.6vw,2.1rem);margin:.2rem 0 .9rem}
 .sw-bar{display:flex;gap:.3rem;margin:0 0 1rem}.sw-bar i{flex:1;height:4px;border-radius:2px;background:var(--line)}.sw-bar i.on{background:var(--navy)}
 .sw-q{font-weight:500;margin:0 0 .6rem}
@@ -844,3 +844,6 @@ table.pr td.p{background:#f4f0e7}
 .sw-nav button.btn-solid,.sw-nav button.btn-solid:hover{color:#f7f4ee!important;background:linear-gradient(180deg,#34477c,#22315c);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 8px 18px rgba(34,49,92,.26)}
 
 .sw-nav button{color:var(--navy)!important}.sw-nav button.btn-solid{color:#f7f4ee!important}
+
+.sw-opt{background:transparent}.sw-opt.on{background:rgba(68,89,166,.06)}
+@media(min-width:900px){.sw-card>#sw{columns:1}.startwiz .sw-opt{max-width:none}}
