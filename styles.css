@@ -1,6 +1,6 @@
 /* ── DocTracer variant A — notarieel (naar notar.tirol) ─────── */
 :root {
-  --cream:   #f7f7f8;
+  --cream:   #f7f4ee;
   --card:    #fbf9f4;
   --navy:    #22315c;
   --blue:    #4459a6;
@@ -870,14 +870,3 @@ table.pr td.p{background:#f4f0e7}
 .dz-hash{word-break:break-all;background:var(--panel,#f2eee6);border:1px solid var(--line);border-radius:8px;padding:.6rem .8rem;font-size:.82rem;letter-spacing:.04em}
 .dz-note{font-weight:300;font-size:.9rem;max-width:44rem}
 
-/* ── unify met app: neutraal grijs/wit + charcoal knoppen ── */
-body{background:#f7f7f8}
-.site-header{background:#fff;border-bottom:1px solid #e4e6ea}
-.btn-solid,.sw-nav button.btn-solid{background:#1f2328!important;border-color:#1f2328!important;color:#fff!important;border-radius:8px;box-shadow:0 1px 2px rgba(15,17,21,.2)}
-.btn-solid:hover{background:#33383f!important}
-.btn-ghost,.btn-outline,.sw-nav button{border-radius:8px}
-.sw-chip.on{background:#1f2328;border-color:#1f2328;color:#fff}
-.sw-opt.on{background:rgba(31,35,40,.05);border-color:#1f2328}
-.panel,.ncard,.kp-block,.blk.calc,table.pr,.verdict,.flow-example{background-image:none!important;box-shadow:0 1px 2px rgba(15,17,21,.04)!important;border:1px solid #e4e6ea!important;border-radius:10px}
-.dz-box:hover,.dz-box.over{border-color:#1f2328;background:rgba(31,35,40,.04)}
-.bottom-bar{background:#1f2328;border-color:#1f2328}
