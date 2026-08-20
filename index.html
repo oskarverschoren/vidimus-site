@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="stylesheet" href="styles.css?v=17" />
 </head>
 <body>
 
@@ -131,7 +131,15 @@
     </section>
 
     <!-- ── Begin hier: wizard → account → eerste stroom ────── -->
-
+    <section class="startwiz" id="begin" aria-labelledby="begin-h">
+      <div class="sw-card">
+        <p class="kp-eyebrow">Begin hier · 3 vragen, dan uw account</p>
+        <h2 id="begin-h">Wat wilt u nooit meer betwist zien?</h2>
+        <div class="sw-bar"><i></i><i></i><i></i></div>
+        <div id="sw"></div>
+        <p class="sw-note mono">geen kaart · gratis tot 100 registraties per maand · u kunt alles later aanpassen</p>
+      </div>
+    </section>
 
     <!-- ── Wie hier tekent ──────────────────────────────────── -->
     <section class="founder" aria-labelledby="founder-heading">
@@ -240,7 +248,29 @@
           voor u vastzetten</strong>.
         </p>
       </header>
-      
+      <div class="dropzone" id="dz">
+        <p class="dz-t"><strong>Of gooi hier een eigen bestand.</strong> De vingerafdruk wordt <em>in uw browser</em> berekend — het bestand verlaat uw computer niet en wordt nergens opgeslagen.</p>
+        <label class="dz-box" id="dzbox">Sleep een bestand hierheen — of <span class="dz-link">kies een bestand</span><input type="file" id="dzf" hidden></label>
+        <div id="dzout" hidden>
+          <p class="dz-name mono" id="dzname"></p>
+          <p class="dz-hash mono" id="dzhash"></p>
+          <p class="dz-note">Dit is de unieke vingerafdruk van exact dit bestand — één byte anders en de hele reeks verandert. <strong>Maar op zichzelf bewijst dit niets:</strong> zonder handtekening, tijdstempel van een derde en anker kan niemand later aantonen wannéér dit bestand bestond. Dat is wat verankeren toevoegt.</p>
+          <p><a class="btn-solid" href="#begin">Veranker dit soort bestanden — gratis tot 100/maand</a></p>
+        </div>
+      </div>
+      <script>
+      (function(){const f=document.getElementById('dzf'),box=document.getElementById('dzbox');if(!f)return;
+      async function calc(file){if(!file)return;if(file.size>200*1024*1024){alert('Max 200 MB voor deze demo.');return}
+        const buf=await file.arrayBuffer();const h=await crypto.subtle.digest('SHA-256',buf);
+        const hex=[...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('');
+        document.getElementById('dzname').textContent=file.name+' · '+(file.size/1024).toFixed(0)+' kB';
+        document.getElementById('dzhash').textContent='sha-256  '+hex;
+        document.getElementById('dzout').hidden=false;}
+      f.addEventListener('change',()=>calc(f.files[0]));
+      ['dragover','dragenter'].forEach(e=>box.addEventListener(e,ev=>{ev.preventDefault();box.classList.add('over')}));
+      ['dragleave','drop'].forEach(e=>box.addEventListener(e,ev=>{ev.preventDefault();box.classList.remove('over')}));
+      box.addEventListener('drop',ev=>calc(ev.dataTransfer.files[0]));})();
+      </script>
       <figure class="illu-inline" aria-label="Illustratie: tekenen op een telefoon via een QR-code, meteen verankerd">
         <svg viewBox="0 0 420 330" role="img" aria-hidden="true">
           <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
@@ -343,47 +373,6 @@
     </section>
 
     <!-- ── Sectoren ─────────────────────────────────────────── -->
-
-    <!-- ── Probeer het hier: twee kaders in app-stijl ────────── -->
-    <section class="tryrow" id="probeer" aria-label="Probeer het zelf">
-      <div class="try-card" id="begin">
-        <div class="try-head"><span class="try-badge">Voorbeeld · zo begint een stroom</span></div>
-        
-        <p class="kp-eyebrow">Begin hier · 3 vragen, dan uw account</p>
-        <h2 id="begin-h">Wat wilt u nooit meer betwist zien?</h2>
-        <div class="sw-bar"><i></i><i></i><i></i></div>
-        <div id="sw"></div>
-        <p class="sw-note mono">geen kaart · gratis tot 100 registraties per maand · u kunt alles later aanpassen</p>
-      
-      </div>
-      <div class="try-card">
-        <div class="try-head"><span class="try-badge">Test · bereken zelf een vingerafdruk</span></div>
-        <div class="dropzone" id="dz">
-        <p class="dz-t"><strong>Of gooi hier een eigen bestand.</strong> De vingerafdruk wordt <em>in uw browser</em> berekend — het bestand verlaat uw computer niet en wordt nergens opgeslagen.</p>
-        <label class="dz-box" id="dzbox">Sleep een bestand hierheen — of <span class="dz-link">kies een bestand</span><input type="file" id="dzf" hidden></label>
-        <div id="dzout" hidden>
-          <p class="dz-name mono" id="dzname"></p>
-          <p class="dz-hash mono" id="dzhash"></p>
-          <p class="dz-note">Dit is de unieke vingerafdruk van exact dit bestand — één byte anders en de hele reeks verandert. <strong>Maar op zichzelf bewijst dit niets:</strong> zonder handtekening, tijdstempel van een derde en anker kan niemand later aantonen wannéér dit bestand bestond. Dat is wat verankeren toevoegt.</p>
-          <p><a class="btn-solid" href="#begin">Veranker dit soort bestanden — gratis tot 100/maand</a></p>
-        </div>
-      </div>
-      <script>
-      (function(){const f=document.getElementById('dzf'),box=document.getElementById('dzbox');if(!f)return;
-      async function calc(file){if(!file)return;if(file.size>200*1024*1024){alert('Max 200 MB voor deze demo.');return}
-        const buf=await file.arrayBuffer();const h=await crypto.subtle.digest('SHA-256',buf);
-        const hex=[...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('');
-        document.getElementById('dzname').textContent=file.name+' · '+(file.size/1024).toFixed(0)+' kB';
-        document.getElementById('dzhash').textContent='sha-256  '+hex;
-        document.getElementById('dzout').hidden=false;}
-      f.addEventListener('change',()=>calc(f.files[0]));
-      ['dragover','dragenter'].forEach(e=>box.addEventListener(e,ev=>{ev.preventDefault();box.classList.add('over')}));
-      ['dragleave','drop'].forEach(e=>box.addEventListener(e,ev=>{ev.preventDefault();box.classList.remove('over')}));
-      box.addEventListener('drop',ev=>calc(ev.dataTransfer.files[0]));})();
-      </script>
-      </div>
-    </section>
-
     <section id="sectoren" class="sectors" aria-labelledby="sectors-heading">
       <h2 id="sectors-heading">Elke sector heeft zijn eigen<br class="br-wide" /> woord-tegen-woord.</h2>
       <p class="sectors-sub">Herkent u dit? Geen klantverhalen — gewoon de discussies die elke week ergens opnieuw gevoerd worden. <a href="/scenarios" style="color:var(--blue)">Zie hoe zo'n discussie verloopt mét verankering →</a></p>
