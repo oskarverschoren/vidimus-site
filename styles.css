@@ -822,7 +822,7 @@ table.pr td.p{background:#f4f0e7}
 /* ── ingebedde uitlegvideo's ── */
 .vid{margin:1.4rem 0 0;max-width:46rem}.vid video{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;display:block;box-shadow:0 1px 0 #fff inset,0 12px 30px rgba(34,49,92,.12)}
 .vid figcaption{font-size:.78rem;color:var(--t2,#4a5068);font-weight:300;margin:.45rem .2rem 0}.vid figcaption a{color:var(--blue)}
-.vid.hero{max-width:40rem;margin:1.6rem 0 0}
+.vid.hero{max-width:64rem;margin:2rem 0 0}
 
 /* ── begin-hier wizard op de homepage ── */
 .startwiz{max-width:72rem;margin:0 auto;padding:0 var(--gutter) var(--space)}
