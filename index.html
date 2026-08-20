@@ -670,7 +670,7 @@ const el=document.getElementById('sw'); if(!el) return;
 function bar(){document.querySelectorAll('.sw-bar i').forEach((b,i)=>b.classList.toggle('on',i<=S.step))}
 function opt(html,on,cb){const b=document.createElement('button');b.type='button';b.className='sw-opt'+(on?' on':'');b.innerHTML=html;b.onclick=cb;return b}
 function render(scroll){bar();el.innerHTML='';if(scroll){const c=document.querySelector('.sw-card');const y=c.getBoundingClientRect().top+window.scrollY-84;window.scrollTo({top:y,behavior:'smooth'})}
- if(S.step===0){const p=document.createElement('p');p.className='sw-q';p.textContent='1 · Wat wilt u vastleggen? Kies één of meer.';el.appendChild(p);
+ if(S.step===0){const p=document.createElement('p');p.className='sw-q';p.textContent='1 · Welke registraties zijn voor u van toepassing? Kies één of meer.';el.appendChild(p);
   const grid=document.createElement('div');grid.className='sw-grid';el.appendChild(grid);
   GROUPS.forEach(([g,keys])=>{const col=document.createElement('div');const h=document.createElement('p');h.className='sw-grp';h.textContent=g;col.appendChild(h);
     keys.forEach(k=>{const [l,w]=TPL[k];const naam=l.replace(/ \(([^)]+)\)$/,'');const sec=(l.match(/\(([^)]+)\)$/)||[,''])[1];
