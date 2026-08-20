@@ -872,3 +872,6 @@ table.pr td.p{background:#f4f0e7}
 
 
 .startwiz{padding-top:clamp(3rem,6vw,5.5rem);padding-bottom:clamp(3rem,6vw,5.5rem)}
+
+#werkwijze.numbered-cards{margin-top:clamp(3rem,6vw,5.5rem)}
+.startwiz{margin-bottom:0}
