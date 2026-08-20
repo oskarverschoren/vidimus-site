@@ -849,3 +849,10 @@ table.pr td.p{background:#f4f0e7}
 @media(min-width:900px){.sw-card>#sw{columns:1}.startwiz .sw-opt{max-width:none}}
 
 .sw-grp{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t2,#4a5068);margin:1rem 0 .15rem;font-weight:500}
+
+.sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 1.6rem}
+.sw-grid .sw-opt{display:flex;align-items:center;gap:.5rem;padding:.5rem .7rem;margin:.25rem 0;font-size:.95rem}
+.sw-grid .sw-opt b{font-weight:500}.sw-sec{display:inline;font-weight:300;font-size:.8rem;color:var(--t2,#4a5068)}
+.sw-grid .sw-chk{position:static;flex:none;width:1rem;height:1rem;line-height:.9rem;font-size:.72rem}
+.sw-grid .sw-grp{margin:.7rem 0 .1rem}
+@media(max-width:760px){.sw-grid{grid-template-columns:1fr}}
