@@ -847,3 +847,5 @@ table.pr td.p{background:#f4f0e7}
 
 .sw-opt{background:transparent}.sw-opt.on{background:rgba(68,89,166,.06)}
 @media(min-width:900px){.sw-card>#sw{columns:1}.startwiz .sw-opt{max-width:none}}
+
+.sw-grp{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t2,#4a5068);margin:1rem 0 .15rem;font-weight:500}

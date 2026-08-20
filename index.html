@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
 
@@ -664,13 +664,14 @@
 <script>
 (function(){
 const TPL={"meerwerkbon":["Meerwerkbon (bouw)","aannemer + bouwheer"],"afgiftestaat":["Afgiftestaat / terugname (verhuur)","verhuurder + huurder"],"plaatsbeschrijving":["Plaatsbeschrijving (vastgoed)","verhuurder + huurder"],"gate-event":["Poortscan / gate-event (haven, logistiek)","poortsysteem, automatisch"],"temperatuurlog":["Temperatuurregistratie (voeding, farma)","monitoringsysteem, automatisch"],"overdracht":["Overdracht / handover (QR — twee partijen)","overdrager + ontvanger"],"document":["Los document (algemeen)","indiener"]};
+const GROUPS=[["Documenten & bonnen",["meerwerkbon","afgiftestaat","document"]],["Vaststellingen met foto's",["plaatsbeschrijving"]],["Sensordata & scans — automatisch via de API",["gate-event","temperatuurlog"]],["Overdrachten — twee partijen tekenen",["overdracht"]]];
 const S={step:0,tpls:[],who:'mensen',sys:'',org:'',name:'',email:''};
 const el=document.getElementById('sw'); if(!el) return;
 function bar(){document.querySelectorAll('.sw-bar i').forEach((b,i)=>b.classList.toggle('on',i<=S.step))}
 function opt(html,on,cb){const b=document.createElement('button');b.type='button';b.className='sw-opt'+(on?' on':'');b.innerHTML=html;b.onclick=cb;return b}
 function render(scroll){bar();el.innerHTML='';if(scroll){const c=document.querySelector('.sw-card');const y=c.getBoundingClientRect().top+window.scrollY-84;window.scrollTo({top:y,behavior:'smooth'})}
  if(S.step===0){const p=document.createElement('p');p.className='sw-q';p.textContent='1 · Wat wilt u vastleggen? Kies één of meer.';el.appendChild(p);
-  Object.entries(TPL).forEach(([k,[l,w]])=>el.appendChild(opt(`<span class="sw-chk">${S.tpls.includes(k)?'✓':''}</span><b>${l}</b><small>${w}</small>`,S.tpls.includes(k),()=>{const i=S.tpls.indexOf(k);i>=0?S.tpls.splice(i,1):S.tpls.push(k);render()})));
+  GROUPS.forEach(([g,keys])=>{const h=document.createElement('p');h.className='sw-grp';h.textContent=g;el.appendChild(h);keys.forEach(k=>{const [l,w]=TPL[k];el.appendChild(opt(`<span class="sw-chk">${S.tpls.includes(k)?'✓':''}</span><b>${l}</b><small>${w}</small>`,S.tpls.includes(k),()=>{const i=S.tpls.indexOf(k);i>=0?S.tpls.splice(i,1):S.tpls.push(k);render()}))})});
   nav(S.tpls.length>0)}
  if(S.step===1){const p=document.createElement('p');p.className='sw-q';p.textContent='2 · Wie legt het vast?';el.appendChild(p);
   el.appendChild(opt('<b>Mensen — op telefoon of computer</b><small>bon, staat, foto; tekenen met een sleutel op hun toestel</small>',S.who==='mensen',()=>{S.who='mensen';S.step=2;render(true)}));
