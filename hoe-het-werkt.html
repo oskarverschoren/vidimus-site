@@ -1,509 +1,199 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="nl" class="js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vidimus — Hoe het werkt: de volledige keten, van registratie tot bewijs</title>
-  <meta name="description" content="De technische werking van de Vidimus-verankeringslaag: zeven stappen van registratie tot bewijs, versleuteling en wissing, met een uitgewerkt voorbeeld per sector." />
-  <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#f7f4ee" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Vidimus" />
-  <meta property="og:title" content="Vidimus — Hoe het werkt" />
-  <meta property="og:description" content="Van registratie tot bewijs in zeven stappen — met een voorbeeld per sector en de vragen van uw IT-verantwoordelijke." />
-  <meta property="og:url" content="https://vidimus.be/hoe-het-werkt" />
-  <meta property="og:image" content="https://vidimus.be/assets/og.png" />
-  <meta property="og:locale" content="nl_BE" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
-  <style>
-    /* Pagina-specifiek: vergelijkingstabel + voorbeeldregistraties */
-    .page-hero {
-      max-width: 60rem;
-      margin: 0 auto;
-      padding: clamp(2.5rem, 6vw, 5rem) var(--gutter) clamp(2rem, 4vw, 3.5rem);
-    }
-    .page-hero h1 {
-      font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3rem);
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.2;
-    }
-    .page-hero h1 em { font-style: normal; color: var(--blue-2, var(--blue)); font-weight: 300; }
-    .page-hero p {
-      margin-top: 1.4rem;
-      font-weight: 300;
-      max-width: var(--measure);
-    }
-    /* Meer lucht tussen de sectielijn en de titel */
-    .tech { padding-top: var(--space); }
-    /* ── Zeven stappen — 1:1 naar de A4 ───────────────────── */
-    .page-hero { padding-bottom: 0; max-width: 66rem; }
-    .page-tagline { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-size: 0.8rem; font-weight: 300; color: var(--t2, #4a5068); line-height: 1.5; margin: 0 0 2.4rem; }
-    .page-tagline strong { color: var(--navy); font-weight: 500; font-size: 0.9rem; }
-    .page-hero .lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.55; }
-    .page-hero .lede strong { color: var(--navy); font-weight: 500; }
-    .steps7-wrap { max-width: 66rem; margin: 0 auto; padding: 1.6rem var(--gutter) var(--space); }
-    .steps7 { list-style: none; display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0; padding: 0; }
-    .steps7 .ncard {
-      display: grid;
-      grid-template-columns: 4.2rem 1fr;
-      column-gap: 0.6rem;
-      align-items: start;
-      padding: 1.1rem 1.1rem 1.05rem;
-      border: 1px solid var(--line);
-      background: var(--card);
-    }
-    .steps7 .ncard-num { grid-row: 1 / span 4; margin: 0; font-size: 1.5rem; font-weight: 300; line-height: 1; color: var(--blue); padding-top: 0.1rem; }
-    .steps7 .ncard-num span { display: block; margin: 0.25rem 0 0; font-family: Poppins, system-ui, sans-serif; font-size: 0.56rem; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; color: var(--t2, #4a5068); line-height: 1.35; }
-    .steps7 h3 { font-size: 1.02rem; font-weight: 500; line-height: 1.25; margin: 0; }
-    .steps7 .ncard > p:not(.ncard-num):not(.ncard-artifact):not(.ncard-quote), .steps7 .ncard-col p { font-weight: 300; font-size: 0.92rem; line-height: 1.5; color: var(--t2, #4a5068); margin: 0.45rem 0 0; }
-    .steps7 p strong { color: var(--navy); font-weight: 500; }
-    .steps7 .ncard-quote { margin: 0.8rem 0 0; padding: 0.1rem 0 0.1rem 0.75rem; border-left: 2px solid var(--blue); font-size: 0.86rem; color: var(--navy); line-height: 1.45; }
-    .steps7 .ncard-artifact { margin: 0.8rem 0 0; padding: 0.35rem 0.6rem; border: none; background: var(--panel, #f2eee6); display: inline-block; justify-self: start; font-size: 0.72rem; color: var(--blue); }
-    .steps7 .ncard-col h3 + p { margin-top: 0.4rem; }
-    @media (min-width: 880px) {
-      .steps7 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .steps7 .is-wide { grid-column: 1 / -1; grid-template-columns: 4.2rem 1fr 1fr; }
-      .steps7 .is-wide .ncard-num { grid-row: 1 / span 2; }
-      .steps7 .is-wide .ncard-col:first-of-type { padding-right: 1.2rem; border-right: 1px solid var(--line); }
-      .steps7 .is-wide .ncard-col:last-of-type { padding-left: 1.2rem; }
-    }
-    @media (max-width: 879px) {
-      .steps7 .ncard { grid-template-columns: 3.4rem 1fr; padding: 1.2rem 1.1rem; }
-      .steps7 .ncard-num { font-size: 1.6rem; }
-      .steps7 .is-wide .ncard-col + .ncard-col { margin-top: 1rem; }
-      .page-tagline { align-items: flex-start; text-align: left; }
-    }
-    .verdict { margin-top: 1.6rem; background: var(--navy); color: var(--cream); padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-    .verdict h2 { font-size: 1.15rem; font-weight: 500; line-height: 1.3; color: var(--cream); margin: 0; }
-    .verdict p { color: #dfe3f0; font-size: 0.9rem; font-weight: 300; margin: 0.35rem 0 0; max-width: 40rem; }
-    .verdict-cta { flex: 0 0 auto; text-align: right; font-size: 0.86rem; line-height: 1.6; display: flex; flex-direction: column; }
-    .verdict-cta a { color: var(--cream); text-decoration: none; }
-    .verdict-cta a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
-    .verdict-cta a b { display: block; font-size: 1rem; font-weight: 500; }
-    @media (max-width: 760px) { .verdict { flex-direction: column; align-items: flex-start; } .verdict-cta { text-align: left; } }
-    .steps7-download { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0 0; padding-top: 0.9rem; border-top: 1px solid var(--line); font-size: 0.74rem; color: var(--t2, #4a5068); }
-    .steps7-download .mono { color: var(--navy); }
-    .steps7-download a { color: var(--blue); text-decoration: underline; text-underline-offset: 0.2em; }
-    .deeper-head { max-width: 60rem; margin: 0 auto; padding: var(--space) var(--gutter) 0; border-top: 1px solid var(--line); }
-    .deeper-head h2 { font-size: clamp(1.4rem, 1rem + 1.6vw, 2rem); margin: 0 0 0.8rem; }
-    .deeper-head p { font-weight: 300; max-width: var(--measure); margin: 0; }
-    .deeper-head + .tech { padding-top: 2.4rem; }
-    .compare {
-      max-width: 60rem;
-      margin: 0 auto;
-      padding: var(--space) var(--gutter);
-    }
-    .compare-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-      align-items: start;
-    }
-    .compare-col { border: 1px solid var(--line); background: var(--card); }
-    .compare-col.is-anchored { border-color: var(--navy); }
-    .compare-col h3 {
-      margin: 0;
-      padding: 1rem 1.4rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--line-soft);
-      color: var(--navy);
-    }
-    .compare-col.is-anchored h3 { background: var(--navy); color: var(--cream); border-bottom-color: var(--navy); }
-    .compare-col ul { list-style: none; margin: 0; padding: 0; }
-    .compare-col li {
-      display: flex;
-      gap: 0.8rem;
-      align-items: flex-start;
-      padding: 1rem 1.4rem;
-      border-bottom: 1px solid var(--line-soft);
-      font-weight: 300;
-      font-size: 0.94rem;
-    }
-    .compare-col li:last-child { border-bottom: none; }
-    .compare-col li svg { flex: 0 0 16px; width: 16px; height: 16px; margin-top: 0.22em; }
-    .compare-col li strong { font-weight: 500; }
-    .flow-example {
-      margin-top: 1.1rem;
-      border: 1px solid var(--line);
-      background: var(--card);
-      padding: 0.9rem 1.1rem;
-      font-size: 0.78rem;
-      line-height: 1.7;
-      overflow-x: auto;
-    }
-    .flow-example .k { color: var(--blue); }
-    .faq { max-width: 60rem; margin: 0 auto; padding: var(--space) var(--gutter); }
-    .faq h2 { font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.3rem); margin-bottom: 2rem; }
-    .faq dl { margin: 0; border: 1px solid var(--line); background: var(--card); }
-    .faq dl > div { padding: 1.4rem 1.6rem; border-bottom: 1px solid var(--line-soft); }
-    .faq dl > div:last-child { border-bottom: none; }
-    .faq dt { color: var(--navy); font-weight: 500; margin-bottom: 0.5rem; }
-    .faq dd { margin: 0; font-weight: 300; font-size: 0.94rem; max-width: 52rem; }
-    .page-cta {
-      max-width: 60rem;
-      margin: 0 auto;
-      padding: var(--space) var(--gutter) calc(var(--space) + 3.5rem);
-      text-align: left;
-    }
-    .page-cta h2 { font-size: clamp(1.4rem, 1rem + 1.6vw, 2rem); margin-bottom: 1rem; }
-    .page-cta p { font-weight: 300; max-width: var(--measure); margin-bottom: 1.6rem; }
-    .page-cta .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
-    .page-cta .cta-row .btn-outline { text-decoration: none; }
-    @media (max-width: 760px) {
-      .compare-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoe het werkt — van registratie tot bewijs, in zeven stappen | Vidimus</title>
+<meta name="description" content="Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag; wij leggen er een verankeringslaag onder. Zeven stappen, van registratie tot bewijs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="inner.css">
 </head>
 <body>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
+</defs></svg>
 
-  <header class="site-header">
-    <a class="wordmark" href="/" aria-label="Vidimus — home">
-      <svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true">
-        <circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" />
-        <circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" />
-        <path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <span>vidimus<br /><em>verankeringslaag</em></span>
-    </a>
-    <nav aria-label="Hoofdnavigatie">
-      <a href="#keten">De zeven stappen</a>
-      <a href="#vergelijking">Databank vs. anker</a>
-      <a href="#voorbeelden">Per sector</a>
-      <a href="#vragen">Vragen</a>
-      <a href="/cases">Cases</a><a href="/prijzen">Prijzen</a><a href="/#tamper">De demo</a>
-    </nav>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
-      <span></span><span></span>
-    </button>
-  </header>
-
-  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu">
-    <a href="#keten">De zeven stappen</a>
-    <a href="#vergelijking">Databank vs. anker</a>
-    <a href="#voorbeelden">Per sector</a>
-    <a href="#vragen">Vragen</a>
-    <a href="/cases">Cases</a><a href="/prijzen">Prijzen</a><a href="/#tamper">De demo</a>
-    <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">Plan een gesprek — 15 min</a>
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <a href="hoe-het-werkt.html" style="color:var(--paper)">Hoe het werkt</a>
+    <a href="cases.html">Cases</a>
+    <a href="scenarios.html">Scenario's</a>
+    <a href="help.html">Help</a>
+    <a href="prijzen.html">Prijzen</a>
   </nav>
-
-  <main>
-
-    <!-- ── Paginakop (zoals de A4) ───────────────────────────── -->
-    <section class="page-hero" aria-labelledby="page-heading">
-      <p class="page-tagline"><strong>Nooit meer woord tegen woord.</strong><span>vidimus.be · oskar@vo-initiatives.com · +32 466 47 41 15</span></p>
-      <h1 id="page-heading">Hoe het werkt.<br /><em>Van registratie tot bewijs, in zeven stappen.</em></h1>
-      <p class="lede">
-        Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag; wij leggen er een
-        <strong>verankeringslaag</strong> onder die van elke registratie vastlegt <strong>wat er stond,
-        wanneer, en door wie</strong> — zo dat niemand het achteraf nog kan wijzigen. Ook wij niet.
-      </p>
-    </section>
-
-    <!-- ── De zeven stappen (zoals de A4) ───────────────────── -->
-    <section id="keten" class="steps7-wrap" aria-labelledby="page-heading">
-      <ol class="steps7" aria-label="De zeven stappen">
-        <li class="ncard">
-          <p class="ncard-num">01 <span>registratie</span></p>
-          <h3>Er gebeurt iets, en dat wordt vastgelegd.</h3>
-          <p>Een chauffeur scant aan de poort. Een sensor meet 4,2 °C in de koelcel. Een aannemer stuurt een meerwerkbon door. Dat doet u vandaag al — alleen belandt het in een systeem waar later iedereen aan kan zitten.</p>
-          <p class="ncard-artifact mono">bron: uw erp · poort · sensor · telefoon</p>
-        </li>
-        <li class="ncard">
-          <p class="ncard-num">02 <span>vingerafdruk</span></p>
-          <h3>Vidimus neemt een vingerafdruk.</h3>
-          <p>Van het document of de meetwaarde berekenen we op dat moment een unieke wiskundige vingerafdruk (SHA-256). Eén gewijzigd cijfer geeft een totaal andere afdruk. Uit de afdruk valt de inhoud nooit te reconstrueren.</p>
-          <p class="ncard-quote">"Een foto van het exacte moment die niemand kan bijwerken."</p>
-        </li>
-        <li class="ncard">
-          <p class="ncard-num">03 <span>wie &amp; wanneer</span></p>
-          <h3>We leggen vast wie en wanneer.</h3>
-          <p>De registratie wordt digitaal ondertekend door de indiener (Ed25519, ontworpen naar de vereisten van een geavanceerde elektronische handtekening) en een <strong>onafhankelijke tijdstempeldienst</strong> — een derde partij, niet wij — stempelt het exacte tijdstip erop (RFC 3161).</p>
-          <p class="ncard-quote">"Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok."</p>
-        </li>
-        <li class="ncard">
-          <p class="ncard-num">04 <span>verankeren</span></p>
-          <h3>De vingerafdruk gaat in de kluis van iedereen.</h3>
-          <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — wordt verankerd op een gedeeld, onwijzigbaar grootboek (Hyperledger Fabric): privé voor intern gebruik, of gedeeld tussen de partners in uw keten.</p>
-          <p class="ncard-quote">"Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen."</p>
-        </li>
-        <li class="ncard">
-          <p class="ncard-num">05 <span>op slot</span></p>
-          <h3>Het origineel gaat op slot.</h3>
-          <p>Het document zelf wordt versleuteld (AES-256, bankklasse) en bewaard in opslag die tijdens de wettelijke bewaartermijn niet gewist of overschreven kan worden (WORM). De sleutel is van uw organisatie, gescheiden van de data.</p>
-          <p class="ncard-quote">"Uw data blijft van u. Niemand leest mee — ook onze hoster niet."</p>
-        </li>
-        <li class="ncard">
-          <p class="ncard-num">06 <span>bewijzen</span></p>
-          <h3>Bij discussie: bewijs in plaats van woorden.</h3>
-          <p>"Die temperatuur is nooit gemeten." "Die bon heb ik nooit gezien." U opent het origineel, wij nemen opnieuw de vingerafdruk en leggen ze naast die op het grootboek. Klopt het — en dat kan een advocaat of rechter <strong>zelf nakijken, zonder ons</strong> — dan staat vast: dit exacte document bestond op dat moment, ingediend door die partij, sindsdien onaangeraakt.</p>
-        </li>
-        <li class="ncard is-wide">
-          <p class="ncard-num">07 <span>wissen</span></p>
-          <div class="ncard-col">
-            <h3>Als iets weg moet, gaat het ook echt weg.</h3>
-            <p>Na de bewaartermijn, of als iemand zijn recht op gegevenswissing (AVG) inroept, vernietigen we de sleutel. Het versleutelde bestand wordt voorgoed onleesbare ruis.</p>
-          </div>
-          <div class="ncard-col">
-            <h3>… terwijl het bewijs blijft staan.</h3>
-            <p>De vingerafdruk op het grootboek blijft aantonen <strong>dát</strong> er iets was, wanneer, en door wie — zonder één persoonsgegeven te bewaren. Bewijs en privacy sluiten elkaar niet meer uit.</p>
-          </div>
-        </li>
-      </ol>
-
-      <div class="verdict">
-        <div>
-          <h2>Zo starten we: één stroom, dertig dagen, vaste prijs.</h2>
-          <p>We kiezen samen de registratie waar de discussies nu het meeste kosten — de meerwerkbonnen, de koelketen, de poortscans — en koppelen alleen die. Na dertig dagen ligt uw eigen bewijsbundel op tafel. U beslist daarna.</p>
-        </div>
-        <div class="verdict-cta">
-          <a href="/#tamper"><b>vidimus.be/#tamper</b>probeer de tamper-demo</a>
-          <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">of plan 15 minuten via cal.com</a>
-        </div>
-      </div>
-
-      <p class="steps7-download"><span class="mono">sha-256 · ed25519 · rfc 3161 · merkle · hyperledger fabric · aes-256-gcm · worm</span><a class="mono" href="assets/vidimus-hoe-het-werkt.pdf" download>↓ deze pagina als A4 (pdf)</a></p>
-    </section>
-
-    <!-- ── Verdieping ───────────────────────────────────────── -->
-    <section class="deeper-head" aria-label="Verdieping">
-      <h2>Voor wie dieper wil.</h2>
-      <p><a href="/scenarios" style="color:var(--blue)">Liever verhalen? Vier scenario's met partners, van dag 0 tot de claim jaren later →</a></p>
-      <p>Hieronder: wat er per registratie exact wordt vastgezet, waarom een gewone databank dit niet kan, één uitgewerkte datastroom per sector, en de vragen die uw IT-verantwoordelijke gaat stellen.</p>
-    </section>
-
-    <!-- ── Wat er samen vastgezet wordt ─────────────────────── -->
-    <section class="tech" aria-labelledby="samen-heading">
-      <h2 id="samen-heading">Wat er per registratie wordt vastgezet.</h2>
-      <dl class="tech-list">
-        <div><dt class="mono">De inhoud</dt><dd>Het document of de meting zelf: een afgiftestaat, een meerwerk-akkoord, een gate-event, een plaatsbeschrijving. Foto's gaan mee als hash — het beeld blijft bij u.</dd></div>
-        <div><dt class="mono">Het moment</dt><dd>Niet onze serverklok maar een onafhankelijke RFC 3161-tijdstempel bepaalt wanneer. Antidateren kan dus ook niet — door geen enkele partij.</dd></div>
-        <div><dt class="mono">De ondertekenaars</dt><dd>Ed25519-handtekeningen op naam, met X.509-certificaten per organisatie en gebruiker — ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26).</dd></div>
-        <div><dt class="mono">De geschiedenis</dt><dd>Elke actie erna — bekijken, exporteren, delen — komt in een audittrail die zelf SHA-256-gechaind is: één gemanipuleerd record en de keten klopt zichtbaar niet meer.</dd></div>
-      </dl>
-    </section>
-
-    <!-- ── Databank vs. verankeringslaag ────────────────────── -->
-    <section id="vergelijking" class="compare" aria-labelledby="vergelijking-heading">
-      <header class="section-head">
-        <h2 id="vergelijking-heading">Waarom uw databank dit zelf niet kan.</h2>
-        <p>
-          Elke gewone databank draait op vier bewerkingen: aanmaken, lezen,
-          <strong>bijwerken en verwijderen</strong>. Die laatste twee zijn
-          het probleem — niet uit kwade wil, maar omdat ze bestaan. Een
-          vergissing, een migratie of een goedbedoelde correctie volstaat,
-          bij u of bij uw tegenpartij.
-        </p>
-      </header>
-      <div class="compare-grid">
-        <div class="compare-col">
-          <h3>Gewone databank</h3>
-          <ul>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#b3261e" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-              <span>Een record kan <strong>achteraf bijgewerkt</strong> worden — een collega bewaart de verkeerde versie, een meting wordt "gecorrigeerd".</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#b3261e" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-              <span>Een record kan <strong>verdwijnen</strong> — per ongeluk of niet. Een migratie of servercrash wist stil een stuk geschiedenis.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#b3261e" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-              <span><strong>Niemand kan bewijzen wie wat wijzigde</strong> — of zelfs dat er iets gewijzigd is.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#b3261e" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-              <span>Bij een geschil of audit kunt u <strong>de oorspronkelijke staat niet aantonen</strong> — uw export komt uit hetzelfde systeem dat ter discussie staat.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#b3261e" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-              <span>Uw tegenpartij heeft <strong>haar eigen databank</strong> — met exact dezelfde eigenschappen. Woord tegen woord.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="compare-col is-anchored">
-          <h3>Met de verankeringslaag</h3>
-          <ul>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg>
-              <span>Elke registratie wordt <strong>bij aanmaak vastgezet</strong> — een correctie is een nieuwe registratie, het origineel blijft bestaan.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg>
-              <span>Wissen of aanpassen is <strong>wiskundig uitgesloten</strong> — ook door ons, ook door een beheerder met alle rechten.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg>
-              <span>Elke wijziging achteraf <strong>breekt de hash zichtbaar</strong> — de verificatie slaat rood uit, voor iedereen.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg>
-              <span>Van elke registratie staan <strong>inhoud en moment onbetwistbaar vast</strong> — en de bewijsbundel is zelfstandig verifieerbaar, buiten ons platform om.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg>
-              <span>Beide partijen kijken naar <strong>dezelfde verankerde waarheid</strong> — een discussie wordt een vergelijking van twee onweerlegbare registraties.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Voorbeelden per sector ───────────────────────────── -->
-    <section id="voorbeelden" class="sectors" aria-labelledby="voorbeelden-heading">
-      <h2 id="voorbeelden-heading">Eén datastroom per sector —<br class="br-wide" /> zo ziet dat er concreet uit.</h2>
-      <p class="sectors-sub">Fictieve voorbeelden, geen klantcases. Per sector: wat er verankerd wordt, en wat de discussie daarna nog kan zijn.</p>
-      <div class="sector-list">
-        <article class="sector-row">
-          <p class="sector-num">01</p>
-          <div>
-            <h3>Materieel- &amp; machineverhuur — de afgiftestaat</h3>
-            <p>
-              Bij afgifte én terugname tekenen beide partijen de staatopname
-              op een telefoon; foto's gaan als hash mee de verankering in.
-              Een schadediscussie wordt een vergelijking van twee documenten
-              waarvan <strong>inhoud en moment vaststaan</strong>.
-            </p>
-            <pre class="flow-example mono" aria-label="Voorbeeld van een verankerde afgiftestaat"><span class="k">registratie</span>   afgiftestaat AFG-0182
-<span class="k">machine</span>       hoogwerker · serienr + urenteller
-<span class="k">staat</span>         6 foto's (sha-256) · opmerkingenveld
-<span class="k">getekend</span>      verhuurder + huurder · ter plekke
-<span class="k">verankerd</span>     tijdstempel + fabric tx</pre>
-          </div>
-        </article>
-        <article class="sector-row">
-          <p class="sector-num">02</p>
-          <div>
-            <h3>Bouw &amp; aannemers — het meerwerk-akkoord</h3>
-            <p>
-              Het "doe maar" wordt ter plekke een getekend akkoord, mét
-              bedrag en beschrijving. Bij de eindafrekening valt er niets
-              meer te ontkennen: <strong>wat er goedgekeurd werd en wanneer,
-              staat onbetwistbaar vast</strong>.
-            </p>
-            <pre class="flow-example mono" aria-label="Voorbeeld van een verankerd meerwerk-akkoord"><span class="k">registratie</span>   meerwerk MW-0047
-<span class="k">omschrijving</span>  extra funderingswerk · blok B
-<span class="k">bedrag</span>        € 4 380,00
-<span class="k">getekend</span>      aannemer + bouwheer · op de werf
-<span class="k">verankerd</span>     tijdstempel + fabric tx</pre>
-          </div>
-        </article>
-        <article class="sector-row">
-          <p class="sector-num">03</p>
-          <div>
-            <h3>Syndici &amp; vastgoed — de plaatsbeschrijving</h3>
-            <p>
-              De plaatsbeschrijving bij intrede wordt door beide partijen
-              getekend en verankerd. Bij uittrede, jaren later, is ze
-              <strong>byte voor byte nog exact wat er ondertekend werd</strong> —
-              inclusief de foto-hashes van elke ruimte.
-            </p>
-            <pre class="flow-example mono" aria-label="Voorbeeld van een verankerde plaatsbeschrijving"><span class="k">registratie</span>   plaatsbeschrijving PB-2026-013
-<span class="k">pand</span>          appartement · 4 ruimtes
-<span class="k">staat</span>         38 foto's (sha-256) · meterstanden
-<span class="k">getekend</span>      verhuurder + huurder · bij intrede
-<span class="k">verankerd</span>     tijdstempel + fabric tx</pre>
-          </div>
-        </article>
-        <article class="sector-row">
-          <p class="sector-num">04</p>
-          <div>
-            <h3>Haven &amp; logistiek — het gate-event</h3>
-            <p>
-              Elke passcan of gate-beweging die uw poortsysteem registreert,
-              wordt meteen mee verankerd. Alle partijen in de keten kijken
-              naar <strong>één gedeelde bewijslaag</strong> in plaats van
-              elk naar hun eigen logs.
-            </p>
-            <pre class="flow-example mono" aria-label="Voorbeeld van een verankerd gate-event"><span class="k">registratie</span>   gate-in GI-88412
-<span class="k">voertuig</span>      kenteken + containernr
-<span class="k">bron</span>          poortsysteem · automatisch via api
-<span class="k">moment</span>        09:41:03 utc · rfc 3161
-<span class="k">verankerd</span>     merkle-root + fabric tx</pre>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ── Technische vragen ────────────────────────────────── -->
-    <section id="vragen" class="faq" aria-labelledby="vragen-heading">
-      <h2 id="vragen-heading">De vragen die uw IT-verantwoordelijke gaat stellen.</h2>
-      <dl>
-        <div>
-          <dt>Moeten onze documenten naar jullie cloud?</dt>
-          <dd>Nee. (Volledige <a href="/beveiliging" style="color:var(--blue)">beveiligingsverklaring</a>.) Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Het document zelf blijft waar het staat, off-chain en verwijderbaar. Data blijft in de EU.</dd>
-        </div>
-        <div>
-          <dt>Is dit "blockchain" zoals in crypto?</dt>
-          <dd>Geen munt, geen speculatie, geen energieverslindend netwerk. Hyperledger Fabric is een permissioned keten: een afgesproken groep partijen houdt samen één onwijzigbaar register bij — als privaat netwerk of gedeeld in consortium.</dd>
-        </div>
-        <div>
-          <dt>En persoonsgegevens dan (AVG)?</dt>
-          <dd>Op de keten staan geen persoonsgegevens — alleen hashes, en voor persoonsgebonden registraties gesleutelde hashes die zonder de (off-chain) sleutel naar niets te herleiden zijn. Het recht op gegevenswissing blijft uitvoerbaar: het dossier is off-chain versleuteld en wordt gewist door de sleutel te vernietigen; de hash op de keten verwijst dan naar niets en bevat niets.</dd>
-        </div>
-        <div>
-          <dt>Wat als we stoppen — of als Vidimus verdwijnt?</dt>
-          <dd>De bewijsbundels zijn al van u: exporteerbaar en zelfstandig verifieerbaar met standaardcryptografie (SHA-256, RFC 3161, Merkle-bewijs). Ze hangen niet aan ons platform en blijven ook na een stopzetting geldig.</dd>
-        </div>
-        <div>
-          <dt>Hoe zwaar is de koppeling voor ons team?</dt>
-          <dd>Eén REST-endpoint of webhook per datastroom. In een pilot koppelen we bewust één stroom; de intake duurt een half uur en daarna merkt uw team er alleen het tekenmoment van.</dd>
-        </div>
-        <div>
-          <dt>Aanvaardt een rechter dit?</dt>
-          <dd>Vidimus levert bewijsmateriaal, geen juridisch advies. De handtekeningen zijn ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26), en elke verankering komt met een bewijsbundel die een expert zelfstandig kan verifiëren — sterker dan een schermafdruk uit om het even welk systeem.</dd>
-        </div>
-      </dl>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span>
-    <span><a href="colofon">Colofon &amp; privacy</a></span>
-    <span class="mono">Conceptpagina · geen klantreferenties of gepubliceerde cijfers</span>
-  </footer>
-
-  <!-- Vaste onderbalk -->
-  <div class="bottom-bar" role="complementary" aria-label="Snelle acties">
-    <a class="bottom-bar-main" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan een gesprek — 15 min</a>
-    <a class="bottom-bar-icon" href="mailto:oskar@vo-initiatives.com" aria-label="Mail ons">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="bottom-bar-icon" href="tel:+32466474115" aria-label="Bel ons: +32 466 47 41 15">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h4l1.5 4-2.5 1.8c1 2.3 2.6 3.9 4.7 4.7l1.8-2.5 4 1.5v4a1.5 1.5 0 0 1-1.6 1.5C10.5 19 5 13.5 4.5 6.1A1.5 1.5 0 0 1 6 4.5z" transform="translate(1,0) scale(0.82)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+  <div class="top-cta">
+    <a class="top-login" href="https://app.vidimus.be/app">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/app#start">Start gratis</a>
   </div>
+</header>
 
-  <script>
-    /* Mobiel menu — zelfde gedrag als op de startpagina */
-    ;(function () {
-      'use strict'
-      var btn = document.getElementById('menu-btn')
-      var menu = document.getElementById('mobile-menu')
-      if (!btn || !menu) return
-      function setOpen(open) {
-        btn.setAttribute('aria-expanded', String(open))
-        btn.classList.toggle('is-open', open)
-        menu.hidden = !open
-        document.body.classList.toggle('menu-open', open)
-      }
-      btn.addEventListener('click', function () {
-        setOpen(btn.getAttribute('aria-expanded') !== 'true')
-      })
-      menu.addEventListener('click', function (e) {
-        if (e.target.closest('a')) setOpen(false)
-      })
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') setOpen(false)
-      })
-    })()
-  </script>
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="hoe-het-werkt.html">HOE HET WERKT</a></p>
+    <h1 class="disp">Van registratie tot bewijs<span style="color:var(--red)">,</span><br><span class="thin">in zeven stappen</span><span style="color:var(--red)">.</span></h1>
+    <p class="intro">Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag; wij leggen er een verankeringslaag onder die van elke registratie vastlegt <b>wat er stond, wanneer, en door wie</b> — zo dat niemand het achteraf nog kan wijzigen. <b>Ook wij niet.</b></p>
+  </div>
+</section>
+
+<section class="how" style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap">
+    <div class="how-row rv"><span class="how-num" aria-hidden="true">01</span>
+      <h3>Registratie<small>BRON: UW ERP · POORT · SENSOR · TELEFOON</small></h3>
+      <p>Er gebeurt iets, en dat wordt vastgelegd. Een chauffeur scant aan de poort. Een sensor meet 4,2 °C in de koelcel. Een aannemer stuurt een meerwerkbon door. Dat doet u vandaag al — alleen belandt het in een systeem waar later iedereen aan kan zitten.</p>
+    </div>
+    <div class="how-row rv"><span class="how-num" aria-hidden="true">02</span>
+      <h3>Vingerafdruk<small>SHA-256 · "EEN FOTO VAN HET EXACTE MOMENT"</small></h3>
+      <p>Van het document of de meetwaarde berekenen we op dat moment een unieke wiskundige vingerafdruk. Eén gewijzigd cijfer geeft een totaal andere afdruk — en uit de afdruk valt de inhoud nooit te reconstrueren.</p>
+    </div>
+    <div class="how-row rv"><span class="how-num" aria-hidden="true">03</span>
+      <h3>Wie &amp; wanneer<small>ED25519 · RFC 3161 — NIET ONZE KLOK, DIE VAN EEN DERDE</small></h3>
+      <p>De registratie wordt digitaal ondertekend door de indiener (ontworpen naar de vereisten van een geavanceerde elektronische handtekening) en een onafhankelijke tijdstempeldienst stempelt het exacte tijdstip erop. <em style="color:var(--paper);font-style:normal">Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok.</em></p>
+    </div>
+    <div class="how-row rv"><span class="how-num" aria-hidden="true">04</span>
+      <h3>Verankeren<small>MERKLE-ROOT → HYPERLEDGER FABRIC</small></h3>
+      <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — wordt verankerd op een gedeeld, onwijzigbaar grootboek: privé voor intern gebruik, of gedeeld tussen de partners in uw keten. <em style="color:var(--paper);font-style:normal">Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen.</em></p>
+    </div>
+    <div class="how-row rv"><span class="how-num" aria-hidden="true">05</span>
+      <h3>Op slot<small>AES-256 · WORM — DE SLEUTEL IS VAN U</small></h3>
+      <p>Het document zelf wordt versleuteld en bewaard in opslag die tijdens de wettelijke bewaartermijn niet gewist of overschreven kan worden. De sleutel is van uw organisatie, gescheiden van de data. <em style="color:var(--paper);font-style:normal">Niemand leest mee — ook onze hoster niet.</em></p>
+    </div>
+    <div class="how-row rv"><span class="how-num" aria-hidden="true">06</span>
+      <h3>Bewijzen<small>BIJ DISCUSSIE: BEWIJS IN PLAATS VAN WOORDEN</small></h3>
+      <p>"Die temperatuur is nooit gemeten." U opent het origineel, wij nemen opnieuw de vingerafdruk en leggen ze naast die op het grootboek. Klopt het — en dat kan een advocaat of rechter zelf nakijken, zonder ons — dan staat vast: <em style="color:var(--paper);font-style:normal">dit exacte document bestond op dat moment, ingediend door die partij, sindsdien onaangeraakt.</em></p>
+    </div>
+    <div class="how-row rv"><span class="how-num" aria-hidden="true">07</span>
+      <h3>Wissen<small>AVG · CRYPTO-SHREDDING — WEG IS ECHT WEG</small></h3>
+      <p>Na de bewaartermijn, of bij een beroep op gegevenswissing, vernietigen we de sleutel: het versleutelde bestand wordt voorgoed onleesbare ruis. De vingerafdruk op het grootboek blijft aantonen <em style="color:var(--paper);font-style:normal">dát</em> er iets was, wanneer, en door wie — zonder één persoonsgegeven. <em style="color:var(--paper);font-style:normal">Bewijs en privacy sluiten elkaar niet meer uit.</em></p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">PER REGISTRATIE</span>
+      <h2 class="disp">Wat er exact wordt vastgezet<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="why-grid rv" style="grid-template-columns:repeat(4,1fr)">
+      <article><span class="no">A</span><h3>De inhoud</h3><p>Het document of de meting zelf: een afgiftestaat, een meerwerk-akkoord, een gate-event. Foto's gaan mee als hash — het beeld blijft bij u.</p></article>
+      <article><span class="no">B</span><h3>Het moment</h3><p>Niet onze serverklok maar een onafhankelijke RFC 3161-tijdstempel bepaalt wanneer. Antidateren kan dus ook niet — door geen enkele partij.</p></article>
+      <article><span class="no">C</span><h3>De ondertekenaars</h3><p>Ed25519-handtekeningen op naam, met X.509-certificaten per organisatie en gebruiker (eIDAS art. 26).</p></article>
+      <article><span class="no">D</span><h3>De geschiedenis</h3><p>Elke actie erna — bekijken, exporteren, delen — komt in een audittrail die zelf SHA-256-gechaind is.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">DE KERN</span>
+      <h2 class="disp">Waarom uw databank dit niet kan<span style="color:var(--red)">.</span></h2>
+      <p class="side">Elke gewone databank draait op vier bewerkingen: aanmaken, lezen, bijwerken en verwijderen. Die laatste twee zijn het probleem — niet uit kwade wil, maar omdat ze bestáán.</p>
+    </div>
+    <div class="vs-grid rv">
+      <div class="vs-col bad-side">
+        <h3>Gewone databank</h3>
+        <ul>
+          <li>Een record kan achteraf bijgewerkt worden — een collega bewaart de verkeerde versie, een meting wordt "gecorrigeerd".</li>
+          <li>Een record kan verdwijnen — per ongeluk of niet. Een migratie of servercrash wist stil een stuk geschiedenis.</li>
+          <li>Niemand kan bewijzen wie wat wijzigde — of zelfs dát er iets gewijzigd is.</li>
+          <li>Bij een geschil komt uw export uit hetzelfde systeem dat ter discussie staat.</li>
+          <li>Uw tegenpartij heeft haar eigen databank — met exact dezelfde eigenschappen.</li>
+        </ul>
+        <p class="cost">= WOORD TEGEN WOORD</p>
+      </div>
+      <div class="vs-col good-side">
+        <h3>Met de verankeringslaag</h3>
+        <ul>
+          <li>Elke registratie wordt bij aanmaak vastgezet — een correctie is een nieuwe registratie, het origineel blijft bestaan.</li>
+          <li>Wissen of aanpassen is wiskundig uitgesloten — ook door ons, ook door een beheerder met alle rechten.</li>
+          <li>Elke wijziging achteraf breekt de hash zichtbaar — de verificatie slaat rood uit, voor iedereen.</li>
+          <li>De bewijsbundel is zelfstandig verifieerbaar, buiten ons platform om.</li>
+          <li>Beide partijen kijken naar dezelfde verankerde waarheid.</li>
+        </ul>
+        <p class="cost">= WISKUNDE TEGEN WOORD</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">CONCREET</span>
+      <h2 class="disp">Eén datastroom per sector<span style="color:var(--red)">.</span></h2>
+      <p class="side">Fictieve voorbeelden, geen klantcases. Per sector: wat er verankerd wordt, en wat de discussie daarna nog kan zijn. Spoiler: weinig.</p>
+    </div>
+    <div style="display:grid;gap:3rem;margin-top:1rem">
+      <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
+        <div><p class="lbl"><b>01</b> · MATERIEEL- &amp; MACHINEVERHUUR</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">De afgiftestaat</h3><p style="font-size:.86rem;color:var(--paper-dim)">Bij afgifte én terugname tekenen beide partijen de staatopname op een telefoon; foto's gaan als hash mee de verankering in. Een schadediscussie wordt een vergelijking van twee documenten waarvan inhoud en moment vaststaan.</p></div>
+        <div class="codecard"><span class="k">registratie</span>afgiftestaat AFG-0182<br><span class="k">machine</span>hoogwerker · serienr + urenteller<br><span class="k">staat</span>6 foto's (sha-256) · opmerkingen<br><span class="k">getekend</span>verhuurder + huurder · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + fabric tx</span></div>
+      </div>
+      <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
+        <div><p class="lbl"><b>02</b> · BOUW &amp; AANNEMERS</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">Het meerwerk-akkoord</h3><p style="font-size:.86rem;color:var(--paper-dim)">Het "doe maar" wordt ter plekke een getekend akkoord, mét bedrag en beschrijving. Bij de eindafrekening valt er niets meer te ontkennen.</p></div>
+        <div class="codecard"><span class="k">registratie</span>meerwerk MW-0047<br><span class="k">omschrijving</span>extra funderingswerk · blok B<br><span class="k">bedrag</span><span class="hl">€ 38 500,00</span><br><span class="k">getekend</span>aannemer + bouwheer · op de werf<br><span class="k">verankerd</span><span class="gr">tijdstempel + fabric tx</span></div>
+      </div>
+      <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
+        <div><p class="lbl"><b>03</b> · SYNDICI &amp; VASTGOED</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">De plaatsbeschrijving</h3><p style="font-size:.86rem;color:var(--paper-dim)">Bij intrede door beide partijen getekend en verankerd. Bij uittrede, jaren later, is ze byte voor byte nog exact wat er ondertekend werd — inclusief de foto-hashes van elke ruimte.</p></div>
+        <div class="codecard"><span class="k">registratie</span>plaatsbeschrijving PB-2026-013<br><span class="k">pand</span>appartement · 4 ruimtes<br><span class="k">staat</span>38 foto's (sha-256) · meterstanden<br><span class="k">getekend</span>verhuurder + huurder · bij intrede<br><span class="k">verankerd</span><span class="gr">tijdstempel + fabric tx</span></div>
+      </div>
+      <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
+        <div><p class="lbl"><b>04</b> · HAVEN &amp; LOGISTIEK</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">Het gate-event</h3><p style="font-size:.86rem;color:var(--paper-dim)">Elke passcan of gate-beweging die uw poortsysteem registreert, wordt meteen mee verankerd. Alle partijen in de keten kijken naar één gedeelde bewijslaag in plaats van elk naar hun eigen logs.</p></div>
+        <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span>09:41:03 utc · rfc 3161<br><span class="k">verankerd</span><span class="gr">merkle-root + fabric tx</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">VOOR UW IT</span>
+      <h2 class="disp">De vragen die uw IT'er gaat stellen<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Moeten onze documenten naar jullie cloud?</summary><p class="a"><b>Nee.</b> Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Het document zelf blijft waar het staat, off-chain en verwijderbaar. Data blijft in de EU.</p></details>
+      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen speculatie, geen energieverslindend netwerk.</b> Hyperledger Fabric is een permissioned keten: een afgesproken groep partijen houdt samen één onwijzigbaar register bij — als privaat netwerk of gedeeld in consortium.</p></details>
+      <details><summary>En persoonsgegevens dan (AVG)?</summary><p class="a">Op de keten staan <b>geen persoonsgegevens</b> — alleen hashes, en voor persoonsgebonden registraties gesleutelde hashes die zonder de (off-chain) sleutel naar niets te herleiden zijn. Het recht op gegevenswissing blijft uitvoerbaar: het dossier is off-chain versleuteld en wordt gewist door de sleutel te vernietigen.</p></details>
+      <details><summary>Wat als we stoppen — of als Vidimus verdwijnt?</summary><p class="a">De bewijsbundels zijn <b>al van u</b>: exporteerbaar en zelfstandig verifieerbaar met standaardcryptografie (SHA-256, RFC 3161, Merkle-bewijs). Ze hangen niet aan ons platform en blijven ook na een stopzetting geldig.</p></details>
+      <details><summary>Hoe zwaar is de koppeling voor ons team?</summary><p class="a"><b>Eén REST-endpoint of webhook per datastroom.</b> In een pilot koppelen we bewust één stroom; de intake duurt een half uur en daarna merkt uw team er alleen het tekenmoment van.</p></details>
+      <details><summary>Aanvaardt een rechter dit?</summary><p class="a">Vidimus levert bewijsmateriaal, geen juridisch advies. De handtekeningen zijn ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26), en elke verankering komt met een bundel die een expert zelfstandig kan verifiëren — <b>sterker dan een schermafdruk uit om het even welk systeem.</b></p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Zo starten we: <span>één stroom, dertig dagen, vaste prijs.</span></h2>
+    <div class="final-under">
+      <p>We kiezen samen de registratie waar de discussies nu het meeste kosten en koppelen alleen die. Na dertig dagen ligt uw eigen bewijsbundel op tafel. U beslist daarna.</p>
+      <div class="hero-actions">
+        <a class="xbtn red" href="index.html#demo"><span>Probeer de vervals-demo</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </div>
+    </div>
+    <p class="lbl" style="margin-top:2.5rem">SHA-256 · ED25519 · RFC 3161 · MERKLE · HYPERLEDGER FABRIC · AES-256-GCM · WORM</p>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <a href="scenarios.html">Scenario's</a>
+  <a href="cases.html">Cases</a>
+  <span class="sp"></span>
+  <span>Conceptpagina · geen klantreferenties</span>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>

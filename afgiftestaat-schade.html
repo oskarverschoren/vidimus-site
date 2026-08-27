@@ -1,257 +1,153 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="nl" class="js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schade aan verhuurd materieel: de afgiftestaat die de discussie beslecht — Vidimus</title>
-  <meta name="description" content="Schade aan verhuurd materieel: de afgiftestaat die de discussie beslecht — praktische stappen, wat de wet zegt, en wat er verandert als de registratie onwijzigbaar vaststaat. Vidimus, verankeringslaag." />
-  <link rel="canonical" href="https://vidimus.be/afgiftestaat-schade" />
-  <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#f7f4ee" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Vidimus" />
-  <meta property="og:title" content="Schade aan verhuurd materieel: de afgiftestaat die de discussie beslecht" />
-  <meta property="og:description" content="Schade aan verhuurd materieel: de afgiftestaat die de discussie beslecht — praktische stappen, wat de wet zegt, en wat er verandert als de registratie onwijzigbaar vaststaat. Vidimus, verankeringslaag." />
-  <meta property="og:url" content="https://vidimus.be/afgiftestaat-schade" />
-  <meta property="og:image" content="https://vidimus.be/assets/og.png" />
-  <meta property="og:locale" content="nl_BE" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kunnen sensoren (schok, locatie, uren) mee verankerd worden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Telematica- en sensordata gaan als datastroom mee: elke meting krijgt een vingerafdruk en wordt in batches verankerd. Zo staat ook vást wanneer de schok plaatsvond."}}, {"@type": "Question", "name": "De huurder wil niet tekenen op de telefoon.", "acceptedAnswer": {"@type": "Answer", "text": "Dan tekent uw medewerker, en krijgt de huurder de staat en de verificatielink per e-mail. Niet betwisten binnen de termijn uit uw AV weegt dan tegen hem."}}, {"@type": "Question", "name": "Moet ons verhuurpakket vervangen worden?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Uw pakket blijft de bron; wij koppelen via API of webhook, of u gebruikt de tekenmodule los ernaast."}}]}</script>
-  <style>
-    .kp { max-width: 60rem; margin: 0 auto; padding: 0 var(--gutter); }
-    .kp-hero { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: 1rem; }
-    .kp-eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 0 0 1rem; }
-    .kp-hero h1 { font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3rem); font-weight: 600; color: var(--navy); line-height: 1.15; letter-spacing: -0.01em; }
-    .kp-hero h1 em { font-style: normal; font-weight: 300; color: var(--blue); }
-    .kp-sub { margin-top: 0.9rem; font-size: 1.1rem; font-weight: 400; color: var(--navy); }
-    .kp-lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.6; }
-    .kp-lede strong { color: var(--navy); font-weight: 500; }
-    .kp-scenario { margin: 2rem 0 0; border: 1px solid var(--navy); background: var(--card); padding: 1.3rem 1.5rem; display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; }
-    .kp-scenario .mono { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); }
-    .kp-scenario p { font-weight: 300; font-size: 0.97rem; margin: 0; }
-    .kp h2 { font-size: clamp(1.35rem, 1rem + 1.4vw, 1.9rem); margin: 0 0 1.2rem; }
-    .kp-block { padding: var(--space) 0 0; }
-    .kp-why { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 0; }
-    .kp-why > div { border: 1px solid var(--line); background: var(--card); padding: 1.2rem 1.3rem; }
-    .kp-why dt { font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
-    .kp-why dd { margin: 0; font-weight: 300; font-size: 0.93rem; line-height: 1.5; color: var(--t2, #4a5068); }
-    .kp-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); background: var(--card); }
-    .kp-list li { position: relative; padding: 0.95rem 1.3rem 0.95rem 2.5rem; border-bottom: 1px solid var(--line-soft); font-weight: 300; font-size: 0.95rem; line-height: 1.55; }
-    .kp-list li:last-child { border-bottom: none; }
-    .kp-list li::before { content: ""; position: absolute; left: 1.3rem; top: 1.5rem; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--blue); }
-    .kp-list.is-anchored { border-color: var(--navy); }
-    .kp-list.is-anchored li::before { background: var(--navy); }
-    .kp-list strong { font-weight: 500; color: var(--navy); }
-    .kp-law { margin: 0; border: 1px solid var(--line); background: var(--card); }
-    .kp-law > div { padding: 1.1rem 1.3rem; border-bottom: 1px solid var(--line-soft); }
-    .kp-law > div:last-child { border-bottom: none; }
-    .kp-law dt { color: var(--blue); font-size: 0.78rem; margin-bottom: 0.35rem; }
-    .kp-law dd { margin: 0; font-weight: 300; font-size: 0.93rem; line-height: 1.55; }
-    .kp-disclaimer { margin-top: 0.8rem; font-size: 0.78rem; font-weight: 300; color: var(--t2, #4a5068); }
-    .kp-two { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1.5rem; align-items: start; }
-    .flow-example { margin: 0; border: 1px solid var(--line); background: var(--card); padding: 0.9rem 1.1rem; font-size: 0.78rem; line-height: 1.7; overflow-x: auto; }
-    .flow-example .k { color: var(--blue); }
-    .kp-calc { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--panel, #f2eee6); padding: 1.2rem 1.4rem; }
-    .kp-calc .mono { font-size: 0.8rem; color: var(--navy); }
-    .kp-calc p { margin: 0.5rem 0 0; font-weight: 300; font-size: 0.93rem; }
-    .verdict { margin-top: var(--space); background: var(--navy); color: var(--cream); padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-    .verdict h2 { font-size: 1.15rem; font-weight: 500; line-height: 1.3; color: var(--cream); margin: 0; }
-    .verdict p { color: #dfe3f0; font-size: 0.9rem; font-weight: 300; margin: 0.35rem 0 0; max-width: 40rem; }
-    .verdict-cta { flex: 0 0 auto; text-align: right; font-size: 0.86rem; line-height: 1.6; display: flex; flex-direction: column; }
-    .verdict-cta a { color: var(--cream); text-decoration: none; }
-    .verdict-cta a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
-    .verdict-cta a b { display: block; font-size: 1rem; font-weight: 500; }
-    .kp-faq dl { margin: 0; border: 1px solid var(--line); background: var(--card); }
-    .kp-faq dl > div { padding: 1.2rem 1.4rem; border-bottom: 1px solid var(--line-soft); }
-    .kp-faq dl > div:last-child { border-bottom: none; }
-    .kp-faq dt { color: var(--navy); font-weight: 500; margin-bottom: 0.4rem; }
-    .kp-faq dd { margin: 0; font-weight: 300; font-size: 0.93rem; line-height: 1.55; }
-    .kp-related { padding: var(--space) 0 calc(var(--space) + 3rem); }
-    .kp-related ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
-    .kp-related a { display: block; border: 1px solid var(--line); background: var(--card); padding: 1rem 1.2rem; text-decoration: none; color: var(--navy); font-weight: 400; font-size: 0.95rem; }
-    .kp-related a:hover { border-color: var(--navy); }
-    .kp-related a .mono { display: block; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.35rem; }
-
-    .vb { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); background: var(--card); }
-    .vb li { display: grid; grid-template-columns: 3rem 1.15fr 1fr; gap: 0 1.2rem; padding: 1.1rem 1.3rem; border-bottom: 1px solid var(--line-soft); align-items: start; }
-    .vb li:last-child { border-bottom: none; }
-    .vb-n { font-size: 1.3rem; font-weight: 300; color: var(--blue); line-height: 1; padding-top: 0.15rem; }
-    .vb-b h3 { font-size: 0.98rem; font-weight: 500; margin: 0 0 0.45rem; }
-    .vb-b pre { margin: 0; font-size: 0.74rem; line-height: 1.6; color: var(--blue); background: var(--panel, #f2eee6); padding: 0.6rem 0.75rem; overflow-x: auto; white-space: pre; }
-    .vb-m { font-weight: 300; font-size: 0.92rem; line-height: 1.55; color: var(--t2, #4a5068); padding-top: 0.2rem; }
-    .vb-m strong { font-weight: 500; color: var(--navy); display: block; margin-bottom: 0.2rem; }
-    @media (max-width: 860px) { .vb li { grid-template-columns: 2.4rem 1fr; } .vb-m { grid-column: 2; margin-top: 0.7rem; } }
-
-    @media (max-width: 860px) {
-      .kp-why, .kp-two, .kp-related ul { grid-template-columns: 1fr; }
-      .kp-scenario { grid-template-columns: 1fr; gap: 0.5rem; }
-      .verdict { flex-direction: column; align-items: flex-start; } .verdict-cta { text-align: left; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schade aan verhuurd materieel — de afgiftestaat die de discussie beslecht | Vidimus</title>
+<meta name="description" content="Het toestel vertrekt in orde, komt beschadigd terug, en de huurder ontkent. Hoe u afgifte en terugname zo registreert dat er niets meer te ontkennen valt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="inner.css">
 </head>
 <body>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
+</defs></svg>
 
-  <header class="site-header">
-    <a class="wordmark" href="/" aria-label="Vidimus — home">
-      <svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true">
-        <circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" />
-        <circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" />
-        <path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <span>vidimus<br /><em>verankeringslaag</em></span>
-    </a>
-    <nav aria-label="Hoofdnavigatie">
-      <a href="#vandaag">Wat u vandaag kunt doen</a>
-      <a href="#wet">Wat de wet zegt</a>
-      <a href="#verankerd">Verankerd</a>
-      <a href="/hoe-het-werkt">Hoe het werkt</a>
-      <a href="/#tamper">De demo</a>
-    </nav>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
-      <span></span><span></span>
-    </button>
-  </header>
-
-  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu">
-    <a href="#vandaag">Wat u vandaag kunt doen</a>
-    <a href="#wet">Wat de wet zegt</a>
-    <a href="#verankerd">Verankerd</a>
-    <a href="/hoe-het-werkt">Hoe het werkt</a>
-    <a href="/#tamper">De demo</a>
-    <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">Plan een gesprek — 15 min</a>
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="cases.html">Cases</a>
+    <a href="scenarios.html">Scenario's</a>
+    <a href="help.html">Help</a>
+    <a href="prijzen.html">Prijzen</a>
   </nav>
-
-  <main>
-    <article>
-      <header class="kp kp-hero">
-        <p class="kp-eyebrow mono">Materieel- & machineverhuur</p>
-        <h1>De hoogwerker komt terug met een deuk. <em>"Die zat er al."</em></h1>
-        <p class="kp-sub">Hoe maakt u van de afgiftestaat een bewijs in plaats van een discussie?</p>
-        <p class="kp-lede">Elke verhuurder kent het: het toestel vertrekt in orde, komt beschadigd terug, en de huurder ontkent. Uw afgiftestaat is een pdf uit uw eigen systeem; zijn woord staat tegenover het uwe. Deze pagina toont hoe u afgifte en terugname zo registreert dat er <strong>niets meer te ontkennen valt</strong>.</p>
-        <div class="kp-scenario" aria-label="Herkenbaar scenario">
-          <span class="mono">Herkent u dit?</span>
-          <p>Hoogwerker, afgifte maandagochtend: staat in orde, urenteller 1.412, zes foto's. Terugname vrijdag: gieklift gedeukt, hydrauliekslang beschadigd. Huurder: "Die deuk zat er bij afgifte al — jullie foto's zijn van een ander toestel." Herstel: € 2.900. Uw bewijs: een pdf die u zelf kunt maken en aanpassen.</p>
-        </div>
-      </header>
-
-      <section class="kp kp-block" aria-labelledby="why-h">
-        <h2 id="why-h">Waarom dit zo vaak misloopt.</h2>
-        <dl class="kp-why">
-          <div><dt>De afgiftestaat is uw document</dt><dd>Hij komt uit uw systeem, op uw briefpapier, aanpasbaar door uw mensen. Voor een rechter is dat 'de versie van de verhuurder'.</dd></div>
-          <div><dt>De huurder tekent niet altijd, of niet bewust</dt><dd>Een krabbel op een tablet bij een haastige afgifte overtuigt weinig — zeker als de huurder zegt dat hij de foto's nooit gezien heeft.</dd></div>
-          <div><dt>Terugname gebeurt zonder de huurder</dt><dd>Vaak wordt het toestel afgezet als er niemand van u bij is. Dan is uw vaststelling eenzijdig — en dus zwak.</dd></div>
-        </dl>
-      </section>
-
-      <section id="vandaag" class="kp kp-block" aria-labelledby="today-h">
-        <h2 id="today-h">Wat u vandaag al kunt doen — ook zonder ons.</h2>
-        <ul class="kp-list">
-          <li>Maak de staatopname <strong>samen met de huurder</strong>: foto's per zijde, urenteller, serienummer, opmerkingen — beide handtekeningen, vóór het toestel vertrekt.</li>
-          <li>Stuur de afgiftestaat mét foto's <strong>meteen door</strong> naar de huurder; een niet-betwiste ontvangst weegt.</li>
-          <li>Zet in uw algemene voorwaarden dat de huurder bij terugname aanwezig is of de vaststelling binnen 24 u betwist — en een bewijsclausule (art. 8.2 BW) over welke registraties gelden.</li>
-          <li>Registreer bij terugname opnieuw met dezelfde discipline: dezelfde zijden, dezelfde volgorde.</li>
-        </ul>
-      </section>
-
-      <section id="wet" class="kp kp-block" aria-labelledby="law-h">
-        <h2 id="law-h">Wat de wet zegt.</h2>
-        <dl class="kp-law">
-          <div><dt class="mono">Huurrecht (art. 1731 oud BW) & uw algemene voorwaarden</dt><dd>Zonder tegensprekelijke staat bij afgifte wordt vermoed dat de huurder het goed ontving in de staat waarin hij het teruggeeft. De bewijslast dat de schade van hém komt, ligt bij u. Uw AV kunnen dat regelen — als de staat bij afgifte vaststaat.</dd></div>
-          <div><dt class="mono">art. 8.11 BW</dt><dd>Tussen ondernemingen vrij bewijs: sensordata, foto's en digitale staten zijn toegelaten. Hun gewicht hangt af van hoe onafhankelijk ze zijn van de partij die ze inroept.</dd></div>
-        </dl>
-        <p class="kp-disclaimer">Algemene informatie, geen juridisch advies. Vidimus levert bewijsmateriaal; hoe zwaar het weegt, beoordeelt de rechter — en dat gewicht is precies wat verankering verhoogt.</p>
-      </section>
-
-      <section id="verankerd" class="kp kp-block" aria-labelledby="anch-h">
-        <h2 id="anch-h">Wat er verandert als u het verankert.</h2>
-        <div class="kp-two">
-          <ul class="kp-list is-anchored">
-          <li>Afgifte én terugname worden <strong>door beide partijen op een telefoon getekend</strong>; foto's, urenteller en opmerkingen worden op dat moment gehasht en van een onafhankelijk tijdstempel voorzien.</li>
-          <li>Ook uw eigen dienst kan de staat achteraf niet meer aanpassen — <strong>dat</strong> is wat de huurder overtuigt.</li>
-          <li>Een schadediscussie wordt een vergelijking van twee registraties waarvan inhoud en moment vaststaan. Meestal eindigt ze daar.</li>
-          </ul>
-          <div>
-            <pre class="flow-example mono" aria-label="Voorbeeld van een verankerde registratie"><span class="k">registratie</span>   afgiftestaat AFG-0182
-<span class="k">machine</span>       hoogwerker · serienr + urenteller 1 412
-<span class="k">staat</span>         6 foto's (sha-256) · geen schade
-<span class="k">getekend</span>      verhuurder + huurder · ter plekke
-<span class="k">verankerd</span>     tijdstempel + fabric tx</pre>
-            <div class="kp-calc">
-              <span class="mono">rekensom</span>
-              <p><strong>Tien betwiste schades per jaar × 4 uur × € 75, plus gemiddeld € 900 niet-verhaalde herstelkosten</strong><br />≈ € 3.000 aan uren en € 9.000 aan schade die u zelf draagt — per depot. Eén verankerde afgiftestaat kost een fractie daarvan.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="verdict">
-          <div>
-            <h2>Zo starten we: één stroom, dertig dagen, vaste prijs.</h2>
-            <p>We koppelen alleen deze registratie — niets anders — en na dertig dagen ligt uw eigen bewijsbundel op tafel. U beslist daarna.</p>
-          </div>
-          <div class="verdict-cta">
-            <a href="/#tamper"><b>vidimus.be/#tamper</b>probeer de tamper-demo</a>
-            <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">of plan 15 minuten via cal.com</a>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="kp kp-block kp-faq" aria-labelledby="faq-h">
-        <h2 id="faq-h">Veelgestelde vragen.</h2>
-        <dl>
-          <div><dt>Kunnen sensoren (schok, locatie, uren) mee verankerd worden?</dt><dd>Ja. Telematica- en sensordata gaan als datastroom mee: elke meting krijgt een vingerafdruk en wordt in batches verankerd. Zo staat ook vást wanneer de schok plaatsvond.</dd></div>
-          <div><dt>De huurder wil niet tekenen op de telefoon.</dt><dd>Dan tekent uw medewerker, en krijgt de huurder de staat en de verificatielink per e-mail. Niet betwisten binnen de termijn uit uw AV weegt dan tegen hem.</dd></div>
-          <div><dt>Moet ons verhuurpakket vervangen worden?</dt><dd>Nee. Uw pakket blijft de bron; wij koppelen via API of webhook, of u gebruikt de tekenmodule los ernaast.</dd></div>
-        </dl>
-      </section>
-
-      <nav class="kp kp-related" aria-label="Verwante pagina's">
-        <h2>Verwant.</h2>
-        <ul>
-          <li><a href="/plaatsbeschrijving-betwist"><span class="mono">Syndici & vastgoed</span>Plaatsbeschrijving betwist: schade bij vertrek van de huurder bewijzen</a></li>
-          <li><a href="/aflevering-betwist-cmr"><span class="mono">Transport, haven & logistiek</span>Aflevering betwist? Zo bewijst u levering, tijdstip en staat (CMR art. 30)</a></li>
-          <li><a href="/hoe-het-werkt"><span class="mono">Achtergrond</span>Hoe het werkt — van registratie tot bewijs, in zeven stappen</a></li>
-        </ul>
-      </nav>
-    </article>
-  </main>
-
-  <footer class="site-footer">
-    <span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span>
-    <span><a href="/colofon">Colofon &amp; privacy</a></span>
-    <span class="mono">Fictieve voorbeelden · geen klantreferenties</span>
-  </footer>
-
-  <div class="bottom-bar" role="complementary" aria-label="Snelle acties">
-    <a class="bottom-bar-main" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan een gesprek — 15 min</a>
-    <a class="bottom-bar-icon" href="mailto:oskar@vo-initiatives.com" aria-label="Mail ons">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="bottom-bar-icon" href="tel:+32466474115" aria-label="Bel ons: +32 466 47 41 15">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h4l1.5 4-2.5 1.8c1 2.3 2.6 3.9 4.7 4.7l1.8-2.5 4 1.5v4a1.5 1.5 0 0 1-1.6 1.5C10.5 19 5 13.5 4.5 6.1A1.5 1.5 0 0 1 6 4.5z" transform="translate(1,0) scale(0.82)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+  <div class="top-cta">
+    <a class="top-login" href="https://app.vidimus.be/app">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/app#start">Start gratis</a>
   </div>
+</header>
 
-  <script>
-    ;(function () {
-      'use strict'
-      var btn = document.getElementById('menu-btn')
-      var menu = document.getElementById('mobile-menu')
-      if (!btn || !menu) return
-      function setOpen(open) {
-        btn.setAttribute('aria-expanded', String(open))
-        btn.classList.toggle('is-open', open)
-        menu.hidden = !open
-        document.body.classList.toggle('menu-open', open)
-      }
-      btn.addEventListener('click', function () { setOpen(btn.getAttribute('aria-expanded') !== 'true') })
-      menu.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false) })
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false) })
-    })()
-  </script>
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="index.html#dossiers">DOSSIERS</a><i>/</i><span class="lbl" style="color:var(--red)">MATERIEEL- &amp; MACHINEVERHUUR</span></p>
+    <h1 class="disp">De deuk die <span class="thin">"er al zat"</span><span style="color:var(--red)">.</span></h1>
+    <p class="intro">Elke verhuurder kent het: het toestel vertrekt in orde, komt beschadigd terug, en de huurder ontkent. Uw afgiftestaat is een pdf uit uw eigen systeem; <b>zijn woord staat tegenover het uwe</b>. Deze pagina toont hoe u afgifte en terugname zo registreert dat er niets meer te ontkennen valt.</p>
+    <div class="recog"><p>Hoogwerker, afgifte maandagochtend: staat in orde, urenteller 1 412, zes foto's. Terugname vrijdag: gieklift gedeukt, hydrauliekslang beschadigd. Huurder: <span>"Die deuk zat er bij afgifte al — jullie foto's zijn van een ander toestel."</span> Herstel: € 18 400. Uw bewijs: een pdf die u zelf kunt maken en aanpassen.</p></div>
+  </div>
+</section>
+
+<section style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / HET PROBLEEM</span>
+      <h2 class="disp">Waarom dit zo vaak misloopt<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="why-grid rv">
+      <article><span class="no">A</span><h3>De afgiftestaat is uw document</h3><p>Hij komt uit uw systeem, op uw briefpapier, aanpasbaar door uw mensen. Voor een rechter is dat "de versie van de verhuurder".</p></article>
+      <article><span class="no">B</span><h3>De huurder tekent niet altijd, of niet bewust</h3><p>Een krabbel op een tablet bij een haastige afgifte overtuigt weinig — zeker als de huurder zegt dat hij de foto's nooit gezien heeft.</p></article>
+      <article><span class="no">C</span><h3>Terugname gebeurt zonder de huurder</h3><p>Vaak wordt het toestel afgezet als er niemand van u bij is. Dan is uw vaststelling eenzijdig — en dus zwak.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / VANDAAG</span>
+      <h2 class="disp">Wat u nu al kunt doen — ook zonder ons<span style="color:var(--red)">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span>Maak de staatopname <b>samen met de huurder</b>: foto's per zijde, urenteller, serienummer, opmerkingen — beide handtekeningen, vóór het toestel vertrekt.</span></li>
+      <li><span><b>Stuur de afgiftestaat mét foto's meteen door</b> naar de huurder; een niet-betwiste ontvangst weegt.</span></li>
+      <li><span>Zet in uw algemene voorwaarden dat de huurder bij terugname <b>aanwezig is of de vaststelling binnen 24 u betwist</b> — en een bewijsclausule (art. 8.2 BW) over welke registraties gelden.</span></li>
+      <li><span>Registreer bij terugname opnieuw <b>met dezelfde discipline</b>: dezelfde zijden, dezelfde volgorde.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / DE WET</span>
+      <h2 class="disp">Wat de wet zegt<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="law-grid rv">
+      <div class="law-block"><span class="art">Huurrecht (art. 1731 oud BW) &amp; uw AV</span><p>Zonder tegensprekelijke staat bij afgifte wordt vermoed dat de huurder het goed ontving in de staat waarin hij het teruggeeft. De bewijslast dat de schade van hém komt, ligt bij u. Uw algemene voorwaarden kunnen dat regelen — als de staat bij afgifte vaststaat.</p></div>
+      <div class="law-block"><span class="art">art. 8.11 BW</span><p>Tussen ondernemingen vrij bewijs: sensordata, foto's en digitale staten zijn toegelaten. Hun gewicht hangt af van hoe onafhankelijk ze zijn van de partij die ze inroept.</p></div>
+    </div>
+    <p class="law-note">Algemene informatie, geen juridisch advies. Vidimus levert bewijsmateriaal; hoe zwaar het weegt, beoordeelt de rechter — en dat gewicht is precies wat verankering verhoogt.</p>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / VERANKERD</span>
+      <h2 class="disp">Wat er verandert<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
+      <ul class="todo" style="margin-top:0">
+        <li><span>Afgifte én terugname worden <b>door beide partijen op een telefoon getekend</b>; foto's, urenteller en opmerkingen worden op dat moment gehasht en van een onafhankelijk tijdstempel voorzien.</span></li>
+        <li><span><b>Ook uw eigen dienst kan de staat achteraf niet meer aanpassen</b> — dat is wat de huurder overtuigt.</span></li>
+        <li><span>Een schadediscussie wordt een <b>vergelijking van twee registraties</b> waarvan inhoud en moment vaststaan. Meestal eindigt ze daar.</span></li>
+      </ul>
+      <div class="codecard"><span class="k">registratie</span>afgiftestaat AFG-0182<br><span class="k">machine</span>hoogwerker · serienr + urenteller 1 412<br><span class="k">staat</span>6 foto's (sha-256) · <span class="gr">geen schade</span><br><span class="k">getekend</span>verhuurder + huurder · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + fabric tx</span></div>
+    </div>
+    <div class="sum-band">
+      <span class="lbl">REKENSOM</span>
+      <p>Tien betwiste schades per jaar × 4 uur × € 75, plus gemiddeld € 2 400 niet-verhaalde herstelkosten ≈ <b class="r">€ 3 000 aan uren en € 24 000 aan schade</b> die u zelf draagt — per depot. <b>Eén verankerde afgiftestaat kost een fractie daarvan.</b></p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / VRAGEN</span>
+      <h2 class="disp">Veelgesteld<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Kunnen sensoren (schok, locatie, uren) mee verankerd worden?</summary><p class="a"><b>Ja.</b> Telematica- en sensordata gaan als datastroom mee: elke meting krijgt een vingerafdruk en wordt in batches verankerd. Zo staat ook vást wanneer de schok plaatsvond.</p></details>
+      <details><summary>De huurder wil niet tekenen op de telefoon.</summary><p class="a">Dan tekent uw medewerker, en krijgt de huurder de staat en de verificatielink per e-mail. <b>Niet betwisten binnen de termijn uit uw AV weegt dan tegen hem.</b></p></details>
+      <details><summary>Moet ons verhuurpakket vervangen worden?</summary><p class="a"><b>Nee.</b> Uw pakket blijft de bron; wij koppelen via API of webhook, of u gebruikt de tekenmodule los ernaast.</p></details>
+    </div>
+    <div class="related rv">
+      <a href="plaatsbeschrijving-betwist.html"><span class="lbl">SYNDICI &amp; VASTGOED</span><b>Plaatsbeschrijving betwist: schade bij vertrek van de huurder bewijzen</b></a>
+      <a href="cases.html#verhuur"><span class="lbl">CASE</span><b>Hoogwerker terug met een deuk — "die zat er al"</b></a>
+      <a href="hoe-het-werkt.html"><span class="lbl">ACHTERGROND</span><b>Hoe het werkt — van registratie tot bewijs, in zeven stappen</b></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Zo starten we: <span>één stroom, dertig dagen, vaste prijs.</span></h2>
+    <div class="final-under">
+      <p>We koppelen alleen deze registratie — niets anders — en na dertig dagen ligt uw eigen bewijsbundel op tafel. U beslist daarna.</p>
+      <div class="hero-actions">
+        <a class="xbtn red" href="index.html#demo"><span>Probeer de vervals-demo</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <span class="sp"></span>
+  <span>Fictieve voorbeelden · geen klantreferenties</span>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>

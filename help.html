@@ -1,66 +1,121 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="nl" class="js">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uitlegvideo's per onderdeel — Vidimus</title>
-  <meta name="description" content="Korte uitlegvideo's per onderdeel van de Vidimus-app: Start, Stromen, Registraties, Bewijs, Partners, Keten, Integraties, Verbruik, Beveiliging. Elk 30–60 seconden, in mensentaal." />
-  <link rel="canonical" href="https://vidimus.be/help" /><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#f7f4ee" />
-  <meta property="og:type" content="article" /><meta property="og:site_name" content="Vidimus" /><meta property="og:title" content="Uitlegvideo's — Vidimus" /><meta property="og:url" content="https://vidimus.be/help" /><meta property="og:image" content="https://vidimus.be/assets/og.png" /><meta property="og:locale" content="nl_BE" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
-  <style>
-    .kp { max-width: 56rem; margin: 0 auto; padding: 0 var(--gutter); }
-    .kp-hero { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: 1rem; }
-    .kp-eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 0 0 0.8rem; }
-    .kp-hero h1 { font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3rem); font-weight: 600; line-height: 1.15; }
-    .kp-hero h1 em { font-style: normal; font-weight: 300; color: var(--blue); }
-    .kp-lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.6; }
-    .kp-lede strong { color: var(--navy); font-weight: 500; }
-    .bv { margin-top: 2.2rem; }
-    .bv h2 { font-size: 1.15rem; font-weight: 500; margin: 0 0 0.6rem; }
-    .bv dl { margin: 0; border: 1px solid var(--line); background: var(--card); }
-    .bv dl > div { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--line-soft); }
-    .bv dl > div:last-child { border-bottom: none; }
-    .bv dt { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); padding-top: 0.2rem; }
-    .bv dd { margin: 0; font-weight: 300; font-size: 0.93rem; line-height: 1.55; }
-    .bv dd strong { font-weight: 500; }
-    .meta { margin: var(--space) 0 calc(var(--space) + 3rem); font-size: 0.8rem; font-weight: 300; color: var(--t2, #4a5068); }
-    @media (max-width: 760px) { .bv dl > div { grid-template-columns: 1fr; gap: 0.3rem; } }
-  </style>
-<style>
-.hv{display:grid;grid-template-columns:repeat(auto-fill,minmax(20rem,1fr));gap:1.4rem;margin-top:1.4rem}
-.hv article{background:var(--card,#fffdf9);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 1px 0 #fff inset,0 12px 30px rgba(34,49,92,.09)}
-.hv video{width:100%;aspect-ratio:16/9;background:#000;display:block}
-.hv .b{padding:.9rem 1.1rem 1.1rem}.hv h3{margin:0 0 .25rem;font-size:1.02rem;font-weight:500}.hv .m{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue)}
-.hv ol{margin:.5rem 0 0;padding-left:1.1rem;font-size:.86rem;font-weight:300;line-height:1.5}
-.hv a.open{font-size:.82rem}
-</style></head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help — uitlegvideo's per onderdeel | Vidimus</title>
+<meta name="description" content="Voor elk onderdeel van de app een korte video: wat het is, wat u er doet, en waar de knoppen zitten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="inner.css">
+</head>
 <body>
-  <header class="site-header">
-    <a class="wordmark" href="/" aria-label="Vidimus — home"><svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" /><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" /><path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>vidimus<br /><em>verankeringslaag</em></span></a>
-    <nav aria-label="Hoofdnavigatie"><a href="/hoe-het-werkt">Hoe het werkt</a><a href="/scenarios">Scenario's</a><a href="/cases">Cases</a><a href="/prijzen">Prijzen</a><a href="/colofon">Colofon</a></nav>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span><span></span></button>
-  </header>
-  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu"><a href="/hoe-het-werkt">Hoe het werkt</a><a href="/scenarios">Scenario's</a><a href="/cases">Cases</a><a href="/prijzen">Prijzen</a><a href="/colofon">Colofon</a><a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">Plan een gesprek — 15 min</a></nav>
-  <body>
-  
-  <main>
-    <header class="kp kp-hero"><p class="kp-eyebrow">Uitleg per onderdeel</p><h1>Komt u er even niet uit? <em>Kijk een minuut mee.</em></h1><p class="kp-lede">Voor elk onderdeel van de app een korte video: wat het is, wat u er doet, en waar de knoppen zitten. Dezelfde video's staan in de app onder de knop <strong>▶ Uitleg</strong> naast elke titel. Liever iemand aan de lijn? <a href="https://cal.com/oskar-verschoren-vhygeu/15min">Plan 15 minuten</a> — of vraag het in de app aan de assistent.</p></header>
-    <div class="kp"><div class="hv" id="hv">
-      <article id="databank"><video src="/video/vidimus-case-databank.mp4" poster="/video/vidimus-case-databank.jpg" controls preload="metadata" playsinline></video><div class="b"><h3>Databank vs Vidimus</h3><p class="m">101 s · waarom een databank niet volstaat</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Iemand wist of verandert een record met één commando. De dubbelcheck op Vidimus toont: het bestond wél — precies zó, op dat moment, en sindsdien ongewijzigd.</p></div></article>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+<symbol id="i-play" viewBox="0 0 16 16"><path d="M3.5 2.2v11.6L13.5 8z" fill="currentColor"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
+</defs></svg>
 
-      <article id="start"><video src="/help/start.mp4" controls preload="metadata" playsinline poster="/help/start.jpg"></video><div class="b"><h3>Start & overzicht</h3><p class="m">35 s · app.vidimus.be/app#start</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Wat u ziet als u aanmeldt.</p><ol><li>Dit is het Start-scherm. Zolang u nog niet begonnen bent, ziet u drie stappen: uw account en sleutel, uw eerste stroom, uw eerste registratie.</li><li>Daarna wordt Start uw overzicht: hoeveel registraties deze maand, wat nog wacht op een anker of handtekening, welke deellinks nog geen antwoord kregen, betwistingen en alarmen.</li><li>Rechts staat de meter van uw aansluiting en snelknoppen. Onderaan rechts kunt u altijd iets vragen aan de assistent.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#start">Open dit onderdeel in de app →</a></p></div></article>
-      <article id="stromen"><video src="/help/stromen.mp4" controls preload="metadata" playsinline poster="/help/stromen.jpg"></video><div class="b"><h3>Stromen</h3><p class="m">35 s · app.vidimus.be/app#stromen</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Uw ordening: één soort registratie per stroom.</p><ol><li>Een stroom is één soort registratie die u laat verankeren: uw meerwerkbonnen, uw afgiftestaten, de temperatuur van koelcel twee.</li><li>Nieuwe stroom starten opent een doorloop in zes stappen: wat, naam, wie legt vast, partners, tijdstempel, samenvatting. Wij zetten bewaartermijn en privacy goed.</li><li>Klik op een stroom om haar registraties, alarmregels en de koppeling voor uw systeem te zien. Onderaan staan de sleutels: wie tekent.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#stromen">Open dit onderdeel in de app →</a></p></div></article>
-      <article id="registraties"><video src="/help/registraties.mp4" controls preload="metadata" playsinline poster="/help/registraties.jpg"></video><div class="b"><h3>Registraties</h3><p class="m">40 s · app.vidimus.be/app#registraties</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Alles wat u vastlegt — handmatig of via de API.</p><ol><li>Hier staat alles wat uw organisatie vastlegde, met stroom, referentie, indiener, moment en status. Verankerd betekent: tijdstempel van een derde en grootboek.</li><li>Bovenaan zoekt u op alles: bonnummer, id, vingerafdruk, datum, indiener. Rechts legt u handmatig iets vast: kies de stroom, vul de velden in, voeg foto's of pdf toe, registreren.</li><li>De verankering gebeurt automatisch, elke paar minuten. Met Auditpakket downloadt u alle bewijsbundels van een maand of periode.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#registraties">Open dit onderdeel in de app →</a></p></div></article>
-      <article id="bewijs"><video src="/help/bewijs.mp4" controls preload="metadata" playsinline poster="/help/bewijs.jpg"></video><div class="b"><h3>Bewijs</h3><p class="m">45 s · app.vidimus.be/app#bewijs</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Wat één registratie bewijst — en de knoeitest.</p><ol><li>Elke registratie heeft haar eigen bewijs. Bovenaan de tijdlijn: geregistreerd, getekend, verankerd, gedeeld, bevestigd.</li><li>Links wat werd vastgelegd; rechts het volledige dossier, de bewijsbundel en de publieke verificatiepagina die alleen feiten toont.</li><li>Test het zelf: verander een waarde en klik Controleer. U ziet meteen dat de vingerafdruk niet meer klopt en welk veld verschilt. Zo ziet een tegenpartij of rechter het later ook.</li><li>Onderaan: de zes controles, de deellink of QR om een tegenpartij te laten bevestigen, en het wissen van de inhoud na de bewaartermijn.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#bewijs">Open dit onderdeel in de app →</a></p></div></article>
-      <article id="partners"><video src="/help/partners.mp4" controls preload="metadata" playsinline poster="/help/partners.jpg"></video><div class="b"><h3>Partners</h3><p class="m">36 s · app.vidimus.be/app#partners</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Met wie u deelt — bevestigd, betwist, open.</p><ol><li>Onder Partners ziet u iedereen die via een deellink bevestigde of betwistte, en ketenpartners die op dezelfde referentie registreren.</li><li>Per partij: hoeveel bevestigd, hoeveel betwist, laatste contact. Klik open voor de registraties met hun status.</li><li>Een deellink maakt u bij een registratie of via Deellink maken. De partner scant, ziet alleen de feiten en bevestigt of betwist met een sleutel op zijn eigen toestel. Ook dat antwoord wordt verankerd.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#partners">Open dit onderdeel in de app →</a></p></div></article>
-      <article id="keten"><video src="/help/keten.mp4" controls preload="metadata" playsinline poster="/help/keten.jpg"></video><div class="b"><h3>Keten</h3><p class="m">33 s · app.vidimus.be/app#keten</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Eén referentie door meerdere stromen en partijen.</p><ol><li>Een keten rijgt registraties van verschillende stromen én partijen aan elkaar met één referentie: een batch, een zending, een dossier.</li><li>Vrijgave, transport, metingen, overdrachten met beide handtekeningen, ontvangst: alles op één tijdlijn. Uw eigen registraties tonen inhoud, die van partners alleen de feiten.</li><li>Elke keten heeft een publiek batchpaspoort dat u aan een klant, inspecteur of verzekeraar kunt geven.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#keten">Open dit onderdeel in de app →</a></p></div></article>
-      <article id="integraties"><video src="/help/integraties.mp4" controls preload="metadata" playsinline poster="/help/integraties.jpg"></video><div class="b"><h3>Integraties</h3><p class="m">36 s · app.vidimus.be/app#integraties</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Uw systemen registreren zelf en luisteren mee.</p><ol><li>Integraties is voor uw IT. Bovenaan de API-sleutel van uw organisatie en uw systeemsleutels; daaronder een voorbeeld dat u kunt plakken.</li><li>Webhooks: geef een URL op en wij verwittigen uw ERP of WMS bij elke registratie, verankering, bevestiging of alarm — getekend, met een log van de leveringen.</li><li>Alarmregels stelt u in per stroom: bijvoorbeeld temperatuur boven acht graden. Een treffer wordt zelf verankerd, gemaild en doorgestuurd.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#integraties">Open dit onderdeel in de app →</a></p></div></article>
-      <article id="verbruik"><video src="/help/verbruik.mp4" controls preload="metadata" playsinline poster="/help/verbruik.jpg"></video><div class="b"><h3>Verbruik & factuur</h3><p class="m">31 s · app.vidimus.be/app#verbruik</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">De meter en de aansluiting.</p><ol><li>Verbruik toont de meter: hoeveel registraties deze maand, in welke schijf u zit en wat dat kost. Eén aansluiting, alle stromen samen; geen gebruikerslicenties.</li><li>Met een proefaansluiting is alles gratis tot honderd registraties per maand. Meer nodig? Activeer de aansluiting hier — honderdnegentig euro per maand met duizend registraties inbegrepen, factuur achteraf.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#verbruik">Open dit onderdeel in de app →</a></p></div></article>
-      <article id="beveiliging"><video src="/help/beveiliging.mp4" controls preload="metadata" playsinline poster="/help/beveiliging.jpg"></video><div class="b"><h3>Beveiliging</h3><p class="m">30 s · app.vidimus.be/app#beveiliging</p><p style="font-size:.9rem;font-weight:300;margin:.3rem 0 0">Uw toegang en uw sleutel.</p><ol><li>Uw account is de toegang, uw sleutel op dit toestel is de handtekening. Bescherm de toegang met tweestapsverificatie: klik MFA instellen, scan de QR met uw authenticator, vul de code in.</li><li>Rechts ziet u waar u aangemeld bent en kunt u sessies afmelden. Onderaan staat uw sleutel: aangemaakt in deze browser, nooit exporteerbaar; wij hebben alleen de publieke helft.</li></ol><p style="margin:.6rem 0 0"><a class="open" href="https://app.vidimus.be/app#beveiliging">Open dit onderdeel in de app →</a></p></div></article>
-    </div></div>
-  </main>
-  <footer class="site-footer"><span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span><span><a href="/colofon">Colofon &amp; privacy</a></span><span class="mono">Beveiligingsverklaring v0.2</span></footer>
-  <script>document.querySelectorAll('.hv video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('.hv video').forEach(o=>{if(o!==v)o.pause()})));if(location.hash){const el=document.querySelector(location.hash);el&&el.scrollIntoView({behavior:'smooth'})}</script>
-</body></html>
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="cases.html">Cases</a>
+    <a href="scenarios.html">Scenario's</a>
+    <a href="help.html" style="color:var(--paper)">Help</a>
+    <a href="prijzen.html">Prijzen</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-login" href="https://app.vidimus.be/app">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/app#start">Start gratis</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="help.html">HELP</a></p>
+    <h1 class="disp">Komt u er even niet uit? <span class="thin">Kijk een minuut mee</span><span style="color:var(--red)">.</span></h1>
+    <p class="intro">Voor elk onderdeel van de app een korte video: wat het is, wat u er doet, en waar de knoppen zitten. Dezelfde video's staan in de app onder de knop <b>Uitleg</b> naast elke titel. Liever iemand aan de lijn? <a href="https://cal.com/oskar-verschoren-vhygeu/15min" style="color:var(--paper)">Plan 15 minuten</a> — of vraag het in de app aan de assistent.</p>
+  </div>
+</section>
+
+<section style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap">
+    <div class="vgrid">
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/video/vidimus-case-databank.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: databank vs Vidimus"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 1:41</span></button></div>
+        <div class="vbody"><span class="lbl">HET WAAROM</span><h3>Databank vs Vidimus</h3><p>Iemand wist of verandert een record met één commando. De dubbelcheck op Vidimus toont: het bestond wél — precies zó, op dat moment, en sindsdien ongewijzigd.</p></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="video/vidimus-api-sensordata.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: API- en sensordata"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:50</span></button></div>
+        <div class="vbody"><span class="lbl">HET WAAROM · TECHNISCH</span><h3>API- &amp; sensordata</h3><p>Poortscans en temperatuurlijnen stromen automatisch binnen en worden per waarde gehasht. Wijzigt of wist iemand een record in uw databank — de dubbelcheck naast het verankerde origineel toont het direct.</p></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/start.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: start en overzicht"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:35</span></button></div>
+        <div class="vbody"><span class="lbl">APP / START</span><h3>Start &amp; overzicht</h3><p>Drie stappen zolang u nog niet begonnen bent; daarna uw overzicht: registraties deze maand, wat wacht op anker of handtekening, deellinks zonder antwoord, betwistingen en alarmen.</p><a class="vgo" href="https://app.vidimus.be/app#start">Open dit onderdeel in de app →</a></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/stromen.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: stromen"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:35</span></button></div>
+        <div class="vbody"><span class="lbl">APP / STROMEN</span><h3>Stromen</h3><p>Eén soort registratie per stroom: uw meerwerkbonnen, uw afgiftestaten, de temperatuur van koelcel twee. Nieuwe stroom starten opent een doorloop in zes stappen; wij zetten bewaartermijn en privacy goed.</p><a class="vgo" href="https://app.vidimus.be/app#stromen">Open dit onderdeel in de app →</a></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/registraties.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: registraties"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:40</span></button></div>
+        <div class="vbody"><span class="lbl">APP / REGISTRATIES</span><h3>Registraties</h3><p>Alles wat uw organisatie vastlegde, met stroom, referentie, indiener, moment en status. Zoek op alles; leg rechts handmatig iets vast. De verankering gebeurt automatisch, elke paar minuten.</p><a class="vgo" href="https://app.vidimus.be/app#registraties">Open dit onderdeel in de app →</a></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/bewijs.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: bewijs"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:45</span></button></div>
+        <div class="vbody"><span class="lbl">APP / BEWIJS</span><h3>Bewijs &amp; de knoeitest</h3><p>Wat één registratie bewijst: tijdlijn, dossier, bewijsbundel en publieke verificatiepagina. Test het zelf: verander een waarde en zie meteen dat de vingerafdruk niet meer klopt — zoals een rechter het later ook ziet.</p><a class="vgo" href="https://app.vidimus.be/app#bewijs">Open dit onderdeel in de app →</a></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/partners.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: partners"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:36</span></button></div>
+        <div class="vbody"><span class="lbl">APP / PARTNERS</span><h3>Partners</h3><p>Iedereen die via een deellink bevestigde of betwistte. De partner scant, ziet alleen de feiten en antwoordt met een sleutel op zijn eigen toestel — ook dat antwoord wordt verankerd.</p><a class="vgo" href="https://app.vidimus.be/app#partners">Open dit onderdeel in de app →</a></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/keten.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: keten"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:33</span></button></div>
+        <div class="vbody"><span class="lbl">APP / KETEN</span><h3>Keten</h3><p>Eén referentie door meerdere stromen en partijen: vrijgave, transport, metingen, overdrachten, ontvangst — alles op één tijdlijn, met een publiek batchpaspoort voor klant, inspecteur of verzekeraar.</p><a class="vgo" href="https://app.vidimus.be/app#keten">Open dit onderdeel in de app →</a></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/integraties.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: integraties"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:36</span></button></div>
+        <div class="vbody"><span class="lbl">APP / INTEGRATIES</span><h3>Integraties</h3><p>Voor uw IT: API-sleutel, systeemsleutels, plakbaar voorbeeld. Webhooks verwittigen uw ERP of WMS bij elke registratie, verankering of alarm. Alarmregels per stroom — een treffer wordt zelf verankerd.</p><a class="vgo" href="https://app.vidimus.be/app#integraties">Open dit onderdeel in de app →</a></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/verbruik.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: verbruik en factuur"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:31</span></button></div>
+        <div class="vbody"><span class="lbl">APP / VERBRUIK</span><h3>Verbruik &amp; factuur</h3><p>De meter: hoeveel registraties deze maand, in welke schijf u zit, wat dat kost. Eén aansluiting, alle stromen samen, geen gebruikerslicenties. Proef is gratis tot 100 per maand.</p><a class="vgo" href="https://app.vidimus.be/app#verbruik">Open dit onderdeel in de app →</a></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="https://vidimus.be/help/beveiliging.mp4" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: beveiliging"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:30</span></button></div>
+        <div class="vbody"><span class="lbl">APP / BEVEILIGING</span><h3>Beveiliging</h3><p>Uw account is de toegang, uw sleutel op dit toestel is de handtekening. Zet tweestapsverificatie aan, beheer uw sessies, en bekijk uw sleutel — aangemaakt in deze browser, nooit exporteerbaar.</p><a class="vgo" href="https://app.vidimus.be/app#beveiliging">Open dit onderdeel in de app →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Nog een vraag? <span>Bel met wie het bouwde.</span></h2>
+    <div class="final-under">
+      <p>U belt niet met een supportdesk. Vijftien minuten, uw scherm erbij, en u bent vertrokken.</p>
+      <div class="hero-actions">
+        <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="mailto:oskar@vo-initiatives.com"><span>Mail Oskar</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <span class="sp"></span>
+  <span>Beveiligingsverklaring v0.2</span>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

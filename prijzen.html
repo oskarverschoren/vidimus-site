@@ -1,208 +1,185 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="nl" class="js">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prijzen — aansluiting + verbruik, betalen naar wat u verankert — Vidimus</title>
-  <meta name="description" content="Wat kost verankering? Zoals een gasaansluiting: één aansluiting per organisatie (€ 190/maand incl. 1.000 registraties), daarboven verbruik in schijven over al uw stromen. Reken het zelf uit." />
-  <link rel="canonical" href="https://vidimus.be/prijzen" /><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#f7f4ee" />
-  <meta property="og:type" content="website" /><meta property="og:site_name" content="Vidimus" /><meta property="og:title" content="Prijzen — Vidimus" /><meta property="og:url" content="https://vidimus.be/prijzen" /><meta property="og:image" content="https://vidimus.be/assets/og.png" /><meta property="og:locale" content="nl_BE" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
-  <style>
-    .kp { max-width: 62rem; margin: 0 auto; padding: 0 var(--gutter); }
-    .kp-hero { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: 1rem; }
-    .kp-eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 0 0 0.8rem; }
-    .kp-hero h1 { font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3rem); font-weight: 600; line-height: 1.15; }
-    .kp-hero h1 em { font-style: normal; font-weight: 300; color: var(--blue); }
-    .kp-lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.6; }
-    .kp-lede strong { color: var(--navy); font-weight: 500; }
-    h2 { font-size: clamp(1.3rem, 1rem + 1.3vw, 1.8rem); margin: 0 0 1rem; }
-    .blk { margin-top: var(--space); }
-    table.pr { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); font-size: 0.93rem; }
-    table.pr th { text-align: left; font-weight: 500; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--t2, #4a5068); padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--line); background: var(--panel, #f2eee6); }
-    table.pr td { padding: 0.75rem 0.9rem; border-bottom: 1px solid var(--line-soft); font-weight: 300; vertical-align: top; }
-    table.pr td.p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--navy); white-space: nowrap; }
-    table.pr tr:last-child td { border-bottom: none; }
-    table.pr strong { font-weight: 500; }
-    .calc { border: 1px solid var(--navy); background: var(--card); padding: 1.4rem 1.6rem; }
-    .calc h2 { margin-bottom: 0.4rem; }
-    .calc .sub { font-weight: 300; color: var(--t2, #4a5068); margin: 0 0 1rem; font-size: 0.93rem; }
-    .one { margin-top: 1rem; max-width: 16rem; }
-    .one input[type=number] { width: 100%; box-sizing: border-box; border: 1px solid var(--line); background: #fff; padding: 0.45rem 0.6rem; font: inherit; color: var(--navy); }
-    .one label { display: block; font-weight: 300; font-size: 0.88rem; }
-    .volr { display: block; width: 100%; accent-color: var(--blue); margin: 0.9rem 0 0.35rem; }
-    .rows { display: grid; gap: 0.5rem; }
-    .row { display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 0.6rem; align-items: center; }
-    .row input, .row select, .addons select, .addons input { width: 100%; border: 1px solid var(--line); background: #fff; padding: 0.35rem 0.5rem; font: inherit; font-size: 0.84rem; color: var(--navy); }
-    .row .del { border: 1px solid var(--line); background: transparent; color: var(--t2); padding: 0.3rem 0.6rem; cursor: pointer; font: inherit; font-size: 0.84rem; }
-    .scale { display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.74rem; color: var(--t2, #4a5068); font-weight: 300; margin-top: 0; }
-    .scale small { display: block; font-size: 0.68rem; color: var(--blue); }
-    .scale span:nth-child(2) { text-align: center; } .scale span:last-child { text-align: right; }
-    .btn-add { margin-top: 0.7rem; border: 1px solid var(--navy); background: transparent; color: var(--navy); padding: 0.4rem 0.8rem; font: inherit; font-size: 0.86rem; cursor: pointer; }
-    .addons { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.7rem 1.2rem; }
-    .addons label { display: flex; align-items: center; gap: 0.6rem; font-weight: 300; font-size: 0.86rem; }
-    .addons label input[type=checkbox] { width: auto; }
-    .addons .num { display: grid; grid-template-columns: 1fr 6rem; gap: 0.6rem; align-items: center; }
-    .tot { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.8rem; }
-    .tot > div { border: 1px solid var(--line); background: var(--panel, #f2eee6); padding: 0.9rem 1rem; }
-    .tot b { display: block; font-size: 1.5rem; font-weight: 300; color: var(--blue); font-family: 'JetBrains Mono', monospace; }
-    .tot span { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--t2, #4a5068); }
-    .tot small { display: block; font-size: 0.78rem; font-weight: 300; color: var(--t2, #4a5068); margin-top: 0.3rem; }
-    .lines { margin-top: 1rem; font-size: 0.85rem; font-weight: 300; }
-    .lines div { display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px dotted var(--line-soft); }
-    .lines .m { font-family: 'JetBrains Mono', monospace; }
-    .lead { margin-top: 1.6rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
-    .lead h3 { font-size: 1.05rem; font-weight: 500; margin: 0 0 0.3rem; }
-    .lead .lf { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
-    .lead label { display: block; margin: 0.5rem 0; font-weight: 300; font-size: 0.88rem; }
-    .lead input, .lead textarea { width: 100%; box-sizing: border-box; border: 1px solid var(--line); background: #fff; padding: 0.5rem 0.65rem; font: inherit; color: var(--navy); }
-    .lead .chk { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.8rem; color: var(--t2, #4a5068); } .lead .chk input { width: auto; margin-top: 0.25rem; }
-    .lead .row { display: flex; gap: 1rem; align-items: center; margin-top: 0.6rem; flex-wrap: wrap; }
-    .btn-send { border: 1px solid var(--navy); background: var(--navy); color: var(--cream); padding: 0.6rem 1.1rem; font: inherit; cursor: pointer; }
-    @media (max-width: 760px) { .lead .lf { grid-template-columns: 1fr; } }
-    .hint { font-size: 0.82rem; font-weight: 300; color: var(--t2, #4a5068); margin: 0.9rem 0 0; }
-    .note { font-size: 0.8rem; font-weight: 300; color: var(--t2, #4a5068); margin-top: 0.8rem; }
-    .verdict { margin: var(--space) 0 calc(var(--space) + 3rem); background: var(--navy); color: var(--cream); padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-    .verdict h2 { font-size: 1.15rem; font-weight: 500; color: var(--cream); margin: 0; }
-    .verdict p { color: #dfe3f0; font-size: 0.9rem; font-weight: 300; margin: 0.35rem 0 0; max-width: 40rem; }
-    .verdict-cta { flex: 0 0 auto; text-align: right; font-size: 0.86rem; line-height: 1.6; display: flex; flex-direction: column; }
-    .verdict-cta a { color: var(--cream); text-decoration: none; } .verdict-cta a b { display: block; font-size: 1rem; font-weight: 500; }
-    @media (max-width: 760px) { .row { grid-template-columns: 1fr 1fr; } .addons, .tot { grid-template-columns: 1fr; } .verdict { flex-direction: column; align-items: flex-start; } .verdict-cta { text-align: left; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prijzen — aansluiting + verbruik | Vidimus</title>
+<meta name="description" content="Zoals een gasaansluiting: één aansluiting, alles erdoor, betalen naar verbruik. Gratis tot 100 registraties per maand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="inner.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="wordmark" href="/" aria-label="Vidimus — home"><svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" /><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" /><path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>vidimus<br /><em>verankeringslaag</em></span></a>
-    <nav aria-label="Hoofdnavigatie"><a href="#model">Het model</a><a href="#tabel">Tarieven</a><a href="#addons">Add-ons</a><a href="#reken">Reken zelf</a><a href="/hoe-het-werkt">Hoe het werkt</a></nav>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span><span></span></button>
-  </header>
-  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu"><a href="#model">Het model</a><a href="#tabel">Tarieven</a><a href="#addons">Add-ons</a><a href="#reken">Reken zelf</a><a href="/hoe-het-werkt">Hoe het werkt</a><a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">Plan een gesprek — 15 min</a></nav>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
+</defs></svg>
 
-  <main>
-    <header class="kp kp-hero">
-      <p class="kp-eyebrow mono">Prijzen · richtprijzen excl. btw</p>
-      <h1>Wat kost het?<br /><em>Aansluiten, alles erdoor sturen, betalen naar verbruik.</em></h1>
-      <p class="kp-lede">Zoals een gasaansluiting. <strong>Eén aansluiting per organisatie</strong> — account, sleutels, kluis, onbeperkt gebruikers, bewijsbundels, verificatiepagina, deellinks, standaard-tijdstempel — met 1.000 registraties per maand inbegrepen. Daarboven betaalt u <strong>naar verbruik in schijven</strong>, geteld op alles wat u verankert, over al uw stromen samen. Wat u erdoor stuurt — documenten, foto's, sensorlijnen, poortscans, e-mails, CSV-exports, handtekeningen van partners — is voor de meter allemaal hetzelfde. U hoeft niets vooraf in te delen: de meter telt, de afrekening volgt achteraf.</p>
-      <p class="kp-lede" style="margin-top:.8rem"><a href="https://app.vidimus.be/app#start" target="_blank" rel="noopener" style="display:inline-block;border:1px solid var(--navy);background:var(--navy);color:var(--cream);padding:.6rem 1.1rem;text-decoration:none">Aansluiten — gratis tot 100 registraties/maand</a> <span class="mono" style="font-size:.72rem;color:var(--blue);margin-left:.6rem">geen kaart · geen einddatum · echte tijdstempels</span></p>
-    </header>
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="cases.html">Cases</a>
+    <a href="scenarios.html">Scenario's</a>
+    <a href="help.html">Help</a>
+    <a href="prijzen.html" style="color:var(--paper)">Prijzen</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-login" href="https://app.vidimus.be/app">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/app#start">Start gratis</a>
+  </div>
+</header>
 
-    <div class="kp">
-      <section class="blk" id="model" aria-labelledby="model-h">
-        <h2 id="model-h">1 · Twee manieren om te beginnen.</h2>
-        <p class="note" style="margin:0 0 .8rem"><strong>Zelf:</strong> aansluiten op app.vidimus.be — proefaansluiting, gratis tot 100 registraties per maand, geen einddatum, geen kaart; activeren wanneer u meer nodig hebt. <strong>Begeleid:</strong> de pilot hieronder — voor wie een systeem wil koppelen, partners wil meekrijgen of een IT-afdeling heeft.</p>
-        <table class="pr">
-          <tr><th>Pilot (30 dagen, één stroom, vaste prijs)</th><th>Inbegrepen</th><th>Prijs</th></tr>
-          <tr><td><strong>Pilot</strong></td><td>intake ½ dag · één stroom of de tekenmodule in gebruik · tot 500 verankeringen · bewijsbundel · evaluatiegesprek — ± 2 dagen begeleiding</td><td class="p">€ 1.900</td></tr>
-          <tr><td><strong>Pilot uitgebreid</strong></td><td>idem + <strong>systeemkoppeling</strong> (API/webhook met uw poort-, sensor- of ERP-systeem) · <strong>uw beveiligingsvragenlijst</strong> ingevuld voor uw IT (onze beveiligingsverklaring zelf is <a href="/beveiliging" style="color:var(--blue)">gratis voor iedereen</a>) · <strong>DPO-gesprek</strong> (verwerkersovereenkomst) · 2 workshops · tot 5.000 verankeringen — ± 5 dagen begeleiding</td><td class="p">€ 3.500 – 4.900</td></tr>
-        </table>
-        <p class="note">Gaat u door, dan wordt het pilotbedrag verrekend met de eerste drie maanden abonnement. Gaat u niet door, dan houdt u uw bewijsbundels — die blijven geldig.</p>
-      </section>
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="prijzen.html">PRIJZEN</a></p>
+    <h1 class="disp">Zoals een <span class="thin">gas&shy;aansluiting</span><span style="color:var(--red)">.</span></h1>
+    <p class="intro">Eén aansluiting per organisatie — account, sleutels, kluis, onbeperkt gebruikers, bewijsbundels, verificatiepagina, deellinks, standaard-tijdstempel — met <b>1 000 registraties per maand inbegrepen</b>. Daarboven betaalt u naar verbruik in schijven, over al uw stromen samen. Documenten, foto's, sensorlijnen, poortscans, e-mails, handtekeningen van partners: voor de meter is alles hetzelfde. <b>De meter telt, de afrekening volgt achteraf.</b></p>
+    <div class="hero-actions">
+      <a class="xbtn red" href="https://app.vidimus.be/app#start"><span>Aansluiten — gratis tot 100/maand</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <p style="margin-top:1rem" class="lbl">geen kaart · geen einddatum · echte tijdstempels · richtprijzen excl. btw</p>
+  </div>
+</section>
 
-      <section class="blk" id="tabel" aria-labelledby="tabel-h">
-        <h2 id="tabel-h">2 · Daarna: aansluiting + verbruik, per maand, achteraf.</h2>
-        <table class="pr">
-          <tr><th>Verankerde registraties in de maand (alle stromen samen)</th><th>Wat u betaalt</th><th>Prijs / maand</th></tr>
-          <tr><td><strong>tot 1.000</strong></td><td>de aansluiting — alles inbegrepen</td><td class="p">€ 190</td></tr>
-          <tr><td><strong>1.001 – 3.000</strong></td><td>aansluiting + verbruik</td><td class="p">€ 290</td></tr>
-          <tr><td><strong>3.001 – 10.000</strong></td><td>aansluiting + verbruik</td><td class="p">€ 490</td></tr>
-          <tr><td><strong>10.001 – 30.000</strong></td><td>aansluiting + verbruik</td><td class="p">€ 690</td></tr>
-          <tr><td><strong>30.001 – 100.000</strong></td><td>aansluiting + verbruik</td><td class="p">€ 990</td></tr>
-          <tr><td><strong>meer dan 100.000</strong></td><td>op maat (eigen kanaal, SLA)</td><td class="p">offerte</td></tr>
-        </table>
-        <p class="note"><strong>Zo werkt de meter:</strong> op het einde van de maand telt het platform hoeveel registraties u verankerde — poortscans, bonnen, foto's, sensorlijnen, bevestigingen van partners: alles telt als één — en die maand valt in de schijf die daarbij hoort. Kleine stappen (hoogstens ×1,7), dus geen kliffen: een drukke maand is een schijf hoger, een rustige lager; u ziet het de hele maand door in de app. <strong>Wat nooit meetelt:</strong> aantal gebruikers, aantal stromen, bundels downloaden, verificaties door uw tegenpartij, deellinks, wissen. Jaarcontract: 2 maanden gratis.</p>
-      </section>
+<section style="padding-block:var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / BEGINNEN</span>
+      <h2 class="disp">Twee manieren<span style="color:var(--red)">.</span></h2>
+      <p class="side">Zelf: aansluiten op app.vidimus.be — gratis tot 100 registraties per maand, activeren wanneer u meer nodig hebt. Begeleid: de pilot — voor wie een systeem wil koppelen, partners wil meekrijgen of een IT-afdeling heeft.</p>
+    </div>
+    <table class="dtable rv">
+      <thead><tr><th>Pilot — 30 dagen, één stroom, vaste prijs</th><th>Inbegrepen</th><th>Prijs</th></tr></thead>
+      <tbody>
+        <tr><td>Pilot</td><td>intake ½ dag · één stroom of de tekenmodule in gebruik · tot 500 verankeringen · bewijsbundel · evaluatiegesprek<span class="sub">± 2 dagen begeleiding</span></td><td class="pr">€ 1 900</td></tr>
+        <tr><td>Pilot uitgebreid</td><td>idem + systeemkoppeling (API/webhook met uw poort-, sensor- of ERP-systeem) · uw beveiligingsvragenlijst ingevuld voor uw IT · DPO-gesprek (verwerkersovereenkomst) · 2 workshops · tot 5 000 verankeringen<span class="sub">± 5 dagen begeleiding</span></td><td class="pr">€ 3 500 – 4 900</td></tr>
+      </tbody>
+    </table>
+    <p class="law-note">Gaat u door, dan wordt het pilotbedrag verrekend met de eerste drie maanden abonnement. Gaat u niet door, dan houdt u uw bewijsbundels — die blijven geldig.</p>
+  </div>
+</section>
 
-      <section class="blk" id="addons" aria-labelledby="addons-h">
-        <h2 id="addons-h">3 · Twee opties — zoals groene stroom.</h2>
-        <table class="pr">
-          <tr><th>Optie</th><th>Wanneer</th><th>Prijs</th></tr>
-          <tr><td><strong>Gekwalificeerd tijdstempel</strong> (QTSP, EU Trusted List)</td><td>u wil het wettelijk vermoeden van datum en tijd (eIDAS art. 41) — bij audits, partners, hoge bedragen. Intern zelden nodig; het standaard onafhankelijke tijdstempel is altijd inbegrepen.</td><td class="p">+ € 90 / maand</td></tr>
-          <tr><td><strong>Gedeeld grootboek met partners</strong> (consortium-kanaal)</td><td>uw partners kijken in hetzelfde register en draaien desgewenst een eigen node — haven, keten met vaste partijen. Bevestigen via een deellink kan altijd, ook zonder deze optie.</td><td class="p">+ € 500 / maand + € 150 / extra partij</td></tr>
-        </table>
-        <p class="note">Op aanvraag: gekwalificeerde handtekening via itsme (€ 1,20 per handtekening — enkel voor registraties met een groot bedrag eronder), verificatiepagina in uw huisstijl, bewijsbundel-op-maat voor rechtbank (€ 450), sensor-gateway (offerte).</p>
-      </section>
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / DE METER</span>
+      <h2 class="disp">Aansluiting + verbruik<span style="color:var(--red)">.</span></h2>
+      <p class="side">Op het einde van de maand telt het platform hoeveel u verankerde — alles telt als één — en die maand valt in de bijhorende schijf. Kleine stappen, geen kliffen. Jaarcontract: 2 maanden gratis.</p>
+    </div>
+    <table class="dtable rv">
+      <thead><tr><th>Verankerde registraties / maand (alle stromen samen)</th><th>Wat u betaalt</th><th>Prijs / maand</th></tr></thead>
+      <tbody>
+        <tr><td>tot 1 000</td><td>de aansluiting — alles inbegrepen</td><td class="pr">€ 190</td></tr>
+        <tr><td>1 001 – 3 000</td><td>aansluiting + verbruik</td><td class="pr">€ 290</td></tr>
+        <tr><td>3 001 – 10 000</td><td>aansluiting + verbruik</td><td class="pr">€ 490</td></tr>
+        <tr><td>10 001 – 30 000</td><td>aansluiting + verbruik</td><td class="pr">€ 690</td></tr>
+        <tr><td>meer dan 30 000</td><td>op maat — jaarcontract, SLA, eigen afspraken</td><td class="pr">offerte</td></tr>
+      </tbody>
+    </table>
+    <p class="law-note"><b style="color:var(--paper)">Wat nooit meetelt:</b> aantal gebruikers, aantal stromen, bundels downloaden, verificaties door uw tegenpartij, deellinks, wissen. Eén meter, één rekening.</p>
+  </div>
+</section>
 
-      <section class="blk calc" id="reken" aria-labelledby="reken-h">
-        <h2 id="reken-h">4 · Reken het zelf uit.</h2>
-        <p class="sub">Eén vraag: hoeveel registraties denkt u per maand te verankeren, alles samen? Een schatting volstaat — de meter telt, de afrekening gebeurt achteraf. Richtprijs; de definitieve offerte volgt na een intake van een half uur.</p>
-        <div class="one"><label>Registraties per maand (alles samen)<input type="number" id="vol" value="200" min="0" step="50"></label></div>
-        <input type="range" id="volr" min="0" max="1000" step="1" value="200" class="volr" aria-label="Schuif: registraties per maand">
-        <div class="scale"><span>≈ 10 per dag<br><small>een paar per werkdag</small></span><span>≈ 300 per dag<br><small>elk kwartier iets</small></span><span>≈ 3.000 per dag<br><small>systemen en sensoren</small></span></div>
-        <p class="hint">Alles telt als één registratie: een document, een foto, een meting, een scan, een bevestiging van uw partner. Zit u ernaast? Geen probleem — de meter telt, de afrekening volgt op wat er echt was.</p>
-        <div class="addons">
-          <label><input type="checkbox" id="qtsa"> Gekwalificeerd tijdstempel (+ € 90)</label>
-          <label><input type="checkbox" id="cons"> Gedeeld grootboek met partners (+ € 500)</label>
-          <div class="num"><span style="font-weight:300;font-size:.86rem">extra partijen (naast u)</span><input type="number" id="consN" value="1" min="0"></div>
-          <label><input type="checkbox" id="year" checked> Jaarcontract (2 maanden gratis)</label>
-          <label><input type="checkbox" id="pilotmid"> Pilot uitgebreid — met systeemkoppeling, uw beveiligingsvragenlijst en DPO-gesprek (€ 3.500 i.p.v. € 1.900)</label>
-        </div>
-        <div class="tot">
-          <div><span>Pilot (eenmalig, 30 dagen)</span><b id="tPilot">€ 1.900</b><small>verrekend met de eerste 3 maanden bij doorstart</small></div>
-          <div><span>Daarna per maand</span><b id="tMonth">€ 0</b><small id="tMonthNote"></small></div>
-          <div><span>Per jaar</span><b id="tYear">€ 0</b><small id="tYearNote"></small></div>
-        </div>
-        <div class="lines" id="lines"></div>
-        <div class="lead" id="lead">
-          <h3>Vraag een offerte aan met deze samenstelling.</h3>
-          <p class="sub">U krijgt dezelfde samenstelling per mail; Oskar belt u binnen één werkdag voor een intake van een half uur.</p>
-          <form id="leadf" onsubmit="return sendLead(event)">
-            <div class="lf"><label>Naam<input name="name" required></label><label>Bedrijf<input name="company" required></label></div>
-            <div class="lf"><label>E-mail<input name="email" type="email" required></label><label>Telefoon (optioneel)<input name="phone"></label></div>
-            <label>Bericht (optioneel)<textarea name="note" rows="2" placeholder="bv. welke stromen, welke partners, wanneer u wil starten"></textarea></label>
-            <label class="chk"><input type="checkbox" name="consent" required> Ik ga akkoord dat VO Initiatives BV mijn gegevens gebruikt om deze offerte op te maken en mij te contacteren (verwijderd bij geen vervolg binnen 90 dagen).</label>
-            <div class="row"><button type="submit" class="btn-send">Offerte aanvragen</button><span id="leadmsg" class="note" style="margin:0"></span></div>
-          </form>
-        </div>
-        <p class="note">Richtprijzen excl. btw, augustus 2026. Wat u nooit apart betaalt: gebruikers, stromen, bundels, verificaties door uw tegenpartij, deellinks. Eén meter, één rekening. Wat u wél krijgt: één rekening per maand, en bewijs dat van u blijft.</p>
-      </section>
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / OPTIES</span>
+      <h2 class="disp">Zoals groene stroom<span style="color:var(--red)">.</span></h2>
+    </div>
+    <table class="dtable rv">
+      <thead><tr><th>Optie</th><th>Wanneer</th><th>Prijs</th></tr></thead>
+      <tbody>
+        <tr><td>Gekwalificeerd tijdstempel<span class="sub">QTSP · EU Trusted List</span></td><td>u wil het wettelijk vermoeden van datum en tijd (eIDAS art. 41) — bij audits, partners, hoge bedragen. Het standaard onafhankelijke tijdstempel is altijd inbegrepen.</td><td class="pr">+ € 90 / mnd</td></tr>
+        <tr><td>Gedeeld grootboek met partners<span class="sub">consortium-kanaal</span></td><td>uw partners kijken in hetzelfde register en draaien desgewenst een eigen node — haven, keten met vaste partijen. Bevestigen via deellink kan altijd, ook zonder deze optie.</td><td class="pr">+ € 500 / mnd<span class="sub">+ € 150 / extra partij</span></td></tr>
+      </tbody>
+    </table>
+    <p class="law-note">Op aanvraag: gekwalificeerde handtekening via itsme (€ 1,20 per handtekening), verificatiepagina in uw huisstijl, bewijsbundel-op-maat voor rechtbank (€ 450), sensor-gateway (offerte).</p>
+  </div>
+</section>
 
-      <div class="verdict">
-        <div><h2>Twijfel over welke stromen? Begin met de duurste discussie.</h2><p>Reken één stroom uit — de meerwerkbonnen, de afgiftestaten, de poortscans — en zet die tegenover wat één verloren discussie u kost. Meestal is het antwoord er dan al.</p></div>
-        <div class="verdict-cta"><a href="/#rekensom"><b>vidimus.be/#rekensom</b>wat kost woord tegen woord u nu?</a><a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">of plan 15 minuten via cal.com</a></div>
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / REKEN ZELF</span>
+      <h2 class="disp">Eén vraag<span style="color:var(--red)">.</span></h2>
+      <p class="side">Hoeveel registraties denkt u per maand te verankeren, alles samen? Een schatting volstaat — de meter telt, de afrekening gebeurt achteraf op wat er echt was.</p>
+    </div>
+    <div class="calc-grid rv">
+      <div class="calc-in">
+        <label><span class="lbl">Registraties per maand (alles samen)</span><input type="number" id="qN" value="800" min="0" step="50" inputmode="numeric"></label>
+        <p class="law-note" style="margin-top:0">≈ 10/dag: een paar per werkdag · ≈ 300/dag: elk kwartier iets · ≈ 3 000/dag: systemen en sensoren</p>
+        <label style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--paper-dim)"><input type="checkbox" id="qQTSP" style="width:auto;accent-color:var(--red)">Gekwalificeerd tijdstempel (+ € 90)</label>
+        <label style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--paper-dim)"><input type="checkbox" id="qCons" style="width:auto;accent-color:var(--red)">Gedeeld grootboek met partners (+ € 500)</label>
+        <label id="qPartRow" style="display:none"><span class="lbl">Extra partijen (naast u)</span><input type="number" id="qPart" value="1" min="0" inputmode="numeric"></label>
+        <label style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--paper-dim)"><input type="checkbox" id="qJaar" style="width:auto;accent-color:var(--red)">Jaarcontract (2 maanden gratis)</label>
+        <label style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--paper-dim)"><input type="checkbox" id="qPilotX" style="width:auto;accent-color:var(--red)">Pilot uitgebreid — met systeemkoppeling en DPO-gesprek (€ 3 500 i.p.v. € 1 900)</label>
+      </div>
+      <div class="calc-out">
+        <div><span class="lbl">Uw abonnement per maand</span><output id="oMnd">€ 190</output><p class="law-note" id="oSchijf" style="margin-top:.4rem">schijf: tot 1 000 registraties — alles inbegrepen</p></div>
+        <div><span class="lbl">Per jaar</span><output id="oJaar" style="color:var(--paper)">€ 2 280</output></div>
+        <div><span class="lbl">Pilot vooraf — eenmalig, 30 dagen</span><output id="oPilot" style="color:var(--paper);font-size:clamp(1.4rem,2.2vw,2rem)">€ 1 900</output><p class="law-note" style="margin-top:.4rem">verrekend met de eerste 3 maanden bij doorstart</p></div>
+        <a class="xbtn red" id="offerteBtn" href="mailto:oskar@vo-initiatives.com?subject=Offerte%20Vidimus"><span>Vraag een offerte met deze samenstelling</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="cmp">U krijgt dezelfde samenstelling per mail; Oskar belt u binnen één werkdag voor een intake van een half uur. Richtprijs — de definitieve offerte volgt na de intake.</p>
+      </div>
+      <p class="calc-priv"><b>PRIVÉ</b> — deze berekening gebeurt volledig in uw browser. Er wordt niets opgeslagen of verstuurd tot ú op de offerteknop drukt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Twijfel over welke stromen? <span>Begin met de duurste discussie.</span></h2>
+    <div class="final-under">
+      <p>Reken één stroom uit — de meerwerkbonnen, de afgiftestaten, de poortscans — en zet die tegenover wat één verloren discussie u kost. Meestal is het antwoord er dan al.</p>
+      <div class="hero-actions">
+        <a class="xbtn red" href="index.html#rekensom"><span>Wat kost woord tegen woord u?</span></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
       </div>
     </div>
-  </main>
+  </div>
+</section>
+</main>
 
-  <footer class="site-footer"><span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span><span><a href="/colofon">Colofon &amp; privacy</a></span><span class="mono">Richtprijzen · offerte na intake</span></footer>
-  <div class="bottom-bar" role="complementary" aria-label="Snelle acties"><a class="bottom-bar-main" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan een gesprek — 15 min</a><a class="bottom-bar-icon" href="mailto:oskar@vo-initiatives.com" aria-label="Mail ons"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="bottom-bar-icon" href="tel:+32466474115" aria-label="Bel ons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h4l1.5 4-2.5 1.8c1 2.3 2.6 3.9 4.7 4.7l1.8-2.5 4 1.5v4a1.5 1.5 0 0 1-1.6 1.5C10.5 19 5 13.5 4.5 6.1A1.5 1.5 0 0 1 6 4.5z" transform="translate(1,0) scale(0.82)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+<footer class="site">
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <span class="sp"></span>
+  <span>Richtprijzen · offerte na intake</span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+</footer>
 
-  <script>
-  ;(function(){'use strict';var b=document.getElementById('menu-btn'),m=document.getElementById('mobile-menu');if(!b||!m)return;function o(x){b.setAttribute('aria-expanded',String(x));b.classList.toggle('is-open',x);m.hidden=!x;document.body.classList.toggle('menu-open',x)}b.addEventListener('click',function(){o(b.getAttribute('aria-expanded')!=='true')});m.addEventListener('click',function(e){if(e.target.closest('a'))o(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')o(false)})})();
-  ;(function(){'use strict';
-    var CONN=190, INCL=1000, BANDS=[[3000,290],[10000,490],[30000,690],[100000,990]], QTSA=90, CONS=500, CONS_P=150, PILOT=1900, PILOT_MID=3500;
-    var eur=function(v){return '€ '+Math.round(v).toLocaleString('nl-BE')};
-    function g(id){return document.getElementById(id)}
-    function band(n){if(n<=INCL)return['aansluiting (≤ 1.000 inbegrepen)',CONN];for(var i=0;i<BANDS.length;i++){if(n<=BANDS[i][0])return['aansluiting + verbruik tot '+BANDS[i][0].toLocaleString('nl-BE'),BANDS[i][1]]}return['op maat (> 100.000)',null]}
-    function calc(){
-      var n=+g('vol').value||0; var b=band(n); var lines=[[b[0],b[1]]];
-      var q=g('qtsa').checked?QTSA:0; if(q)lines.push(['Gekwalificeerd tijdstempel',q]);
-      var c=g('cons').checked?CONS+Math.max(0,(+g('consN').value||0)-1)*CONS_P:0; if(c)lines.push(['Gedeeld grootboek met partners',c]);
-      var month=b[1]===null?null:b[1]+q+c;
-      var year=month===null?null:(g('year').checked?month*10:month*12);
-      g('tPilot').textContent=eur(g('pilotmid').checked?PILOT_MID:PILOT);
-      g('tMonth').textContent=month===null?'op maat':eur(month);
-      g('tYear').textContent=year===null?'op maat':eur(year);
-      g('tYearNote').textContent=g('year').checked?'jaarcontract: 10 × maandprijs (2 maanden gratis)':'12 × maandprijs, maandelijks opzegbaar';
-      g('tMonthNote').textContent=n.toLocaleString('nl-BE')+' registraties/maand · afgerekend op werkelijk verbruik';
-      g('lines').innerHTML=lines.map(function(l){return '<div><span>'+l[0]+'</span><span class="m">'+(l[1]===null?'op maat':eur(l[1]))+'</span></div>'}).join('')+'<div><strong>Totaal per maand</strong><span class="m"><strong>'+(month===null?'op maat':eur(month))+'</strong></span></div>';
-    }
-    // logaritmische schuif: 0..1000 → 0..120.000 (fijn onderaan, grof bovenaan)
-    var toN=function(p){return Math.round(Math.pow(120000+1,p/1000)-1)}, toP=function(n){return Math.round(Math.log(n+1)/Math.log(120001)*1000)};
-    g('volr').value=toP(200);
-    g('vol').addEventListener('input',function(){g('volr').value=toP(Math.min(+g('vol').value||0,120000));calc()});
-    g('volr').addEventListener('input',function(){var n=toN(+g('volr').value);n=n<100?Math.round(n/10)*10:n<1000?Math.round(n/50)*50:n<10000?Math.round(n/100)*100:Math.round(n/1000)*1000;g('vol').value=n;calc()});
-    ['qtsa','cons','consN','year','pilotmid'].forEach(function(id){g(id).addEventListener('input',calc);g(id).addEventListener('change',calc)});
-    calc();
-    window.__cfg=function(){var L=[].slice.call(document.querySelectorAll('#lines div')).map(function(d){return d.innerText.replace(/\n/g,': ')});return {volume:+g('vol').value||0,lines:L,pilot:g('tPilot').textContent,month:g('tMonth').textContent,year:g('tYear').textContent}};
-    window.sendLead=async function(e){e.preventDefault();var f=e.target,m=g('leadmsg');m.textContent='Versturen…';
-      var body={name:f.name.value,company:f.company.value,email:f.email.value,phone:f.phone.value,note:f.note.value,consent:f.consent.checked,config:window.__cfg()};
-      try{var r=await fetch('https://app.vidimus.be/lead',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
-        if(!r.ok){m.textContent='Mislukt: '+(await r.text());return false}
-        m.textContent='✓ Verstuurd. U ontvangt de samenstelling per mail; we bellen binnen één werkdag.';f.reset();}
-      catch(err){m.textContent='Verbinding mislukt — mail ons: oskar@vo-initiatives.com'}
-      return false};
-  })();
-  </script>
+<script src="script.js" defer></script>
+<script defer>
+addEventListener("DOMContentLoaded", () => {
+  const $ = (s) => document.querySelector(s);
+  const eur = (n) => "€ " + Math.round(n).toLocaleString("nl-BE");
+  const tier = (n) => n <= 1000 ? 190 : n <= 3000 ? 290 : n <= 10000 ? 490 : n <= 30000 ? 690 : null;
+  function calc() {
+    const n = Math.max(0, parseFloat($("#qN").value) || 0);
+    const cons = $("#qCons").checked;
+    $("#qPartRow").style.display = cons ? "" : "none";
+    const base = tier(n);
+    const pilot = $("#qPilotX").checked ? 3500 : 1900;
+    $("#oPilot").textContent = eur(pilot);
+    if (base === null) { $("#oMnd").textContent = "op maat"; $("#oJaar").textContent = "offerte"; $("#oSchijf").textContent = "schijf: meer dan 30 000 — op maat via jaarcontract, wij bellen u"; return; }
+    const schijf = n <= 1000 ? "tot 1 000 registraties — alles inbegrepen" : n <= 3000 ? "1 001 – 3 000 registraties" : n <= 10000 ? "3 001 – 10 000 registraties" : "10 001 – 30 000 registraties";
+    $("#oSchijf").textContent = "schijf: " + schijf;
+    let m = base + ($("#qQTSP").checked ? 90 : 0) + (cons ? 500 + Math.max(0, parseFloat($("#qPart").value) || 0) * 150 : 0);
+    const months = $("#qJaar").checked ? 10 : 12;
+    $("#oMnd").textContent = eur(m) + ($("#qJaar").checked ? " ·  jaarcontract" : "");
+    $("#oJaar").textContent = eur(m * months);
+    const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n}%0A- Schijf: ${eur(base)}/maand%0A- Gekwalificeerd tijdstempel: ${$("#qQTSP").checked ? "ja" : "nee"}%0A- Gedeeld grootboek: ${cons ? "ja, " + ($("#qPart").value || 0) + " extra partijen" : "nee"}%0A- Jaarcontract: ${$("#qJaar").checked ? "ja" : "nee"}%0A- Pilot: ${$("#qPilotX").checked ? "uitgebreid (€ 3 500)" : "standaard (€ 1 900)"}%0A- Richtprijs: ${eur(m)}/maand · ${eur(m * months)}/jaar%0A%0ABedrijf:%0ATelefoon:`;
+    $("#offerteBtn").href = `mailto:oskar@vo-initiatives.com?subject=${encodeURIComponent("Offerte Vidimus — " + n + " registraties/maand")}&body=${body}`;
+  }
+  ["qN","qQTSP","qCons","qPart","qJaar","qPilotX"].forEach((id) => $("#" + id).addEventListener("input", calc));
+  calc();
+});
+</script>
 </body>
 </html>

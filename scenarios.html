@@ -1,110 +1,164 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="nl" class="js">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scenario's: zo verloopt een discussie mét verankering — Vidimus</title>
-  <meta name="description" content="Vier partnerverhalen (transport, bouw, verhuur, vastgoed): wat er gebeurt op dag 0, wat er gebeurt bij de claim jaren later, en wat de tegenpartij zelf kan controleren. Plus de vragen van de advocaat van de duivel." />
-  <link rel="canonical" href="https://vidimus.be/scenarios" /><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#f7f4ee" />
-  <meta property="og:type" content="article" /><meta property="og:site_name" content="Vidimus" /><meta property="og:title" content="Scenario's — zo verloopt een discussie mét verankering" /><meta property="og:url" content="https://vidimus.be/scenarios" /><meta property="og:image" content="https://vidimus.be/assets/og.png" /><meta property="og:locale" content="nl_BE" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
-  <style>
-    .kp { max-width: 60rem; margin: 0 auto; padding: 0 var(--gutter); }
-    .kp-hero { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: 1rem; }
-    .kp-eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 0 0 0.8rem; }
-    .kp-hero h1 { font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3rem); font-weight: 600; line-height: 1.15; }
-    .kp-hero h1 em { font-style: normal; font-weight: 300; color: var(--blue); }
-    .kp-lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.6; }
-    .kp-lede strong { color: var(--navy); font-weight: 500; }
-    .sc { margin-top: var(--space); border: 1px solid var(--line); background: var(--card); padding: 1.6rem 1.8rem; }
-    .sc-head h2 { font-size: clamp(1.25rem, 1rem + 1.2vw, 1.7rem); margin: 0 0 0.5rem; }
-    .sc-intro { font-weight: 300; color: var(--t2, #4a5068); margin: 0 0 1.4rem; }
-    .tl { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
-    .tl li { display: grid; grid-template-columns: 8.5rem 1fr; gap: 0 1.2rem; padding: 0 0 1.3rem 1.2rem; position: relative; }
-    .tl li::before { content: ""; position: absolute; left: -6px; top: 0.35rem; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); }
-    .tl li:last-child::before { background: var(--navy); }
-    .tl-when { font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--blue); padding-top: 0.15rem; }
-    .tl-body p { margin: 0; font-weight: 300; font-size: 0.95rem; line-height: 1.55; }
-    .tl-art { margin-top: 0.4rem !important; font-size: 0.72rem !important; color: var(--blue) !important; background: var(--panel, #f2eee6); display: inline-block; padding: 0.25rem 0.5rem; }
-    .live { margin-top: var(--space); border: 1px solid var(--navy); background: var(--card); padding: 1.4rem 1.6rem; }
-    .live h2 { font-size: 1.15rem; margin: 0 0 0.6rem; }
-    .live p { font-weight: 300; font-size: 0.95rem; }
-    .live ul { margin: 0.6rem 0 0; padding-left: 1.1rem; font-weight: 300; font-size: 0.92rem; }
-    .live a { color: var(--blue); }
-    .faq { margin-top: var(--space); }
-    .faq h2 { font-size: clamp(1.35rem, 1rem + 1.4vw, 1.9rem); margin: 0 0 1rem; }
-    .faq dl { margin: 0; border: 1px solid var(--line); background: var(--card); }
-    .faq dl > div { padding: 1.2rem 1.4rem; border-bottom: 1px solid var(--line-soft); }
-    .faq dl > div:last-child { border-bottom: none; }
-    .faq dt { color: var(--navy); font-weight: 500; margin-bottom: 0.4rem; }
-    .faq dd { margin: 0; font-weight: 300; font-size: 0.93rem; line-height: 1.55; }
-    .verdict { margin: var(--space) 0 calc(var(--space) + 3rem); background: var(--navy); color: var(--cream); padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-    .verdict h2 { font-size: 1.15rem; font-weight: 500; color: var(--cream); margin: 0; }
-    .verdict p { color: #dfe3f0; font-size: 0.9rem; font-weight: 300; margin: 0.35rem 0 0; max-width: 40rem; }
-    .verdict-cta { flex: 0 0 auto; text-align: right; font-size: 0.86rem; line-height: 1.6; display: flex; flex-direction: column; }
-    .verdict-cta a { color: var(--cream); text-decoration: none; } .verdict-cta a b { display: block; font-size: 1rem; font-weight: 500; }
-    @media (max-width: 760px) { .tl li { grid-template-columns: 1fr; } .verdict { flex-direction: column; align-items: flex-start; } .verdict-cta { text-align: left; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scenario's — zo verloopt een discussie mét verankering | Vidimus</title>
+<meta name="description" content="Vier verhalen, van dag 0 tot de claim jaren later. Wat de partijen doen op het moment zelf, en wat de tegenpartij zelf kan controleren — zonder ons te geloven.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="inner.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="wordmark" href="/" aria-label="Vidimus — home"><svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" /><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" /><path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>vidimus<br /><em>verankeringslaag</em></span></a>
-    <nav aria-label="Hoofdnavigatie"><a href="#transport">Transport</a><a href="#bouw">Bouw</a><a href="#materieelverhuur">Verhuur</a><a href="#vastgoed">Vastgoed</a><a href="#duivel">Advocaat v/d duivel</a><a href="/hoe-het-werkt">Hoe het werkt</a><a href="/cases">Cases</a><a href="/prijzen">Prijzen</a></nav>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span><span></span></button>
-  </header>
-  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu"><a href="#transport">Transport</a><a href="#bouw">Bouw</a><a href="#materieelverhuur">Verhuur</a><a href="#vastgoed">Vastgoed</a><a href="#duivel">Advocaat v/d duivel</a><a href="/hoe-het-werkt">Hoe het werkt</a><a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">Plan een gesprek — 15 min</a></nav>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
+</defs></svg>
 
-  <main>
-    <header class="kp kp-hero">
-      <p class="kp-eyebrow mono">Scenario's · samenwerken met partners</p>
-      <h1>Wat er gebeurt als het misgaat.<br /><em>Vier verhalen, van dag 0 tot de claim jaren later.</em></h1>
-      <p class="kp-lede">Verankering is pas iets waard op de dag dat iemand twijfelt. Daarom hieronder geen features, maar het verloop: wat de partijen doen op het moment zelf, wat er drie jaar later gebeurt, en <strong>wat de tegenpartij zelf kan controleren</strong> — zonder ons te geloven. Fictieve namen; het verloop is echt. <a href="/cases" style="color:var(--blue)">Liever zelf doorlopen als case study, stap voor stap? →</a></p>
-    </header>
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="cases.html">Cases</a>
+    <a href="scenarios.html" style="color:var(--paper)">Scenario's</a>
+    <a href="help.html">Help</a>
+    <a href="prijzen.html">Prijzen</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-login" href="https://app.vidimus.be/app">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/app#start">Start gratis</a>
+  </div>
+</header>
 
-    <div class="kp">
-      <article class="sc" id="transport">
-        <header class="sc-head"><p class="kp-eyebrow mono">Transport & haven · Vervoerder ↔ terminal</p><h2>De lading die 'te laat en beschadigd' was.</h2><p class="sc-intro">Een transporteur en een terminal delen één stroom afleveringen. Drie jaar later komt een claim.</p></header>
-        <ol class="tl"><li><div class="tl-when mono">dag 0 · 09:41</div><div class="tl-body"><p>Het TMS van de vervoerder stuurt de aflevering door: referentie, container, kenteken, tijdstip, afleverbon. Vidimus hasht, tekent met de systeemsleutel, versleutelt de bon in de kluis. Vijf minuten later: batch verankerd, tijdstempel van Sectigo.</p><p class="tl-art mono">registratie AFL-2026-0913 · sha-256 · tsa 09:46</p></div></li><li><div class="tl-when mono">dag 0 · 09:50</div><div class="tl-body"><p>De receptie van de terminal krijgt een deellink en bevestigt op de telefoon: 'ontvangen zonder voorbehoud'. Getekend met een sleutel op háár toestel. Die bevestiging wordt zelf verankerd — nu staat het in het dossier van beide partijen.</p><p class="tl-art mono">bevestiging · eigen sleutel tegenpartij · verankerd</p></div></li><li><div class="tl-when mono">3 jaar later</div><div class="tl-body"><p>Claim van de ontvanger: te laat, beschadigd. De planner van de vervoerder twijfelt: is die aflevering in het TMS intussen niet aangepast?</p><p class="tl-art mono">claim · twijfel</p></div></li><li><div class="tl-when mono">controle · 10 sec</div><div class="tl-body"><p>In de app: Bewijs openen. Zes controles ✓ — inhoud herrekend, plaats in de batch, handtekening, zegel, grootboek, tijdstempel. Én de bevestiging van de terminal, met tijdstip, staat ernaast.</p><p class="tl-art mono">✓ sindsdien niet gewijzigd</p></div></li><li><div class="tl-when mono">uitkomst</div><div class="tl-body"><p>De vervoerder stuurt geen 'ons woord' maar de bundel en de verificatielink. De verzekeraar van de tegenpartij laat het door zijn IT natellen: geldig. De discussie stopt vóór ze begint.</p><p class="tl-art mono">bundel · verificatielink · geen procedure</p></div></li></ol>
-      </article>
-      <article class="sc" id="bouw">
-        <header class="sc-head"><p class="kp-eyebrow mono">Bouw · Aannemer ↔ bouwheer</p><h2>Het meerwerk dat 'nooit is goedgekeurd'.</h2><p class="sc-intro">Op de werf zegt de bouwheer 'doe maar'. Bij de eindafrekening weet hij van niets.</p></header>
-        <ol class="tl"><li><div class="tl-when mono">werf · 10:42</div><div class="tl-body"><p>De werfleider maakt de meerwerkbon in de app: omschrijving, bedrag, foto. Hij tekent met zijn eigen sleutel op zijn telefoon; de bouwheer krijgt meteen de deellink.</p><p class="tl-art mono">meerwerk MW-0047 · € 4.380 · foto</p></div></li><li><div class="tl-when mono">werf · 10:44</div><div class="tl-body"><p>De bouwheer bevestigt op zíjn telefoon — of betwist, met opmerking. Ook dat antwoord wordt verankerd, met tijdstip van een derde.</p><p class="tl-art mono">bevestiging bouwheer · 10:44</p></div></li><li><div class="tl-when mono">eindafrekening</div><div class="tl-body"><p>'Dat hebben wij nooit gevraagd.' De aannemer opent Bewijs: bon, foto, bedrag, tijdstip, en de bevestiging van de bouwheer van 10:44 diezelfde ochtend.</p><p class="tl-art mono">✓ verankerd · ✓ bevestigd</p></div></li><li><div class="tl-when mono">uitkomst</div><div class="tl-body"><p>Bij vaste prijs vraagt de wet in principe een schriftelijk akkoord (art. 1793 oud BW). Dit ís er een — door beide partijen elektronisch getekend en onafhankelijk verifieerbaar. Betaald.</p><p class="tl-art mono">bundel · art. 1793 · betaald</p></div></li></ol>
-      </article>
-      <article class="sc" id="materieelverhuur">
-        <header class="sc-head"><p class="kp-eyebrow mono">Materieelverhuur · Verhuurder ↔ huurder</p><h2>De deuk die 'er al zat'.</h2><p class="sc-intro">Een hoogwerker vertrekt in orde en komt beschadigd terug.</p></header>
-        <ol class="tl"><li><div class="tl-when mono">afgifte</div><div class="tl-body"><p>Staatopname samen met de huurder: zes foto's, urenteller, opmerkingen. Beide partijen tekenen op de telefoon; verankerd binnen minuten.</p><p class="tl-art mono">afgiftestaat AFG-0182 · 6 foto's · 2 handtekeningen</p></div></li><li><div class="tl-when mono">terugname</div><div class="tl-body"><p>Zelfde discipline: foto's, urenteller, schade. Huurder afwezig? Dan tekent de verhuurdesk en krijgt de huurder de deellink met 24 u om te betwisten (zoals de AV zeggen).</p><p class="tl-art mono">terugname · deuk gieklift · deellink</p></div></li><li><div class="tl-when mono">discussie</div><div class="tl-body"><p>'Die deuk zat er al.' Twee registraties, elk met inhoud en moment vast: bij afgifte geen schade (foto 4, 08:12), bij terugname wél (foto 4, vrijdag 16:40).</p><p class="tl-art mono">✓ afgifte · ✓ terugname</p></div></li><li><div class="tl-when mono">uitkomst</div><div class="tl-body"><p>Geen woord tegen woord: twee onweerlegbare foto's met tijdstip. De huurder betaalt of zijn verzekeraar doet het — na één blik op de verificatiepagina.</p><p class="tl-art mono">€ 2.900 herstel · geen procedure</p></div></li></ol>
-      </article>
-      <article class="sc" id="vastgoed">
-        <header class="sc-head"><p class="kp-eyebrow mono">Vastgoed · Syndicus/verhuurder ↔ huurder</p><h2>Het parket dat 'al gekrast was'.</h2><p class="sc-intro">Plaatsbeschrijving bij intrede, uittrede drie jaar later.</p></header>
-        <ol class="tl"><li><div class="tl-when mono">intrede</div><div class="tl-body"><p>Plaatsbeschrijving ruimte per ruimte, 38 foto's, meterstanden. Huurder en verhuurder tekenen elk met een eigen sleutel; het document en de foto-hashes worden verankerd.</p><p class="tl-art mono">PB-2026-013 · 38 foto's · 2 handtekeningen</p></div></li><li><div class="tl-when mono">3 jaar later</div><div class="tl-body"><p>Uittrede: diepe krassen in het parket. 'Ik heb een andere versie getekend', zegt de huurder, 'en die foto's zijn van later.'</p><p class="tl-art mono">betwisting versie · betwisting datum</p></div></li><li><div class="tl-when mono">controle</div><div class="tl-body"><p>Bewijs openen: de versie die getekend werd is byte voor byte de versie in de kluis; de handtekening van de huurder staat eronder; het tijdstempel is van de dag van intrede. Foto van de living: geen krassen.</p><p class="tl-art mono">✓ versie · ✓ handtekening huurder · ✓ datum</p></div></li><li><div class="tl-when mono">uitkomst</div><div class="tl-body"><p>Wat de wet vraagt — een omstandige, tegensprekelijke plaatsbeschrijving bij intrede — is er, en de datum en versie zijn onbetwistbaar. De vrederechter hoeft niemand op zijn woord te geloven.</p><p class="tl-art mono">art. 1730–1731 · vrederechter · bundel</p></div></li></ol>
-      </article>
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="scenarios.html">SCENARIO'S</a></p>
+    <h1 class="disp">Wat er gebeurt <span class="thin">als het misgaat</span><span style="color:var(--red)">.</span></h1>
+    <p class="intro">Verankering is pas iets waard op de dag dat iemand twijfelt. Daarom hieronder geen features, maar het verloop: wat de partijen doen op het moment zelf, wat er drie jaar later gebeurt, en wat de tegenpartij <b>zelf kan controleren — zonder ons te geloven</b>. Fictieve namen; het verloop is echt. Liever stap voor stap? <a href="cases.html" style="color:var(--paper)">Doorloop de cases →</a></p>
+  </div>
+</section>
 
-      <section class="live" id="live" aria-labelledby="live-h">
-        <h2 id="live-h">Dit is echt gebeurd op ons platform — klik zelf.</h2>
-        <p>Het transportscenario hierboven hebben we niet getekend maar uitgevoerd: een demo-vervoerder registreerde drie afleveringen, de batch werd verankerd met een tijdstempel van Sectigo, en 'Terminal X' bevestigde via de deellink met een sleutel op haar eigen toestel. Daarna hebben we in de bundel één woord op de afleverbon veranderd — en het verificatiescript sloeg rood uit.</p>
-        <ul>
-          <li>Publieke verificatie van de aflevering: <a href="https://app.vidimus.be/v/reg_66bfbe7909f2" target="_blank" rel="noopener">app.vidimus.be/v/reg_66bfbe7909f2</a></li>
-          <li>De bevestiging van de terminal, zelf verankerd: <a href="https://app.vidimus.be/v/reg_5dcbbd93068e" target="_blank" rel="noopener">app.vidimus.be/v/reg_5dcbbd93068e</a></li>
-          <li>Wat de tegenpartij zag: <a href="https://app.vidimus.be/s/hxFFUdIufy32HehqB04F_yec7q4f9bZj" target="_blank" rel="noopener">de deellink</a> (al beantwoord)</li>
-        </ul>
-        <p class="kp-eyebrow mono" style="margin:0.9rem 0 0">Fictieve organisatie "Demo Transport BV" · geen klantdata</p>
-      </section>
+<section style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap" style="display:grid;gap:clamp(3rem,6vw,5rem)">
 
-      <section class="faq" id="duivel" aria-labelledby="duivel-h">
-        <h2 id="duivel-h">Advocaat van de duivel.</h2>
-        <dl><div><dt>De tegenpartij controleert dezelfde data, maar in een andere volgorde — dan klopt de hash toch niet?</dt><dd>Nee: vóór het hashen brengen we elke registratie in een canonieke vorm (sleutels gesorteerd, geen witruimte, vaste encoding). Volgorde bestaat daarna niet meer; dezelfde inhoud geeft altijd dezelfde bytes. Die regel staat met naam en versie in elke bundel én in het verificatiescript. Voor bestanden (foto, pdf) hashen we de bytes zelf — daar is geen volgorde om te veranderen.</dd></div><div><dt>Hebben jullie een kopie van onze data 'zoals ze was'? Anders valt er niets te vergelijken.</dt><dd>Ja. Bij registratie gaat het origineel (de canonieke registratie én elke bijlage) versleuteld in een write-once-kluis, voor de bewaartermijn van de stroom. Bij twijfel vergelijkt de deskundige met wat wij toen ontvingen — niet met wat uw systeem vandaag exporteert. En omdat de hash op het grootboek staat, kunnen ook wij dat exemplaar niet ongemerkt aanpassen.</dd></div><div><dt>Ons systeem slaat sinds vorig jaar getallen anders op (4.20 → 4.2). Dan is de data 'eigenlijk juist' maar de hash klopt niet.</dt><dd>Een hash die niet klopt bewijst nooit dat Vidimus faalde en nooit dat de data 'eigenlijk wel juist' was — hij bewijst dat wat men nú voorlegt niet byte-voor-byte is wat destijds werd vastgelegd. Wat destijds werd vastgelegd, ligt in de kluis en in uw bundel, met tijdstempel van een derde. Dat verschil is geen probleem: het is precies de vaststelling die u wil kunnen doen. Praktisch: stuur het ruwe bericht van uw bronsysteem, niet een bewerkte versie — dan is 'wat was de waarheid' voorgoed beantwoord.</dd></div><div><dt>Wat als Vidimus over vijf jaar niet meer bestaat?</dt><dd>Uw bundels zijn dan nog even geldig: standaardcryptografie (SHA-256, Ed25519, RFC 3161, Merkle), het verificatiescript zit erin, en het tijdstempeltoken van Sectigo is onafhankelijk van ons controleerbaar. Alleen de app verdwijnt; het bewijs niet. Daarom leveren we een bundel, geen schermafbeelding.</dd></div><div><dt>Wie heeft de sleutels?</dt><dd>Wie tekent, heeft zijn eigen sleutel — op zijn eigen toestel (browser/telefoon), niet bij ons; wij zien alleen de publieke helft en geven een certificaat uit. Systemen (poort, sensor) krijgen een systeemsleutel. Het origineel in de kluis is versleuteld per document; wissen na de bewaartermijn is de sleutel vernietigen — het bestand wordt ruis, de vingerafdruk blijft bewijzen dát er iets was.</dd></div></dl>
-      </section>
+    <article class="rv" id="transport">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="idx">SC/01 · TRANSPORT &amp; HAVEN · VERVOERDER ↔ TERMINAL</span>
+        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">De lading die "te laat en beschadigd" was<span style="color:var(--red)">.</span></h2>
+        <p class="side">Een transporteur en een terminal delen één stroom afleveringen. Drie jaar later komt een claim.</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><span class="when">dag 0 · 09:41</span><h4>Het TMS stuurt de aflevering door</h4><p>Referentie, container, kenteken, tijdstip, afleverbon. Vidimus hasht, tekent met de systeemsleutel, versleutelt de bon in de kluis. Vijf minuten later: batch verankerd, tijdstempel van Sectigo.</p><span class="meta">registratie AFL-2026-0913 · sha-256 · <b>tsa 09:46</b></span></div>
+        <div class="flow-step"><span class="when">dag 0 · 09:50</span><h4>De terminal bevestigt op de telefoon</h4><p>De receptie krijgt een deellink en bevestigt: "ontvangen zonder voorbehoud". Getekend met een sleutel op háár toestel. Die bevestiging wordt zelf verankerd — nu staat het in het dossier van beide partijen.</p><span class="meta">bevestiging · eigen sleutel tegenpartij · <b>verankerd</b></span></div>
+        <div class="flow-step hit"><span class="when">3 jaar later</span><h4>De claim — en de twijfel</h4><p>Claim van de ontvanger: te laat, beschadigd. De planner van de vervoerder twijfelt: is die aflevering in het TMS intussen niet aangepast?</p></div>
+        <div class="flow-step"><span class="when">controle · 10 sec</span><h4>Bewijs openen</h4><p>Zes controles, allemaal groen — inhoud herrekend, plaats in de batch, handtekening, zegel, grootboek, tijdstempel. Én de bevestiging van de terminal, met tijdstip, staat ernaast.</p><span class="meta"><b>sindsdien niet gewijzigd</b></span></div>
+        <div class="flow-step"><span class="when">uitkomst</span><h4>De discussie stopt vóór ze begint</h4><p>De vervoerder stuurt geen "ons woord" maar de bundel en de verificatielink. De verzekeraar van de tegenpartij laat het door zijn IT natellen: geldig.</p><span class="meta">bundel · verificatielink · <b>geen procedure</b></span></div>
+      </div>
+    </article>
 
-      <div class="verdict">
-        <div><h2>Zo starten we: één stroom, dertig dagen, vaste prijs.</h2><p>Kies de registratie waar de discussies nu het meeste kosten. Na dertig dagen ligt uw eigen bewijsbundel op tafel — en uw partner heeft dezelfde.</p></div>
-        <div class="verdict-cta"><a href="/#tamper"><b>vidimus.be/#tamper</b>probeer de tamper-demo</a><a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">of plan 15 minuten via cal.com</a></div>
+    <article class="rv" id="bouw">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="idx">SC/02 · BOUW · AANNEMER ↔ BOUWHEER</span>
+        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">Het meerwerk dat "nooit is goedgekeurd"<span style="color:var(--red)">.</span></h2>
+        <p class="side">Op de werf zegt de bouwheer "doe maar". Bij de eindafrekening weet hij van niets.</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><span class="when">werf · 10:42</span><h4>De bon, ter plekke</h4><p>De werfleider maakt de meerwerkbon in de app: omschrijving, bedrag, foto. Hij tekent met zijn eigen sleutel op zijn telefoon; de bouwheer krijgt meteen de deellink.</p><span class="meta">meerwerk MW-0047 · <b>€ 38 500</b> · foto</span></div>
+        <div class="flow-step"><span class="when">werf · 10:44</span><h4>De bouwheer bevestigt op zíjn telefoon</h4><p>Of betwist, met opmerking. Ook dat antwoord wordt verankerd, met tijdstip van een derde.</p><span class="meta">bevestiging bouwheer · <b>10:44</b></span></div>
+        <div class="flow-step hit"><span class="when">eindafrekening</span><h4>"Dat hebben wij nooit gevraagd"</h4><p>De aannemer opent Bewijs: bon, foto, bedrag, tijdstip, en de bevestiging van de bouwheer van 10:44 diezelfde ochtend.</p></div>
+        <div class="flow-step"><span class="when">uitkomst</span><h4>Betaald</h4><p>Bij vaste prijs vraagt de wet in principe een schriftelijk akkoord (art. 1793 oud BW). Dit ís er een — door beide partijen elektronisch getekend en onafhankelijk verifieerbaar.</p><span class="meta">bundel · art. 1793 · <b>betaald</b></span></div>
+      </div>
+    </article>
+
+    <article class="rv" id="verhuur">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="idx">SC/03 · MATERIEELVERHUUR · VERHUURDER ↔ HUURDER</span>
+        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">De deuk die "er al zat"<span style="color:var(--red)">.</span></h2>
+        <p class="side">Een hoogwerker vertrekt in orde en komt beschadigd terug.</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><span class="when">afgifte</span><h4>Staatopname, samen</h4><p>Zes foto's, urenteller, opmerkingen. Beide partijen tekenen op de telefoon; verankerd binnen minuten.</p><span class="meta">afgiftestaat AFG-0182 · 6 foto's · <b>2 handtekeningen</b></span></div>
+        <div class="flow-step"><span class="when">terugname</span><h4>Zelfde discipline</h4><p>Foto's, urenteller, schade. Huurder afwezig? Dan tekent de verhuurdesk en krijgt de huurder de deellink met 24 u om te betwisten — zoals de AV zeggen.</p><span class="meta">terugname · deuk gieklift · <b>deellink</b></span></div>
+        <div class="flow-step hit"><span class="when">discussie</span><h4>"Die deuk zat er al"</h4><p>Twee registraties, elk met inhoud en moment vast: bij afgifte geen schade (foto 4, 08:12), bij terugname wél (foto 4, vrijdag 16:40).</p></div>
+        <div class="flow-step"><span class="when">uitkomst</span><h4>Geen woord tegen woord</h4><p>Twee onweerlegbare foto's met tijdstip. De huurder betaalt of zijn verzekeraar doet het — na één blik op de verificatiepagina.</p><span class="meta"><b>€ 18 400 herstel</b> · geen procedure</span></div>
+      </div>
+    </article>
+
+    <article class="rv" id="vastgoed">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="idx">SC/04 · VASTGOED · SYNDICUS/VERHUURDER ↔ HUURDER</span>
+        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">Het parket dat "al gekrast was"<span style="color:var(--red)">.</span></h2>
+        <p class="side">Plaatsbeschrijving bij intrede, uittrede drie jaar later.</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><span class="when">intrede</span><h4>Ruimte per ruimte</h4><p>Plaatsbeschrijving, 38 foto's, meterstanden. Huurder en verhuurder tekenen elk met een eigen sleutel; het document en de foto-hashes worden verankerd.</p><span class="meta">PB-2026-013 · 38 foto's · <b>2 handtekeningen</b></span></div>
+        <div class="flow-step hit"><span class="when">3 jaar later</span><h4>"Ik heb een andere versie getekend"</h4><p>Uittrede: diepe krassen in het parket. De huurder betwist de versie van het document én de datum van de foto's.</p></div>
+        <div class="flow-step"><span class="when">controle</span><h4>Byte voor byte</h4><p>De versie die getekend werd is exact de versie in de kluis; de handtekening van de huurder staat eronder; het tijdstempel is van de dag van intrede. Foto van de living: geen krassen.</p><span class="meta"><b>versie · handtekening · datum</b> — alles klopt</span></div>
+        <div class="flow-step"><span class="when">uitkomst</span><h4>De vrederechter hoeft niemand te geloven</h4><p>Wat de wet vraagt — een omstandige, tegensprekelijke plaatsbeschrijving bij intrede — is er, en de datum en versie zijn onbetwistbaar.</p><span class="meta">art. 1730–1731 · vrederechter · <b>bundel</b></span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="echt" style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sum-band rv" style="grid-template-columns:1fr">
+      <div>
+        <p class="lbl" style="writing-mode:horizontal-tb;margin-bottom:1.2rem"><b>GEEN MOCKUP</b> — DIT IS ECHT GEBEURD OP ONS PLATFORM</p>
+        <p style="max-width:66ch">Het transportscenario hierboven hebben we niet getekend maar <b>uitgevoerd</b>: een demo-vervoerder registreerde drie afleveringen, de batch werd verankerd met een tijdstempel van Sectigo, en "Terminal X" bevestigde via de deellink met een sleutel op haar eigen toestel. Daarna hebben we in de bundel één woord op de afleverbon veranderd — <span class="r">en het verificatiescript sloeg rood uit.</span></p>
+        <div style="display:grid;gap:.6rem;margin-top:1.4rem;font:400 .78rem/1.7 var(--mono)">
+          <a href="https://app.vidimus.be/v/reg_66bfbe7909f2" style="color:var(--paper)">Publieke verificatie van de aflevering → app.vidimus.be/v/reg_66bfbe7909f2</a>
+          <a href="https://app.vidimus.be/v/reg_5dcbbd93068e" style="color:var(--paper)">De bevestiging van de terminal, zelf verankerd → app.vidimus.be/v/reg_5dcbbd93068e</a>
+        </div>
+        <p class="law-note">Fictieve organisatie "Demo Transport BV" · geen klantdata</p>
       </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <footer class="site-footer"><span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span><span><a href="/colofon">Colofon &amp; privacy</a></span><span class="mono">Fictieve voorbeelden · geen klantreferenties</span></footer>
-  <div class="bottom-bar" role="complementary" aria-label="Snelle acties"><a class="bottom-bar-main" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan een gesprek — 15 min</a><a class="bottom-bar-icon" href="mailto:oskar@vo-initiatives.com" aria-label="Mail ons"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="bottom-bar-icon" href="tel:+32466474115" aria-label="Bel ons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h4l1.5 4-2.5 1.8c1 2.3 2.6 3.9 4.7 4.7l1.8-2.5 4 1.5v4a1.5 1.5 0 0 1-1.6 1.5C10.5 19 5 13.5 4.5 6.1A1.5 1.5 0 0 1 6 4.5z" transform="translate(1,0) scale(0.82)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-  <script>;(function(){'use strict';var b=document.getElementById('menu-btn'),m=document.getElementById('mobile-menu');if(!b||!m)return;function o(x){b.setAttribute('aria-expanded',String(x));b.classList.toggle('is-open',x);m.hidden=!x;document.body.classList.toggle('menu-open',x)}b.addEventListener('click',function(){o(b.getAttribute('aria-expanded')!=='true')});m.addEventListener('click',function(e){if(e.target.closest('a'))o(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')o(false)})})()</script>
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">TEGENSPRAAK</span>
+      <h2 class="disp">Advocaat van de duivel<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>De tegenpartij controleert dezelfde data, maar in een andere volgorde — dan klopt de hash toch niet?</summary><p class="a"><b>Nee:</b> vóór het hashen brengen we elke registratie in een canonieke vorm (sleutels gesorteerd, geen witruimte, vaste encoding). Volgorde bestaat daarna niet meer; dezelfde inhoud geeft altijd dezelfde bytes. Die regel staat met naam en versie in elke bundel én in het verificatiescript. Voor bestanden (foto, pdf) hashen we de bytes zelf — daar is geen volgorde om te veranderen.</p></details>
+      <details><summary>Hebben jullie een kopie van onze data "zoals ze was"? Anders valt er niets te vergelijken.</summary><p class="a"><b>Ja.</b> Bij registratie gaat het origineel (de canonieke registratie én elke bijlage) versleuteld in een write-once-kluis, voor de bewaartermijn van de stroom. Bij twijfel vergelijkt de deskundige met wat wij toen ontvingen — niet met wat uw systeem vandaag exporteert. En omdat de hash op het grootboek staat, kunnen ook wij dat exemplaar niet ongemerkt aanpassen.</p></details>
+      <details><summary>Ons systeem slaat sinds vorig jaar getallen anders op (4.20 → 4.2). Dan is de data "eigenlijk juist" maar de hash klopt niet.</summary><p class="a">Een hash die niet klopt bewijst nooit dat Vidimus faalde en nooit dat de data "eigenlijk wel juist" was — hij bewijst dat wat men <b>nú</b> voorlegt niet byte-voor-byte is wat <b>destijds</b> werd vastgelegd. Wat destijds werd vastgelegd, ligt in de kluis en in uw bundel, met tijdstempel van een derde. Dat verschil is geen probleem: het is precies de vaststelling die u wil kunnen doen. Praktisch: stuur het ruwe bericht van uw bronsysteem, niet een bewerkte versie.</p></details>
+      <details><summary>Wat als Vidimus over vijf jaar niet meer bestaat?</summary><p class="a">Uw bundels zijn dan <b>nog even geldig</b>: standaardcryptografie (SHA-256, Ed25519, RFC 3161, Merkle), het verificatiescript zit erin, en het tijdstempeltoken van Sectigo is onafhankelijk van ons controleerbaar. Alleen de app verdwijnt; het bewijs niet. Daarom leveren we een bundel, geen schermafbeelding.</p></details>
+      <details><summary>Wie heeft de sleutels?</summary><p class="a">Wie tekent, heeft <b>zijn eigen sleutel — op zijn eigen toestel</b> (browser/telefoon), niet bij ons; wij zien alleen de publieke helft en geven een certificaat uit. Systemen (poort, sensor) krijgen een systeemsleutel. Het origineel in de kluis is versleuteld per document; wissen na de bewaartermijn is de sleutel vernietigen — het bestand wordt ruis, de vingerafdruk blijft bewijzen dát er iets was.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Zo starten we: <span>één stroom, dertig dagen, vaste prijs.</span></h2>
+    <div class="final-under">
+      <p>Kies de registratie waar de discussies nu het meeste kosten. Na dertig dagen ligt uw eigen bewijsbundel op tafel — en uw partner heeft dezelfde.</p>
+      <div class="hero-actions">
+        <a class="xbtn red" href="index.html#demo"><span>Probeer de vervals-demo</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <a href="cases.html">Cases</a>
+  <span class="sp"></span>
+  <span>Fictieve voorbeelden · geen klantreferenties</span>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>

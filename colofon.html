@@ -1,145 +1,100 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="nl" class="js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colofon &amp; privacy — Vidimus</title>
-  <meta name="description" content="Bedrijfsgegevens en privacyverklaring van Vidimus, een product van VO Initiatives BV." />
-  <meta name="robots" content="noindex" />
-  <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#f7f4ee" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colofon &amp; privacy | Vidimus</title>
+<meta name="description" content="Colofon, aard van de dienst, verklaring over de handtekening en privacy — kort, omdat het kort kán zijn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="inner.css">
 </head>
 <body>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
+</defs></svg>
 
-  <header class="site-header">
-    <a class="wordmark" href="./" aria-label="Vidimus — home">
-      <svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true">
-        <circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" />
-        <circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" />
-        <path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <span>vidimus<br /><em>verankeringslaag</em></span>
-    </a>
-    <nav aria-label="Hoofdnavigatie">
-      <a href="./">Terug naar de site</a>
-    </nav>
-  </header>
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="cases.html">Cases</a>
+    <a href="scenarios.html">Scenario's</a>
+    <a href="help.html">Help</a>
+    <a href="prijzen.html">Prijzen</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-login" href="https://app.vidimus.be/app">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/app#start">Start gratis</a>
+  </div>
+</header>
 
-  <main class="legal">
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="colofon.html">COLOFON &amp; PRIVACY</a></p>
+    <h1 class="disp">Colofon<span style="color:var(--red)">.</span></h1>
+  </div>
+</section>
 
-    <section aria-labelledby="colofon-heading">
-      <h1 id="colofon-heading">Colofon</h1>
-      <dl class="legal-list">
-        <div><dt>Product</dt><dd>Vidimus — verankeringslaag voor registraties</dd></div>
-        <div><dt>Onderneming</dt><dd>VO Initiatives BV, Antwerpen</dd></div>
-        <div><dt>Ondernemingsnummer</dt><dd class="mono">BE 0805.309.143</dd></div>
-        <div><dt>E-mail</dt><dd><a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a></dd></div>
-      </dl>
-      <p class="legal-note">
-        Dit is een conceptpagina. Niets op deze site is een klantreferentie
-        of een gepubliceerd cijfer; de werkende demo toont het product zoals
-        het vandaag bestaat, gekwalificeerde documentintegraties staan op de
-        roadmap.
-      </p>
-    </section>
+<section style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap" style="max-width:66rem">
+    <div class="spec rv">
+      <div class="spec-row"><span class="k">product</span><span class="v">Vidimus</span><p>Verankeringslaag voor registraties.</p></div>
+      <div class="spec-row"><span class="k">onderneming</span><span class="v">VO Initiatives BV</span><p>Antwerpen · KBO BE 0805.309.143</p></div>
+      <div class="spec-row"><span class="k">contact</span><span class="v">oskar@vo-initiatives.com</span><p>+32 466 47 41 15</p></div>
+      <div class="spec-row"><span class="k">status</span><span class="v">Conceptpagina</span><p>Niets op deze site is een klantreferentie of een gepubliceerd cijfer; de werkende demo toont het product zoals het vandaag bestaat, gekwalificeerde documentintegraties staan op de roadmap.</p></div>
+    </div>
 
-    <section aria-labelledby="dienst-heading" id="dienst">
-      <h2 id="dienst-heading">Aard van de dienst</h2>
-      <p>
-        Vidimus is een <strong>elektronische verankeringsdienst</strong>: een
-        verwerker die van bedrijfsregistraties de integriteit, het tijdstip en
-        de herkomst cryptografisch vastlegt — met elektronische handtekeningen
-        (eIDAS art. 26), tijdstempels van een onafhankelijke derde (art. 41)
-        en een elektronisch grootboek (art. 45k) — en die het bewijs daarvan
-        in een zelfstandig verifieerbare bundel aan de klant levert.
-      </p>
-      <p class="legal-note">
-        Vidimus is geen gekwalificeerde vertrouwensdienstverlener in de zin van
-        eIDAS. Standaard worden onafhankelijke RFC 3161-tijdstempels gebruikt
-        (inbegrepen); gekwalificeerde tijdstempels van een aanbieder op de
-        EU Trusted List zijn per stroom optioneel. Wat verankerd wordt, kan
-        niet geweigerd worden louter omdat het elektronisch is; de bewijskracht
-        wordt vrij gewogen (art. 8.11 BW) en kan contractueel worden vastgelegd
-        (art. 8.2 BW). Vidimus levert bewijsmateriaal, geen juridisch advies. Zie ook de <a href="/beveiliging">beveiligingsverklaring</a> en <a href="/voor-ai">Vidimus voor AI-agents</a> en de <a href="/help">uitlegvideo's per onderdeel</a>.
-      </p>
-    </section>
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)">
+      <span class="idx">JURIDISCH</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Aard van de dienst<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="rv" style="font-size:.9rem;color:var(--paper-dim);max-width:66ch;display:grid;gap:1rem">
+      <p>Vidimus is een <b style="color:var(--paper)">elektronische verankeringsdienst</b>: een verwerker die van bedrijfsregistraties de integriteit, het tijdstip en de herkomst cryptografisch vastlegt — met elektronische handtekeningen (eIDAS art. 26), tijdstempels van een onafhankelijke derde (art. 41) en een elektronisch grootboek (art. 45k) — en die het bewijs daarvan in een zelfstandig verifieerbare bundel aan de klant levert.</p>
+      <p>Vidimus is <b style="color:var(--paper)">geen gekwalificeerde vertrouwensdienstverlener</b> in de zin van eIDAS. Standaard worden onafhankelijke RFC 3161-tijdstempels gebruikt (inbegrepen); gekwalificeerde tijdstempels van een aanbieder op de EU Trusted List zijn per stroom optioneel. Wat verankerd wordt, kan niet geweigerd worden louter omdat het elektronisch is; de bewijskracht wordt vrij gewogen (art. 8.11 BW) en kan contractueel worden vastgelegd (art. 8.2 BW). Vidimus levert bewijsmateriaal, geen juridisch advies.</p>
+    </div>
 
-    <section aria-labelledby="handtekening-heading" id="handtekening">
-      <h2 id="handtekening-heading">Verklaring over de handtekening</h2>
-      <p>
-        De handtekening-afbeelding op de startpagina is bewust gepubliceerd
-        als merkbeeld. De SHA-256-hash van het gepubliceerde bestand is:
-      </p>
-      <p class="hash-block mono">c34a277d9ea3130351f279e548ebc10ff07c3dbbfd8b7906e8a6b18ec8f313cf</p>
-      <p>
-        Oskar Verschoren verbindt zich uitsluitend via cryptografisch
-        ondertekende en verankerde documenten (eIDAS-conforme elektronische
-        handtekening, dan wel gekwalificeerde ondertekening via eID of itsme).
-        Een kopie, scan of afdruk van deze afbeelding op eender welk document,
-        zonder geldige cryptografische verankering, is geen handtekening van
-        Oskar Verschoren en bindt hem niet. Deze verklaring wordt bij livegang
-        cryptografisch verankerd met onafhankelijke tijdstempel, zodat ze een
-        vaste datum draagt.
-      </p>
-    </section>
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)" id="handtekening">
+      <span class="idx">VERKLARING</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Over de handtekening<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="rv" style="font-size:.9rem;color:var(--paper-dim);max-width:66ch;display:grid;gap:1rem">
+      <p>De handtekening-afbeelding op de startpagina is bewust gepubliceerd als merkbeeld. De SHA-256-hash van het gepubliceerde bestand is:</p>
+      <p class="codecard dark" style="font-size:.72rem">c34a277d9ea3130351f279e548ebc10ff07c3dbbfd8b7906e8a6b18ec8f313cf</p>
+      <p>Oskar Verschoren verbindt zich uitsluitend via cryptografisch ondertekende en verankerde documenten (eIDAS-conforme elektronische handtekening, dan wel gekwalificeerde ondertekening via eID of itsme). <b style="color:var(--paper)">Een kopie, scan of afdruk van deze afbeelding op eender welk document, zonder geldige cryptografische verankering, is geen handtekening van Oskar Verschoren en bindt hem niet.</b> Deze verklaring wordt bij livegang cryptografisch verankerd met onafhankelijke tijdstempel, zodat ze een vaste datum draagt.</p>
+    </div>
 
-    <section aria-labelledby="privacy-heading">
-      <h2 id="privacy-heading">Privacy</h2>
-      <p>Kort, omdat het kort kán zijn:</p>
-      <ul class="legal-points">
-        <li>
-          <strong>Deze website gebruikt geen cookies</strong> en bevat geen
-          trackers of analytische scripts van derden.
-        </li>
-        <li>
-          <strong>De rekensom-module verwerkt alles in uw browser.</strong>
-          De cijfers die u invult worden nergens opgeslagen en verlaten uw
-          toestel niet.
-        </li>
-        <li>
-          <strong>Boekt u een demo</strong> via de "Plan 15 minuten"-link, dan
-          verloopt dat via Cal.com (opent in een apart venster). Cal.com
-          verwerkt daarbij uw naam, e-mailadres en gekozen tijdstip om de
-          afspraak in beide agenda's te zetten en u een bevestiging en
-          herinnering te sturen. Op deze website zelf wordt daarbij niets
-          geladen of bijgehouden.
-        </li>
-        <li>
-          <strong>Mailt u ons</strong>, dan verwerken we uw naam, e-mailadres
-          en de inhoud van uw bericht om te antwoorden (grondslag: uw verzoek,
-          art. 6.1.b AVG). We bewaren die correspondentie zolang het gesprek
-          loopt en verwijderen ze uiterlijk 24 maanden na het laatste contact.
-        </li>
-        <li>
-          <strong>Prospectie:</strong> contacteren wij u zonder eerdere relatie,
-          dan gebeurt dat op basis van gerechtvaardigd belang (art. 6.1.f AVG),
-          met vermelding van de bron van uw gegevens. Eén antwoord met
-          "stop" volstaat om al uw gegevens te laten verwijderen.
-        </li>
-        <li>
-          <strong>Uw rechten:</strong> inzage, verbetering, wissing, beperking
-          en bezwaar — mail <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>.
-          Klachten kunnen bij de Gegevensbeschermingsautoriteit
-          (gegevensbeschermingsautoriteit.be).
-        </li>
-        <li>
-          <strong>In het product zelf</strong> worden nooit persoonsgegevens
-          op de blockchain verankerd — alleen cryptografische hashes. De
-          onderliggende gegevens blijven off-chain en verwijderbaar.
-        </li>
-      </ul>
-    </section>
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)">
+      <span class="idx">PRIVACY</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Kort, omdat het kort kán zijn<span style="color:var(--red)">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>Geen cookies.</b> Deze website gebruikt geen cookies en bevat geen trackers of analytische scripts van derden.</span></li>
+      <li><span><b>De rekensom-module verwerkt alles in uw browser.</b> De cijfers die u invult worden nergens opgeslagen en verlaten uw toestel niet.</span></li>
+      <li><span><b>Demo boeken</b> verloopt via Cal.com (apart venster). Cal.com verwerkt uw naam, e-mailadres en gekozen tijdstip om de afspraak te zetten en u een bevestiging te sturen. Op deze website zelf wordt daarbij niets geladen of bijgehouden.</span></li>
+      <li><span><b>Mailt u ons,</b> dan verwerken we uw naam, e-mailadres en de inhoud van uw bericht om te antwoorden (grondslag: uw verzoek, art. 6.1.b AVG). We bewaren die correspondentie zolang het gesprek loopt en verwijderen ze uiterlijk 24 maanden na het laatste contact.</span></li>
+      <li><span><b>Prospectie:</b> contacteren wij u zonder eerdere relatie, dan gebeurt dat op basis van gerechtvaardigd belang (art. 6.1.f AVG), met vermelding van de bron van uw gegevens. Eén antwoord met "stop" volstaat om al uw gegevens te laten verwijderen.</span></li>
+      <li><span><b>Uw rechten:</b> inzage, verbetering, wissing, beperking en bezwaar — mail <a href="mailto:oskar@vo-initiatives.com" style="color:var(--paper)">oskar@vo-initiatives.com</a>. Klachten kunnen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be).</span></li>
+      <li><span><b>In het product zelf</b> worden nooit persoonsgegevens op de blockchain verankerd — alleen cryptografische hashes. De onderliggende gegevens blijven off-chain en verwijderbaar.</span></li>
+    </ul>
+    <p class="law-note" style="margin-top:2rem">Laatst bijgewerkt: 7 augustus 2026</p>
+  </div>
+</section>
+</main>
 
-  </main>
+<footer class="site">
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <a href="index.html">Terug naar de site</a>
+  <span class="sp"></span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+</footer>
 
-  <footer class="site-footer">
-    <span><strong>Vidimus</strong> — een product van VO Initiatives BV</span>
-    <span class="mono">Laatst bijgewerkt: 7 augustus 2026</span>
-  </footer>
-
+<script src="script.js" defer></script>
 </body>
 </html>

@@ -1,289 +1,173 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="nl" class="js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aflevering betwist? Zo bewijst u levering, tijdstip en staat (CMR art. 30) — Vidimus</title>
-  <meta name="description" content="Aflevering betwist? Zo bewijst u levering, tijdstip en staat (CMR art. 30) — praktische stappen, wat de wet zegt, en wat er verandert als de registratie onwijzigbaar vaststaat. Vidimus, verankeringslaag." />
-  <link rel="canonical" href="https://vidimus.be/aflevering-betwist-cmr" />
-  <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#f7f4ee" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Vidimus" />
-  <meta property="og:title" content="Aflevering betwist? Zo bewijst u levering, tijdstip en staat (CMR art. 30)" />
-  <meta property="og:description" content="Aflevering betwist? Zo bewijst u levering, tijdstip en staat (CMR art. 30) — praktische stappen, wat de wet zegt, en wat er verandert als de registratie onwijzigbaar vaststaat. Vidimus, verankeringslaag." />
-  <meta property="og:url" content="https://vidimus.be/aflevering-betwist-cmr" />
-  <meta property="og:image" content="https://vidimus.be/assets/og.png" />
-  <meta property="og:locale" content="nl_BE" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Moeten alle partijen in de keten meedoen?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Ook alleen uw eigen registraties verankeren maakt uw positie sterker: uw log is dan de enige die aantoonbaar niet aangepast is. Doen partners mee, dan verdwijnt de discussie helemaal."}}, {"@type": "Question", "name": "Werkt dit met ons TMS/terminalsysteem?", "acceptedAnswer": {"@type": "Answer", "text": "Ja — via API of webhook sturen we een kopie van elke event door; niets in uw systeem verandert."}}, {"@type": "Question", "name": "Wat met de e-CMR?", "acceptedAnswer": {"@type": "Answer", "text": "De verankering vult de (e-)CMR aan: de vrachtbrief blijft het contractuele document; wij maken de registraties eromheen — scans, tijdstippen, foto's, voorbehoud — onbetwistbaar."}}]}</script>
-  <style>
-    .kp { max-width: 60rem; margin: 0 auto; padding: 0 var(--gutter); }
-    .kp-hero { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: 1rem; }
-    .kp-eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 0 0 1rem; }
-    .kp-hero h1 { font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3rem); font-weight: 600; color: var(--navy); line-height: 1.15; letter-spacing: -0.01em; }
-    .kp-hero h1 em { font-style: normal; font-weight: 300; color: var(--blue); }
-    .kp-sub { margin-top: 0.9rem; font-size: 1.1rem; font-weight: 400; color: var(--navy); }
-    .kp-lede { margin-top: 1rem; font-weight: 300; color: var(--t2, #4a5068); max-width: 46rem; line-height: 1.6; }
-    .kp-lede strong { color: var(--navy); font-weight: 500; }
-    .kp-scenario { margin: 2rem 0 0; border: 1px solid var(--navy); background: var(--card); padding: 1.3rem 1.5rem; display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; }
-    .kp-scenario .mono { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); }
-    .kp-scenario p { font-weight: 300; font-size: 0.97rem; margin: 0; }
-    .kp h2 { font-size: clamp(1.35rem, 1rem + 1.4vw, 1.9rem); margin: 0 0 1.2rem; }
-    .kp-block { padding: var(--space) 0 0; }
-    .kp-why { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 0; }
-    .kp-why > div { border: 1px solid var(--line); background: var(--card); padding: 1.2rem 1.3rem; }
-    .kp-why dt { font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
-    .kp-why dd { margin: 0; font-weight: 300; font-size: 0.93rem; line-height: 1.5; color: var(--t2, #4a5068); }
-    .kp-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); background: var(--card); }
-    .kp-list li { position: relative; padding: 0.95rem 1.3rem 0.95rem 2.5rem; border-bottom: 1px solid var(--line-soft); font-weight: 300; font-size: 0.95rem; line-height: 1.55; }
-    .kp-list li:last-child { border-bottom: none; }
-    .kp-list li::before { content: ""; position: absolute; left: 1.3rem; top: 1.5rem; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--blue); }
-    .kp-list.is-anchored { border-color: var(--navy); }
-    .kp-list.is-anchored li::before { background: var(--navy); }
-    .kp-list strong { font-weight: 500; color: var(--navy); }
-    .kp-law { margin: 0; border: 1px solid var(--line); background: var(--card); }
-    .kp-law > div { padding: 1.1rem 1.3rem; border-bottom: 1px solid var(--line-soft); }
-    .kp-law > div:last-child { border-bottom: none; }
-    .kp-law dt { color: var(--blue); font-size: 0.78rem; margin-bottom: 0.35rem; }
-    .kp-law dd { margin: 0; font-weight: 300; font-size: 0.93rem; line-height: 1.55; }
-    .kp-disclaimer { margin-top: 0.8rem; font-size: 0.78rem; font-weight: 300; color: var(--t2, #4a5068); }
-    .kp-two { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1.5rem; align-items: start; }
-    .flow-example { margin: 0; border: 1px solid var(--line); background: var(--card); padding: 0.9rem 1.1rem; font-size: 0.78rem; line-height: 1.7; overflow-x: auto; }
-    .flow-example .k { color: var(--blue); }
-    .kp-calc { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--panel, #f2eee6); padding: 1.2rem 1.4rem; }
-    .kp-calc .mono { font-size: 0.8rem; color: var(--navy); }
-    .kp-calc p { margin: 0.5rem 0 0; font-weight: 300; font-size: 0.93rem; }
-    .verdict { margin-top: var(--space); background: var(--navy); color: var(--cream); padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-    .verdict h2 { font-size: 1.15rem; font-weight: 500; line-height: 1.3; color: var(--cream); margin: 0; }
-    .verdict p { color: #dfe3f0; font-size: 0.9rem; font-weight: 300; margin: 0.35rem 0 0; max-width: 40rem; }
-    .verdict-cta { flex: 0 0 auto; text-align: right; font-size: 0.86rem; line-height: 1.6; display: flex; flex-direction: column; }
-    .verdict-cta a { color: var(--cream); text-decoration: none; }
-    .verdict-cta a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
-    .verdict-cta a b { display: block; font-size: 1rem; font-weight: 500; }
-    .kp-faq dl { margin: 0; border: 1px solid var(--line); background: var(--card); }
-    .kp-faq dl > div { padding: 1.2rem 1.4rem; border-bottom: 1px solid var(--line-soft); }
-    .kp-faq dl > div:last-child { border-bottom: none; }
-    .kp-faq dt { color: var(--navy); font-weight: 500; margin-bottom: 0.4rem; }
-    .kp-faq dd { margin: 0; font-weight: 300; font-size: 0.93rem; line-height: 1.55; }
-    .kp-related { padding: var(--space) 0 calc(var(--space) + 3rem); }
-    .kp-related ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
-    .kp-related a { display: block; border: 1px solid var(--line); background: var(--card); padding: 1rem 1.2rem; text-decoration: none; color: var(--navy); font-weight: 400; font-size: 0.95rem; }
-    .kp-related a:hover { border-color: var(--navy); }
-    .kp-related a .mono { display: block; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.35rem; }
-
-    .vb { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); background: var(--card); }
-    .vb li { display: grid; grid-template-columns: 3rem 1.15fr 1fr; gap: 0 1.2rem; padding: 1.1rem 1.3rem; border-bottom: 1px solid var(--line-soft); align-items: start; }
-    .vb li:last-child { border-bottom: none; }
-    .vb-n { font-size: 1.3rem; font-weight: 300; color: var(--blue); line-height: 1; padding-top: 0.15rem; }
-    .vb-b h3 { font-size: 0.98rem; font-weight: 500; margin: 0 0 0.45rem; }
-    .vb-b pre { margin: 0; font-size: 0.74rem; line-height: 1.6; color: var(--blue); background: var(--panel, #f2eee6); padding: 0.6rem 0.75rem; overflow-x: auto; white-space: pre; }
-    .vb-m { font-weight: 300; font-size: 0.92rem; line-height: 1.55; color: var(--t2, #4a5068); padding-top: 0.2rem; }
-    .vb-m strong { font-weight: 500; color: var(--navy); display: block; margin-bottom: 0.2rem; }
-    @media (max-width: 860px) { .vb li { grid-template-columns: 2.4rem 1fr; } .vb-m { grid-column: 2; margin-top: 0.7rem; } }
-
-    @media (max-width: 860px) {
-      .kp-why, .kp-two, .kp-related ul { grid-template-columns: 1fr; }
-      .kp-scenario { grid-template-columns: 1fr; gap: 0.5rem; }
-      .verdict { flex-direction: column; align-items: flex-start; } .verdict-cta { text-align: left; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aflevering betwist? Levering, tijdstip en staat bewijzen (CMR art. 30) | Vidimus</title>
+<meta name="description" content="Een lading afgeleverd, en weken later de betwisting: te laat, beschadigd, nooit aangekomen. Hoe u van poortscans en afleverbewijzen onbetwistbare feiten maakt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="inner.css">
 </head>
 <body>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
+</defs></svg>
 
-  <header class="site-header">
-    <a class="wordmark" href="/" aria-label="Vidimus — home">
-      <svg class="seal-mark" viewBox="0 0 28 28" aria-hidden="true">
-        <circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" />
-        <circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2.4" />
-        <path d="M9.6 14.4l3 3 5.8-6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <span>vidimus<br /><em>verankeringslaag</em></span>
-    </a>
-    <nav aria-label="Hoofdnavigatie">
-      <a href="#vandaag">Wat u vandaag kunt doen</a>
-      <a href="#wet">Wat de wet zegt</a>
-      <a href="#verankerd">Verankerd</a>
-      <a href="/hoe-het-werkt">Hoe het werkt</a>
-      <a href="/#tamper">De demo</a>
-    </nav>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
-      <span></span><span></span>
-    </button>
-  </header>
-
-  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Mobiel menu">
-    <a href="#vandaag">Wat u vandaag kunt doen</a>
-    <a href="#wet">Wat de wet zegt</a>
-    <a href="#verankerd">Verankerd</a>
-    <a href="/hoe-het-werkt">Hoe het werkt</a>
-    <a href="/#tamper">De demo</a>
-    <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">Plan een gesprek — 15 min</a>
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="cases.html">Cases</a>
+    <a href="scenarios.html">Scenario's</a>
+    <a href="help.html">Help</a>
+    <a href="prijzen.html">Prijzen</a>
   </nav>
-
-  <main>
-    <article>
-      <header class="kp kp-hero">
-        <p class="kp-eyebrow mono">Transport, haven & logistiek</p>
-        <h1>Geleverd. <em>"Nooit ontvangen — of beschadigd."</em></h1>
-        <p class="kp-sub">Hoe maakt u van poortscans en afleverbewijzen onbetwistbare feiten?</p>
-        <p class="kp-lede">Een lading afgeleverd, een container door de poort, een pakket getekend — en weken later de betwisting: te laat, beschadigd, nooit aangekomen. Elke schakel in de keten heeft haar eigen logs. Deze pagina toont hoe u <strong>één gedeelde bewijslaag</strong> maakt waar vervoerder, terminal en ontvanger dezelfde feiten zien.</p>
-        <div class="kp-scenario" aria-label="Herkenbaar scenario">
-          <span class="mono">Herkent u dit?</span>
-          <p>Gate-in 09:41, container op de terminal. Ontvanger claimt: aangekomen na de cut-off, extra kosten. Terminal-log zegt 09:41, log van de vervoerder zegt 09:38, de ontvanger heeft een e-mail van 10:15. Drie systemen, drie klokken — en de kosten worden verdeeld naar wie het hardst roept.</p>
-        </div>
-      </header>
-
-      <section class="kp kp-block" aria-labelledby="why-h">
-        <h2 id="why-h">Waarom dit zo vaak misloopt.</h2>
-        <dl class="kp-why">
-          <div><dt>Ieder zijn systeem, ieder zijn klok</dt><dd>TMS, terminalsysteem, ERP van de ontvanger: allemaal met eigen tijd, allemaal aanpasbaar door de eigen beheerder.</dd></div>
-          <div><dt>Het voorbehoud komt te laat of nooit</dt><dd>Wie bij aflevering geen voorbehoud maakt, verliest onder de CMR grotendeels zijn positie — maar wie het maakt, moet het ook kunnen bewijzen.</dd></div>
-          <div><dt>De keten is lang, het geheugen kort</dt><dd>Bij een claim maanden later reconstrueert niemand nog exact wat er wanneer gebeurde. Wie het best gedocumenteerd is, wint.</dd></div>
-        </dl>
-      </section>
-
-      <section id="vandaag" class="kp kp-block" aria-labelledby="today-h">
-        <h2 id="today-h">Wat u vandaag al kunt doen — ook zonder ons.</h2>
-        <ul class="kp-list">
-          <li>Maak bij aflevering <strong>een gedagtekend voorbehoud</strong> op de vrachtbrief bij zichtbare schade; niet-zichtbare schade binnen 7 dagen schriftelijk (CMR art. 30).</li>
-          <li>Registreer gate-in/gate-out en afleveringen <strong>automatisch</strong> en bewaar de ruwe events, niet enkel dagoverzichten.</li>
-          <li>Spreek in uw contracten af <strong>welke registratie geldt</strong> tussen partijen (bewijsclausule) en welke tijdbron.</li>
-          <li>Fotografeer bij aflevering — met de handtekening van de ontvanger op hetzelfde moment.</li>
-        </ul>
-      </section>
-
-      <section id="wet" class="kp kp-block" aria-labelledby="law-h">
-        <h2 id="law-h">Wat de wet zegt.</h2>
-        <dl class="kp-law">
-          <div><dt class="mono">CMR-verdrag art. 9 en 30</dt><dd>De vrachtbrief geldt tot bewijs van het tegendeel als bewijs van de overeenkomst en de ontvangst. Zonder voorbehoud bij aflevering wordt vermoed dat de goederen werden afgeleverd zoals beschreven; zichtbare schade meteen melden, verborgen schade binnen 7 dagen. Ook een vermoeden van 'te laat' vraagt schriftelijk voorbehoud binnen 21 dagen.</dd></div>
-          <div><dt class="mono">art. 8.11 BW</dt><dd>Tussen ondernemingen vrij bewijs: scans, logs en foto's zijn toegelaten en worden gewogen. Een registratie die door geen van de partijen aanpasbaar is, weegt het zwaarst.</dd></div>
-        </dl>
-        <p class="kp-disclaimer">Algemene informatie, geen juridisch advies. Vidimus levert bewijsmateriaal; hoe zwaar het weegt, beoordeelt de rechter — en dat gewicht is precies wat verankering verhoogt.</p>
-      </section>
-
-      <section id="verankerd" class="kp kp-block" aria-labelledby="anch-h">
-        <h2 id="anch-h">Wat er verandert als u het verankert.</h2>
-        <div class="kp-two">
-          <ul class="kp-list is-anchored">
-          <li>Elke poortscan, aflevering of handover krijgt bij het ontstaan een vingerafdruk en een <strong>onafhankelijk tijdstempel</strong> — één klok voor de hele keten, van niemand in het bijzonder.</li>
-          <li>Vervoerder, terminal en ontvanger kijken naar <strong>hetzelfde grootboek</strong> (gedeeld tussen de partners): geen 'mijn log tegen jouw log' meer.</li>
-          <li>Bij een fysieke overdracht tekenen <strong>beide partijen op de telefoon</strong> (QR-handover), met foto's; de bewijsbundel is voor iedereen zelfstandig verifieerbaar.</li>
-          </ul>
-          <div>
-            <pre class="flow-example mono" aria-label="Voorbeeld van een verankerde registratie"><span class="k">registratie</span>   gate-in GI-88412
-<span class="k">voertuig</span>      kenteken + containernr
-<span class="k">bron</span>          poortsysteem · automatisch via api
-<span class="k">moment</span>        09:41:03 utc · rfc 3161
-<span class="k">verankerd</span>     merkle-root + fabric tx</pre>
-            <div class="kp-calc">
-              <span class="mono">rekensom</span>
-              <p><strong>Acht betwiste afleveringen per jaar × 6 uur × € 75, plus gemiddeld € 1.500 aan gedeelde kosten per betwisting</strong><br />≈ € 3.600 aan uren en € 12.000 aan kosten die u 'meeneemt' bij gebrek aan bewijs. Eén gedeelde bewijslaag maakt de meeste discussies overbodig nog vóór ze beginnen.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="verdict">
-          <div>
-            <h2>Zo starten we: één stroom, dertig dagen, vaste prijs.</h2>
-            <p>We koppelen alleen deze registratie — niets anders — en na dertig dagen ligt uw eigen bewijsbundel op tafel. U beslist daarna.</p>
-          </div>
-          <div class="verdict-cta">
-            <a href="/#tamper"><b>vidimus.be/#tamper</b>probeer de tamper-demo</a>
-            <a href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">of plan 15 minuten via cal.com</a>
-          </div>
-        </div>
-      </section>
-
-
-      <section id="voorbeeld" class="kp kp-block" aria-labelledby="vb-h">
-        <h2 id="vb-h">Eén passcan, van begin tot bewijs — met de echte cijfers erbij.</h2>
-        <p class="kp-lede" style="margin-top:0">Fictief voorbeeld: chauffeur Tom Peeters scant om 09:41:03 aan Kaai 1742. Links wat er technisch ontstaat, rechts wat het in mensentaal betekent. De vingerafdruk en de Merkle-wortel zijn écht berekend op deze registratie.</p>
-        <ol class="vb">
-          <li><div class="vb-n">01</div><div class="vb-b"><h3>De scan</h3><pre class="mono">chauffeur   Tom Peeters · badge BADGE-4471
-vervoerder  Transport Van Uytsel &amp; Co (fictief)
-voertuig    1-ABC-123 · container MSKU 452 118-0
-event       gate-in GI-88412 · Kaai 1742 · 09:41:03 utc</pre></div><div class="vb-m"><strong>Wat u al hebt.</strong> Uw poortsysteem registreert dit vandaag ook. Het probleem is niet de registratie, maar dat ze in één systeem leeft dat achteraf te wijzigen is.</div></li>
-          <li><div class="vb-n">02</div><div class="vb-b"><h3>De vingerafdruk (SHA-256)</h3><pre class="mono">f7585ccf75a163b359933be611f97fe68ba39b5c
-a7e6ec1ece23972ee50203fc</pre></div><div class="vb-m"><strong>Zoals een vingerafdruk van een mens.</strong> Uniek voor precies deze registratie, en je kunt er de registratie niet uit terugtekenen. Verander één teken — 09:41:03 wordt 09:41:04 — en de hele afdruk is anders. Zó zie je later of er geknoeid is.</div></li>
-          <li><div class="vb-n">03</div><div class="vb-b"><h3>Wie: de handtekening (Ed25519)</h3><pre class="mono">ondertekend  poortsysteem Kaai 1742
-certificaat  CN=gate-01.terminal-x.be
-handtekening 3045a1…e8f2 (64 bytes)</pre></div><div class="vb-m"><strong>Zoals een handtekening onder een document — maar niet na te maken.</strong> Alleen wie de sleutel heeft, kan zo tekenen; iedereen kan controleren dát die het was. Zo staat vast wíé de scan indiende.</div></li>
-          <li><div class="vb-n">04</div><div class="vb-b"><h3>Wanneer: het tijdstempel (RFC 3161)</h3><pre class="mono">tijdstempeldienst  Sectigo (derde partij)
-gestempeld op      2026-08-17 09:41:05 utc
-serienummer        0x5b3f…21</pre></div><div class="vb-m"><strong>Zoals een poststempel — van iemand anders.</strong> Niet onze klok en niet de uwe, maar die van een onafhankelijke dienst die er niets bij te winnen heeft. Daarom kan niemand later zeggen dat het tijdstip is aangepast.</div></li>
-          <li><div class="vb-n">05</div><div class="vb-b"><h3>Verankerd: Merkle-wortel → grootboek</h3><pre class="mono">buurscan     e3b0c442…7852b855
-wortel       b96f20a53d5b869e70b6b2745705da9c
-             4e42cfff7b142bec9b6573177ac7e363
-grootboek    Hyperledger Fabric · tx a22f5433…4cc3</pre></div><div class="vb-m"><strong>Zoals een notaris die één zegel zet op een hele stapel.</strong> Alle scans van die minuten worden samengevoegd tot één wortel-afdruk; die gaat in een register dat alle partijen delen en dat niemand — ook wij niet — nog kan wijzigen. Elke afzonderlijke scan blijft toch aantoonbaar, via haar plaats in de stapel.</div></li>
-          <li><div class="vb-n">06</div><div class="vb-b"><h3>Het origineel</h3><pre class="mono">bestand    GI-88412.json + gate-foto.jpg
-versleuteld AES-256-GCM · sleutel per document
-opslag      niet-overschrijfbaar · 7 jaar
-wissen      sleutel vernietigen → bestand is ruis</pre></div><div class="vb-m"><strong>Zoals een kluis waarvan u de sleutel hebt.</strong> Niemand leest mee. En moet het weg (na de bewaartermijn, of om privacyredenen), dan gooit u de sleutel weg: het bestand is voorgoed onleesbaar, terwijl de vingerafdruk nog bewijst dát er iets was.</div></li>
-          <li><div class="vb-n">07</div><div class="vb-b"><h3>De bewijsbundel</h3><pre class="mono">hash herrekend  f7585c… ✓
-pad → wortel    b96f20… ✓
-wortel = tx     a22f54… ✓
-tijdstempel     geldig  ✓</pre></div><div class="vb-m"><strong>Zoals een dossier dat iedere expert zelf kan natellen.</strong> De tegenpartij, de auditor of de rechter hoeft ons niet te geloven: met standaardsoftware controleert hij dat deze scan bestond op 17/08 om 09:41:03, ingediend door gate-01, en sindsdien onaangeraakt is.</div></li>
-        </ol>
-        <p class="kp-disclaimer">Persoon, bedrijf, kenteken en containernummer zijn verzonnen. De SHA-256 en de Merkle-wortel zijn wél echt berekend op de getoonde registratie; handtekening, tijdstempel en tx-id zijn illustratieve waarden.</p>
-      </section>
-
-      <section class="kp kp-block kp-faq" aria-labelledby="faq-h">
-        <h2 id="faq-h">Veelgestelde vragen.</h2>
-        <dl>
-          <div><dt>Moeten alle partijen in de keten meedoen?</dt><dd>Nee. Ook alleen uw eigen registraties verankeren maakt uw positie sterker: uw log is dan de enige die aantoonbaar niet aangepast is. Doen partners mee, dan verdwijnt de discussie helemaal.</dd></div>
-          <div><dt>Werkt dit met ons TMS/terminalsysteem?</dt><dd>Ja — via API of webhook sturen we een kopie van elke event door; niets in uw systeem verandert.</dd></div>
-          <div><dt>Wat met de e-CMR?</dt><dd>De verankering vult de (e-)CMR aan: de vrachtbrief blijft het contractuele document; wij maken de registraties eromheen — scans, tijdstippen, foto's, voorbehoud — onbetwistbaar.</dd></div>
-        </dl>
-      </section>
-
-      <nav class="kp kp-related" aria-label="Verwante pagina's">
-        <h2>Verwant.</h2>
-        <ul>
-          <li><a href="/koelketen-registratie"><span class="mono">Voeding & farma</span>Koelketen- en temperatuurregistratie die standhoudt bij FAVV, GDP-audit en verzekeraar</a></li>
-          <li><a href="/afgiftestaat-schade"><span class="mono">Materieel- & machineverhuur</span>Schade aan verhuurd materieel: de afgiftestaat die de discussie beslecht</a></li>
-          <li><a href="/hoe-het-werkt"><span class="mono">Achtergrond</span>Hoe het werkt — van registratie tot bewijs, in zeven stappen</a></li>
-        </ul>
-      </nav>
-    </article>
-  </main>
-
-  <footer class="site-footer">
-    <span><strong>Vidimus</strong> — een product van VO Initiatives BV · KBO BE 0805.309.143 · Antwerpen</span>
-    <span><a href="/colofon">Colofon &amp; privacy</a></span>
-    <span class="mono">Fictieve voorbeelden · geen klantreferenties</span>
-  </footer>
-
-  <div class="bottom-bar" role="complementary" aria-label="Snelle acties">
-    <a class="bottom-bar-main" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener noreferrer">Plan een gesprek — 15 min</a>
-    <a class="bottom-bar-icon" href="mailto:oskar@vo-initiatives.com" aria-label="Mail ons">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="bottom-bar-icon" href="tel:+32466474115" aria-label="Bel ons: +32 466 47 41 15">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h4l1.5 4-2.5 1.8c1 2.3 2.6 3.9 4.7 4.7l1.8-2.5 4 1.5v4a1.5 1.5 0 0 1-1.6 1.5C10.5 19 5 13.5 4.5 6.1A1.5 1.5 0 0 1 6 4.5z" transform="translate(1,0) scale(0.82)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+  <div class="top-cta">
+    <a class="top-login" href="https://app.vidimus.be/app">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/app#start">Start gratis</a>
   </div>
+</header>
 
-  <script>
-    ;(function () {
-      'use strict'
-      var btn = document.getElementById('menu-btn')
-      var menu = document.getElementById('mobile-menu')
-      if (!btn || !menu) return
-      function setOpen(open) {
-        btn.setAttribute('aria-expanded', String(open))
-        btn.classList.toggle('is-open', open)
-        menu.hidden = !open
-        document.body.classList.toggle('menu-open', open)
-      }
-      btn.addEventListener('click', function () { setOpen(btn.getAttribute('aria-expanded') !== 'true') })
-      menu.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false) })
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false) })
-    })()
-  </script>
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="index.html#dossiers">DOSSIERS</a><i>/</i><span class="lbl" style="color:var(--red)">TRANSPORT, HAVEN &amp; LOGISTIEK</span></p>
+    <h1 class="disp">Geleverd. <span class="thin">"Nooit ontvangen — of beschadigd</span><span style="color:var(--red)">.</span><span class="thin">"</span></h1>
+    <p class="intro">Een lading afgeleverd, een container door de poort, een pakket getekend — en weken later de betwisting: te laat, beschadigd, nooit aangekomen. Elke schakel in de keten heeft haar eigen logs. Deze pagina toont hoe u <b>één gedeelde bewijslaag</b> maakt waar vervoerder, terminal en ontvanger dezelfde feiten zien.</p>
+    <div class="recog"><p>Gate-in 09:41, container op de terminal. Ontvanger claimt: aangekomen na de cut-off, extra kosten. Terminal-log zegt 09:41, log van de vervoerder zegt 09:38, de ontvanger heeft een e-mail van 10:15. <span>Drie systemen, drie klokken — en de kosten worden verdeeld naar wie het hardst roept.</span></p></div>
+  </div>
+</section>
+
+<section style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / HET PROBLEEM</span>
+      <h2 class="disp">Waarom dit zo vaak misloopt<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="why-grid rv">
+      <article><span class="no">A</span><h3>Ieder zijn systeem, ieder zijn klok</h3><p>TMS, terminalsysteem, ERP van de ontvanger: allemaal met eigen tijd, allemaal aanpasbaar door de eigen beheerder.</p></article>
+      <article><span class="no">B</span><h3>Het voorbehoud komt te laat of nooit</h3><p>Wie bij aflevering geen voorbehoud maakt, verliest onder de CMR grotendeels zijn positie — maar wie het maakt, moet het ook kunnen bewijzen.</p></article>
+      <article><span class="no">C</span><h3>De keten is lang, het geheugen kort</h3><p>Bij een claim maanden later reconstrueert niemand nog exact wat er wanneer gebeurde. Wie het best gedocumenteerd is, wint.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / VANDAAG</span>
+      <h2 class="disp">Wat u nu al kunt doen — ook zonder ons<span style="color:var(--red)">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span>Maak bij aflevering een <b>gedagtekend voorbehoud op de vrachtbrief</b> bij zichtbare schade; niet-zichtbare schade binnen 7 dagen schriftelijk (CMR art. 30).</span></li>
+      <li><span>Registreer gate-in/gate-out en afleveringen <b>automatisch</b> en bewaar de <b>ruwe events</b>, niet enkel dagoverzichten.</span></li>
+      <li><span>Spreek in uw contracten af <b>welke registratie geldt</b> tussen partijen (bewijsclausule) en welke tijdbron.</span></li>
+      <li><span><b>Fotografeer bij aflevering</b> — met de handtekening van de ontvanger op hetzelfde moment.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / DE WET</span>
+      <h2 class="disp">Wat de wet zegt<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="law-grid rv">
+      <div class="law-block"><span class="art">CMR-verdrag art. 9 &amp; 30</span><p>De vrachtbrief geldt tot bewijs van het tegendeel als bewijs van de overeenkomst en de ontvangst. Zonder voorbehoud bij aflevering wordt vermoed dat de goederen werden afgeleverd zoals beschreven; zichtbare schade meteen melden, verborgen schade binnen 7 dagen. Ook een vermoeden van "te laat" vraagt schriftelijk voorbehoud binnen 21 dagen.</p></div>
+      <div class="law-block"><span class="art">art. 8.11 BW</span><p>Tussen ondernemingen vrij bewijs: scans, logs en foto's zijn toegelaten en worden gewogen. Een registratie die door geen van de partijen aanpasbaar is, weegt het zwaarst.</p></div>
+    </div>
+    <p class="law-note">Algemene informatie, geen juridisch advies. Vidimus levert bewijsmateriaal; hoe zwaar het weegt, beoordeelt de rechter — en dat gewicht is precies wat verankering verhoogt.</p>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / VERANKERD</span>
+      <h2 class="disp">Wat er verandert<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
+      <ul class="todo" style="margin-top:0">
+        <li><span>Elke poortscan, aflevering of handover krijgt bij het ontstaan een vingerafdruk en een onafhankelijk tijdstempel — <b>één klok voor de hele keten, van niemand in het bijzonder.</b></span></li>
+        <li><span>Vervoerder, terminal en ontvanger kijken naar <b>hetzelfde grootboek</b>: geen "mijn log tegen jouw log" meer.</span></li>
+        <li><span>Bij een fysieke overdracht tekenen beide partijen op de telefoon (QR-handover), met foto's; de <b>bewijsbundel is voor iedereen zelfstandig verifieerbaar.</b></span></li>
+      </ul>
+      <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span><span class="hl">09:41:03 utc · rfc 3161</span><br><span class="k">verankerd</span><span class="gr">merkle-root + fabric tx</span></div>
+    </div>
+    <div class="sum-band">
+      <span class="lbl">REKENSOM</span>
+      <p>Acht betwiste afleveringen per jaar × 6 uur × € 75, plus gemiddeld € 7 500 aan gedeelde kosten per betwisting ≈ <b class="r">€ 3 600 aan uren en € 60 000 aan kosten</b> die u "meeneemt" bij gebrek aan bewijs. <b>Eén gedeelde bewijslaag maakt de meeste discussies overbodig nog vóór ze beginnen.</b></p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / ONTLEED</span>
+      <h2 class="disp">Eén passcan, van begin tot bewijs<span style="color:var(--red)">.</span></h2>
+      <p class="side">Fictief voorbeeld: chauffeur Tom Peeters scant om 09:41:03 aan Kaai 1742. Links wat er technisch ontstaat, rechts wat het in mensentaal betekent. De vingerafdruk en de Merkle-wortel zijn écht berekend op deze registratie.</p>
+    </div>
+    <div class="flow rv">
+      <div class="flow-step"><span class="when">01 · de scan</span><h4>Wat u al hebt</h4><p>Uw poortsysteem registreert dit vandaag ook. Het probleem is niet de registratie, maar dat ze in één systeem leeft dat achteraf te wijzigen is.</p><span class="meta">chauffeur Tom Peeters · BADGE-4471 · 1-ABC-123 · MSKU 452 118-0 · gate-in GI-88412 · Kaai 1742 · <b>09:41:03 utc</b></span></div>
+      <div class="flow-step"><span class="when">02 · de vingerafdruk (SHA-256)</span><h4>Zoals een vingerafdruk van een mens</h4><p>Uniek voor precies deze registratie, en je kunt er de registratie niet uit terugtekenen. Verander één teken — 09:41:03 wordt 09:41:04 — en de hele afdruk is anders. Zó zie je later of er geknoeid is.</p><span class="meta">f7585ccf75a163b359933be611f97fe68ba39b5ca7e6ec1ece23972ee50203fc</span></div>
+      <div class="flow-step"><span class="when">03 · wie: de handtekening (Ed25519)</span><h4>Een handtekening die niet na te maken is</h4><p>Alleen wie de sleutel heeft, kan zo tekenen; iedereen kan controleren dát die het was. Zo staat vast wíé de scan indiende.</p><span class="meta">CN=gate-01.terminal-x.be · handtekening 3045a1…e8f2 (64 bytes)</span></div>
+      <div class="flow-step"><span class="when">04 · wanneer: het tijdstempel (RFC 3161)</span><h4>Een poststempel — van iemand anders</h4><p>Niet onze klok en niet de uwe, maar die van een onafhankelijke dienst die er niets bij te winnen heeft. Daarom kan niemand later zeggen dat het tijdstip is aangepast.</p><span class="meta">Sectigo (derde partij) · gestempeld <b>09:41:05 utc</b> · serienr 0x5b3f…21</span></div>
+      <div class="flow-step"><span class="when">05 · verankerd: Merkle → grootboek</span><h4>Eén zegel op een hele stapel</h4><p>Alle scans van die minuten worden samengevoegd tot één wortel-afdruk; die gaat in een register dat alle partijen delen en dat niemand — ook wij niet — nog kan wijzigen. Elke afzonderlijke scan blijft toch aantoonbaar, via haar plaats in de stapel.</p><span class="meta">wortel b96f20a5…7ac7e363 · <b>fabric tx a22f5433…4cc3</b></span></div>
+      <div class="flow-step"><span class="when">06 · het origineel</span><h4>Een kluis waarvan ú de sleutel hebt</h4><p>Niemand leest mee. En moet het weg (na de bewaartermijn, of om privacyredenen), dan gooit u de sleutel weg: het bestand is voorgoed onleesbaar, terwijl de vingerafdruk nog bewijst dát er iets was.</p><span class="meta">GI-88412.json + gate-foto.jpg · AES-256-GCM · niet-overschrijfbaar · 7 jaar</span></div>
+      <div class="flow-step"><span class="when">07 · de bewijsbundel</span><h4>Een dossier dat iedere expert zelf kan natellen</h4><p>De tegenpartij, de auditor of de rechter hoeft ons niet te geloven: met standaardsoftware controleert hij dat deze scan bestond op dat moment, ingediend door gate-01, en sindsdien onaangeraakt is.</p><span class="meta">hash herrekend · pad → wortel · wortel = tx · tijdstempel — <b>alles geldig</b></span></div>
+    </div>
+    <p class="law-note">Persoon, bedrijf, kenteken en containernummer zijn verzonnen. De SHA-256 en de Merkle-wortel zijn wél echt berekend op de getoonde registratie; handtekening, tijdstempel en tx-id zijn illustratieve waarden.</p>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">06 / VRAGEN</span>
+      <h2 class="disp">Veelgesteld<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Moeten alle partijen in de keten meedoen?</summary><p class="a"><b>Nee.</b> Ook alleen uw eigen registraties verankeren maakt uw positie sterker: uw log is dan de enige die aantoonbaar niet aangepast is. Doen partners mee, dan verdwijnt de discussie helemaal.</p></details>
+      <details><summary>Werkt dit met ons TMS/terminalsysteem?</summary><p class="a"><b>Ja</b> — via API of webhook sturen we een kopie van elke event door; niets in uw systeem verandert.</p></details>
+      <details><summary>Wat met de e-CMR?</summary><p class="a">De verankering <b>vult de (e-)CMR aan</b>: de vrachtbrief blijft het contractuele document; wij maken de registraties eromheen — scans, tijdstippen, foto's, voorbehoud — onbetwistbaar.</p></details>
+    </div>
+    <div class="related rv">
+      <a href="afgiftestaat-schade.html"><span class="lbl">MATERIEEL- &amp; MACHINEVERHUUR</span><b>Schade aan verhuurd materieel: de afgiftestaat die de discussie beslecht</b></a>
+      <a href="cases.html#haven"><span class="lbl">CASE</span><b>Container "te laat en beschadigd" — drie jaar later</b></a>
+      <a href="hoe-het-werkt.html"><span class="lbl">ACHTERGROND</span><b>Hoe het werkt — van registratie tot bewijs, in zeven stappen</b></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Zo starten we: <span>één stroom, dertig dagen, vaste prijs.</span></h2>
+    <div class="final-under">
+      <p>We koppelen alleen deze registratie — niets anders — en na dertig dagen ligt uw eigen bewijsbundel op tafel. U beslist daarna.</p>
+      <div class="hero-actions">
+        <a class="xbtn red" href="index.html#demo"><span>Probeer de vervals-demo</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <span class="sp"></span>
+  <span>Fictieve voorbeelden · geen klantreferenties</span>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>
