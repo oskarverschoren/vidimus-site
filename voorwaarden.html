@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="nl" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voorwaarden &amp; verwerkersovereenkomst | Vidimus</title>
+<meta name="description" content="Gebruiksvoorwaarden en verwerkersovereenkomst van Vidimus, versie 2026-09. Wie wat bezit, wat wij wel en niet doen, en wat er gebeurt met verankerd bewijs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="inner.css">
+</head>
+<body>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="cases.html">Cases</a>
+    <a href="scenarios.html">Scenario's</a>
+    <a href="help.html">Help</a>
+    <a href="prijzen.html">Prijzen</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-login" href="https://app.vidimus.be/app">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/app#start">Start gratis</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="voorwaarden.html">VOORWAARDEN</a></p>
+    <h1 class="disp">Voorwaarden<span style="color:var(--red)">.</span></h1>
+  </div>
+</section>
+
+<section style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap" style="max-width:66rem">
+    <div class="spec rv">
+      <div class="spec-row"><span class="k">versie</span><span class="v">2026-09</span><p>Geldig vanaf 3 september 2026. Elke organisatie aanvaardt de versie die op dat moment geldt; die aanvaarding wordt zelf verankerd in de stroom "akkoorden" van de organisatie, met datum, gebruiker en versienummer.</p></div>
+      <div class="spec-row"><span class="k">partijen</span><span class="v">VO Initiatives BV</span><p>Antwerpen · KBO BE 0805.309.143 ("Vidimus", verwerker) en de organisatie die een account aanmaakt ("de Klant", verwerkingsverantwoordelijke).</p></div>
+      <div class="spec-row"><span class="k">status</span><span class="v">Concepttekst</span><p>Deze tekst is opgesteld door Vidimus en wordt nog nagelezen door een raadsman. Tot dan geldt hij als de afspraak tussen partijen; wijzigingen krijgen een nieuw versienummer en worden opnieuw ter aanvaarding voorgelegd.</p></div>
+    </div>
+
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)">
+      <span class="idx">1</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Wat Vidimus doet<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="rv" style="font-size:.9rem;color:var(--paper-dim);max-width:66ch;display:grid;gap:1rem">
+      <p>Vidimus is een <b style="color:var(--paper)">elektronische verankeringsdienst</b>. Van elke registratie die de Klant of zijn mensen vastleggen, berekent Vidimus een cryptografische vingerafdruk (SHA-256), laat ze tekenen met een sleutel die alleen op het toestel van de indiener bestaat, bundelt ze in een Merkle-boom, laat de wortel daarvan tijdstempelen door een onafhankelijke derde (RFC 3161) en schrijft ze in een hash-geketend grootboek.</p>
+      <p>Vidimus levert daarmee bewijs van <b style="color:var(--paper)">integriteit</b> (de inhoud is sindsdien niet gewijzigd), <b style="color:var(--paper)">tijdstip</b> (de inhoud bestond vóór het tijdstempel van de derde) en <b style="color:var(--paper)">herkomst</b> (getekend met het toestel van een bepaalde persoon bij een bepaalde organisatie). Vidimus oordeelt niet over de juistheid van de inhoud.</p>
+      <p>Vidimus is geen gekwalificeerde vertrouwensdienstverlener in de zin van eIDAS en geen notaris. De handtekeningen zijn geavanceerde elektronische handtekeningen (eIDAS art. 26). Gekwalificeerde tijdstempels zijn per stroom optioneel en worden apart aangerekend.</p>
+    </div>
+
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)">
+      <span class="idx">2</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Wie wat bezit<span style="color:var(--red)">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>De registraties zijn van de Klant.</b> Inhoud, bijlagen, vingerafdrukken en bewijsbundels zijn eigendom van de Klant. Vidimus verwerft er geen enkel recht op, behalve het recht ze te verwerken om de dienst te leveren.</span></li>
+      <li><span><b>De Klant kan altijd alles meenemen.</b> Elke registratie is te exporteren als zelfstandige bewijsbundel met de inhoud, de handtekeningen, het Merkle-pad, het tijdstempeltoken en het grootboekrecord. Die bundel is te controleren met open standaarden, zonder Vidimus. Vidimus zal die export nooit blokkeren, ook niet bij een geschil over betaling.</span></li>
+      <li><span><b>Verankerd bewijs wordt niet gewijzigd of gewist.</b> Niet door de Klant, niet door Vidimus, niet op verzoek van een derde. De inhoud van één registratie kan op verzoek van de Klant onleesbaar gemaakt worden door de leessleutel te vernietigen (AVG, zie 5); de vingerafdruk, het tijdstempel en het grootboekrecord blijven bestaan en blijven bewijzen dat de inhoud bestond.</span></li>
+      <li><span><b>Bewaartermijn.</b> Standaard tien jaar per stroom, aanpasbaar door de Klant. Na afloop verwijdert Vidimus de inhoud; de vingerafdrukken en ankers blijven in het grootboek. Bij beëindiging van de overeenkomst krijgt de Klant negentig dagen om alles te exporteren.</span></li>
+    </ul>
+
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)">
+      <span class="idx">3</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Mensen en toestellen<span style="color:var(--red)">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>De Klant garandeert de identiteit van zijn mensen.</b> Wie de Klant via "Mensen" uitnodigt en aan een toestel koppelt, tekent in naam van de Klant. Die koppeling wordt zelf verankerd. De Klant staat in voor de juistheid van naam en functie en trekt een toestel in bij verlies of vertrek.</span></li>
+      <li><span><b>Sleutels blijven op het toestel.</b> Vidimus ontvangt alleen de publieke helft. Biometrie (Face ID, vingerafdruk) wordt uitsluitend door het toestel zelf verwerkt; Vidimus ontvangt of bewaart nooit biometrische gegevens. Het gebruik ervan is een keuze van de gebruiker; de toestelsleutel zonder biometrie blijft altijd beschikbaar.</span></li>
+      <li><span><b>Locatie.</b> Bij het tekenen vraagt het toestel de positie en neemt die op in de registratie, uitsluitend op dat moment. Vidimus presenteert die positie als "volgens het toestel": ze bewijst wanneer en wat er getekend is, niet onafhankelijk waar de ondertekenaar stond. De Klant informeert zijn mensen hierover.</span></li>
+      <li><span><b>Partners.</b> Nodigt de Klant een andere organisatie uit op een stroom, dan tekent die met eigen toestellen en in eigen naam. Elke partij bezit haar eigen registraties; de gedeelde feiten (route, tijdstippen, status) zijn voor alle partijen op de stroom zichtbaar.</span></li>
+    </ul>
+
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)">
+      <span class="idx">4</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Gebruik, prijs, aansprakelijkheid<span style="color:var(--red)">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>Proefaansluiting.</b> Gratis tot de maandlimiet die op de prijzenpagina staat. Daarna activeert de Klant een aansluiting; prijzen exclusief btw, maandelijks, zonder minimumduur.</span></li>
+      <li><span><b>Beschikbaarheid.</b> Vidimus streeft naar continue beschikbaarheid maar garandeert die niet. De wallet werkt zonder verbinding en verstuurt later; het tijdstip van tekenen op het toestel wordt mee vastgelegd.</span></li>
+      <li><span><b>Aansprakelijkheid.</b> Vidimus is aansprakelijk voor de correcte werking van de verankering zoals beschreven in 1. Vidimus is niet aansprakelijk voor de inhoud van registraties, voor beslissingen die de Klant of derden daarop baseren, of voor indirecte schade. De totale aansprakelijkheid is beperkt tot de vergoedingen van de voorbije twaalf maanden.</span></li>
+      <li><span><b>Verboden gebruik.</b> Geen registratie van inhoud die onwettig is of waarvoor de Klant geen recht heeft. Vidimus mag een account schorsen bij misbruik, met behoud van het exportrecht uit 2.</span></li>
+      <li><span><b>Recht en geschillen.</b> Belgisch recht. Rechtbanken van Antwerpen, afdeling Antwerpen, tenzij dwingend recht anders bepaalt.</span></li>
+    </ul>
+
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)" id="verwerking">
+      <span class="idx">5</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Verwerkersovereenkomst<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="rv" style="font-size:.9rem;color:var(--paper-dim);max-width:66ch;display:grid;gap:1rem">
+      <p>Voor persoonsgegevens in registraties is de Klant verwerkingsverantwoordelijke en Vidimus verwerker (AVG art. 28). Dit hoofdstuk is de verwerkersovereenkomst.</p>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>Voorwerp en duur.</b> Verwerking van de gegevens die de Klant en zijn mensen in registraties opnemen (namen van ondertekenaars, tijdstippen, posities, inhoud en bijlagen), zolang de overeenkomst loopt en daarna tijdens de bewaartermijn van de stromen.</span></li>
+      <li><span><b>Instructies.</b> Vidimus verwerkt uitsluitend om de dienst te leveren en volgens de instellingen van de Klant per stroom. Geen ander gebruik, geen verkoop, geen profilering.</span></li>
+      <li><span><b>Beveiliging.</b> Bijlagen worden op het toestel van de Klant versleuteld vóór ze Vidimus bereiken; alleen de vingerafdruk gaat het grootboek in. Registraties met persoonsgegevens krijgen een vingerafdruk met een geheime sleutel per stroom (HMAC), zodat de vingerafdruk zelf geen persoonsgegeven prijsgeeft. Toegang tot systemen is beperkt tot de zaakvoerder van VO Initiatives BV en gelogd.</span></li>
+      <li><span><b>Wissen zonder het bewijs te breken.</b> Op verzoek van de Klant vernietigt Vidimus de leessleutel van één registratie. De inhoud is dan definitief onleesbaar, ook voor Vidimus; de keten van vingerafdrukken blijft intact.</span></li>
+      <li><span><b>Subverwerkers.</b> Hetzner Online GmbH (hosting, Duitsland, EU) en Sectigo Limited (RFC 3161-tijdstempels over Merkle-wortels; ontvangt nooit inhoud of persoonsgegevens). Wijzigingen worden dertig dagen vooraf gemeld; de Klant kan bezwaar maken en opzeggen.</span></li>
+      <li><span><b>Datalekken.</b> Vidimus meldt een inbreuk aan de Klant zonder onredelijke vertraging en uiterlijk binnen 48 uur na kennisname, met de informatie die de Klant nodig heeft voor zijn eigen melding.</span></li>
+      <li><span><b>Bijstand en audit.</b> Vidimus helpt de Klant bij verzoeken van betrokkenen en bij een gegevensbeschermingseffectbeoordeling. De Klant mag één keer per jaar, of na een incident, een audit laten uitvoeren op eigen kosten, na redelijke aankondiging.</span></li>
+      <li><span><b>Einde.</b> Na de overeenkomst en de bewaartermijn verwijdert Vidimus de inhoud en bijlagen. Vingerafdrukken, tijdstempels en grootboekrecords bevatten geen persoonsgegevens en blijven bestaan als bewijs.</span></li>
+    </ul>
+
+    <div class="sec-head" style="margin-top:var(--space-half,4rem)">
+      <span class="idx">6</span>
+      <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Zo aanvaardt u<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="rv" style="font-size:.9rem;color:var(--paper-dim);max-width:66ch;display:grid;gap:1rem">
+      <p>Bij het aanmaken van een account vinkt de verantwoordelijke van de organisatie aan dat hij deze voorwaarden en verwerkersovereenkomst aanvaardt. Die aanvaarding wordt als registratie verankerd in de stroom "akkoorden" van de organisatie: organisatie, gebruiker, tijdstip, versienummer, adres en toestel. Beide partijen kunnen ze nadien controleren op app.vidimus.be onder Instellingen, en zonder Vidimus via de bewijsbundel.</p>
+      <p>Vragen: <a href="mailto:oskar@vo-initiatives.com" style="color:var(--paper)">oskar@vo-initiatives.com</a>.</p>
+    </div>
+    <p class="law-note" style="margin-top:2rem">Versie 2026-09 · laatst bijgewerkt: 3 september 2026</p>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <span class="sp"></span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <a href="voorwaarden.html">Voorwaarden</a>
+</footer>
+<script src="script.js" defer></script>
+</body>
+</html>
