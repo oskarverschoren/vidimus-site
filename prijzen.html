@@ -70,19 +70,21 @@
     <div class="sec-head">
       <span class="idx">02 / DE METER</span>
       <h2 class="disp">Aansluiting + verbruik<span style="color:var(--red)">.</span></h2>
-      <p class="side">Op het einde van de maand telt het platform hoeveel u verankerde — alles telt als één — en die maand valt in de bijhorende schijf. Kleine stappen, geen kliffen. Jaarcontract: 2 maanden gratis.</p>
+      <p class="side">Op het einde van de maand telt de meter hoeveel u verankerde, over al uw stromen samen. Boven de inbegrepen 1 000 betaalt u per registratie, in aflopende tarieven — de factuur groeit mee en maakt nooit een sprong. Jaarcontract: 2 maanden gratis.</p>
     </div>
     <table class="dtable rv">
       <thead><tr><th>Verankerde registraties / maand (alle stromen samen)</th><th>Wat u betaalt</th><th>Prijs / maand</th></tr></thead>
       <tbody>
         <tr><td>tot 1 000</td><td>de aansluiting — alles inbegrepen</td><td class="pr">€ 190</td></tr>
-        <tr><td>1 001 – 3 000</td><td>aansluiting + verbruik</td><td class="pr">€ 290</td></tr>
-        <tr><td>3 001 – 10 000</td><td>aansluiting + verbruik</td><td class="pr">€ 490</td></tr>
-        <tr><td>10 001 – 30 000</td><td>aansluiting + verbruik</td><td class="pr">€ 690</td></tr>
+        <tr><td>1 001 – 3 000</td><td>+ € 0,05 per registratie<span class="sub">op 3 000 precies € 290</span></td><td class="pr">€ 190 – 290</td></tr>
+        <tr><td>3 001 – 10 000</td><td>+ € 0,03 per registratie<span class="sub">op 10 000 precies € 500</span></td><td class="pr">€ 290 – 500</td></tr>
+        <tr><td>10 001 – 30 000</td><td>+ € 0,01 per registratie<span class="sub">op 30 000 precies € 700</span></td><td class="pr">€ 500 – 700</td></tr>
         <tr><td>meer dan 30 000</td><td>op maat — jaarcontract, SLA, eigen afspraken</td><td class="pr">offerte</td></tr>
       </tbody>
     </table>
     <p class="law-note"><b style="color:var(--paper)">Wat nooit meetelt:</b> aantal gebruikers, aantal stromen, bundels downloaden, verificaties door uw tegenpartij, deellinks, wissen. Eén meter, één rekening.</p>
+    <p class="law-note"><b style="color:var(--paper)">Sensoren en systemen:</b> een poort of sensor die elke minuut meet, mag geen 43 000 registraties per maand kosten. Wat een systeem via de API instuurt, telt voor de meter per kwartier per systeemsleutel als één registratie — elke meting blijft wél apart gehasht en verankerd. Mensen tellen per registratie.</p>
+    <p class="law-note"><b style="color:var(--paper)">Partners betalen niets.</b> Wie uw gedeelde stroom aanvaardt, foto's toevoegt en overdrachten tekent, doet dat gratis — de registraties tellen op uw meter, niet op die van hen. Zo krijgt u uw hele keten mee zonder dat iemand een contract moet tekenen.</p>
   </div>
 </section>
 
@@ -160,7 +162,8 @@
 addEventListener("DOMContentLoaded", () => {
   const $ = (s) => document.querySelector(s);
   const eur = (n) => "€ " + Math.round(n).toLocaleString("nl-BE");
-  const tier = (n) => n <= 1000 ? 190 : n <= 3000 ? 290 : n <= 10000 ? 490 : n <= 30000 ? 690 : null;
+  // meter zonder kliffen: 190 incl. 1 000, daarboven per registratie 0,05 → 0,03 → 0,01 (exact 290 / 500 / 700 op de grenzen)
+  const tier = (n) => { if (n <= 1000) return 190; let t = 190, prev = 1000; for (const [lim, rate] of [[3000, .05], [10000, .03], [30000, .01]]) { if (n <= lim) return t + (n - prev) * rate; t += (lim - prev) * rate; prev = lim; } return null; };
   function calc() {
     const n = Math.max(0, parseFloat($("#qN").value) || 0);
     const cons = $("#qCons").checked;
@@ -169,7 +172,7 @@ addEventListener("DOMContentLoaded", () => {
     const pilot = $("#qPilotX").checked ? 3500 : 1900;
     $("#oPilot").textContent = eur(pilot);
     if (base === null) { $("#oMnd").textContent = "op maat"; $("#oJaar").textContent = "offerte"; $("#oSchijf").textContent = "schijf: meer dan 30 000 — op maat via jaarcontract, wij bellen u"; return; }
-    const schijf = n <= 1000 ? "tot 1 000 registraties — alles inbegrepen" : n <= 3000 ? "1 001 – 3 000 registraties" : n <= 10000 ? "3 001 – 10 000 registraties" : "10 001 – 30 000 registraties";
+    const schijf = n <= 1000 ? "tot 1 000 registraties — alles inbegrepen" : n <= 3000 ? "1 001 – 3 000 registraties · € 0,05 per registratie boven de 1 000" : n <= 10000 ? "3 001 – 10 000 registraties · € 0,03 per registratie boven de 3 000" : "10 001 – 30 000 registraties · € 0,01 per registratie boven de 10 000";
     $("#oSchijf").textContent = "schijf: " + schijf;
     let m = base + ($("#qQTSP").checked ? 90 : 0) + (cons ? 500 + Math.max(0, parseFloat($("#qPart").value) || 0) * 150 : 0);
     const months = $("#qJaar").checked ? 10 : 12;
