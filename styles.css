@@ -11,7 +11,7 @@
   --paper-dim: #c9c5b8;
   --red: #ff3b26;
   --red-deep: #c22415;
-  --green: #2ee584;
+  --green: #1E9E6A; /* zelfde groen als "verankerd" in de app — één kleur, één betekenis */
   --dim: #767d90;
   --line: rgba(240, 237, 228, 0.14);
   --line-soft: rgba(240, 237, 228, 0.07);
