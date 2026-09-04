@@ -322,7 +322,7 @@ section { position: relative; z-index: 1; }
 .how-vid .video-frame { max-width: none; }
 .how-vid .playcover { padding: 1.2rem; }
 .how-vid .playchip { font-size: 0.66rem; padding: 0.9rem 1.2rem; gap: 0.7rem; }
-@media (max-width: 720px) { .how-vid { grid-template-columns: 1fr; } .how-vid .how-num { display: none; } }
+@media (max-width: 1080px) { .how-vid { grid-template-columns: 1fr; gap: 1.2rem; } .how-vid .how-num { display: none; } .how-vid .how-vid-txt p { max-width: 52ch; } }
 
 /* ── video ───────────────────────────────────────────────────── */
 .video-sec { padding-block: var(--space); }
