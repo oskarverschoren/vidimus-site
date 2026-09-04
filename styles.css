@@ -328,6 +328,14 @@ section { position: relative; z-index: 1; }
 .playcover:hover .playchip { background: var(--paper); color: var(--void); }
 .playchip { display: inline-flex; align-items: center; gap: 1rem; background: var(--red); color: var(--void); font: 700 0.78rem/1 var(--mono); letter-spacing: 0.18em; text-transform: uppercase; padding: 1.2rem 1.8rem; transition: background 180ms; }
 .playchip svg { width: 13px; height: 13px; }
+.video-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; max-width: 72rem; }
+.video-duo figure { margin: 0; display: grid; gap: 0.8rem; }
+.video-duo .video-frame { max-width: none; }
+.video-duo .playcover { padding: 1.2rem; }
+.video-duo .playchip { font-size: 0.66rem; padding: 0.9rem 1.2rem; gap: 0.7rem; }
+.video-duo figcaption { font-family: var(--disp); font-stretch: 120%; font-weight: 800; text-transform: uppercase; font-size: 0.95rem; line-height: 1.1; display: grid; gap: 0.35rem; }
+.video-duo figcaption .lbl { font: 700 0.6rem/1 var(--mono); letter-spacing: 0.22em; color: var(--red); }
+@media (max-width: 720px) { .video-duo { grid-template-columns: 1fr; } }
 
 /* ── sectoren: dossier-rijen ─────────────────────────────────── */
 .sectors { padding-block: var(--space); }
