@@ -58,7 +58,8 @@
     <div class="hero-under">
       <p class="sub">"Er ontbraken drie paletten." — Vidimus legt het moment van aflevering cryptografisch vast: <b>foto, plaats, tijd en wie tekende</b>. Vanaf dat ogenblik kan niemand er nog aan. <b>Ook wij niet.</b></p>
       <div class="hero-actions">
-        <a class="xbtn red" href="#demo"><span>Probeer het te vervalsen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn red" href="#start"><span>Maak een stroom aan</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="#demo"><span>Probeer het te vervalsen</span></a>
         <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek</span></a>
       </div>
     </div>
@@ -66,6 +67,41 @@
 </section>
 
 <!-- ══ 01 · DE DEMO ═══════════════════════════════════════════ -->
+<!-- ══ WAAROM · gewone databank vs verankeringslaag (de oorspronkelijke uitleg, nu vooraan) ══ -->
+<section class="sec" id="waarom" aria-labelledby="waarom-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="waarom-h">Data kan altijd overschreven worden<span class="dot">.</span></h2>
+      <span class="lbl">HET PROBLEEM</span>
+      <p class="side">Elke databank, ook de uwe, laat toe dat een record achteraf verandert of verdwijnt. Daar begint woord tegen woord. Vidimus verandert uw databank niet; het legt er een laag over die dat onmogelijk maakt.</p>
+    </div>
+    <div class="vs-grid">
+      <div class="glass vs-col bad-side rv">
+        <h3>Gewone databank</h3>
+        <ul>
+          <li>Een record kan achteraf bijgewerkt worden — een collega bewaart de verkeerde versie, een meting wordt "gecorrigeerd".</li>
+          <li>Een record kan verdwijnen — per ongeluk of niet. Een migratie of servercrash wist stil een stuk geschiedenis.</li>
+          <li>Niemand kan bewijzen wie wat wijzigde — of zelfs dát er iets gewijzigd is.</li>
+          <li>Bij een geschil komt uw export uit hetzelfde systeem dat ter discussie staat.</li>
+          <li>Uw tegenpartij heeft haar eigen databank — met exact dezelfde eigenschappen.</li>
+        </ul>
+        <p class="cost">= WOORD TEGEN WOORD</p>
+      </div>
+      <div class="glass vs-col good-side rv">
+        <h3>Met de verankeringslaag</h3>
+        <ul>
+          <li>Elke registratie wordt bij aanmaak vastgezet — een correctie is een nieuwe registratie, het origineel blijft bestaan.</li>
+          <li>Wissen of aanpassen is wiskundig uitgesloten — ook door ons, ook door een beheerder met alle rechten.</li>
+          <li>Elke wijziging achteraf geeft een andere vingerafdruk — de vergelijking zegt dan ONBEKEND, voor iedereen die kijkt.</li>
+          <li>De bewijsbundel is zelfstandig verifieerbaar, buiten ons platform om.</li>
+          <li>Beide partijen kijken naar dezelfde verankerde inhoud.</li>
+        </ul>
+        <p class="cost">= WISKUNDE TEGEN WOORD</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="demo" aria-labelledby="demo-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
@@ -140,7 +176,7 @@
         <div class="tile rv">
           <b aria-hidden="true">02</b>
           <h3>Plaats<small>TIK 2 · GPS + NAUWKEURIGHEID · VERPLICHT</small></h3>
-          <p>Positie én nauwkeurigheid, <b>volgens het toestel</b>, gaan mee in de gehashte inhoud. Geen plaats, geen anker. "51.2302 N · ±6 m" is een bewijselement; "ergens in de haven" is dat niet.</p>
+          <p><b>Geen plaats? Dan geen anker.</b> Positie én nauwkeurigheid, volgens het toestel, gaan mee in de gehashte inhoud; zonder positie tekent de app niet. "51.2302 N · ±6 m" is een bewijselement; "ergens in de haven" is dat niet.</p>
         </div>
         <div class="tile rv">
           <b aria-hidden="true">03</b>
@@ -168,7 +204,7 @@
     <div class="sec-lbl kop rv">
       <h2 id="sens-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M8 34c6 0 6-14 12-14s6 14 12 14 6-14 12-14"/><path class="ln" d="M8 42h36"/><circle class="seal" cx="41" cy="40" r="7"/><path class="seal-check" d="M38 40l2 2 4-4.5"/></svg>Alleen sensordata<span class="dot">?</span></h2>
       <span class="lbl">SENSOR · API · ELK KWARTIER</span>
-      <p class="side">Geen foto's, geen handtekeningen: alleen de metingen van uw loggers, poorten of weegschalen. Uw systeem stuurt ze door via de API; elke waarde wordt gehasht en per kwartier verankerd. Wat de sensor zag, staat vast — ook als de logger later zoek is.</p>
+      <p class="side">Geen foto's, geen handtekeningen: alleen de metingen van uw loggers, poorten of weegschalen. Uw systeem stuurt ze door via de API; elke waarde wordt gehasht en getekend op het moment dat ze binnenkomt, en zit binnen vijf minuten in een anker met tijdstempel. Wat de sensor zag, staat vast — ook als de logger later zoek is.</p>
     </div>
     <figure class="glass vcard sens-video rv"><div class="vslot"><video src="video/vidimus-api-sensordata.mp4" poster="video/vidimus-api-sensordata-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: API en sensordata"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:50</span></button></div><figcaption><span class="lbl">ZIE HET BINNENKOMEN · 0:50</span>Poortscans en temperatuurlijnen stromen automatisch binnen en worden per waarde gehasht. Wijzigt of wist iemand later een record in uw databank, dan toont de dubbelcheck naast het verankerde origineel het direct.</figcaption></figure>
     <div class="sens-grid">
@@ -185,7 +221,7 @@
         <span class="lbl">WAT VIDIMUS DOET</span>
         <ul class="sens-lijst ok">
           <li><b>Elke meting een vingerafdruk.</b> Uw systeem POST elke waarde naar de API; Vidimus hasht ze met tijd, sensor-id en referentie, getekend met uw systeemsleutel.</li>
-          <li><b>Per kwartier verankerd.</b> Alle metingen van een kwartier gaan in één Merkle-wortel met een RFC 3161-tijdstempel van een derde. Vanaf dan is geen waarde nog te wijzigen, ook niet door ons.</li>
+          <li><b>Binnen vijf minuten verankerd.</b> Elke meting wordt bij binnenkomst gehasht en getekend; het automatische anker bundelt alles van de laatste vijf minuten in één Merkle-wortel met een RFC 3161-tijdstempel van een derde. Vanaf dan is geen waarde nog te wijzigen, ook niet door ons.</li>
           <li><b>Gaten zijn zichtbaar.</b> Ontbreekt een kwartier, dan ontbreekt het anker: de reeks toont zelf waar ze onderbroken was.</li>
           <li><b>De meter telt per kwartier.</b> Een logger die elke minuut meet, telt voor de prijs als één registratie per kwartier per systeemsleutel. Zie <a href="prijzen.html">de meter</a>.</li>
         </ul>
@@ -307,7 +343,7 @@
           <tr><td class="k">onafhankelijk</td><td class="v">Bewijsbundel</td><td><p>Verificatie-URL plus een bundel met meegeleverd controlescript — verifieerbaar zonder Vidimus, zonder netwerk. Data blijft in de EU.</p></td></tr>
         </tbody>
       </table>
-      <p class="glass honest dc-note"><b>Eerlijk over waar we staan:</b> geen blockchain, geen consortiumkanaal, geen gekwalificeerde handtekening. Zodra iets daarvan live is, staat het hier eerst — niet omgekeerd.</p>
+      <p class="glass honest dc-note"><b>Onafhankelijk verankerd, zonder blockchain-gedoe.</b> Het bewijs steunt op een tijdstempel van een erkende derde (Sectigo, RFC 3161) en een onveranderlijk grootboek — geen token, geen wallet, geen consortium dat u eerst moet opzetten. Publieke verankering op de Bitcoin-blockchain (OpenTimestamps) staat op de roadmap; zodra ze live is, leest u het hier.</p>
     </div>
   </div>
 </section>
@@ -384,7 +420,7 @@
 <section class="sec final" aria-labelledby="final-h">
   <div class="wrap rv">
     <h2 id="final-h"><span class="thin">Begin met</span><br>wat u nooit meer betwist wil zien<span class="dot">.</span></h2>
-    <p class="sub">Vijftien minuten, dan weet u of een pilot voor uw afleveringen zin heeft. Daarna dertig dagen, één stroom, vaste prijs.</p>
+    <p class="sub">Uw eerste stroom staat in drie minuten. De dertig dagen zijn onze begeleiding: koppelen, partners meekrijgen, evalueren — en na dertig dagen ligt uw eigen bewijsbundel op tafel.</p>
     <div class="hero-actions">
       <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="xbtn" href="prijzen.html"><span>Alle prijzen</span></a>

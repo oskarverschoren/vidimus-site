@@ -344,3 +344,19 @@ a.go:hover svg { transform: translateX(3px); }
 .sens-video .vslot { aspect-ratio: 16 / 9; }
 .sens-video figcaption { padding: 18px 22px; font-size: 14px; line-height: 1.55; color: var(--ink-2); display: grid; gap: 8px; }
 @media (max-width: 860px) { .sens-video { grid-template-columns: 1fr; } }
+
+/* waarom: gewone databank vs verankeringslaag, in glas met een gekleurde bovenrand */
+.vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.vs-col { padding: 24px 26px 20px; display: grid; gap: 14px; align-content: start; border-top: 3px solid var(--ink-3); }
+.vs-col.bad-side { border-top-color: var(--bad); } .vs-col.good-side { border-top-color: var(--ok); }
+.vs-col h3 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.02em; }
+.vs-col.bad-side h3 { color: var(--bad); } .vs-col.good-side h3 { color: var(--ok); }
+.vs-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+.vs-col li { padding-left: 20px; position: relative; }
+.vs-col li::before { position: absolute; left: 0; top: 0; font: 500 13px/1.6 var(--mono); }
+.vs-col.bad-side li::before { content: "×"; color: var(--bad); } .vs-col.good-side li::before { content: "→"; color: var(--ok); }
+.vs-col .cost { margin: 6px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font: 500 11px/1 var(--mono); letter-spacing: .14em; }
+.vs-col.bad-side .cost { color: var(--bad); } .vs-col.good-side .cost { color: var(--ok); }
+@media (max-width: 860px) { .vs-grid { grid-template-columns: 1fr; } }
+/* oprichter: het hele gezicht, niet alleen de kin */
+.foundr img { object-fit: cover; object-position: 50% 22%; }
