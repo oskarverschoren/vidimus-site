@@ -328,3 +328,5 @@ a.go:hover svg { transform: translateX(3px); }
 .zes-klap summary i { font-style: normal; font: 500 16px/1 var(--mono); color: var(--ink-3); transition: transform 200ms var(--site-ease); }
 .zes-klap[open] summary i { transform: rotate(45deg); }
 .zes-klap .checkrows { margin-bottom: 12px; }
+
+.demo-grid > .glass .xbtn { justify-self: start; align-self: end; }
