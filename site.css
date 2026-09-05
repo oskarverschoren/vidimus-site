@@ -163,8 +163,18 @@ a.go:hover svg { transform: translateX(3px); }
 
 /* ── 03 · de app: vier schermen in glas ──────────────────────── */
 .shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.shot { margin: 0; border-radius: 22px; padding: 12px 12px 14px; display: grid; gap: 12px; }
-.shot-frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #fff; aspect-ratio: 390 / 844; }
+.shot { margin: 0; border-radius: 22px; padding: 18px 18px 16px; display: grid; gap: 14px; perspective: 1400px; }
+/* iPhone-frame (Oskar 05/09): donkere titanium bezel, dynamic island, zijknoppen, lichte 3D-kanteling; de schermen blijven scherp */
+.phone { position: relative; border-radius: 40px; padding: 10px; background: linear-gradient(160deg, #3a3f48 0%, #1c2028 45%, #0b0f17 100%); box-shadow: 0 30px 60px -30px rgba(11, 15, 23, .6), 0 2px 0 rgba(255, 255, 255, .12) inset, 0 -1px 0 rgba(0, 0, 0, .6) inset; transform: rotateY(-6deg) rotateX(2deg); transform-style: preserve-3d; transition: transform 700ms var(--site-ease); }
+.shot:nth-child(even) .phone { transform: rotateY(6deg) rotateX(2deg); }
+.shot:hover .phone { transform: rotateY(0) rotateX(0); }
+.phone-screen { position: relative; border-radius: 31px; overflow: hidden; background: #0B0F17; padding: 0; }
+.phone-island { position: absolute; top: 10px; left: 50%; width: 32%; height: 22px; transform: translateX(-50%); border-radius: 999px; background: #0B0F17; z-index: 2; box-shadow: 0 0 0 1px rgba(255, 255, 255, .04); }
+.phone-btn { position: absolute; width: 3px; border-radius: 2px; background: linear-gradient(180deg, #4a505a, #23272f); }
+.phone-btn.l1 { left: -3px; top: 17%; height: 5%; } .phone-btn.l2 { left: -3px; top: 25%; height: 9%; } .phone-btn.l3 { left: -3px; top: 36%; height: 9%; } .phone-btn.r1 { right: -3px; top: 27%; height: 14%; }
+.shot-frame { border-radius: 31px; overflow: hidden; background: #fff; aspect-ratio: 390 / 844; }
+.shot-frame img { padding-top: 0; }
+@media (prefers-reduced-motion: reduce) { .phone, .shot:nth-child(even) .phone { transform: none; } }
 .shot-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .shot-frame.missing { display: grid; place-items: center; color: var(--ink-3); font: 500 11px var(--mono); letter-spacing: .12em; }
 .shot-frame.missing img { display: none; }
