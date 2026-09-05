@@ -381,3 +381,13 @@ a.go:hover svg { transform: translateX(3px); }
 .vcard.groot .playchip { height: 46px; padding: 0 20px; font-size: 14px; }
 .video-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 860px) { .video-duo { grid-template-columns: 1fr; } }
+
+/* de hele uitleg: achter één knop, in leesbare grootte (Oskar 06/09: essentieel, maar te groot voor de pagina) */
+.meer-uitleg { margin: -18px 0 44px; }
+.meer-uitleg summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.meer-uitleg summary::-webkit-details-marker { display: none; }
+.meer-uitleg summary .xbtn { pointer-events: none; }
+.meer-uitleg[open] summary .xbtn span::after { content: " ↑"; }
+.meer-tekst { margin-top: 22px; max-width: 72ch; display: grid; gap: 14px; font-size: 16px; line-height: 1.65; color: var(--ink-2); animation: siteFade 500ms var(--site-ease) both; }
+.meer-tekst b { color: var(--ink); font-weight: 600; }
+@keyframes siteFade { from { opacity: 0; transform: translateY(6px); } }
