@@ -2,47 +2,38 @@
 <html lang="nl" class="js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F2F3F6">
 <title>Vidimus — Wiskunde tegen woord. Het moment van aflevering cryptografisch vastgelegd.</title>
 <meta name="description" content="Vidimus legt het moment van aflevering vast: foto, plaats, tijd en wie tekende — SHA-256, Ed25519, onafhankelijk RFC 3161-tijdstempel, append-only grootboek. Wijzigt iemand later iets, dan komt de vingerafdruk niet meer overeen. Pilot van 30 dagen, vaste prijs.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app-huis.css">
+<link rel="stylesheet" href="app-huis-pages.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body class="has-band">
+<body>
+<div class="ambient" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-seal" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.2" fill="currentColor"/></symbol>
+<symbol id="i-play" viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></symbol>
+<symbol id="i-edit" viewBox="0 0 16 16"><path d="M9.8 2.8l3.4 3.4L5.4 14H2v-3.4l7.8-7.8zM8.4 4.2l3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M10 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/></symbol>
+</defs></svg>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
-    <symbol id="i-play" viewBox="0 0 16 16"><path d="M3.5 2.2v11.6L13.5 8z" fill="currentColor"/></symbol>
-    <symbol id="i-edit" viewBox="0 0 16 16"><path d="M9.8 2.8l3.4 3.4L5.4 14H2v-3.4l7.8-7.8zM8.4 4.2l3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
-    <symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#e8e6df" stroke-width="3" stroke-linecap="square"/></symbol>
-  </defs>
-</svg>
-
-<!-- ══ BAND: ANKERS · LIVE ════════════════════════════════════
-     GET https://app.vidimus.be/public/ticker → [{kind, plaats, tijd, hash}, …]
-     Geen antwoord of leeg → 8 voorbeeldrijen (class "demo", label "voorbeeld"). -->
-<div class="anchorband" id="anchorband" aria-label="Recente ankers, geanonimiseerd">
-  <span class="ab-lbl"><i class="rec" aria-hidden="true"></i>ANKERS · LIVE</span>
-  <div class="ab-view"><div class="ab-track" id="anchorTrack"></div></div>
-  <span class="ab-note" id="anchorNote" hidden>voorbeeld</span>
-</div>
-
-<!-- ══ KOP: FUNCTIETOETSEN ════════════════════════════════════ -->
 <header class="site">
-  <a class="brand" href="#top">
-    <svg aria-hidden="true"><use href="#i-mark"/></svg>
-    <span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small>
-  </a>
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>SITE</small></a>
   <nav class="topnav" aria-label="Hoofdnavigatie">
-    <a href="#demo" data-key="F1"><b>01</b>De demo</a>
-    <a href="#aflevering" data-key="F2"><b>02</b>De aflevering</a>
-    <a href="#app" data-key="F3"><b>03</b>De app</a>
-    <a href="#rekensom" data-key="F4"><b>04</b>Rekensom</a>
-    <a href="#prijs" data-key="F5"><b>05</b>Prijs</a>
+    <a href="#demo"><b>01</b>De demo</a>
+    <a href="#aflevering"><b>02</b>De aflevering</a>
+    <a href="#app"><b>03</b>De app</a>
+    <a href="#rekensom"><b>04</b>Rekensom</a>
+    <a href="#prijs"><b>05</b>Prijs</a>
   </nav>
   <div class="top-cta">
     <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
@@ -52,360 +43,283 @@
 
 <main id="top">
 
-<!-- ══════════════════════════════════════════════════════════════
-     DE TERMINAL
-     ══════════════════════════════════════════════════════════════ -->
-<div class="terminal">
-
-<!-- ── scherm 1: held ─────────────────────────────────────────── -->
+<!-- ══ HELD ═══════════════════════════════════════════════════ -->
 <section class="hero" aria-labelledby="hero-h">
+  <canvas id="hashrain" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div class="tgrid hero-grid">
-      <div class="pnl hero-main">
-        <canvas id="hashrain" aria-hidden="true"></canvas>
-        <div class="pnl-h"><span class="rec" aria-hidden="true"></span>VIDIMUS · VERANKERINGSLAAG<span class="sp"></span><span class="r">SCHERM 1 / 2</span></div>
-        <div class="hero-body">
-          <p class="hero-kicker lbl"><span class="rec" aria-hidden="true"></span> registratie loopt — elke wijziging achteraf is wiskundig uitgesloten</p>
-          <h1 class="hero-title" id="hero-h" aria-label="Wiskunde tegen woord — nooit meer woord tegen woord">
-            <span class="row" aria-hidden="true"><span><span class="strike-wrap">WOORD<i class="strike"></i><i class="stamp-word">WISKUNDE</i></span></span></span>
-            <span class="row" aria-hidden="true"><span>TEGEN</span></span>
-            <span class="row" aria-hidden="true"><span>WOORD<em style="color:var(--t-red);font-style:normal">.</em></span></span>
-          </h1>
-          <div class="hero-under">
-            <p class="sub">"Er ontbraken drie paletten." — Vidimus legt het moment van aflevering cryptografisch vast: <b>foto, plaats, tijd en wie tekende</b>. Vanaf dat ogenblik kan niemand er nog aan. <b>Ook wij niet.</b></p>
-            <div class="hero-actions">
-              <a class="xbtn red" href="#demo"><span>Probeer het te vervalsen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-              <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek</span></a>
-            </div>
-          </div>
-        </div>
+    <!-- tickerband: GET https://app.vidimus.be/public/ticker → [{kind, plaats, tijd, hash}, …]; geen antwoord of leeg → 8 voorbeeldrijen -->
+    <div class="anchorband" id="anchorband" aria-label="Recente ankers, geanonimiseerd">
+      <span class="ab-lbl"><i aria-hidden="true"></i>ANKERS · LIVE</span>
+      <div class="ab-view"><div class="ab-track" id="anchorTrack"></div></div>
+      <span class="ab-note" id="anchorNote" hidden>voorbeeld</span>
+    </div>
+    <p class="hero-kicker lbl"><i aria-hidden="true"></i>registratie loopt — elke wijziging achteraf is wiskundig uitgesloten</p>
+    <h1 class="hero-title" id="hero-h" aria-label="Wiskunde tegen woord — nooit meer woord tegen woord"><span aria-hidden="true"><span class="strike">Woord</span> Wiskunde<br>tegen woord<span class="dot">.</span></span></h1>
+    <div class="hero-under">
+      <p class="sub">"Er ontbraken drie paletten." — Vidimus legt het moment van aflevering cryptografisch vast: <b>foto, plaats, tijd en wie tekende</b>. Vanaf dat ogenblik kan niemand er nog aan. <b>Ook wij niet.</b></p>
+      <div class="hero-actions">
+        <a class="xbtn red" href="#demo"><span>Probeer het te vervalsen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek</span></a>
       </div>
-      <aside class="hero-side" aria-label="Wat vandaag draait">
-        <div class="pnl">
-          <div class="pnl-h">SESSIE<span class="sp"></span><span class="r">UTC</span></div>
-          <div class="pnl-b"><p class="clock" id="utcClock" aria-live="off">—<small>TIJD VOLGENS UW TOESTEL · HET ANKER GEBRUIKT DIE VAN EEN DERDE</small></p></div>
-        </div>
-        <div class="pnl">
-          <div class="pnl-h">PARAMETERS<span class="sp"></span><span class="r">LIVE</span></div>
-          <div class="pnl-b">
-            <dl class="kv">
-              <dt>vingerafdruk</dt><dd>SHA-256</dd>
-              <dt>handtekening</dt><dd>Ed25519 · X.509</dd>
-              <dt>tijdstempel</dt><dd>RFC 3161 · TSA Sectigo</dd>
-              <dt>plaats</dt><dd>GPS + nauwkeurigheid</dd>
-              <dt>bundel</dt><dd>Merkle-root</dd>
-              <dt>grootboek</dt><dd>append-only</dd>
-              <dt>regio</dt><dd>EU</dd>
-              <dt>uitkomst</dt><dd class="ok">IDENTIEK</dd>
-              <dt></dt><dd class="red">ONBEKEND</dd>
-            </dl>
-          </div>
-        </div>
-        <div class="pnl fill">
-          <div class="pnl-h">TOETSEN<span class="sp"></span><span class="r">F1 – F5</span></div>
-          <div class="pnl-b">
-            <dl class="keys">
-              <dt>F1</dt><dd><a href="#demo">De demo — vervals het zelf</a></dd>
-              <dt>F2</dt><dd><a href="#aflevering">De aflevering — het moment</a></dd>
-              <dt>F3</dt><dd><a href="#app">De app — vier schermen</a></dd>
-              <dt>F4</dt><dd><a href="#rekensom">Rekensom — uw cijfers</a></dd>
-              <dt>F5</dt><dd><a href="#prijs">Prijs — één instap</a></dd>
-            </dl>
-          </div>
-          <div class="pnl-b"><p><b>Twee uitkomsten, geen oordeel.</b> Vidimus vergelijkt een vingerafdruk met een anker. Meer niet — en dat is precies het punt.</p></div>
-        </div>
-      </aside>
     </div>
   </div>
 </section>
 
-<!-- ── scherm 2 · 01 · de demo ────────────────────────────────── -->
-<section class="tamper" id="demo" aria-labelledby="demo-h">
+<!-- ══ 01 · DE DEMO ═══════════════════════════════════════════ -->
+<section class="sec" id="demo" aria-labelledby="demo-h">
   <div class="wrap">
-    <div class="t-head">
-      <span class="idx">01 / DE DEMO</span>
-      <h2 id="demo-h">Vervals het<span style="color:var(--t-red)">.</span></h2>
-      <p class="side">Geen animatie — de vingerafdruk wordt live berekend in uw browser, met echte SHA-256. Klik op een veld. Wijzig het. Kijk wat er gebeurt.</p>
+    <div class="sec-lbl kop rv">
+      <h2 id="demo-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M14 8h16l8 8v28H14z"/><path class="ln" d="M30 8v8h8"/><path class="ln" d="M20 26h12M20 34h8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Vervals het<span class="dot">.</span></span></h2>
+      <span class="lbl">01 · DE DEMO</span>
+      <p class="side">Geen animatie — de vingerafdruk wordt live berekend in uw browser, met echte SHA-256. Klik op een waarde. Wijzig ze. Kijk wat er gebeurt.</p>
     </div>
-    <div class="tgrid tamper-grid">
-      <div class="doc rv" id="tamperDoc">
-        <div class="doc-bar"><span>CMR · AFL-2026-0913</span><span>ORIGINEEL · 04.09.2026</span></div>
-        <div class="doc-in">
-          <h3 class="doc-title">Aflevering — CMR</h3>
-          <p class="doc-sub">Kaai 913, Antwerpen · getekend door chauffeur en ontvanger, elk op eigen toestel</p>
-          <div class="doc-fields" id="tamperFields">
-            <div class="doc-field"><span class="k">Afzender</span><span contenteditable="true" spellcheck="false" data-f>Verhelst Transport BV</span></div>
-            <div class="doc-field"><span class="k">Ontvanger</span><span contenteditable="true" spellcheck="false" data-f>Nova Logistics NV</span></div>
-            <div class="doc-field"><span class="k">Colli</span><span contenteditable="true" spellcheck="false" data-f>26 paletten · zonder voorbehoud</span></div>
-            <div class="doc-field"><span class="k">Afgeleverd</span><span contenteditable="true" spellcheck="false" data-f>4 september 2026 — 15:12</span></div>
-            <div class="doc-field"><span class="k">Plaats · toestel</span><span contenteditable="true" spellcheck="false" data-f>51.2302 N · 4.4160 E · ±6 m</span></div>
-          </div>
-        </div>
+    <div class="demo-grid">
+      <div class="glass kaart rv" id="tamperDoc">
+        <div class="kop"><span class="lbl">CMR · AFL-2026-0913</span><span class="lbl">ORIGINEEL · 04.09.2026</span></div>
+        <h3>Aflevering — CMR</h3>
+        <p class="doc-sub">Kaai 913, Antwerpen · getekend door chauffeur en ontvanger, elk op eigen toestel</p>
+        <dl class="kv" id="tamperFields">
+          <dt>Afzender</dt><dd contenteditable="true" spellcheck="false" data-f>Verhelst Transport BV</dd>
+          <dt>Ontvanger</dt><dd contenteditable="true" spellcheck="false" data-f>Nova Logistics NV</dd>
+          <dt>Colli</dt><dd contenteditable="true" spellcheck="false" data-f>26 paletten · zonder voorbehoud</dd>
+          <dt>Afgeleverd</dt><dd contenteditable="true" spellcheck="false" data-f>4 september 2026 — 15:12</dd>
+          <dt>Plaats · toestel</dt><dd contenteditable="true" spellcheck="false" data-f>51.2302 N · 4.4160 E · ±6 m</dd>
+        </dl>
         <p class="doc-foot"><svg aria-hidden="true"><use href="#i-edit"/></svg>Klik op een waarde en typ — maak van 26 paletten eens 23. Zoals iemand dat weken later zou proberen.</p>
       </div>
-      <div class="pnl term rv">
-        <div class="pnl-h"><span class="rec live" aria-hidden="true"></span>VERGELIJKING MET ANKER<span class="sp"></span><span class="r">SHA-256 · BROWSER</span></div>
-        <div class="term-body">
-          <div>
-            <p class="term-verdict ok" id="verdict" role="status">IDENTIEK</p>
-            <p class="vsub" id="verdictSub">Vingerafdruk komt overeen met anker van 04.09.2026 15:13:22Z</p>
-          </div>
-          <div class="hashline"><span class="lbl">anker · 04.09.2026 15:13:22Z · tsa sectigo</span><code class="vd-hash match" id="anchorHash">berekenen…</code></div>
-          <div class="hashline" id="liveLine"><span class="lbl">huidige inhoud · nu berekend</span><code class="vd-hash" id="liveHash">berekenen…</code></div>
-          <div class="checkrows" id="checks">
-            <div class="checkrow" data-c><span>inhoud t.o.v. anker · sha-256</span><span class="st ok">IDENTIEK</span></div>
-            <div class="checkrow" data-c><span>handtekening chauffeur · ed25519</span><span class="st ok">IDENTIEK</span></div>
-            <div class="checkrow" data-c><span>handtekening ontvanger · ed25519</span><span class="st ok">IDENTIEK</span></div>
-            <div class="checkrow" data-c><span>tijdstempel · rfc 3161</span><span class="st ok">IDENTIEK</span></div>
-            <div class="checkrow" data-c><span>plaats in batch · merkle-root</span><span class="st ok">IDENTIEK</span></div>
-            <div class="checkrow" data-c><span>grootboek · hash-keten</span><span class="st ok">IDENTIEK</span></div>
-          </div>
-          <button class="xbtn term-reset" id="tamperReset"><span>Herstel origineel</span></button>
+      <div class="glass lade rv">
+        <div class="kop"><span class="lbl">BEWIJS · <b style="color:var(--ink)">ANKER</b></span><span class="st ok" id="ladeSt">VERANKERD</span></div>
+        <h3 class="mono">reg_0a4edeb47d59</h3>
+        <dl class="kv">
+          <dt>Moment</dt><dd>2026-09-04 15:13:22Z</dd>
+          <dt>Tijdstempel</dt><dd>RFC 3161 · Sectigo</dd>
+          <dt>Anker</dt><dd><code class="vd-hash match lock" id="anchorHash">berekenen…</code></dd>
+          <dt>Huidige inhoud</dt><dd><code class="vd-hash lock" id="liveHash">berekenen…</code></dd>
+        </dl>
+        <div class="verdict">
+          <p class="kt-verdict ok" id="verdict" role="status">IDENTIEK</p>
+          <p class="vsub" id="verdictSub">Vingerafdruk komt overeen met anker van 04.09.2026 15:13:22Z</p>
         </div>
+        <span class="lbl zes">DE ZES CONTROLES</span>
+        <div class="checkrows" id="checks">
+          <div class="checkrow" data-c><span><b>Inhoud ongewijzigd</b><span class="feit">sha-256 herrekend over de vijf velden, naast het anker gelegd</span></span><span class="st ok">IDENTIEK</span></div>
+          <div class="checkrow" data-c><span><b>Handtekening chauffeur</b><span class="feit">ed25519 · sleutel op het toestel van de chauffeur</span></span><span class="st ok">IDENTIEK</span></div>
+          <div class="checkrow" data-c><span><b>Handtekening ontvanger</b><span class="feit">ed25519 · sleutel op het toestel van de ontvanger</span></span><span class="st ok">IDENTIEK</span></div>
+          <div class="checkrow" data-c><span><b>Tijdstempel van een derde</b><span class="feit">rfc 3161 · 2026-09-04 15:13:22Z · Sectigo</span></span><span class="st ok">IDENTIEK</span></div>
+          <div class="checkrow" data-c><span><b>Zit in de verankerde batch</b><span class="feit">merkle-pad herrekend naar de wortel van de batch</span></span><span class="st ok">IDENTIEK</span></div>
+          <div class="checkrow" data-c><span><b>Grootboekrecord</b><span class="feit">hash-keten · elk record hasht het vorige</span></span><span class="st ok">IDENTIEK</span></div>
+        </div>
+        <button class="xbtn" id="tamperReset" type="button"><span>Herstel origineel</span></button>
       </div>
     </div>
-    <div class="tgrid states rv">
-      <div class="state"><span class="st-name ok">Identiek</span><p>De vingerafdruk komt overeen met een anker. U ziet dat anker: het moment volgens de onafhankelijke tijdstempel, wie tekende, de plaats volgens het toestel.</p></div>
-      <div class="state"><span class="st-name bad">Onbekend</span><p>Geen enkel anker komt overeen. Meer zegt Vidimus niet — niet wat er veranderde, niet door wie. Wijzigt iemand later iets, dan komt de vingerafdruk niet meer overeen. Er bestaat geen "lijkt op".</p></div>
+    <div class="states rv">
+      <div class="glass state"><span class="kt-verdict ok">Identiek</span><p>De vingerafdruk komt overeen met een anker. U ziet dat anker: het moment volgens de onafhankelijke tijdstempel, wie tekende, de plaats volgens het toestel.</p></div>
+      <div class="glass state"><span class="kt-verdict bad">Onbekend</span><p>Geen enkel anker komt overeen. Meer zegt Vidimus niet — niet wat er veranderde, niet door wie. Wijzigt iemand later iets, dan komt de vingerafdruk niet meer overeen. Er bestaat geen "lijkt op".</p></div>
       <p class="states-foot">Vidimus oordeelt niet. Het vergelijkt. Elke registratie krijgt een verificatiepagina die iedereen kan openen — <b>zonder account, zonder ons te moeten geloven.</b></p>
     </div>
   </div>
 </section>
 
-<div class="t-close" aria-hidden="true"><div class="wrap"><span>EINDE SCHERM · DE AKTE VOLGT</span><span>ARTIKELEN 2 – 5 · BIJLAGE · ONDERTEKENING</span></div></div>
-
-</div><!-- /terminal -->
-
-<!-- ══════════════════════════════════════════════════════════════
-     DE AKTE
-     ══════════════════════════════════════════════════════════════ -->
-
-<section class="akte-open" aria-label="Aanhef">
+<!-- ══ 02 · DE AFLEVERING ═════════════════════════════════════ -->
+<section class="sec" id="aflevering" aria-labelledby="afl-h">
   <div class="wrap">
-    <span class="lbl">Aanhef</span>
-    <p>Wat hieronder staat, is geen belofte maar een beschrijving: <b>wat Vidimus vastlegt, hoe, en wat het kost.</b> Wat hier niet staat, claimen wij niet.</p>
-  </div>
-</section>
-
-<!-- ── artikel 2 · de aflevering ──────────────────────────────── -->
-<section class="akte" id="aflevering" aria-labelledby="afl-h">
-  <div class="wrap">
-    <div class="art">
-      <div class="art-no">Artikel 2<small>02 / HET MOMENT</small></div>
-      <div class="art-body">
-        <h2 class="disp art-title" id="afl-h">De aflevering<span style="color:var(--red)">.</span></h2>
-        <p class="art-lede">Eén sector, één moment: de kade, de lading, de handtekening. Daar begint elke CMR-discussie — en daar eindigt ze. Foto → anker in drie tikken.</p>
-        <div class="art-content moment-grid">
-          <div class="taps">
-            <div class="tap rv">
-              <span class="tap-num" aria-hidden="true">§ 1</span>
-              <h3>Foto<small>TIK 1 · TOESTEL HASHT EN TEKENT</small></h3>
-              <p>De chauffeur maakt een foto van de lading op de kade. Zijn telefoon berekent de vingerafdruk en tekent het anker met een Ed25519-sleutel die het toestel nooit verlaat.</p>
-            </div>
-            <div class="tap rv">
-              <span class="tap-num" aria-hidden="true">§ 2</span>
-              <h3>Plaats<small>TIK 2 · GPS + NAUWKEURIGHEID · VERPLICHT</small></h3>
-              <p>Positie én nauwkeurigheid, <b>volgens het toestel</b>, gaan mee in de gehashte inhoud. Geen plaats, geen anker. <code class="mono">51.2302 N · ±6 m</code> is een bewijselement; "ergens in de haven" is dat niet.</p>
-            </div>
-            <div class="tap rv">
-              <span class="tap-num" aria-hidden="true">§ 3</span>
-              <h3>Twee handtekeningen<small>TIK 3 · QR · ELK OP EIGEN TELEFOON</small></h3>
-              <p>De ontvanger scant de QR en tekent op zijn eigen telefoon, met zijn eigen sleutel. Twee partijen, twee toestellen, één anker. Binnen vijf minuten gebundeld en van een tijdstempel voorzien.</p>
-              <span class="law"><b>CMR art. 30</b> — zonder voorbehoud bij aflevering geldt een vermoeden van correcte levering</span>
-              <a class="go" href="aflevering-betwist-cmr.html">Levering, tijdstip en staat bewijzen<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            </div>
-          </div>
-          <figure class="moment-video rv">
-            <div class="video-frame">
-              <video id="cmrVideo" src="video/vidimus-case-transport.mp4" poster="video/vidimus-case-transport.jpg" preload="none" playsinline controls></video>
-              <button class="playcover vplay" data-video="cmrVideo" aria-label="Speel het scenario over de betwiste aflevering af"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 1:27</span></button>
-            </div>
-            <figcaption><span class="lbl">SCENARIO · GEEN KLANTVERHAAL</span>"Er ontbraken drie paletten." — de aflevering, zonder en mét anker</figcaption>
-          </figure>
+    <div class="sec-lbl kop rv">
+      <h2 id="afl-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 20l16-8 16 8v16l-16 8-16-8z"/><path class="ln" d="M10 20l16 8 16-8"/><path class="ln" d="M26 28v16"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>De aflevering<span class="dot">.</span></span></h2>
+      <span class="lbl">02 · HET MOMENT</span>
+      <p class="side">Eén sector, één moment: de kade, de lading, de handtekening. Daar begint elke CMR-discussie — en daar eindigt ze. Foto → anker in drie tikken.</p>
+    </div>
+    <div class="moment-grid">
+      <div class="taps">
+        <div class="tile rv">
+          <b aria-hidden="true">01</b>
+          <h3>Foto<small>TIK 1 · TOESTEL HASHT EN TEKENT</small></h3>
+          <p>De chauffeur maakt een foto van de lading op de kade. Zijn telefoon berekent de vingerafdruk en tekent het anker met een Ed25519-sleutel die het toestel nooit verlaat.</p>
         </div>
-
-        <!-- protocol -->
-        <div class="protocol" id="hoe" aria-labelledby="hoe-h">
-          <span class="lbl">Protocol · 3 stappen</span>
-          <h3 class="disp art-title" id="hoe-h" style="margin-top:.6rem">Uw systeem blijft de bron<span style="color:var(--red)">.</span></h3>
-          <p class="art-lede" style="margin-top:.8rem">Geen migratie, geen vervanging. Eén dunne laag bovenop wat u al hebt.</p>
-          <div class="how-strip rv">
-            <div class="how-step"><span class="how-num" aria-hidden="true">01</span><h3>Koppelen<small>BRON: UW TMS OF ERP → API · WEBHOOK</small></h3><p>Uw systeem stuurt elke aflevering door via API of webhook. Geen systeem? Dan de app: foto, plaats, handtekening — telefoon en QR, geen installatie.</p></div>
-            <div class="how-step"><span class="how-num" aria-hidden="true">02</span><h3>Verankeren<small>ANCHOR: MERKLE-ROOT → TSA → GROOTBOEK</small></h3><p>Gehasht, getekend, per batch gebundeld en van een onafhankelijk tijdstempel voorzien. Daarna in een grootboek waar alleen iets bij kan, nooit iets af — ook niet door ons.</p></div>
-            <div class="how-step"><span class="how-num" aria-hidden="true">03</span><h3>Verifiëren<small>VERIFY: PUBLIEK · GEEN ACCOUNT</small></h3><p>De tegenpartij, een verzekeraar, een rechter — jaren later nog. Verificatiepagina of bewijsbundel met controlescript; het bewijs hangt niet aan ons platform.</p></div>
-          </div>
+        <div class="tile rv">
+          <b aria-hidden="true">02</b>
+          <h3>Plaats<small>TIK 2 · GPS + NAUWKEURIGHEID · VERPLICHT</small></h3>
+          <p>Positie én nauwkeurigheid, <b>volgens het toestel</b>, gaan mee in de gehashte inhoud. Geen plaats, geen anker. "51.2302 N · ±6 m" is een bewijselement; "ergens in de haven" is dat niet.</p>
+        </div>
+        <div class="tile rv">
+          <b aria-hidden="true">03</b>
+          <h3>Twee handtekeningen<small>TIK 3 · QR · ELK OP EIGEN TELEFOON</small></h3>
+          <p>De ontvanger scant de QR en tekent op zijn eigen telefoon, met zijn eigen sleutel. Twee partijen, twee toestellen, één anker. Binnen vijf minuten gebundeld en van een tijdstempel voorzien.</p>
+          <span class="law"><b>CMR art. 30</b> zonder voorbehoud bij aflevering geldt een vermoeden van correcte levering</span>
+          <a class="go" href="aflevering-betwist-cmr.html">Levering, tijdstip en staat bewijzen<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── artikel 3 · de app ─────────────────────────────────────── -->
-<section class="akte" id="app" aria-labelledby="app-h">
-  <div class="wrap">
-    <div class="art">
-      <div class="art-no">Artikel 3<small>03 / DE APP</small></div>
-      <div class="art-body">
-        <h2 class="disp art-title" id="app-h">De app<span style="color:var(--red)">.</span> <em>Zo ziet het eruit.</em></h2>
-        <p class="art-lede">Vier schermen: de wallet op de telefoon van de chauffeur, de stroom, het anker als tabel — en de verificatiepagina die uw tegenpartij ziet.</p>
-        <div class="art-content shots rv">
-          <figure class="shot">
-            <div class="shot-frame"><img src="assets/app/app-wallet.png" width="780" height="1688" alt="Schermafbeelding: een foto wordt een anker in de wallet" loading="lazy" decoding="async"></div>
-            <figcaption><span class="lbl">§ 1 · VASTLEGGEN</span>Foto → anker in de wallet</figcaption>
-          </figure>
-          <figure class="shot">
-            <div class="shot-frame"><img src="assets/app/app-stroom.png" width="780" height="1688" alt="Schermafbeelding: de levenslijn van een stroom" loading="lazy" decoding="async"></div>
-            <figcaption><span class="lbl">§ 2 · DE STROOM</span>Levenslijn van een stroom</figcaption>
-          </figure>
-          <figure class="shot">
-            <div class="shot-frame"><img src="assets/app/app-anker.png" width="780" height="1688" alt="Schermafbeelding: het anker-detail als tabel" loading="lazy" decoding="async"></div>
-            <figcaption><span class="lbl">§ 3 · HET ANKER</span>Anker-detail als tabel</figcaption>
-          </figure>
-          <figure class="shot">
-            <div class="shot-frame"><img src="assets/app/app-verificatie.png" width="780" height="1688" alt="Schermafbeelding: de publieke verificatiepagina" loading="lazy" decoding="async"></div>
-            <figcaption><span class="lbl">§ 4 · VERIFICATIE</span>Publieke verificatie</figcaption>
-          </figure>
+      <figure class="glass moment-video rv">
+        <div class="video-frame">
+          <video id="cmrVideo" src="video/vidimus-case-transport.mp4" poster="video/vidimus-case-transport.jpg" preload="none" playsinline controls></video>
+          <button class="playcover vplay" data-video="cmrVideo" aria-label="Speel het scenario over de betwiste aflevering af"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 1:27</span></button>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── artikel 4 · de rekensom ────────────────────────────────── -->
-<section class="akte" id="rekensom" aria-labelledby="calc-h">
-  <div class="wrap">
-    <div class="art">
-      <div class="art-no">Artikel 4<small>04 / DE REKENSOM</small></div>
-      <div class="art-body">
-        <h2 class="disp art-title" id="calc-h">Wat kost woord tegen woord u<span style="color:var(--red)">?</span></h2>
-        <p class="art-lede">Wij beweren niets. Vul uw eigen cijfers in — de som is van u.</p>
-        <div class="art-content calc-grid rv">
-          <div class="calc-in">
-            <label><span class="lbl">Betwiste afleveringen per jaar</span><input type="number" id="cN" value="6" min="0" inputmode="numeric"></label>
-            <label><span class="lbl">Gemiddeld betwist bedrag — €</span><input type="number" id="cBedrag" value="1500" min="0" step="100" inputmode="numeric"></label>
-            <label><span class="lbl">Uren per discussie</span><input type="number" id="cUren" value="8" min="0" inputmode="numeric"></label>
-            <label><span class="lbl">Interne uurkost — €</span><input type="number" id="cUurkost" value="75" min="0" step="5" inputmode="numeric"></label>
-          </div>
-          <div class="calc-out">
-            <div><span class="lbl">Interne tijd die discussies u kosten</span><output id="oTijd">€ 3 600 <span class="u">/ JAAR</span></output></div>
-            <div><span class="lbl">Bedrag dat jaarlijks ter discussie staat</span><output id="oBedrag">€ 9 000 <span class="u">/ JAAR</span></output></div>
-            <p class="cmp">Ter vergelijking: een pilot duurt 30 dagen, vaste prijs € 1 900 — en van elke verankerde aflevering staan inhoud, plaats en moment vast.</p>
-          </div>
-          <p class="calc-priv"><b>PRIVÉ</b> — alles wordt in uw browser berekend. Er wordt niets opgeslagen, verstuurd of bijgehouden.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── bijlage · specificatie ─────────────────────────────────── -->
-<section class="akte" id="specificatie" aria-labelledby="tech-h">
-  <div class="wrap">
-    <div class="art">
-      <div class="art-no">Bijlage A<small>SPECIFICATIE · WAT VANDAAG DRAAIT</small></div>
-      <div class="art-body">
-        <h2 class="disp art-title" id="tech-h">Het bewijs, ontleed<span style="color:var(--red)">.</span></h2>
-        <p class="art-lede"><b>Eerlijk over waar we staan</b> is de regel van deze bijlage: elke rij hieronder is live. Wat hier niet staat, claimen we niet.</p>
-        <div class="art-content">
-          <table class="dtab spec-tab">
-            <thead><tr><th>vraag</th><th>mechanisme</th><th>wat het betekent</th></tr></thead>
-            <tbody>
-              <tr><td class="k">wat</td><td class="v">SHA-256</td><td><p>Vingerafdruk over canonieke JSON van de registratie, inclusief de hashes van elke bijlage — de foto's dus ook.</p></td></tr>
-              <tr><td class="k">wie</td><td class="v">Ed25519 + X.509</td><td><p>Toestelsleutels op de telefoon (WebAuthn/passkey optioneel), plus een X.509-ondertekenaarscertificaat per organisatie.</p></td></tr>
-              <tr><td class="k">wanneer</td><td class="v">RFC 3161 TSA</td><td><p>Tijdstempel van een onafhankelijke derde (Sectigo) — niet onze serverklok bepaalt het moment.</p></td></tr>
-              <tr><td class="k">waar</td><td class="v">GPS + nauwkeurigheid</td><td><p>Positie en foutmarge zoals het toestel ze rapporteert, als deel van de gehashte inhoud. Wij meten niet; wij leggen vast wat het toestel zei.</p></td></tr>
-              <tr><td class="k">gebundeld</td><td class="v">Merkle-root</td><td><p>Per batch één wortel; elk anker bewijst zijn eigen plaats in de batch zonder de andere registraties prijs te geven.</p></td></tr>
-              <tr><td class="k">keten</td><td class="v">Append-only grootboek</td><td><p>Elk record hasht het vorige. Eén gewijzigd record en de keten klopt niet meer — controleerbaar met <code>verify_chain</code>.</p></td></tr>
-              <tr><td class="k">onafhankelijk</td><td class="v">Bewijsbundel</td><td><p>Verificatie-URL plus een bundel met meegeleverd controlescript — verifieerbaar zonder Vidimus, zonder netwerk. Data blijft in de EU.</p></td></tr>
-            </tbody>
-          </table>
-          <p class="honest"><b>Eerlijk over waar we staan:</b> geen blockchain, geen consortiumkanaal, geen gekwalificeerde handtekening. Zodra iets daarvan live is, staat het hier eerst — niet omgekeerd.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── artikel 5 · de prijs ───────────────────────────────────── -->
-<section class="akte" id="prijs" aria-labelledby="prijs-h">
-  <div class="wrap">
-    <div class="art">
-      <div class="art-no">Artikel 5<small>05 / DE PRIJS</small></div>
-      <div class="art-body">
-        <h2 class="disp art-title" id="prijs-h">Eén instap<span style="color:var(--red)">.</span> <em>Geen verrassingen.</em></h2>
-        <div class="art-content price-one rv">
-          <div class="plan">
-            <span class="step">De instap — 30 dagen</span>
-            <h3 class="disp">Pilot</h3>
-            <p class="amt">€ 1 900<small>vaste prijs · één stroom · excl. btw · geen verplichting nadien</small></p>
-            <ul>
-              <li>Intake van een halve dag, dan uw afleveringen in de app of via API</li>
-              <li>Begeleid door wie het gebouwd heeft</li>
-              <li>Bewijsbundel en evaluatiegesprek na 30 dagen</li>
-            </ul>
-            <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek — 15 min</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-          <div class="plan-after">
-            <span class="lbl">DAARNA · DE METER</span>
-            <table class="dtab meter">
-              <tbody>
-                <tr><td>aansluiting</td><td class="num">€ 190 / maand</td></tr>
-                <tr><td>inbegrepen</td><td class="num">1 000 registraties</td></tr>
-                <tr><td>daarboven</td><td class="num">8 · 4 · 2 cent</td></tr>
-                <tr><td>partners tekenen mee</td><td class="num">€ 0</td></tr>
-              </tbody>
-            </table>
-            <p>Daarboven per registratie — 8, 4 of 2 cent, nooit met een sprong. Partners tekenen gratis mee. Het pilotbedrag wordt bij doorstart verrekend.</p>
-            <a class="go" href="prijzen.html">De meter, in detail<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── ondertekening ──────────────────────────────────────────── -->
-<section class="sign" aria-label="Ondertekening">
-  <div class="wrap">
-    <div class="sign-grid">
-      <div class="art-no">Ondertekening<small>WIE HIER TEKENT</small></div>
-      <figure style="margin:0">
-        <blockquote class="rv">"Wij tekenen met naam en gezicht voor wat we bouwen. <span>U belt niet met een supportdesk — u belt met wie het gebouwd heeft.</span>"</blockquote>
-        <figcaption class="rv"><b>OSKAR VERSCHOREN</b> · OPRICHTER · VO INITIATIVES BV · ANTWERPEN<br>ELKE PILOT PERSOONLIJK BEGELEID, VAN EERSTE KOPPELING TOT EERSTE ANKER</figcaption>
-        <div class="foundr-contact rv" style="margin-top:1.4rem">
-          <span class="lbl">RECHTSTREEKS</span>
-          <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
-          <a href="tel:+32466474115">+32 466 47 41 15</a>
-          <a href="https://cal.com/oskar-verschoren-vhygeu/15min">cal.com — 15 minuten</a>
-        </div>
+        <figcaption><span class="lbl">SCENARIO · GEEN KLANTVERHAAL</span>"Er ontbraken drie paletten." — de aflevering, zonder en mét anker</figcaption>
       </figure>
-      <div class="sign-mark rv">
-        <img src="assets/handtekening.png" width="717" height="196" alt="Handtekening van Oskar Verschoren" loading="lazy" decoding="async">
-        <span class="lbl">Getekend te Antwerpen</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROTOCOL ═══════════════════════════════════════════════ -->
+<section class="sec" id="hoe" aria-labelledby="hoe-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="hoe-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M22 26a8 8 0 0 1 8-8h6a8 8 0 0 1 0 16h-6"/><path class="ln" d="M30 26a8 8 0 0 1-8 8h-6a8 8 0 0 1 0-16h6"/><path class="ln" d="M21 26h10"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Uw systeem blijft de bron<span class="dot">.</span></span></h2>
+      <span class="lbl">PROTOCOL · 3 STAPPEN</span>
+      <p class="side">Geen migratie, geen vervanging. Eén dunne laag bovenop wat u al hebt.</p>
+    </div>
+    <div class="stroom-grid how-grid">
+      <div class="stroom rv"><div class="kop"><h3>Koppelen</h3><span class="kind">01</span></div><span class="lbl">BRON: UW TMS OF ERP → API · WEBHOOK</span><p>Uw systeem stuurt elke aflevering door via API of webhook. Geen systeem? Dan de app: foto, plaats, handtekening — telefoon en QR, geen installatie.</p></div>
+      <div class="stroom rv"><div class="kop"><h3>Verankeren</h3><span class="kind">02</span></div><span class="lbl">ANKER: MERKLE-ROOT → TSA → GROOTBOEK</span><p>Gehasht, getekend, per batch gebundeld en van een onafhankelijk tijdstempel voorzien. Daarna in een grootboek waar alleen iets bij kan, nooit iets af — ook niet door ons.</p></div>
+      <div class="stroom rv"><div class="kop"><h3>Verifiëren</h3><span class="kind">03</span></div><span class="lbl">VERIFY: PUBLIEK · GEEN ACCOUNT</span><p>De tegenpartij, een verzekeraar, een rechter — jaren later nog. Verificatiepagina of bewijsbundel met controlescript; het bewijs hangt niet aan ons platform.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 · DE APP ════════════════════════════════════════════ -->
+<section class="sec" id="app" aria-labelledby="app-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="app-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M17 6h18a3 3 0 0 1 3 3v34a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z"/><path class="ln" d="M23 40h6"/><path class="ln" d="M20 18h12M20 25h8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Zo ziet het eruit<span class="dot">.</span></span></h2>
+      <span class="lbl">03 · DE APP</span>
+      <p class="side">Vier schermen: de wallet op de telefoon van de chauffeur, de stroom, het anker als tabel — en de verificatiepagina die uw tegenpartij ziet.</p>
+    </div>
+    <div class="shots">
+      <figure class="glass shot rv">
+        <div class="shot-frame"><img src="assets/app/app-wallet.png" width="390" height="844" alt="Schermafbeelding: een foto wordt een anker in de wallet" loading="lazy" decoding="async"></div>
+        <figcaption><span class="lbl">01 · VASTLEGGEN</span>Foto → anker in de wallet</figcaption>
+      </figure>
+      <figure class="glass shot rv">
+        <div class="shot-frame"><img src="assets/app/app-stroom.png" width="390" height="844" alt="Schermafbeelding: de levenslijn van een stroom" loading="lazy" decoding="async"></div>
+        <figcaption><span class="lbl">02 · DE STROOM</span>Levenslijn van een stroom</figcaption>
+      </figure>
+      <figure class="glass shot rv">
+        <div class="shot-frame"><img src="assets/app/app-anker.png" width="390" height="844" alt="Schermafbeelding: het anker-detail als tabel" loading="lazy" decoding="async"></div>
+        <figcaption><span class="lbl">03 · HET ANKER</span>Anker-detail als tabel</figcaption>
+      </figure>
+      <figure class="glass shot rv">
+        <div class="shot-frame"><img src="assets/app/app-verificatie.png" width="390" height="844" alt="Schermafbeelding: de publieke verificatiepagina" loading="lazy" decoding="async"></div>
+        <figcaption><span class="lbl">04 · VERIFICATIE</span>Publieke verificatie</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 · REKENSOM ══════════════════════════════════════════ -->
+<section class="sec" id="rekensom" aria-labelledby="calc-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="calc-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 12h32"/><path class="ln" d="M10 24h32"/><path class="ln" d="M10 36h16"/><path class="ln" d="M14 8v8M14 20v8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Wat kost woord tegen woord u<span class="dot">?</span></span></h2>
+      <span class="lbl">04 · DE REKENSOM</span>
+      <p class="side">Wij beweren niets. Vul uw eigen cijfers in — de som is van u.</p>
+    </div>
+    <div class="calc-grid">
+      <div class="glass calc-in rv">
+        <label class="fld"><span class="lbl">Betwiste afleveringen per jaar</span><input type="number" id="cN" value="6" min="0" inputmode="numeric"></label>
+        <label class="fld"><span class="lbl">Gemiddeld betwist bedrag — €</span><input type="number" id="cBedrag" value="1500" min="0" step="100" inputmode="numeric"></label>
+        <label class="fld"><span class="lbl">Uren per discussie</span><input type="number" id="cUren" value="8" min="0" inputmode="numeric"></label>
+        <label class="fld"><span class="lbl">Interne uurkost — €</span><input type="number" id="cUurkost" value="75" min="0" step="5" inputmode="numeric"></label>
+        <p class="dc-note calc-priv"><b>Privé</b> — alles wordt in uw browser berekend. Er wordt niets opgeslagen, verstuurd of bijgehouden.</p>
+      </div>
+      <div class="calc-out rv">
+        <div class="tiles">
+          <div class="tile"><output id="oTijd">€ 3 600 <span class="u">/ JAAR</span></output><span>interne tijd die discussies u kosten</span></div>
+          <div class="tile"><output id="oBedrag">€ 9 000 <span class="u">/ JAAR</span></output><span>bedrag dat jaarlijks ter discussie staat</span></div>
+        </div>
+        <p class="dc-note">Ter vergelijking: een pilot duurt 30 dagen, vaste prijs <b>€ 1 900</b> — en van elke verankerde aflevering staan inhoud, plaats en moment vast.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── slot ───────────────────────────────────────────────────── -->
-<section class="final" aria-labelledby="final-h">
+<!-- ══ SPECIFICATIE ═══════════════════════════════════════════ -->
+<section class="sec" id="specificatie" aria-labelledby="tech-h">
   <div class="wrap">
-    <span class="lbl">Slot</span>
-    <h2 class="disp" id="final-h"><span class="outline">Begin met</span> wat u nooit meer betwist wil zien<span style="color:var(--red)">.</span></h2>
-    <div class="final-under">
-      <p>Vijftien minuten, dan weet u of een pilot voor uw afleveringen zin heeft. Daarna dertig dagen, één stroom, vaste prijs.</p>
-      <div class="hero-actions">
-        <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="xbtn" href="prijzen.html"><span>Alle prijzen</span></a>
+    <div class="sec-lbl kop rv">
+      <h2 id="tech-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 14h6M22 14h20"/><path class="ln" d="M10 26h6M22 26h20"/><path class="ln" d="M10 38h6M22 38h10"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Het bewijs, ontleed<span class="dot">.</span></span></h2>
+      <span class="lbl">SPECIFICATIE · WAT VANDAAG DRAAIT</span>
+      <p class="side"><b>Eerlijk over waar we staan</b> is de regel van deze sectie: elke rij hieronder is live. Wat hier niet staat, claimen we niet.</p>
+    </div>
+    <div class="rv">
+      <table class="rg-table spec" aria-label="Specificatie">
+        <thead><tr><th>Wat</th><th>Techniek</th><th>Toelichting</th></tr></thead>
+        <tbody>
+          <tr><td class="k">wat</td><td class="v">SHA-256</td><td><p>Vingerafdruk over canonieke JSON van de registratie, inclusief de hashes van elke bijlage — de foto's dus ook.</p></td></tr>
+          <tr><td class="k">wie</td><td class="v">Ed25519 + X.509</td><td><p>Toestelsleutels op de telefoon (WebAuthn/passkey optioneel), plus een X.509-ondertekenaarscertificaat per organisatie.</p></td></tr>
+          <tr><td class="k">wanneer</td><td class="v">RFC 3161 TSA</td><td><p>Tijdstempel van een onafhankelijke derde (Sectigo) — niet onze serverklok bepaalt het moment.</p></td></tr>
+          <tr><td class="k">waar</td><td class="v">GPS + nauwkeurigheid</td><td><p>Positie en foutmarge zoals het toestel ze rapporteert, als deel van de gehashte inhoud. Wij meten niet; wij leggen vast wat het toestel zei.</p></td></tr>
+          <tr><td class="k">gebundeld</td><td class="v">Merkle-root</td><td><p>Per batch één wortel; elk anker bewijst zijn eigen plaats in de batch zonder de andere registraties prijs te geven.</p></td></tr>
+          <tr><td class="k">keten</td><td class="v">Append-only grootboek</td><td><p>Elk record hasht het vorige. Eén gewijzigd record en de keten klopt niet meer — controleerbaar met <code>verify_chain</code>.</p></td></tr>
+          <tr><td class="k">onafhankelijk</td><td class="v">Bewijsbundel</td><td><p>Verificatie-URL plus een bundel met meegeleverd controlescript — verifieerbaar zonder Vidimus, zonder netwerk. Data blijft in de EU.</p></td></tr>
+        </tbody>
+      </table>
+      <p class="glass honest dc-note"><b>Eerlijk over waar we staan:</b> geen blockchain, geen consortiumkanaal, geen gekwalificeerde handtekening. Zodra iets daarvan live is, staat het hier eerst — niet omgekeerd.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 · PRIJS ═════════════════════════════════════════════ -->
+<section class="sec" id="prijs" aria-labelledby="prijs-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="prijs-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M8 10h16l20 20-12 12L12 22z"/><path class="ln" d="M16 16a2 2 0 1 0 .01 0"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Eén instap<span class="dot">.</span> <span class="thin">Geen verrassingen.</span></span></h2>
+      <span class="lbl">05 · DE PRIJS</span>
+    </div>
+    <div class="glass price rv">
+      <div class="plan">
+        <span class="lbl">DE INSTAP · 30 DAGEN</span>
+        <h3>Pilot</h3>
+        <p class="amt">€ 1 900<small>vaste prijs · één stroom · excl. btw · geen verplichting nadien</small></p>
+        <ul>
+          <li>Intake van een halve dag, dan uw afleveringen in de app of via API</li>
+          <li>Begeleid door wie het gebouwd heeft</li>
+          <li>Bewijsbundel en evaluatiegesprek na 30 dagen</li>
+        </ul>
+        <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek — 15 min</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
+      <div class="plan-after">
+        <span class="lbl">DAARNA · DE METER</span>
+        <p><b>€ 190 per maand</b>, 1 000 registraties inbegrepen. Daarboven per registratie — 8, 4 of 2 cent, nooit met een sprong. Partners tekenen gratis mee. Het pilotbedrag wordt bij doorstart verrekend.</p>
+        <a class="go" href="prijzen.html">De meter, in detail<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OPRICHTER ══════════════════════════════════════════════ -->
+<section class="sec" aria-label="Wie hier tekent">
+  <div class="wrap">
+    <div class="glass foundr rv">
+      <img src="assets/oskar.jpg" width="132" height="132" alt="Oskar Verschoren, oprichter van Vidimus" loading="lazy" decoding="async">
+      <figure>
+        <blockquote>"Wij tekenen met naam en gezicht voor wat we bouwen. <span>U belt niet met een supportdesk — u belt met wie het gebouwd heeft.</span>"</blockquote>
+        <figcaption><b>Oskar Verschoren</b> · oprichter · VO Initiatives BV · Antwerpen<br>Elke pilot persoonlijk begeleid, van eerste koppeling tot eerste anker</figcaption>
+      </figure>
+      <div class="foundr-contact">
+        <span class="lbl">RECHTSTREEKS</span>
+        <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+        <a href="tel:+32466474115">+32 466 47 41 15</a>
+        <a href="https://cal.com/oskar-verschoren-vhygeu/15min">cal.com — 15 minuten</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLOT ═══════════════════════════════════════════════════ -->
+<section class="sec final" aria-labelledby="final-h">
+  <div class="wrap rv">
+    <h2 id="final-h"><span class="thin">Begin met</span><br>wat u nooit meer betwist wil zien<span class="dot">.</span></h2>
+    <p class="sub">Vijftien minuten, dan weet u of een pilot voor uw afleveringen zin heeft. Daarna dertig dagen, één stroom, vaste prijs.</p>
+    <div class="hero-actions">
+      <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="prijzen.html"><span>Alle prijzen</span></a>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer class="site">
-  <span>© 2026 VO INITIATIVES BV — ANTWERPEN</span>
+<footer class="app-voet">
+  <span>VIDIMUS · SITE · © 2026 VO INITIATIVES BV — ANTWERPEN</span>
   <a href="colofon.html">Colofon</a>
   <a href="voorwaarden.html">Voorwaarden</a>
   <a href="hoe-het-werkt.html">Techniek in detail</a>

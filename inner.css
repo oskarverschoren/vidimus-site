@@ -14,11 +14,11 @@
 .recog p span { color: var(--red); }
 
 /* ── drie faalredenen / kaartrij ─────────────────────────────── */
-.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: clamp(2rem, 4vw, 3rem); }
-.why-grid article { background: var(--void); padding: 1.6rem; }
-.why-grid article:hover { background: var(--void-2); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(1.4rem, 3vw, 2rem); }
+.why-grid article { padding: 20px 22px; border-radius: 20px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+.why-grid article:hover { box-shadow: var(--glass-shadow-hi); }
 .why-grid .no { font: 500 0.62rem/1 var(--mono); letter-spacing: 0.2em; color: var(--red); }
-.why-grid h3 { font-family: var(--serif); font-weight: 400; font-size: 1.05rem; margin: 0.8rem 0 0.6rem; line-height: 1.15; }
+.why-grid h3 { font-weight: 600; letter-spacing: -.02em; font-size: 17px; margin: 0.8rem 0 0.6rem; line-height: 1.15; }
 .why-grid p { font-size: 0.8rem; color: var(--dim); }
 
 /* ── checklist "vandaag al doen" ─────────────────────────────── */
@@ -65,34 +65,34 @@
 
 /* ── tijdlijn (scenario's & cases) ───────────────────────────── */
 .flow { border-left: 1px solid var(--rule-strong); margin-top: clamp(2rem, 4vw, 3rem); display: grid; gap: 0; }
-.flow-step { position: relative; padding: 0 0 clamp(1.8rem, 3vw, 2.6rem) clamp(1.5rem, 3vw, 3rem); }
-.flow-step::before { content: ""; position: absolute; left: -6px; top: 0.4rem; width: 10px; height: 10px; background: var(--ink); border: 1px solid var(--rule-strong); }
-.flow-step.hit::before { background: var(--red); border-color: var(--red); }
+.flow-step { position: relative; min-width: 0; overflow-wrap: anywhere; padding: 0 0 clamp(1.8rem, 3vw, 2.6rem) clamp(1.5rem, 3vw, 3rem); }
+.flow-step::before { content: ""; position: absolute; left: -6px; top: 0.4rem; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-3); border: 2px solid var(--bg); }
+.flow-step.hit::before { background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); }
 .flow-step .when { font: 500 0.65rem/1 var(--mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); }
-.flow-step h4 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.1rem, 1.8vw, 1.5rem); margin: 0.6rem 0 0.6rem; line-height: 1.15; }
+.flow-step h4 { font-weight: 600; letter-spacing: -.02em; font-size: clamp(1.05rem, 1.4vw, 1.25rem); margin: 0.6rem 0 0.6rem; line-height: 1.15; }
 .flow-step p { font-size: 0.86rem; color: var(--paper-dim); max-width: 60ch; }
-.flow-step .meta { display: inline-block; margin-top: 0.8rem; font: 400 0.68rem/1.8 var(--mono); color: var(--dim); border: 1px solid var(--line); padding: 0.3rem 0.7rem; }
+.flow-step .meta { display: inline-block; margin-top: 0.8rem; font: 400 0.72rem/1.8 var(--mono); color: var(--dim); border: 1px solid var(--glass-edge); background: rgba(255, 255, 255, .6); border-radius: 999px; padding: 0.3rem 0.8rem; white-space: normal; overflow-wrap: anywhere; max-width: 100%; }
 .flow-step .meta b { color: var(--green); font-weight: 500; }
 
 /* ── zonder / met contrast ───────────────────────────────────── */
 .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: clamp(2rem, 4vw, 3rem); }
-.vs-col { border: 1px solid var(--line); padding: clamp(1.4rem, 2.5vw, 2.2rem); }
-.vs-col.bad-side { border-color: var(--red); }
-.vs-col.good-side { border-color: var(--green); }
-.vs-col h3 { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; }
-.vs-col.bad-side h3 { color: var(--red); }
+.vs-col { border-radius: 22px; padding: clamp(1.4rem, 2.5vw, 2.2rem); background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+.vs-col.bad-side { border-top: 3px solid var(--bad); }
+.vs-col.good-side { border-top: 3px solid var(--ok); }
+.vs-col h3 { font-weight: 600; letter-spacing: -.02em; font-size: 19px; }
+.vs-col.bad-side h3 { color: var(--bad); }
 .vs-col.good-side h3 { color: var(--green); }
 .vs-col ul { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: 0.8rem; font-size: 0.82rem; color: var(--paper-dim); }
 .vs-col li { padding-left: 1.3rem; position: relative; }
-.vs-col.bad-side li::before { content: "×"; position: absolute; left: 0; color: var(--red); font-family: var(--mono); }
+.vs-col.bad-side li::before { content: "×"; position: absolute; left: 0; color: var(--bad); font-family: var(--mono); }
 .vs-col.good-side li::before { content: "→"; position: absolute; left: 0; color: var(--green); font-family: var(--mono); }
 .vs-col .cost { margin-top: 1.4rem; border-top: 1px solid var(--line); padding-top: 1rem; font: 500 0.72rem/1.6 var(--mono); letter-spacing: 0.04em; }
-.vs-col.bad-side .cost { color: var(--red); }
+.vs-col.bad-side .cost { color: var(--bad); }
 .vs-col.good-side .cost { color: var(--green); }
 
 /* ── grote uitkomst-cijfers ──────────────────────────────────── */
-.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: clamp(1.6rem, 3vw, 2.4rem); }
-.stat-row div { background: var(--void-2); padding: 1.4rem 1.6rem; }
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(1.6rem, 3vw, 2.4rem); }
+.stat-row div { padding: 20px 22px; border-radius: 20px; background: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
 .stat-row b { display: block; font-family: var(--mono); font-weight: 500; letter-spacing: -0.02em; font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1; color: var(--green); font-variant-numeric: tabular-nums; }
 .stat-row span { display: block; margin-top: 0.5rem; font: 500 0.62rem/1.5 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
 
@@ -107,26 +107,26 @@
 
 /* ── videorooster (help) ─────────────────────────────────────── */
 .vgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 1.2rem; margin-top: clamp(2rem, 4vw, 3rem); }
-.vcard { border: 1px solid var(--line); background: var(--void-2); display: flex; flex-direction: column; }
+.vcard { border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
 .vcard .vslot { position: relative; aspect-ratio: 16/9; background: #000; }
 .vcard video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .vcard .vplay { position: absolute; inset: 0; width: 100%; border: 0; cursor: pointer; background: linear-gradient(160deg, rgba(10,12,17,.15), rgba(10,12,17,.7)); display: flex; align-items: flex-end; padding: 1rem; }
-.vcard .vplay span { display: inline-flex; align-items: center; gap: 0.6rem; background: #ff3b26; color: #0a0c11; font: 700 0.62rem/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; padding: 0.6rem 0.9rem; }
-.vcard .vplay:hover span { background: #e8e6df; }
+.vcard .vplay span { display: inline-flex; align-items: center; gap: 10px; height: 38px; padding: 0 14px; border-radius: 999px; background: linear-gradient(180deg, #1c2333 0%, #0b0f17 100%); color: #fff; font: 600 13px/1 var(--ui); box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); transition: transform 160ms var(--out); }
+.vcard .vplay:hover span { transform: translateY(-1px); }
 .vcard .vplay svg { width: 10px; height: 10px; }
 .vcard .vbody { padding: 1.2rem 1.3rem 1.4rem; display: grid; gap: 0.5rem; flex: 1; align-content: start; }
 .vcard .vbody .lbl { letter-spacing: 0.2em; }
-.vcard h3 { font-family: var(--serif); font-weight: 400; font-size: 1.1rem; line-height: 1.15; }
+.vcard h3 { font-weight: 600; letter-spacing: -.02em; font-size: 17px; line-height: 1.15; }
 .vcard p { font-size: 0.78rem; color: var(--dim); }
-.vcard .vgo { margin-top: auto; padding-top: 0.6rem; font: 700 0.62rem/1 var(--mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+.vcard .vgo { margin-top: auto; padding-top: 0.6rem; font: 500 14px/1 var(--ui); color: var(--act); text-decoration: none; }
 .vcard .vgo:hover { color: var(--red); }
 
 /* ── verwante artikels ───────────────────────────────────────── */
-.related { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: clamp(2rem, 4vw, 3rem); }
-.related a { background: var(--void); padding: 1.5rem; text-decoration: none; display: grid; gap: 0.5rem; align-content: start; transition: background 150ms; }
-.related a:hover { background: var(--void-2); }
+.related { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 12px; margin-top: clamp(2rem, 4vw, 3rem); }
+.related a { border-radius: 16px; background: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); padding: 18px 20px; text-decoration: none; display: grid; gap: 0.5rem; align-content: start; transition: background 150ms; }
+.related a:hover { box-shadow: var(--glass-shadow-hi); }
 .related .lbl { letter-spacing: 0.2em; }
-.related b { font-family: var(--serif); font-weight: 400; font-size: 0.95rem; line-height: 1.15; color: var(--ink); }
+.related b { font-weight: 600; letter-spacing: -.01em; font-size: 15px; line-height: 1.15; color: var(--ink); }
 .related a:hover b { color: var(--red); }
 
 /* ── cta-band onderaan elke pagina ───────────────────────────── */
@@ -136,17 +136,17 @@
 .cta-band .final-under { margin-top: 2.4rem; }
 
 /* ── case-dossier (cases.html) ───────────────────────────────── */
-.case { border: 1px solid var(--line); margin-top: clamp(2.5rem, 5vw, 4rem); }
-.case-head { padding: clamp(1.5rem, 3vw, 2.4rem); border-bottom: 1px solid var(--rule-strong); background: var(--void-2); display: grid; gap: 0.6rem; }
+.case { border-radius: 22px; overflow: hidden; background: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); margin-top: clamp(2rem, 4vw, 3rem); }
+.case-head { padding: clamp(1.5rem, 3vw, 2.4rem); border-bottom: 1px solid rgba(11, 15, 23, .07); background: rgba(255, 255, 255, .35); display: grid; gap: 0.6rem; }
 .case-head .ref { font: 500 0.65rem/1 var(--mono); letter-spacing: 0.2em; color: var(--red); }
-.case-head h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.6rem); line-height: 1.1; }
+.case-head h3 { font-weight: 500; letter-spacing: -.035em; font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.06; }
 .case-head .who { font-size: 0.75rem; color: var(--dim); }
 .case-head .who b { color: var(--ink); font-weight: 500; }
 .case-body { padding: clamp(1.5rem, 3vw, 2.4rem); }
-.case .verdict-line { margin-top: 1.8rem; font-family: var(--serif); font-weight: 400; font-size: clamp(1.2rem, 2vw, 1.7rem); color: var(--green); }
+.case .verdict-line { margin-top: 1.8rem; font-weight: 500; letter-spacing: -.02em; font-size: clamp(1.2rem, 2vw, 1.7rem); color: var(--green); }
 
 /* ── prijzen: schuifcalculator ───────────────────────────────── */
-.tier-out { border: 1px solid var(--line); background: var(--void-2); padding: clamp(1.5rem, 3vw, 2.4rem); display: grid; gap: 1.4rem; }
+.tier-out { border-radius: 22px; background: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); padding: clamp(1.5rem, 3vw, 2.4rem); display: grid; gap: 1.4rem; }
 .tier-out output { font-family: var(--mono); font-weight: 500; letter-spacing: -0.02em; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; color: var(--ink); display: block; font-variant-numeric: tabular-nums; }
 input[type="range"] { width: 100%; accent-color: var(--ink); background: transparent; }
 
@@ -158,6 +158,8 @@ input[type="range"] { width: 100%; accent-color: var(--ink); background: transpa
   .dtable { display: block; overflow-x: auto; }
 }
 @media (max-width: 720px) {
+  .why-grid, [style*="minmax(0,1fr) minmax(0,1fr)"] { grid-template-columns: 1fr !important; }
+  .codecard { font-size: 0.72rem; }
   .dtable, .dtable tbody, .dtable tr, .dtable td { display: block; overflow: visible; }
   .dtable thead { display: none; }
   .dtable tr { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
