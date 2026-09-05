@@ -330,3 +330,17 @@ a.go:hover svg { transform: translateX(3px); }
 .zes-klap .checkrows { margin-bottom: 12px; }
 
 .demo-grid > .glass .xbtn { justify-self: start; align-self: end; }
+
+/* uitleg per controle: waarom identiek, en waarom straks niet (Oskar 05/09) */
+.checkrow.klik { cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; }
+.checkrow.klik > span:first-child b::before { content: "›"; display: inline-block; margin-right: 8px; color: var(--ink-3); transition: transform 200ms var(--site-ease); }
+.checkrow.klik.open > span:first-child b::before { transform: rotate(90deg); }
+.checkrow .chk-uitleg { grid-column: 1 / -1; padding: 2px 0 6px 18px; }
+.checkrow .chk-uitleg p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
+.checkrow .chk-uitleg p[data-bad] { color: var(--bad); }
+.checkrow .chk-uitleg p b { color: var(--ink); }
+/* sensorvideo boven de twee kaarten */
+.sens-video { margin: 0 0 16px; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; gap: 0; }
+.sens-video .vslot { aspect-ratio: 16 / 9; }
+.sens-video figcaption { padding: 18px 22px; font-size: 14px; line-height: 1.55; color: var(--ink-2); display: grid; gap: 8px; }
+@media (max-width: 860px) { .sens-video { grid-template-columns: 1fr; } }
