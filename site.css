@@ -402,3 +402,10 @@ a.go:hover svg { transform: translateX(3px); }
 .sec-lbl h2 { gap: 0; }
 .sec-lbl h2 .pict { margin-right: 14px; }
 .sec-lbl h2 .dot { margin-left: 0; }
+
+/* sensorkop naast de video: kop en label onder elkaar, vraagteken blijft aan het woord */
+.sens-kop .sec-lbl { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.sens-kop .sec-lbl h2 { flex-wrap: nowrap; white-space: nowrap; }
+.sens-kop .sec-lbl .lbl { order: 3; }
+.sens-kop .sec-lbl .side { max-width: none; }
+@media (max-width: 860px) { .sens-kop .sec-lbl h2 { white-space: normal; } }
