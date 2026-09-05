@@ -205,6 +205,23 @@
 </section>
 
 <!-- ══ 04 · REKENSOM ══════════════════════════════════════════ -->
+<!-- ══ VIDEO'S · vier korte uitlegvideo's (papierstijl) ═══════════ -->
+<section class="sec" id="videos" aria-labelledby="vid-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="vid-h">Vier korte video's<span class="huisdot" aria-hidden="true"></span></h2>
+      <span class="lbl">UITLEG · 0:50 – 2:00</span>
+      <p class="side">Het waarom in twee minuten, en drie ketens van begin tot eind: vaccin, voeding, sensordata. Zonder tekst in beeld; de stem vertelt.</p>
+    </div>
+    <div class="vgrid4">
+      <figure class="glass vcard rv"><div class="vslot"><video src="video/vidimus-uitleg-v2.mp4" poster="video/vidimus-uitleg-v2-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: Geen magie, cryptografie"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 2:00</span></button></div><figcaption><span class="lbl">HET WAAROM</span>Geen magie. Cryptografie.</figcaption></figure>
+      <figure class="glass vcard rv"><div class="vslot"><video src="video/vidimus-vaccinketen.mp4" poster="video/vidimus-vaccinketen-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: de vaccinketen"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 1:00</span></button></div><figcaption><span class="lbl">FARMA</span>De vaccinketen: van flacon tot ziekenhuis</figcaption></figure>
+      <figure class="glass vcard rv"><div class="vslot"><video src="video/vidimus-voedselketen.mp4" poster="video/vidimus-voedselketen-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: de voedselketen"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 1:00</span></button></div><figcaption><span class="lbl">VOEDING</span>De voedselketen: van veld tot rek</figcaption></figure>
+      <figure class="glass vcard rv"><div class="vslot"><video src="video/vidimus-api-sensordata.mp4" poster="video/vidimus-api-sensordata-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: API en sensordata"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:50</span></button></div><figcaption><span class="lbl">TECHNISCH</span>API- &amp; sensordata</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="rekensom" aria-labelledby="calc-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
@@ -258,6 +275,27 @@
 </section>
 
 <!-- ══ 05 · PRIJS ═════════════════════════════════════════════ -->
+<!-- ══ BEGIN UW STROOM · rechtstreeks vanaf de site de wizard in ═══ -->
+<section class="sec" id="start" aria-labelledby="start-h">
+  <div class="wrap">
+    <div class="glass startkaart rv">
+      <div class="start-tekst">
+        <span class="lbl">BEGIN NU · UW EERSTE STROOM</span>
+        <h2 id="start-h">Begin met uw stroom<span class="huisdot" aria-hidden="true"></span></h2>
+        <p class="side">Geef uw stroom een naam. U maakt in één stap uw organisatie aan en staat meteen in de wizard: naam, wie vastlegt, verankeren. Drie minuten.</p>
+        <p class="dc-note">Betalend vanaf dag één: de pilot van 30 dagen of de aansluiting van € 190 per maand. Liever eerst praten? <a href="https://cal.com/oskar-verschoren-vhygeu/15min">Plan 15 minuten</a>.</p>
+      </div>
+      <form class="startform" action="https://app.vidimus.be/login" method="get" id="startForm">
+        <input type="hidden" name="tab" value="register"><input type="hidden" name="next" id="startNext" value="/onboarding">
+        <label class="fld"><span class="lbl">NAAM VAN DE STROOM</span><input name="naam" id="startNaam" placeholder="bv. Ritten koeltransport" maxlength="48" required autocomplete="off"></label>
+        <label class="fld"><span class="lbl">ORGANISATIE</span><input name="org" placeholder="bv. Demo Transport BV" maxlength="60" autocomplete="organization"></label>
+        <label class="fld"><span class="lbl">UW E-MAIL</span><input name="email" type="email" placeholder="u@bedrijf.be" required autocomplete="email"></label>
+        <button class="xbtn red" type="submit"><span>Begin uw stroom</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="prijs" aria-labelledby="prijs-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
