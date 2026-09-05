@@ -394,3 +394,8 @@ a.go:hover svg { transform: translateX(3px); }
 
 /* de punt/het vraagteken sluit aan op het laatste woord, geen spatie ervoor */
 .sec-lbl h2 .dot, .hero-title .dot, h2 .dot { margin-left: 0; }
+
+/* de kop is flex (pictogram + tekst); de punt mag geen eigen flex-item met gap zijn */
+.sec-lbl h2 { gap: 0; }
+.sec-lbl h2 .pict { margin-right: 14px; }
+.sec-lbl h2 .dot { margin-left: 0; }
