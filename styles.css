@@ -450,3 +450,9 @@ footer.site .sp { flex: 1; }
   .top-login { display: none; }
   .brand small { display: none; }
 }
+
+/* tickerband: nooit breder dan het scherm (telefoon liep 23 px uit) */
+.anchorband { max-width: 100%; box-sizing: border-box; overflow: hidden; }
+.anchorband > * { min-width: 0; }
+@media (max-width: 640px) { .ab-lbl { padding-inline: 14px 10px; } .ab-lbl span:not(.rec) { display: none; } .ab-note { display: none !important; } }
+html, body { overflow-x: hidden; }
