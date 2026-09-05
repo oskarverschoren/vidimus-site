@@ -340,7 +340,7 @@ a.go:hover svg { transform: translateX(3px); }
 .checkrow .chk-uitleg p[data-bad] { color: var(--bad); }
 .checkrow .chk-uitleg p b { color: var(--ink); }
 /* sensorvideo boven de twee kaarten */
-.sens-video { margin: 0 0 16px; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; gap: 0; }
+.sens-video { margin: 0 0 16px; grid-template-columns: 1fr; gap: 0; }
 .sens-video .vslot { aspect-ratio: 16 / 9; }
 .sens-video figcaption { padding: 18px 22px; font-size: 14px; line-height: 1.55; color: var(--ink-2); display: grid; gap: 8px; }
 @media (max-width: 860px) { .sens-video { grid-template-columns: 1fr; } }
@@ -373,3 +373,11 @@ a.go:hover svg { transform: translateX(3px); }
 .statement-foot { margin: 26px 0 40px; font: 500 12px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); }
 .statement-foot b { color: var(--act); margin-right: 8px; }
 @media (prefers-reduced-motion: reduce) { .statement .w { opacity: 1; } }
+
+/* video's op hun plek, groot genoeg om te kijken zonder volledig scherm */
+.vcard.groot { max-width: 64rem; margin-inline: auto; }
+.vcard.groot .vslot, .video-duo .vslot { aspect-ratio: 16 / 9; }
+.vcard.groot .playcover, .video-duo .playcover { padding: 22px; }
+.vcard.groot .playchip { height: 46px; padding: 0 20px; font-size: 14px; }
+.video-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 860px) { .video-duo { grid-template-columns: 1fr; } }
