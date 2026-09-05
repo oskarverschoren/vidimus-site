@@ -340,7 +340,10 @@ a.go:hover svg { transform: translateX(3px); }
 .checkrow .chk-uitleg p[data-bad] { color: var(--bad); }
 .checkrow .chk-uitleg p b { color: var(--ink); }
 /* sensorvideo boven de twee kaarten */
-.sens-video { margin: 0 0 16px; grid-template-columns: 1fr; gap: 0; }
+.sens-kop { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; margin-bottom: 20px; }
+.sens-kop .sec-lbl { margin: 0; }
+.sens-video { margin: 0; grid-template-columns: 1fr; gap: 0; }
+@media (max-width: 860px) { .sens-kop { grid-template-columns: 1fr; } }
 .sens-video .vslot { aspect-ratio: 16 / 9; }
 .sens-video figcaption { padding: 18px 22px; font-size: 14px; line-height: 1.55; color: var(--ink-2); display: grid; gap: 8px; }
 @media (max-width: 860px) { .sens-video { grid-template-columns: 1fr; } }
