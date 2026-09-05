@@ -54,7 +54,7 @@
       <span class="ab-note" id="anchorNote" hidden>voorbeeld</span>
     </div>
     <p class="hero-kicker lbl"><i aria-hidden="true"></i>registratie loopt — elke wijziging achteraf is wiskundig uitgesloten</p>
-    <h1 class="hero-title" id="hero-h" aria-label="Wiskunde tegen woord — nooit meer woord tegen woord"><span aria-hidden="true"><span class="strike">Woord</span> Wiskunde<br>tegen woord<span class="dot">.</span></span></h1>
+    <h1 class="hero-title" id="hero-h" aria-label="Wiskunde tegen woord — nooit meer woord tegen woord"><span aria-hidden="true"><span class="strike">Woord</span><span class="wisk"> Wiskunde</span><br>tegen woord<span class="dot">.</span></span></h1>
     <div class="hero-under">
       <p class="sub">"Er ontbraken drie paletten." — Vidimus legt het moment van aflevering cryptografisch vast: <b>foto, plaats, tijd en wie tekende</b>. Vanaf dat ogenblik kan niemand er nog aan. <b>Ook wij niet.</b></p>
       <div class="hero-actions">
@@ -160,6 +160,41 @@
 </section>
 
 <!-- ══ PROTOCOL ═══════════════════════════════════════════════ -->
+<!-- ══ SENSORDATA · alleen metingen verankeren ═════════════════════ -->
+<section class="sec" id="sensordata" aria-labelledby="sens-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="sens-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M8 34c6 0 6-14 12-14s6 14 12 14 6-14 12-14"/><path class="ln" d="M8 42h36"/><circle class="seal" cx="41" cy="40" r="7"/><path class="seal-check" d="M38 40l2 2 4-4.5"/></svg>Alleen sensordata<span class="huisdot" aria-hidden="true"></span></h2>
+      <span class="lbl">SENSOR · API · ELK KWARTIER</span>
+      <p class="side">Geen foto's, geen handtekeningen: alleen de metingen van uw loggers, poorten of weegschalen. Uw systeem stuurt ze door via de API; elke waarde wordt gehasht en per kwartier verankerd. Wat de sensor zag, staat vast — ook als de logger later zoek is.</p>
+    </div>
+    <div class="sens-grid">
+      <div class="glass sens-kaart rv">
+        <span class="lbl">DE PIJNPUNTEN</span>
+        <ul class="sens-lijst">
+          <li><b>Twee loggers, twee waarheden.</b> De ontvanger meet 8,9 °C bij het openen; uw logger zegt 6,1 °C tot aan de aflevering. Wie de CSV het laatst opende, wint.</li>
+          <li><b>Het log leeft in de cloud van de leverancier.</b> Exporteren kan, maar niemand kan bewijzen dat de export is wat de sensor toen zag.</li>
+          <li><b>Gaten en correcties.</b> Een reeks met een uur ontbrekend, een waarde "gecorrigeerd" na kalibratie: achteraf niet meer te onderscheiden van knoeien.</li>
+          <li><b>De claim komt weken later.</b> Tegen dan is de logger hergebruikt, het geheugen overschreven en de chauffeur ergens anders.</li>
+        </ul>
+      </div>
+      <div class="glass sens-kaart rv">
+        <span class="lbl">WAT VIDIMUS DOET</span>
+        <ul class="sens-lijst ok">
+          <li><b>Elke meting een vingerafdruk.</b> Uw systeem POST elke waarde naar de API; Vidimus hasht ze met tijd, sensor-id en referentie, getekend met uw systeemsleutel.</li>
+          <li><b>Per kwartier verankerd.</b> Alle metingen van een kwartier gaan in één Merkle-wortel met een RFC 3161-tijdstempel van een derde. Vanaf dan is geen waarde nog te wijzigen, ook niet door ons.</li>
+          <li><b>Gaten zijn zichtbaar.</b> Ontbreekt een kwartier, dan ontbreekt het anker: de reeks toont zelf waar ze onderbroken was.</li>
+          <li><b>De meter telt per kwartier.</b> Een logger die elke minuut meet, telt voor de prijs als één registratie per kwartier per systeemsleutel. Zie <a href="prijzen.html">de meter</a>.</li>
+        </ul>
+        <div class="sens-code"><span class="lbl">ÉÉN METING</span><pre>POST /ingest
+{"stream_id": "str_…", "signer_id": "sgn_…",
+ "payload": {"sensor": "TL-0917", "temperatuur_c": 4.1,
+             "ref": "VX-2026-0917", "event": "temperatuur"}}</pre></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="hoe" aria-labelledby="hoe-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">

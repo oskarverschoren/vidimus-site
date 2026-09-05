@@ -286,3 +286,22 @@ a.go:hover svg { transform: translateX(3px); }
 .startform .fld input { height: 48px; font-size: 16px; }
 .startform .xbtn { justify-self: start; margin-top: 4px; }
 @media (max-width: 860px) { .startkaart { grid-template-columns: 1fr; padding: 22px; } }
+
+/* hero: eerst "Woord tegen woord.", dan de streep, dan schuift "Wiskunde" erin (Oskar 05/09: "lijkt nu één zin") */
+.hero-title .wisk { display: inline-block; max-width: 0; overflow: hidden; white-space: nowrap; vertical-align: bottom; opacity: 0; }
+.js .hero-title .wisk { animation: siteWisk 900ms var(--site-ease) 1300ms forwards; }
+.js .hero-title .strike::after { animation-delay: 700ms; }
+.no-js .hero-title .wisk { max-width: none; opacity: 1; }
+@keyframes siteWisk { from { max-width: 0; opacity: 0; } 40% { opacity: 0; } to { max-width: 8em; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .js .hero-title .wisk { animation: none; max-width: none; opacity: 1; } }
+/* sensordata */
+.sens-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.sens-kaart { padding: 22px 24px; display: grid; gap: 12px; align-content: start; }
+.sens-lijst { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+.sens-lijst li { padding-left: 18px; position: relative; }
+.sens-lijst li::before { content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 50%; background: var(--bad); }
+.sens-lijst.ok li::before { background: var(--ok); }
+.sens-lijst b { color: var(--ink); font-weight: 600; }
+.sens-code { display: grid; gap: 6px; margin-top: 4px; }
+.sens-code pre { margin: 0; padding: 14px 16px; border-radius: 14px; background: var(--metal, linear-gradient(160deg, #3b4049 0%, #242830 38%, #171a20 68%, #2b2f37 100%)); color: rgba(255, 255, 255, .88); font: 400 12px/1.6 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 860px) { .sens-grid { grid-template-columns: 1fr; } }
