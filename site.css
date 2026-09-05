@@ -391,3 +391,6 @@ a.go:hover svg { transform: translateX(3px); }
 .meer-tekst { margin-top: 22px; max-width: 72ch; display: grid; gap: 14px; font-size: 16px; line-height: 1.65; color: var(--ink-2); animation: siteFade 500ms var(--site-ease) both; }
 .meer-tekst b { color: var(--ink); font-weight: 600; }
 @keyframes siteFade { from { opacity: 0; transform: translateY(6px); } }
+
+/* de punt/het vraagteken sluit aan op het laatste woord, geen spatie ervoor */
+.sec-lbl h2 .dot, .hero-title .dot, h2 .dot { margin-left: 0; }
