@@ -1,0 +1,20 @@
+/* ═══════════════════════════════════════════════════════════════
+   VIDIMUS — gedeelde tokens (site + app)
+   De site gebruikt haar eigen rood als accent; --vd-blue is van de app
+   en wordt op de site niet gebruikt.
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --vd-ink: #0B0F17;
+  --vd-blue: #1E4FD8;
+  --vd-ok: #1E9E6A;
+  --vd-grey-1: #6B7382;
+  --vd-grey-2: #ECEEF2;
+  --vd-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --vd-radius: 14px;
+  --vd-shadow: 0 24px 60px -36px rgba(11, 15, 23, .35);
+}
+
+/* elke hash op de site */
+.vd-hash { font-family: var(--vd-mono); font-size: 12.5px; letter-spacing: .02em; word-break: break-all; line-height: 1.6; }
+.vd-hash.match { color: var(--vd-ok); }
+.vd-hash[data-copy] { cursor: copy; }

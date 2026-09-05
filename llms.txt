@@ -11,16 +11,17 @@
 - Uitleg voor agents en mensen: https://vidimus.be/voor-ai
 
 ## Pagina's
+- [Home](https://vidimus.be/): live demo (SHA-256 in de browser), het afleveringsmoment (foto → anker in drie tikken, GPS + nauwkeurigheid verplicht, twee handtekeningen op eigen toestel), specificatie van wat live is
 - [Hoe het werkt](https://vidimus.be/hoe-het-werkt): zeven stappen van registratie tot bewijs
 - [Scenario's](https://vidimus.be/scenarios): partnerverhalen + advocaat van de duivel (canonicalisatie, origineel in kluis, herexport)
-- [Cases](https://vidimus.be/cases): interactieve cases zonder/met verankering, uitkomst in euro's
-- [Prijzen](https://vidimus.be/prijzen): aansluiting € 190/maand incl. 1.000 registraties per organisatie; daarboven per registratie zonder kliffen (tot 3.000 € 0,08 · tot 10.000 € 0,04 · tot 30.000 € 0,02; dus 350 / 630 / 1.030 op de grenzen; daarboven op maat); ketenabonnement + € 300: partners krijgen een eigen aansluiting zonder factuur; systemen/sensoren via API tellen per kwartier per sleutel als één; partners op een gedeelde stroom betalen niets; jaarcontract = 10 maanden; proefaansluiting gratis tot 100/maand; opties gekwalificeerd tijdstempel + € 90, gedeeld grootboek + € 500
+- [Cases](https://vidimus.be/cases): fictieve scenario's zonder/met verankering — geen klantverhalen
+- [Prijzen](https://vidimus.be/prijzen): aansluiting € 190/maand incl. 1.000 registraties per organisatie; daarboven per registratie zonder kliffen (tot 3.000 € 0,08 · tot 10.000 € 0,04 · tot 30.000 € 0,02; dus 350 / 630 / 1.030 op de grenzen; daarboven op maat); ketenabonnement + € 300: partners krijgen een eigen aansluiting zonder factuur; systemen/sensoren via API tellen per kwartier per sleutel als één; partners op een gedeelde stroom betalen niets; jaarcontract = 10 maanden; instap = pilot van 30 dagen, één stroom, vaste prijs € 1 900 (verrekend bij doorstart); optie gekwalificeerd tijdstempel + € 90; gedeeld grootboek staat op de roadmap
 - [Beveiligingsverklaring](https://vidimus.be/beveiliging): EU-hosting, versleuteling, sleutels, MFA, back-ups, incidenten, wat we nog niet hebben
 - [Colofon](https://vidimus.be/colofon): aard van de dienst, eIDAS-verwijzingen
 - Pijnpagina's: /meerwerk-bewijzen · /plaatsbeschrijving-betwist · /afgiftestaat-schade · /koelketen-registratie · /aflevering-betwist-cmr
 
 ## Contact
-oskar@vo-initiatives.com · +32 466 47 41 15 · demo: https://cal.com/oskar-verschoren-vhygeu/15min · aansluiten: https://app.vidimus.be/app#start
+oskar@vo-initiatives.com · +32 466 47 41 15 · gesprek/pilot plannen: https://cal.com/oskar-verschoren-vhygeu/15min · inloggen: https://app.vidimus.be/login
 
 ## Uitleg per onderdeel van de app
 - https://vidimus.be/help — korte uitlegvideo's (30–45 s) per scherm: Start, Stromen, Registraties, Bewijs, Partners, Keten, Integraties, Verbruik, Beveiliging. Ook in de app via de knop ▶ Uitleg naast elke titel.
