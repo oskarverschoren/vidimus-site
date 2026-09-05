@@ -7,13 +7,13 @@
 <meta name="description" content="Vier verhalen, van dag 0 tot de claim jaren later. Wat de partijen doen op het moment zelf, en wat de tegenpartij zelf kan controleren — zonder ons te geloven.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="inner.css">
 </head>
 <body>
-<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
 <symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
@@ -22,11 +22,11 @@
 <header class="site">
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
   <nav class="topnav" aria-label="Hoofdnavigatie">
-    <a href="hoe-het-werkt.html">Hoe het werkt</a>
-    <a href="cases.html">Cases</a>
-    <a href="scenarios.html" style="color:var(--paper)">Scenario's</a>
-    <a href="help.html">Help</a>
-    <a href="prijzen.html">Prijzen</a>
+    <a href="hoe-het-werkt.html" data-key="F1">Hoe het werkt</a>
+    <a href="cases.html" data-key="F2">Cases</a>
+    <a href="scenarios.html" data-key="F3" aria-current="page">Scenario's</a>
+    <a href="help.html" data-key="F4">Help</a>
+    <a href="prijzen.html" data-key="F5">Prijzen</a>
   </nav>
   <div class="top-cta">
     <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
@@ -40,7 +40,7 @@
     <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="scenarios.html">SCENARIO'S</a></p>
     <p class="scenario-flag">Scenario, geen klantverhaal — namen, bedrijven en bedragen zijn fictief</p>
     <h1 class="disp">Wat er gebeurt <span class="thin">als het misgaat</span><span style="color:var(--red)">.</span></h1>
-    <p class="intro">Verankering is pas iets waard op de dag dat iemand twijfelt. Daarom hieronder geen features, maar het verloop: wat de partijen doen op het moment zelf, wat er drie jaar later gebeurt, en wat de tegenpartij <b>zelf kan controleren — zonder ons te geloven</b>. Fictieve namen en bedrijven — scenario's, geen klantverhalen; het verloop is hoe het platform werkt. Liever stap voor stap? <a href="cases.html" style="color:var(--paper)">Doorloop de cases →</a></p>
+    <p class="intro">Verankering is pas iets waard op de dag dat iemand twijfelt. Daarom hieronder geen features, maar het verloop: wat de partijen doen op het moment zelf, wat er drie jaar later gebeurt, en wat de tegenpartij <b>zelf kan controleren — zonder ons te geloven</b>. Fictieve namen en bedrijven — scenario's, geen klantverhalen; het verloop is hoe het platform werkt. Liever stap voor stap? <a href="cases.html" style="color:var(--ink)">Doorloop de cases →</a></p>
   </div>
 </section>
 
@@ -113,8 +113,8 @@
         <p class="lbl" style="writing-mode:horizontal-tb;margin-bottom:1.2rem"><b>GEEN MOCKUP</b> — DIT IS ECHT GEBEURD OP ONS PLATFORM</p>
         <p style="max-width:66ch">Het transportscenario hierboven hebben we niet getekend maar <b>uitgevoerd</b>: een demo-vervoerder registreerde drie afleveringen, de batch werd verankerd met een tijdstempel van Sectigo, en "Terminal X" bevestigde via de deellink met een sleutel op haar eigen toestel. Daarna hebben we in de bundel één woord op de afleverbon veranderd — <span class="r">en het verificatiescript sloeg rood uit.</span></p>
         <div style="display:grid;gap:.6rem;margin-top:1.4rem;font:400 .78rem/1.7 var(--mono)">
-          <a href="https://app.vidimus.be/v/reg_66bfbe7909f2" style="color:var(--paper)">Publieke verificatie van de aflevering → app.vidimus.be/v/reg_66bfbe7909f2</a>
-          <a href="https://app.vidimus.be/v/reg_5dcbbd93068e" style="color:var(--paper)">De bevestiging van de terminal, zelf verankerd → app.vidimus.be/v/reg_5dcbbd93068e</a>
+          <a href="https://app.vidimus.be/v/reg_66bfbe7909f2" style="color:var(--ink)">Publieke verificatie van de aflevering → app.vidimus.be/v/reg_66bfbe7909f2</a>
+          <a href="https://app.vidimus.be/v/reg_5dcbbd93068e" style="color:var(--ink)">De bevestiging van de terminal, zelf verankerd → app.vidimus.be/v/reg_5dcbbd93068e</a>
         </div>
         <p class="law-note">Fictieve organisatie "Demo Transport BV" · geen klantdata</p>
       </div>
@@ -156,7 +156,7 @@
   <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
   <a href="colofon.html">Colofon &amp; privacy</a>
   <a href="voorwaarden.html">Voorwaarden</a>
-  <a href="cases.html">Cases</a>
+  <a href="cases.html" data-key="F2">Cases</a>
   <span class="sp"></span>
   <span>Fictieve voorbeelden · geen klantreferenties</span>
 </footer>

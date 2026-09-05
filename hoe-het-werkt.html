@@ -7,13 +7,13 @@
 <meta name="description" content="Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag; wij leggen er een verankeringslaag onder. Zeven stappen, van registratie tot bewijs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="inner.css">
 </head>
 <body>
-<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
 <symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
@@ -22,11 +22,11 @@
 <header class="site">
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
   <nav class="topnav" aria-label="Hoofdnavigatie">
-    <a href="hoe-het-werkt.html" style="color:var(--paper)">Hoe het werkt</a>
-    <a href="cases.html">Cases</a>
-    <a href="scenarios.html">Scenario's</a>
-    <a href="help.html">Help</a>
-    <a href="prijzen.html">Prijzen</a>
+    <a href="hoe-het-werkt.html" data-key="F1" aria-current="page">Hoe het werkt</a>
+    <a href="cases.html" data-key="F2">Cases</a>
+    <a href="scenarios.html" data-key="F3">Scenario's</a>
+    <a href="help.html" data-key="F4">Help</a>
+    <a href="prijzen.html" data-key="F5">Prijzen</a>
   </nav>
   <div class="top-cta">
     <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
@@ -55,23 +55,23 @@
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">03</span>
       <h3>Wie &amp; wanneer<small>ED25519 · RFC 3161 — NIET ONZE KLOK, DIE VAN EEN DERDE</small></h3>
-      <p>De registratie wordt digitaal ondertekend door de indiener (ontworpen naar de vereisten van een geavanceerde elektronische handtekening) en een onafhankelijke tijdstempeldienst stempelt het exacte tijdstip erop. <em style="color:var(--paper);font-style:normal">Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok.</em></p>
+      <p>De registratie wordt digitaal ondertekend door de indiener (ontworpen naar de vereisten van een geavanceerde elektronische handtekening) en een onafhankelijke tijdstempeldienst stempelt het exacte tijdstip erop. <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">04</span>
       <h3>Verankeren<small>MERKLE-ROOT → HYPERLEDGER FABRIC</small></h3>
-      <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — wordt verankerd op een gedeeld, onwijzigbaar grootboek: privé voor intern gebruik, of gedeeld tussen de partners in uw keten. <em style="color:var(--paper);font-style:normal">Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen.</em></p>
+      <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — wordt verankerd op een gedeeld, onwijzigbaar grootboek: privé voor intern gebruik, of gedeeld tussen de partners in uw keten. <em style="color:var(--ink);font-style:normal">Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">05</span>
       <h3>Op slot<small>AES-256 · WORM — DE SLEUTEL IS VAN U</small></h3>
-      <p>Het document zelf wordt versleuteld en bewaard in opslag die tijdens de wettelijke bewaartermijn niet gewist of overschreven kan worden. De sleutel is van uw organisatie, gescheiden van de data. <em style="color:var(--paper);font-style:normal">Niemand leest mee — ook onze hoster niet.</em></p>
+      <p>Het document zelf wordt versleuteld en bewaard in opslag die tijdens de wettelijke bewaartermijn niet gewist of overschreven kan worden. De sleutel is van uw organisatie, gescheiden van de data. <em style="color:var(--ink);font-style:normal">Niemand leest mee — ook onze hoster niet.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">06</span>
       <h3>Bewijzen<small>BIJ DISCUSSIE: BEWIJS IN PLAATS VAN WOORDEN</small></h3>
-      <p>"Die temperatuur is nooit gemeten." U opent het origineel, wij nemen opnieuw de vingerafdruk en leggen ze naast die op het grootboek. Klopt het — en dat kan een advocaat of rechter zelf nakijken, zonder ons — dan staat vast: <em style="color:var(--paper);font-style:normal">dit exacte document bestond op dat moment, ingediend door die partij, sindsdien onaangeraakt.</em></p>
+      <p>"Die temperatuur is nooit gemeten." U opent het origineel, wij nemen opnieuw de vingerafdruk en leggen ze naast die op het grootboek. Klopt het — en dat kan een advocaat of rechter zelf nakijken, zonder ons — dan staat vast: <em style="color:var(--ink);font-style:normal">dit exacte document bestond op dat moment, ingediend door die partij, sindsdien onaangeraakt.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">07</span>
       <h3>Wissen<small>AVG · CRYPTO-SHREDDING — WEG IS ECHT WEG</small></h3>
-      <p>Na de bewaartermijn, of bij een beroep op gegevenswissing, vernietigen we de sleutel: het versleutelde bestand wordt voorgoed onleesbare ruis. De vingerafdruk op het grootboek blijft aantonen <em style="color:var(--paper);font-style:normal">dát</em> er iets was, wanneer, en door wie — zonder één persoonsgegeven. <em style="color:var(--paper);font-style:normal">Bewijs en privacy sluiten elkaar niet meer uit.</em></p>
+      <p>Na de bewaartermijn, of bij een beroep op gegevenswissing, vernietigen we de sleutel: het versleutelde bestand wordt voorgoed onleesbare ruis. De vingerafdruk op het grootboek blijft aantonen <em style="color:var(--ink);font-style:normal">dát</em> er iets was, wanneer, en door wie — zonder één persoonsgegeven. <em style="color:var(--ink);font-style:normal">Bewijs en privacy sluiten elkaar niet meer uit.</em></p>
     </div>
   </div>
 </section>
@@ -189,8 +189,8 @@
   <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
   <a href="colofon.html">Colofon &amp; privacy</a>
   <a href="voorwaarden.html">Voorwaarden</a>
-  <a href="scenarios.html">Scenario's</a>
-  <a href="cases.html">Cases</a>
+  <a href="scenarios.html" data-key="F3">Scenario's</a>
+  <a href="cases.html" data-key="F2">Cases</a>
   <span class="sp"></span>
   <span>Conceptpagina · geen klantreferenties</span>
 </footer>

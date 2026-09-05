@@ -7,13 +7,13 @@
 <meta name="description" content="Scenario's, geen klantverhalen: u bent de QP, de werfleider, de planner. Wat doet u als de claim binnenkomt? Vijf fictieve cases in zes stappen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="inner.css">
 </head>
 <body>
-<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
 <symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
@@ -22,11 +22,11 @@
 <header class="site">
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
   <nav class="topnav" aria-label="Hoofdnavigatie">
-    <a href="hoe-het-werkt.html">Hoe het werkt</a>
-    <a href="cases.html" style="color:var(--paper)">Cases</a>
-    <a href="scenarios.html">Scenario's</a>
-    <a href="help.html">Help</a>
-    <a href="prijzen.html">Prijzen</a>
+    <a href="hoe-het-werkt.html" data-key="F1">Hoe het werkt</a>
+    <a href="cases.html" data-key="F2" aria-current="page">Cases</a>
+    <a href="scenarios.html" data-key="F3">Scenario's</a>
+    <a href="help.html" data-key="F4">Help</a>
+    <a href="prijzen.html" data-key="F5">Prijzen</a>
   </nav>
   <div class="top-cta">
     <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
@@ -56,7 +56,7 @@
       </div>
       <div class="case-body">
         <div class="flow">
-          <div class="flow-step hit"><span class="when">Dinsdag 08:47 — de situatie</span><h4>"Dringend: temperatuurafwijking vermoed"</h4><p>Gisteren werd een zending VaccinX (2–8 °C) geleverd aan UZ Gent — 240 doses, € 21 000. De ontvangstdienst logde 8,9 °C bij het openen van de doos. GDP vereist 2–8 °C. Eis: de volledige temperatuurlog en de bewaringsketen <b style="color:var(--paper)">binnen 24 uur</b>.</p></div>
+          <div class="flow-step hit"><span class="when">Dinsdag 08:47 — de situatie</span><h4>"Dringend: temperatuurafwijking vermoed"</h4><p>Gisteren werd een zending VaccinX (2–8 °C) geleverd aan UZ Gent — 240 doses, € 21 000. De ontvangstdienst logde 8,9 °C bij het openen van de doos. GDP vereist 2–8 °C. Eis: de volledige temperatuurlog en de bewaringsketen <b style="color:var(--ink)">binnen 24 uur</b>.</p></div>
           <div class="flow-step"><span class="when">Het probleem</span><h4>Drie systemen, drie klokken</h4><p>Uw logger zegt max 6,1 °C tot aan de aflevering. Hun logger zegt 8,9 °C bij opening. De vervoerder heeft een derde export, uit zíjn TMS. Op het spel: de lading (€ 21 000), een GDP-bevinding bij de volgende inspectie, en het contract met het ziekenhuis.</p></div>
         </div>
         <div class="vs-grid">
@@ -87,7 +87,7 @@
       </div>
       <div class="case-body">
         <div class="flow">
-          <div class="flow-step hit"><span class="when">Werf, 10:42 — de situatie</span><h4>"Doe die extra wapening maar"</h4><p>De bouwheer staat naast u aan de funderingsplaat. € 38 500 meerwerk. U voert het uit. Vier weken later, eindafrekening: <b style="color:var(--paper)">"Dat meerwerk hebben wij nooit goedgekeurd. Toon me het document."</b> Er is een sms van drie woorden en een factuur van na de feiten.</p></div>
+          <div class="flow-step hit"><span class="when">Werf, 10:42 — de situatie</span><h4>"Doe die extra wapening maar"</h4><p>De bouwheer staat naast u aan de funderingsplaat. € 38 500 meerwerk. U voert het uit. Vier weken later, eindafrekening: <b style="color:var(--ink)">"Dat meerwerk hebben wij nooit goedgekeurd. Toon me het document."</b> Er is een sms van drie woorden en een factuur van na de feiten.</p></div>
           <div class="flow-step"><span class="when">Het probleem</span><h4>Vaste prijs = uw risico</h4><p>Bij aanneming tegen vaste prijs mag u voor bijkomend werk in principe alleen een meerprijs vragen als de bouwheer er schriftelijk mee instemde (art. 1793 oud BW). Uw werfverslag komt uit uw eigen systeem — "uw versie". De sms heeft geen bedrag en geen omschrijving.</p></div>
         </div>
         <div class="vs-grid">
@@ -118,7 +118,7 @@
       </div>
       <div class="case-body">
         <div class="flow">
-          <div class="flow-step hit"><span class="when">Vrijdag 16:40 — de situatie</span><h4>Gieklift gedeukt, hydrauliekslang beschadigd</h4><p>Herstel € 18 400. De huurder: <b style="color:var(--paper)">"Die deuk zat er bij afgifte al — jullie foto's zijn van een ander toestel."</b> Uw afgiftestaat is een pdf uit uw eigen systeem.</p></div>
+          <div class="flow-step hit"><span class="when">Vrijdag 16:40 — de situatie</span><h4>Gieklift gedeukt, hydrauliekslang beschadigd</h4><p>Herstel € 18 400. De huurder: <b style="color:var(--ink)">"Die deuk zat er bij afgifte al — jullie foto's zijn van een ander toestel."</b> Uw afgiftestaat is een pdf uit uw eigen systeem.</p></div>
           <div class="flow-step"><span class="when">Het probleem</span><h4>Uw document, uw systeem</h4><p>Zonder tegensprekelijke staat bij afgifte wordt vermoed dat de huurder het goed ontving in de staat waarin hij het teruggeeft — de bewijslast ligt bij u. De huurder tekende een krabbel in de haast, de terugname gebeurde zonder hem erbij, en fotometadata is triviaal te wijzigen.</p></div>
         </div>
         <div class="vs-grid">
@@ -149,7 +149,7 @@
       </div>
       <div class="case-body">
         <div class="flow">
-          <div class="flow-step hit"><span class="when">Drie jaar na de aflevering</span><h4>De claim — en uw eigen twijfel</h4><p>Container MSKU 452 118-0 was "te laat en beschadigd". U twijfelt zelf: is die aflevering in het TMS niet aangepast bij een migratie? Terminal-log zegt 09:41, TMS zegt 09:38, de ontvanger heeft een mail van 10:15. <b style="color:var(--paper)">Drie klokken.</b></p></div>
+          <div class="flow-step hit"><span class="when">Drie jaar na de aflevering</span><h4>De claim — en uw eigen twijfel</h4><p>Container MSKU 452 118-0 was "te laat en beschadigd". U twijfelt zelf: is die aflevering in het TMS niet aangepast bij een migratie? Terminal-log zegt 09:41, TMS zegt 09:38, de ontvanger heeft een mail van 10:15. <b style="color:var(--ink)">Drie klokken.</b></p></div>
           <div class="flow-step"><span class="when">Het probleem</span><h4>Ieder zijn systeem, ieder zijn klok</h4><p>Zonder voorbehoud bij aflevering geldt onder de CMR een vermoeden van correcte levering (art. 30) — maar wie het inroept, moet de aflevering en het tijdstip kunnen bewijzen. Drie jaar en één migratie later kan niemand nog aantonen wat de originele registratie was.</p></div>
         </div>
         <div class="vs-grid">
@@ -180,8 +180,8 @@
       </div>
       <div class="case-body">
         <div class="flow">
-          <div class="flow-step hit"><span class="when">Donderdag 09:15 — de situatie</span><h4>Een gate-out die er anders uitziet</h4><p>Er loopt een dispuut over een nachtlevering. Bij de voorbereiding van het dossier valt u iets op: de gate-out van 23:47 toont plots een ander containernummer dan in het rapport van vorige week — en een tweede scan van diezelfde nacht is <b style="color:var(--paper)">helemaal verdwenen</b>.</p></div>
-          <div class="flow-step"><span class="when">Het probleem</span><h4>Wie de databank beheert, beheert de waarheid</h4><p>Poortscans en sensormetingen zijn digitale records in een gewone databank. Iemand met schrijfrechten wijzigt of wist er één met één commando — en de logs die dat zouden tonen, staan in <b style="color:var(--paper)">dezelfde databank</b>. Per ongeluk of bewust: het spoor wist zichzelf.</p></div>
+          <div class="flow-step hit"><span class="when">Donderdag 09:15 — de situatie</span><h4>Een gate-out die er anders uitziet</h4><p>Er loopt een dispuut over een nachtlevering. Bij de voorbereiding van het dossier valt u iets op: de gate-out van 23:47 toont plots een ander containernummer dan in het rapport van vorige week — en een tweede scan van diezelfde nacht is <b style="color:var(--ink)">helemaal verdwenen</b>.</p></div>
+          <div class="flow-step"><span class="when">Het probleem</span><h4>Wie de databank beheert, beheert de waarheid</h4><p>Poortscans en sensormetingen zijn digitale records in een gewone databank. Iemand met schrijfrechten wijzigt of wist er één met één commando — en de logs die dat zouden tonen, staan in <b style="color:var(--ink)">dezelfde databank</b>. Per ongeluk of bewust: het spoor wist zichzelf.</p></div>
         </div>
         <div class="vs-grid">
           <div class="vs-col bad-side"><h3>Zonder verankering</h3><ul>
@@ -202,7 +202,7 @@
       </div>
     </article>
 
-    <p class="law-note" style="margin-top:3rem">Fictieve personen en organisaties; bedragen zijn realistische voorbeelden, geen klantcijfers. De havencase is als demo uitgevoerd op app.vidimus.be — <a href="scenarios.html#echt" style="color:var(--paper)">bekijk de echte bundel en verificatielinks</a>.</p>
+    <p class="law-note" style="margin-top:3rem">Fictieve personen en organisaties; bedragen zijn realistische voorbeelden, geen klantcijfers. De havencase is als demo uitgevoerd op app.vidimus.be — <a href="scenarios.html#echt" style="color:var(--ink)">bekijk de echte bundel en verificatielinks</a>.</p>
   </div>
 </section>
 
@@ -224,7 +224,7 @@
   <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
   <a href="colofon.html">Colofon &amp; privacy</a>
   <a href="voorwaarden.html">Voorwaarden</a>
-  <a href="scenarios.html">Scenario's</a>
+  <a href="scenarios.html" data-key="F3">Scenario's</a>
   <span class="sp"></span>
   <span>Fictieve cases · geen klantreferenties</span>
 </footer>

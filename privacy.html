@@ -7,13 +7,13 @@
 <meta name="description" content="Privacyverklaring van de Vidimus-app en -dienst: welke gegevens we verwerken, waarom, hoe lang — en wat er nooit op het grootboek komt.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="inner.css">
 </head>
 <body>
-<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
 <symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="none" stroke="#ff3b26" stroke-width="3"/><path d="M9 16.5l5 5 9.5-11" fill="none" stroke="#f0ede4" stroke-width="3" stroke-linecap="square"/></symbol>
@@ -22,11 +22,11 @@
 <header class="site">
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>VERANKERINGSLAAG — ANTWERPEN, BE</small></a>
   <nav class="topnav" aria-label="Hoofdnavigatie">
-    <a href="hoe-het-werkt.html">Hoe het werkt</a>
-    <a href="cases.html">Cases</a>
-    <a href="scenarios.html">Scenario's</a>
-    <a href="help.html">Help</a>
-    <a href="prijzen.html">Prijzen</a>
+    <a href="hoe-het-werkt.html" data-key="F1">Hoe het werkt</a>
+    <a href="cases.html" data-key="F2">Cases</a>
+    <a href="scenarios.html" data-key="F3">Scenario's</a>
+    <a href="help.html" data-key="F4">Help</a>
+    <a href="prijzen.html" data-key="F5">Prijzen</a>
   </nav>
   <div class="top-cta">
     <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
@@ -45,8 +45,8 @@
 <section style="padding-block:var(--space-half,4rem) var(--space)">
   <div class="wrap" style="max-width:66rem">
     <div class="spec rv">
-      <div class="spec-row"><span class="k">geldt voor</span><span class="v">De Vidimus-app en app.vidimus.be</span><p>Voor de website zelf: zie <a href="colofon.html" style="color:var(--paper)">colofon &amp; privacy</a>.</p></div>
-      <div class="spec-row"><span class="k">verantwoordelijke</span><span class="v">VO Initiatives BV</span><p>Antwerpen · KBO BE 0805.309.143 · <a href="mailto:oskar@vo-initiatives.com" style="color:var(--paper)">oskar@vo-initiatives.com</a></p></div>
+      <div class="spec-row"><span class="k">geldt voor</span><span class="v">De Vidimus-app en app.vidimus.be</span><p>Voor de website zelf: zie <a href="colofon.html" style="color:var(--ink)">colofon &amp; privacy</a>.</p></div>
+      <div class="spec-row"><span class="k">verantwoordelijke</span><span class="v">VO Initiatives BV</span><p>Antwerpen · KBO BE 0805.309.143 · <a href="mailto:oskar@vo-initiatives.com" style="color:var(--ink)">oskar@vo-initiatives.com</a></p></div>
       <div class="spec-row"><span class="k">kern</span><span class="v">Geen advertenties, geen tracking, geen verkoop van data</span><p>De app bevat geen advertentie- of analysescripts van derden en volgt u niet over andere apps of websites.</p></div>
     </div>
 
@@ -67,8 +67,8 @@
       <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Hoe lang<span style="color:var(--red)">.</span></h2>
     </div>
     <div class="rv" style="font-size:.9rem;color:var(--paper-dim);max-width:66ch;display:grid;gap:1rem">
-      <p>Registraties worden bewaard volgens de bewaartermijn die u per stroom instelt (bijvoorbeeld 5 of 10 jaar — vaak een wettelijke plicht in uw sector). Verwijderen gebeurt via <b style="color:var(--paper)">crypto-shredding</b>: de encryptiesleutel wordt vernietigd, waarna de inhoud definitief onleesbaar is. Accountgegevens verwijderen we uiterlijk 12 maanden na het einde van uw contract; beveiligingslogs uiterlijk na 12 maanden.</p>
-      <p><b style="color:var(--paper)">Op het grootboek en in tijdstempels staan nooit persoonsgegevens</b> — alleen cryptografische vingerafdrukken (hashes). Die zijn niet naar inhoud terug te rekenen. Zo blijft het bewijs bestaan terwijl de gegevens zelf verwijderbaar blijven, precies zoals de AVG het vraagt.</p>
+      <p>Registraties worden bewaard volgens de bewaartermijn die u per stroom instelt (bijvoorbeeld 5 of 10 jaar — vaak een wettelijke plicht in uw sector). Verwijderen gebeurt via <b style="color:var(--ink)">crypto-shredding</b>: de encryptiesleutel wordt vernietigd, waarna de inhoud definitief onleesbaar is. Accountgegevens verwijderen we uiterlijk 12 maanden na het einde van uw contract; beveiligingslogs uiterlijk na 12 maanden.</p>
+      <p><b style="color:var(--ink)">Op het grootboek en in tijdstempels staan nooit persoonsgegevens</b> — alleen cryptografische vingerafdrukken (hashes). Die zijn niet naar inhoud terug te rekenen. Zo blijft het bewijs bestaan terwijl de gegevens zelf verwijderbaar blijven, precies zoals de AVG het vraagt.</p>
     </div>
 
     <div class="sec-head" style="margin-top:var(--space-half,4rem)">
@@ -86,7 +86,7 @@
       <h2 class="disp" style="font-size:clamp(1.8rem,3vw,2.8rem)">Uw rechten<span style="color:var(--red)">.</span></h2>
     </div>
     <div class="rv" style="font-size:.9rem;color:var(--paper-dim);max-width:66ch;display:grid;gap:1rem">
-      <p>Inzage, verbetering, wissing, beperking, overdraagbaarheid en bezwaar: mail <a href="mailto:oskar@vo-initiatives.com" style="color:var(--paper)">oskar@vo-initiatives.com</a> — we antwoorden binnen 30 dagen. Klachten kunnen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be). Legt uw organisatie gegevens van derden vast in registraties, dan is zíj daarvoor de verwerkingsverantwoordelijke en treedt Vidimus op als verwerker; een verwerkersovereenkomst is beschikbaar op aanvraag.</p>
+      <p>Inzage, verbetering, wissing, beperking, overdraagbaarheid en bezwaar: mail <a href="mailto:oskar@vo-initiatives.com" style="color:var(--ink)">oskar@vo-initiatives.com</a> — we antwoorden binnen 30 dagen. Klachten kunnen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be). Legt uw organisatie gegevens van derden vast in registraties, dan is zíj daarvoor de verwerkingsverantwoordelijke en treedt Vidimus op als verwerker; een verwerkersovereenkomst is beschikbaar op aanvraag.</p>
     </div>
     <p class="law-note" style="margin-top:2rem">Laatst bijgewerkt: 1 september 2026</p>
   </div>
