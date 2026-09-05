@@ -100,7 +100,8 @@
           <p class="kt-verdict ok" id="verdict" role="status">IDENTIEK</p>
           <p class="vsub" id="verdictSub">Vingerafdruk komt overeen met anker van 04.09.2026 15:13:22Z</p>
         </div>
-        <span class="lbl zes">DE ZES CONTROLES</span>
+        <details class="zes-klap" id="zesKlap">
+        <summary><span class="lbl zes">DE ZES CONTROLES</span><span class="zes-sum" id="zesSum">6 × identiek</span><i aria-hidden="true">+</i></summary>
         <div class="checkrows" id="checks">
           <div class="checkrow" data-c><span><b>Inhoud ongewijzigd</b><span class="feit">sha-256 herrekend over de vijf velden, naast het anker gelegd</span></span><span class="st ok">IDENTIEK</span></div>
           <div class="checkrow" data-c><span><b>Handtekening chauffeur</b><span class="feit">ed25519 · sleutel op het toestel van de chauffeur</span></span><span class="st ok">IDENTIEK</span></div>
@@ -109,6 +110,7 @@
           <div class="checkrow" data-c><span><b>Zit in de verankerde batch</b><span class="feit">merkle-pad herrekend naar de wortel van de batch</span></span><span class="st ok">IDENTIEK</span></div>
           <div class="checkrow" data-c><span><b>Grootboekrecord</b><span class="feit">hash-keten · elk record hasht het vorige</span></span><span class="st ok">IDENTIEK</span></div>
         </div>
+        </details>
         <button class="xbtn" id="tamperReset" type="button"><span>Herstel origineel</span></button>
       </div>
     </div>

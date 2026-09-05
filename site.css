@@ -98,7 +98,8 @@ a.go svg { width: 14px; height: 14px; transition: transform 200ms var(--out); }
 a.go:hover svg { transform: translateX(3px); }
 
 /* ── 01 · de demo: kaart + lade, twee glazen ─────────────────── */
-.demo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.demo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: stretch; }
+.demo-grid > .glass { display: grid; align-content: start; }
 .kaart, .lade, .glass { border-radius: 22px; padding: 22px 24px 20px; }
 .kaart .kop, .lade .kop { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .kaart h3, .lade h3 { font-size: 20px; font-weight: 600; letter-spacing: -.025em; line-height: 1.15; margin-top: 8px; }
@@ -317,3 +318,13 @@ a.go:hover svg { transform: translateX(3px); }
 @media (max-width: 860px) { .sens-grid { grid-template-columns: 1fr; } }
 /* spatie tussen de doorgestreepte "Woord" en "Wiskunde" (inline-block slikte de spatie in) */
 .hero-title .wisk { margin-left: .18em; }
+
+/* de zes controles: ingeklapt, zodat document- en bewijskaart gelijk staan; openklikken vanaf IDENTIEK (Oskar 05/09) */
+.zes-klap { border-top: 1px solid var(--line); margin-top: 10px; }
+.zes-klap summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; padding: 12px 0; }
+.zes-klap summary::-webkit-details-marker { display: none; }
+.zes-klap .zes-sum { font: 500 12px/1 var(--mono); color: var(--ok); letter-spacing: .06em; }
+.zes-klap .zes-sum.bad { color: var(--bad); }
+.zes-klap summary i { font-style: normal; font: 500 16px/1 var(--mono); color: var(--ink-3); transition: transform 200ms var(--site-ease); }
+.zes-klap[open] summary i { transform: rotate(45deg); }
+.zes-klap .checkrows { margin-bottom: 12px; }
