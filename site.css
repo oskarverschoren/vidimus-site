@@ -315,3 +315,5 @@ a.go:hover svg { transform: translateX(3px); }
 .sens-code { display: grid; gap: 6px; margin-top: 4px; }
 .sens-code pre { margin: 0; padding: 14px 16px; border-radius: 14px; background: var(--metal, linear-gradient(160deg, #3b4049 0%, #242830 38%, #171a20 68%, #2b2f37 100%)); color: rgba(255, 255, 255, .88); font: 400 12px/1.6 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
 @media (max-width: 860px) { .sens-grid { grid-template-columns: 1fr; } }
+/* spatie tussen de doorgestreepte "Woord" en "Wiskunde" (inline-block slikte de spatie in) */
+.hero-title .wisk { margin-left: .18em; }
