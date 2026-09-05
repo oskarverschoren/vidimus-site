@@ -401,3 +401,8 @@ footer.site .vd-hash { text-transform: none; }
   footer.site .sp { display: none; }
   .dtab { font-size: 0.78rem; }
 }
+
+/* tickerband en pagina: nooit breder dan het scherm (telefoon liep uit) */
+.anchorband { max-width: 100%; box-sizing: border-box; overflow: hidden; }
+.anchorband > * { min-width: 0; }
+html, body { overflow-x: hidden; }
