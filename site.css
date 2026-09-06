@@ -433,3 +433,7 @@ a.go:hover svg { transform: translateX(3px); }
 .tl-u { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; padding: 0 6px; opacity: .35; transition: opacity 400ms; }
 .tl-u.aan { opacity: 1; } .tl-u.bad { color: var(--bad); } .tl-u.ok { color: var(--ok); }
 @media (max-width: 860px) { .tl-grid, .tl-uitkomst { grid-template-columns: 1fr; } .tl-kaart { min-height: 0; } }
+
+/* koppen zijn flex (pictogram + tekst): de punt niet als apart flex-item met gap */
+.sec-lbl.kop h2, .sec-lbl h2 { gap: 0 !important; }
+.sec-lbl.kop h2 .pict, .sec-lbl h2 .pict { margin-right: 14px; }
