@@ -282,7 +282,7 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
     const r = stmt.getBoundingClientRect();
     // begint als het blok onderaan verschijnt, is klaar zodra de ónderkant op 92 % van het scherm staat: de hele tekst
     // is dan aan terwijl de eerste regel nog in beeld is — ook op een laag scherm
-    const p = Math.min(1, Math.max(0, (innerHeight * 0.92 - r.top) / Math.max(1, r.height)));
+    const p = Math.min(1, Math.max(0, (innerHeight * 0.99 - r.top) / Math.max(1, r.height)));
     const n = Math.round(p * words.length);
     words.forEach((w, i) => w.classList.toggle("on", i < n));
   };
