@@ -279,10 +279,11 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   // gestuurd door het scrollen (Oskar 06/09): de woorden komen op naarmate het blok omhoog schuift, en zijn
   // allemaal aan tegen dat de bovenkant van het blok op 45 % van het scherm staat — dus vóór u eraan voorbij bent
   // het origineel (site v2): traject = hoogte van het blok + een derde scherm
+  // de versie die Oskar koos (06/09): klaar als de bovenkant van het blok op ~12 % van het scherm staat
   const tick = () => {
     const r = stmt.getBoundingClientRect();
-    const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.35)));
-    const n = Math.floor(p * words.length);
+    const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight * 0.88)));
+    const n = Math.round(p * words.length);
     words.forEach((w, i) => w.classList.toggle("on", i < n));
   };
   addEventListener("scroll", tick, { passive: true }); tick();
