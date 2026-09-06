@@ -276,20 +276,13 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   stmt.innerHTML = kopHtml + stmt.textContent.trim().split(/\s+/).map((w) => `<span class="w${hot.includes(w.toLowerCase()) ? " hot" : ""}">${w}</span>`).join(" ");
   const words = [...stmt.querySelectorAll(".w")];
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) { words.forEach((w) => w.classList.add("on")); return; }
-  // volledig opgelicht zodra de hele tekst in beeld staat (Oskar 06/09) — niet pas na voorbijscrollen
-  let klaar = false, timer = null;
-  const zet = (n) => words.forEach((w, i) => w.classList.toggle("on", i < n));
+  // gestuurd door het scrollen (Oskar 06/09): de woorden komen op naarmate het blok omhoog schuift, en zijn
+  // allemaal aan tegen dat de bovenkant van het blok op 45 % van het scherm staat — dus vóór u eraan voorbij bent
   const tick = () => {
-    if (klaar) return;
     const r = stmt.getBoundingClientRect();
-    if (r.bottom <= innerHeight * 0.96) {   // alles zichtbaar → de rest licht vanzelf op, woord per woord
-      klaar = true; clearTimeout(timer);
-      let n = words.filter((w) => w.classList.contains("on")).length;
-      const stap = () => { n = Math.min(words.length, n + 1); zet(n); if (n < words.length) timer = setTimeout(stap, 55); };
-      stap(); return;
-    }
-    const p = Math.min(1, Math.max(0, (innerHeight * 0.92 - r.top) / Math.max(1, r.height)));
-    zet(Math.floor(p * words.length));
+    const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight * 0.55)));
+    const n = Math.round(p * words.length);
+    words.forEach((w, i) => w.classList.toggle("on", i < n));
   };
   addEventListener("scroll", tick, { passive: true }); tick();
 })();
