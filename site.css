@@ -409,3 +409,27 @@ a.go:hover svg { transform: translateX(3px); }
 .sens-kop .sec-lbl .lbl { order: 3; }
 .sens-kop .sec-lbl .side { max-width: none; }
 @media (max-width: 860px) { .sens-kop .sec-lbl h2 { white-space: normal; } }
+
+/* één record, twee levens (Oskar 06/09, optie 2) */
+.tweelevens { display: grid; gap: 16px; }
+.tl-stappen { display: flex; gap: 8px; flex-wrap: wrap; }
+.tl-stap { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--glass-line); background: var(--glass); color: var(--ink-2); font: 500 13px/1 var(--ui); cursor: pointer; transition: background 160ms, color 160ms, transform 160ms var(--site-ease); }
+.tl-stap small { font: 500 10px/1 var(--mono); letter-spacing: .12em; color: var(--ink-3); }
+.tl-stap:active { transform: scale(.97); }
+.tl-stap.cur { background: var(--ink); color: #fff; border-color: var(--ink); } .tl-stap.cur small { color: rgba(255, 255, 255, .6); }
+.tl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.tl-kaart { padding: 20px 22px 18px; display: grid; gap: 10px; min-height: 300px; }
+.tl-kop { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.tl-versie { font: 500 11px/1.6 var(--mono); letter-spacing: .04em; color: var(--ink-3); }
+.tl-versie.ok { color: var(--ok); } .tl-versie.bad { color: var(--bad); }
+.tl-kaart .kv dd { transition: color 400ms var(--site-ease), background 400ms; border-radius: 6px; }
+.tl-kaart .kv dd.wijzig { color: var(--bad); background: rgba(179, 35, 64, .07); }
+.tl-kaart .kv dd.weg { color: var(--ink-3); text-decoration: line-through; }
+.tl-extra { display: grid; gap: 6px; padding: 10px 12px; border-radius: 12px; background: rgba(30, 158, 106, .07); border: 1px solid rgba(30, 158, 106, .25); font: 500 12px/1.6 var(--mono); color: var(--ink-2); }
+.tl-extra b { color: var(--ok); font-weight: 600; }
+.tl-noot { margin: 4px 0 0; font-size: 13.5px; color: var(--ink-3); min-height: 2.6em; transition: color 300ms; }
+.tl-noot.bad { color: var(--bad); } .tl-noot.ok { color: var(--ok); }
+.tl-uitkomst { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.tl-u { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; padding: 0 6px; opacity: .35; transition: opacity 400ms; }
+.tl-u.aan { opacity: 1; } .tl-u.bad { color: var(--bad); } .tl-u.ok { color: var(--ok); }
+@media (max-width: 860px) { .tl-grid, .tl-uitkomst { grid-template-columns: 1fr; } .tl-kaart { min-height: 0; } }

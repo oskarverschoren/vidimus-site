@@ -288,3 +288,43 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   };
   addEventListener("scroll", tick, { passive: true }); tick();
 })();
+
+/* één record, twee levens: dezelfde registratie, links herschrijfbaar, rechts verankerd — stap voor stap */
+(function () {
+  const root = document.getElementById("tweeLevens"); if (!root) return;
+  const db = root.querySelector('[data-kant="db"]'), an = root.querySelector('[data-kant="anker"]');
+  const f = (k, key) => k.querySelector(`[data-f="${key}"]`);
+  const STAPPEN = [
+    () => { // 01 aangemaakt
+      f(db, "colli").textContent = "26 paletten · zonder voorbehoud"; f(db, "colli").className = ""; f(db, "plaats").textContent = "51.2302 N · 4.4160 E · ±6 m"; f(db, "plaats").className = "";
+      db.querySelector("[data-v]").textContent = "record · 1 versie"; db.querySelector("[data-v]").className = "tl-versie";
+      db.querySelector("[data-noot]").textContent = "Netjes vastgelegd. Zoals het hoort."; db.querySelector("[data-noot]").className = "tl-noot";
+      an.querySelector("[data-extra]").hidden = true; an.querySelector("[data-noot]").textContent = "Vingerafdruk 80f4ec95… zit in het anker van 04.09.2026 15:13:22Z."; an.querySelector("[data-noot]").className = "tl-noot";
+    },
+    () => { // 02 "gecorrigeerd"
+      f(db, "colli").textContent = "23 paletten · zonder voorbehoud"; f(db, "colli").className = "wijzig";
+      db.querySelector("[data-v]").textContent = "record · overschreven · geen geschiedenis"; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = "Een collega \"corrigeert\" 26 naar 23. Het oude cijfer bestaat niet meer. Wie het deed en wanneer: onbekend."; db.querySelector("[data-noot]").className = "tl-noot bad";
+      const x = an.querySelector("[data-extra]"); x.hidden = false; x.innerHTML = "<span><b>+ reg_7c1d…</b> · correctie · 23 paletten · 06.09.2026 09:41:03Z</span><span>het origineel blijft staan; de correctie is een nieuwe registratie mét eigen anker</span>";
+      an.querySelector("[data-noot]").textContent = "Twee registraties, allebei verankerd. Iedereen ziet wat eerst was en wat later kwam."; an.querySelector("[data-noot]").className = "tl-noot ok";
+    },
+    () => { // 03 migratie
+      f(db, "plaats").textContent = "51.2302 N · 4.4160 E · ±6 m"; f(db, "plaats").className = "weg";
+      db.querySelector("[data-v]").textContent = "record · overschreven · veld verloren"; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = "Bij de migratie naar het nieuwe systeem verdwijnt het plaatsveld. Stil. Niemand merkt het tot het nodig is."; db.querySelector("[data-noot]").className = "tl-noot bad";
+      an.querySelector("[data-noot]").textContent = "Het anker staat buiten uw systeem. Migreer, crash, herinstalleer: de vingerafdruk van 04.09.2026 blijft narekenbaar."; an.querySelector("[data-noot]").className = "tl-noot ok";
+    },
+    () => { // 04 het geschil
+      db.querySelector("[data-v]").textContent = "export · 3 weken later"; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = "De ontvanger claimt 23 paletten. Uw export zegt óók 23, zonder plaats. Welke versie was de echte? Woord tegen woord."; db.querySelector("[data-noot]").className = "tl-noot bad";
+      an.querySelector("[data-noot]").textContent = "Vingerafdruk van het origineel komt overeen met het anker van 04.09.2026 15:13:22Z: 26 paletten, op de kade, om 15:12. IDENTIEK."; an.querySelector("[data-noot]").className = "tl-noot ok";
+    },
+  ];
+  const knoppen = [...root.querySelectorAll(".tl-stap")]; let cur = 0, auto = null, geraakt = false;
+  const ga = (i) => { cur = i; STAPPEN[i](); knoppen.forEach((b, k) => { b.classList.toggle("cur", k === i); b.setAttribute("aria-selected", String(k === i)); });
+    root.querySelector('[data-u="db"]').classList.toggle("aan", i >= 1); root.querySelector('[data-u="anker"]').classList.toggle("aan", i >= 1); };
+  knoppen.forEach((b, i) => b.addEventListener("click", () => { geraakt = true; clearInterval(auto); ga(i); }));
+  // speelt één keer vanzelf af zodra het in beeld komt; wie klikt, neemt over
+  const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting && !auto && !geraakt) { let i = 0; auto = setInterval(() => { i++; if (i >= STAPPEN.length) { clearInterval(auto); return; } ga(i); }, 2600); io.disconnect(); } }); }, { threshold: .6 });
+  io.observe(root); ga(0);
+})();

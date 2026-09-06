@@ -81,29 +81,38 @@
         <p>Zolang dat kan, is elke discussie woord tegen woord. <b>Wij maken er wiskunde tegen woord van.</b> Elke registratie krijgt een vingerafdruk, wordt getekend door wie ze maakte, en gaat met een tijdstempel van een onafhankelijke derde in een anker dat <b>niemand nog kan verplaatsen. Ook wij niet.</b></p>
       </div>
     </details>
-    <div class="vs-grid">
-      <div class="glass vs-col bad-side rv">
-        <h3>Gewone databank</h3>
-        <ul>
-          <li>Een record kan achteraf bijgewerkt worden — een collega bewaart de verkeerde versie, een meting wordt "gecorrigeerd".</li>
-          <li>Een record kan verdwijnen — per ongeluk of niet. Een migratie of servercrash wist stil een stuk geschiedenis.</li>
-          <li>Niemand kan bewijzen wie wat wijzigde — of zelfs dát er iets gewijzigd is.</li>
-          <li>Bij een geschil komt uw export uit hetzelfde systeem dat ter discussie staat.</li>
-          <li>Uw tegenpartij heeft haar eigen databank — met exact dezelfde eigenschappen.</li>
-        </ul>
-        <p class="cost">= WOORD TEGEN WOORD</p>
+    <!-- één record, twee levens: dezelfde CMR-registratie, links in een gewone databank, rechts met de verankeringslaag -->
+    <div class="tweelevens rv" id="tweeLevens">
+      <div class="tl-stappen" role="tablist" aria-label="Wat er met het record gebeurt">
+        <button type="button" class="tl-stap cur" data-stap="0" role="tab" aria-selected="true"><small>01</small>Aangemaakt</button>
+        <button type="button" class="tl-stap" data-stap="1" role="tab" aria-selected="false"><small>02</small>"Gecorrigeerd"</button>
+        <button type="button" class="tl-stap" data-stap="2" role="tab" aria-selected="false"><small>03</small>Migratie</button>
+        <button type="button" class="tl-stap" data-stap="3" role="tab" aria-selected="false"><small>04</small>Het geschil</button>
       </div>
-      <div class="glass vs-col good-side rv">
-        <h3>Met de verankeringslaag</h3>
-        <ul>
-          <li>Elke registratie wordt bij aanmaak vastgezet — een correctie is een nieuwe registratie, het origineel blijft bestaan.</li>
-          <li>Wissen of aanpassen is wiskundig uitgesloten — ook door ons, ook door een beheerder met alle rechten.</li>
-          <li>Elke wijziging achteraf geeft een andere vingerafdruk — de vergelijking zegt dan ONBEKEND, voor iedereen die kijkt.</li>
-          <li>De bewijsbundel is zelfstandig verifieerbaar, buiten ons platform om.</li>
-          <li>Beide partijen kijken naar dezelfde verankerde inhoud.</li>
-        </ul>
-        <p class="cost">= WISKUNDE TEGEN WOORD</p>
+      <div class="tl-grid">
+        <div class="glass tl-kaart" data-kant="db">
+          <div class="tl-kop"><span class="lbl">GEWONE DATABANK</span><span class="tl-versie" data-v>record · 1 versie</span></div>
+          <dl class="kv">
+            <dt>afzender</dt><dd data-f="afzender">Verhelst Transport BV</dd>
+            <dt>colli</dt><dd data-f="colli">26 paletten · zonder voorbehoud</dd>
+            <dt>afgeleverd</dt><dd data-f="tijd">4 september 2026 — 15:12</dd>
+            <dt>plaats · toestel</dt><dd data-f="plaats">51.2302 N · 4.4160 E · ±6 m</dd>
+          </dl>
+          <p class="tl-noot" data-noot>Netjes vastgelegd. Zoals het hoort.</p>
+        </div>
+        <div class="glass tl-kaart" data-kant="anker">
+          <div class="tl-kop"><span class="lbl">MET DE VERANKERINGSLAAG</span><span class="tl-versie ok" data-v>reg_0a4edeb47d59 · verankerd 15:13:22Z</span></div>
+          <dl class="kv">
+            <dt>afzender</dt><dd data-f="afzender">Verhelst Transport BV</dd>
+            <dt>colli</dt><dd data-f="colli">26 paletten · zonder voorbehoud</dd>
+            <dt>afgeleverd</dt><dd data-f="tijd">4 september 2026 — 15:12</dd>
+            <dt>plaats · toestel</dt><dd data-f="plaats">51.2302 N · 4.4160 E · ±6 m</dd>
+          </dl>
+          <div class="tl-extra" data-extra hidden></div>
+          <p class="tl-noot" data-noot>Vingerafdruk 80f4ec95… zit in het anker van 04.09.2026 15:13:22Z.</p>
+        </div>
       </div>
+      <div class="tl-uitkomst"><span class="tl-u bad" data-u="db">= woord tegen woord</span><span class="tl-u ok" data-u="anker">= wiskunde tegen woord</span></div>
     </div>
   </div>
 </section>
