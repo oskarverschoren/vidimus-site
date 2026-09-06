@@ -280,7 +280,7 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   // allemaal aan tegen dat de bovenkant van het blok op 45 % van het scherm staat — dus vóór u eraan voorbij bent
   const tick = () => {
     const r = stmt.getBoundingClientRect();
-    const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight * 0.55)));
+    const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight * 0.78)));   // trager: klaar als de bovenkant op ~22 % staat
     const n = Math.round(p * words.length);
     words.forEach((w, i) => w.classList.toggle("on", i < n));
   };
