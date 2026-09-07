@@ -1,0 +1,6 @@
+Contact: mailto:security@vo-initiatives.com
+Contact: https://vidimus.be/beveiliging.html
+Preferred-Languages: nl, en
+Canonical: https://vidimus.be/.well-known/security.txt
+Policy: https://vidimus.be/beveiliging.html
+Expires: 2027-09-06T00:00:00.000Z
