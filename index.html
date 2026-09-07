@@ -361,10 +361,11 @@
           <tr><td class="k">waar</td><td class="v">GPS + nauwkeurigheid</td><td><p>Positie en foutmarge zoals het toestel ze rapporteert, als deel van de gehashte inhoud. Wij meten niet; wij leggen vast wat het toestel zei.</p></td></tr>
           <tr><td class="k">gebundeld</td><td class="v">Merkle-root</td><td><p>Per batch één wortel; elk anker bewijst zijn eigen plaats in de batch zonder de andere registraties prijs te geven.</p></td></tr>
           <tr><td class="k">keten</td><td class="v">Append-only grootboek</td><td><p>Elk record hasht het vorige. Eén gewijzigd record en de keten klopt niet meer — controleerbaar met <code>verify_chain</code>.</p></td></tr>
+          <tr><td class="k">publiek</td><td class="v">OpenTimestamps → Bitcoin</td><td><p>Elke wortel gaat ook naar OpenTimestamps en wordt binnen enkele uren opgenomen in een Bitcoin-blok: een publiek register dat niemand kan wijzigen of wissen, ook wij niet. Het bewijs (.ots) is na te rekenen tegen Bitcoin zelf, zonder Vidimus.</p></td></tr>
           <tr><td class="k">onafhankelijk</td><td class="v">Bewijsbundel</td><td><p>Verificatie-URL plus een bundel met meegeleverd controlescript — verifieerbaar zonder Vidimus, zonder netwerk. Data blijft in de EU.</p></td></tr>
         </tbody>
       </table>
-      <p class="glass honest dc-note"><b>Onafhankelijk verankerd, zonder blockchain-gedoe.</b> Het bewijs steunt op een tijdstempel van een erkende derde (Sectigo, RFC 3161) en een onveranderlijk grootboek — geen token, geen wallet, geen consortium dat u eerst moet opzetten. Publieke verankering op de Bitcoin-blockchain (OpenTimestamps) staat op de roadmap; zodra ze live is, leest u het hier.</p>
+      <p class="glass honest dc-note"><b>Twee getuigen, geen gedoe.</b> Het bewijs steunt op een tijdstempel van een erkende derde (Sectigo, RFC 3161) én op een publieke verankering in de Bitcoin-blockchain via OpenTimestamps. Voor u verandert er niets: geen token, geen wallet, geen consortium. U krijgt gewoon een bewijs dat buiten Vidimus blijft bestaan.</p>
     </div>
   </div>
 </section>
