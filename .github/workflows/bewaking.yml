@@ -1,0 +1,24 @@
+# Bewaking van app.vidimus.be en vidimus.be — elk kwartier, van buitenaf (GitHub), dus onafhankelijk van onze server.
+# Faalt een controle, dan mailt GitHub de eigenaar van deze repo ("Run failed") en staat het rood onder Actions.
+# Let op: GitHub zet geplande workflows stil na 60 dagen zonder commits in deze repo; één commit zet ze weer aan.
+name: bewaking
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: app.vidimus.be — loginpagina
+        run: curl -sSf --max-time 15 -o /dev/null https://app.vidimus.be/login
+      - name: app.vidimus.be — API (publieke ticker)
+        run: curl -sSf --max-time 15 https://app.vidimus.be/public/ticker | grep -q '"'
+      - name: app.vidimus.be — certificaat nog minstens 10 dagen geldig
+        run: |
+          einde=$(echo | openssl s_client -servername app.vidimus.be -connect app.vidimus.be:443 2>/dev/null | openssl x509 -noout -enddate | cut -d= -f2)
+          rest=$(( ( $(date -d "$einde" +%s) - $(date +%s) ) / 86400 ))
+          echo "certificaat geldig tot $einde ($rest dagen)"; test "$rest" -ge 10
+      - name: vidimus.be — startpagina
+        run: curl -sSf --max-time 15 https://vidimus.be/ | grep -q "Vidimus"
