@@ -69,8 +69,12 @@
 
 <section style="padding-block: clamp(2rem, 4vw, 4rem)">
   <div class="wrap">
-    <div class="sec-head"><span class="lbl">02 · MCP-SERVER (CLAUDE CODE, CLAUDE DESKTOP, ANDERE CLIENTS)</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Voeg dit toe aan uw MCP-configuratie (bv. <code>.mcp.json</code> in uw project of <code>~/.claude.json</code>). Zonder API-sleutel werken enkel de publieke tools.</p>
+    <div class="sec-head"><span class="lbl">02 · MCP-SERVER (CLAUDE, CHATGPT, CURSOR, EIGEN AGENTS)</span></div>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Gehost, niets te installeren.</b> Geef uw agent één adres en uw organisatie-sleutel (Instellingen › Systemen). Zonder sleutel werken enkel de publieke tools.</p>
+<pre class="ai-pre">{"mcpServers": {"vidimus": {
+  "type": "http", "url": "https://app.vidimus.be/mcp",
+  "headers": {"x-api-key": "vk_…uw organisatie-sleutel…"}}}}</pre>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Liever lokaal, met toegang tot bestanden op uw eigen computer (bundels controleren, bestanden opzoeken op hash, bijlagen mee verankeren):</p>
 <pre class="ai-pre">{"mcpServers": {"vidimus": {
   "command": "python3", "args": ["-m", "vidimus.mcp_server"],
   "env": {"VIDIMUS_URL": "https://app.vidimus.be",

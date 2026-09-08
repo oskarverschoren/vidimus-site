@@ -6,7 +6,7 @@
 - Publieke feiten (geen sleutel nodig): GET https://app.vidimus.be/verify/{registration_id} · GET https://app.vidimus.be/passport/{ref} · POST https://app.vidimus.be/verify-upload (bundel .zip als body)
 - Met organisatie-API-sleutel (header x-api-key): GET /registrations?ref=… · GET /registrations/{id}/dossier · GET /registrations/{id}/content · GET /bundle/{id} · POST /lookup {sha256} · POST /ingest · POST /registrations/{id}/share · POST /registrations/{id}/tamper-check · GET /usage · POST /assist {question}
 - OpenAPI: https://app.vidimus.be/openapi.json (Swagger: https://app.vidimus.be/docs)
-- MCP-server: `python -m vidimus.mcp_server` (env VIDIMUS_URL, VIDIMUS_API_KEY) — tools: verify_registration, passport, verify_bundle_file, list_registrations, get_dossier, get_content, download_bundle, lookup_file, register, create_share, tamper_check, usage, explain
+- MCP-server, gehost (niets te installeren): url https://app.vidimus.be/mcp (Streamable HTTP) met header `x-api-key: <organisatiesleutel>` of `Authorization: Bearer <sleutel>`; zonder sleutel alleen de publieke tools. Lokaal met bestandstoegang: `python -m vidimus.mcp_server` (env VIDIMUS_URL, VIDIMUS_API_KEY) — tools: verify_registration, passport, verify_bundle_file, list_registrations, get_dossier, get_content, download_bundle, lookup_file, register, create_share, tamper_check, usage, explain
 - Zelfstandig verifiëren zonder Vidimus: `python3 verify_bundle.py bundel.zip` (vereist Python 3 + 'cryptography')
 - Uitleg voor agents en mensen: https://vidimus.be/voor-ai
 
