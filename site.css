@@ -437,3 +437,15 @@ a.go:hover svg { transform: translateX(3px); }
 /* koppen zijn flex (pictogram + tekst): de punt niet als apart flex-item met gap */
 .sec-lbl.kop h2, .sec-lbl h2 { gap: 0 !important; }
 .sec-lbl.kop h2 .pict, .sec-lbl h2 .pict { margin-right: 14px; }
+
+/* ── mobiel: sectiekop in één kolom (09-09) — label boven de titel, zijtekst op volle breedte;
+   voorheen kneep de tweekolomsgrid de titel en de zijtekst tot één woord per regel naast het label ── */
+@media (max-width: 720px) {
+  .sec-lbl.kop { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .sec-lbl.kop .lbl { order: -1; white-space: normal; padding-top: 0; }
+  .sec-lbl.kop .side { grid-column: auto; max-width: none; font-size: 16px; }
+  .sec-lbl.kop h2 { font-size: clamp(30px, 9vw, 38px); }
+  .lbl { font-size: 11px; letter-spacing: .12em; }
+  .m, code, pre, .mono, .kv dd, .rawrow code, .ab-track { font-size: 12.5px; }
+  .anchorband .ab-track { font-size: 12px; }
+}
