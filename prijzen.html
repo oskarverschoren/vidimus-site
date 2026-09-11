@@ -63,7 +63,7 @@
         <tr><td>Pilot uitgebreid</td><td>idem + systeemkoppeling (API/webhook met uw poort-, sensor- of ERP-systeem) · uw beveiligingsvragenlijst ingevuld voor uw IT · DPO-gesprek (verwerkersovereenkomst) · 2 workshops · tot 5 000 verankeringen<span class="sub">± 5 dagen begeleiding</span></td><td class="pr">€ 3 500 – 4 900</td></tr>
       </tbody>
     </table>
-    <p class="law-note">Gaat u door, dan wordt het pilotbedrag verrekend met de eerste drie maanden abonnement. Gaat u niet door, dan houdt u uw bewijsbundels — die blijven geldig.</p>
+    <p class="law-note">Eerst zelf proberen kan gratis: een account aanmaken vraagt geen betaalgegevens en verankert tot 100 registraties per maand; die bewijsbundels blijven geldig. Gaat u door, dan wordt het pilotbedrag verrekend met de eerste drie maanden abonnement. Gaat u niet door, dan houdt u uw bewijsbundels — die blijven geldig.</p>
   </div>
 </section>
 
@@ -166,7 +166,7 @@
 <script defer>
 addEventListener("DOMContentLoaded", () => {
   const $ = (s) => document.querySelector(s);
-  const eur = (n) => "€ " + Math.round(n).toLocaleString("nl-BE");
+  const eur = (n) => "€ " + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f"); // € 2 280, zoals overal op de site
   // meter zonder kliffen: 190 incl. 1 000, daarboven per registratie 0,05 → 0,03 → 0,01 (exact 350 / 630 / 1 030 op de grenzen)
   const tier = (n) => { if (n <= 1000) return 190; let t = 190, prev = 1000; for (const [lim, rate] of [[3000, .08], [10000, .04], [30000, .02]]) { if (n <= lim) return t + (n - prev) * rate; t += (lim - prev) * rate; prev = lim; } return null; };
   function calc() {
