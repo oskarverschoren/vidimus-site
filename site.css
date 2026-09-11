@@ -380,7 +380,8 @@ a.go:hover svg { transform: translateX(3px); }
 /* video's op hun plek, groot genoeg om te kijken zonder volledig scherm */
 .vcard.groot { max-width: 64rem; margin-inline: auto; }
 /* 11/09 (Oskar): het waarom kleiner en naast de kop; scenario-video van de aflevering weg */
-.waarom { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 30rem); gap: 24px clamp(24px, 4vw, 56px); align-items: center; }
+.waarom { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; }   /* video = zelfde formaat als de twee ketenvideo's */
+.waarom .vslot { aspect-ratio: 16 / 9; } .waarom .playcover { padding: 22px; } .waarom .playchip { height: 46px; padding: 0 20px; font-size: 14px; }
 .waarom .sec-lbl.kop { margin-bottom: 0; }
 .waarom .vcard { border-radius: 20px; }
 .moment-grid.enkel { grid-template-columns: 1fr; }
