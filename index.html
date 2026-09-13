@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app-huis.css">
 <link rel="stylesheet" href="app-huis-pages.css">
-<link rel="stylesheet" href="site.css?v=20260914c">
+<link rel="stylesheet" href="site.css?v=20260914d">
 
 <link rel="canonical" href="https://vidimus.be/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
@@ -299,8 +299,7 @@
     <div class="stage">
       <div class="glow" aria-hidden="true"></div>
       <svg class="ring3d" viewBox="0 0 300 300" aria-hidden="true"><defs><path id="ring3dpad" d="M150,150 m-128,0 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/></defs><text><textPath href="#ring3dpad" textLength="800">3D92A709 8B2D670C F7A6E3B6 894BE7B1 5F00393B 13E419E5 F8DE96B9 9DDAFC0D 3D92A709</textPath></text></svg>
-      <div class="tel" id="tel">
-        <span class="tel-knop l1"></span><span class="tel-knop l2"></span><span class="tel-knop l3"></span><span class="tel-knop r1"></span>
+      <div class="tel" id="tel"><picture class="tel-frame" aria-hidden="true"><source srcset="assets/app/frame.webp" type="image/webp"><img src="assets/app/frame.png" alt="" width="1019" height="2101" loading="eager" fetchpriority="high"></picture>
         <div class="tel-screen"><span class="phone-island"></span>
           <picture class="scherm is-on" data-i="0"><source srcset="assets/app/app-bedrijf.webp" type="image/webp"><img src="assets/app/app-bedrijf.png" width="390" height="844" alt="Publieke organisatiepagina: ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met eID, organisatiekenmerk" loading="eager" fetchpriority="high"></picture>
           <picture class="scherm" data-i="1"><source srcset="assets/app/app-koppel.webp" type="image/webp"><img src="assets/app/app-koppel.png" width="390" height="844" alt="Uitnodiging: de telefoon van de medewerker wordt zijn sleutel, met verklaring van de werkgever en Face ID" loading="lazy"></picture>
@@ -310,17 +309,16 @@
           <picture class="scherm" data-i="5"><source srcset="assets/app/app-verificatie.webp" type="image/webp"><img src="assets/app/app-verificatie.png" width="390" height="844" alt="Publieke controlepagina: zeven controles, na te rekenen zonder Vidimus" loading="lazy"></picture>
         </div>
         <span class="tel-glans" aria-hidden="true"></span>
-        <span class="tel-dikte" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span class="tel-antenne a1" aria-hidden="true"></span><span class="tel-antenne a2" aria-hidden="true"></span><span class="tel-antenne a3" aria-hidden="true"></span><span class="tel-antenne a4" aria-hidden="true"></span>
       </div>
       <ol class="stappen" id="stappen">
-        <li class="is-on"><span class="lbl">01 · HET BEDRIJF</span><b>Eén firma, één kenmerk</b><p>Ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met de eID van de bestuurder. Wie tekent, tekent aantoonbaar voor deze firma.</p></li>
-        <li><span class="lbl">02 · DE SLEUTEL</span><b>De telefoon wordt de sleutel</b><p>Het bureau nodigt uit met één QR. De medewerker tekent de verklaring van zijn werkgever, en Face ID wordt het slot op zijn sleutel.</p></li>
-        <li><span class="lbl">03 · SCAN</span><b>Opdracht op de telefoon</b><p>Het bureau of het TMS zet de vrachtbrief klaar. De chauffeur scant of tikt, niets typen.</p></li>
-        <li><span class="lbl">04 · CONTROLEER</span><b>Document, foto, Face ID</b><p>De vrachtbrief staat op het scherm, de foto zit in de vingerafdruk, Teken vraagt Face ID.</p></li>
-        <li><span class="lbl">05 · VOLTOOID</span><b>Getekend en verankerd</b><p>Tijdstempel van een derde en Bitcoin volgen vanzelf. De ontvanger tekent mee op zijn eigen toestel.</p></li>
-        <li><span class="lbl">06 · CONTROLE</span><b>Wat de tegenpartij ziet</b><p>Zeven controles, elk na te rekenen zonder Vidimus. Eén inhoud, twee handtekeningen.</p></li>
+        <li class="is-on"><span class="lbl">01 · HET BEDRIJF</span><b>Eén firma, één kenmerk</b><p>Ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met de eID van de bestuurder. Het kenmerk is een SHA-256 dat in élke registratie van de firma terugkeert.</p></li>
+        <li><span class="lbl">02 · DE SLEUTEL</span><b>De telefoon wordt de sleutel</b><p>Geen wachtwoord, maar een cryptografische sleutel die het toestel nooit verlaat. De verklaring van de werkgever wordt ermee getekend en verankerd; Face ID is het slot.</p></li>
+        <li><span class="lbl">03 · SCAN</span><b>Opdracht op de telefoon</b><p>Het bureau of het TMS zet de vrachtbrief klaar, met de vingerafdruk van het document erbij. De chauffeur scant of tikt, niets typen.</p></li>
+        <li><span class="lbl">04 · CONTROLEER</span><b>Document, foto, Face ID</b><p>Dit is geen scan die ergens wordt opgeslagen. Foto, plaats, tijd en document worden samen gehasht; de sleutel tekent die vingerafdruk na Face ID.</p></li>
+        <li><span class="lbl">05 · VOLTOOID</span><b>Getekend en verankerd</b><p>Een onafhankelijke tijdstempel en een Bitcoin-blok maken het onuitwisbaar, ook voor ons. De ontvanger tekent dezelfde vingerafdruk mee op zijn eigen toestel.</p></li>
+        <li><span class="lbl">06 · CONTROLE</span><b>Wat de tegenpartij ziet</b><p>Zeven controles, elk na te rekenen zonder Vidimus. Eén teken anders en de vingerafdruk klopt niet meer: wijzigen achteraf valt altijd op.</p></li>
       </ol>
+      <p class="stage-strip"><span>SHA-256</span><span>Sleutel op het toestel</span><span>Tijdstempel van een derde</span><span>Bitcoin</span><span class="acc">Onuitwisbaar, ook voor ons</span></p>
       <div class="punten" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
   </div>
