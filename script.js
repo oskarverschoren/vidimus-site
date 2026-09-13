@@ -328,3 +328,27 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting && !auto && !geraakt) { let i = 0; auto = setInterval(() => { i++; if (i >= STAPPEN.length) { clearInterval(auto); return; } ga(i); }, 2600); io.disconnect(); } }); }, { threshold: .6 });
   io.observe(root); ga(0);
 })();
+
+
+/* ── 03 · De app: scroll-gedreven 3D-presentatie (14/09) ── */
+(function () {
+  const wrap = document.getElementById("stageWrap"), tel = document.getElementById("tel"); if (!wrap || !tel) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const schermen = tel.querySelectorAll(".scherm"), stappen = document.querySelectorAll("#stappen li"), punten = document.querySelectorAll(".punten i"), ring = wrap.querySelector(".ring3d");
+  const n = schermen.length; let huidig = -1, ticking = false;
+  const zet = (i) => { if (i === huidig) return; huidig = i; schermen.forEach((s, k) => s.classList.toggle("is-on", k === i)); stappen.forEach((s, k) => s.classList.toggle("is-on", k === i)); punten.forEach((s, k) => s.classList.toggle("is-on", k === i)); };
+  const teken = () => {
+    ticking = false;
+    const r = wrap.getBoundingClientRect(), h = wrap.offsetHeight - innerHeight;
+    const p = Math.min(1, Math.max(0, -r.top / Math.max(1, h)));           // 0 → 1 over de hele sectie
+    const stap = Math.min(n - 1, Math.floor(p * n + 0.0001)); zet(stap);
+    const lokaal = (p * n) - stap;                                            // 0 → 1 binnen een stap
+    const ry = -16 + p * 32;                                                  // draait van links naar rechts
+    const rx = 4 - Math.sin(p * Math.PI) * 6;                                 // even naar voren kantelen in het midden
+    const ty = Math.sin(lokaal * Math.PI) * -10;                              // zachte zweving per stap
+    tel.style.setProperty("--ry", ry.toFixed(2) + "deg"); tel.style.setProperty("--rx", rx.toFixed(2) + "deg"); tel.style.setProperty("--ty", ty.toFixed(1) + "px");
+    if (ring) ring.style.setProperty("--ring", (p * 120).toFixed(1) + "deg");
+  };
+  const vraag = () => { if (!ticking) { ticking = true; requestAnimationFrame(teken); } };
+  addEventListener("scroll", vraag, { passive: true }); addEventListener("resize", vraag); teken();
+})();

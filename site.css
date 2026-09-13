@@ -457,3 +457,39 @@ a.go:hover svg { transform: translateX(3px); }
   .m, code, pre, .mono, .kv dd, .rawrow code, .ab-track { font-size: 12.5px; }
   .anchorband .ab-track { font-size: 12px; }
 }
+
+/* ══ 03 · DE APP · 3D-scrollpresentatie (14/09) ══ */
+.app3d .wrap { position: relative; z-index: 2; }
+.stage-wrap { height: 420svh; position: relative; }
+.stage { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; max-width: 72rem; margin: 0 auto; padding: 0 var(--gutter); perspective: 1600px; }
+.stage .glow { position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(30, 79, 216, .22), rgba(30, 158, 106, .10) 45%, transparent 70%); filter: blur(30px); pointer-events: none; }
+.stage .ring3d { position: absolute; left: 50%; top: 50%; width: 92vmin; height: 92vmin; transform: translate(-50%, -50%) rotate(var(--ring, 0deg)); opacity: .55; pointer-events: none; }
+.stage .ring3d text { font: 400 8.5px var(--mono); letter-spacing: .34em; fill: rgba(11, 15, 23, .28); }
+.tel { position: relative; justify-self: center; width: min(320px, 76svh * 390 / 844, 80vw); aspect-ratio: 390 / 844; border-radius: 48px; padding: 11px; background: var(--metal); box-shadow: var(--metal-shadow), 0 60px 120px -40px rgba(11, 15, 23, .55); border: 1px solid rgba(0, 0, 0, .35);
+  transform: translateZ(0) rotateY(var(--ry, -16deg)) rotateX(var(--rx, 4deg)) translateY(var(--ty, 0px)); transform-style: preserve-3d; will-change: transform; transition: transform 90ms linear; }
+.tel-screen { position: absolute; inset: 11px; border-radius: 38px; overflow: hidden; background: #F2F3F6; }
+.tel .phone-island { z-index: 3; top: 12px; }
+.tel .scherm { position: absolute; inset: 0; opacity: 0; transition: opacity 420ms var(--out), transform 420ms var(--out); transform: scale(1.03); }
+.tel .scherm.is-on { opacity: 1; transform: none; }
+.tel .scherm img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.tel-glans { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(115deg, rgba(255, 255, 255, .18) 0%, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0) 62%, rgba(255, 255, 255, .08) 100%); mix-blend-mode: screen; transform: translateZ(1px); }
+.stappen { position: relative; z-index: 2; margin: 0; padding: 0; list-style: none; display: grid; }
+.stappen li { grid-area: 1 / 1; opacity: 0; transform: translateY(18px); transition: opacity 420ms var(--out), transform 420ms var(--out); pointer-events: none; max-width: 30rem; }
+.stappen li.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.stappen b { display: block; font-size: clamp(26px, 1.1rem + 1.6vw, 38px); font-weight: 500; letter-spacing: -.035em; line-height: 1.05; margin: 10px 0 12px; }
+.stappen p { color: var(--ink-3); font-size: 16px; line-height: 1.55; max-width: 44ch; }
+.punten { position: absolute; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom)); transform: translateX(-50%); display: flex; gap: 8px; }
+.punten i { width: 6px; height: 6px; border-radius: 50%; background: rgba(11, 15, 23, .2); transition: transform 200ms var(--out), background 200ms; }
+.punten i.is-on { background: var(--ink); transform: scale(1.5); }
+@media (max-width: 900px) {
+  .stage { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; align-items: end; padding-bottom: 56px; }
+  .tel { width: min(60vw, 50svh * 390 / 844); margin: 0 auto; }
+  .stappen { padding: 14px 0 0; text-align: center; justify-items: center; }
+  .stappen li { max-width: 34rem; }
+  .stappen b { font-size: 24px; margin: 6px 0 8px; } .stappen p { font-size: 14.5px; }
+  .stage .ring3d { width: 120vw; height: 120vw; top: 40%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage-wrap { height: auto; } .stage { position: static; height: auto; display: grid; padding-block: 24px; }
+  .tel { --ry: 0deg; --rx: 0deg; transition: none; } .stappen li { opacity: 1; transform: none; grid-area: auto; margin-bottom: 18px; } .punten, .ring3d { display: none; }
+}

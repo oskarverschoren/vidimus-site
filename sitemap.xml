@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vidimus.be/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://vidimus.be/hoe-het-werkt</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vidimus.be/colofon</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://vidimus.be/meerwerk-bewijzen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vidimus.be/plaatsbeschrijving-betwist</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vidimus.be/afgiftestaat-schade</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vidimus.be/koelketen-registratie</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vidimus.be/aflevering-betwist-cmr</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vidimus.be/scenarios</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vidimus.be/prijzen</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vidimus.be/cases</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vidimus.be/beveiliging</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://vidimus.be/voor-ai</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://vidimus.be/help</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vidimus.be/</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/hoe-het-werkt.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/prijzen.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/verificatie.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/beveiliging.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/scenarios.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/cases.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/help.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/voor-ai.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/aflevering-betwist-cmr.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/afgiftestaat-schade.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/koelketen-registratie.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/meerwerk-bewijzen.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/plaatsbeschrijving-betwist.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/privacy.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/voorwaarden.html</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://vidimus.be/colofon.html</loc><lastmod>2026-09-14</lastmod></url>
 </urlset>
