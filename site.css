@@ -465,14 +465,34 @@ a.go:hover svg { transform: translateX(3px); }
 .stage .glow { position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(30, 79, 216, .22), rgba(30, 158, 106, .10) 45%, transparent 70%); filter: blur(30px); pointer-events: none; }
 .stage .ring3d { position: absolute; left: 50%; top: 50%; width: 92vmin; height: 92vmin; transform: translate(-50%, -50%) rotate(var(--ring, 0deg)); opacity: .55; pointer-events: none; }
 .stage .ring3d text { font: 400 8.5px var(--mono); letter-spacing: .34em; fill: rgba(11, 15, 23, .28); }
-.tel { position: relative; justify-self: center; width: min(320px, 76svh * 390 / 844, 80vw); aspect-ratio: 390 / 844; border-radius: 48px; padding: 11px; background: var(--metal); box-shadow: var(--metal-shadow), 0 60px 120px -40px rgba(11, 15, 23, .55); border: 1px solid rgba(0, 0, 0, .35);
+.tel { position: relative; justify-self: center; width: min(320px, 76svh * 390 / 844, 80vw); aspect-ratio: 390 / 844; border-radius: 56px; padding: 12px;
+  /* titanium rail: geborsteld, met een lichtband die meedraait (--lx) */
+  background: linear-gradient(calc(100deg + var(--ryn, 0) * 1deg), rgba(255, 255, 255, 0) calc(30% + var(--ryn, 0) * .6%), rgba(255, 255, 255, .22) calc(46% + var(--ryn, 0) * .6%), rgba(255, 255, 255, 0) calc(62% + var(--ryn, 0) * .6%)), repeating-linear-gradient(0deg, rgba(255, 255, 255, .05) 0 1px, rgba(0, 0, 0, 0) 1px 3px), linear-gradient(170deg, #5a5f68 0%, #3b4049 18%, #23272e 50%, #15181e 82%, #2c3038 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), inset 0 -1px 0 rgba(0, 0, 0, .8), inset 1px 0 0 rgba(255, 255, 255, .12), inset -1px 0 0 rgba(0, 0, 0, .5), 0 2px 0 rgba(0, 0, 0, .45), 0 70px 120px -40px rgba(11, 15, 23, .6), 0 30px 50px -30px rgba(11, 15, 23, .55);
   transform: translateZ(0) rotateY(var(--ry, -16deg)) rotateX(var(--rx, 4deg)) translateY(var(--ty, 0px)); transform-style: preserve-3d; will-change: transform; transition: transform 90ms linear; }
-.tel-screen { position: absolute; inset: 11px; border-radius: 38px; overflow: hidden; background: #F2F3F6; }
-.tel .phone-island { z-index: 3; top: 12px; }
-.tel .scherm { position: absolute; inset: 0; opacity: 0; transition: opacity 420ms var(--out), transform 420ms var(--out); transform: scale(1.03); }
+/* dikte: acht lagen achter de behuizing, elk 1,6 px dieper — bij een draai zie je de zijkant, zoals bij een echt toestel */
+.tel-dikte { position: absolute; inset: 0; pointer-events: none; transform-style: preserve-3d; }
+.tel-dikte i { position: absolute; inset: 0; border-radius: 56px; background: linear-gradient(170deg, #2a2e36, #14171c 60%, #22262d); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04); }
+.tel-dikte i:nth-child(1) { transform: translateZ(-1.6px); } .tel-dikte i:nth-child(2) { transform: translateZ(-3.2px); } .tel-dikte i:nth-child(3) { transform: translateZ(-4.8px); } .tel-dikte i:nth-child(4) { transform: translateZ(-6.4px); }
+.tel-dikte i:nth-child(5) { transform: translateZ(-8px); } .tel-dikte i:nth-child(6) { transform: translateZ(-9.6px); } .tel-dikte i:nth-child(7) { transform: translateZ(-11.2px); } .tel-dikte i:nth-child(8) { transform: translateZ(-12.8px); background: linear-gradient(170deg, #3a3f48, #1c2028 60%, #2b2f37); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .7); }
+/* zwarte bezel + scherm: iets terugliggend, met glasrand */
+.tel-screen { position: absolute; inset: 12px; border-radius: 44px; overflow: hidden; background: #F2F3F6; box-shadow: inset 0 0 0 7px #050608, inset 0 0 0 8px rgba(255, 255, 255, .06), inset 0 0 22px rgba(0, 0, 0, .35); transform: translateZ(2px); }
+.tel-screen picture, .tel-screen img { border-radius: 38px; }
+.tel .phone-island { z-index: 3; top: 16px; width: 30%; height: 24px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 0 0 1px rgba(0, 0, 0, .6); }
+.tel .phone-island::after { content: ""; position: absolute; right: 8px; top: 50%; width: 9px; height: 9px; transform: translateY(-50%); border-radius: 50%; background: radial-gradient(circle at 35% 35%, #4a5568, #0b0f17 60%); box-shadow: 0 0 0 1px rgba(255, 255, 255, .08); }
+.tel .scherm { position: absolute; inset: 7px; opacity: 0; transition: opacity 420ms var(--out), transform 420ms var(--out); transform: scale(1.03); }
 .tel .scherm.is-on { opacity: 1; transform: none; }
 .tel .scherm img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-.tel-glans { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(115deg, rgba(255, 255, 255, .18) 0%, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0) 62%, rgba(255, 255, 255, .08) 100%); mix-blend-mode: screen; transform: translateZ(1px); }
+/* glasreflectie die met de draai verschuift */
+.tel-glans { position: absolute; inset: 12px; border-radius: 44px; pointer-events: none; z-index: 4; transform: translateZ(3px);
+  background: linear-gradient(calc(112deg + var(--ryn, 0) * .8deg), rgba(255, 255, 255, .0) calc(28% + var(--ryn, 0) * 1.2%), rgba(255, 255, 255, .16) calc(41% + var(--ryn, 0) * 1.2%), rgba(255, 255, 255, .05) calc(49% + var(--ryn, 0) * 1.2%), rgba(255, 255, 255, 0) calc(60% + var(--ryn, 0) * 1.2%)); mix-blend-mode: screen; }
+/* knoppen: in de rail, met eigen diepte */
+.tel-knop { position: absolute; width: 5px; border-radius: 3px; background: linear-gradient(90deg, #6a6f78, #2a2e36 55%, #4a4f58); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 1px 2px rgba(0, 0, 0, .6); transform: translateZ(-5px); }
+.tel-knop.l1 { left: -4px; top: 16%; height: 4.5%; } .tel-knop.l2 { left: -4px; top: 23.5%; height: 8.5%; } .tel-knop.l3 { left: -4px; top: 34%; height: 8.5%; } .tel-knop.r1 { right: -4px; top: 26%; height: 12%; }
+/* antennelijnen in de rail */
+.tel-antenne { position: absolute; background: rgba(255, 255, 255, .28); pointer-events: none; }
+.tel-antenne.a1, .tel-antenne.a2 { width: 1.5px; height: 10px; } .tel-antenne.a1 { left: 22%; top: 0; } .tel-antenne.a2 { right: 22%; bottom: 0; }
+.tel-antenne.a3, .tel-antenne.a4 { width: 10px; height: 1.5px; } .tel-antenne.a3 { left: 0; top: 12%; } .tel-antenne.a4 { right: 0; bottom: 12%; }
 .stappen { position: relative; z-index: 2; margin: 0; padding: 0; list-style: none; display: grid; }
 .stappen li { grid-area: 1 / 1; opacity: 0; transform: translateY(18px); transition: opacity 420ms var(--out), transform 420ms var(--out); pointer-events: none; max-width: 30rem; }
 .stappen li.is-on { opacity: 1; transform: none; pointer-events: auto; }
@@ -491,5 +511,5 @@ a.go:hover svg { transform: translateX(3px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .stage-wrap { height: auto; } .stage { position: static; height: auto; display: grid; padding-block: 24px; }
-  .tel { --ry: 0deg; --rx: 0deg; transition: none; } .stappen li { opacity: 1; transform: none; grid-area: auto; margin-bottom: 18px; } .punten, .ring3d { display: none; }
+  .tel { --ry: 0deg; --rx: 0deg; --ryn: 0; transition: none; } .stappen li { opacity: 1; transform: none; grid-area: auto; margin-bottom: 18px; } .punten, .ring3d { display: none; }
 }

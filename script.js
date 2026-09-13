@@ -346,7 +346,7 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
     const ry = -16 + p * 32;                                                  // draait van links naar rechts
     const rx = 4 - Math.sin(p * Math.PI) * 6;                                 // even naar voren kantelen in het midden
     const ty = Math.sin(lokaal * Math.PI) * -10;                              // zachte zweving per stap
-    tel.style.setProperty("--ry", ry.toFixed(2) + "deg"); tel.style.setProperty("--rx", rx.toFixed(2) + "deg"); tel.style.setProperty("--ty", ty.toFixed(1) + "px");
+    tel.style.setProperty("--ry", ry.toFixed(2) + "deg"); tel.style.setProperty("--ryn", ry.toFixed(2)); tel.style.setProperty("--rx", rx.toFixed(2) + "deg"); tel.style.setProperty("--ty", ty.toFixed(1) + "px");
     if (ring) ring.style.setProperty("--ring", (p * 120).toFixed(1) + "deg");
   };
   const vraag = () => { if (!ticking) { ticking = true; requestAnimationFrame(teken); } };
