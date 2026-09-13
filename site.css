@@ -8,7 +8,7 @@
    ═══════════════════════════════════════════════════════════════ */
 :root {
   --site-ease: cubic-bezier(.16, 1, .3, 1);
-  --sec: clamp(52px, 7vw, 108px);
+  --sec: clamp(72px, 9vw, 150px);
 }
 
 /* de knipoog van de app (rood vierkantje) is hier blauw: één accent op de site */
@@ -17,13 +17,13 @@
 /* ── raster & secties ────────────────────────────────────────── */
 .wrap { position: relative; z-index: 1; max-width: 110rem; margin-inline: auto; padding-inline: var(--gutter); }
 .sec { position: relative; padding-block: var(--sec); }
-.sec + .sec { padding-top: 0; }
-.sec-lbl.kop { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 24px; align-items: start; margin-bottom: clamp(22px, 3vw, 34px); }
+.sec + .sec { padding-top: calc(var(--sec) * .45); }
+.sec-lbl.kop { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 24px; align-items: start; margin-bottom: clamp(32px, 4.5vw, 56px); }
 .sec-lbl.kop h2 { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: clamp(28px, 1.2rem + 1.8vw, 40px); font-weight: 500; letter-spacing: -.035em; line-height: 1.05; text-wrap: balance; }
 .sec-lbl.kop h2 .thin { color: var(--ink-3); }
 .sec-lbl.kop h2 .dot { color: var(--act); }
 .sec-lbl.kop .lbl { padding-top: 14px; white-space: nowrap; }
-.sec-lbl.kop .side { grid-column: 1; max-width: 62ch; color: var(--ink-3); font-size: 15px; line-height: 1.55; }
+.sec-lbl.kop .side { grid-column: 1; max-width: 56ch; color: var(--ink-3); font-size: 16px; line-height: 1.65; }
 .sec-lbl.kop .side b { color: var(--ink-2); font-weight: 600; }
 .dot { color: var(--act); }
 .sub { color: var(--ink-2); font-size: 15px; line-height: 1.6; max-width: 58ch; }
@@ -75,9 +75,9 @@ header.site .top-start { white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { .ab-track { animation: none; } .anchorband::before { animation: none; } .ab-lbl i { animation: none; } }
 
 /* ── held: licht, hash-regen in inkt op 8 %, kop in zinstijl ─── */
-.hero { position: relative; overflow: hidden; padding-block: clamp(40px, 7vw, 96px) clamp(48px, 7vw, 100px); }
+.hero { position: relative; overflow: hidden; padding-block: clamp(56px, 9vw, 136px) clamp(64px, 9vw, 140px); }
 #hashrain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.hero .wrap { display: grid; gap: clamp(22px, 3vw, 34px); }
+.hero .wrap { display: grid; gap: clamp(26px, 3.6vw, 44px); }
 .hero .anchorband { margin-top: 0; margin-bottom: calc(-1 * clamp(8px, 1.4vw, 16px)); }
 .hero-kicker { display: inline-flex; align-items: center; gap: 10px; }
 .hero-kicker i { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); flex: none; }
@@ -254,7 +254,7 @@ a.go:hover svg { transform: translateX(3px); }
   .sec-lbl.kop .lbl { padding-top: 0; }
 }
 @media (max-width: 720px) {
-  .hero { padding-block: 28px 44px; }
+  .hero { padding-block: 36px 56px; }
   .hero-title { font-size: clamp(42px, 13.5vw, 64px); }
   .anchorband { gap: 10px; padding: 6px 12px; }
   .ab-note { display: none; }
