@@ -101,7 +101,7 @@
       const time = document.createElement("time"); time.textContent = fmtTime(a.tijd);
       const hash = document.createElement("code"); hash.className = "vd-hash";
       const full = clean(a.hash, 128).replace(/[^0-9a-f]/gi, "").toLowerCase();
-      hash.textContent = (full.slice(0, 4) || "····") + "…";
+      hash.textContent = full ? (full.slice(0, 8) + " " + full.slice(8, 16) + " · " + full.slice(-6)) : "········";
       if (full.length >= 16) { hash.dataset.copy = full; hash.title = "klik om de volledige hash te kopiëren"; }
       const sep = () => { const i = document.createElement("i"); i.textContent = "·"; return i; };
       el.append(kind, sep(), place, sep(), time, sep(), hash);
