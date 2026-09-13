@@ -508,3 +508,6 @@ a.go:hover svg { transform: translateX(3px); }
   .stage-wrap { height: auto; } .stage { position: static; height: auto; display: grid; padding-block: 24px; }
   .tel { --ry: 0deg; --rx: 0deg; --ryn: 0; transition: none; } .stappen li { opacity: 1; transform: none; grid-area: auto; margin-bottom: 18px; } .punten, .ring3d { display: none; }
 }
+
+.stage-na { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-top: 22px; }
+.stage-na .law { margin: 0; }

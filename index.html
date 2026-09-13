@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app-huis.css">
 <link rel="stylesheet" href="app-huis-pages.css">
-<link rel="stylesheet" href="site.css?v=20260914f">
+<link rel="stylesheet" href="site.css?v=20260914g">
 
 <link rel="canonical" href="https://vidimus.be/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
@@ -35,10 +35,9 @@
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>SITE</small></a>
   <nav class="topnav" aria-label="Hoofdnavigatie">
     <a href="#demo"><b>01</b>De demo</a>
-    <a href="#aflevering"><b>02</b>De aflevering</a>
-    <a href="#app"><b>03</b>De app</a>
-    <a href="#rekensom"><b>04</b>Rekensom</a>
-    <a href="#prijs"><b>05</b>Prijs</a>
+    <a href="#app"><b>02</b>De app</a>
+    <a href="#rekensom"><b>03</b>Rekensom</a>
+    <a href="#prijs"><b>04</b>Prijs</a>
   </nav>
   <div class="top-cta">
     <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
@@ -188,37 +187,6 @@
   </div>
 </section>
 
-<!-- ══ 02 · DE AFLEVERING ═════════════════════════════════════ -->
-<section class="sec" id="aflevering" aria-labelledby="afl-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="afl-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 20l16-8 16 8v16l-16 8-16-8z"/><path class="ln" d="M10 20l16 8 16-8"/><path class="ln" d="M26 28v16"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>De aflevering<span class="dot">.</span></span></h2>
-      <span class="lbl">02 · HET MOMENT</span>
-      <p class="side">Eén sector, één moment: de kade, de lading, de handtekening. Daar begint elke CMR-discussie — en daar eindigt ze. Foto → anker in drie tikken.</p>
-    </div>
-    <div class="moment-grid enkel">
-      <div class="taps">
-        <div class="tile rv">
-          <b aria-hidden="true">01</b>
-          <h3>Foto<small>TIK 1 · TOESTEL HASHT EN TEKENT</small></h3>
-          <p>De chauffeur maakt een foto van de lading op de kade. Zijn telefoon berekent de vingerafdruk en tekent het anker met een Ed25519-sleutel die het toestel nooit verlaat.</p>
-        </div>
-        <div class="tile rv">
-          <b aria-hidden="true">02</b>
-          <h3>Plaats<small>TIK 2 · GPS + NAUWKEURIGHEID · VERPLICHT</small></h3>
-          <p><b>Geen plaats? Dan geen anker.</b> Positie én nauwkeurigheid, volgens het toestel, gaan mee in de gehashte inhoud; zonder positie tekent de app niet. "51.2302 N · ±6 m" is een bewijselement; "ergens in de haven" is dat niet.</p>
-        </div>
-        <div class="tile rv">
-          <b aria-hidden="true">03</b>
-          <h3>Twee handtekeningen<small>TIK 3 · QR · ELK OP EIGEN TELEFOON</small></h3>
-          <p>De ontvanger scant de QR en tekent op zijn eigen telefoon, met zijn eigen sleutel. Twee partijen, twee toestellen, één anker. Binnen vijf minuten gebundeld en van een tijdstempel voorzien.</p>
-          <span class="law"><b>CMR art. 30</b> zonder voorbehoud bij aflevering geldt een vermoeden van correcte levering</span>
-          <a class="go" href="aflevering-betwist-cmr.html">Levering, tijdstip en staat bewijzen<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ PROTOCOL ═══════════════════════════════════════════════ -->
 <!-- ══ SENSORDATA · alleen metingen verankeren ═════════════════════ -->
@@ -286,12 +254,12 @@
   </div>
 </section>
 
-<!-- ══ 03 · DE APP · 3D-presentatie (14/09, Oskar: 'alsof we een nieuwe iPhone voorstellen') ══════ -->
+<!-- ══ 02 · DE APP · 3D-presentatie (14/09, Oskar: 'alsof we een nieuwe iPhone voorstellen') ══════ -->
 <section class="sec app3d" id="app" aria-labelledby="app-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
       <h2 id="app-h"><span>De app<span class="dot">.</span> Van firma tot handtekening<span class="dot">.</span></span></h2>
-      <span class="lbl">03 · DE APP</span>
+      <span class="lbl">02 · DE APP</span>
       <p class="side">Vidimus legt de supply chain vast: elke overgave, elke meting, elk document, getekend door de schakel die het in handen had. Scrol en de telefoon draait mee door de zes schermen, van eID-mandaat tot de controlepagina die uw tegenpartij ziet. Iedereen in de keten deelt dezelfde onuitwisbare waarheid.</p>
     </div>
   </div>
@@ -322,15 +290,19 @@
       <div class="punten" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
   </div>
+  <div class="wrap stage-na rv">
+    <span class="law"><b>CMR art. 30</b> zonder voorbehoud bij aflevering geldt een vermoeden van correcte levering</span>
+    <a class="go" href="aflevering-betwist-cmr.html">Levering, tijdstip en staat bewijzen<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
 </section>
 
-<!-- ══ 04 · REKENSOM ══════════════════════════════════════════ -->
+<!-- ══ 03 · REKENSOM ══════════════════════════════════════════ -->
 
 <section class="sec" id="rekensom" aria-labelledby="calc-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
       <h2 id="calc-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 12h32"/><path class="ln" d="M10 24h32"/><path class="ln" d="M10 36h16"/><path class="ln" d="M14 8v8M14 20v8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Wat kost woord tegen woord u<span class="dot">?</span></span></h2>
-      <span class="lbl">04 · DE REKENSOM</span>
+      <span class="lbl">03 · DE REKENSOM</span>
       <p class="side">Wij beweren niets. Vul uw eigen cijfers in — de som is van u.</p>
     </div>
     <div class="calc-grid">
@@ -379,7 +351,7 @@
   </div>
 </section>
 
-<!-- ══ 05 · PRIJS ═════════════════════════════════════════════ -->
+<!-- ══ 04 · PRIJS ═════════════════════════════════════════════ -->
 <!-- ══ BEGIN UW STROOM · rechtstreeks vanaf de site de wizard in ═══ -->
 <section class="sec" id="start" aria-labelledby="start-h">
   <div class="wrap">
@@ -405,7 +377,7 @@
   <div class="wrap">
     <div class="sec-lbl kop rv">
       <h2 id="prijs-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M8 10h16l20 20-12 12L12 22z"/><path class="ln" d="M16 16a2 2 0 1 0 .01 0"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Eén instap<span class="dot">.</span> <span class="thin">Geen verrassingen.</span></span></h2>
-      <span class="lbl">05 · DE PRIJS</span>
+      <span class="lbl">04 · DE PRIJS</span>
     </div>
     <div class="glass price rv">
       <div class="plan">
