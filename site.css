@@ -460,7 +460,7 @@ a.go:hover svg { transform: translateX(3px); }
 
 /* ══ 03 · DE APP · 3D-scrollpresentatie (14/09) ══ */
 .app3d .wrap { position: relative; z-index: 2; }
-.stage-wrap { height: 420svh; position: relative; }
+.stage-wrap { height: 620svh; position: relative; }
 .stage { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; max-width: 72rem; margin: 0 auto; padding: 0 var(--gutter); perspective: 1600px; }
 .stage .glow { position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(30, 79, 216, .22), rgba(30, 158, 106, .10) 45%, transparent 70%); filter: blur(30px); pointer-events: none; }
 .stage .ring3d { position: absolute; left: 50%; top: 50%; width: 92vmin; height: 92vmin; transform: translate(-50%, -50%) rotate(var(--ring, 0deg)); opacity: .55; pointer-events: none; }
