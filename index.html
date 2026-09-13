@@ -34,8 +34,8 @@
 <header class="site">
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span><small>SITE</small></a>
   <nav class="topnav" aria-label="Hoofdnavigatie">
-    <a href="#demo"><b>01</b>De demo</a>
-    <a href="#app"><b>02</b>De app</a>
+    <a href="#app"><b>01</b>De app</a>
+    <a href="#demo"><b>02</b>De demo</a>
     <a href="#rekensom"><b>03</b>Rekensom</a>
     <a href="#prijs"><b>04</b>Prijs</a>
   </nav>
@@ -69,8 +69,6 @@
     </div>
   </div>
 </section>
-
-<!-- ══ 01 · DE DEMO ═══════════════════════════════════════════ -->
 <!-- ══ WAAROM · gewone databank vs verankeringslaag (de oorspronkelijke uitleg, nu vooraan) ══ -->
 <section class="sec" id="waarom" aria-labelledby="waarom-h">
   <div class="wrap">
@@ -121,6 +119,48 @@
   </div>
 </section>
 
+<!-- ══ 01 · DE APP · 3D-presentatie (14/09, Oskar: 'alsof we een nieuwe iPhone voorstellen') ══════ -->
+<section class="sec app3d" id="app" aria-labelledby="app-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="app-h"><span>De app<span class="dot">.</span> Van firma tot handtekening<span class="dot">.</span></span></h2>
+      <span class="lbl">01 · DE APP</span>
+      <p class="side">Vidimus legt de supply chain vast: elke overgave, elke meting, elk document, getekend door de schakel die het in handen had. Scrol en de telefoon draait mee door de zes schermen, van eID-mandaat tot de controlepagina die uw tegenpartij ziet. Iedereen in de keten deelt dezelfde onuitwisbare waarheid.</p>
+    </div>
+  </div>
+  <div class="stage-wrap" id="stageWrap">
+    <div class="stage">
+      <div class="glow" aria-hidden="true"></div>
+      <svg class="ring3d" viewBox="0 0 300 300" aria-hidden="true"><defs><path id="ring3dpad" d="M150,150 m-128,0 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/></defs><text><textPath href="#ring3dpad" textLength="800">3D92A709 8B2D670C F7A6E3B6 894BE7B1 5F00393B 13E419E5 F8DE96B9 9DDAFC0D 3D92A709</textPath></text></svg>
+      <div class="tel" id="tel"><picture class="tel-frame" aria-hidden="true"><source srcset="assets/app/frame.webp" type="image/webp"><img src="assets/app/frame.png" alt="" width="1019" height="2101" loading="eager" fetchpriority="high"></picture>
+        <div class="tel-screen"><span class="phone-island"></span>
+          <picture class="scherm is-on" data-i="0"><source srcset="assets/app/app-bedrijf.webp" type="image/webp"><img src="assets/app/app-bedrijf.png" width="390" height="844" alt="Publieke organisatiepagina: ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met eID, organisatiekenmerk" loading="eager" fetchpriority="high"></picture>
+          <picture class="scherm" data-i="1"><source srcset="assets/app/app-koppel.webp" type="image/webp"><img src="assets/app/app-koppel.png" width="390" height="844" alt="Uitnodiging: de telefoon van de medewerker wordt zijn sleutel, met verklaring van de werkgever en Face ID" loading="lazy"></picture>
+          <picture class="scherm" data-i="2"><source srcset="assets/app/app-wallet.webp" type="image/webp"><img src="assets/app/app-wallet.png" width="390" height="844" alt="Wallet: opdrachten van het bureau en een bevestiging om te tekenen" loading="lazy"></picture>
+          <picture class="scherm" data-i="3"><source srcset="assets/app/app-stroom.webp" type="image/webp"><img src="assets/app/app-stroom.png" width="390" height="844" alt="Opdracht met vrachtbrief als document, klaar om te controleren en te tekenen" loading="lazy"></picture>
+          <picture class="scherm" data-i="4"><source srcset="assets/app/app-anker.webp" type="image/webp"><img src="assets/app/app-anker.png" width="390" height="844" alt="Voltooid: het logo met de vingerafdruk errond, getekend met Face ID" loading="lazy"></picture>
+          <picture class="scherm" data-i="5"><source srcset="assets/app/app-verificatie.webp" type="image/webp"><img src="assets/app/app-verificatie.png" width="390" height="844" alt="Publieke controlepagina: zeven controles, na te rekenen zonder Vidimus" loading="lazy"></picture>
+        </div>
+        <span class="tel-glans" aria-hidden="true"></span>
+      </div>
+      <ol class="stappen" id="stappen">
+        <li class="is-on"><span class="lbl">01 · HET BEDRIJF</span><b>Eén firma, één kenmerk</b><p>Ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met de eID van de bestuurder. Uw ketenpartners doen hetzelfde: elke schakel is een geïdentificeerde firma met een eigen kenmerk.</p></li>
+        <li><span class="lbl">02 · DE SLEUTEL</span><b>De telefoon wordt de sleutel</b><p>Geen wachtwoord, maar een cryptografische sleutel die het toestel nooit verlaat. De verklaring van de werkgever wordt ermee getekend en verankerd; Face ID is het slot.</p></li>
+        <li><span class="lbl">03 · SCAN</span><b>Opdracht op de telefoon</b><p>Het bureau of het TMS zet de vrachtbrief klaar, met de vingerafdruk van het document erbij. De chauffeur scant of tikt, niets typen.</p></li>
+        <li><span class="lbl">04 · CONTROLEER</span><b>Document, foto, Face ID</b><p>Dit is geen scan die ergens wordt opgeslagen. Foto, plaats, tijd en document worden samen gehasht; de sleutel tekent die vingerafdruk na Face ID.</p></li>
+        <li><span class="lbl">05 · VOLTOOID</span><b>Getekend en verankerd</b><p>Tijdstempel, locatie, firma, overgave, sensordata: alles in één vingerafdruk, verankerd bij een onafhankelijke derde en in Bitcoin. Onuitwisbaar, ook voor ons. Uw ketenpartners tekenen dezelfde waarheid mee.</p></li>
+        <li><span class="lbl">06 · CONTROLE</span><b>Wat de tegenpartij ziet</b><p>Zeven controles, elk na te rekenen zonder Vidimus. Wijzigen achteraf is uitgesloten: één teken anders en de vingerafdruk klopt niet meer met het anker.</p></li>
+      </ol>
+      <a class="app-badge" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-mark"/></svg><span><small>VIDIMUS VOOR IPHONE</small><b>Via TestFlight in uw pilot</b></span></a>
+      <div class="punten" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <div class="wrap stage-na rv">
+    <span class="law"><b>CMR art. 30</b> zonder voorbehoud bij aflevering geldt een vermoeden van correcte levering</span>
+    <a class="go" href="aflevering-betwist-cmr.html">Levering, tijdstip en staat bewijzen<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
 <!-- ══ VIDEO · het waarom in twee minuten ═══════════════════════ -->
 <section class="sec video-los" aria-label="Het waarom in twee minuten">
   <div class="wrap">
@@ -135,7 +175,7 @@
   <div class="wrap">
     <div class="sec-lbl kop rv">
       <h2 id="demo-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M14 8h16l8 8v28H14z"/><path class="ln" d="M30 8v8h8"/><path class="ln" d="M20 26h12M20 34h8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Vervals het<span class="dot">.</span></span></h2>
-      <span class="lbl">01 · DE DEMO</span>
+      <span class="lbl">02 · DE DEMO</span>
       <p class="side">Geen animatie — de vingerafdruk wordt live berekend in uw browser, met echte SHA-256. Klik op een waarde. Wijzig ze. Kijk wat er gebeurt.</p>
     </div>
     <div class="demo-grid">
@@ -187,9 +227,6 @@
   </div>
 </section>
 
-
-<!-- ══ PROTOCOL ═══════════════════════════════════════════════ -->
-<!-- ══ SENSORDATA · alleen metingen verankeren ═════════════════════ -->
 <!-- ══ VIDEO · twee ketens, één regel ═══════════════════════════ -->
 <section class="sec video-duo-sec" aria-label="Twee ketens">
   <div class="wrap">
@@ -254,48 +291,6 @@
   </div>
 </section>
 
-<!-- ══ 02 · DE APP · 3D-presentatie (14/09, Oskar: 'alsof we een nieuwe iPhone voorstellen') ══════ -->
-<section class="sec app3d" id="app" aria-labelledby="app-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="app-h"><span>De app<span class="dot">.</span> Van firma tot handtekening<span class="dot">.</span></span></h2>
-      <span class="lbl">02 · DE APP</span>
-      <p class="side">Vidimus legt de supply chain vast: elke overgave, elke meting, elk document, getekend door de schakel die het in handen had. Scrol en de telefoon draait mee door de zes schermen, van eID-mandaat tot de controlepagina die uw tegenpartij ziet. Iedereen in de keten deelt dezelfde onuitwisbare waarheid.</p>
-    </div>
-  </div>
-  <div class="stage-wrap" id="stageWrap">
-    <div class="stage">
-      <div class="glow" aria-hidden="true"></div>
-      <svg class="ring3d" viewBox="0 0 300 300" aria-hidden="true"><defs><path id="ring3dpad" d="M150,150 m-128,0 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/></defs><text><textPath href="#ring3dpad" textLength="800">3D92A709 8B2D670C F7A6E3B6 894BE7B1 5F00393B 13E419E5 F8DE96B9 9DDAFC0D 3D92A709</textPath></text></svg>
-      <div class="tel" id="tel"><picture class="tel-frame" aria-hidden="true"><source srcset="assets/app/frame.webp" type="image/webp"><img src="assets/app/frame.png" alt="" width="1019" height="2101" loading="eager" fetchpriority="high"></picture>
-        <div class="tel-screen"><span class="phone-island"></span>
-          <picture class="scherm is-on" data-i="0"><source srcset="assets/app/app-bedrijf.webp" type="image/webp"><img src="assets/app/app-bedrijf.png" width="390" height="844" alt="Publieke organisatiepagina: ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met eID, organisatiekenmerk" loading="eager" fetchpriority="high"></picture>
-          <picture class="scherm" data-i="1"><source srcset="assets/app/app-koppel.webp" type="image/webp"><img src="assets/app/app-koppel.png" width="390" height="844" alt="Uitnodiging: de telefoon van de medewerker wordt zijn sleutel, met verklaring van de werkgever en Face ID" loading="lazy"></picture>
-          <picture class="scherm" data-i="2"><source srcset="assets/app/app-wallet.webp" type="image/webp"><img src="assets/app/app-wallet.png" width="390" height="844" alt="Wallet: opdrachten van het bureau en een bevestiging om te tekenen" loading="lazy"></picture>
-          <picture class="scherm" data-i="3"><source srcset="assets/app/app-stroom.webp" type="image/webp"><img src="assets/app/app-stroom.png" width="390" height="844" alt="Opdracht met vrachtbrief als document, klaar om te controleren en te tekenen" loading="lazy"></picture>
-          <picture class="scherm" data-i="4"><source srcset="assets/app/app-anker.webp" type="image/webp"><img src="assets/app/app-anker.png" width="390" height="844" alt="Voltooid: het logo met de vingerafdruk errond, getekend met Face ID" loading="lazy"></picture>
-          <picture class="scherm" data-i="5"><source srcset="assets/app/app-verificatie.webp" type="image/webp"><img src="assets/app/app-verificatie.png" width="390" height="844" alt="Publieke controlepagina: zeven controles, na te rekenen zonder Vidimus" loading="lazy"></picture>
-        </div>
-        <span class="tel-glans" aria-hidden="true"></span>
-      </div>
-      <ol class="stappen" id="stappen">
-        <li class="is-on"><span class="lbl">01 · HET BEDRIJF</span><b>Eén firma, één kenmerk</b><p>Ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met de eID van de bestuurder. Uw ketenpartners doen hetzelfde: elke schakel is een geïdentificeerde firma met een eigen kenmerk.</p></li>
-        <li><span class="lbl">02 · DE SLEUTEL</span><b>De telefoon wordt de sleutel</b><p>Geen wachtwoord, maar een cryptografische sleutel die het toestel nooit verlaat. De verklaring van de werkgever wordt ermee getekend en verankerd; Face ID is het slot.</p></li>
-        <li><span class="lbl">03 · SCAN</span><b>Opdracht op de telefoon</b><p>Het bureau of het TMS zet de vrachtbrief klaar, met de vingerafdruk van het document erbij. De chauffeur scant of tikt, niets typen.</p></li>
-        <li><span class="lbl">04 · CONTROLEER</span><b>Document, foto, Face ID</b><p>Dit is geen scan die ergens wordt opgeslagen. Foto, plaats, tijd en document worden samen gehasht; de sleutel tekent die vingerafdruk na Face ID.</p></li>
-        <li><span class="lbl">05 · VOLTOOID</span><b>Getekend en verankerd</b><p>Tijdstempel, locatie, firma, overgave, sensordata: alles in één vingerafdruk, verankerd bij een onafhankelijke derde en in Bitcoin. Onuitwisbaar, ook voor ons. Uw ketenpartners tekenen dezelfde waarheid mee.</p></li>
-        <li><span class="lbl">06 · CONTROLE</span><b>Wat de tegenpartij ziet</b><p>Zeven controles, elk na te rekenen zonder Vidimus. Wijzigen achteraf is uitgesloten: één teken anders en de vingerafdruk klopt niet meer met het anker.</p></li>
-      </ol>
-      <a class="app-badge" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-mark"/></svg><span><small>VIDIMUS VOOR IPHONE</small><b>Via TestFlight in uw pilot</b></span></a>
-      <div class="punten" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i><i></i><i></i></div>
-    </div>
-  </div>
-  <div class="wrap stage-na rv">
-    <span class="law"><b>CMR art. 30</b> zonder voorbehoud bij aflevering geldt een vermoeden van correcte levering</span>
-    <a class="go" href="aflevering-betwist-cmr.html">Levering, tijdstip en staat bewijzen<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-  </div>
-</section>
-
 <!-- ══ 03 · REKENSOM ══════════════════════════════════════════ -->
 
 <section class="sec" id="rekensom" aria-labelledby="calc-h">
@@ -324,55 +319,6 @@
   </div>
 </section>
 
-<!-- ══ SPECIFICATIE ═══════════════════════════════════════════ -->
-<section class="sec" id="specificatie" aria-labelledby="tech-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="tech-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 14h6M22 14h20"/><path class="ln" d="M10 26h6M22 26h20"/><path class="ln" d="M10 38h6M22 38h10"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Het bewijs, ontleed<span class="dot">.</span></span></h2>
-      <span class="lbl">SPECIFICATIE · WAT VANDAAG DRAAIT</span>
-      <p class="side"><b>Eerlijk over waar we staan</b> is de regel van deze sectie: elke rij hieronder is live. Wat hier niet staat, claimen we niet.</p>
-    </div>
-    <div class="rv">
-      <table class="rg-table spec" aria-label="Specificatie">
-        <thead><tr><th>Wat</th><th>Techniek</th><th>Toelichting</th></tr></thead>
-        <tbody>
-          <tr><td class="k">wat</td><td class="v">SHA-256</td><td><p>Vingerafdruk over canonieke JSON van de registratie, inclusief de hashes van elke bijlage — de foto's dus ook.</p></td></tr>
-          <tr><td class="k">wie</td><td class="v">Ed25519 + X.509</td><td><p>Toestelsleutels op de telefoon (WebAuthn/passkey optioneel), plus een X.509-ondertekenaarscertificaat per organisatie.</p></td></tr>
-          <tr><td class="k">wanneer</td><td class="v">RFC 3161 TSA</td><td><p>Tijdstempel van een onafhankelijke derde (Sectigo) — niet onze serverklok bepaalt het moment.</p></td></tr>
-          <tr><td class="k">waar</td><td class="v">GPS + nauwkeurigheid</td><td><p>Positie en foutmarge zoals het toestel ze rapporteert, als deel van de gehashte inhoud. Wij meten niet; wij leggen vast wat het toestel zei.</p></td></tr>
-          <tr><td class="k">gebundeld</td><td class="v">Merkle-root</td><td><p>Per batch één wortel; elk anker bewijst zijn eigen plaats in de batch zonder de andere registraties prijs te geven.</p></td></tr>
-          <tr><td class="k">keten</td><td class="v">Append-only grootboek</td><td><p>Elk record hasht het vorige. Eén gewijzigd record en de keten klopt niet meer — controleerbaar met <code>verify_chain</code>.</p></td></tr>
-          <tr><td class="k">publiek</td><td class="v">OpenTimestamps → Bitcoin</td><td><p>Elke wortel gaat ook naar OpenTimestamps en wordt binnen enkele uren opgenomen in een Bitcoin-blok: een publiek register dat niemand kan wijzigen of wissen, ook wij niet. Het bewijs (.ots) is na te rekenen tegen Bitcoin zelf, zonder Vidimus.</p></td></tr>
-          <tr><td class="k">onafhankelijk</td><td class="v">Bewijsbundel</td><td><p>Verificatie-URL plus een bundel met meegeleverd controlescript — verifieerbaar zonder Vidimus, zonder netwerk. Data blijft in de EU.</p></td></tr>
-        </tbody>
-      </table>
-      <p class="glass honest dc-note"><b>Twee getuigen, geen gedoe.</b> Het bewijs steunt op een tijdstempel van een erkende derde (Sectigo, RFC 3161) én op een publieke verankering in de Bitcoin-blockchain via OpenTimestamps. Voor u verandert er niets: geen token, geen wallet, geen consortium. U krijgt een bewijs dat u binnen én buiten Vidimus kunt controleren: op de controlepagina, of met de bundel en open gereedschap, zonder ons.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 04 · PRIJS ═════════════════════════════════════════════ -->
-<!-- ══ BEGIN UW STROOM · rechtstreeks vanaf de site de wizard in ═══ -->
-<section class="sec" id="start" aria-labelledby="start-h">
-  <div class="wrap">
-    <div class="glass startkaart rv">
-      <div class="start-tekst">
-        <span class="lbl">BEGIN NU · UW EERSTE STROOM</span>
-        <h2 id="start-h">Begin met uw stroom<span class="huisdot" aria-hidden="true"></span></h2>
-        <p class="side">Geef uw stroom een naam. U maakt in één stap uw organisatie aan en staat meteen in de wizard: naam, wie vastlegt, verankeren. Drie minuten.</p>
-        <p class="dc-note">Proberen is gratis: tot 100 registraties per maand, zonder betaalgegevens. In productie: de pilot van 30 dagen of de aansluiting van € 190 per maand. Liever eerst praten? <a href="https://cal.com/oskar-verschoren-vhygeu/15min">Plan 15 minuten</a>.</p>
-      </div>
-      <form class="startform" action="https://app.vidimus.be/login" method="get" id="startForm">
-        <input type="hidden" name="tab" value="register"><input type="hidden" name="next" id="startNext" value="/onboarding">
-        <label class="fld"><span class="lbl">NAAM VAN DE STROOM</span><input name="naam" id="startNaam" placeholder="bv. Ritten koeltransport" maxlength="48" required autocomplete="off"></label>
-        <label class="fld"><span class="lbl">ORGANISATIE</span><input name="org" placeholder="bv. Demo Transport BV" maxlength="60" autocomplete="organization"></label>
-        <label class="fld"><span class="lbl">UW E-MAIL</span><input name="email" type="email" placeholder="u@bedrijf.be" required autocomplete="email"></label>
-        <button class="xbtn red" type="submit"><span>Begin uw stroom</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-      </form>
-    </div>
-  </div>
-</section>
-
 <section class="sec" id="prijs" aria-labelledby="prijs-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
@@ -396,6 +342,54 @@
         <p><b>€ 190 per maand</b>, 1 000 registraties inbegrepen. Daarboven per registratie — 8, 4 of 2 cent, nooit met een sprong. Partners tekenen gratis mee. Het pilotbedrag wordt bij doorstart verrekend.</p>
         <a class="go" href="prijzen.html">De meter, in detail<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BEGIN UW STROOM · rechtstreeks vanaf de site de wizard in ═══ -->
+<section class="sec" id="start" aria-labelledby="start-h">
+  <div class="wrap">
+    <div class="glass startkaart rv">
+      <div class="start-tekst">
+        <span class="lbl">BEGIN NU · UW EERSTE STROOM</span>
+        <h2 id="start-h">Begin met uw stroom<span class="huisdot" aria-hidden="true"></span></h2>
+        <p class="side">Geef uw stroom een naam. U maakt in één stap uw organisatie aan en staat meteen in de wizard: naam, wie vastlegt, verankeren. Drie minuten.</p>
+        <p class="dc-note">Proberen is gratis: tot 100 registraties per maand, zonder betaalgegevens. In productie: de pilot van 30 dagen of de aansluiting van € 190 per maand. Liever eerst praten? <a href="https://cal.com/oskar-verschoren-vhygeu/15min">Plan 15 minuten</a>.</p>
+      </div>
+      <form class="startform" action="https://app.vidimus.be/login" method="get" id="startForm">
+        <input type="hidden" name="tab" value="register"><input type="hidden" name="next" id="startNext" value="/onboarding">
+        <label class="fld"><span class="lbl">NAAM VAN DE STROOM</span><input name="naam" id="startNaam" placeholder="bv. Ritten koeltransport" maxlength="48" required autocomplete="off"></label>
+        <label class="fld"><span class="lbl">ORGANISATIE</span><input name="org" placeholder="bv. Demo Transport BV" maxlength="60" autocomplete="organization"></label>
+        <label class="fld"><span class="lbl">UW E-MAIL</span><input name="email" type="email" placeholder="u@bedrijf.be" required autocomplete="email"></label>
+        <button class="xbtn red" type="submit"><span>Begin uw stroom</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPECIFICATIE ═══════════════════════════════════════════ -->
+<section class="sec" id="specificatie" aria-labelledby="tech-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="tech-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 14h6M22 14h20"/><path class="ln" d="M10 26h6M22 26h20"/><path class="ln" d="M10 38h6M22 38h10"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Het bewijs, ontleed<span class="dot">.</span></span></h2>
+      <span class="lbl">SPECIFICATIE · WAT VANDAAG DRAAIT</span>
+      <p class="side"><b>Eerlijk over waar we staan</b> is de regel van deze sectie: elke rij hieronder is live. Wat hier niet staat, claimen we niet.</p>
+    </div>
+    <div class="rv">
+      <table class="rg-table spec" aria-label="Specificatie">
+        <thead><tr><th>Wat</th><th>Techniek</th><th>Toelichting</th></tr></thead>
+        <tbody>
+          <tr><td class="k">wat</td><td class="v">SHA-256</td><td><p>Vingerafdruk over canonieke JSON van de registratie, inclusief de hashes van elke bijlage — de foto's dus ook.</p></td></tr>
+          <tr><td class="k">wie</td><td class="v">Ed25519 + X.509</td><td><p>Toestelsleutels op de telefoon (WebAuthn/passkey optioneel), plus een X.509-ondertekenaarscertificaat per organisatie.</p></td></tr>
+          <tr><td class="k">wanneer</td><td class="v">RFC 3161 TSA</td><td><p>Tijdstempel van een onafhankelijke derde (Sectigo) — niet onze serverklok bepaalt het moment.</p></td></tr>
+          <tr><td class="k">waar</td><td class="v">GPS + nauwkeurigheid</td><td><p>Positie en foutmarge zoals het toestel ze rapporteert, als deel van de gehashte inhoud. Wij meten niet; wij leggen vast wat het toestel zei.</p></td></tr>
+          <tr><td class="k">gebundeld</td><td class="v">Merkle-root</td><td><p>Per batch één wortel; elk anker bewijst zijn eigen plaats in de batch zonder de andere registraties prijs te geven.</p></td></tr>
+          <tr><td class="k">keten</td><td class="v">Append-only grootboek</td><td><p>Elk record hasht het vorige. Eén gewijzigd record en de keten klopt niet meer — controleerbaar met <code>verify_chain</code>.</p></td></tr>
+          <tr><td class="k">publiek</td><td class="v">OpenTimestamps → Bitcoin</td><td><p>Elke wortel gaat ook naar OpenTimestamps en wordt binnen enkele uren opgenomen in een Bitcoin-blok: een publiek register dat niemand kan wijzigen of wissen, ook wij niet. Het bewijs (.ots) is na te rekenen tegen Bitcoin zelf, zonder Vidimus.</p></td></tr>
+          <tr><td class="k">onafhankelijk</td><td class="v">Bewijsbundel</td><td><p>Verificatie-URL plus een bundel met meegeleverd controlescript — verifieerbaar zonder Vidimus, zonder netwerk. Data blijft in de EU.</p></td></tr>
+        </tbody>
+      </table>
+      <p class="glass honest dc-note"><b>Twee getuigen, geen gedoe.</b> Het bewijs steunt op een tijdstempel van een erkende derde (Sectigo, RFC 3161) én op een publieke verankering in de Bitcoin-blockchain via OpenTimestamps. Voor u verandert er niets: geen token, geen wallet, geen consortium. U krijgt een bewijs dat u binnen én buiten Vidimus kunt controleren: op de controlepagina, of met de bundel en open gereedschap, zonder ons.</p>
     </div>
   </div>
 </section>
