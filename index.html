@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F2F3F6">
 <title>Vidimus — Wiskunde tegen woord. Het moment van aflevering cryptografisch vastgelegd.</title>
-<meta name="description" content="Vidimus legt het moment van aflevering vast: foto, plaats, tijd en wie tekende — SHA-256, Ed25519, onafhankelijk RFC 3161-tijdstempel, append-only grootboek. Wijzigt iemand later iets, dan komt de vingerafdruk niet meer overeen. Pilot van 30 dagen, vaste prijs.">
+<meta name="description" content="Vidimus legt de supply chain vast — elke aflevering, overgave en meting: foto, plaats, tijd en wie tekende — SHA-256, Ed25519, onafhankelijk RFC 3161-tijdstempel, append-only grootboek. Wijzigt iemand later iets, dan komt de vingerafdruk niet meer overeen. Pilot van 30 dagen, vaste prijs.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
 <link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
@@ -14,11 +14,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app-huis.css">
 <link rel="stylesheet" href="app-huis-pages.css">
-<link rel="stylesheet" href="site.css?v=20260914d">
+<link rel="stylesheet" href="site.css?v=20260914e">
 
 <link rel="canonical" href="https://vidimus.be/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
-<meta property="og:title" content="Vidimus — Wiskunde tegen woord. Het moment van aflevering cryptografisch vastgelegd."><meta property="og:description" content="Vidimus legt het moment van aflevering vast: foto, plaats, tijd en wie tekende — SHA-256, Ed25519, onafhankelijk RFC 3161-tijdstempel, append-only grootboek. Wijzigt iemand later iets, dan komt de vingerafdruk niet meer overeen. Pilot van 30 dagen, vaste prijs."><meta property="og:url" content="https://vidimus.be/"><meta property="og:image" content="https://vidimus.be/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:title" content="Vidimus — Wiskunde tegen woord. Het moment van aflevering cryptografisch vastgelegd."><meta property="og:description" content="Vidimus legt de supply chain vast — elke aflevering, overgave en meting: foto, plaats, tijd en wie tekende — SHA-256, Ed25519, onafhankelijk RFC 3161-tijdstempel, append-only grootboek. Wijzigt iemand later iets, dan komt de vingerafdruk niet meer overeen. Pilot van 30 dagen, vaste prijs."><meta property="og:url" content="https://vidimus.be/"><meta property="og:image" content="https://vidimus.be/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.png">
 </head>
 <body>
@@ -292,7 +292,7 @@
     <div class="sec-lbl kop rv">
       <h2 id="app-h"><span>De app<span class="dot">.</span> Van firma tot handtekening<span class="dot">.</span></span></h2>
       <span class="lbl">03 · DE APP</span>
-      <p class="side">Eerst de firma, dan de sleutel, dan de handtekening. Scrol en de telefoon draait mee door de zes schermen: van eID-mandaat tot de controlepagina die uw tegenpartij ziet.</p>
+      <p class="side">Vidimus legt de supply chain vast: elke overgave, elke meting, elk document, getekend door de schakel die het in handen had. Scrol en de telefoon draait mee door de zes schermen, van eID-mandaat tot de controlepagina die uw tegenpartij ziet. Iedereen in de keten deelt dezelfde onuitwisbare waarheid.</p>
     </div>
   </div>
   <div class="stage-wrap" id="stageWrap">
@@ -311,13 +311,14 @@
         <span class="tel-glans" aria-hidden="true"></span>
       </div>
       <ol class="stappen" id="stappen">
-        <li class="is-on"><span class="lbl">01 · HET BEDRIJF</span><b>Eén firma, één kenmerk</b><p>Ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met de eID van de bestuurder. Het kenmerk is een SHA-256 dat in élke registratie van de firma terugkeert.</p></li>
+        <li class="is-on"><span class="lbl">01 · HET BEDRIJF</span><b>Eén firma, één kenmerk</b><p>Ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met de eID van de bestuurder. Uw ketenpartners doen hetzelfde: elke schakel is een geïdentificeerde firma met een eigen kenmerk.</p></li>
         <li><span class="lbl">02 · DE SLEUTEL</span><b>De telefoon wordt de sleutel</b><p>Geen wachtwoord, maar een cryptografische sleutel die het toestel nooit verlaat. De verklaring van de werkgever wordt ermee getekend en verankerd; Face ID is het slot.</p></li>
         <li><span class="lbl">03 · SCAN</span><b>Opdracht op de telefoon</b><p>Het bureau of het TMS zet de vrachtbrief klaar, met de vingerafdruk van het document erbij. De chauffeur scant of tikt, niets typen.</p></li>
         <li><span class="lbl">04 · CONTROLEER</span><b>Document, foto, Face ID</b><p>Dit is geen scan die ergens wordt opgeslagen. Foto, plaats, tijd en document worden samen gehasht; de sleutel tekent die vingerafdruk na Face ID.</p></li>
-        <li><span class="lbl">05 · VOLTOOID</span><b>Getekend en verankerd</b><p>Een onafhankelijke tijdstempel en een Bitcoin-blok maken het onuitwisbaar, ook voor ons. De ontvanger tekent dezelfde vingerafdruk mee op zijn eigen toestel.</p></li>
+        <li><span class="lbl">05 · VOLTOOID</span><b>Getekend en verankerd</b><p>Tijdstempel, locatie, firma, overgave, sensordata: alles in één vingerafdruk, verankerd bij een onafhankelijke derde en in Bitcoin. Onuitwisbaar, ook voor ons. Uw ketenpartners tekenen dezelfde waarheid mee.</p></li>
         <li><span class="lbl">06 · CONTROLE</span><b>Wat de tegenpartij ziet</b><p>Zeven controles, elk na te rekenen zonder Vidimus. Eén teken anders en de vingerafdruk klopt niet meer: wijzigen achteraf valt altijd op.</p></li>
       </ol>
+      <a class="app-badge" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-mark"/></svg><span><small>VIDIMUS VOOR IPHONE</small><b>Via TestFlight in uw pilot</b></span></a>
       <p class="stage-strip"><span>SHA-256</span><span>Sleutel op het toestel</span><span>Tijdstempel van een derde</span><span>Bitcoin</span><span class="acc">Onuitwisbaar, ook voor ons</span></p>
       <div class="punten" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
