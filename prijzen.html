@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F2F3F6">
 <title>Prijzen — aansluiting + verbruik | Vidimus</title>
-<meta name="description" content="De instap is een pilot van 30 dagen, vaste prijs € 1 900. Daarna zoals een gasaansluiting: € 190 per maand incl. 1 000 registraties, daarboven per registratie zonder sprongen. Partners betalen niets.">
+<meta name="description" content="De instap is een pilot van 30 dagen, vaste prijs € 1 900. Daarna zoals een gasaansluiting: € 190 per maand incl. 1 000 registraties, sensoren per bron (€ 19 · 15 · 12), daarboven per registratie zonder sprongen. Partners betalen niets.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
     <div class="hero-actions">
       <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan een gesprek — pilot van 30 dagen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
-    <p style="margin-top:1rem" class="lbl">pilot € 1 900 vast · daarna € 190 / maand · richtprijzen excl. btw</p>
+    <p style="margin-top:1rem" class="lbl">pilot € 1 900 vast · daarna € 190 / maand · keten € 490 · sector € 990 · richtprijzen excl. btw</p>
   </div>
 </section>
 
@@ -90,7 +90,17 @@
       </tbody>
     </table>
     <p class="law-note"><b style="color:var(--ink)">Wat nooit meetelt:</b> aantal gebruikers, aantal stromen, bundels downloaden, verificaties door uw tegenpartij, deellinks, wissen. Eén meter, één rekening.</p>
-    <p class="law-note"><b style="color:var(--ink)">Sensoren en systemen:</b> een poort of sensor die elke minuut meet, mag geen 43 000 registraties per maand kosten. Wat een systeem via de API instuurt, telt voor de meter per kwartier per systeemsleutel als één registratie — elke meting blijft wél apart gehasht en verankerd. Mensen tellen per registratie.</p>
+    <h3 class="disp" style="margin-top:2.2rem;font-size:1.4rem">Sensoren en systemen: per bron<span style="color:var(--red)">.</span></h3>
+    <p class="side">Een logger die elke minuut meet, mag geen 43 000 registraties kosten. Wat een systeem via de API instuurt, telt per <b>bron</b> per maand — een sensor, een poort, een weegschaal. Metingen onbeperkt; elke meting blijft apart gehasht, getekend en verankerd.</p>
+    <table class="dtable rv">
+      <thead><tr><th>Actieve bronnen per maand</th><th>Per bron</th><th>Voorbeeld</th></tr></thead>
+      <tbody>
+        <tr><td>1 – 10</td><td>€ 19</td><td class="pr">10 bronnen → € 190</td></tr>
+        <tr><td>11 – 50</td><td>€ 15</td><td class="pr">50 bronnen → € 790</td></tr>
+        <tr><td>meer dan 50</td><td>€ 12</td><td class="pr">100 bronnen → € 1 390</td></tr>
+      </tbody>
+    </table>
+    <p class="law-note">Graduated: de eerste tien altijd € 19, de volgende veertig € 15, daarboven € 12 — nooit een sprong. Een bron is het veld <code>bron</code> (of <code>sensor</code>, <code>logger</code>, <code>locatie</code>) in de registratie; ontbreekt dat, dan telt de systeemsleutel als één bron. Bovenop de aansluiting van € 190; mensen tellen per registratie zoals hierboven.</p>
     <p class="law-note"><b style="color:var(--ink)">Partners betalen niets.</b> Wie u toevoegt maakt gratis een account aan, tekent op uw stromen en ziet ze in zijn eigen bureau. Geen contract, geen factuur. Zoals een gast die gratis tekent in DocuSign: de rekening blijft bij wie het proces bezit.</p>
   </div>
 </section>
@@ -105,7 +115,8 @@
       <thead><tr><th>Optie</th><th>Wanneer</th><th>Prijs</th></tr></thead>
       <tbody>
         <tr><td>Gekwalificeerd tijdstempel<span class="sub">QTSP · EU Trusted List</span></td><td>u wil het wettelijk vermoeden van datum en tijd (eIDAS art. 41) — bij audits, partners, hoge bedragen. Het standaard onafhankelijke tijdstempel is altijd inbegrepen.</td><td class="pr">+ € 90 / mnd</td></tr>
-        <tr><td>Wil u uw hele keten erbij?<span class="sub">ketenabonnement · u betaalt, zij niet</span></td><td>Uw vervoerders, leveranciers of aannemers krijgen een volledige aansluiting, zonder factuur. Zij leggen vast, u ziet alles. Eén rekening, één aanspreekpunt.</td><td class="pr">+ € 300 / mnd<span class="sub">€ 490 met de aansluiting</span></td></tr>
+        <tr><td>Keten<span class="sub">ketenabonnement · € 490 alles samen · u betaalt, zij niet</span></td><td>Uw vervoerders, leveranciers of aannemers krijgen een volledige aansluiting, zonder factuur. Zij leggen vast, u ziet alles. Eén rekening, één aanspreekpunt.</td><td class="pr">+ € 300 / mnd<span class="sub">€ 490 met de aansluiting</span></td></tr>
+        <tr><td>Sector<span class="sub">jaarcontract · € 990 per maand · op offerte</span></td><td>Voor wie een hele sector of meerdere ketens aansluit: onbeperkt partners, systeemkoppelingen inbegrepen, gekwalificeerde tijdstempels, verwerkersovereenkomst op uw sjabloon, SLA, vaste contactpersoon. Pilot Sector: € 4 900, verrekend bij doorstart.</td><td class="pr">€ 990</td></tr>
         <tr><td>Service-afspraak (SLA)<span class="sub">jaarcontract · vaste contactpersoon</span></td><td>Gegarandeerde reactietijd (vier werkuren bij storing), 99,5 % beschikbaarheid met creditregeling, kwartaalrapport en een vaste contactpersoon. Zonder SLA geldt: antwoord binnen één werkdag, storing binnen vier werkuren opgepakt, nachtelijke back-up en een getest herstelplan — dat is voor iedereen inbegrepen.</td><td class="pr">op aanvraag</td></tr>
         <tr><td>Wil u een eigen keten hosten?<span class="sub">gedeeld grootboek · op aanvraag</span></td><td>Een afgeschermd netwerk voor uw keten: elk anker erin, elke partij een eigen kopie, bij ons of in eigen huis. Voor wie op niemand wil vertrouwen, ook niet op ons.</td><td class="pr">+ € 500 / mnd<span class="sub">+ € 150 per partij die wij hosten</span></td></tr>
       </tbody>
@@ -124,7 +135,9 @@
     <div class="calc-grid rv">
       <div class="calc-in">
         <label><span class="lbl">Registraties per maand (alles samen)</span><input type="number" id="qN" value="800" min="0" step="50" inputmode="numeric"></label>
-        <p class="law-note" style="margin-top:0">≈ 10/dag: een paar per werkdag · ≈ 300/dag: elk kwartier iets · ≈ 3 000/dag: systemen en sensoren</p>
+        <p class="law-note" style="margin-top:0">≈ 10/dag: een paar per werkdag · ≈ 300/dag: elk kwartier iets. Registraties door mensen: foto's, handtekeningen, documenten.</p>
+        <label><span class="lbl">Sensoren en systemen (aantal bronnen)</span><input type="number" id="qBron" value="0" min="0" inputmode="numeric"></label>
+        <p class="law-note" style="margin-top:0">per bron per maand € 19 (1–10), € 15 (11–50), € 12 (51+); metingen onbeperkt</p>
         <label style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--paper-dim)"><input type="checkbox" id="qQTSP" style="width:auto;accent-color:var(--red)">Gekwalificeerd tijdstempel (+ € 90)</label>
         <label style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--paper-dim)"><input type="checkbox" id="qKeten" style="width:auto;accent-color:var(--red)">Ketenabonnement — partners aangesloten zonder factuur (+ € 300)</label>
         <label style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--paper-dim)"><input type="checkbox" id="qCons" style="width:auto;accent-color:var(--red)">Gedeeld grootboek met partners (+ € 500)</label>
@@ -180,19 +193,21 @@ addEventListener("DOMContentLoaded", () => {
     const cons = $("#qCons").checked;
     $("#qPartRow").style.display = cons ? "" : "none";
     const base = tier(n);
+    const nb = Math.max(0, parseInt($("#qBron").value) || 0);
+    const bron = (() => { let t = 0, prev = 0; for (const [lim, rate] of [[10, 19], [50, 15], [null, 12]]) { const top = lim === null ? nb : Math.min(nb, lim); if (top > prev) t += (top - prev) * rate; if (lim === null || nb <= lim) break; prev = lim; } return t; })();
     const pilot = $("#qPilotX").checked ? 3500 : 1900;
     $("#oPilot").textContent = eur(pilot);
     if (base === null) { $("#oMnd").textContent = "op maat"; $("#oJaar").textContent = "offerte"; $("#oSchijf").textContent = "schijf: meer dan 30 000 — op maat via jaarcontract, wij bellen u"; return; }
     const schijf = n <= 1000 ? "tot 1 000 registraties — alles inbegrepen" : n <= 3000 ? "1 001 – 3 000 registraties · € 0,08 per registratie boven de 1 000" : n <= 10000 ? "3 001 – 10 000 registraties · € 0,04 per registratie boven de 3 000" : "10 001 – 30 000 registraties · € 0,02 per registratie boven de 10 000";
     $("#oSchijf").textContent = "schijf: " + schijf;
-    let m = base + ($("#qQTSP").checked ? 90 : 0) + ($("#qKeten").checked ? 300 : 0) + (cons ? 500 + Math.max(0, parseFloat($("#qPart").value) || 0) * 150 : 0);
+    let m = base + bron + ($("#qQTSP").checked ? 90 : 0) + ($("#qKeten").checked ? 300 : 0) + (cons ? 500 + Math.max(0, parseFloat($("#qPart").value) || 0) * 150 : 0);
     const months = $("#qJaar").checked ? 10 : 12;
     $("#oMnd").textContent = eur(m) + ($("#qJaar").checked ? " ·  jaarcontract" : "");
     $("#oJaar").textContent = eur(m * months);
-    const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n}%0A- Schijf: ${eur(base)}/maand%0A- Gekwalificeerd tijdstempel: ${$("#qQTSP").checked ? "ja" : "nee"}%0A- Ketenabonnement: ${$("#qKeten").checked ? "ja" : "nee"}%0A- Gedeeld grootboek: ${cons ? "ja, " + ($("#qPart").value || 0) + " extra partijen" : "nee"}%0A- Jaarcontract: ${$("#qJaar").checked ? "ja" : "nee"}%0A- Pilot: ${$("#qPilotX").checked ? "uitgebreid (€ 3 500)" : "standaard (€ 1 900)"}%0A- Richtprijs: ${eur(m)}/maand · ${eur(m * months)}/jaar%0A%0ABedrijf:%0ATelefoon:`;
+    const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n}%0A- Schijf: ${eur(base)}/maand%0A- Bronnen (sensoren/systemen): ${nb} → ${eur(bron)}/maand%0A- Gekwalificeerd tijdstempel: ${$("#qQTSP").checked ? "ja" : "nee"}%0A- Ketenabonnement: ${$("#qKeten").checked ? "ja" : "nee"}%0A- Gedeeld grootboek: ${cons ? "ja, " + ($("#qPart").value || 0) + " extra partijen" : "nee"}%0A- Jaarcontract: ${$("#qJaar").checked ? "ja" : "nee"}%0A- Pilot: ${$("#qPilotX").checked ? "uitgebreid (€ 3 500)" : "standaard (€ 1 900)"}%0A- Richtprijs: ${eur(m)}/maand · ${eur(m * months)}/jaar%0A%0ABedrijf:%0ATelefoon:`;
     $("#offerteBtn").href = `mailto:oskar@vo-initiatives.com?subject=${encodeURIComponent("Offerte Vidimus — " + n + " registraties/maand")}&body=${body}`;
   }
-  ["qN","qQTSP","qCons","qPart","qJaar","qPilotX"].forEach((id) => $("#" + id).addEventListener("input", calc));
+  ["qN","qBron","qQTSP","qCons","qPart","qJaar","qPilotX"].forEach((id) => $("#" + id).addEventListener("input", calc));
   calc();
 });
 </script>

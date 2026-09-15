@@ -511,3 +511,6 @@ a.go:hover svg { transform: translateX(3px); }
 
 .stage-na { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-top: 22px; }
 .stage-na .law { margin: 0; }
+
+.plan-after .tier3 { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(11, 15, 23, .07); color: var(--ink-3); font-size: 14px; }
+.plan-after .tier3 b { color: var(--ink); }
