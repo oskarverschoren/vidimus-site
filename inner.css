@@ -237,6 +237,7 @@ input[type="range"] { width: 100%; accent-color: var(--ink); background: transpa
 .cq-bill .xbtn.red { margin-top: 4px; height: 50px; width: 100%; background: #fff; color: var(--ink); border-color: #fff; box-shadow: 0 10px 24px -14px rgba(0, 0, 0, .8); }
 .cq-bill .xbtn.red:hover { background: #f2f3f6; }
 .cq-note { margin: 0; font-size: 12.5px; line-height: 1.5; color: rgba(255, 255, 255, .6); }
-.cq .calc-priv { grid-column: 1 / -1; }
+.cq-priv { margin: 4px 4px 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-3); max-width: 60ch; }
+.cq-priv b { color: var(--ink); font-weight: 600; letter-spacing: .04em; }
 @media (max-width: 900px) { .cq { grid-template-columns: 1fr; } .cq-bill { position: static; } }
 @media (max-width: 480px) { .cq-step { padding: 16px 16px 18px; } .cq-opt { grid-template-columns: auto minmax(0, 1fr); } .cq-opt .pr { grid-column: 2; justify-self: start; } .cq-opt.cq-sub { padding-left: 0; } }
