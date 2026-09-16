@@ -69,7 +69,7 @@ header.site > * { display: flex; align-items: center; }
 .top-cta { margin-left: auto; gap: .5rem; }
 .top-login { text-decoration: none; color: var(--ink-3); font-size: 14px; font-weight: 500; padding: 6px 10px; border-radius: 8px; }
 .top-login:hover { color: var(--ink); background: var(--bg-2); }
-.top-start { white-space: nowrap; text-decoration: none; background: var(--metal); color: #fff; font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 11px; box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); transition: transform 160ms var(--out), box-shadow 160ms; }
+.top-start { white-space: nowrap; text-decoration: none; background: var(--ink); color: #fff; font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 11px; box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); transition: transform 160ms var(--out), box-shadow 160ms; }
 .top-start:hover { box-shadow: 0 1px 0 rgba(255, 255, 255, .18) inset, 0 14px 30px -12px rgba(11, 15, 23, .65); }
 .top-start:active { transform: scale(.97); }
 
@@ -119,7 +119,7 @@ header.site > * { display: flex; align-items: center; }
 .rg-toolbar select:focus, .rg-toolbar input:focus { outline: none; border-color: rgba(11, 15, 23, .35); background: #fff; }
 .rg-toolbar select.attn { border-color: var(--act); animation: attn 400ms ease-in-out 2; }
 @keyframes attn { 50% { box-shadow: 0 0 0 4px rgba(30, 79, 216, .18); } }
-.dc-btn { height: 44px; padding: 0 18px; border-radius: 12px; border: 1px solid rgba(11, 15, 23, .9); background: var(--metal); box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); color: #fff; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; transition: transform 160ms var(--out), background 140ms, color 140ms; }
+.dc-btn { height: 44px; padding: 0 18px; border-radius: 12px; border: 1px solid rgba(11, 15, 23, .9); background: var(--ink); box-shadow: 0 1px 0 rgba(255, 255, 255, .12) inset, 0 10px 24px -14px rgba(11, 15, 23, .6); color: #fff; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; transition: transform 160ms var(--out), background 140ms, color 140ms; }
 .dc-btn:active { transform: scale(.97); }
 .dc-btn:disabled { background: var(--bg-2); border-color: var(--bg-2); color: var(--ink-3); cursor: default; }
 .dc-btn.ghosted { background: var(--glass-2); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-color: var(--glass-edge); box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 1px 2px rgba(11, 15, 23, .04); color: var(--ink-2); font-weight: 500; }
@@ -191,7 +191,7 @@ header.site > * { display: flex; align-items: center; }
 .xbtn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 12px; border: 1px solid var(--glass-edge); background: rgba(255, 255, 255, .7); box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 1px 2px rgba(11, 15, 23, .04); color: var(--ink); font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none; transition: transform 160ms var(--out), border-color 140ms; }
 .xbtn:hover { border-color: var(--ink); }
 .xbtn:active { transform: scale(.97); }
-.xbtn.red { background: var(--metal); border-color: rgba(11, 15, 23, .9); color: #fff; box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); }
+.xbtn.red { background: var(--ink); border-color: rgba(11, 15, 23, .9); color: #fff; box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); }
 .xbtn svg { width: 14px; height: 14px; }
 .cn-copy { background: var(--card); border: 1px solid var(--line); border-radius: 8px; color: var(--ink-2); font-size: 12px; font-weight: 500; padding: 6px 10px; cursor: pointer; white-space: nowrap; }
 .cn-copy:hover { border-color: var(--ink); color: var(--ink); }
@@ -350,5 +350,7 @@ html.vt-back::view-transition-new(root) { animation-name: vtBinnenTerug; }
 }
 
 /* 16/09: knoppen in geborsteld staal (zelfde materiaal als de wallet) */
-.top-start, .dc-btn:not(.ghosted), .xbtn.red { background-size:auto,512px 256px,auto;background-blend-mode:screen,overlay,normal; border-color: rgba(0, 0, 0, .45); box-shadow: var(--metal-shadow); }
+/* 16/09 (Oskar): knoppen effen zwart; geborsteld staal alleen nog voor stroom/hash-elementen en de landingspagina */
+.top-start, .dc-btn:not(.ghosted), .xbtn.red { border-color: rgba(0, 0, 0, .55); }
+.top-start:hover, .dc-btn:not(.ghosted):hover, .xbtn.red:hover { background: #1a1f2a; }
 .top-start span, .dc-btn:not(.ghosted) span, .xbtn.red span { position: relative; }
