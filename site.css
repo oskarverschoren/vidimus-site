@@ -514,3 +514,5 @@ a.go:hover svg { transform: translateX(3px); }
 
 .plan-after .tier3 { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(11, 15, 23, .07); color: var(--ink-3); font-size: 14px; }
 .plan-after .tier3 b { color: var(--ink); }
+
+.anchorband, .app-badge { background-size:auto,512px 256px,auto;background-blend-mode:screen,overlay,normal;border-color:rgba(0,0,0,.45); }

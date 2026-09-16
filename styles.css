@@ -141,3 +141,5 @@ main { display: block; }
   .dtab { display: block; overflow-x: auto; white-space: nowrap; border-radius: 16px; -webkit-overflow-scrolling: touch; }
   .dtab td, .dtab th { padding: 10px 14px; }
 }
+
+.ai-pre { background-size:auto,512px 256px,auto;background-blend-mode:screen,overlay,normal;border-color:rgba(0,0,0,.45); }
