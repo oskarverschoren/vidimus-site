@@ -1,4 +1,4 @@
-@import url("tokens.css");
+@import url("/webapp/tokens.css");
 /* ═══════════════════════════════════════════════════════════════
    VIDIMUS HUISSTIJL "HET BLOK" — 03/09/2026
    Licht oppervlak, één mat zwart blok, groen alleen als punt.
@@ -69,7 +69,7 @@ header.site > * { display: flex; align-items: center; }
 .top-cta { margin-left: auto; gap: .5rem; }
 .top-login { text-decoration: none; color: var(--ink-3); font-size: 14px; font-weight: 500; padding: 6px 10px; border-radius: 8px; }
 .top-login:hover { color: var(--ink); background: var(--bg-2); }
-.top-start { white-space: nowrap; text-decoration: none; background: linear-gradient(180deg, #1c2333 0%, #0b0f17 100%); color: #fff; font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 11px; box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); transition: transform 160ms var(--out), box-shadow 160ms; }
+.top-start { white-space: nowrap; text-decoration: none; background: var(--metal); color: #fff; font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 11px; box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); transition: transform 160ms var(--out), box-shadow 160ms; }
 .top-start:hover { box-shadow: 0 1px 0 rgba(255, 255, 255, .18) inset, 0 14px 30px -12px rgba(11, 15, 23, .65); }
 .top-start:active { transform: scale(.97); }
 
@@ -119,7 +119,7 @@ header.site > * { display: flex; align-items: center; }
 .rg-toolbar select:focus, .rg-toolbar input:focus { outline: none; border-color: rgba(11, 15, 23, .35); background: #fff; }
 .rg-toolbar select.attn { border-color: var(--act); animation: attn 400ms ease-in-out 2; }
 @keyframes attn { 50% { box-shadow: 0 0 0 4px rgba(30, 79, 216, .18); } }
-.dc-btn { height: 44px; padding: 0 18px; border-radius: 12px; border: 1px solid rgba(11, 15, 23, .9); background: linear-gradient(180deg, #1c2333 0%, #0b0f17 100%); box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); color: #fff; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; transition: transform 160ms var(--out), background 140ms, color 140ms; }
+.dc-btn { height: 44px; padding: 0 18px; border-radius: 12px; border: 1px solid rgba(11, 15, 23, .9); background: var(--metal); box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); color: #fff; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; transition: transform 160ms var(--out), background 140ms, color 140ms; }
 .dc-btn:active { transform: scale(.97); }
 .dc-btn:disabled { background: var(--bg-2); border-color: var(--bg-2); color: var(--ink-3); cursor: default; }
 .dc-btn.ghosted { background: var(--glass-2); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-color: var(--glass-edge); box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 1px 2px rgba(11, 15, 23, .04); color: var(--ink-2); font-weight: 500; }
@@ -191,7 +191,7 @@ header.site > * { display: flex; align-items: center; }
 .xbtn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 12px; border: 1px solid var(--glass-edge); background: rgba(255, 255, 255, .7); box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 1px 2px rgba(11, 15, 23, .04); color: var(--ink); font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none; transition: transform 160ms var(--out), border-color 140ms; }
 .xbtn:hover { border-color: var(--ink); }
 .xbtn:active { transform: scale(.97); }
-.xbtn.red { background: linear-gradient(180deg, #1c2333 0%, #0b0f17 100%); border-color: rgba(11, 15, 23, .9); color: #fff; box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); }
+.xbtn.red { background: var(--metal); border-color: rgba(11, 15, 23, .9); color: #fff; box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 10px 24px -12px rgba(11, 15, 23, .6); }
 .xbtn svg { width: 14px; height: 14px; }
 .cn-copy { background: var(--card); border: 1px solid var(--line); border-radius: 8px; color: var(--ink-2); font-size: 12px; font-weight: 500; padding: 6px 10px; cursor: pointer; white-space: nowrap; }
 .cn-copy:hover { border-color: var(--ink); color: var(--ink); }
@@ -265,7 +265,7 @@ header.site > * { display: flex; align-items: center; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
 
 /* de knipoog naar de site: het rode vierkantje als punt achter de kop (alleen start en login, één keer per bezoek) */
-.huisdot { display: inline-block; width: .26em; height: .26em; background: #FF3B26; margin-left: .14em; vertical-align: baseline; transform: translateY(-.02em); }
+.huisdot { display: inline-block; width: .26em; height: .26em; background: var(--act); margin-left: .14em; vertical-align: baseline; transform: translateY(-.02em); }
 
 /* "Meer": de lijst bovenaan Instellingen — op de telefoon de weg naar Partners, Verbruik en Ontwikkelaars */
 .meer { display: grid; gap: 8px; margin-bottom: 8px; }
@@ -282,6 +282,9 @@ header.site > * { display: flex; align-items: center; }
 .meer-menu summary::-webkit-details-marker { display: none; }
 .meer-menu .menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 16rem; display: grid; padding: 6px; border-radius: 14px; background: var(--glass-2); border: 1px solid var(--glass-line); box-shadow: var(--glass-shadow); backdrop-filter: blur(24px) saturate(160%); animation: menuIn 160ms var(--out); }
 @keyframes menuIn { from { opacity: 0; transform: translateY(-4px) scale(.98); } }
+.meer-menu .menu .menu-kop { padding: 8px 12px 2px; font: 500 10px/1.6 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.meer-menu .menu .menu-kop + button { margin-top: 0; }
+.meer-menu .menu .menu-kop:not(:first-child) { margin-top: 4px; border-top: 1px solid var(--line); padding-top: 10px; }
 .meer-menu .menu button { display: grid; gap: 2px; text-align: left; padding: 10px 12px; border: 0; background: none; border-radius: 10px; color: var(--ink); font: 500 14px/1.2 var(--ui); cursor: pointer; }
 .meer-menu .menu button span { font-size: 12px; color: var(--ink-3); font-weight: 400; }
 .meer-menu .menu button:hover { background: rgba(11, 15, 23, .05); }
@@ -311,25 +314,6 @@ header.site > * { display: flex; align-items: center; }
 header.site { view-transition-name: kop; }
 @media (prefers-reduced-motion: reduce) { ::view-transition-old(root), ::view-transition-new(root) { animation: none; } }
 
-/* de stroom als verfstreep (Oskar 04/09): een droge inktstreek, vooraf gerasterd (veeg.png, geen SVG-filters tijdens de
-   animatie) en onthuld met een diagonale clip-path-wipe — compositor-werk, dus vloeiend op de telefoon. Twee lagen met
-   dezelfde streek: .achter (onder de tekst) en .voor (boven de tekst, vanaf een derde van het scherm). .laden = laadscherm. */
-.stroomveeg { position: fixed; inset: 0; pointer-events: none; overflow: hidden; animation: veegWeg 500ms var(--out) 1150ms forwards; }
-.stroomveeg.achter { z-index: 0; } .stroomveeg.voor { z-index: 3; }
-.stroomveeg .wis { position: absolute; inset: 0; clip-path: polygon(-40% 30%, 140% -60%, 140% -60%, -40% 30%); animation: veegWis 640ms cubic-bezier(.3, .7, .15, 1) 120ms forwards; will-change: clip-path; }
-.stroomveeg svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 14px 18px rgba(11, 15, 23, .38)) drop-shadow(0 2px 3px rgba(11, 15, 23, .35)); }
-.stroomveeg.voor svg { clip-path: none; }
-@keyframes veegWis { to { clip-path: polygon(-40% 30%, 140% -60%, 140% 160%, -40% 160%); } }
-@keyframes veegWeg { to { opacity: 0; } }
-.stroomveeg.laden { animation: none; }
-.stroomveeg.laden .wis { animation: veegWisLoop 1600ms cubic-bezier(.45, 0, .2, 1) infinite; }
-@keyframes veegWisLoop { 0% { clip-path: polygon(60% -40%, 140% -40%, 140% 20%, 60% -40%); } 45% { clip-path: polygon(-40% -40%, 140% -40%, 140% 140%, -40% 140%); } 100% { clip-path: polygon(-40% 140%, -40% -40%, -40% -40%, -40% 140%); } }
-.auth-shell, .auth-wrap { position: relative; z-index: 1; }
-.auth-shell { grid-template-rows: 1fr auto; align-content: center; }
-.auth-shell .terug.onder { justify-self: center; margin-top: 22px; font-size: 13px; color: var(--ink-3); text-decoration: underline; text-underline-offset: .2em; text-decoration-color: rgba(11, 15, 23, .3); }
-.auth-shell .terug.onder:hover { color: var(--ink); }
-@media (prefers-reduced-motion: reduce) { .stroomveeg { display: none; } }
-
 /* doorschuiven tussen pagina's (Oskar 04/09): nieuw schuift van rechts binnen, oud schuift weg naar links; terug is andersom.
    Cross-document view transitions; kop en tabbalk blijven staan. */
 ::view-transition-old(root) { animation: 360ms cubic-bezier(.32, .72, 0, 1) both vtWeg; }
@@ -341,3 +325,30 @@ html.vt-back::view-transition-new(root) { animation-name: vtBinnenTerug; }
 @keyframes vtBinnenTerug { from { transform: translateX(-28%); opacity: .6; } }
 @keyframes vtWegTerug { to { transform: translateX(100%); } }
 ::view-transition-old(kop), ::view-transition-new(kop), ::view-transition-old(tabbar), ::view-transition-new(tabbar) { animation: none; mix-blend-mode: normal; }
+
+
+
+/* vallende hex-tekens achter de aanmeldpagina — hetzelfde effect als op vidimus.be */
+.hashrain-laag { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+#hashrain { position: absolute; inset: 0; width: 100%; height: 100%; }
+.auth-shell, .auth-wrap { position: relative; z-index: 1; }
+
+/* Afdrukken / Bewaar als pdf (12/09): A4, wit, zonder app-chroom. Geldt voor controlepagina, organisatiepagina, verankeringskaart, kluis, levenslijn. */
+@page { size: A4; margin: 14mm 14mm 16mm; }
+@media print {
+  body { background: #fff !important; color: #0B0F17; font-size: 10.5pt; }
+  .ambient, header.site, .topnav, .top-cta, .tabbar, .app-voet, #kijker, .ctl-ingangen, .sec-lbl:has(+ .ctl-ingangen), #bestand, #agent, .ctl-downloads, .meer-menu, .rg-toolbar, .scherm-balk, .playcover, video, .no-print { display: none !important; }
+  main, .ov-main, .wrap { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+  .glass, .tile, .kt-blok, .kt-knoop, .kt-formule, .kt-uitleg, .checkrow, .ctl-blok, .ctl-status, .pt-card, .setrows, .ov-panel { background: #fff !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important; border: 0.5pt solid #C9CDD6 !important; break-inside: avoid; }
+  .kt-blok, .ctl-blok, .checkrow, .kt-mens, .kt-stroom { break-inside: avoid; }
+  .kt-pijl { display: none; }
+  .kt-rij { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+  .kt-hash, code, .mono { font-size: 8.5pt !important; overflow-wrap: anywhere; }
+  a { color: inherit; text-decoration: none; }
+  details { break-inside: avoid; } details.chk[open] .bd, .kt-meer[open] { display: block; }
+  h1, h2 { break-after: avoid; }
+}
+
+/* 16/09: knoppen in geborsteld staal (zelfde materiaal als de wallet) */
+.top-start, .dc-btn:not(.ghosted), .xbtn.red { background-size:auto,512px 256px,auto;background-blend-mode:screen,overlay,normal; border-color: rgba(0, 0, 0, .45); box-shadow: var(--metal-shadow); }
+.top-start span, .dc-btn:not(.ghosted) span, .xbtn.red span { position: relative; }
