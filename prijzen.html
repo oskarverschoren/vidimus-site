@@ -115,10 +115,10 @@
       <thead><tr><th>Optie</th><th>Wanneer</th><th>Prijs</th></tr></thead>
       <tbody>
         <tr><td>Gekwalificeerd tijdstempel<span class="sub">QTSP · EU Trusted List</span></td><td>u wil het wettelijk vermoeden van datum en tijd (eIDAS art. 41) — bij audits, partners, hoge bedragen. Het standaard onafhankelijke tijdstempel is altijd inbegrepen.</td><td class="pr">+ € 90 / mnd</td></tr>
-        <tr><td>Keten<span class="sub">ketenabonnement · € 490 alles samen · u betaalt, zij niet</span></td><td>Uw vervoerders, leveranciers of aannemers krijgen een volledige aansluiting, zonder factuur. Zij leggen vast, u ziet alles. Eén rekening, één aanspreekpunt.</td><td class="pr">+ € 300 / mnd<span class="sub">€ 490 met de aansluiting</span></td></tr>
+        <tr><td>Keten<span class="sub">ketenabonnement · € 490 alles samen · u betaalt, zij niet</span></td><td>Meetekenen op uw stromen is altijd gratis en inbegrepen. Keten gaat verder: uw vervoerders, leveranciers of aannemers krijgen zélf een volledige aansluiting (eigen stromen, eigen bureau, eigen sleutels), op uw factuur. Eén rekening, één aanspreekpunt.</td><td class="pr">+ € 300 / mnd<span class="sub">€ 490 met de aansluiting</span></td></tr>
         <tr><td>Sector<span class="sub">jaarcontract · € 990 per maand · op offerte</span></td><td>Voor wie een hele sector of meerdere ketens aansluit: onbeperkt partners, systeemkoppelingen inbegrepen, gekwalificeerde tijdstempels, verwerkersovereenkomst op uw sjabloon, SLA, vaste contactpersoon. Pilot Sector: € 4 900, verrekend bij doorstart.</td><td class="pr">€ 990 / mnd<span class="sub">jaarcontract</span></td></tr>
         <tr><td>Service-afspraak (SLA)<span class="sub">jaarcontract · vaste contactpersoon</span></td><td>Gegarandeerde reactietijd (vier werkuren bij storing), 99,5 % beschikbaarheid met creditregeling, kwartaalrapport en een vaste contactpersoon. Zonder SLA geldt: antwoord binnen één werkdag, storing binnen vier werkuren opgepakt, nachtelijke back-up en een getest herstelplan — dat is voor iedereen inbegrepen.</td><td class="pr">op aanvraag</td></tr>
-        <tr><td>Wil u een eigen keten hosten?<span class="sub">gedeeld grootboek · op aanvraag</span></td><td>Een afgeschermd netwerk voor uw keten: elk anker erin, elke partij een eigen kopie, bij ons of in eigen huis. Voor wie op niemand wil vertrouwen, ook niet op ons.</td><td class="pr">+ € 500 / mnd<span class="sub">+ € 150 per partij die wij hosten</span></td></tr>
+        <tr><td>Wil u een eigen keten hosten?<span class="sub">gedeeld grootboek · op aanvraag</span></td><td>Een afgeschermd netwerk voor uw keten: elk anker erin, elke partij een eigen kopie, bij ons of in eigen huis. Voor wie op niemand wil vertrouwen, ook niet op ons. De Bitcoin-verankering geeft die onafhankelijkheid al; dit is voor sectoren die het contractueel eisen.</td><td class="pr">op aanvraag<span class="sub">richtprijs + € 500 / mnd, + € 150 per gehoste partij</span></td></tr>
       </tbody>
     </table>
     <p class="law-note">Op aanvraag: gekwalificeerde handtekening via itsme (prijs op aanvraag), verificatiepagina in uw huisstijl, bewijsbundel-op-maat voor rechtbank (€ 450), sensor-gateway (offerte).</p>
@@ -151,9 +151,7 @@
         <div class="cq-step" role="group">
           <h3 class="cq-h"><i>03</i>Opties</h3>
           <label class="cq-opt"><input type="checkbox" id="qQTSP"><span class="sw"></span><span class="txt"><b>Gekwalificeerd tijdstempel</b><small>wettelijk vermoeden van datum en tijd · eIDAS art. 41</small></span><span class="pr">+ € 90</span></label>
-          <label class="cq-opt"><input type="checkbox" id="qKeten"><span class="sw"></span><span class="txt"><b>Keten</b><small>uw partners aangesloten zonder factuur · samen € 490</small></span><span class="pr">+ € 300</span></label>
-          <label class="cq-opt"><input type="checkbox" id="qCons"><span class="sw"></span><span class="txt"><b>Eigen keten hosten</b><small>gedeeld grootboek, elke partij een eigen kopie</small></span><span class="pr">+ € 500</span></label>
-          <label class="cq-opt cq-sub" id="qPartRow" hidden><span class="txt"><b>Partijen die wij hosten</b><small>€ 150 per partij, naast u</small></span><span class="cq-in sm"><input type="number" id="qPart" value="1" min="0" inputmode="numeric"></span></label>
+          <label class="cq-opt"><input type="checkbox" id="qKeten"><span class="sw"></span><span class="txt"><b>Keten</b><small>uw partners krijgen zelf een aansluiting, op uw factuur · meetekenen op uw stromen is altijd gratis</small></span><span class="pr">+ € 300</span></label>
         </div>
         <div class="cq-step" role="group">
           <h3 class="cq-h"><i>04</i>Contract</h3>
@@ -220,9 +218,6 @@ addEventListener("DOMContentLoaded", () => {
   function calc() {
     const n = Math.max(0, parseFloat($("#qN").value) || 0);
     const nb = Math.max(0, parseInt($("#qBron").value) || 0);
-    const cons = $("#qCons").checked;
-    const part = cons ? Math.max(0, parseInt($("#qPart").value) || 0) : 0;
-    $("#qPartRow").hidden = !cons;
     const jaar = document.querySelector("input[name=qTerm]:checked").value === "10";
     const months = jaar ? 10 : 12;
     const pilot = $("#qPilotX").checked ? 3500 : 1900;
@@ -236,8 +231,8 @@ addEventListener("DOMContentLoaded", () => {
       $("#offerteBtn").href = `mailto:oskar@vo-initiatives.com?subject=${encodeURIComponent("Offerte Vidimus — " + n + " registraties/maand (op maat)")}`;
       return;
     }
-    const bron = bronPrijs(nb), qtsp = $("#qQTSP").checked ? 90 : 0, keten = $("#qKeten").checked ? 300 : 0, gb = cons ? 500 + part * 150 : 0;
-    const m = base + bron + qtsp + keten + gb;
+    const bron = bronPrijs(nb), qtsp = $("#qQTSP").checked ? 90 : 0, keten = $("#qKeten").checked ? 300 : 0;
+    const m = base + bron + qtsp + keten;
     const schijf = n <= 1000 ? "tot 1 000 registraties — alles inbegrepen" : n <= 3000 ? "1 001 – 3 000 registraties · € 0,08 per registratie boven de 1 000" : n <= 10000 ? "3 001 – 10 000 registraties · € 0,04 per registratie boven de 3 000" : "10 001 – 30 000 registraties · € 0,02 per registratie boven de 10 000";
     $("#oSchijf").textContent = schijf;
     let h = line("Aansluiting", eur(190), "incl. 1 000 registraties, onbeperkt gebruikers en stromen");
@@ -245,13 +240,12 @@ addEventListener("DOMContentLoaded", () => {
     if (nb) h += line("Sensoren en systemen", eur(bron), nb + (nb === 1 ? " bron" : " bronnen") + ", metingen onbeperkt");
     if (qtsp) h += line("Gekwalificeerd tijdstempel", eur(qtsp));
     if (keten) h += line("Keten", eur(keten), "partners zonder factuur");
-    if (gb) h += line("Eigen keten hosten", eur(gb), part ? "€ 500 + " + part + " × € 150" : "");
     h += line("Per maand", eur(m), jaar ? "jaarcontract · 10 maanden gefactureerd" : "maandelijks opzegbaar", "cq-sum");
     $("#oLines").innerHTML = h;
     $("#oMnd").textContent = eur(m);
     $("#oJaarL").textContent = jaar ? "Per jaar · 2 maanden gratis" : "Per jaar";
     $("#oJaar").textContent = eur(m * months);
-    const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n} → ${eur(base)}/maand%0A- Sensoren en systemen: ${nb} bronnen → ${eur(bron)}/maand%0A- Gekwalificeerd tijdstempel: ${qtsp ? "ja" : "nee"}%0A- Keten: ${keten ? "ja" : "nee"}%0A- Eigen keten hosten: ${cons ? "ja, " + part + " partijen" : "nee"}%0A- Contract: ${jaar ? "jaarcontract" : "per maand"}%0A- Pilot: ${$("#qPilotX").checked ? "uitgebreid (€ 3 500)" : "standaard (€ 1 900)"}%0A- Richtprijs: ${eur(m)}/maand · ${eur(m * months)}/jaar%0A%0ABedrijf:%0ATelefoon:`;
+    const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n} → ${eur(base)}/maand%0A- Sensoren en systemen: ${nb} bronnen → ${eur(bron)}/maand%0A- Gekwalificeerd tijdstempel: ${qtsp ? "ja" : "nee"}%0A- Keten: ${keten ? "ja" : "nee"}%0A- Contract: ${jaar ? "jaarcontract" : "per maand"}%0A- Pilot: ${$("#qPilotX").checked ? "uitgebreid (€ 3 500)" : "standaard (€ 1 900)"}%0A- Richtprijs: ${eur(m)}/maand · ${eur(m * months)}/jaar%0A%0ABedrijf:%0ATelefoon:`;
     $("#offerteBtn").href = `mailto:oskar@vo-initiatives.com?subject=${encodeURIComponent("Offerte Vidimus — " + n + " registraties/maand")}&body=${body}`;
   }
   document.querySelectorAll("#reken input").forEach((el) => el.addEventListener("input", calc));
