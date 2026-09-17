@@ -866,4 +866,4 @@ a.terug:hover { color: var(--ink); }
 
 .mnd-hist { margin-top: 12px; } .mnd-hist li { flex-direction: column; align-items: flex-start; gap: 2px; } .mnd-hist li span { font: 400 11.5px/1.5 var(--mono); color: var(--ink-3); }
 
-.codecard, .route-row b, .hash-plate, .aansluit .curl, .raw .curl { background-size:auto,512px 256px,auto;background-blend-mode:screen,overlay,normal;border-color:rgba(0,0,0,.45); }
+.live-toast, .codecard, .route-row b, .hash-plate, .aansluit .curl, .raw .curl { background-size:auto,512px 256px,auto;background-blend-mode:screen,overlay,normal;border-color:rgba(0,0,0,.45); }
