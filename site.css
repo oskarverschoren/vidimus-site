@@ -81,7 +81,7 @@ header.site .top-start { white-space: nowrap; }
 .hero .anchorband { margin-top: 0; margin-bottom: calc(-1 * clamp(8px, 1.4vw, 16px)); }
 .hero-kicker { display: inline-flex; align-items: center; gap: 10px; }
 .hero-kicker i { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); flex: none; }
-.hero-title { font-size: clamp(46px, 1rem + 8.4vw, 124px); font-weight: 500; letter-spacing: -.045em; line-height: .98; max-width: 12ch; text-wrap: balance; }
+.hero-title { font-size: clamp(46px, 1rem + 8.4vw, 124px); font-weight: 400; letter-spacing: -.035em; line-height: 1.02; max-width: 12ch; text-wrap: balance; }
 .hero-title .strike { position: relative; color: var(--ink-3); display: inline-block; }
 .hero-title .strike::after { content: ""; position: absolute; left: -.02em; right: -.02em; top: 50%; height: .055em; min-height: 3px; border-radius: 3px; background: var(--act); transform: scaleX(0); transform-origin: left; }
 .js .hero-title .strike::after { animation: siteStrike 700ms var(--site-ease) 500ms forwards; }
