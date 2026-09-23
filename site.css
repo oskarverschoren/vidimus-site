@@ -527,3 +527,23 @@ a.go:hover svg { transform: translateX(3px); }
 /* 16/09: geborsteld staal — textuurlaag correct schalen en mengen op elk element dat var(--metal) gebruikt */
 .app-badge, .sens-code pre, /* ── tickerband: het blok als strip, mono rijen, groene punt ─── */
 .anchorband { background-size:auto,512px 256px,auto;background-blend-mode:screen,overlay,normal;border:1px solid rgba(0,0,0,.45);box-shadow:var(--metal-shadow); }
+
+/* hero-toestel (23/09): het product zelf vult de rechterkant */
+.hero .wrap { position: relative; }
+.hero-toestel { display: none; }
+@media (min-width: 1100px) {
+  .hero-toestel { display: block; position: absolute; right: clamp(8px, 3vw, 56px); top: 50%; transform: translateY(-50%); width: 300px; margin: 0; pointer-events: none; }
+  .ht-telefoon { width: 300px; aspect-ratio: 390 / 844; border-radius: 48px; padding: 9px; background: #0b0b0d; box-shadow: 0 50px 90px -40px rgba(11, 15, 23, .55), 0 18px 36px -18px rgba(11, 15, 23, .35); animation: htZweef 6s ease-in-out infinite; }
+  .ht-telefoon img { width: 100%; height: 100%; object-fit: cover; border-radius: 40px; display: block; }
+  .ht-kaart { position: absolute; left: -150px; bottom: 70px; width: 250px; background: rgba(255, 255, 255, .86); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(11, 15, 23, .06); border-radius: 20px; padding: 14px 16px; box-shadow: 0 24px 50px -28px rgba(11, 15, 23, .45); animation: htZweef 6s ease-in-out -3s infinite; }
+  .ht-lbl { font: 500 10px/1 var(--mono, monospace); letter-spacing: .14em; color: var(--ink-3, #8A90A0); }
+  .ht-kaart ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+  .ht-kaart li { display: grid; grid-template-columns: 16px 64px 1fr; align-items: center; gap: 8px; font-size: 13px; }
+  .ht-kaart li i { width: 16px; height: 16px; border-radius: 50%; background: #1E4FD8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; }
+  .ht-kaart li b { font-weight: 600; }
+  .ht-kaart li span { color: var(--ink-2, #4B5160); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hero-title { max-width: 9.5ch; }
+  .hero-under { grid-template-columns: minmax(0, 1fr); max-width: calc(100% - 420px); }
+}
+@keyframes htZweef { 50% { transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { .ht-telefoon, .ht-kaart { animation: none; } }
