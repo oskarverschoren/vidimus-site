@@ -534,6 +534,7 @@ a.go:hover svg { transform: translateX(3px); }
 @media (min-width: 1100px) {
   .hero-toestel { display: block; position: absolute; right: clamp(8px, 3vw, 56px); top: 50%; transform: translateY(-50%); width: 300px; margin: 0; pointer-events: none; }
   .ht-telefoon { width: 300px; aspect-ratio: 390 / 844; border-radius: 48px; padding: 9px; background: #0b0b0d; box-shadow: 0 50px 90px -40px rgba(11, 15, 23, .55), 0 18px 36px -18px rgba(11, 15, 23, .35); animation: htZweef 6s ease-in-out infinite; }
+  .ht-telefoon picture { display: block; width: 100%; height: 100%; }
   .ht-telefoon img { width: 100%; height: 100%; object-fit: cover; border-radius: 40px; display: block; }
   .ht-kaart { position: absolute; left: -150px; bottom: 70px; width: 250px; background: rgba(255, 255, 255, .86); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(11, 15, 23, .06); border-radius: 20px; padding: 14px 16px; box-shadow: 0 24px 50px -28px rgba(11, 15, 23, .45); animation: htZweef 6s ease-in-out -3s infinite; }
   .ht-lbl { font: 500 10px/1 var(--mono, monospace); letter-spacing: .14em; color: var(--ink-3, #8A90A0); }
