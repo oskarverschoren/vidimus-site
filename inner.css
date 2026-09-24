@@ -67,7 +67,7 @@
 .flow { border-left: 1px solid var(--rule-strong); margin-top: clamp(2rem, 4vw, 3rem); display: grid; gap: 0; }
 .flow-step { position: relative; min-width: 0; overflow-wrap: anywhere; padding: 0 0 clamp(1.8rem, 3vw, 2.6rem) clamp(1.5rem, 3vw, 3rem); }
 .flow-step::before { content: ""; position: absolute; left: -6px; top: 0.4rem; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-3); border: 2px solid var(--bg); }
-.flow-step.hit::before { background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); }
+.flow-step.hit::before { background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); }
 .flow-step .when { font: 500 0.65rem/1 var(--mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); }
 .flow-step h4 { font-weight: 600; letter-spacing: -.02em; font-size: clamp(1.05rem, 1.4vw, 1.25rem); margin: 0.6rem 0 0.6rem; line-height: 1.15; }
 .flow-step p { font-size: 0.86rem; color: var(--paper-dim); max-width: 60ch; }

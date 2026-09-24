@@ -188,7 +188,7 @@
 .pick h3 { font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
 .pick p { font-size: 13.5px; color: var(--ink-3); max-width: 40ch; line-height: 1.5; }
 .pick .pico { width: 28px; height: 28px; color: var(--ink-3); }
-.pick::after { content: ""; position: absolute; top: 18px; right: 18px; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .18); opacity: 0; transform: scale(.6); transition: opacity 200ms, transform 300ms var(--spring); }
+.pick::after { content: ""; position: absolute; top: 18px; right: 18px; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .18); opacity: 0; transform: scale(.6); transition: opacity 200ms, transform 300ms var(--spring); }
 .pick.sel::after { opacity: 1; transform: none; }
 .pick.sel .tag, .pick.sel p { color: rgba(255, 255, 255, .6); }
 .pick.sel h3, .pick.sel .pico { color: #fff; }
@@ -260,7 +260,7 @@
 .scard-foot svg { width: 12px; height: 12px; color: var(--ink); }
 .scard .anchor-stamp { position: absolute; top: 10px; right: 14px; z-index: 5; pointer-events: none; }
 .scard .anchor-stamp b { display: inline-flex; align-items: center; gap: 7px; font: 500 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ok); opacity: 0; transform: scale(1.3); }
-.scard .anchor-stamp b::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .18); }
+.scard .anchor-stamp b::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .18); }
 .scard.anchored .anchor-stamp b { animation: sealIn 420ms var(--spring) 300ms forwards; }
 @keyframes sealIn { 60% { opacity: 1; transform: scale(.97); } 100% { opacity: 1; transform: none; } }
 .scard.anchored::before { content: ""; position: absolute; inset: 0; z-index: 4; pointer-events: none; opacity: 0; background: linear-gradient(var(--ok), var(--ok)) top / 100% 2px no-repeat; animation: scanlijn 380ms var(--inout) forwards; }
@@ -332,7 +332,7 @@
 }
 
 /* mensen: persoonlijke uitnodiging met QR, status als pil */
-.pt-card.mens .pt-kind.gekoppeld { color: var(--ok); border-color: rgba(30, 158, 106, .35); }
+.pt-card.mens .pt-kind.gekoppeld { color: var(--ok); border-color: rgba(46, 107, 85, .35); }
 .pt-card.mens .pt-kind.uitgenodigd { color: var(--wait); border-color: rgba(199, 121, 26, .4); }
 .pt-card.mens .pt-kind.ingetrokken { color: var(--bad); border-color: rgba(179, 35, 64, .3); }
 .pt-card.mens.ingetrokken { opacity: .72; }
@@ -362,7 +362,7 @@
 .stroom .chip.alarm { color: var(--bad); } .stroom .chip.alarm::before { background: var(--bad); }
 .stroom .chip.ok::before { background: var(--ok); }
 .stroom .chip.stil { color: var(--ink-3); } .stroom .chip.stil::before { display: none; }
-.stroom .dot { position: absolute; top: 18px; right: 18px; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); }
+.stroom .dot { position: absolute; top: 18px; right: 18px; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); }
 .stroom .dot.alarm { background: var(--bad); box-shadow: 0 0 0 3px rgba(179, 35, 64, .14); }
 .stroom .dot.wacht { background: var(--wait); box-shadow: 0 0 0 3px var(--wait-bg); }
 .stroom.nieuw { border-style: dashed; background: rgba(255, 255, 255, .35); box-shadow: none; place-items: center; align-content: center; text-align: center; color: var(--ink-3); }
@@ -394,17 +394,17 @@
 .lifeline .ev { position: relative; display: grid; grid-template-columns: 56px 1fr; gap: 14px; padding: 14px 18px; border-radius: 16px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); cursor: pointer; transition: transform 200ms var(--out), box-shadow 200ms; }
 .lifeline .ev:hover { transform: translateY(-1px); box-shadow: var(--glass-shadow-hi); }
 .lifeline .ev::before { content: ""; position: absolute; left: -22px; top: 22px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-3); border: 2px solid var(--bg); }
-.lifeline .ev.anchored::before { background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); }
+.lifeline .ev.anchored::before { background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); }
 .lifeline .ev.unsigned::before, .lifeline .ev.pending-anchor::before { background: var(--wait); box-shadow: 0 0 0 3px var(--wait-bg); }
 .lifeline .ev.shredded::before { background: var(--bad); }
 .lifeline .ev.nieuw { animation: rowIn 420ms var(--out); }
 .lifeline .ev.anker.nieuw { animation: ankerIn 640ms cubic-bezier(.2,.9,.25,1.15); }
-@keyframes ankerIn { 0% { transform: translateY(-14px) scale(.985); opacity: 0; box-shadow: 0 0 0 0 rgba(30, 158, 106, 0); } 55% { opacity: 1; box-shadow: 0 0 0 6px rgba(30, 79, 216, .16); } 100% { transform: none; box-shadow: var(--glass-shadow); } }
+@keyframes ankerIn { 0% { transform: translateY(-14px) scale(.985); opacity: 0; box-shadow: 0 0 0 0 rgba(46, 107, 85, 0); } 55% { opacity: 1; box-shadow: 0 0 0 6px rgba(30, 79, 216, .16); } 100% { transform: none; box-shadow: var(--glass-shadow); } }
 .lifeline .ev.anker.nieuw .hash { display: inline-block; clip-path: inset(0 100% 0 0); animation: wortelSchrijft 720ms steps(24) 260ms forwards; }
 @keyframes wortelSchrijft { to { clip-path: inset(0 0 0 0); } }
 .lifeline .ev.anker.nieuw::before { animation: ankerPunt 520ms cubic-bezier(.2,1.5,.4,1) 700ms both; }
 .lifeline .ev.net-verankerd::before { animation: ankerPunt 520ms cubic-bezier(.2,1.5,.4,1) 900ms both; }
-@keyframes ankerPunt { 0% { transform: scale(.4); box-shadow: 0 0 0 0 rgba(30, 158, 106, .5); } 60% { transform: scale(1.5); box-shadow: 0 0 0 8px rgba(30, 158, 106, .12); } 100% { transform: scale(1); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); } }
+@keyframes ankerPunt { 0% { transform: scale(.4); box-shadow: 0 0 0 0 rgba(46, 107, 85, .5); } 60% { transform: scale(1.5); box-shadow: 0 0 0 8px rgba(46, 107, 85, .12); } 100% { transform: scale(1); box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); } }
 @media (prefers-reduced-motion: reduce) { .lifeline .ev.anker.nieuw, .lifeline .ev.anker.nieuw .hash, .lifeline .ev.anker.nieuw::before, .lifeline .ev.net-verankerd::before { animation: none; clip-path: none; } }
 .lifeline .t { font: 500 14px/1.3 var(--mono); color: var(--ink); font-variant-numeric: tabular-nums; }
 .lifeline .t small { display: block; font-size: 10px; letter-spacing: .1em; color: var(--ink-3); margin-top: 4px; text-transform: uppercase; }
@@ -421,7 +421,7 @@
 .lifeline .fotos img { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; border: 1px solid var(--line); background: #fff; }
 .lifeline .hash { font: 400 11px/1.4 var(--mono); color: var(--ink-3); letter-spacing: .04em; }
 .lifeline .hash b { color: var(--ok); font-weight: 500; }
-.lifeline .ev.anker { grid-template-columns: 56px 1fr; padding: 10px 18px; background: rgba(30, 158, 106, .06); border-color: rgba(30, 158, 106, .25); box-shadow: none; cursor: default; }
+.lifeline .ev.anker { grid-template-columns: 56px 1fr; padding: 10px 18px; background: rgba(46, 107, 85, .06); border-color: rgba(46, 107, 85, .25); box-shadow: none; cursor: default; }
 .lifeline .ev.anker::before { background: var(--ok); }
 .lifeline .ev.anker:hover { transform: none; }
 .lifeline .ev.bevestiging::before { background: var(--ok); }
@@ -569,7 +569,7 @@
 .rg-tiles .tile::after { content: ""; position: absolute; top: 14px; right: 14px; width: 7px; height: 7px; border-radius: 50%; background: rgba(11, 15, 23, .18); }
 .rg-tiles .tile.wait::after { background: var(--wait); box-shadow: 0 0 0 3px var(--wait-bg); }
 .rg-tiles .tile.wait.zero::after { background: rgba(11, 15, 23, .18); box-shadow: none; }
-.rg-tiles .tile.ok::after { background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); }
+.rg-tiles .tile.ok::after { background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); }
 .rg-tiles .tile.wait b { color: var(--wait); } .rg-tiles .tile.wait.zero b { color: var(--ink); }
 .rg-tiles .tile.ok b { color: var(--ok); } .rg-tiles .tile.ok.zero b { color: var(--ink); }
 .chip.wacht { color: var(--wait); } .chip.bad { color: var(--bad); }
@@ -838,12 +838,12 @@ a.terug:hover { color: var(--ink); }
 /* live volgen: toast rechtsonder + pulserende kaart (09-09) */
 .live-toast { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 60; display: flex; gap: 10px; align-items: center; padding: 10px 14px 10px 12px; border-radius: 14px; background: var(--metal, #0b0f17); color: #fff; box-shadow: 0 20px 50px -20px rgba(11, 15, 23, .6); transform: translateY(16px) scale(.97); opacity: 0; pointer-events: none; transition: transform 260ms var(--out), opacity 200ms; max-width: min(92vw, 380px); }
 .live-toast.on { transform: none; opacity: 1; }
-.live-toast i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(30, 158, 106, .25); animation: toastPuls 1.2s ease-out infinite; flex: none; }
+.live-toast i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(46, 107, 85, .25); animation: toastPuls 1.2s ease-out infinite; flex: none; }
 .live-toast b { display: block; font-weight: 600; font-size: 13.5px; }
 .live-toast span { display: block; font: 400 12px/1.3 var(--mono); color: rgba(255, 255, 255, .7); }
-@keyframes toastPuls { 0% { box-shadow: 0 0 0 0 rgba(30, 158, 106, .45); } 100% { box-shadow: 0 0 0 9px rgba(30, 158, 106, 0); } }
+@keyframes toastPuls { 0% { box-shadow: 0 0 0 0 rgba(46, 107, 85, .45); } 100% { box-shadow: 0 0 0 9px rgba(46, 107, 85, 0); } }
 .stroom.puls { animation: kaartPuls 900ms var(--out); }
-@keyframes kaartPuls { 0% { box-shadow: 0 0 0 0 rgba(30, 158, 106, .5); transform: translateY(0); } 40% { box-shadow: 0 0 0 10px rgba(30, 158, 106, 0); transform: translateY(-3px); } 100% { box-shadow: var(--glass-shadow); transform: none; } }
+@keyframes kaartPuls { 0% { box-shadow: 0 0 0 0 rgba(46, 107, 85, .5); transform: translateY(0); } 40% { box-shadow: 0 0 0 10px rgba(46, 107, 85, 0); transform: translateY(-3px); } 100% { box-shadow: var(--glass-shadow); transform: none; } }
 .has-tabbar .live-toast { bottom: calc(84px + env(safe-area-inset-bottom)); left: 18px; right: 18px; max-width: none; }
 @media (prefers-reduced-motion: reduce) { .live-toast i, .stroom.puls { animation: none; } }
 

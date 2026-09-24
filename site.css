@@ -59,7 +59,7 @@ header.site .top-start { white-space: nowrap; }
 .anchorband { display: flex; align-items: center; gap: 14px; padding: 7px 14px; border-radius: 999px; background: var(--metal); box-shadow: var(--metal-shadow); color: #fff; overflow: hidden; margin-top: 18px; position: relative; }
 .anchorband::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(100deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, .14) 48%, rgba(255, 255, 255, 0) 66%); background-size: 260% 100%; animation: sheen2 1400ms var(--out) 400ms forwards; background-position: 160% 0; }
 .ab-lbl { display: inline-flex; align-items: center; gap: 9px; font: 500 10px/1 var(--mono); letter-spacing: .18em; color: rgba(255, 255, 255, .55); white-space: nowrap; }
-.ab-lbl i { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px rgba(30, 158, 106, .7); animation: blink 1.6s ease-in-out infinite; }
+.ab-lbl i { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: none; animation: blink 1.6s ease-in-out infinite; }
 .anchorband.is-demo .ab-lbl i { background: rgba(255, 255, 255, .35); box-shadow: none; animation: none; }
 .ab-view { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
 .ab-track { display: flex; gap: 28px; width: max-content; animation: abScroll var(--ab-dur, 40s) linear infinite; }
@@ -80,7 +80,7 @@ header.site .top-start { white-space: nowrap; }
 .hero .wrap { display: grid; gap: clamp(26px, 3.6vw, 44px); }
 .hero .anchorband { margin-top: 0; margin-bottom: calc(-1 * clamp(8px, 1.4vw, 16px)); }
 .hero-kicker { display: inline-flex; align-items: center; gap: 10px; }
-.hero-kicker i { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); flex: none; }
+.hero-kicker i { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); flex: none; }
 .hero-title { font-size: clamp(46px, 1rem + 8.4vw, 124px); font-weight: 400; letter-spacing: -.035em; line-height: 1.02; max-width: 12ch; text-wrap: balance; }
 .hero-title .strike { position: relative; color: var(--ink-3); display: inline-block; }
 .hero-title .strike::after { content: ""; position: absolute; left: -.02em; right: -.02em; top: 50%; height: .055em; min-height: 3px; border-radius: 3px; background: var(--act); transform: scaleX(0); transform-origin: left; }
@@ -136,7 +136,7 @@ a.go:hover svg { transform: translateX(3px); }
 .states { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 16px; }
 .state { border-radius: 20px; padding: 20px 22px; display: grid; gap: 8px; align-content: start; }
 .state .kt-verdict { display: inline-flex; align-items: center; gap: 8px; }
-.state .kt-verdict::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); }
+.state .kt-verdict::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); }
 .state .kt-verdict.bad::before { box-shadow: 0 0 0 3px rgba(179, 35, 64, .14); }
 .state p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
 .states-foot { grid-column: 1 / -1; font-size: 14px; color: var(--ink-3); max-width: 70ch; }
@@ -220,7 +220,7 @@ a.go:hover svg { transform: translateX(3px); }
 .price .amt small { display: block; font: 500 11px/1.8 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-top: 6px; }
 .price ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 8px; }
 .price li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
-.price li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(30, 158, 106, .16); margin-top: 7px; }
+.price li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); margin-top: 7px; }
 .price .xbtn { justify-self: start; height: 48px; padding-inline: 22px; margin-top: 6px; }
 .price .plan-after p { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
 .price .plan-after p b { color: var(--ink); font-weight: 600; }
@@ -442,7 +442,7 @@ a.go:hover svg { transform: translateX(3px); }
 .tl-kaart .kv dd { transition: color 400ms var(--site-ease), background 400ms; border-radius: 6px; }
 .tl-kaart .kv dd.wijzig { color: var(--bad); background: rgba(179, 35, 64, .07); }
 .tl-kaart .kv dd.weg { color: var(--ink-3); text-decoration: line-through; }
-.tl-extra { display: grid; gap: 6px; padding: 10px 12px; border-radius: 12px; background: rgba(30, 158, 106, .07); border: 1px solid rgba(30, 158, 106, .25); font: 500 12px/1.6 var(--mono); color: var(--ink-2); }
+.tl-extra { display: grid; gap: 6px; padding: 10px 12px; border-radius: 12px; background: rgba(46, 107, 85, .07); border: 1px solid rgba(46, 107, 85, .25); font: 500 12px/1.6 var(--mono); color: var(--ink-2); }
 .tl-extra b { color: var(--ok); font-weight: 600; }
 .tl-noot { margin: 4px 0 0; font-size: 13.5px; color: var(--ink-3); min-height: 2.6em; transition: color 300ms; }
 .tl-noot.bad { color: var(--bad); } .tl-noot.ok { color: var(--ok); }
@@ -471,7 +471,7 @@ a.go:hover svg { transform: translateX(3px); }
 .app3d .wrap { position: relative; z-index: 2; }
 .stage-wrap { height: 620svh; position: relative; }
 .stage { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; max-width: 72rem; margin: 0 auto; padding: 0 var(--gutter); perspective: 1600px; }
-.stage .glow { position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(30, 79, 216, .22), rgba(30, 158, 106, .10) 45%, transparent 70%); filter: blur(30px); pointer-events: none; }
+.stage .glow { position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(30, 79, 216, .22), rgba(46, 107, 85, .10) 45%, transparent 70%); filter: blur(30px); pointer-events: none; }
 .stage .ring3d { position: absolute; left: 50%; top: 50%; width: 92vmin; height: 92vmin; transform: translate(-50%, -50%) rotate(var(--ring, 0deg)); opacity: .55; pointer-events: none; }
 .stage .ring3d text { font: 400 8.5px var(--mono); letter-spacing: .34em; fill: rgba(11, 15, 23, .28); }
 /* de telefoon: fotorealistische behuizing uit Blender (Cycles, titanium, orthografisch van voren); het scherm is een echte
