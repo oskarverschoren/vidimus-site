@@ -35,7 +35,7 @@ main { display: block; }
 .disp b, .disp strong { font-weight: 600; }
 .thin, .outline { color: var(--ink-3); font-style: normal; font-weight: 500; }
 .lbl b { color: var(--ink); font-weight: 500; }
-.rec { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 107, 85, .16); }
+.rec { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--ok);  }
 .rec.live { animation: blink 2.2s ease-in-out infinite; }
 
 /* paginakop */
