@@ -558,3 +558,7 @@ a.go:hover svg { transform: translateX(3px); }
 .routes a em { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); font-style: normal; }
 .routes a.partner { border-top: 3px solid var(--act, #1E4FD8); }
 @media (max-width: 720px) { .routes { grid-template-columns: 1fr; } }
+
+/* ── navigatie met zeven items (25/09): nooit afbreken; op smalle schermen vallen Scenario's en Help weg (staan in de voet) ── */
+.topnav a { white-space: nowrap; }
+@media (max-width: 1000px) { .topnav a[href="scenarios.html"], .topnav a[href="help.html"] { display: none; } }

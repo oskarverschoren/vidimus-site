@@ -34,6 +34,7 @@
     <a href="scenarios.html">Scenario's</a>
     <a href="help.html">Help</a>
     <a href="partners.html">Partners</a>
+    <a href="juridisch.html">Juridisch</a>
     <a href="prijzen.html">Prijzen</a>
   </nav>
   <div class="top-cta">
@@ -54,32 +55,32 @@
 <section class="how" style="padding-block:var(--space-half,4rem) var(--space)">
   <div class="wrap">
     <div class="how-row rv"><span class="how-num" aria-hidden="true">01</span>
-      <h3>Registratie<small>BRON: UW ERP · POORT · SENSOR · TELEFOON</small></h3>
-      <p>Er gebeurt iets, en dat wordt vastgelegd. Een chauffeur scant aan de poort. Een sensor meet 4,2 °C in de koelcel. Een aannemer stuurt een meerwerkbon door. Dat doet u vandaag al — alleen belandt het in een systeem waar later iedereen aan kan zitten.</p>
+      <h3>Identiteit<small>KBO · EID-MANDAAT · SLEUTEL OP HET TOESTEL · CERTIFICAAT OP NAAM VAN DE FIRMA</small></h3>
+      <p>Elke organisatie wordt gecontroleerd in de KBO en tekent een mandaat met de eID van haar bestuurder; daaruit volgt een organisatiekenmerk (SHA-256) dat in elke bundel terugkomt. Elke medewerker krijgt een Ed25519-sleutel die op zijn telefoon wordt aangemaakt en die nooit verlaat, met een certificaat op naam van de firma; Face ID is het slot. Systemen — TMS, poort, sensor — tekenen met een systeemsleutel van de organisatie. <em style="color:var(--ink);font-style:normal">Wie tekent, is geen loginnaam maar een sleutel met een geïdentificeerde firma erachter.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">02</span>
-      <h3>Vingerafdruk<small>SHA-256 · "EEN FOTO VAN HET EXACTE MOMENT"</small></h3>
-      <p>Van het document of de meetwaarde berekenen we op dat moment een unieke wiskundige vingerafdruk. Eén gewijzigd cijfer geeft een totaal andere afdruk — en uit de afdruk valt de inhoud nooit te reconstrueren.</p>
+      <h3>Registratie<small>APP OF API · /registrations PER STUK · /measurements PER BRON</small></h3>
+      <p>Er gebeurt iets en dat wordt vastgelegd: een chauffeur tekent een aflevering met foto en plaats, een TMS stuurt een CMR door, een koelcel meldt 4,2 °C. Via de app of via één API-call. Metingen gaan apart en zijn onbeperkt per bron; alles met eigen inhoud of ID is een registratie. Dat doet u vandaag al — alleen belandt het in een systeem waar later iedereen aan kan zitten.</p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">03</span>
-      <h3>Wie &amp; wanneer<small>ED25519 · RFC 3161 — NIET ONZE KLOK, DIE VAN EEN DERDE</small></h3>
-      <p>De registratie wordt digitaal ondertekend door de indiener (ontworpen naar de vereisten van een geavanceerde elektronische handtekening) en een onafhankelijke tijdstempeldienst stempelt het exacte tijdstip erop. <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok.</em></p>
+      <h3>Vingerafdruk<small>SHA-256 · CANONIEKE JSON · ELKE BIJLAGE OP HASH</small></h3>
+      <p>Op dat moment wordt SHA-256 berekend over de canonieke inhoud én de hash van elke bijlage. Eén byte anders geeft een andere afdruk; uit de afdruk valt de inhoud nooit te reconstrueren. Bij stromen met persoonsgegevens is de afdruk een HMAC met een salt die alleen in de bundel van de eigenaar zit: de keten blijft na te rekenen, de inhoud niet te raden.</p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">04</span>
-      <h3>Verankeren<small>MERKLE-ROOT → TIJDSTEMPEL (RFC 3161) → GROOTBOEK → BITCOIN</small></h3>
-      <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — gaat elke vijf minuten met alle nieuwe vingerafdrukken in één Merkle-boom. De wortel daarvan wordt door een onafhankelijke tijdstempeldienst getekend, in ons append-only grootboek geschreven en via OpenTimestamps in een Bitcoin-blok verankerd: een publiek register dat niemand kan wissen, ook wij niet. <em style="color:var(--ink);font-style:normal">Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen.</em></p>
+      <h3>Handtekening en tijd<small>ED25519 · ELKE 5 MINUTEN EEN MERKLE-BOOM · RFC 3161 — NIET ONZE KLOK, DIE VAN EEN DERDE</small></h3>
+      <p>De indiener tekent de vingerafdruk met zijn sleutel (ontworpen naar de vereisten van een geavanceerde elektronische handtekening). Elke vijf minuten gaan alle nieuwe vingerafdrukken in één Merkle-boom; de wortel daarvan wordt getekend door een onafhankelijke tijdstempeldienst. <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">05</span>
-      <h3>Op slot<small>AES-256 · WORM — DE SLEUTEL IS VAN U</small></h3>
-      <p>Het document zelf wordt versleuteld en bewaard in opslag die tijdens de wettelijke bewaartermijn niet gewist of overschreven kan worden. Elk document heeft een eigen sleutel. <em style="color:var(--ink);font-style:normal">Wissen of vervangen kan niemand, ook wij niet.</em></p>
+      <h3>Verankeren<small>GROOTBOEK (HASH-KETEN) → OPENTIMESTAMPS → BITCOIN</small></h3>
+      <p>Dezelfde wortel komt in ons append-only grootboek — elk record hasht het vorige — en gaat via OpenTimestamps in een Bitcoin-blok: een publiek register dat door duizenden partijen tegelijk wordt bijgehouden. Wijzigen of wissen zou door iedereen opgemerkt worden, ook als wij het zouden proberen. <em style="color:var(--ink);font-style:normal">Twee getuigen: een erkende derde en een publieke keten. Alle partijen kijken naar hetzelfde bewijs.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">06</span>
-      <h3>Bewijzen<small>BIJ DISCUSSIE: BEWIJS IN PLAATS VAN WOORDEN</small></h3>
-      <p>"Die temperatuur is nooit gemeten." U opent het origineel, wij nemen opnieuw de vingerafdruk en leggen ze naast die op het grootboek. Klopt het — en dat kan een advocaat of rechter zelf nakijken, zonder ons — dan staat vast: <em style="color:var(--ink);font-style:normal">dit exacte document bestond op dat moment, ingediend door die partij, sindsdien onaangeraakt.</em></p>
+      <h3>De kluis<small>AES-256-GCM PER DOCUMENT · SLEUTEL PER ORGANISATIE · WRITE-ONCE · OBJECT LOCK IN DE EU</small></h3>
+      <p>Stuurt u originelen mee — foto's, pdf's, CMR's — dan liggen ze versleuteld in de kluis: een eigen sleutel per document, gewikkeld onder de sleutel van uw organisatie. Elk bestand wordt één keer geschreven en gaat ook naar opslag met Object Lock (Hetzner, Duitsland) die tijdens de bewaartermijn niemand kan overschrijven. Leest onze server inhoud voor een dossier of bundel, dan staat dat in een logboek dat u zelf ziet. <em style="color:var(--ink);font-style:normal">Vervangen kan niemand, ook wij niet.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">07</span>
-      <h3>Wissen<small>AVG · CRYPTO-SHREDDING — WEG IS ECHT WEG</small></h3>
-      <p>Na de bewaartermijn, of bij een beroep op gegevenswissing, vernietigen we de sleutel: het versleutelde bestand wordt voorgoed onleesbare ruis. De vingerafdruk op het grootboek blijft aantonen <em style="color:var(--ink);font-style:normal">dát</em> er iets was, wanneer, en door wie — zonder één persoonsgegeven. <em style="color:var(--ink);font-style:normal">Bewijs en privacy sluiten elkaar niet meer uit.</em></p>
+      <h3>Verifiëren en wissen<small>ZEVEN CONTROLES ZONDER VIDIMUS · AVG · CRYPTO-SHREDDING</small></h3>
+      <p>Elke registratie krijgt een publieke controlepagina en een bewijsbundel met script: inhoud, batch, handtekening van de indiener, tijdstempel, grootboek, Bitcoin, handtekening van Vidimus — na te rekenen met open gereedschap, <a href="verificatie.html">zonder ons</a>. Na de bewaartermijn of bij een beroep op gegevenswissing vernietigen we de documentsleutel: het bestand wordt ruis, de vingerafdruk blijft aantonen <em style="color:var(--ink);font-style:normal">dát</em> er iets was, wanneer en door wie. <em style="color:var(--ink);font-style:normal">Bewijs en privacy sluiten elkaar niet uit.</em></p>
     </div>
   </div>
 </section>
@@ -93,7 +94,7 @@
     <div class="why-grid rv" style="grid-template-columns:repeat(4,1fr)">
       <article><span class="no">A</span><h3>De inhoud</h3><p>Het document of de meting zelf: een afgiftestaat, een meerwerk-akkoord, een gate-event. Foto's gaan mee als hash — het beeld blijft bij u.</p></article>
       <article><span class="no">B</span><h3>Het moment</h3><p>Niet onze serverklok maar een onafhankelijke RFC 3161-tijdstempel bepaalt wanneer. Antidateren kan dus ook niet — door geen enkele partij.</p></article>
-      <article><span class="no">C</span><h3>De ondertekenaars</h3><p>Ed25519-handtekeningen op naam, met X.509-certificaten per organisatie en gebruiker (eIDAS art. 26).</p></article>
+      <article><span class="no">C</span><h3>De ondertekenaars</h3><p>Ed25519-handtekeningen met X.509-certificaten per organisatie, medewerker en systeem, ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26). De organisatie zelf via een mandaat dat de bestuurder met zijn eID tekent.</p></article>
       <article><span class="no">D</span><h3>De geschiedenis</h3><p>Elke actie erna — bekijken, exporteren, delen — komt in een audittrail die zelf SHA-256-gechaind is.</p></article>
     </div>
   </div>
@@ -168,7 +169,7 @@
       <h2 class="disp">De vragen die uw IT'er gaat stellen<span style="color:var(--red)">.</span></h2>
     </div>
     <div class="faq rv">
-      <details><summary>Moeten onze documenten naar jullie cloud?</summary><p class="a"><b>Nee.</b> Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Het document zelf blijft waar het staat, off-chain en verwijderbaar. Data blijft in de EU.</p></details>
+      <details><summary>Moeten onze documenten naar jullie cloud?</summary><p class="a"><b>Alleen als u dat wilt.</b> Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Stuurt u alleen de hash, dan blijft het document waar het staat. Stuurt u het origineel mee, dan ligt het versleuteld in de kluis (eigen sleutel per document, sleutel per organisatie, in de EU) en kunt u het later laten wissen. Ketenpartners en softwarepartners lezen het nooit; leest onze server het voor een dossier of bundel, dan staat dat in uw logboek.</p></details>
       <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen wallet, geen consortium.</b> Wij gebruiken Bitcoin alleen als publieke, onwisbare klok: de Merkle-wortel van elke batch gaat via OpenTimestamps in een Bitcoin-blok, en het bewijs (.ots) is tegen Bitcoin zelf na te rekenen. Daarnaast tekent een onafhankelijke tijdstempeldienst (RFC 3161) dezelfde wortel. Twee getuigen, geen token.</p></details>
       <details><summary>En persoonsgegevens dan (AVG)?</summary><p class="a">Op de keten staan <b>geen persoonsgegevens</b> — alleen hashes, en voor persoonsgebonden registraties gesleutelde hashes die zonder de (off-chain) sleutel naar niets te herleiden zijn. Het recht op gegevenswissing blijft uitvoerbaar: het dossier is off-chain versleuteld en wordt gewist door de sleutel te vernietigen.</p></details>
       <details><summary>Wat als we stoppen — of als Vidimus verdwijnt?</summary><p class="a">De bewijsbundels zijn <b>al van u</b>: exporteerbaar en zelfstandig verifieerbaar met standaardcryptografie (SHA-256, RFC 3161, Merkle-bewijs). Ze hangen niet aan ons platform en blijven ook na een stopzetting geldig.</p></details>
