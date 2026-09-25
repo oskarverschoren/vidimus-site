@@ -51,7 +51,7 @@
       <a class="xbtn red" href="https://app.vidimus.be/login"><span>Begin gratis — geen betaalgegevens</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="xbtn" href="#reken"><span>Reken uw prijs uit</span></a>
     </div>
-    <p style="margin-top:1rem" class="lbl">eerste 100 registraties en eerste bron gratis · minimum € 19 · nooit meer dan € 990 per maand · richtprijzen excl. btw</p>
+    <p style="margin-top:1rem" class="lbl">eerste 100 registraties en eerste bron gratis · minimum € 19 · geen plafond · richtprijzen excl. btw</p>
   </div>
 </section>
 
@@ -65,11 +65,11 @@
     <table class="dtable rv">
       <thead><tr><th>Eenheid</th><th>Wat het is</th><th>Prijs</th></tr></thead>
       <tbody>
-        <tr><td>Registratie<span class="sub">eerste 100 per maand gratis</span></td><td>een document, een foto, een handtekening, een gebeurtenis — door een mens of door een systeem ingestuurd</td><td class="pr">€ 0,08<span class="sub">€ 0,04 vanaf 3 000 · € 0,02 vanaf 10 000</span></td></tr>
+        <tr><td>Registratie<span class="sub">eerste 100 per maand gratis</span></td><td>een document, een foto, een handtekening, een gebeurtenis — door een mens of door een systeem ingestuurd</td><td class="pr">€ 0,08<span class="sub">per schijf: € 0,04 van 3 001 tot 10 000 · € 0,01 tot 100 000 · € 0,003 daarboven · boven 1 miljoen op offerte</span></td></tr>
         <tr><td>Bron<span class="sub">eerste gratis</span></td><td>een sensor, een logger, een poort, een weegbrug: een systeem dat metingen stuurt. Metingen onbeperkt; elke meting blijft apart gehasht, getekend en verankerd</td><td class="pr">€ 15 / maand</td></tr>
         <tr><td>Ketenpartner<span class="sub">eigen aansluiting op uw factuur</span></td><td>uw vervoerder, leverancier of aannemer krijgt zélf een volledige aansluiting (eigen stromen, eigen bureau, eigen sleutels); zijn verbruik telt op uw meter. Meetekenen op uw stromen is altijd gratis</td><td class="pr">€ 25 / maand</td></tr>
         <tr><td>Minimum</td><td>zodra er iets wordt aangerekend</td><td class="pr">€ 19 / maand</td></tr>
-        <tr><td>Plafond</td><td>daarboven betaalt u niets extra; wie structureel meer verankert, krijgt een jaarcontract op offerte</td><td class="pr">€ 990 / maand</td></tr>
+        <tr><td>Bundel<span class="sub">optie, vaste maandprijs</span></td><td>vooraf gekochte registraties met korting, voor wie één vast bedrag wil: Start (1 bron + 2 500 registraties) € 149 · Evidence 10K € 399 · Evidence 100K (5 bronnen) € 1 190. Meer dan de bundel telt tegen de schijfprijs. Alleen voordeliger vanaf ongeveer 2 100 registraties per maand; daaronder betaalt u los minder</td><td class="pr">vanaf € 149 / maand</td></tr>
       </tbody>
     </table>
     <p class="law-note"><b style="color:var(--ink)">Wat nooit meetelt:</b> gebruikers, stromen, metingen per bron, bundels downloaden, verificaties door uw tegenpartij, deellinks, wissen, opslag tot 50 GB. Eén meter, één rekening.</p>
@@ -105,7 +105,7 @@
     <table class="dtable rv">
       <thead><tr><th>Wat</th><th>Wanneer</th><th>Prijs</th></tr></thead>
       <tbody>
-        <tr><td>Jaarcontract</td><td>u zit structureel boven het plafond, of wil een vaste prijs, SLA (reactietijd vier werkuren, 99,5 % beschikbaarheid met creditregeling, kwartaalrapport) en een vaste contactpersoon. Zonder SLA geldt voor iedereen: antwoord binnen één werkdag, storing binnen vier werkuren opgepakt, nachtelijke back-up en een getest herstelplan</td><td class="pr">offerte</td></tr>
+        <tr><td>Jaarcontract</td><td>u verankert structureel meer dan een miljoen registraties per maand, of wil een vaste prijs, SLA (reactietijd vier werkuren, 99,5 % beschikbaarheid met creditregeling, kwartaalrapport) en een vaste contactpersoon. Zonder SLA geldt voor iedereen: antwoord binnen één werkdag, storing binnen vier werkuren opgepakt, nachtelijke back-up en een getest herstelplan</td><td class="pr">offerte</td></tr>
         <tr><td>Sector of federatie<span class="sub">partner-API</span></td><td>uw software of sectororganisatie maakt zelf aansluitingen aan voor leden of eindklanten, met één factuur bij u en verbruik uitgesplitst per organisatie. Ledentarief en onboarding in overleg</td><td class="pr">offerte</td></tr>
         <tr><td>Gekwalificeerd tijdstempel<span class="sub">QTSP · EU Trusted List</span></td><td>wettelijk vermoeden van datum en tijd (eIDAS art. 41) — bij audits, hoge bedragen. Het standaard onafhankelijke tijdstempel (RFC 3161) is altijd inbegrepen</td><td class="pr">op aanvraag</td></tr>
         <tr><td>Eigen keten hosten<span class="sub">gedeeld grootboek</span></td><td>een afgeschermd netwerk voor uw keten, elke partij een eigen kopie, bij ons of in eigen huis — voor sectoren die het contractueel eisen. De Bitcoin-verankering geeft die onafhankelijkheid al</td><td class="pr">op aanvraag</td></tr>
@@ -201,9 +201,9 @@ addEventListener("DOMContentLoaded", () => {
   const $ = (s) => document.querySelector(s);
   const eur = (n) => "€ " + (Number.isInteger(n) ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f") : n.toFixed(2).replace(".", ","));
   const num = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f");
-  // v4 (22/09): zelfde cijfers als vidimus/billing.py — eerste 100 registraties gratis, dan 0,08 → 0,04 (vanaf 3 000) → 0,02 (vanaf 10 000); bron: eerste gratis, dan € 15; partner € 25; minimum 19; plafond 990
-  const GRATIS = 100, BRON = 15, PARTNER = 25, MIN = 19, MAX = 990;
-  const regPrijs = (n) => { if (n <= GRATIS) return 0; let t = 0, prev = GRATIS; for (const [lim, rate] of [[3000, .08], [10000, .04], [null, .02]]) { const top = lim === null ? n : Math.min(n, lim); if (top > prev) t += (top - prev) * rate; if (lim === null || n <= lim) break; prev = lim; } return Math.round(t * 100) / 100; };
+  // v5 (25/09): zelfde cijfers als vidimus/billing.py — eerste 100 registraties gratis, dan per schijf 0,08 → 0,04 (3 001–10 000) → 0,01 (tot 100 000) → 0,003; bron: eerste gratis, dan € 15; partner € 25; minimum 19; geen plafond; boven 1 miljoen offerte
+  const GRATIS = 100, BRON = 15, PARTNER = 25, MIN = 19, OFFERTE = 1000000;
+  const regPrijs = (n) => { if (n <= GRATIS) return 0; let t = 0, prev = GRATIS; for (const [lim, rate] of [[3000, .08], [10000, .04], [100000, .01], [null, .003]]) { const top = lim === null ? n : Math.min(n, lim); if (top > prev) t += (top - prev) * rate; if (lim === null || n <= lim) break; prev = lim; } return Math.round(t * 100) / 100; };
   const line = (l, v, sub, cls) => `<div${cls ? ` class="${cls}"` : ""}><dt>${l}${sub ? `<small>${sub}</small>` : ""}</dt><dd>${v}</dd></div>`;
   function chips() { document.querySelectorAll(".cq-chips").forEach((c) => { const v = String(parseInt($("#" + c.dataset.for).value) || 0); c.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.v === v)); }); }
   function calc() {
@@ -211,15 +211,14 @@ addEventListener("DOMContentLoaded", () => {
     const jaar = document.querySelector("input[name=qTerm]:checked").value === "10", months = jaar ? 10 : 12;
     chips();
     const r = regPrijs(n), b = Math.max(0, nb - 1) * BRON, p = np * PARTNER, som = Math.round((r + b + p) * 100) / 100;
-    const mv = som === 0 ? 0 : som < MIN ? MIN : som > MAX ? MAX : som;   // maandprijs naar verbruik
+    const mv = som === 0 ? 0 : som < MIN ? MIN : som;   // maandprijs naar verbruik (v5: geen plafond)
     const m = jaar ? Math.round(mv * 10 / 12 * 100) / 100 : mv;              // jaarcontract: 10 maanden betalen voor 12 → lager maandbedrag
     const node = $("#qNode").checked;
-    $("#oSchijf").textContent = som === 0 ? "binnen de gratis laag — geen factuur" : som < MIN ? `verbruik ${eur(som)} — u betaalt het minimum` : som > MAX ? `verbruik ${eur(som)} — u betaalt het plafond; een jaarcontract is voordeliger` : jaar ? "vaste prijs voor een jaar, op basis van deze schatting" : "betalen naar verbruik, geen sprongen";
+    $("#oSchijf").textContent = som === 0 ? "binnen de gratis laag — geen factuur" : som < MIN ? `verbruik ${eur(som)} — u betaalt het minimum` : n > OFFERTE ? `verbruik ${eur(som)} — boven een miljoen registraties werken we met een jaarcontract op offerte` : jaar ? "vaste prijs voor een jaar, op basis van deze schatting" : "betalen naar verbruik, geen sprongen";
     let h = line("Registraties", eur(r), n <= GRATIS ? `${num(n)} — de eerste 100 gratis` : `${num(n)}, waarvan 100 gratis`);
     h += line("Bronnen", eur(b), nb ? `${nb} ${nb === 1 ? "bron" : "bronnen"}, de eerste gratis, metingen onbeperkt` : "geen");
     if (np) h += line("Ketenpartners", eur(p), `${np} met eigen aansluiting`);
     if (som !== 0 && som < MIN) h += line("Minimum", eur(MIN));
-    if (som > MAX) h += line("Plafond", eur(MAX), "meer betaalt u nooit");
     if (node) h += line("Eigen node", "op aanvraag", "gedeeld grootboek, eigen kopie van elk anker");
     h += line("Per maand", eur(m), jaar ? `jaarcontract · ${eur(mv)} naar verbruik, 2 maanden gratis verrekend` : "maandelijks, naar verbruik", "cq-sum");
     $("#oLines").innerHTML = h; $("#oMnd").textContent = eur(m);
