@@ -5,16 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F2F3F6">
 <title>Prijzen — alles inbegrepen, per eenheid | Vidimus</title>
-<meta name="description" content="Alles inbegrepen, betalen per eenheid. Registraties: de eerste 100 per maand gratis, daarna € 0,08 en minder. Bronnen: de eerste gratis, daarna € 15 per maand. Minimum € 19, nooit meer dan € 990 per maand.">
+<meta name="description" content="Alles inbegrepen, betalen per eenheid. Bronnen: de eerste gratis, daarna € 15 per maand met onbeperkt metingen. Registraties: de eerste 100 per maand gratis, daarna € 0,08 per stuk, dalend tot € 0,003. Minimum € 19, geen plafond. Bundels en partnerprijzen als optie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260916e">
-<link rel="stylesheet" href="inner.css?v=20260916f">
+<link rel="stylesheet" href="styles.css?v=20260925">
+<link rel="stylesheet" href="inner.css?v=20260925">
+<style>
+.ingang { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: clamp(1.4rem, 3vw, 2rem); }
+.ingang article { display: grid; gap: 8px; align-content: start; padding: 22px 24px; border-radius: 22px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+.ingang .no { font: 500 10px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); }
+.ingang .amt { font: 500 clamp(26px, 2.6vw, 34px)/1 var(--mono); letter-spacing: -.04em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ingang .amt small { font: 500 11px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-left: 8px; }
+.ingang h3 { font-size: 19px; font-weight: 600; letter-spacing: -.025em; }
+.ingang p { font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+.ingang p b { color: var(--ink); font-weight: 600; }
+@media (max-width: 720px) { .ingang { grid-template-columns: 1fr; } }
+</style>
 
 <link rel="canonical" href="https://vidimus.be/prijzen.html">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
-<meta property="og:title" content="Prijzen — alles inbegrepen, per eenheid | Vidimus"><meta property="og:description" content="Geen formules. Registraties: eerste 100 per maand gratis, daarna € 0,08 en minder. Bronnen: eerste gratis, daarna € 15 per maand. Minimum € 19, plafond € 990."><meta property="og:url" content="https://vidimus.be/prijzen.html"><meta property="og:image" content="https://vidimus.be/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:title" content="Prijzen — alles inbegrepen, per eenheid | Vidimus"><meta property="og:description" content="Geen formules. Bronnen: eerste gratis, daarna € 15 per maand, metingen onbeperkt. Registraties: eerste 100 per maand gratis, daarna € 0,08 per stuk, dalend tot € 0,003. Minimum € 19, geen plafond."><meta property="og:url" content="https://vidimus.be/prijzen.html"><meta property="og:image" content="https://vidimus.be/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.png">
 </head>
 <body>
@@ -53,6 +64,20 @@
       <a class="xbtn" href="#reken"><span>Reken uw prijs uit</span></a>
     </div>
     <p style="margin-top:1rem" class="lbl">eerste 100 registraties en eerste bron gratis · minimum € 19 · geen plafond · richtprijzen excl. btw</p>
+    <div class="ingang rv">
+      <article>
+        <span class="no">SENSOREN EN SYSTEMEN</span>
+        <span class="amt">€ 15<small>per bron per maand</small></span>
+        <h3>Metingen onbeperkt</h3>
+        <p>Een logger, een poort, een weegbrug, een koelcel: elke bron stuurt zoveel metingen als ze wil via <code>/measurements</code>. Elke meting apart gehasht, getekend en verankerd. <b>De eerste bron is gratis.</b></p>
+      </article>
+      <article>
+        <span class="no">REGISTRATIES · API OF APP</span>
+        <span class="amt">€ 0,08<small>per stuk, dalend tot € 0,003</small></span>
+        <h3>Per registratie, per schijf</h3>
+        <p>Een aflevering, een foto, een document, een handtekening, een goedkeuring: alles met eigen inhoud of ID telt per stuk. <b>De eerste 100 per maand zijn gratis;</b> boven 3 000, 10 000 en 100 000 wordt elke volgende schijf goedkoper.</p>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -70,7 +95,6 @@
         <tr><td>Bron<span class="sub">eerste gratis</span></td><td>een sensor, een logger, een poort, een weegbrug: een systeem dat metingen stuurt. Metingen onbeperkt; elke meting blijft apart gehasht, getekend en verankerd</td><td class="pr">€ 15 / maand</td></tr>
         <tr><td>Ketenpartner<span class="sub">eigen aansluiting op uw factuur</span></td><td>uw vervoerder, leverancier of aannemer krijgt zélf een volledige aansluiting (eigen stromen, eigen bureau, eigen sleutels); zijn verbruik telt op uw meter. Meetekenen op uw stromen is altijd gratis</td><td class="pr">€ 25 / maand</td></tr>
         <tr><td>Minimum</td><td>zodra er iets wordt aangerekend</td><td class="pr">€ 19 / maand</td></tr>
-        <tr><td>Bundel<span class="sub">optie, vaste maandprijs</span></td><td>vooraf gekochte registraties met korting, voor wie één vast bedrag wil: Start (1 bron + 3 000 registraties) € 199 · Professional (10 000) € 499 · Evidence 100K (5 bronnen) € 1 490 · Enterprise (meerdere entiteiten, SLA, langere bewaring, eigen koppelingen) vanaf € 2 500. Meer dan de bundel telt tegen de schijfprijs. Een bundel is alleen voordeliger vanaf ongeveer 2 600 registraties per maand; daaronder betaalt u los minder</td><td class="pr">vanaf € 199 / maand</td></tr>
       </tbody>
     </table>
     <p class="law-note"><b style="color:var(--ink)">Wat nooit meetelt:</b> gebruikers, stromen, metingen per bron, bundels downloaden, verificaties door uw tegenpartij, deellinks, wissen, opslag tot 50 GB. Eén meter, één rekening.</p>
@@ -79,10 +103,30 @@
   </div>
 </section>
 
+<section style="padding-block:0 var(--space)" id="bundels">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / BUNDELS · OPTIE</span>
+      <h2 class="disp">Liever één vast bedrag<span style="color:var(--red)">?</span></h2>
+      <p class="side">Vooraf gekochte registraties, vaste maandprijs. Alles boven de bundel telt tegen de schijfprijs. <b>Een bundel loont pas vanaf ongeveer 2 600 registraties per maand;</b> daaronder betaalt u los minder. De kolom "los" staat ernaast, zodat u het zelf ziet.</p>
+    </div>
+    <table class="dtable rv">
+      <thead><tr><th>Bundel</th><th>Inbegrepen per maand</th><th>Los zou zijn</th><th>Bundel</th></tr></thead>
+      <tbody>
+        <tr><td>Start</td><td>1 bron + 3 000 registraties</td><td class="pr" style="color:var(--ink-3)">€ 232</td><td class="pr">€ 199 / maand</td></tr>
+        <tr><td>Professional</td><td>1 bron + 10 000 registraties</td><td class="pr" style="color:var(--ink-3)">€ 512</td><td class="pr">€ 499 / maand</td></tr>
+        <tr><td>Evidence 100K</td><td>5 bronnen + 100 000 registraties<span class="sub">voor wie de vaste factuur en de vijf bronnen wil; los is hier nét goedkoper</span></td><td class="pr" style="color:var(--ink-3)">€ 1 472</td><td class="pr">€ 1 490 / maand</td></tr>
+        <tr><td>Enterprise</td><td>meerdere entiteiten, SLA, langere bewaring, eigen koppelingen, vaste contactpersoon</td><td class="pr" style="color:var(--ink-3)">—</td><td class="pr">vanaf € 2 500 / maand</td></tr>
+      </tbody>
+    </table>
+    <p class="law-note">Bundels zijn vooral bedoeld voor <a href="partners.html" style="color:var(--ink)">partners</a> die hun klant één bedrag willen noemen. Direct bij Vidimus is los meestal goedkoper; de rekenhulp hieronder zegt het u eerlijk.</p>
+  </div>
+</section>
+
 <section style="padding-block:0 var(--space)">
   <div class="wrap">
     <div class="sec-head">
-      <span class="idx">02 / BEGINNEN</span>
+      <span class="idx">03 / BEGINNEN</span>
       <h2 class="disp">Gratis, of begeleid<span style="color:var(--red)">.</span></h2>
       <p class="side">Een account aanmaken vraagt geen betaalgegevens en verankert tot 100 registraties per maand; die bewijsbundels blijven geldig. Activeren doet u zelf, wanneer u wilt. Wie liever niet alleen begint, kiest de begeleide start.</p>
     </div>
@@ -100,16 +144,15 @@
 <section style="padding-block:0 var(--space)">
   <div class="wrap">
     <div class="sec-head">
-      <span class="idx">03 / OP MAAT</span>
+      <span class="idx">04 / OP MAAT</span>
       <h2 class="disp">Voor wie meer nodig heeft<span style="color:var(--red)">.</span></h2>
     </div>
     <table class="dtable rv">
       <thead><tr><th>Wat</th><th>Wanneer</th><th>Prijs</th></tr></thead>
       <tbody>
         <tr><td>Jaarcontract</td><td>u verankert structureel meer dan een miljoen registraties per maand, of wil een vaste prijs, SLA (reactietijd vier werkuren, 99,5 % beschikbaarheid met creditregeling, kwartaalrapport) en een vaste contactpersoon. Zonder SLA geldt voor iedereen: antwoord binnen één werkdag, storing binnen vier werkuren opgepakt, nachtelijke back-up en een getest herstelplan</td><td class="pr">offerte</td></tr>
-        <tr><td>Sector of federatie<span class="sub">partner-API</span></td><td>uw software of sectororganisatie maakt zelf aansluitingen aan voor leden of eindklanten, met één factuur bij u en verbruik uitgesplitst per organisatie. Ledentarief en onboarding in overleg</td><td class="pr">offerte</td></tr>
+        <tr><td>Partner<span class="sub">softwareleverancier, sector of federatie</span></td><td>uw software maakt zelf aansluitingen aan voor eindklanten (partner-API), met één factuur bij u en verbruik per klant. Referral 20 % van de klantfactuur (24 maanden), reseller 30 % korting op inkoop, integrator 30–40 % plus uw implementatie. <a href="partners.html" style="color:var(--ink)">Alles over partner worden</a></td><td class="pr">−20 tot −40 %</td></tr>
         <tr><td>Gekwalificeerd tijdstempel<span class="sub">QTSP · EU Trusted List</span></td><td>wettelijk vermoeden van datum en tijd (eIDAS art. 41) — bij audits, hoge bedragen. Het standaard onafhankelijke tijdstempel (RFC 3161) is altijd inbegrepen</td><td class="pr">op aanvraag</td></tr>
-        <tr><td>Eigen keten hosten<span class="sub">gedeeld grootboek</span></td><td>een afgeschermd netwerk voor uw keten, elke partij een eigen kopie, bij ons of in eigen huis — voor sectoren die het contractueel eisen. De Bitcoin-verankering geeft die onafhankelijkheid al</td><td class="pr">op aanvraag</td></tr>
       </tbody>
     </table>
     <p class="law-note">Ook op aanvraag: gekwalificeerde handtekening via itsme, verificatiepagina in uw huisstijl, bewijsbundel-op-maat voor de rechtbank (€ 450), sensor-gateway, opslag boven 50 GB (€ 25 per begonnen 100 GB per maand).</p>
@@ -119,9 +162,9 @@
 <section style="padding-block:0 var(--space)" id="reken">
   <div class="wrap">
     <div class="sec-head">
-      <span class="idx">04 / REKEN ZELF</span>
+      <span class="idx">05 / REKEN ZELF</span>
       <h2 class="disp">Wat wordt uw factuur<span style="color:var(--red)">?</span></h2>
-      <p class="side">Drie getallen, één richtprijs. <b>U hoeft het niet exact te weten:</b> dit is een schatting. De meter telt wat u echt verankert en de factuur groeit daarmee mee — een rustige maand kost minder, een drukke meer, nooit met een sprong en nooit boven het plafond. Uw meterstand ziet u elke dag live in het bureau.</p>
+      <p class="side">Drie getallen, één richtprijs. <b>U hoeft het niet exact te weten:</b> dit is een schatting. De meter telt wat u echt verankert en de factuur groeit daarmee mee — een rustige maand kost minder, een drukke meer, nooit met een sprong, geen plafond. Is een bundel goedkoper, dan zegt de rekenhulp het. Uw meterstand ziet u elke dag live in het bureau.</p>
     </div>
     <div class="cq rv">
       <form class="cq-form" onsubmit="return false">
@@ -175,6 +218,7 @@
       <p>Reken één stroom uit — de meerwerkbonnen, de afgiftestaten, de poortscans — en zet die tegenover wat één verloren discussie u kost. Meestal is het antwoord er dan al.</p>
       <div class="hero-actions">
         <a class="xbtn red" href="index.html#rekensom"><span>Wat kost woord tegen woord u?</span></a>
+        <a class="xbtn" href="partners.html"><span>Softwareleverancier? Word partner</span></a>
         <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
       </div>
     </div>
@@ -201,6 +245,9 @@ addEventListener("DOMContentLoaded", () => {
   // v5 (25/09): zelfde cijfers als vidimus/billing.py — eerste 100 registraties gratis, dan per schijf 0,08 → 0,04 (3 001–10 000) → 0,01 (tot 100 000) → 0,003; bron: eerste gratis, dan € 15; partner € 25; minimum 19; geen plafond; boven 1 miljoen offerte
   const GRATIS = 100, BRON = 15, PARTNER = 25, MIN = 19, OFFERTE = 1000000;
   const regPrijs = (n) => { if (n <= GRATIS) return 0; let t = 0, prev = GRATIS; for (const [lim, rate] of [[3000, .08], [10000, .04], [100000, .01], [null, .003]]) { const top = lim === null ? n : Math.min(n, lim); if (top > prev) t += (top - prev) * rate; if (lim === null || n <= lim) break; prev = lim; } return Math.round(t * 100) / 100; };
+  // bundels (billing.BUNDELS): vaste prijs + alles erboven tegen de schijfprijs; eerlijk advies alleen als het écht goedkoper is
+  const BUNDELS = [["Start", 1, 3000, 199], ["Professional", 1, 10000, 499], ["Evidence 100K", 5, 100000, 1490]];
+  const bundelKost = ([, br, reg, prijs], n, nb) => Math.round((prijs + Math.max(0, nb - br) * BRON + Math.max(0, regPrijs(n) - regPrijs(Math.min(n, reg)))) * 100) / 100;
   const line = (l, v, sub, cls) => `<div${cls ? ` class="${cls}"` : ""}><dt>${l}${sub ? `<small>${sub}</small>` : ""}</dt><dd>${v}</dd></div>`;
   function chips() { document.querySelectorAll(".cq-chips").forEach((c) => { const v = String(parseInt($("#" + c.dataset.for).value) || 0); c.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.v === v)); }); }
   function calc() {
@@ -216,6 +263,8 @@ addEventListener("DOMContentLoaded", () => {
     if (np) h += line("Ketenpartners", eur(p), `${np} met eigen aansluiting`);
     if (som !== 0 && som < MIN) h += line("Minimum", eur(MIN));
     h += line("Per maand", eur(m), jaar ? `jaarcontract · ${eur(mv)} naar verbruik, 2 maanden gratis verrekend` : "maandelijks, naar verbruik", "cq-sum");
+    const beste = BUNDELS.map((b) => [b[0], bundelKost(b, n, nb) + p]).sort((a, c) => a[1] - c[1])[0];
+    if (beste && beste[1] < mv) h += line("Bundel " + beste[0], eur(beste[1]), `goedkoper dan los (${eur(mv)}) — zie bundels`);
     $("#oLines").innerHTML = h; $("#oMnd").textContent = eur(m);
     $("#oJaarL").textContent = jaar ? "Per jaar · jaarcontract" : "Per jaar"; $("#oJaar").textContent = eur(Math.round((jaar ? mv * 10 : mv * 12) * 100) / 100);
     const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n} → ${eur(r)}%0A- Bronnen: ${nb} → ${eur(b)}%0A- Ketenpartners: ${np} → ${eur(p)}%0A- Contract: ${jaar ? "jaarcontract" : "per maand"}%0A- Richtprijs: ${eur(m)} per maand${jaar ? " (jaarcontract)" : ""}%0A%0AMijn organisatie en telefoonnummer:%0A`;
