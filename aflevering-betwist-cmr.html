@@ -33,6 +33,7 @@
     <a href="cases.html">Cases</a>
     <a href="scenarios.html">Scenario's</a>
     <a href="help.html">Help</a>
+    <a href="partners.html">Partners</a>
     <a href="prijzen.html">Prijzen</a>
   </nav>
   <div class="top-cta">
@@ -106,7 +107,7 @@
         <li><span>Vervoerder, terminal en ontvanger kijken naar <b>hetzelfde grootboek</b>: geen "mijn log tegen jouw log" meer.</span></li>
         <li><span>Bij een fysieke overdracht tekenen beide partijen op de telefoon (QR-handover), met foto's; de <b>bewijsbundel is voor iedereen zelfstandig verifieerbaar.</b></span></li>
       </ul>
-      <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span><span class="hl">09:41:03 utc · rfc 3161</span><br><span class="k">verankerd</span><span class="gr">merkle-root + fabric tx</span></div>
+      <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span><span class="hl">09:41:03 utc · rfc 3161</span><br><span class="k">verankerd</span><span class="gr">merkle-root + bitcoin-anker</span></div>
     </div>
     <div class="sum-band">
       <span class="lbl">REKENSOM</span>
@@ -127,7 +128,7 @@
       <div class="flow-step"><span class="when">02 · de vingerafdruk (SHA-256)</span><h4>Zoals een vingerafdruk van een mens</h4><p>Uniek voor precies deze registratie, en je kunt er de registratie niet uit terugtekenen. Verander één teken — 09:41:03 wordt 09:41:04 — en de hele afdruk is anders. Zó zie je later of er geknoeid is.</p><span class="meta">f7585ccf75a163b359933be611f97fe68ba39b5ca7e6ec1ece23972ee50203fc</span></div>
       <div class="flow-step"><span class="when">03 · wie: de handtekening (Ed25519)</span><h4>Een handtekening die niet na te maken is</h4><p>Alleen wie de sleutel heeft, kan zo tekenen; iedereen kan controleren dát die het was. Zo staat vast wíé de scan indiende.</p><span class="meta">CN=gate-01.terminal-x.be · handtekening 3045a1…e8f2 (64 bytes)</span></div>
       <div class="flow-step"><span class="when">04 · wanneer: het tijdstempel (RFC 3161)</span><h4>Een poststempel — van iemand anders</h4><p>Niet onze klok en niet de uwe, maar die van een onafhankelijke dienst die er niets bij te winnen heeft. Daarom kan niemand later zeggen dat het tijdstip is aangepast.</p><span class="meta">Sectigo (derde partij) · gestempeld <b>09:41:05 utc</b> · serienr 0x5b3f…21</span></div>
-      <div class="flow-step"><span class="when">05 · verankerd: Merkle → grootboek</span><h4>Eén zegel op een hele stapel</h4><p>Alle scans van die minuten worden samengevoegd tot één wortel-afdruk; die gaat in een register dat alle partijen delen en dat niemand — ook wij niet — nog kan wijzigen. Elke afzonderlijke scan blijft toch aantoonbaar, via haar plaats in de stapel.</p><span class="meta">wortel b96f20a5…7ac7e363 · <b>fabric tx a22f5433…4cc3</b></span></div>
+      <div class="flow-step"><span class="when">05 · verankerd: Merkle → grootboek</span><h4>Eén zegel op een hele stapel</h4><p>Alle scans van die minuten worden samengevoegd tot één wortel-afdruk; die krijgt een tijdstempel van een onafhankelijke derde en gaat via OpenTimestamps in Bitcoin, een publiek register dat niemand — ook wij niet — nog kan wijzigen. Elke afzonderlijke scan blijft toch aantoonbaar, via haar plaats in de stapel.</p><span class="meta">wortel b96f20a5…7ac7e363 · <b>tijdstempel + Bitcoin-anker (OpenTimestamps)</b></span></div>
       <div class="flow-step"><span class="when">06 · het origineel</span><h4>Een kluis die niemand kan leegmaken</h4><p>Elk origineel ligt versleuteld opgeslagen en kan tot het einde van de bewaartermijn door niemand gewist worden, ook niet door ons. Moet het daarna weg, of om privacyredenen, dan wordt de leessleutel vernietigd: het bestand is voorgoed onleesbaar, terwijl de vingerafdruk nog bewijst dát er iets was.</p><span class="meta">GI-88412.json + gate-foto.jpg · AES-256-GCM · niet-overschrijfbaar · 7 jaar</span></div>
       <div class="flow-step"><span class="when">07 · de bewijsbundel</span><h4>Een dossier dat iedere expert zelf kan natellen</h4><p>De tegenpartij, de auditor of de rechter hoeft ons niet te geloven: met standaardsoftware controleert hij dat deze scan bestond op dat moment, ingediend door gate-01, en sindsdien onaangeraakt is.</p><span class="meta">hash herrekend · pad → wortel · wortel = tx · tijdstempel — <b>alles geldig</b></span></div>
     </div>

@@ -548,3 +548,13 @@ a.go:hover svg { transform: translateX(3px); }
 }
 @keyframes htZweef { 50% { transform: translateY(-10px); } }
 @media (prefers-reduced-motion: reduce) { .ht-telefoon, .ht-kaart { animation: none; } }
+
+/* ── twee routes onder de held (25/09, partner-led): bedrijf of partner ── */
+.routes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.routes a { display: grid; gap: 8px; align-content: start; padding: 22px 24px; border-radius: 22px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); text-decoration: none; color: var(--ink); transition: box-shadow 160ms, transform 160ms var(--out); }
+.routes a:hover { box-shadow: var(--glass-shadow-hi); transform: translateY(-2px); }
+.routes a b { font-size: 19px; font-weight: 600; letter-spacing: -.025em; }
+.routes a span { font-size: 14px; line-height: 1.55; color: var(--ink-2); max-width: 48ch; }
+.routes a em { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); font-style: normal; }
+.routes a.partner { border-top: 3px solid var(--act, #1E4FD8); }
+@media (max-width: 720px) { .routes { grid-template-columns: 1fr; } }

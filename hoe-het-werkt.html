@@ -33,6 +33,7 @@
     <a href="cases.html">Cases</a>
     <a href="scenarios.html">Scenario's</a>
     <a href="help.html">Help</a>
+    <a href="partners.html">Partners</a>
     <a href="prijzen.html">Prijzen</a>
   </nav>
   <div class="top-cta">
@@ -65,8 +66,8 @@
       <p>De registratie wordt digitaal ondertekend door de indiener (ontworpen naar de vereisten van een geavanceerde elektronische handtekening) en een onafhankelijke tijdstempeldienst stempelt het exacte tijdstip erop. <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">04</span>
-      <h3>Verankeren<small>MERKLE-ROOT → HYPERLEDGER FABRIC</small></h3>
-      <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — wordt verankerd op een gedeeld, onwijzigbaar grootboek: privé voor intern gebruik, of gedeeld tussen de partners in uw keten. <em style="color:var(--ink);font-style:normal">Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen.</em></p>
+      <h3>Verankeren<small>MERKLE-ROOT → TIJDSTEMPEL (RFC 3161) → GROOTBOEK → BITCOIN</small></h3>
+      <p>Alleen de vingerafdruk — nooit inhoud, nooit namen — gaat elke vijf minuten met alle nieuwe vingerafdrukken in één Merkle-boom. De wortel daarvan wordt door een onafhankelijke tijdstempeldienst getekend, in ons append-only grootboek geschreven en via OpenTimestamps in een Bitcoin-blok verankerd: een publiek register dat niemand kan wissen, ook wij niet. <em style="color:var(--ink);font-style:normal">Alle partijen kijken naar hetzelfde bewijs. Geen versie van u en een versie van hen.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">05</span>
       <h3>Op slot<small>AES-256 · WORM — DE SLEUTEL IS VAN U</small></h3>
@@ -142,19 +143,19 @@
     <div style="display:grid;gap:3rem;margin-top:1rem">
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
         <div><p class="lbl"><b>01</b> · MATERIEEL- &amp; MACHINEVERHUUR</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">De afgiftestaat</h3><p style="font-size:.86rem;color:var(--paper-dim)">Bij afgifte én terugname tekenen beide partijen de staatopname op een telefoon; foto's gaan als hash mee de verankering in. Een schadediscussie wordt een vergelijking van twee documenten waarvan inhoud en moment vaststaan.</p></div>
-        <div class="codecard"><span class="k">registratie</span>afgiftestaat AFG-0182<br><span class="k">machine</span>hoogwerker · serienr + urenteller<br><span class="k">staat</span>6 foto's (sha-256) · opmerkingen<br><span class="k">getekend</span>verhuurder + huurder · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + fabric tx</span></div>
+        <div class="codecard"><span class="k">registratie</span>afgiftestaat AFG-0182<br><span class="k">machine</span>hoogwerker · serienr + urenteller<br><span class="k">staat</span>6 foto's (sha-256) · opmerkingen<br><span class="k">getekend</span>verhuurder + huurder · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + bitcoin-anker</span></div>
       </div>
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
         <div><p class="lbl"><b>02</b> · BOUW &amp; AANNEMERS</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">Het meerwerk-akkoord</h3><p style="font-size:.86rem;color:var(--paper-dim)">Het "doe maar" wordt ter plekke een getekend akkoord, mét bedrag en beschrijving. Bij de eindafrekening valt er niets meer te ontkennen.</p></div>
-        <div class="codecard"><span class="k">registratie</span>meerwerk MW-0047<br><span class="k">omschrijving</span>extra funderingswerk · blok B<br><span class="k">bedrag</span><span class="hl">€ 38 500,00</span><br><span class="k">getekend</span>aannemer + bouwheer · op de werf<br><span class="k">verankerd</span><span class="gr">tijdstempel + fabric tx</span></div>
+        <div class="codecard"><span class="k">registratie</span>meerwerk MW-0047<br><span class="k">omschrijving</span>extra funderingswerk · blok B<br><span class="k">bedrag</span><span class="hl">€ 38 500,00</span><br><span class="k">getekend</span>aannemer + bouwheer · op de werf<br><span class="k">verankerd</span><span class="gr">tijdstempel + bitcoin-anker</span></div>
       </div>
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
         <div><p class="lbl"><b>03</b> · SYNDICI &amp; VASTGOED</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">De plaatsbeschrijving</h3><p style="font-size:.86rem;color:var(--paper-dim)">Bij intrede door beide partijen getekend en verankerd. Bij uittrede, jaren later, is ze byte voor byte nog exact wat er ondertekend werd — inclusief de foto-hashes van elke ruimte.</p></div>
-        <div class="codecard"><span class="k">registratie</span>plaatsbeschrijving PB-2026-013<br><span class="k">pand</span>appartement · 4 ruimtes<br><span class="k">staat</span>38 foto's (sha-256) · meterstanden<br><span class="k">getekend</span>verhuurder + huurder · bij intrede<br><span class="k">verankerd</span><span class="gr">tijdstempel + fabric tx</span></div>
+        <div class="codecard"><span class="k">registratie</span>plaatsbeschrijving PB-2026-013<br><span class="k">pand</span>appartement · 4 ruimtes<br><span class="k">staat</span>38 foto's (sha-256) · meterstanden<br><span class="k">getekend</span>verhuurder + huurder · bij intrede<br><span class="k">verankerd</span><span class="gr">tijdstempel + bitcoin-anker</span></div>
       </div>
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
         <div><p class="lbl"><b>04</b> · HAVEN &amp; LOGISTIEK</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">Het gate-event</h3><p style="font-size:.86rem;color:var(--paper-dim)">Elke passcan of gate-beweging die uw poortsysteem registreert, wordt meteen mee verankerd. Alle partijen in de keten kijken naar één gedeelde bewijslaag in plaats van elk naar hun eigen logs.</p></div>
-        <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span>09:41:03 utc · rfc 3161<br><span class="k">verankerd</span><span class="gr">merkle-root + fabric tx</span></div>
+        <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span>09:41:03 utc · rfc 3161<br><span class="k">verankerd</span><span class="gr">merkle-root + bitcoin-anker</span></div>
       </div>
     </div>
   </div>
@@ -168,11 +169,11 @@
     </div>
     <div class="faq rv">
       <details><summary>Moeten onze documenten naar jullie cloud?</summary><p class="a"><b>Nee.</b> Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Het document zelf blijft waar het staat, off-chain en verwijderbaar. Data blijft in de EU.</p></details>
-      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen speculatie, geen energieverslindend netwerk.</b> Hyperledger Fabric is een permissioned keten: een afgesproken groep partijen houdt samen één onwijzigbaar register bij — als privaat netwerk of gedeeld in consortium.</p></details>
+      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen wallet, geen consortium.</b> Wij gebruiken Bitcoin alleen als publieke, onwisbare klok: de Merkle-wortel van elke batch gaat via OpenTimestamps in een Bitcoin-blok, en het bewijs (.ots) is tegen Bitcoin zelf na te rekenen. Daarnaast tekent een onafhankelijke tijdstempeldienst (RFC 3161) dezelfde wortel. Twee getuigen, geen token.</p></details>
       <details><summary>En persoonsgegevens dan (AVG)?</summary><p class="a">Op de keten staan <b>geen persoonsgegevens</b> — alleen hashes, en voor persoonsgebonden registraties gesleutelde hashes die zonder de (off-chain) sleutel naar niets te herleiden zijn. Het recht op gegevenswissing blijft uitvoerbaar: het dossier is off-chain versleuteld en wordt gewist door de sleutel te vernietigen.</p></details>
       <details><summary>Wat als we stoppen — of als Vidimus verdwijnt?</summary><p class="a">De bewijsbundels zijn <b>al van u</b>: exporteerbaar en zelfstandig verifieerbaar met standaardcryptografie (SHA-256, RFC 3161, Merkle-bewijs). Ze hangen niet aan ons platform en blijven ook na een stopzetting geldig.</p></details>
       <details><summary>Hoe zwaar is de koppeling voor ons team?</summary><p class="a"><b>Eén REST-endpoint of webhook per datastroom.</b> In een pilot koppelen we bewust één stroom; de intake duurt een half uur en daarna merkt uw team er alleen het tekenmoment van.</p></details>
-      <details><summary>Wij maken zelf software (TMS, ERP, WMS, payroll). Kunnen we dit inbouwen?</summary><p class="a"><b>Ja, via de partner-API.</b> Uw software maakt per eindklant een eigen aansluiting aan — met eigen sleutel, stroom en kluis, volledig gescheiden van andere eindklanten — en registreert daarna met de sleutel van die eindklant. Het verbruik staat per eindklant uitgesplitst op uw meter. Uw partnersleutel beheert en telt, maar leest geen inhoud van eindklanten. Voorwaarden en tarieven voor partners spreken we samen af.</p></details>
+      <details><summary>Wij maken zelf software (TMS, ERP, WMS, payroll). Kunnen we dit inbouwen?</summary><p class="a"><b>Ja, via de partner-API.</b> Uw software maakt per eindklant een eigen aansluiting aan — met eigen sleutel, stroom en kluis, volledig gescheiden van andere eindklanten — en registreert daarna met de sleutel van die eindklant. Het verbruik staat per eindklant uitgesplitst op uw meter. Uw partnersleutel beheert en telt, maar leest geen inhoud van eindklanten. Lagen, marge en de lopende band staan op <a href="partners.html">de partnerpagina</a>.</p></details>
       <details><summary>Een hele map in één keer — een dossier, een jaarafsluiting, een archief?</summary><p class="a"><b>Ja, zonder één bestand te uploaden.</b> Elk bestand krijgt op uw eigen computer een vingerafdruk (SHA-256); naar ons gaat alleen de lijst met bestandsnamen en vingerafdrukken, als één registratie. Later legt u één bestand of de hele map ernaast: wat identiek, gewijzigd, verplaatst of verdwenen is, ziet u meteen. In het bureau door de map te slepen, of met een klein script voor wie het buiten de browser wil.</p></details>
       <details><summary>Kan een webpagina worden vastgelegd, als bewijs dat iets gepubliceerd stond?</summary><p class="a"><b>Ja.</b> Onze server haalt het adres op en legt als één registratie vast wat hij ontvangt: de HTML, de antwoordheaders en het certificaat van de site, en een schermbeeld. Dat toont wat op dat adres op dat moment aan onze server werd aangeboden; wat een andere bezoeker zag (aanmelding, land, personalisatie) kan verschillen, en dat staat ook zo in de registratie.</p></details>
       <details><summary>Aanvaardt een rechter dit?</summary><p class="a">Vidimus levert bewijsmateriaal, geen juridisch advies. De handtekeningen zijn ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26), en elke verankering komt met een bundel die een expert zelfstandig kan verifiëren — <b>sterker dan een schermafdruk uit om het even welk systeem.</b></p></details>
@@ -190,7 +191,7 @@
         <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
       </div>
     </div>
-    <p class="lbl" style="margin-top:2.5rem">SHA-256 · ED25519 · RFC 3161 · MERKLE · HYPERLEDGER FABRIC · AES-256-GCM · WORM</p>
+    <p class="lbl" style="margin-top:2.5rem">SHA-256 · ED25519 · RFC 3161 · MERKLE · OPENTIMESTAMPS / BITCOIN · AES-256-GCM · WORM</p>
   </div>
 </section>
 </main>

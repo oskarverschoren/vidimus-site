@@ -33,6 +33,7 @@
     <a href="cases.html">Cases</a>
     <a href="scenarios.html">Scenario's</a>
     <a href="help.html">Help</a>
+    <a href="partners.html">Partners</a>
     <a href="prijzen.html" aria-current="page">Prijzen</a>
   </nav>
   <div class="top-cta">
@@ -146,11 +147,7 @@
           <p class="cq-help">Alleen als uw partners een eigen bureau en eigen stromen krijgen op uw factuur. Meetekenen op uw stromen is altijd gratis en telt hier niet.</p>
         </div>
         <div class="cq-step" role="group">
-          <h3 class="cq-h"><i>04</i>Eigen node</h3>
-          <label class="cq-opt"><input type="checkbox" id="qNode"><span class="sw"></span><span class="txt"><b>Eigen node in het gedeelde grootboek</b><small>u draait zelf een node mee in het Vidimus-grootboek (Hyperledger Fabric) en houdt zo een eigen kopie van elk anker, in eigen huis — voor wie op niemand wil vertrouwen, ook niet op ons</small></span><span class="pr">op aanvraag</span></label>
-        </div>
-        <div class="cq-step" role="group">
-          <h3 class="cq-h"><i>05</i>Contract</h3>
+          <h3 class="cq-h"><i>04</i>Contract</h3>
           <div class="cq-seg" role="radiogroup" aria-label="Contract">
             <label><input type="radio" name="qTerm" value="12" checked><span>Per maand<small>opzegbaar, betalen naar verbruik</small></span></label>
             <label><input type="radio" name="qTerm" value="10"><span>Jaarcontract<small>lager maandbedrag, vaste prijs</small></span></label>
@@ -213,17 +210,15 @@ addEventListener("DOMContentLoaded", () => {
     const r = regPrijs(n), b = Math.max(0, nb - 1) * BRON, p = np * PARTNER, som = Math.round((r + b + p) * 100) / 100;
     const mv = som === 0 ? 0 : som < MIN ? MIN : som;   // maandprijs naar verbruik (v5: geen plafond)
     const m = jaar ? Math.round(mv * 10 / 12 * 100) / 100 : mv;              // jaarcontract: 10 maanden betalen voor 12 → lager maandbedrag
-    const node = $("#qNode").checked;
     $("#oSchijf").textContent = som === 0 ? "binnen de gratis laag — geen factuur" : som < MIN ? `verbruik ${eur(som)} — u betaalt het minimum` : n > OFFERTE ? `verbruik ${eur(som)} — boven een miljoen registraties werken we met een jaarcontract op offerte` : jaar ? "vaste prijs voor een jaar, op basis van deze schatting" : "betalen naar verbruik, geen sprongen";
     let h = line("Registraties", eur(r), n <= GRATIS ? `${num(n)} — de eerste 100 gratis` : `${num(n)}, waarvan 100 gratis`);
     h += line("Bronnen", eur(b), nb ? `${nb} ${nb === 1 ? "bron" : "bronnen"}, de eerste gratis, metingen onbeperkt` : "geen");
     if (np) h += line("Ketenpartners", eur(p), `${np} met eigen aansluiting`);
     if (som !== 0 && som < MIN) h += line("Minimum", eur(MIN));
-    if (node) h += line("Eigen node", "op aanvraag", "gedeeld grootboek, eigen kopie van elk anker");
     h += line("Per maand", eur(m), jaar ? `jaarcontract · ${eur(mv)} naar verbruik, 2 maanden gratis verrekend` : "maandelijks, naar verbruik", "cq-sum");
     $("#oLines").innerHTML = h; $("#oMnd").textContent = eur(m);
     $("#oJaarL").textContent = jaar ? "Per jaar · jaarcontract" : "Per jaar"; $("#oJaar").textContent = eur(Math.round((jaar ? mv * 10 : mv * 12) * 100) / 100);
-    const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n} → ${eur(r)}%0A- Bronnen: ${nb} → ${eur(b)}%0A- Ketenpartners: ${np} → ${eur(p)}%0A- Contract: ${jaar ? "jaarcontract" : "per maand"}%0A- Eigen node in het gedeelde grootboek: ${node ? "ja, graag een voorstel" : "nee"}%0A- Richtprijs: ${eur(m)} per maand${jaar ? " (jaarcontract)" : ""}%0A%0AMijn organisatie en telefoonnummer:%0A`;
+    const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n} → ${eur(r)}%0A- Bronnen: ${nb} → ${eur(b)}%0A- Ketenpartners: ${np} → ${eur(p)}%0A- Contract: ${jaar ? "jaarcontract" : "per maand"}%0A- Richtprijs: ${eur(m)} per maand${jaar ? " (jaarcontract)" : ""}%0A%0AMijn organisatie en telefoonnummer:%0A`;
     $("#offerteBtn").href = `mailto:oskar@vo-initiatives.com?subject=${encodeURIComponent("Offerte Vidimus — " + n + " registraties, " + nb + " bronnen")}&body=${body}`;
   }
   document.querySelectorAll("#reken input").forEach((el) => el.addEventListener("input", calc));
