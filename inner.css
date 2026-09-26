@@ -102,6 +102,7 @@
 .dtable td { padding: 1rem 1rem 1rem 0; border-bottom: 1px solid var(--line-soft); color: var(--paper-dim); vertical-align: top; }
 .dtable td:first-child { color: var(--ink); font-weight: 500; }
 .dtable td.pr { font: 500 0.95rem/1.4 var(--mono); color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dtable td.pr .sub { white-space: normal; max-width: 34ch; }
 .dtable tr:hover td { background: var(--void-2); }
 .dtable td .sub { display: block; font-weight: 400; font-size: 0.78rem; color: var(--dim); margin-top: 0.3rem; }
 
@@ -164,17 +165,20 @@ input[type="range"] { width: 100%; accent-color: var(--ink); background: transpa
   .dtable thead { display: none; }
   .dtable tr { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
   .dtable td { padding: 0.15rem 0; border: 0; }
-  .dtable td.pr { padding-top: 0.5rem; }
+  .dtable td.pr { padding-top: 0.5rem; white-space: normal; }
+  .dtable td.pr .sub { max-width: none; }
+  html, body { overflow-x: clip; }   /* 26/09: niets mag breder zijn dan het scherm — anders kan de gsm uitzoomen */
 }
 
 /* ── prijzen · rekensom v2 (16/09): vier stappen links, prijsopbouw rechts ── */
 .cq { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: 20px; align-items: start; min-width: 0; max-width: 100%; }
 .cq-form { display: grid; gap: 14px; margin: 0; padding: 0; border: 0; min-width: 0; }
-.cq-step { margin: 0; min-inline-size: 0; max-width: 100%; box-sizing: border-box; padding: 20px 22px 22px; border: 1px solid var(--glass-edge); border-radius: 20px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); box-shadow: var(--glass-shadow); display: grid; gap: 12px; min-width: 0; }
+.cq-step { margin: 0; min-inline-size: 0; max-width: 100%; box-sizing: border-box; padding: 20px 22px 22px; border: 1px solid var(--glass-edge); border-radius: 20px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); box-shadow: var(--glass-shadow); display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; min-width: 0; }   /* 26/09: minmax(0,1fr) — anders duwt het invoerveld de kolom breder dan de kaart op een gsm */
+.cq-num, .cq-num > * { min-width: 0; }
 .cq-h { margin: 0 0 4px; padding: 0; font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); display: flex; align-items: baseline; gap: 12px; }
 .cq-h i { font: 500 11px/1 var(--mono); letter-spacing: .14em; color: var(--red); font-style: normal; }
 .cq-num { display: grid; gap: 8px; }
-.cq-in { display: flex; align-items: center; gap: 10px; height: 54px; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(11, 15, 23, .16); background: #fff; transition: border-color 150ms, box-shadow 150ms; }
+.cq-in { display: flex; align-items: center; gap: 10px; height: 54px; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(11, 15, 23, .16); background: #fff; transition: border-color 150ms, box-shadow 150ms; width: 100%; max-width: 100%; box-sizing: border-box; }
 .cq-in:focus-within { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(30, 79, 216, .14); }
 .cq-in input { flex: 1; min-width: 0; height: 100%; border: 0; background: none; outline: none; padding: 0; margin: 0; font: 500 22px/1 var(--mono); letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield; }
 .cq-in input::-webkit-outer-spin-button, .cq-in input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }

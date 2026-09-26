@@ -12,7 +12,8 @@
 <link rel="stylesheet" href="styles.css?v=20260925">
 <link rel="stylesheet" href="inner.css?v=20260925">
 <style>
-.ingang { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: clamp(1.4rem, 3vw, 2rem); }
+.ingang { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(1.4rem, 3vw, 2rem); }
+@media (max-width: 1000px) { .ingang { grid-template-columns: 1fr 1fr; } }
 .ingang article { display: grid; gap: 8px; align-content: start; padding: 22px 24px; border-radius: 22px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
 .ingang .no { font: 500 10px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); }
 .ingang .amt { font: 500 clamp(26px, 2.6vw, 34px)/1 var(--mono); letter-spacing: -.04em; color: var(--ink); font-variant-numeric: tabular-nums; }
@@ -59,7 +60,7 @@
   <div class="wrap">
     <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="prijzen.html">PRIJZEN</a></p>
     <h1 class="disp">Alles inbegrepen<span class="thin">, per eenheid</span><span style="color:var(--red)">.</span></h1>
-    <p class="intro">Geen formules, geen vinkjes. Bureau, telefoon, tekenen met Face ID, meetekenen, API, kluis, bewijsbundels, verificatie, tijdstempel en Bitcoin-anker: het zit er allemaal in, voor iedereen. U betaalt alleen wat u gebruikt: <b>per registratie en per bron</b>. Wie enkel sensoren aansluit, betaalt enkel bronnen. <b>De meter telt, de afrekening volgt achteraf.</b></p>
+    <p class="intro">Alles zit erin: bureau, telefoon, tekenen met Face ID, meetekenen, API, kluis, bewijsbundels, verificatie, tijdstempel en Bitcoin-anker. Er zijn <b>drie manieren om te betalen</b> — en u hoeft er maar één te kiezen.</p>
     <div class="hero-actions">
       <a class="xbtn red" href="https://app.vidimus.be/login"><span>Begin gratis — geen betaalgegevens</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="xbtn" href="#reken"><span>Reken uw prijs uit</span></a>
@@ -67,16 +68,22 @@
     <p style="margin-top:1rem" class="lbl">eerste 100 registraties en eerste bron gratis · minimum € 19 · geen plafond · richtprijzen excl. btw</p>
     <div class="ingang rv">
       <article>
-        <span class="no">SENSOREN EN SYSTEMEN</span>
-        <span class="amt">€ 15<small>per bron per maand</small></span>
-        <h3>Metingen onbeperkt</h3>
-        <p>Een logger, een poort, een weegbrug, een koelcel: elke bron stuurt zoveel metingen als ze wil via <code>/measurements</code>. Elke meting apart gehasht, getekend en verankerd. <b>De eerste bron is gratis.</b></p>
+        <span class="no">1 · LOS · DE METER TELT</span>
+        <span class="amt">€ 15<small>per bron</small></span>
+        <h3>Bronnen en registraties</h3>
+        <p><b>Sensoren en systemen:</b> € 15 per bron per maand, metingen onbeperkt, de eerste bron gratis. <b>Registraties</b> (aflevering, foto, document, handtekening): de eerste 100 per maand gratis, dan € 0,08 per stuk, dalend tot € 0,003. Voor wie klein begint of alleen sensoren aansluit.</p>
       </article>
       <article>
-        <span class="no">REGISTRATIES · API OF APP</span>
-        <span class="amt">€ 0,08<small>per stuk, dalend tot € 0,003</small></span>
-        <h3>Per registratie, per schijf</h3>
-        <p>Een aflevering, een foto, een document, een handtekening, een goedkeuring: alles met eigen inhoud of ID telt per stuk. <b>De eerste 100 per maand zijn gratis;</b> boven 3 000, 10 000 en 100 000 wordt elke volgende schijf goedkoper.</p>
+        <span class="no">2 · BUNDEL · ÉÉN VAST BEDRAG</span>
+        <span class="amt">€ 199<small>per maand</small></span>
+        <h3>Start · Professional · Evidence 100K</h3>
+        <p>Bronnen en registraties samen in één vaste maandprijs: <b>Start</b> 1 bron + 3 000, <b>Professional</b> 3 bronnen + 10 000, <b>Evidence 100K</b> 25 bronnen + 100 000. Altijd goedkoper dan los bij dat gebruik. <a href="#bundels" style="color:var(--ink)">De bundels</a></p>
+      </article>
+      <article>
+        <span class="no">3 · VIA UW SOFTWAREPARTNER</span>
+        <span class="amt">in uw TMS<small>WMS · ERP · IoT</small></span>
+        <h3>Ingebouwd in wat u al hebt</h3>
+        <p>Uw softwareleverancier bouwt Vidimus in en factureert u, meestal als bundel. Zelfde bewijs, zelfde verificatie, één factuur bij de partner die u al kent. <a href="partners.html" style="color:var(--ink)">Voor leveranciers: word partner</a></p>
       </article>
     </div>
   </div>
@@ -109,18 +116,18 @@
     <div class="sec-head">
       <span class="idx">02 / BUNDELS · OPTIE</span>
       <h2 class="disp">Liever één vast bedrag<span style="color:var(--red)">?</span></h2>
-      <p class="side">Vooraf gekochte registraties, vaste maandprijs. Alles boven de bundel telt tegen de schijfprijs. <b>Een bundel loont pas vanaf ongeveer 2 600 registraties per maand;</b> daaronder betaalt u los minder. De kolom "los" staat ernaast, zodat u het zelf ziet.</p>
+      <p class="side">Bronnen en registraties samen, vaste maandprijs. Alles boven de bundel telt tegen de schijfprijs. <b>Start loont vanaf ongeveer 2 600 registraties per maand;</b> daaronder betaalt u los minder. De kolom "los" staat ernaast, zodat u het zelf ziet.</p>
     </div>
     <table class="dtable rv">
       <thead><tr><th>Bundel</th><th>Inbegrepen per maand</th><th>Los zou zijn</th><th>Bundel</th></tr></thead>
       <tbody>
         <tr><td>Start</td><td>1 bron + 3 000 registraties</td><td class="pr" style="color:var(--ink-3)">€ 232</td><td class="pr">€ 199 / maand</td></tr>
-        <tr><td>Professional</td><td>1 bron + 10 000 registraties</td><td class="pr" style="color:var(--ink-3)">€ 512</td><td class="pr">€ 499 / maand</td></tr>
-        <tr><td>Evidence 100K</td><td>5 bronnen + 100 000 registraties<span class="sub">voor wie de vaste factuur en de vijf bronnen wil; los is hier nét goedkoper</span></td><td class="pr" style="color:var(--ink-3)">€ 1 472</td><td class="pr">€ 1 490 / maand</td></tr>
+        <tr><td>Professional</td><td>3 bronnen + 10 000 registraties</td><td class="pr" style="color:var(--ink-3)">€ 542</td><td class="pr">€ 499 / maand</td></tr>
+        <tr><td>Evidence 100K</td><td>25 bronnen + 100 000 registraties<span class="sub">voor een groot park aan sensoren, poorten en systemen</span></td><td class="pr" style="color:var(--ink-3)">€ 1 772</td><td class="pr">€ 1 450 / maand</td></tr>
         <tr><td>Enterprise</td><td>meerdere entiteiten, SLA, langere bewaring, eigen koppelingen, vaste contactpersoon</td><td class="pr" style="color:var(--ink-3)">—</td><td class="pr">vanaf € 2 500 / maand</td></tr>
       </tbody>
     </table>
-    <p class="law-note">Bundels zijn vooral bedoeld voor <a href="partners.html" style="color:var(--ink)">partners</a> die hun klant één bedrag willen noemen. Direct bij Vidimus is los meestal goedkoper; de rekenhulp hieronder zegt het u eerlijk.</p>
+    <p class="law-note">Zo verkopen we het: <b style="color:var(--ink)">los</b> voor wie klein begint of alleen sensoren aansluit, een <b style="color:var(--ink)">bundel</b> zodra het gebruik erbij past — dat is ook wat <a href="partners.html" style="color:var(--ink)">partners</a> hun klanten noemen. De rekenhulp hieronder zegt eerlijk welke van de twee voor u goedkoper is.</p>
   </div>
 </section>
 
@@ -247,7 +254,7 @@ addEventListener("DOMContentLoaded", () => {
   const GRATIS = 100, BRON = 15, PARTNER = 25, MIN = 19, OFFERTE = 1000000;
   const regPrijs = (n) => { if (n <= GRATIS) return 0; let t = 0, prev = GRATIS; for (const [lim, rate] of [[3000, .08], [10000, .04], [100000, .01], [null, .003]]) { const top = lim === null ? n : Math.min(n, lim); if (top > prev) t += (top - prev) * rate; if (lim === null || n <= lim) break; prev = lim; } return Math.round(t * 100) / 100; };
   // bundels (billing.BUNDELS): vaste prijs + alles erboven tegen de schijfprijs; eerlijk advies alleen als het écht goedkoper is
-  const BUNDELS = [["Start", 1, 3000, 199], ["Professional", 1, 10000, 499], ["Evidence 100K", 5, 100000, 1490]];
+  const BUNDELS = [["Start", 1, 3000, 199], ["Professional", 3, 10000, 499], ["Evidence 100K", 25, 100000, 1450]];
   const bundelKost = ([, br, reg, prijs], n, nb) => Math.round((prijs + Math.max(0, nb - br) * BRON + Math.max(0, regPrijs(n) - regPrijs(Math.min(n, reg)))) * 100) / 100;
   const line = (l, v, sub, cls) => `<div${cls ? ` class="${cls}"` : ""}><dt>${l}${sub ? `<small>${sub}</small>` : ""}</dt><dd>${v}</dd></div>`;
   function chips() { document.querySelectorAll(".cq-chips").forEach((c) => { const v = String(parseInt($("#" + c.dataset.for).value) || 0); c.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.v === v)); }); }
