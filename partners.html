@@ -14,8 +14,8 @@
 
 <link rel="canonical" href="https://vidimus.be/partners.html">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
-<meta property="og:title" content="Partners — uw software registreert, Vidimus maakt het bewijsbaar | Vidimus"><meta property="og:description" content="Voor TMS-, WMS-, ERP- en IoT-leveranciers: bouw niets, zet één bewijslaag onder uw product en verdien recurring marge."><meta property="og:url" content="https://vidimus.be/partners.html"><meta property="og:image" content="https://vidimus.be/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.png">
+<meta property="og:title" content="Partners — uw software registreert, Vidimus maakt het bewijsbaar | Vidimus"><meta property="og:description" content="Voor TMS-, WMS-, ERP- en IoT-leveranciers: bouw niets, zet één bewijslaag onder uw product en verdien recurring marge."><meta property="og:url" content="https://vidimus.be/partners.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.jpg">
 <style>
 .lagen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(1.4rem, 3vw, 2rem); }
 .lagen article { display: grid; gap: 10px; align-content: start; padding: 22px 24px; border-radius: 22px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
@@ -161,6 +161,54 @@
   </div>
 </section>
 
+<section style="padding-block:0 var(--space)" id="marge">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">REKEN HET UIT</span>
+      <h2 class="disp">Wat verdient u per maand<span style="color:var(--red)">?</span></h2>
+      <p class="side">Vul in hoeveel klanten u aansluit en welke bundel ze gemiddeld nemen. De prijzen zijn die van <a href="prijzen.html" style="color:var(--ink)">de prijzenpagina</a>; uw laag bepaalt uw aandeel. Alles in uw browser, niets wordt verstuurd.</p>
+    </div>
+    <div class="cq rv" id="pm">
+      <form class="cq-form" onsubmit="return false">
+        <div class="cq-step" role="group">
+          <h3 class="cq-h"><i>01</i>Klanten</h3>
+          <label class="cq-num" for="pmN"><span class="lbl">Aangesloten klanten</span>
+            <span class="cq-in"><input type="number" id="pmN" value="50" min="0" inputmode="numeric"><em>klanten</em></span></label>
+          <div class="cq-chips" data-for="pmN"><button type="button" data-v="10">10</button><button type="button" data-v="50">50</button><button type="button" data-v="100">100</button><button type="button" data-v="300">300</button></div>
+          <p class="cq-help">Een TMS met 300 klanten waarvan een op vijf meedoet: 60.</p>
+        </div>
+        <div class="cq-step" role="group">
+          <h3 class="cq-h"><i>02</i>Gemiddelde bundel per klant</h3>
+          <div class="cq-seg" role="radiogroup" aria-label="Bundel" style="grid-template-columns:1fr 1fr 1fr">
+            <label><input type="radio" name="pmB" value="199" checked><span>Start<small>€ 199</small></span></label>
+            <label><input type="radio" name="pmB" value="499"><span>Professional<small>€ 499</small></span></label>
+            <label><input type="radio" name="pmB" value="1450"><span>Evidence 100K<small>€ 1 450</small></span></label>
+          </div>
+          <label class="cq-opt tight" for="pmF"><span class="txt"><b>Of een eigen gemiddelde maandfactuur</b><small>leeg = de gekozen bundel</small></span><span class="cq-in sm"><input type="number" id="pmF" placeholder="—" min="0" inputmode="numeric"></span></label>
+        </div>
+        <div class="cq-step" role="group">
+          <h3 class="cq-h"><i>03</i>Uw laag</h3>
+          <div class="cq-seg" role="radiogroup" aria-label="Laag" style="grid-template-columns:1fr 1fr 1fr">
+            <label><input type="radio" name="pmL" value="0.20"><span>Referral<small>20 % · 24 mnd</small></span></label>
+            <label><input type="radio" name="pmL" value="0.30" checked><span>Reseller<small>30 %</small></span></label>
+            <label><input type="radio" name="pmL" value="0.35"><span>Integrator<small>30–40 %</small></span></label>
+          </div>
+          <label class="cq-opt tight" for="pmI"><span class="txt"><b>Implementatie per klant</b><small>eenmalig, 100 % voor u (integrator)</small></span><span class="cq-in sm"><input type="number" id="pmI" value="0" min="0" step="250" inputmode="numeric"></span></label>
+        </div>
+      </form>
+      <aside class="cq-bill" aria-live="polite">
+        <span class="lbl">Uw marge</span>
+        <div class="cq-total"><output id="pmMnd">€ 0</output><em>/ maand</em></div>
+        <p class="cq-schijf" id="pmSub"></p>
+        <dl class="cq-lines" id="pmLines"></dl>
+        <div class="cq-year"><span>Per jaar</span><output id="pmJaar">€ 0</output></div>
+        <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Word Vidimus-partner</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="cq-note">Richtprijzen excl. btw. Reseller en integrator factureren zelf: hun marge is het verschil tussen de klantprijs en de inkoop bij Vidimus. Referral wordt per kwartaal uitbetaald, hoogstens 24 maanden per klant.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <section style="padding-block:0 var(--space)">
   <div class="wrap">
     <div class="sec-head">
@@ -240,6 +288,37 @@
   <a href="https://app.vidimus.be/partner/overeenkomst">Partnerovereenkomst</a>
 </footer>
 
-<script src="script.js?v=20260914b" defer></script>
+<script src="script.js?v=20260926" defer></script>
+<script defer>
+addEventListener("DOMContentLoaded", () => {
+  const $ = (s) => document.querySelector(s);
+  const eur = (n) => "€ " + (Number.isInteger(n) ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f") : n.toFixed(2).replace(".", ","));
+  const num = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f");
+  const NAAM = { "0.20": "Referral", "0.30": "Reseller", "0.35": "Integrator" };
+  const line = (l, v, sub, cls) => `<div${cls ? ` class="${cls}"` : ""}><dt>${l}${sub ? `<small>${sub}</small>` : ""}</dt><dd>${v}</dd></div>`;
+  function calc() {
+    const n = Math.max(0, parseInt($("#pmN").value) || 0);
+    const bundel = parseFloat(document.querySelector("input[name=pmB]:checked").value);
+    const f = Math.max(0, parseFloat($("#pmF").value) || 0) || bundel;
+    const lw = document.querySelector("input[name=pmL]:checked").value, l = parseFloat(lw);
+    const impl = Math.max(0, parseFloat($("#pmI").value) || 0);
+    document.querySelectorAll("#pm .cq-chips button").forEach((b) => b.classList.toggle("on", b.dataset.v === String(n)));
+    const perKlant = Math.round(f * l * 100) / 100, mnd = Math.round(perKlant * n * 100) / 100;
+    const inkoop = Math.round((f - perKlant) * n * 100) / 100, eenmalig = n * impl;
+    $("#pmMnd").textContent = eur(mnd);
+    $("#pmSub").textContent = n ? `${num(n)} klanten × ${eur(f)} × ${Math.round(l * 100)} % (${NAAM[lw]})` : "vul een aantal klanten in";
+    let h = line("Per klant per maand", eur(perKlant), `${Math.round(l * 100)} % van ${eur(f)}`);
+    if (l === 0.20) h += line("De klant betaalt Vidimus", eur(Math.round(f * n * 100) / 100), "u factureert niets; uitbetaling per kwartaal, 24 maanden");
+    else { h += line("U factureert uw klanten", eur(Math.round(f * n * 100) / 100), "onder eigen naam"); h += line("U betaalt Vidimus (inkoop)", eur(inkoop), `${Math.round((1 - l) * 100)} % van de klantprijs`); }
+    if (eenmalig) h += line("Implementatie, eenmalig", eur(eenmalig), `${num(n)} × ${eur(impl)} · 100 % voor u`);
+    h += line("Marge per maand", eur(mnd), l === 0.20 ? "24 maanden per klant" : "zolang de klant klant is", "cq-sum");
+    $("#pmLines").innerHTML = h;
+    $("#pmJaar").textContent = eur(Math.round((mnd * 12 + eenmalig) * 100) / 100) + (eenmalig ? " incl. implementatie" : "");
+  }
+  document.querySelectorAll("#pm input").forEach((el) => el.addEventListener("input", calc));
+  document.querySelectorAll("#pm .cq-chips button").forEach((b) => b.addEventListener("click", () => { $("#pmN").value = b.dataset.v; calc(); }));
+  calc();
+});
+</script>
 </body>
 </html>

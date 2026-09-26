@@ -352,3 +352,23 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   const vraag = () => { if (!ticking) { ticking = true; requestAnimationFrame(teken); } };
   addEventListener("scroll", vraag, { passive: true }); addEventListener("resize", vraag); teken();
 })();
+
+/* 26/09: mobiel menu — de bovenste navigatie staat op een gsm verborgen; één knop opent dezelfde links plus inloggen */
+(function () {
+  const kop = document.querySelector("header.site"), nav = kop && kop.querySelector(".topnav");
+  if (!kop || !nav) return;
+  const knop = document.createElement("button");
+  knop.type = "button"; knop.className = "menu-knop"; knop.setAttribute("aria-label", "Menu"); knop.setAttribute("aria-expanded", "false");
+  knop.innerHTML = "<span></span><span></span>";
+  const paneel = document.createElement("nav");
+  paneel.className = "mob-menu"; paneel.hidden = true; paneel.setAttribute("aria-label", "Menu");
+  paneel.innerHTML = nav.innerHTML;
+  const login = kop.querySelector(".top-login");
+  if (login) { const a = login.cloneNode(true); a.className = "mob-login"; paneel.append(a); }
+  kop.append(knop); kop.after(paneel);
+  const zet = (open) => { paneel.hidden = !open; knop.setAttribute("aria-expanded", String(open)); };
+  knop.addEventListener("click", () => zet(paneel.hidden));
+  paneel.addEventListener("click", (e) => { if (e.target.closest("a")) zet(false); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape") zet(false); });
+  addEventListener("resize", () => { if (innerWidth > 720) zet(false); });
+})();

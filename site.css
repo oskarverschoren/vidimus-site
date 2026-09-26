@@ -562,3 +562,20 @@ a.go:hover svg { transform: translateX(3px); }
 /* ── navigatie met zeven items (25/09): nooit afbreken; op smalle schermen vallen Scenario's en Help weg (staan in de voet) ── */
 .topnav a { white-space: nowrap; }
 @media (max-width: 1000px) { .topnav a[href="scenarios.html"], .topnav a[href="help.html"] { display: none; } }
+
+/* ── mobiel menu (26/09): knop in de kop, paneel eronder; alleen onder 720 px ── */
+.menu-knop { display: none; width: 44px; height: 44px; border: 1px solid var(--glass-edge); border-radius: 12px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); cursor: pointer; padding: 0; position: relative; flex: none; }
+.menu-knop span { position: absolute; left: 13px; right: 13px; height: 2px; border-radius: 2px; background: var(--ink); transition: transform 180ms, top 180ms; }
+.menu-knop span:first-child { top: 17px; } .menu-knop span:last-child { top: 25px; }
+.menu-knop[aria-expanded="true"] span:first-child { top: 21px; transform: rotate(45deg); }
+.menu-knop[aria-expanded="true"] span:last-child { top: 21px; transform: rotate(-45deg); }
+.mob-menu { display: none; }
+@media (max-width: 720px) {
+  .menu-knop { display: block; }
+  .mob-menu { display: grid; gap: 2px; position: fixed; left: 12px; right: 12px; top: 70px; z-index: 60; padding: 10px; border-radius: 20px; background: rgba(255, 255, 255, .94); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid var(--glass-edge); box-shadow: 0 24px 60px -30px rgba(11, 15, 23, .5); }
+  .mob-menu[hidden] { display: none; }
+  .mob-menu a { display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: var(--ink); font-weight: 500; font-size: 16px; }
+  .mob-menu a b { display: none; }
+  .mob-menu a[aria-current] { background: rgba(11, 15, 23, .06); }
+  .mob-menu .mob-login { margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); border-radius: 0; color: var(--ink-3); }
+}
