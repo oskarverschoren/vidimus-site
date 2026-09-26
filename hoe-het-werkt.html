@@ -64,7 +64,7 @@
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">03</span>
       <h3>Vingerafdruk<small>SHA-256 · CANONIEKE JSON · ELKE BIJLAGE OP HASH</small></h3>
-      <p>Op dat moment wordt SHA-256 berekend over de canonieke inhoud én de hash van elke bijlage. Eén byte anders geeft een andere afdruk; uit de afdruk valt de inhoud nooit te reconstrueren. Bij stromen met persoonsgegevens is de afdruk een HMAC met een salt die alleen in de bundel van de eigenaar zit: de keten blijft na te rekenen, de inhoud niet te raden.</p>
+      <p>Op dat moment wordt SHA-256 berekend over de canonieke inhoud, de hash van elke bijlage én het organisatiekenmerk van de indienende onderneming. Eén byte anders geeft een andere afdruk; uit de afdruk valt de inhoud nooit te reconstrueren. Bij stromen met persoonsgegevens is de afdruk een HMAC met een salt die alleen in de bundel van de eigenaar zit: de keten blijft na te rekenen, de inhoud niet te raden.</p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">04</span>
       <h3>Handtekening en tijd<small>ED25519 · ELKE 5 MINUTEN EEN MERKLE-BOOM · RFC 3161 — NIET ONZE KLOK, DIE VAN EEN DERDE</small></h3>
