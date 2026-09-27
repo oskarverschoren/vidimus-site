@@ -372,3 +372,13 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   addEventListener("keydown", (e) => { if (e.key === "Escape") zet(false); });
   addEventListener("resize", () => { if (innerWidth > 720) zet(false); });
 })();
+
+/* 27/09 (Oskar, in de app: "alweer geen weg terug; het logo brengt me naar de website"): opent de iPhone/Android-app een
+   pagina van vidimus.be, dan komt er één terugknop en gaat ook het logo terug naar de app. Buiten de app gebeurt niets.
+   De logica zelf staat één keer, in de app (webapp/terug.js). */
+(function () {
+  if (!/VidimusApp/.test(navigator.userAgent)) return;
+  const s = document.createElement("script");
+  s.src = "https://app.vidimus.be/webapp/terug.js"; s.defer = true;
+  document.head.append(s);
+})();
