@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260925">
+<link rel="stylesheet" href="styles.css?v=20260927">
 <link rel="stylesheet" href="inner.css?v=20260925">
 
 <link rel="canonical" href="https://vidimus.be/partners.html">
@@ -107,7 +107,7 @@
     <div class="sec-head">
       <span class="idx">03 · WAT MOET U BOUWEN</span>
       <h2 class="disp">Niets<span style="color:var(--red)">.</span> <span class="thin">Twee API-calls.</span></h2>
-      <p class="side">Geen cryptografie in uw code, geen sleutelbeheer, geen tijdstempeldienst, geen Bitcoin. Dat is de laag. U stuurt wat u al hebt.</p>
+      <p class="side">Geen cryptografie in uw code, geen sleutelbeheer, geen contract met een tijdstempeldienst, geen Bitcoin. Dat is de laag. U stuurt wat u al hebt.</p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">01</span>
       <h3>Eindklant aanmaken<small>POST /partner/eindklanten · IDEMPOTENT OP UW KLANTNUMMER</small></h3>
@@ -131,30 +131,30 @@
     <div class="sec-head">
       <span class="idx">04 · WAT VERDIENT U</span>
       <h2 class="disp">Drie manieren om partner te zijn<span style="color:var(--red)">.</span></h2>
-      <p class="side">Hoe meer u zelf doet, hoe meer u verdient. Per eindklant geldt één laag; geen exclusiviteit, voor geen van beide partijen. Rekenvoorbeelden op de Start-bundel (€ 199 per maand: 1 bron + 3 000 registraties), richtprijs excl. btw.</p>
+      <p class="side">Hoe meer u zelf doet, hoe meer u verdient. Per eindklant geldt één laag; geen exclusiviteit, voor geen van beide partijen. Rekenvoorbeelden op een klant met 3 000 registraties en 1 bron per maand: € 232 volgens <a href="prijzen.html" style="color:var(--ink)">de gewone prijzen</a>, excl. btw.</p>
     </div>
     <div class="lagen rv">
       <article>
         <span class="pct">20 %<small>referral · 24 maanden</small></span>
         <h3>U brengt de klant aan</h3>
         <p>Uw klant meldt zich aan met uw link en betaalt Vidimus rechtstreeks. U krijgt 20 % van elke maandfactuur, gedurende 24 maanden. Geen facturatie, geen support.</p>
-        <p class="som">€ 39,80 per klant per maand <span>· ≈ € 955 per aangebrachte klant</span></p>
+        <p class="som">€ 46,40 per klant per maand <span>· ≈ € 1 114 per aangebrachte klant</span></p>
       </article>
       <article class="lead">
         <span class="pct">30 %<small>reseller · eigen prijs</small></span>
         <h3>U verkoopt het zelf</h3>
         <p>U koopt in met 30 % korting en factureert uw klanten onder eigen naam, tegen uw prijs. Eerste lijn van support bent u; wij zijn tweede lijn. De gepoolde meter en de uitsplitsing per klant staan in uw portaal.</p>
-        <p class="som">inkoop € 139,30 · marge € 59,70 per klant <span>· 50 klanten = € 2 985 per maand</span></p>
+        <p class="som">inkoop € 162,40 · marge € 69,60 per klant <span>· 50 klanten = € 3 480 per maand</span></p>
       </article>
       <article>
         <span class="pct">30–40 %<small>integrator · plus implementatie</small></span>
         <h3>U koppelt en implementeert</h3>
         <p>Zoals reseller, plus 100 % van de implementatievergoeding die u zelf met de klant afspreekt (doorgaans € 750 tot € 5 000 eenmalig). Tot 40 % korting in overleg, op basis van volume.</p>
-        <p class="som">marge € 59,70 – € 79,60 per klant <span>+ uw implementatie</span></p>
+        <p class="som">marge € 69,60 – € 92,80 per klant <span>+ uw implementatie</span></p>
       </article>
     </div>
     <div class="stat-row rv">
-      <div><b>€ 3 582</b><span>per maand voor een TMS met 300 klanten waarvan 20 % meedoet (60 × € 59,70)</span></div>
+      <div><b>€ 4 176</b><span>per maand voor een TMS met 300 klanten waarvan 20 % meedoet (60 × € 69,60)</span></div>
       <div><b>€ 0</b><span>ontwikkelkost: twee calls, sandbox meteen, go-live-checklist in het portaal</span></div>
       <div><b>24 mnd</b><span>referral-aandeel per klant; reseller en integrator zolang de klant klant is</span></div>
     </div>
@@ -166,7 +166,7 @@
     <div class="sec-head">
       <span class="idx">REKEN HET UIT</span>
       <h2 class="disp">Wat verdient u per maand<span style="color:var(--red)">?</span></h2>
-      <p class="side">Vul in hoeveel klanten u aansluit en welke bundel ze gemiddeld nemen. De prijzen zijn die van <a href="prijzen.html" style="color:var(--ink)">de prijzenpagina</a>; uw laag bepaalt uw aandeel. Alles in uw browser, niets wordt verstuurd.</p>
+      <p class="side">Vul in hoeveel klanten u aansluit en hoeveel een klant gemiddeld registreert. De prijzen zijn die van <a href="prijzen.html" style="color:var(--ink)">de prijzenpagina</a>: per registratie en per bron; uw laag bepaalt uw aandeel. Alles in uw browser, niets wordt verstuurd.</p>
     </div>
     <div class="cq rv" id="pm">
       <form class="cq-form" onsubmit="return false">
@@ -178,13 +178,14 @@
           <p class="cq-help">Een TMS met 300 klanten waarvan een op vijf meedoet: 60.</p>
         </div>
         <div class="cq-step" role="group">
-          <h3 class="cq-h"><i>02</i>Gemiddelde bundel per klant</h3>
-          <div class="cq-seg" role="radiogroup" aria-label="Bundel" style="grid-template-columns:1fr 1fr 1fr">
-            <label><input type="radio" name="pmB" value="199" checked><span>Start<small>€ 199</small></span></label>
-            <label><input type="radio" name="pmB" value="499"><span>Professional<small>€ 499</small></span></label>
-            <label><input type="radio" name="pmB" value="1450"><span>Evidence 100K<small>€ 1 450</small></span></label>
-          </div>
-          <label class="cq-opt tight" for="pmF"><span class="txt"><b>Of een eigen gemiddelde maandfactuur</b><small>leeg = de gekozen bundel</small></span><span class="cq-in sm"><input type="number" id="pmF" placeholder="—" min="0" inputmode="numeric"></span></label>
+          <h3 class="cq-h"><i>02</i>Gebruik per klant</h3>
+          <label class="cq-num" for="pmR"><span class="lbl">Registraties per klant per maand</span>
+            <span class="cq-in"><input type="number" id="pmR" value="3000" min="0" step="100" inputmode="numeric"><em>/ maand</em></span></label>
+          <div class="cq-chips" data-for="pmR"><button type="button" data-v="500">500</button><button type="button" data-v="3000">3 000</button><button type="button" data-v="10000">10 000</button><button type="button" data-v="30000">30 000</button></div>
+          <label class="cq-num" for="pmBr"><span class="lbl">Bronnen per klant</span>
+            <span class="cq-in"><input type="number" id="pmBr" value="1" min="0" inputmode="numeric"><em>bronnen</em></span></label>
+          <div class="cq-chips" data-for="pmBr"><button type="button" data-v="0">geen</button><button type="button" data-v="1">1</button><button type="button" data-v="4">4</button><button type="button" data-v="25">25</button></div>
+          <label class="cq-opt tight" for="pmF"><span class="txt"><b>Of een eigen gemiddelde maandfactuur</b><small>leeg = berekend met de gewone prijzen</small></span><span class="cq-in sm"><input type="number" id="pmF" placeholder="—" min="0" inputmode="numeric"></span></label>
         </div>
         <div class="cq-step" role="group">
           <h3 class="cq-h"><i>03</i>Uw laag</h3>
@@ -218,7 +219,7 @@
     </div>
     <div class="why-grid rv" style="grid-template-columns:repeat(4,1fr)">
       <article><span class="no">WIE</span><h3>Identiteit</h3><p>Ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met eID, certificaat per toestel of systeem op naam van de firma. Elke handtekening is Ed25519, de sleutel blijft op het toestel.</p></article>
-      <article><span class="no">WANNEER</span><h3>Tijd van een derde</h3><p>Niet onze klok: een onafhankelijke tijdstempeldienst (RFC 3161) tekent de wortel van elke batch. Daarna gaat dezelfde wortel via OpenTimestamps in Bitcoin — een tweede getuige die niemand kan wissen.</p></article>
+      <article><span class="no">WANNEER</span><h3>Gekwalificeerde tijd</h3><p>Niet onze klok: een erkende, gekwalificeerde vertrouwensdienst zet een gekwalificeerde tijdstempel (eIDAS) op de wortel van elke batch. Daarna gaat dezelfde wortel via OpenTimestamps in Bitcoin — een tweede getuige die niemand kan wissen.</p></article>
       <article><span class="no">WAT</span><h3>Integriteit</h3><p>SHA-256 over de gegevens én de bijlagen, per batch in één Merkle-boom. Eén byte anders en de vingerafdruk komt niet meer overeen met het anker — ook als wij het zouden proberen.</p></article>
       <article><span class="no">ZONDER ONS</span><h3>Verificatie</h3><p>Publieke controlepagina, bewijsbundel met controlescript, dossier voor de rechtbank. Elke stap is met open gereedschap te herhalen. Originelen versleuteld per document, met een sleutel per organisatie; elke ontsleuteling door onze server staat in een logboek dat uw klant ziet.</p></article>
     </div>
@@ -295,19 +296,23 @@ addEventListener("DOMContentLoaded", () => {
   const eur = (n) => "€ " + (Number.isInteger(n) ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f") : n.toFixed(2).replace(".", ","));
   const num = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f");
   const NAAM = { "0.20": "Referral", "0.30": "Reseller", "0.35": "Integrator" };
+  // zelfde cijfers als prijzen.html en vidimus/billing.py: eerste 100 gratis, dan 0,08 → 0,04 (3 001–10 000) → 0,01 (tot 100 000) → 0,003; bron € 15 (eerste gratis); minimum € 19
+  const regPrijs = (n) => { if (n <= 100) return 0; let t = 0, prev = 100; for (const [lim, rate] of [[3000, .08], [10000, .04], [100000, .01], [null, .003]]) { const top = lim === null ? n : Math.min(n, lim); if (top > prev) t += (top - prev) * rate; if (lim === null || n <= lim) break; prev = lim; } return t; };
   const line = (l, v, sub, cls) => `<div${cls ? ` class="${cls}"` : ""}><dt>${l}${sub ? `<small>${sub}</small>` : ""}</dt><dd>${v}</dd></div>`;
   function calc() {
     const n = Math.max(0, parseInt($("#pmN").value) || 0);
-    const bundel = parseFloat(document.querySelector("input[name=pmB]:checked").value);
-    const f = Math.max(0, parseFloat($("#pmF").value) || 0) || bundel;
+    const reg = Math.max(0, parseInt($("#pmR").value) || 0), br = Math.max(0, parseInt($("#pmBr").value) || 0);
+    const los = Math.round((regPrijs(reg) + Math.max(0, br - 1) * 15) * 100) / 100, gerekend = los === 0 ? 0 : Math.max(19, los);
+    const f = Math.max(0, parseFloat($("#pmF").value) || 0) || gerekend;
     const lw = document.querySelector("input[name=pmL]:checked").value, l = parseFloat(lw);
     const impl = Math.max(0, parseFloat($("#pmI").value) || 0);
-    document.querySelectorAll("#pm .cq-chips button").forEach((b) => b.classList.toggle("on", b.dataset.v === String(n)));
+    document.querySelectorAll("#pm .cq-chips").forEach((c) => { const v = String(parseInt($("#" + c.dataset.for).value) || 0); c.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.v === v)); });
     const perKlant = Math.round(f * l * 100) / 100, mnd = Math.round(perKlant * n * 100) / 100;
     const inkoop = Math.round((f - perKlant) * n * 100) / 100, eenmalig = n * impl;
     $("#pmMnd").textContent = eur(mnd);
     $("#pmSub").textContent = n ? `${num(n)} klanten × ${eur(f)} × ${Math.round(l * 100)} % (${NAAM[lw]})` : "vul een aantal klanten in";
-    let h = line("Per klant per maand", eur(perKlant), `${Math.round(l * 100)} % van ${eur(f)}`);
+    let h = line("Factuur per klant", eur(f), $("#pmF").value ? "uw eigen gemiddelde" : `${num(reg)} registraties, ${br} ${br === 1 ? "bron" : "bronnen"}`);
+    h += line("Per klant per maand", eur(perKlant), `${Math.round(l * 100)} % van ${eur(f)}`);
     if (l === 0.20) h += line("De klant betaalt Vidimus", eur(Math.round(f * n * 100) / 100), "u factureert niets; uitbetaling per kwartaal, 24 maanden");
     else { h += line("U factureert uw klanten", eur(Math.round(f * n * 100) / 100), "onder eigen naam"); h += line("U betaalt Vidimus (inkoop)", eur(inkoop), `${Math.round((1 - l) * 100)} % van de klantprijs`); }
     if (eenmalig) h += line("Implementatie, eenmalig", eur(eenmalig), `${num(n)} × ${eur(impl)} · 100 % voor u`);
@@ -316,7 +321,7 @@ addEventListener("DOMContentLoaded", () => {
     $("#pmJaar").textContent = eur(Math.round((mnd * 12 + eenmalig) * 100) / 100) + (eenmalig ? " incl. implementatie" : "");
   }
   document.querySelectorAll("#pm input").forEach((el) => el.addEventListener("input", calc));
-  document.querySelectorAll("#pm .cq-chips button").forEach((b) => b.addEventListener("click", () => { $("#pmN").value = b.dataset.v; calc(); }));
+  document.querySelectorAll("#pm .cq-chips button").forEach((b) => b.addEventListener("click", () => { $("#" + b.closest(".cq-chips").dataset.for).value = b.dataset.v; calc(); }));
   calc();
 });
 </script>

@@ -40,6 +40,8 @@ main { display: block; }
 
 /* paginakop */
 .page-hero { padding: clamp(28px, 4vh, 44px) 0 clamp(28px, 4vw, 48px); }
+/* 27/09 (Oskar: "ruimte laten tussen twee blokken"): na de knoppen van de hero ademt de eerste sectie, ook als die zelf zonder bovenmarge begint */
+.page-hero + section[style*="padding-block:0"] { padding-top: clamp(28px, 4.5vw, 72px) !important; }
 .page-hero .wrap { display: grid; gap: 14px; }
 .page-hero .crumb { display: flex; gap: 10px; align-items: center; margin: 0 0 8px; font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
 .page-hero .crumb a { color: inherit; text-decoration: none; }

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260916e">
+<link rel="stylesheet" href="styles.css?v=20260927e">
 <link rel="stylesheet" href="inner.css">
 <style>
 .ai-pre { background: var(--void-2); border: 1px solid var(--line); padding: 1rem 1.2rem; overflow-x: auto;
@@ -99,9 +99,10 @@
 <section style="padding-block: clamp(2rem, 4vw, 5rem)">
   <div class="wrap">
     <div class="sec-head"><span class="lbl">03 · ZONDER VIDIMUS TE VERTROUWEN</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, alleen Python 3 nodig) en het RFC 3161-tijdstempeltoken van de onafhankelijke derde. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, alleen Python 3 nodig) en de gekwalificeerde tijdstempel (RFC 3161-token) van een erkende vertrouwensdienst. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
 <pre class="ai-pre">python3 verify_bundle.py bundel.zip     →  ok: 6/6
-openssl ts -reply -token_in -in tijdstempel.tsr -text   →  tijdstip + Merkle-wortel van Sectigo</pre>
+openssl ts -reply -token_in -in tijdstempel.tsr -text   →  tijdstip + Merkle-wortel van de tijdstempeldienst
+https://eidas.ec.europa.eu/efda/tl-browser/             →  uitgever staat als gekwalificeerd op de EU-vertrouwenslijst</pre>
     <p style="margin-top:1.4rem"><a class="xbtn" href="https://app.vidimus.be/docs" rel="noopener"><span>Open de volledige API-referentie</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
   </div>
 </section>

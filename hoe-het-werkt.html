@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260916e">
+<link rel="stylesheet" href="styles.css?v=20260927e">
 <link rel="stylesheet" href="inner.css">
 
 <link rel="canonical" href="https://vidimus.be/hoe-het-werkt.html">
@@ -67,8 +67,8 @@
       <p>Op dat moment wordt SHA-256 berekend over de canonieke inhoud, de hash van elke bijlage én het organisatiekenmerk van de indienende onderneming. Eén byte anders geeft een andere afdruk; uit de afdruk valt de inhoud nooit te reconstrueren. Bij stromen met persoonsgegevens is de afdruk een HMAC met een salt die alleen in de bundel van de eigenaar zit: de keten blijft na te rekenen, de inhoud niet te raden.</p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">04</span>
-      <h3>Handtekening en tijd<small>ED25519 · ELKE 5 MINUTEN EEN MERKLE-BOOM · RFC 3161 — NIET ONZE KLOK, DIE VAN EEN DERDE</small></h3>
-      <p>De indiener tekent de vingerafdruk met zijn sleutel (ontworpen naar de vereisten van een geavanceerde elektronische handtekening). Elke vijf minuten gaan alle nieuwe vingerafdrukken in één Merkle-boom; de wortel daarvan wordt getekend door een onafhankelijke tijdstempeldienst. <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een onafhankelijke klok.</em></p>
+      <h3>Handtekening en tijd<small>ED25519 · ELKE 5 MINUTEN EEN MERKLE-BOOM · GEKWALIFICEERDE TIJDSTEMPEL — NIET ONZE KLOK</small></h3>
+      <p>De indiener tekent de vingerafdruk met zijn sleutel (ontworpen naar de vereisten van een geavanceerde elektronische handtekening). Elke vijf minuten gaan alle nieuwe vingerafdrukken in één Merkle-boom; de wortel daarvan krijgt een gekwalificeerde tijdstempel (eIDAS). <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een gekwalificeerde vertrouwensdienst.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">05</span>
       <h3>Verankeren<small>GROOTBOEK (HASH-KETEN) → OPENTIMESTAMPS → BITCOIN</small></h3>
@@ -93,7 +93,7 @@
     </div>
     <div class="why-grid rv" style="grid-template-columns:repeat(4,1fr)">
       <article><span class="no">A</span><h3>De inhoud</h3><p>Het document of de meting zelf: een afgiftestaat, een meerwerk-akkoord, een gate-event. Foto's gaan mee als hash — het beeld blijft bij u.</p></article>
-      <article><span class="no">B</span><h3>Het moment</h3><p>Niet onze serverklok maar een onafhankelijke RFC 3161-tijdstempel bepaalt wanneer. Antidateren kan dus ook niet — door geen enkele partij.</p></article>
+      <article><span class="no">B</span><h3>Het moment</h3><p>Niet onze serverklok maar een gekwalificeerde tijdstempel van een erkende vertrouwensdienst bepaalt wanneer. Antidateren kan dus ook niet — door geen enkele partij.</p></article>
       <article><span class="no">C</span><h3>De ondertekenaars</h3><p>Ed25519-handtekeningen met X.509-certificaten per organisatie, medewerker en systeem, ontworpen naar de vereisten van een geavanceerde elektronische handtekening (eIDAS art. 26). De organisatie zelf via een mandaat dat de bestuurder met zijn eID tekent.</p></article>
       <article><span class="no">D</span><h3>De geschiedenis</h3><p>Elke actie erna — bekijken, exporteren, delen — komt in een audittrail die zelf SHA-256-gechaind is.</p></article>
     </div>
@@ -156,7 +156,7 @@
       </div>
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
         <div><p class="lbl"><b>04</b> · HAVEN &amp; LOGISTIEK</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">Het gate-event</h3><p style="font-size:.86rem;color:var(--paper-dim)">Elke passcan of gate-beweging die uw poortsysteem registreert, wordt meteen mee verankerd. Alle partijen in de keten kijken naar één gedeelde bewijslaag in plaats van elk naar hun eigen logs.</p></div>
-        <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span>09:41:03 utc · rfc 3161<br><span class="k">verankerd</span><span class="gr">merkle-root + bitcoin-anker</span></div>
+        <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span>09:41:03 utc · gekwalificeerd<br><span class="k">verankerd</span><span class="gr">merkle-root + bitcoin-anker</span></div>
       </div>
     </div>
   </div>
@@ -170,7 +170,7 @@
     </div>
     <div class="faq rv">
       <details><summary>Moeten onze documenten naar jullie cloud?</summary><p class="a"><b>Alleen als u dat wilt.</b> Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Stuurt u alleen de hash, dan blijft het document waar het staat. Stuurt u het origineel mee, dan ligt het versleuteld in de kluis (eigen sleutel per document, sleutel per organisatie, in de EU) en kunt u het later laten wissen. Ketenpartners en softwarepartners lezen het nooit; leest onze server het voor een dossier of bundel, dan staat dat in uw logboek.</p></details>
-      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen wallet, geen consortium.</b> Wij gebruiken Bitcoin alleen als publieke, onwisbare klok: de Merkle-wortel van elke batch gaat via OpenTimestamps in een Bitcoin-blok, en het bewijs (.ots) is tegen Bitcoin zelf na te rekenen. Daarnaast tekent een onafhankelijke tijdstempeldienst (RFC 3161) dezelfde wortel. Twee getuigen, geen token.</p></details>
+      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen wallet, geen consortium.</b> Wij gebruiken Bitcoin alleen als publieke, onwisbare klok: de Merkle-wortel van elke batch gaat via OpenTimestamps in een Bitcoin-blok, en het bewijs (.ots) is tegen Bitcoin zelf na te rekenen. Daarnaast krijgt dezelfde wortel een gekwalificeerde tijdstempel van een erkende vertrouwensdienst. Twee getuigen, geen token.</p></details>
       <details><summary>En persoonsgegevens dan (AVG)?</summary><p class="a">Op de keten staan <b>geen persoonsgegevens</b> — alleen hashes, en voor persoonsgebonden registraties gesleutelde hashes die zonder de (off-chain) sleutel naar niets te herleiden zijn. Het recht op gegevenswissing blijft uitvoerbaar: het dossier is off-chain versleuteld en wordt gewist door de sleutel te vernietigen.</p></details>
       <details><summary>Wat als we stoppen — of als Vidimus verdwijnt?</summary><p class="a">De bewijsbundels zijn <b>al van u</b>: exporteerbaar en zelfstandig verifieerbaar met standaardcryptografie (SHA-256, RFC 3161, Merkle-bewijs). Ze hangen niet aan ons platform en blijven ook na een stopzetting geldig.</p></details>
       <details><summary>Hoe zwaar is de koppeling voor ons team?</summary><p class="a"><b>Eén REST-endpoint of webhook per datastroom.</b> In een pilot koppelen we bewust één stroom; de intake duurt een half uur en daarna merkt uw team er alleen het tekenmoment van.</p></details>

@@ -27,7 +27,7 @@
   "sub": "Alles wat u vastlegt — handmatig of via de API.",
   "seconds": 40,
   "script": [
-   "Hier staat alles wat uw organisatie vastlegde, met stroom, referentie, indiener, moment en status. Verankerd betekent: tijdstempel van een derde en grootboek.",
+   "Hier staat alles wat uw organisatie vastlegde, met stroom, referentie, indiener, moment en status. Verankerd betekent: gekwalificeerde tijdstempel en grootboek.",
    "Bovenaan zoekt u op alles: bonnummer, id, vingerafdruk, datum, indiener. Rechts legt u handmatig iets vast: kies de stroom, vul de velden in, voeg foto's of pdf toe, registreren.",
    "De verankering gebeurt automatisch, elke paar minuten. Met Auditpakket downloadt u alle bewijsbundels van een maand of periode."
   ]
