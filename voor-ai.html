@@ -63,7 +63,7 @@
     <div class="sec-head"><span class="lbl">01 · WAT EEN AGENT KAN DOEN</span></div>
     <table class="dtable">
       <tr><th>Opdracht van de gebruiker</th><th>Wat de agent doet</th><th>Sleutel</th></tr>
-      <tr><td>"Is registratie reg_… nog geldig en onaangeraakt?"</td><td><code>GET /verify/{id}</code> → zes controles</td><td>nee</td></tr>
+      <tr><td>"Is registratie reg_… nog geldig en onaangeraakt?"</td><td><code>GET /verify/{id}</code> → alle controles, ook de gekwalificeerde tijdstempel</td><td>nee</td></tr>
       <tr><td>"Toon me alles over zending VAC-2026-007."</td><td><code>GET /passport/{ref}</code> → tijdlijn over alle partijen (alleen feiten)</td><td>nee</td></tr>
       <tr><td>"Controleer deze bewijsbundel van een leverancier."</td><td><code>POST /verify-upload</code> (zip) → oordeel + controles</td><td>nee</td></tr>
       <tr><td>"Bezorg me het bewijs van de meerwerkbon van blok B."</td><td><code>GET /registrations?ref=…</code> → <code>/dossier</code> → <code>/bundle</code></td><td>ja</td></tr>
@@ -91,18 +91,18 @@
 <b>Agent:</b>  passport("MSKU 452 118-0")   → vindt de aflevering + de bevestiging van de terminal
         get_dossier(reg_…)           → het leesbare dossier
         download_bundle(reg_…)       → de cryptografische bewijsbundel (.zip)
-        verify_bundle_file(zip)      → "zes controles: 6/6 — inhoud, handtekening,
-                                        Merkle-pad, grootboek en tijdstempel kloppen."</pre>
+        verify_bundle_file(zip)      → "geldig — inhoud, handtekeningen, Merkle-pad,
+                                        grootboek en beide tijdstempels kloppen."</pre>
   </div>
 </section>
 
 <section style="padding-block: clamp(2rem, 4vw, 5rem)">
   <div class="wrap">
     <div class="sec-head"><span class="lbl">03 · ZONDER VIDIMUS TE VERTROUWEN</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, alleen Python 3 nodig) en de gekwalificeerde tijdstempel (RFC 3161-token) van een erkende vertrouwensdienst. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
-<pre class="ai-pre">python3 verify_bundle.py bundel.zip     →  ok: 6/6
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, alleen Python 3 nodig) en de tijdstempeltokens (RFC 3161), waaronder de gekwalificeerde tijdstempel van een erkende vertrouwensdienst. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
+<pre class="ai-pre">python3 verify_bundle.py bundel.zip     →  GELDIG · 7 van 8 nagerekend (het Bitcoin-blok vergelijkt u online)
 openssl ts -reply -token_in -in tijdstempel.tsr -text   →  tijdstip + Merkle-wortel van de tijdstempeldienst
-https://eidas.ec.europa.eu/efda/tl-browser/             →  uitgever staat als gekwalificeerd op de EU-vertrouwenslijst</pre>
+https://eidas.ec.europa.eu/efda/tl-browser/             →  uitgever van gekwalificeerd.tsr staat als gekwalificeerd op de EU-vertrouwenslijst</pre>
     <p style="margin-top:1.4rem"><a class="xbtn" href="https://app.vidimus.be/docs" rel="noopener"><span>Open de volledige API-referentie</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
   </div>
 </section>

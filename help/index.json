@@ -27,7 +27,7 @@
   "sub": "Alles wat u vastlegt — handmatig of via de API.",
   "seconds": 40,
   "script": [
-   "Hier staat alles wat uw organisatie vastlegde, met stroom, referentie, indiener, moment en status. Verankerd betekent: gekwalificeerde tijdstempel en grootboek.",
+   "Hier staat alles wat uw organisatie vastlegde, met stroom, referentie, indiener, moment en status. Verankerd betekent: tijdstempel en grootboek; binnen zes uur volgt de gekwalificeerde tijdstempel.",
    "Bovenaan zoekt u op alles: bonnummer, id, vingerafdruk, datum, indiener. Rechts legt u handmatig iets vast: kies de stroom, vul de velden in, voeg foto's of pdf toe, registreren.",
    "De verankering gebeurt automatisch, elke paar minuten. Met Auditpakket downloadt u alle bewijsbundels van een maand of periode."
   ]
@@ -41,7 +41,7 @@
    "Elke registratie heeft haar eigen bewijs. Bovenaan de tijdlijn: geregistreerd, getekend, verankerd, gedeeld, bevestigd.",
    "Links wat werd vastgelegd; rechts het volledige dossier, de bewijsbundel en de publieke verificatiepagina die alleen feiten toont.",
    "Test het zelf: verander een waarde en klik Controleer. U ziet meteen dat de vingerafdruk niet meer klopt en welk veld verschilt. Zo ziet een tegenpartij of rechter het later ook.",
-   "Onderaan: de zes controles, de deellink of QR om een tegenpartij te laten bevestigen, en het wissen van de inhoud na de bewaartermijn."
+   "Onderaan: de controles, de deellink of QR om een tegenpartij te laten bevestigen, en het wissen van de inhoud na de bewaartermijn."
   ]
  },
  {
@@ -84,7 +84,7 @@
   "seconds": 31,
   "script": [
    "Verbruik toont de meter: hoeveel registraties deze maand, in welke schijf u zit en wat dat kost. Eén aansluiting, alle stromen samen; geen gebruikerslicenties.",
-   "Met een proefaansluiting is alles gratis tot honderd registraties per maand. Meer nodig? Activeer de aansluiting hier — honderdnegentig euro per maand met duizend registraties inbegrepen, factuur achteraf."
+   "Met een proefaansluiting is alles gratis tot honderd registraties per maand. Meer nodig? Activeer de aansluiting hier. Daarna betaalt u per registratie en per bron, met een minimum van negentien euro per maand, factuur achteraf."
   ]
  },
  {
