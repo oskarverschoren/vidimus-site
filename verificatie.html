@@ -48,7 +48,7 @@
   <div class="wrap">
     <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="verificatie.html">VERIFICATIE</a></p>
     <h1 class="disp">Narekenen zonder Vidimus<span class="dot">.</span></h1>
-    <p class="intro">Voor de gerechtsdeskundige, de auditor en de IT-dienst van de tegenpartij. Alles hieronder werkt zonder account en zonder onze software, en op één stap na offline: voor Bitcoin zoekt u één blok op in een publieke blockexplorer. U hebt alleen de bewijsbundel nodig, en die krijgt u van de klant, niet van ons.</p>
+    <p class="intro">Voor de gerechtsdeskundige, de auditor en de IT-dienst van de tegenpartij. Alles hieronder werkt zonder account en zonder onze software, en op één stap na offline: voor Bitcoin zoekt u één blok op in een publieke blockexplorer. U hebt alleen de bewijsbundel nodig, en die krijgt u van de klant, niet van ons. <a href="#officieel" style="color:var(--ink)">Liever met officiële software van de Europese Commissie?</a></p>
     <p class="intro" style="margin-top:1.2rem;color:var(--ink);font-weight:500;max-width:60ch">Publiek staat alleen een wiskundig bewijs dat uw register niet herschreven is. Wie u bent, wat u vastlegt en met wie, blijft binnen uw organisatie en wie u zelf een link geeft.</p>
   </div>
 </section>
@@ -63,16 +63,35 @@
   </div>
 </section>
 
+<section class="sec" aria-labelledby="v0" id="officieel">
+  <div class="wrap">
+    <div class="sec-lbl kop rv"><h2 id="v0">Met officiële software, zonder ons<span class="dot">.</span></h2><span class="lbl">00 · EU · BSI</span><p class="side">Voor een rechtbank of een tegenpartij die liever geen software van Vidimus gebruikt. Elke bewijsbundel bevat een <b>Evidence Record</b> (<code class="m">bewijs.ers</code>, RFC 4998): de internationale standaard voor "dit bestond op tijdstip T en is sindsdien niet gewijzigd". Dat bestand controleert u met de validatietool van de Europese Commissie of met die van het Duitse BSI.</p></div>
+    <ol class="todo rv">
+      <li><span><b>Vraag de bewijsbundel</b> aan de partij die de registratie deed, en pak de zip uit. U hebt twee bestanden nodig: <code class="m">bewijs.ers</code> en <code class="m">vingerafdruk-invoer.json</code> (de exacte inhoud die gehasht werd, met de SHA-256 van elke bijlage erin).</span></li>
+      <li><span><b>Open de validatietool van de Europese Commissie</b> (DSS): <a href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" rel="noopener" target="_blank">ec.europa.eu › DSS › Validate</a>.</span></li>
+      <li><span>Bij <b>Signed file</b>: kies <code class="m">bewijs.ers</code>. Bij <b>Original file(s)</b>: kies <code class="m">vingerafdruk-invoer.json</code>. Is de inhoud gevoelig, kies dan dat alleen de <b>digest (SHA-256)</b> verstuurd wordt: dan verlaat alleen de vingerafdruk uw computer.</span></li>
+      <li><span><b>Validation level</b>: <i>Validation with archival data</i>. Laat het beleid op standaard en klik op valideren.</span></li>
+      <li><span><b>Lees het rapport.</b> U ziet of de hash van het origineel in de boom zit, of de keten tot de getijdstempelde wortel klopt, en wie de tijdstempel zette. Een gekwalificeerde tijdstempel staat er met een uitgever op de EU-vertrouwenslijst (QTSA).</span></li>
+      <li><span><b>Bijlagen erbij?</b> <code class="m">sha256sum attachments/&lt;naam&gt;</code> geeft een waarde die in <code class="m">vingerafdruk-invoer.json</code> staat. Zo hangen ook de foto's en pdf's aan het gevalideerde bewijs.</span></li>
+    </ol>
+    <div class="hero-actions rv" style="margin-top:1.4rem">
+      <a class="xbtn red" href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" rel="noopener" target="_blank"><span>Validatietool van de Europese Commissie</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/signature-standalone" rel="noopener" target="_blank"><span>Dezelfde tool offline, op uw computer</span></a>
+      <a class="xbtn" href="https://github.com/de-bund-bsi-tr-esor/ERVerifyTool" rel="noopener" target="_blank"><span>ER Verify Tool van het BSI</span></a>
+    </div>
+    <p class="law-note" style="margin-top:1.2rem"><b style="color:var(--ink)">Offline</b>: download de standalone toepassing van de Commissie, start ze op uw eigen computer en volg dezelfde stappen; uw bestanden blijven bij u. <b style="color:var(--ink)">BSI</b>: de ER Verify Tool (TR-ESOR) is bedoeld voor deskundigen; ze vraagt Java 11 en een ingestelde tijdstempelcontrole, en draait dan met <code class="m">checktool -conf config.xml -data vingerafdruk-invoer.json -er bewijs.ers</code>. <b style="color:var(--ink)">Wat dit niet dekt</b>: wie tekende en de Bitcoin-verankering; die staan in stap 3 hieronder. Bij stromen met persoonsgegevens is de vingerafdruk gezouten; daar werkt de browserroute niet en gebruikt u de stappen hieronder.</p>
+  </div>
+</section>
 <section class="sec" aria-labelledby="v1">
   <div class="wrap">
     <div class="sec-lbl kop rv"><h2 id="v1">Wat in de bundel zit<span class="dot">.</span></h2><span class="lbl">01</span></div>
-    <ul class="todo rv"><li><span><b>manifest.json</b>: alle feiten en tussenwaarden. Vingerafdruk, Merkle-pad en -wortel, batch, handtekeningen, tijdstempel, grootboekrecord, Bitcoin-status.</span></li><li><span><b>registration.json en attachments/</b>: de originele inhoud en bijlagen, foto's, pdf's, cmr, metingen. Niet een kopie uit de databank van de klant, maar wat op het toestel werd vastgelegd en getekend.</span></li><li><span><b>Certificaten</b> van de indiener, zijn organisatie en van Vidimus. <b>Tijdstempeltoken</b> (RFC 3161) van een erkende, gekwalificeerde vertrouwensdienst. <b>bitcoin.ots</b>, het OpenTimestamps-bewijs naar een Bitcoin-blok.</span></li><li><span><b>Organisatiekenmerk</b>: een SHA-256 dat de organisatie identificeert. Het staat op het eID-getekende mandaat van haar bestuurder, in de verankerde mandaatregistratie, in elke bundel (manifest.organisatie.kenmerk) en op elke controlepagina. Zo hoort elke handtekening aantoonbaar bij één, geïdentificeerde firma.</span></li><li><span><b>verify_bundle.py en VERIFICATIE.md</b>: het referentiescript en deze handleiding, zodat de bundel zichzelf uitlegt, ook over tien jaar.</span></li></ul>
+    <ul class="todo rv"><li><span><b>manifest.json</b>: alle feiten en tussenwaarden. Vingerafdruk, Merkle-pad en -wortel, batch, handtekeningen, tijdstempel, grootboekrecord, Bitcoin-status.</span></li><li><span><b>registration.json en attachments/</b>: de originele inhoud en bijlagen, foto's, pdf's, cmr, metingen. Niet een kopie uit de databank van de klant, maar wat op het toestel werd vastgelegd en getekend.</span></li><li><span><b>Certificaten</b> van de indiener, zijn organisatie en van Vidimus. <b>Tijdstempeltoken</b> (RFC 3161) en <b>gekwalificeerd.tsr</b> van een erkende, gekwalificeerde vertrouwensdienst. <b>bewijs.ers</b>: het Evidence Record (RFC 4998) voor de officiële validatietools, met <b>vingerafdruk-invoer.json</b> als origineel. <b>bitcoin.ots</b>, het OpenTimestamps-bewijs naar een Bitcoin-blok.</span></li><li><span><b>Organisatiekenmerk</b>: een SHA-256 dat de organisatie identificeert. Het staat op het eID-getekende mandaat van haar bestuurder, in de verankerde mandaatregistratie, in elke bundel (manifest.organisatie.kenmerk) en op elke controlepagina. Zo hoort elke handtekening aantoonbaar bij één, geïdentificeerde firma.</span></li><li><span><b>verify_bundle.py en VERIFICATIE.md</b>: het referentiescript en deze handleiding, zodat de bundel zichzelf uitlegt, ook over tien jaar.</span></li></ul>
   </div>
 </section>
 <section class="sec" aria-labelledby="v2">
   <div class="wrap">
     <div class="sec-lbl kop rv"><h2 id="v2">Snel: één commando<span class="dot">.</span></h2><span class="lbl">02</span></div>
-    <ul class="todo rv"><li><span><code class="m">pip install cryptography rfc3161ng</code> en daarna <code class="m">python3 verify_bundle.py bundel.zip</code>. Per controle krijgt u <b>true</b>, <b>false</b> of <b>null</b> (niet controleerbaar in deze omgeving, met reden).</span></li><li><span><b>Zes controles plus Bitcoin:</b> inhoud ongewijzigd, zit in de verankerde batch, handtekening van de indiener, handtekening van Vidimus, grootboekrecord, gekwalificeerde tijdstempel, verankerd in Bitcoin.</span></li><li><span>Wie ons script niet vertrouwt, doet hetzelfde met de hand. Zie hieronder.</span></li></ul>
+    <ul class="todo rv"><li><span><code class="m">pip install cryptography rfc3161ng</code> en daarna <code class="m">python3 verify_bundle.py bundel.zip</code>. Per controle krijgt u <b>true</b>, <b>false</b> of <b>null</b> (niet controleerbaar in deze omgeving, met reden).</span></li><li><span><b>Zeven controles plus Bitcoin:</b> inhoud ongewijzigd, zit in de verankerde batch, handtekening van de indiener, handtekening van Vidimus, grootboekrecord, tijdstempel, gekwalificeerde tijdstempel, verankerd in Bitcoin.</span></li><li><span>Wie ons script niet vertrouwt, doet hetzelfde met de hand. Zie hieronder.</span></li></ul>
   </div>
 </section>
 <section class="sec" aria-labelledby="v3">
