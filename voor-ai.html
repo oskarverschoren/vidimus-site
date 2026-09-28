@@ -69,6 +69,7 @@
       <tr><td>"Bezorg me het bewijs van de meerwerkbon van blok B."</td><td><code>GET /registrations?ref=…</code> → <code>/dossier</code> → <code>/bundle</code></td><td>ja</td></tr>
       <tr><td>"Is deze pdf de versie die we destijds vastlegden?"</td><td>SHA-256 lokaal → <code>POST /lookup</code> → match + bewijs</td><td>ja</td></tr>
       <tr><td>"Leg deze afleverbon vast en laat de ontvanger tekenen."</td><td><code>POST /registrations</code> → <code>POST /registrations/{id}/share</code> (QR/mail)</td><td>ja</td></tr>
+      <tr><td>"Toon de temperatuurreeks van logger TL-0917."</td><td><code>GET /sources/{id}/reeks</code> → elke meting van die meetbron met haar vingerafdruk (een meting heeft geen deellink)</td><td>ja</td></tr>
       <tr><td>"Zet een opdracht klaar voor de chauffeur."</td><td><code>POST /streams/{id}/opdracht</code> → wallet-link, gemaild of als QR</td><td>ja</td></tr>
     </table>
   </div>
@@ -99,7 +100,7 @@
 <section style="padding-block: clamp(2rem, 4vw, 5rem)">
   <div class="wrap">
     <div class="sec-head"><span class="lbl">03 · ZONDER VIDIMUS TE VERTROUWEN</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, alleen Python 3 nodig) en de tijdstempeltokens (RFC 3161), waaronder de gekwalificeerde tijdstempel van een erkende vertrouwensdienst. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, Python 3 met het pakket cryptography) en de tijdstempeltokens (RFC 3161), waaronder de gekwalificeerde tijdstempel van een erkende vertrouwensdienst. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
 <pre class="ai-pre">python3 verify_bundle.py bundel.zip     →  GELDIG · 7 van 8 nagerekend (het Bitcoin-blok vergelijkt u online)
 openssl ts -reply -token_in -in tijdstempel.tsr -text   →  tijdstip + Merkle-wortel van de tijdstempeldienst
 https://eidas.ec.europa.eu/efda/tl-browser/             →  uitgever van gekwalificeerd.tsr staat als gekwalificeerd op de EU-vertrouwenslijst</pre>

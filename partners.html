@@ -97,7 +97,7 @@
     </div>
     <div class="sum-band rv">
       <span class="lbl">DE REKENSOM</span>
-      <p>Uw klant betaalt vandaag met uren, met verloren claims en met verzekeringspremies voor iets dat zijn software niet kan: <b>aantonen dat een registratie sindsdien niet veranderde</b>. Met Vidimus eronder kost dat hem <b class="r">€ 232 per maand bij 3 000 registraties en 1 bron</b> (minder gebruik kost minder, met een minimum van € 19) — en hij koopt het bij u, in het product dat hij al kent.</p>
+      <p>Uw klant betaalt vandaag met uren, met verloren claims en met verzekeringspremies voor iets dat zijn software niet kan: <b>aantonen dat een registratie sindsdien niet veranderde</b>. Met Vidimus eronder kost dat hem <b class="r">€ 232 per maand bij 3 000 registraties en 1 meetbron</b> (minder gebruik kost minder, met een minimum van € 19) — en hij koopt het bij u, in het product dat hij al kent.</p>
     </div>
   </div>
 </section>
@@ -115,7 +115,7 @@
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">02</span>
       <h3>Registreren<small>POST /registrations · POST /measurements</small></h3>
-      <p>Bij elke gebeurtenis in uw systeem — aflevering, goedkeuring, foto, document — stuurt u de gegevens door met de sleutel van die klant. Sensorwaarden gaan via <code>/measurements</code> en zijn onbeperkt inbegrepen per bron. Vidimus hasht, tekent, stempelt en verankert.</p>
+      <p>Bij elke gebeurtenis in uw systeem — aflevering, goedkeuring, foto, document — stuurt u de gegevens door met de sleutel van die klant. Sensorwaarden komen van een meetbron die u per klant aanmaakt met een eenheid en een bereik; ze gaan via <code>/measurements</code> en zijn onbeperkt inbegrepen per meetbron. Wat uw systeem zelf stuurt, is een registratie. Vidimus hasht, tekent, stempelt en verankert.</p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">03</span>
       <h3>Klaar<small>VERIFICATIEPAGINA · BEWIJSBUNDEL · DOSSIER</small></h3>
@@ -131,7 +131,7 @@
     <div class="sec-head">
       <span class="idx">04 · WAT VERDIENT U</span>
       <h2 class="disp">Drie manieren om partner te zijn<span style="color:var(--red)">.</span></h2>
-      <p class="side">Hoe meer u zelf doet, hoe meer u verdient. Per eindklant geldt één laag; geen exclusiviteit, voor geen van beide partijen. Rekenvoorbeelden op een klant met 3 000 registraties en 1 bron per maand: € 232 volgens <a href="prijzen.html" style="color:var(--ink)">de gewone prijzen</a>, excl. btw.</p>
+      <p class="side">Hoe meer u zelf doet, hoe meer u verdient. Per eindklant geldt één laag; geen exclusiviteit, voor geen van beide partijen. Rekenvoorbeelden op een klant met 3 000 registraties en 1 meetbron per maand: € 232 volgens <a href="prijzen.html" style="color:var(--ink)">de gewone prijzen</a>, excl. btw.</p>
     </div>
     <div class="lagen rv">
       <article>
@@ -166,7 +166,7 @@
     <div class="sec-head">
       <span class="idx">REKEN HET UIT</span>
       <h2 class="disp">Wat verdient u per maand<span style="color:var(--red)">?</span></h2>
-      <p class="side">Vul in hoeveel klanten u aansluit en hoeveel een klant gemiddeld registreert. De prijzen zijn die van <a href="prijzen.html" style="color:var(--ink)">de prijzenpagina</a>: per registratie en per bron; uw laag bepaalt uw aandeel. Alles in uw browser, niets wordt verstuurd.</p>
+      <p class="side">Vul in hoeveel klanten u aansluit en hoeveel een klant gemiddeld registreert. De prijzen zijn die van <a href="prijzen.html" style="color:var(--ink)">de prijzenpagina</a>: per registratie en per meetbron; uw laag bepaalt uw aandeel. Alles in uw browser, niets wordt verstuurd.</p>
     </div>
     <div class="cq rv" id="pm">
       <form class="cq-form" onsubmit="return false">
@@ -182,8 +182,8 @@
           <label class="cq-num" for="pmR"><span class="lbl">Registraties per klant per maand</span>
             <span class="cq-in"><input type="number" id="pmR" value="3000" min="0" step="100" inputmode="numeric"><em>/ maand</em></span></label>
           <div class="cq-chips" data-for="pmR"><button type="button" data-v="500">500</button><button type="button" data-v="3000">3 000</button><button type="button" data-v="10000">10 000</button><button type="button" data-v="30000">30 000</button></div>
-          <label class="cq-num" for="pmBr"><span class="lbl">Bronnen per klant</span>
-            <span class="cq-in"><input type="number" id="pmBr" value="1" min="0" inputmode="numeric"><em>bronnen</em></span></label>
+          <label class="cq-num" for="pmBr"><span class="lbl">Meetbronnen per klant</span>
+            <span class="cq-in"><input type="number" id="pmBr" value="1" min="0" inputmode="numeric"><em>meetbronnen</em></span></label>
           <div class="cq-chips" data-for="pmBr"><button type="button" data-v="0">geen</button><button type="button" data-v="1">1</button><button type="button" data-v="4">4</button><button type="button" data-v="25">25</button></div>
           <label class="cq-opt tight" for="pmF"><span class="txt"><b>Of een eigen gemiddelde maandfactuur</b><small>leeg = berekend met de gewone prijzen</small></span><span class="cq-in sm"><input type="number" id="pmF" placeholder="—" min="0" inputmode="numeric"></span></label>
         </div>
@@ -255,7 +255,7 @@
       <details><summary>Wat als mijn klant rechtstreeks of naar een andere partner wil?</summary><p class="a">Dan mag dat. Hij neemt zijn registraties, sleutels en verificatielinks mee; u werkt mee aan de overdracht. Lopende referral-aandelen lopen door tot het einde van hun 24 maanden.</p></details>
       <details><summary>Ben ik een handelsagent?</summary><p class="a"><b>Nee.</b> U verkoopt in eigen naam (reseller, integrator) of brengt klanten aan tegen een vergoeding die in de tijd beperkt is (referral). Er is geen exclusiviteit en geen uitwinnings- of cliënteelvergoeding. Dat staat zo in de overeenkomst.</p></details>
       <details><summary>Wat mag ik wel en niet zeggen?</summary><p class="a"><b>Wel:</b> wie, wat, wanneer en of er nadien iets gewijzigd is, staat vast en is zonder Vidimus na te rekenen. <b>Niet:</b> dat Vidimus de inhoud certificeert, dat er een "blockchaingarantie" is, of dat een rechter het bewijs móét aanvaarden. De rechter weegt; wij maken het narekenbaar. Het uitlegpakket in het portaal heeft de juiste formuleringen.</p></details>
-      <details><summary>Meting of registratie — wat telt voor de prijs?</summary><p class="a">Metingen van sensoren (temperatuur, GPS, gewicht, teller) zijn onbeperkt inbegrepen in de bronprijs van € 15 per maand, via <code>/measurements</code>. Alles met eigen inhoud of ID — levering, foto, CMR, goedkeuring — is een registratie en telt per stuk, per schijf, via <code>/registrations</code>. Zie <a href="prijzen.html">de prijzen</a>.</p></details>
+      <details><summary>Meting of registratie — wat telt voor de prijs?</summary><p class="a">Metingen van een meetbron (sensor, logger, weegbrug, GPS) zijn onbeperkt inbegrepen in € 15 per meetbron per maand waarin ze meet, de eerste gratis, via <code>/measurements</code>. Een meetbron maakt u aan met een naam, een eenheid en een bereik (<code>POST /sources</code>, of per eindklant via de partner-API); alleen haar eigen sleutel mag meten. Alles met eigen inhoud of ID — levering, foto, CMR, goedkeuring — is een registratie en telt per stuk, per schijf, via <code>/registrations</code>: ook wat uw systeem stuurt, en ook wat nog via het oude <code>/ingest</code> binnenkomt. Zie <a href="prijzen.html">de prijzen</a>.</p></details>
       <details><summary>Wie leest de inhoud van mijn klanten?</summary><p class="a">Elke organisatie heeft een eigen sleutel; originelen zijn per document versleuteld (AES-256-GCM). Uw partnersleutel leest nooit inhoud. Leest onze server inhoud voor een dossier of bundel, dan staat dat in het inzage-logboek dat de klant zelf ziet.</p></details>
       <details><summary>Wat als Vidimus stopt?</summary><p class="a">Bewijsbundels zijn open formaten met gepubliceerde verificatiestappen (SHA-256, RFC 3161, Merkle, OpenTimestamps). Ze blijven zonder Vidimus na te rekenen. Dat staat in de overeenkomst en in <a href="verificatie.html">de verificatie-uitleg</a>.</p></details>
       <p class="law-note" style="margin-top:1.4rem">Alle antwoorden die u aan uw klant mag doorgeven: <a href="vragen.html" style="color:var(--ink)">de vijftien moeilijkste vragen</a>.</p>
@@ -296,7 +296,7 @@ addEventListener("DOMContentLoaded", () => {
   const eur = (n) => "€ " + (Number.isInteger(n) ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f") : n.toFixed(2).replace(".", ","));
   const num = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f");
   const NAAM = { "0.20": "Referral", "0.30": "Reseller", "0.35": "Integrator" };
-  // zelfde cijfers als prijzen.html en vidimus/billing.py: eerste 100 gratis, dan 0,08 → 0,04 (3 001–10 000) → 0,01 (tot 100 000) → 0,003; bron € 15 (eerste gratis); minimum € 19
+  // zelfde cijfers als prijzen.html en vidimus/billing.py: eerste 100 gratis, dan 0,08 → 0,04 (3 001–10 000) → 0,01 (tot 100 000) → 0,003; meetbron € 15 (eerste gratis); minimum € 19
   const regPrijs = (n) => { if (n <= 100) return 0; let t = 0, prev = 100; for (const [lim, rate] of [[3000, .08], [10000, .04], [100000, .01], [null, .003]]) { const top = lim === null ? n : Math.min(n, lim); if (top > prev) t += (top - prev) * rate; if (lim === null || n <= lim) break; prev = lim; } return t; };
   const line = (l, v, sub, cls) => `<div${cls ? ` class="${cls}"` : ""}><dt>${l}${sub ? `<small>${sub}</small>` : ""}</dt><dd>${v}</dd></div>`;
   function calc() {
@@ -311,7 +311,7 @@ addEventListener("DOMContentLoaded", () => {
     const inkoop = Math.round((f - perKlant) * n * 100) / 100, eenmalig = n * impl;
     $("#pmMnd").textContent = eur(mnd);
     $("#pmSub").textContent = n ? `${num(n)} klanten × ${eur(f)} × ${Math.round(l * 100)} % (${NAAM[lw]})` : "vul een aantal klanten in";
-    let h = line("Factuur per klant", eur(f), $("#pmF").value ? "uw eigen gemiddelde" : `${num(reg)} registraties, ${br} ${br === 1 ? "bron" : "bronnen"}`);
+    let h = line("Factuur per klant", eur(f), $("#pmF").value ? "uw eigen gemiddelde" : `${num(reg)} registraties, ${br} ${br === 1 ? "meetbron" : "meetbronnen"}`);
     h += line("Per klant per maand", eur(perKlant), `${Math.round(l * 100)} % van ${eur(f)}`);
     if (l === 0.20) h += line("De klant betaalt Vidimus", eur(Math.round(f * n * 100) / 100), "u factureert niets; uitbetaling per kwartaal, 24 maanden");
     else { h += line("U factureert uw klanten", eur(Math.round(f * n * 100) / 100), "onder eigen naam"); h += line("U betaalt Vidimus (inkoop)", eur(inkoop), `${Math.round((1 - l) * 100)} % van de klantprijs`); }
