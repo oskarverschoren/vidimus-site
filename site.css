@@ -923,3 +923,4 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
   .eu-stuk { width: calc((100% - 20px) / 3); }
   .duel2 dl > div { grid-template-columns: 1fr; gap: 2px; }
 }
+@media (max-width: 720px) { .eu-stukken { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; } .eu-stuk { width: auto; min-width: 0; } .eu-stuk-tekst small { overflow-wrap: anywhere; } }
