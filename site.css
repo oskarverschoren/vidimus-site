@@ -853,74 +853,16 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
   .bw-spec dd { border-top: 0; padding-top: 4px; }
 }
 
-/* ══ 29/09 · EU-uitslag als certificaat in eigen vormgeving; de echte schermbeelden als bewijsstukken ══ */
-.eu-cert { position: relative; border-radius: 28px; background: #fff; border: 1px solid rgba(11, 15, 23, .08); box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 40px 90px -60px rgba(11, 15, 23, .45), 0 12px 30px -24px rgba(11, 15, 23, .18); overflow: hidden; }
-.eu-cert::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, #1E4FD8, #2E6B55); }
-.eu-cert-kop { display: flex; justify-content: space-between; align-items: baseline; gap: 10px 24px; flex-wrap: wrap; padding: clamp(24px, 3vw, 36px) clamp(24px, 3.4vw, 48px) 0; }
-.eu-cert-ref { font: 500 11px/1.5 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
-.eu-cert-hoofd { padding: clamp(22px, 3vw, 36px) clamp(24px, 3.4vw, 48px) clamp(20px, 2.6vw, 30px); display: grid; gap: 10px; }
-.eu-cert-woord { display: flex; align-items: center; gap: clamp(14px, 1.6vw, 22px); margin: 0; font-size: clamp(56px, 2rem + 5vw, 112px); font-weight: 600; letter-spacing: -.055em; line-height: .9; color: var(--ok); }
-.eu-cert-woord i { flex: none; width: .56em; height: .56em; border-radius: 50%; background: var(--ok) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; box-shadow: 0 0 0 .09em rgba(46, 107, 85, .12); }
-.eu-cert-zin { margin: 0; font-size: clamp(19px, 1rem + .7vw, 26px); font-weight: 500; letter-spacing: -.025em; color: var(--ink); }
-.eu-cert-zin span { color: var(--ink-3); }
-.eu-cert-feiten { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); }
-.eu-cert-feiten > div { padding: 18px clamp(24px, 3.4vw, 48px) 20px; display: grid; gap: 6px; align-content: start; }
-.eu-cert-feiten > div + div { border-left: 1px solid var(--line); padding-left: clamp(18px, 2vw, 28px); }
-.eu-cert-feiten dt { font: 500 10.5px/1.5 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
-.eu-cert-feiten dd { margin: 0; font-size: 15px; line-height: 1.45; color: var(--ink); font-weight: 500; }
-.eu-cert-voet { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px clamp(24px, 3vw, 44px); align-items: center; padding: clamp(20px, 2.6vw, 30px) clamp(24px, 3.4vw, 48px); background: var(--bg-2); border-top: 1px solid var(--line); }
-.eu-cert-geen { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink-2); max-width: 46ch; }
-.eu-cert-geen b { color: var(--ink); }
-.eu-stukken { display: flex; gap: 14px; grid-row: span 2; }
-.eu-stuk { display: grid; gap: 8px; width: 150px; text-decoration: none; color: var(--ink); }
-.eu-stuk-beeld { display: block; aspect-ratio: 3 / 2; border-radius: 10px; overflow: hidden; background: #fff; border: 1px solid rgba(11, 15, 23, .1); box-shadow: 0 14px 28px -20px rgba(11, 15, 23, .5); transition: transform 220ms var(--site-ease), box-shadow 220ms; }
-.eu-stuk-beeld img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
-.eu-stuk:hover .eu-stuk-beeld, .eu-stuk:focus-visible .eu-stuk-beeld { transform: translateY(-3px); box-shadow: 0 22px 36px -22px rgba(30, 79, 216, .55); }
-.eu-stuk-tekst { display: grid; gap: 1px; }
-.eu-stuk-tekst b { font-size: 13px; font-weight: 600; letter-spacing: -.01em; }
-.eu-stuk-tekst small { font: 500 10.5px/1.4 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
-.eu-cert-links { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
-.eu-cert-links a { font-size: 14px; font-weight: 500; color: var(--act); text-decoration: none; }
-.eu-cert-links a:hover { text-decoration: underline; }
-
-/* demo: origineel tegenover één teken anders — donker, zoals de band */
-.duel2 { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: stretch; margin-top: clamp(28px, 4vw, 48px); border-radius: 28px; overflow: hidden; color: #E9ECF2;
-  background: radial-gradient(900px 360px at 0% -20%, rgba(95, 211, 160, .16), transparent 60%), radial-gradient(900px 360px at 100% 120%, rgba(230, 85, 110, .16), transparent 60%), #0B0F17;
-  border: 1px solid rgba(255, 255, 255, .06); box-shadow: 0 50px 100px -60px rgba(11, 15, 23, .75); }
-.duel2 .uit { display: grid; gap: 14px; align-content: start; padding: clamp(26px, 3.4vw, 46px); }
-.duel2 .lbl { color: rgba(233, 236, 242, .6); }
-.duel2 .uit-woord { display: flex; align-items: center; gap: 14px; margin: 0; font-size: clamp(48px, 1.8rem + 3.6vw, 88px); font-weight: 600; letter-spacing: -.05em; line-height: .95; }
-.duel2 .uit-woord i { flex: none; width: .5em; height: .5em; border-radius: 50%; background-position: center; background-size: 100%; background-repeat: no-repeat; }
-.duel2 .ok .uit-woord { color: #5FD3A0; } .duel2 .ok .uit-woord i { background-color: #5FD3A0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-5' fill='none' stroke='%230B0F17' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
-.duel2 .bad .uit-woord { color: #FF7A8E; } .duel2 .bad .uit-woord i { background-color: #FF7A8E; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5.2 5.2l5.6 5.6M10.8 5.2l-5.6 5.6' fill='none' stroke='%230B0F17' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E"); }
-.duel2 dl { margin: 6px 0 0; display: grid; }
-.duel2 dl > div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 12px; padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, .08); }
-.duel2 dt { font: 500 10.5px/1.7 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: rgba(233, 236, 242, .5); }
-.duel2 dd { margin: 0; font: 500 13px/1.6 var(--mono); color: #fff; overflow-wrap: anywhere; }
-.duel2 .bad dd { color: #FFD0D7; }
-.duel2 .uit > a { justify-self: start; font-size: 14px; font-weight: 500; color: #9DB7FF; text-decoration: none; }
-.duel2 .uit > a:hover { color: #fff; }
-.duel2-pijl { align-self: center; padding: 8px 12px; border-radius: 999px; font: 500 12px/1 var(--mono); letter-spacing: .08em; color: #fff; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12); white-space: nowrap; }
-.duel2 .uit.bad { border-left: 1px solid rgba(255, 255, 255, .08); }
-.duel-voet { margin-top: 16px; font-size: 15px; line-height: 1.6; color: var(--ink-2); max-width: 78ch; }
-.duel-voet b { color: var(--ink); }
-/* doe het zelf: strak, geen glas */
-#demo .eu-zelf { background: #fff; border: 1px solid rgba(11, 15, 23, .08); box-shadow: 0 30px 70px -56px rgba(11, 15, 23, .4); }
-@media (max-width: 1000px) {
-  .eu-cert-feiten { grid-template-columns: 1fr 1fr; }
-  .eu-cert-feiten > div:nth-child(3) { border-left: 0; padding-left: clamp(24px, 3.4vw, 48px); }
-  .eu-cert-feiten > div:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .eu-cert-voet { grid-template-columns: 1fr; }
-  .eu-stukken { grid-row: auto; }
-  .duel2 { grid-template-columns: 1fr; }
-  .duel2-pijl { justify-self: center; margin: -6px 0; }
-  .duel2 .uit.bad { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .08); }
-}
-@media (max-width: 720px) {
-  .eu-cert-feiten { grid-template-columns: 1fr; }
-  .eu-cert-feiten > div + div { border-left: 0; border-top: 1px solid var(--line); padding-left: clamp(24px, 3.4vw, 48px); }
-  .eu-stukken { gap: 10px; }
-  .eu-stuk { width: calc((100% - 20px) / 3); }
-  .duel2 dl > div { grid-template-columns: 1fr; gap: 2px; }
-}
-@media (max-width: 720px) { .eu-stukken { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; } .eu-stuk { width: auto; min-width: 0; } .eu-stuk-tekst small { overflow-wrap: anywhere; } }
+/* 29/09 (Oskar: "grote klopt, passed, failed in kleuren zien er cheap uit"): uitslagen rustig — donkere tekst, klein statuspunt als enige kleur */
+.lade .verdict, .lade .verdict:has(.bad) { background: var(--bg-2); border: 1px solid var(--line); }
+.lade .verdict .kt-verdict, .lade .verdict .kt-verdict.ok, .lade .verdict .kt-verdict.bad { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 600; letter-spacing: .04em; line-height: 1.2; color: var(--ink); }
+.lade .verdict .kt-verdict::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(46, 107, 85, .12); }
+.lade .verdict .kt-verdict.bad::before { background: var(--bad); box-shadow: 0 0 0 4px rgba(179, 35, 64, .12); }
+.duel.ok figcaption, .duel.bad figcaption { background: #fff; }
+.duel figcaption b, .duel.ok figcaption b, .duel.bad figcaption b { display: inline-flex; align-items: center; gap: 8px; font: 600 13px/1 var(--mono); letter-spacing: .1em; color: var(--ink); }
+.duel figcaption b::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+.duel.bad figcaption b::before { background: var(--bad); }
+.duel.ok .lbl, .duel.bad .lbl { color: var(--ink-3); }
+.eu-groen { font-size: clamp(22px, 1rem + .8vw, 28px); letter-spacing: -.03em; line-height: 1.15; color: var(--ink); align-items: center; gap: 12px; }
+.eu-groen::before { width: 22px; height: 22px; margin-top: 0; box-shadow: none; }
+.bw-stappen li.eind b { color: #fff; }

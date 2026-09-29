@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260929g">
+<link rel="stylesheet" href="styles.css?v=20260929h">
 <link rel="stylesheet" href="inner.css?v=20260925">
 <style>
 .ingang { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(1.4rem, 3vw, 2rem); }
@@ -184,7 +184,6 @@
         <div class="cq-total"><output id="oMnd">€ 0</output><em>/ maand</em></div>
         <p class="cq-schijf" id="oSchijf"></p>
         <dl class="cq-lines" id="oLines"></dl>
-        <div class="cq-year"><span id="oJaarL">Per jaar</span><output id="oJaar">€ 0</output></div>
         <a class="xbtn red" id="offerteBtn" href="mailto:oskar@vo-initiatives.com?subject=Offerte%20Vidimus"><span>Vraag een offerte met deze samenstelling</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <p class="cq-note">U krijgt dezelfde samenstelling per mail; Oskar belt u binnen één werkdag. Richtprijs excl. btw. Of begin gewoon gratis en laat de meter het werk doen.</p>
       </aside>
@@ -221,7 +220,7 @@
   <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
 </footer>
 
-<script src="script.js?v=20260929g" defer></script>
+<script src="script.js?v=20260929h" defer></script>
 <script defer>
 addEventListener("DOMContentLoaded", () => {
   const $ = (s) => document.querySelector(s);
@@ -245,7 +244,7 @@ addEventListener("DOMContentLoaded", () => {
     if (som !== 0 && som < MIN) h += line("Minimum", eur(MIN));
     h += line("Per maand", eur(m), jaar ? `jaarcontract · ${eur(mv)} naar verbruik, 2 maanden gratis verrekend` : "maandelijks, naar verbruik", "cq-sum");
     $("#oLines").innerHTML = h; $("#oMnd").textContent = eur(m);
-    $("#oJaarL").textContent = jaar ? "Per jaar · jaarcontract" : "Per jaar"; $("#oJaar").textContent = eur(Math.round((jaar ? mv * 10 : mv * 12) * 100) / 100);
+    
     const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n} → ${eur(r)}%0A- Meetbronnen: ${nb} → ${eur(b)}%0A- Contract: ${jaar ? "jaarcontract" : "per maand"}%0A- Richtprijs: ${eur(m)} per maand${jaar ? " (jaarcontract)" : ""}%0A%0AMijn organisatie en telefoonnummer:%0A`;
     $("#offerteBtn").href = `mailto:oskar@vo-initiatives.com?subject=${encodeURIComponent("Offerte Vidimus — " + n + " registraties, " + nb + " meetbronnen")}&body=${body}`;
   }
