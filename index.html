@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app-huis.css?v=20260917b">
 <link rel="stylesheet" href="app-huis-pages.css?v=20260916d">
-<link rel="stylesheet" href="site.css?v=20260929d">
+<link rel="stylesheet" href="site.css?v=20260929e">
 
 <link rel="canonical" href="https://vidimus.be/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
@@ -129,22 +129,27 @@
       <span class="lbl">01 · ÉÉN ECHTE REGISTRATIE</span>
       <p class="side">Uw ERP, TMS, WMS, sensor of app blijft de bron. Vidimus legt geselecteerde registraties vast op het moment zelf, met een verankering buiten uw systeem die iedereen kan nakijken. <b>Hieronder één echte registratie, van begin tot eind.</b> Hier een levering; een meting, een inspectie of een goedkeuring gaat net zo.</p>
     </div>
-    <ol class="bw-flow rv" aria-label="Eén echte registratie, van uw systeem tot de controle">
-      <li><span class="lbl">UW SYSTEEM</span><b>18 paletten diepvries</b><span>29/09/2026 · 15:38:25 · uit het TMS</span></li>
-      <li><span class="lbl">VIDIMUS</span><b>Vingerafdruk en gekwalificeerd tijdstempel</b><span>buiten uw systeem · 15:38:56 UTC</span></li>
-      <li><span class="lbl">EUROPESE VALIDATIE</span><b>Tijdstempel geldig</b><span>de validatiesoftware van de Europese Commissie: PASSED</span></li>
-      <li class="eind"><span class="lbl">VIDIMUS-CONTROLE</span><b>Registratie klopt</b><span>met het verankerde bewijs · voor iedereen, zonder account</span></li>
-    </ol>
-    <details class="bw-tech rv">
-      <summary><span class="lbl">TECHNISCHE DETAILS</span><span class="tech-sum">SHA-256 · Merkle-wortel · RFC 3161 · QTSA · EU-vertrouwenslijst · Bitcoin</span><i aria-hidden="true">+</i></summary>
-      <ol class="eu-keten" aria-label="De technische keten van deze registratie">
-        <li><span class="lbl">01 · REGISTRATIE</span><b class="mono">reg_18838643120d</b><span>systeemsleutel van het TMS · 29/09/2026 15:38:25 UTC</span></li>
-        <li><span class="lbl">02 · SHA-256</span><b class="mono" title="7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba">7787f6c9…15e657ba</b><span>de vingerafdruk van de inhoud</span></li>
-        <li><span class="lbl">03 · MERKLE-WORTEL</span><b class="mono" title="282bf1cd4271e524d7a8296362afa80d69b49998f6b866e58d645227bfb85b40">282bf1cd…bfb85b40</b><span>over 6 batches, in 3 stappen</span></li>
-        <li><span class="lbl">04 · TIJDSTEMPELS</span><b>Sectigo · GLOBALTRUST</b><span>RFC 3161 om 15:38:38 · gekwalificeerd (QTSA) om 15:38:56 UTC</span></li>
-        <li class="eind"><span class="lbl">05 · EUROPESE VALIDATIE</span><b>PASSED</b><span>DSS 6.5 · EU-vertrouwenslijst · Bitcoin volgt na het volgende blok</span></li>
+    <div class="bw-band rv">
+      <ol class="bw-stappen" aria-label="Eén echte registratie, van uw systeem tot de controle">
+        <li><span class="bw-lbl"><i>01</i>Uw systeem</span><b>18 paletten diepvries</b><span class="bw-sub">29/09/2026 · 15:38:25 · uit het TMS</span></li>
+        <li><span class="bw-lbl"><i>02</i>Vidimus</span><b>Vingerafdruk en gekwalificeerd tijdstempel</b><span class="bw-sub">buiten uw systeem · 15:38:56 UTC</span></li>
+        <li><span class="bw-lbl"><i>03</i>Europese validatie</span><b>Tijdstempel geldig</b><span class="bw-sub">DSS van de Europese Commissie · PASSED</span></li>
+        <li class="eind"><span class="bw-lbl"><i>04</i>Vidimus-controle</span><b>Registratie klopt</b><span class="bw-sub">8 van 8 controles · voor iedereen, zonder account</span></li>
       </ol>
-    </details>
+      <details class="bw-spec">
+        <summary><span class="bw-spec-kop">Technische details</span><span class="bw-spec-sum">SHA-256 · Merkle · RFC 3161 · QTSA · Bitcoin</span><i aria-hidden="true">+</i></summary>
+        <dl>
+          <dt>Registratie</dt><dd>reg_18838643120d · systeemsleutel van het TMS · 29/09/2026 15:38:25 UTC</dd>
+          <dt>Vingerafdruk</dt><dd class="hash">7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba</dd>
+          <dt>Merkle-wortel</dt><dd class="hash">282bf1cd4271e524d7a8296362afa80d69b49998f6b866e58d645227bfb85b40 <span>· 6 batches, 3 stappen</span></dd>
+          <dt>Tijdstempel</dt><dd>Sectigo · RFC 3161 · 15:38:38 UTC</dd>
+          <dt>Gekwalificeerd</dt><dd>GLOBALTRUST · QTSA · EU-vertrouwenslijst · 15:38:56 UTC</dd>
+          <dt>Europese validatie</dt><dd>DSS 6.5 · Evidence Record PASSED</dd>
+          <dt>Bitcoin</dt><dd>blok 969 177 · OpenTimestamps · bevestigd 17:28 UTC</dd>
+        </dl>
+        <p class="bw-spec-links"><a href="https://app.vidimus.be/v/reg_18838643120d">Controlepagina</a><a href="https://app.vidimus.be/verify/reg_18838643120d">JSON voor agents</a><a href="#eu-zelf">De bestanden</a></p>
+      </details>
+    </div>
     <p class="bw-eerlijk rv"><b>Eerlijk erbij:</b> houdt uw systeem al onveranderbare records bij die extern cryptografisch verankerd zijn en door derden na te rekenen? Dan is de overlap met Vidimus groot, en dat zeggen we u ook.</p>
   </div>
 </section>
@@ -611,6 +616,6 @@ POST /measurements
   <a href="tel:+32466474115">+32 466 47 41 15</a>
 </footer>
 
-<script src="script.js?v=20260929d" defer></script>
+<script src="script.js?v=20260929e" defer></script>
 </body>
 </html>

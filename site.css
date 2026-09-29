@@ -804,3 +804,51 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 .bw-eerlijk b { color: var(--ink); }
 @media (max-width: 1200px) and (min-width: 1001px) { .bw-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bw-flow li:nth-child(2)::after { display: none; } }
 @media (max-width: 1000px) { .bw-flow { grid-template-columns: 1fr; } .bw-flow li:nth-child(2)::after { display: block; } }
+
+/* ══ 29/09 · "Zo wordt een registratie bewijs" als één donkere band: rustig, precies, één lijn met vier punten ══ */
+.bw-band { --bw-ink: #E9ECF2; --bw-mute: rgba(233, 236, 242, .56); --bw-lijn: rgba(255, 255, 255, .09); --bw-groen: #5FD3A0;
+  position: relative; overflow: hidden; border-radius: 28px; color: var(--bw-ink); padding: clamp(28px, 3.6vw, 52px) clamp(24px, 3.6vw, 52px) clamp(18px, 2vw, 26px);
+  background: radial-gradient(1100px 420px at 92% -30%, rgba(30, 79, 216, .30), transparent 62%), radial-gradient(700px 320px at -8% 130%, rgba(95, 211, 160, .14), transparent 60%), #0B0F17;
+  border: 1px solid rgba(255, 255, 255, .06); box-shadow: 0 50px 100px -60px rgba(11, 15, 23, .75), 0 18px 40px -30px rgba(11, 15, 23, .5); }
+.bw-band::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .28), transparent); }
+.bw-stappen { list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 clamp(20px, 2.6vw, 40px); }
+.bw-stappen::before { content: ""; position: absolute; left: 5px; right: 0; top: 5px; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, .22), rgba(30, 79, 216, .9) 58%, rgba(95, 211, 160, .95) 86%, rgba(95, 211, 160, 0)); }
+.bw-stappen li { position: relative; display: grid; gap: 12px; align-content: start; padding-top: 38px; }
+.bw-stappen li::before { content: ""; position: absolute; top: 0; left: 0; width: 11px; height: 11px; border-radius: 50%; background: #0B0F17; border: 1px solid rgba(255, 255, 255, .55); box-shadow: 0 0 0 5px #0B0F17; }
+.bw-stappen li:nth-child(2)::before, .bw-stappen li:nth-child(3)::before { border-color: rgba(120, 156, 255, .95); }
+.bw-stappen li.eind::before { background: var(--bw-groen); border-color: var(--bw-groen); box-shadow: 0 0 0 5px #0B0F17, 0 0 22px rgba(95, 211, 160, .55); }
+.bw-lbl { display: flex; align-items: baseline; gap: 10px; font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--bw-mute); }
+.bw-lbl i { font-style: normal; color: rgba(233, 236, 242, .32); letter-spacing: .08em; }
+.bw-stappen b { font-size: clamp(19px, 1rem + .6vw, 25px); font-weight: 500; letter-spacing: -.03em; line-height: 1.15; color: #fff; text-wrap: balance; }
+.bw-stappen li.eind b { color: var(--bw-groen); }
+.bw-sub { font-size: 14px; line-height: 1.5; color: var(--bw-mute); }
+.bw-spec { margin-top: clamp(26px, 3vw, 40px); border-top: 1px solid var(--bw-lijn); }
+.bw-spec summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 16px 0; }
+.bw-spec summary::-webkit-details-marker { display: none; }
+.bw-spec-kop { font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--bw-ink); }
+.bw-spec-sum { font: 500 12px/1.4 var(--mono); color: var(--bw-mute); letter-spacing: .02em; }
+.bw-spec summary i { font: 400 18px/1 var(--mono); font-style: normal; color: var(--bw-mute); transition: transform 220ms var(--site-ease); }
+.bw-spec[open] summary i { transform: rotate(45deg); }
+.bw-spec summary:hover .bw-spec-sum, .bw-spec summary:focus-visible .bw-spec-sum { color: var(--bw-ink); }
+.bw-spec dl { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); margin: 0 0 6px; }
+.bw-spec dt, .bw-spec dd { padding: 11px 0; border-top: 1px solid var(--bw-lijn); }
+.bw-spec dt { font: 500 11px/1.6 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--bw-mute); }
+.bw-spec dd { margin: 0; font: 500 13px/1.6 var(--mono); color: var(--bw-ink); overflow-wrap: anywhere; }
+.bw-spec dd.hash { color: #fff; letter-spacing: .01em; }
+.bw-spec dd span { color: var(--bw-mute); }
+.bw-spec-links { display: flex; flex-wrap: wrap; gap: 8px 26px; padding: 14px 0 6px; border-top: 1px solid var(--bw-lijn); }
+.bw-spec-links a { font-size: 14px; font-weight: 500; color: #9DB7FF; text-decoration: none; }
+.bw-spec-links a:hover { color: #fff; }
+@media (max-width: 1000px) {
+  .bw-stappen { grid-template-columns: 1fr; gap: 0; }
+  .bw-stappen::before { left: 5px; right: auto; top: 6px; bottom: 30px; width: 1px; height: auto; background: linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(30, 79, 216, .9) 58%, rgba(95, 211, 160, .95)); }
+  .bw-stappen li { padding: 0 0 28px 34px; gap: 8px; }
+  .bw-stappen li::before { top: 1px; }
+}
+@media (max-width: 720px) {
+  .bw-spec summary { grid-template-columns: minmax(0, 1fr) auto; }
+  .bw-spec-sum { display: none; }
+  .bw-spec dl { grid-template-columns: 1fr; }
+  .bw-spec dt { padding-bottom: 0; }
+  .bw-spec dd { border-top: 0; padding-top: 4px; }
+}
