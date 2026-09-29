@@ -866,3 +866,34 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 .eu-groen { font-size: clamp(22px, 1rem + .8vw, 28px); letter-spacing: -.03em; line-height: 1.15; color: var(--ink); align-items: center; gap: 12px; }
 .eu-groen::before { width: 22px; height: 22px; margin-top: 0; box-shadow: none; }
 .bw-stappen li.eind b { color: #fff; }
+
+/* ══ 29/09 · positionering: waar het verschil zit (strakke tabel met haarlijnen) en dezelfde bewijslaag voor elk systeem ══ */
+.bw-stappen.drie { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.vs-tabel { border-top: 1px solid var(--ink); }
+.vs-rij { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.25fr) minmax(0, 1.25fr); gap: 0 clamp(18px, 3vw, 44px); padding: 18px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.vs-rij > b { font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+.vs-rij > span { font-size: 15px; line-height: 1.55; color: var(--ink-3); }
+.vs-rij > span:last-child { color: var(--ink); }
+.vs-rij > span:last-child::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; border-radius: 50%; background: var(--act); vertical-align: middle; }
+.vs-kop { padding: 12px 0; }
+.vs-kop span { font: 500 10.5px/1.5 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); }
+.vs-kop span:last-child { color: var(--ink-3); }
+.vs-kop span:last-child::before { display: none; }
+.vs-rij:not(.vs-kop):hover { background: linear-gradient(90deg, rgba(30, 79, 216, .035), transparent 70%); }
+.vs-systemen { margin-top: clamp(36px, 5vw, 64px); }
+.vs-systemen-kop { margin: 0 0 14px; }
+.vs-systemen ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.vs-systemen li { display: grid; gap: 4px; padding: 16px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, .35); transition: background 180ms; }
+.vs-systemen li:hover { background: #fff; }
+.vs-systemen li b { font: 500 11px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.vs-systemen li span { font-size: 16px; font-weight: 500; letter-spacing: -.015em; color: var(--ink); }
+@media (max-width: 1000px) { .bw-stappen.drie { grid-template-columns: 1fr; } .vs-systemen ul { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .vs-rij { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+  .vs-kop { display: none; }
+  .vs-rij > span:first-of-type::before { content: "Probleem · "; font: 500 10.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .vs-systemen ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.vs-systemen li { min-width: 0; } .vs-systemen li span { overflow-wrap: anywhere; hyphens: auto; }
+@media (max-width: 380px) { .vs-systemen li { padding: 14px 12px; } .vs-systemen li span { font-size: 14.5px; } }
+.vs-systemen li { align-content: start; }
