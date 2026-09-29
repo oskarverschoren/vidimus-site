@@ -78,15 +78,15 @@
 <section style="padding-block: clamp(2rem, 4vw, 4rem)">
   <div class="wrap">
     <div class="sec-head"><span class="lbl">02 · MCP-SERVER (CLAUDE, CHATGPT, CURSOR, EIGEN AGENTS)</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Gehost, niets te installeren.</b> Geef uw agent één adres en uw organisatie-sleutel (Instellingen › Systemen). Zonder sleutel werken enkel de publieke tools.</p>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Gehost, niets te installeren.</b> Geef uw agent één adres en een eigen sleutel (in de app: Ontwikkelaars › Sleutels). Een leessleutel als hij alleen opzoekt en nakijkt; een bronsleutel als hij ook vastlegt, dan legt hij vast als die ene bron. Intrekken werkt meteen, zonder uw systemen te raken. Zonder sleutel werken enkel de publieke tools.</p>
 <pre class="ai-pre">{"mcpServers": {"vidimus": {
   "type": "http", "url": "https://app.vidimus.be/mcp",
-  "headers": {"x-api-key": "vk_…uw organisatie-sleutel…"}}}}</pre>
+  "headers": {"x-api-key": "vks_…de sleutel van uw agent…"}}}}</pre>
     <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Liever lokaal, met toegang tot bestanden op uw eigen computer (bundels controleren, bestanden opzoeken op hash, bijlagen mee verankeren):</p>
 <pre class="ai-pre">{"mcpServers": {"vidimus": {
   "command": "python3", "args": ["-m", "vidimus.mcp_server"],
   "env": {"VIDIMUS_URL": "https://app.vidimus.be",
-          "VIDIMUS_API_KEY": "vk_…uw organisatie-sleutel (Instellingen)…"}}}}</pre>
+          "VIDIMUS_API_KEY": "vks_…de sleutel van uw agent (Ontwikkelaars › Sleutels)…"}}}}</pre>
     <p style="max-width:70ch;color:var(--dim);font-size:.82rem;margin-top:1rem"><b style="color:var(--paper-dim)">Tools:</b> verify_registration · passport · verify_bundle_file · list_registrations · list_streams · get_dossier · get_content · download_bundle · lookup_file · register · create_share · tamper_check · usage · explain. Vereist Python 3.11+.</p>
 <pre class="ai-pre"><b>Gebruiker:</b> "Bezorg me het bewijs van de betwiste aflevering van vrijdag, container MSKU 452 118-0."
 <b>Agent:</b>  passport("MSKU 452 118-0")   → vindt de aflevering + de bevestiging van de terminal

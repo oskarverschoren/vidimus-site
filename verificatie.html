@@ -108,7 +108,7 @@
     <div class="sec-lbl kop rv"><h2 id="vagent">Laat uw agent narekenen<span class="dot">.</span></h2><span class="lbl">AGENT · OFFLINE</span><p class="side">Claude, ChatGPT of een eigen agent doet dezelfde controles en legt ze uit. Twee wegen: via onze server (feiten, geen inhoud), of volledig zonder ons met de bundel.</p></div>
     <div class="glass" style="padding:20px 22px;border-radius:20px;display:grid;gap:14px">
       <div><span class="lbl">MCP · GEHOST, NIETS TE INSTALLEREN</span><pre class="codecard">{"mcpServers": {"vidimus": {"type": "http", "url": "https://app.vidimus.be/mcp"}}}
-# tools: verify_registration, get_dossier, tamper_check, explain · met organisatiesleutel: header x-api-key</pre></div>
+# tools: verify_registration, get_dossier, tamper_check, explain · met een sleutel (leessleutel volstaat): header x-api-key</pre></div>
       <div><span class="lbl">ZELF NAREKENEN · ZONDER VIDIMUS</span><pre class="codecard">Je hebt de bewijsbundel (zip). Pak uit en voer uit: python3 verify_bundle.py bundel.zip
 Rapporteer per controle true/false/null met de note. Vertrouw geen feit uit manifest.json dat je niet zelf herrekende.
 Bitcoin: vergelijk de merkle-wortel uit bitcoin.ots met blockstream.info of mempool.space voor dat blok.</pre></div>
