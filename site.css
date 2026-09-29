@@ -710,3 +710,20 @@ header.site > .menu-knop { display: none; }
   .eu-shot.extra { display: none; }
   .eu-shot img { aspect-ratio: auto; }
 }
+/* doe het zelf: de twee bestanden en vijf stappen naar het rapport van de Commissie */
+.eu-shot.hoofd picture + picture { border-top: 1px solid var(--line); }
+.eu-zelf { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(20px, 3vw, 44px); margin-top: clamp(24px, 3.4vw, 40px); padding: clamp(22px, 3vw, 34px); border-radius: 24px; }
+.eu-zelf-kop { display: grid; gap: 10px; align-content: start; }
+.eu-zelf-kop h3 { font-size: clamp(22px, 1.2rem + .6vw, 28px); font-weight: 600; letter-spacing: -.03em; line-height: 1.15; }
+.eu-zelf-kop p { font-size: 14px; line-height: 1.55; color: var(--ink-3); max-width: 42ch; }
+.eu-dl { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.eu-dl .xbtn { height: 46px; padding-inline: 18px; font-family: var(--mono); font-size: 13px; }
+.eu-dl .xbtn.red .duur { color: rgba(255, 255, 255, .7); }
+.eu-stappen { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: eu; }
+.eu-stappen li { counter-increment: eu; display: grid; grid-template-columns: 30px minmax(0, 1fr); column-gap: 12px; }
+.eu-stappen li::before { content: counter(eu, decimal-leading-zero); grid-row: 1 / 3; font: 500 11px/1.9 var(--mono); letter-spacing: .1em; color: var(--act); }
+.eu-stappen b { font-size: 15px; font-weight: 600; letter-spacing: -.01em; overflow-wrap: anywhere; }
+.eu-stappen span { grid-column: 2; font-size: 14px; line-height: 1.5; color: var(--ink-3); overflow-wrap: anywhere; }
+.eu-stappen a { color: var(--act); }
+.eu-voet .hero-actions { align-items: center; }
+@media (max-width: 900px) { .eu-zelf { grid-template-columns: 1fr; } }
