@@ -154,10 +154,10 @@
   $$(".rv").forEach((el) => io.observe(el));
 
   /* ── de demo: vervals het ─────────────────────────────────────
-     Twee uitkomsten, nooit een oordeel: IDENTIEK of ONBEKEND. */
+     Twee uitkomsten, nooit een oordeel over wie liegt: KLOPT of KLOPT NIET (29/09, was IDENTIEK / ONBEKEND). */
   const fields = $$("#tamperFields [data-f]");
   if (fields.length) {
-    const ANCHOR_AT = "04.09.2026 15:13:22Z";
+    const ANCHOR_AT = "4 september om 15:13";
     const original = fields.map((f) => f.textContent);
     const payload = () => fields.map((f) => f.textContent.trim()).join("|");
     let anchored = "", wasSame = true;
@@ -169,21 +169,23 @@
       lockHash(liveEl, live, same ? 7 : 4);
       liveEl.classList.toggle("match", same);
       const v = $("#verdict");
-      v.textContent = same ? "IDENTIEK" : "ONBEKEND";
+      v.textContent = same ? "KLOPT" : "KLOPT NIET";
       v.classList.toggle("ok", same);
       v.classList.toggle("bad", !same);
+      const naamVan = (f) => (f.dataset.f || f.previousElementSibling?.textContent || f.closest("div,tr,li")?.querySelector("dt,.k,.lbl")?.textContent || "veld").trim().toLowerCase();
+      const anders = fields.map((f, i) => [f, i]).filter(([f, i]) => f.textContent !== original[i]);
+      const gewijzigd = anders.map(([f]) => naamVan(f)).join(", ") || "—";
       $("#verdictSub").textContent = same
-        ? `Vingerafdruk komt overeen met anker van ${ANCHOR_AT}`
-        : "Vingerafdruk komt met geen enkel anker overeen";
+        ? `Dit is exact wat op ${ANCHOR_AT} werd vastgelegd, getekend door chauffeur én ontvanger.`
+        : `Deze versie werd nooit zo vastgelegd. Wat op ${ANCHOR_AT} vastligt, getekend door chauffeur én ontvanger: `
+          + (anders.length ? anders.map(([f, i]) => `${naamVan(f)} ${original[i].trim()}`).join(" · ") : "een andere inhoud") + ".";
       const st = $("#ladeSt");
-      st.textContent = same ? "IDENTIEK" : "ONBEKEND";
+      st.textContent = same ? "KLOPT" : "KLOPT NIET";
       st.classList.toggle("ok", same);
       st.classList.toggle("bad", !same);
-      const naamVan = (f) => (f.dataset.f || f.previousElementSibling?.textContent || f.closest("div,tr,li")?.querySelector("dt,.k,.lbl")?.textContent || "veld").trim().toLowerCase();
-      const gewijzigd = fields.filter((f, i) => f.textContent !== original[i]).map(naamVan).join(", ") || "—";
       $$("#checks [data-c]").forEach((row) => {
         const s = row.querySelector(".st");
-        s.textContent = same ? "IDENTIEK" : "ONBEKEND";
+        s.textContent = same ? "KLOPT" : "KLOPT NIET";
         s.classList.toggle("ok", same);
         s.classList.toggle("bad", !same);
         const ok = row.querySelector("[data-ok]"), bad = row.querySelector("[data-bad]");
@@ -207,6 +209,18 @@
       });
     });
     $("#tamperReset").addEventListener("click", () => { fields.forEach((f, i) => (f.textContent = original[i])); verify(); });
+    /* één klik: een collega maakt van 26 paletten 23; staat het oordeel niet in beeld (op een gsm staat het onder de kaart), dan schuift het erin */
+    const toonOordeel = () => {
+      const r = $("#verdictBlok").getBoundingClientRect();
+      if (r.top < 72 || r.bottom > innerHeight) $("#verdictBlok").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    };
+    const colli = fields.find((f) => /paletten/.test(f.textContent));
+    $("#tamper23").addEventListener("click", async () => {
+      fields.forEach((f, i) => (f.textContent = original[i]));
+      if (colli) colli.textContent = colli.textContent.replace(/\b26\b/, "23");
+      await verify(); toonOordeel();
+    });
+    fields.forEach((f, i) => f.addEventListener("blur", () => { if (f.textContent !== original[i]) setTimeout(toonOordeel, 200); }));
     sha256(payload()).then((h) => {
       anchored = h;
       lockHash($("#anchorHash"), h, 9);
@@ -251,13 +265,10 @@
   setTimeout(() => els.forEach(toon), 6000);   // vangnet: na zes seconden staat alles hoe dan ook
 })();
 
-/* begin uw stroom: de stroomnaam reist mee naar de wizard (next=/onboarding?naam=…) */
-(function () { const f = document.getElementById("startForm"); if (!f) return; f.addEventListener("submit", () => { const n = document.getElementById("startNaam").value.trim(); document.getElementById("startNext").value = "/onboarding" + (n ? "?naam=" + encodeURIComponent(n) : ""); }); })();
-
-/* samenvatting op de ingeklapte controles: 6 × identiek / n × onbekend, volgt de demo */
+/* samenvatting op de ingeklapte controles: 6 × klopt / n × klopt niet, volgt de demo */
 (function () {
   const sum = document.getElementById("zesSum"); if (!sum) return;
-  const upd = () => { const bad = document.querySelectorAll("#checks .st.bad").length; sum.textContent = bad ? `${bad} × onbekend` : "6 × identiek"; sum.classList.toggle("bad", bad > 0); };
+  const upd = () => { const bad = document.querySelectorAll("#checks .st.bad").length; sum.textContent = bad ? `${bad} × klopt niet` : "6 × klopt"; sum.classList.toggle("bad", bad > 0); };
   new MutationObserver(upd).observe(document.getElementById("checks"), { subtree: true, childList: true, characterData: true, attributes: true }); upd();
 })();
 
