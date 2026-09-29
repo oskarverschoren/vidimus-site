@@ -579,3 +579,15 @@ a.go:hover svg { transform: translateX(3px); }
   .mob-menu a[aria-current] { background: rgba(11, 15, 23, .06); }
   .mob-menu .mob-login { margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); border-radius: 0; color: var(--ink-3); }
 }
+
+/* 29/09: kleinste telefoons (320–380 px) — niets buiten het scherm */
+@media (max-width: 380px) {
+  header.site { gap: .55rem; padding-inline: 16px; }
+  header.site .top-start { font-size: 13px; padding: 8px 11px; }
+  .page-hero .crumb { flex-wrap: wrap; row-gap: 6px; }
+  .sec-head { grid-template-columns: minmax(0, 1fr); }
+  .sec-head .idx { grid-column: 1; grid-row: auto; padding-top: 0; }
+  .sec-head h2, .disp { overflow-wrap: break-word; hyphens: auto; }
+}
+/* 29/09: code op een telefoon afbreken in plaats van opzij te laten vegen */
+@media (max-width: 600px) { .codecard, .ai-pre { white-space: pre-wrap; overflow-wrap: anywhere; } }

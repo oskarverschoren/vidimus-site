@@ -14,6 +14,7 @@
 <style>
 .ai-pre { background: var(--void-2); border: 1px solid var(--line); padding: 1rem 1.2rem; overflow-x: auto;
   font: 500 0.76rem/1.7 var(--mono); color: var(--paper-dim); margin-top: 1rem; white-space: pre; }
+@media (max-width: 600px) { .ai-pre { white-space: pre-wrap; overflow-wrap: anywhere; } }   /* 29/09: code breekt af op een telefoon */
 .ai-pre b { color:var(--ink); font-weight: 700; }
 .dtable td code { font: 500 0.74rem/1.6 var(--mono); color: var(--paper-dim); }
 </style>
