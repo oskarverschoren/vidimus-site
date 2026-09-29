@@ -773,3 +773,14 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
   .bw-tech summary { grid-template-columns: minmax(0, 1fr) auto; }
   .bw-tech .tech-sum { display: none; }
 }
+
+/* 29/09 · held: kop "Van registratie naar bewijs", eerste zin van de subtekst als aanloop; telefoon altijd helemaal in beeld */
+.hero-under .sub .sub-lead { color: var(--ink); font-weight: 600; }
+@media (min-width: 1100px) {
+  .hero { --tel-w: clamp(250px, 20vw, 300px); }
+  .hero .wrap { min-height: calc(var(--tel-w) * 2.164 + 24px); align-content: start; }
+  .hero-toestel { top: 0; transform: none; width: var(--tel-w); }
+  .ht-telefoon { width: var(--tel-w); border-radius: calc(var(--tel-w) * .16); }
+  .ht-telefoon img { border-radius: calc(var(--tel-w) * .135); }
+  .ht-kaart { bottom: 56px; }
+}
