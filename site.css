@@ -784,3 +784,8 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
   .ht-telefoon img { border-radius: calc(var(--tel-w) * .135); }
   .ht-kaart { bottom: 56px; }
 }
+/* 29/09 (Oskar: "zelfde lettergrootte als de vorige"): kop terug op de grootte van de oorspronkelijke held. De korte kop
+   blijft zo op twee regels; naast de telefoon wordt hij begrensd op de vrije breedte, zodat hij nooit een derde regel pakt. */
+.hero-title { font-size: clamp(46px, 1rem + 8.4vw, 124px); line-height: 1.02; }
+@media (min-width: 1100px) { .hero-title { font-size: min(124px, calc((100vw - 520px) / 6.3)); } }
+@media (max-width: 720px) { .hero-title { font-size: clamp(42px, 13.5vw, 64px); } }
