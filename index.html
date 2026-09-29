@@ -69,8 +69,8 @@
     <figure class="hero-toestel" aria-label="De Vidimus-app op de werkvloer">
       <div class="ht-telefoon"><picture><source srcset="assets/app/hero-wallet.webp" type="image/webp"><img src="assets/app/hero-wallet.jpg" width="390" height="844" alt="Vidimus-app: de volgende opdracht, klaar om te tekenen" loading="eager" fetchpriority="high"></picture></div>
       <div class="ht-kaart" aria-hidden="true">
-        <span class="ht-lbl">BEWIJS · REG_7F3A…</span>
-        <ul><li><i></i><b>Wat</b><span>18 paletten diepvries</span></li><li><i></i><b>Wanneer</b><span>09:41:07 · onafhankelijke tijdstempel</span></li><li><i></i><b>Waar</b><span>Halle, 50.73° N</span></li><li><i></i><b>Wie</b><span>Jan Peeters · Face ID</span></li></ul>
+        <span class="ht-lbl">BEWIJS · REG_18838643120D</span>
+        <ul><li><i></i><b>Wat</b><span>18 paletten diepvries</span></li><li><i></i><b>Wanneer</b><span>15:38:25 UTC · gekwalificeerd tijdstempel</span></li><li><i></i><b>Waar</b><span>Halle · uit het TMS</span></li><li><i></i><b>Controle</b><span>klopt · ook volgens de EU-software</span></li></ul>
       </div>
     </figure>
   </div>
@@ -127,129 +127,159 @@
   </div>
 </section>
 
-<!-- ══ 01 · DE DEMO · direct na het probleem (audit 29/09) ══════ -->
+<!-- ══ 01 · VAN REGISTRATIE NAAR BEWIJS · één echte registratie, eerst in gewone taal, de techniek eronder (29/09) ══ -->
+<section class="sec" id="bewijs" aria-labelledby="bewijs-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="bewijs-h"><span>Van registratie naar bewijs<span class="dot">.</span></span></h2>
+      <span class="lbl">01 · ÉÉN ECHTE REGISTRATIE</span>
+      <p class="side">Uw TMS, WMS, sensor of app blijft gewoon werken. Vidimus legt geselecteerde registraties vast op het moment zelf en maakt achteraf controleerbaar wat er toen stond. <b>Zegt uw klant later 17 paletten en uw systeem 18, dan telt één vraag: welke registratie bestond er op het moment van aflevering?</b></p>
+    </div>
+    <ol class="bw-flow rv" aria-label="Eén echte registratie, van vastleggen tot controle">
+      <li><span class="lbl">WAT U REGISTREERDE</span><b>18 paletten diepvries</b><span>Halle · 29/09/2026 · 15:38:25 UTC · uit het TMS</span></li>
+      <li><span class="lbl">VASTGELEGD</span><b>Vingerafdruk en gekwalificeerd tijdstempel</b><span>15:38:56 UTC · een erkende Europese tijdstempeldienst</span></li>
+      <li class="eind"><span class="lbl">ZELF GECONTROLEERD</span><b>Het bewijs klopt</b><span>ook volgens de validatiesoftware van de Europese Commissie</span></li>
+    </ol>
+    <details class="bw-tech rv">
+      <summary><span class="lbl">TECHNISCHE DETAILS</span><span class="tech-sum">SHA-256 · Merkle-wortel · RFC 3161 · QTSA · EU-vertrouwenslijst · Bitcoin</span><i aria-hidden="true">+</i></summary>
+      <ol class="eu-keten" aria-label="De technische keten van deze registratie">
+        <li><span class="lbl">01 · REGISTRATIE</span><b class="mono">reg_18838643120d</b><span>systeemsleutel van het TMS · 29/09/2026 15:38:25 UTC</span></li>
+        <li><span class="lbl">02 · SHA-256</span><b class="mono" title="7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba">7787f6c9…15e657ba</b><span>de vingerafdruk van de inhoud</span></li>
+        <li><span class="lbl">03 · MERKLE-WORTEL</span><b class="mono" title="282bf1cd4271e524d7a8296362afa80d69b49998f6b866e58d645227bfb85b40">282bf1cd…bfb85b40</b><span>over 6 batches, in 3 stappen</span></li>
+        <li><span class="lbl">04 · TIJDSTEMPELS</span><b>Sectigo · GLOBALTRUST</b><span>RFC 3161 om 15:38:38 · gekwalificeerd (QTSA) om 15:38:56 UTC</span></li>
+        <li class="eind"><span class="lbl">05 · EUROPESE VALIDATIE</span><b>PASSED</b><span>DSS 6.5 · EU-vertrouwenslijst · Bitcoin volgt na het volgende blok</span></li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<!-- ══ 02 · NIET GELOVEN, ZELF CONTROLEREN · het echte rapport van de EU-software, groot; geen goedkeuring (29/09) ══ -->
+<section class="sec" id="eu" aria-labelledby="eu-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="eu-h"><span>Niet geloven<span class="dot">.</span> <span class="thin">Zelf controleren.</span></span></h2>
+      <span class="lbl">02 · EUROPESE COMMISSIE · TECHNISCHE VALIDATIE</span>
+      <p class="side"><b>Geen marketingdemo.</b> Vidimus gebruikt een gekwalificeerd elektronisch tijdstempel. De technische validatie ervan kunt u controleren met de DSS-validatiesoftware van de Europese Commissie. Hieronder de registratie van hierboven, met het echte rapport.</p>
+    </div>
+    <div class="eu-groot rv">
+      <figure class="eu-shot">
+        <div class="eu-balk" aria-hidden="true"><i></i><i></i><i></i><span>ec.europa.eu · DSS Demonstration WebApp 6.5</span></div>
+        <picture><source media="(max-width: 720px)" srcset="assets/eu/dss-passed-kaart.webp" type="image/webp"><source srcset="assets/eu/dss.webp" type="image/webp"><img src="assets/eu/dss.jpg" width="1000" height="699" loading="lazy" decoding="async" alt="Rapport van de DSS-validatiesoftware van de Europese Commissie: Evidence Record van GLOBALTRUST 2015 Qualified Timestamp Service 005, indicatie PASSED, POE time 29 september 2026 15:38:56 UTC, scope vingerafdruk-invoer.json."></picture>
+        <figcaption>Het rapport van de Europese software op 29/09/2026. Zo ziet u het ook als u het zelf doet.</figcaption>
+      </figure>
+      <aside class="eu-uitslag" aria-label="De uitslag in gewone taal">
+        <span class="lbl">DE UITSLAG</span>
+        <p class="eu-groen">Gekwalificeerd tijdstempel gevalideerd</p>
+        <dl class="eu-feiten">
+          <dt>Uitslag</dt><dd>PASSED: de gegevens passen bij het bewijs</dd>
+          <dt>Bestaan bewezen op</dt><dd>29/09/2026 · 15:38:56 UTC</dd>
+          <dt>Tijdstempeldienst</dt><dd>GLOBALTRUST, Oostenrijk</dd>
+          <dt>Status</dt><dd>gekwalificeerd (QTSA), "granted" op de EU-vertrouwenslijst</dd>
+          <dt>Software</dt><dd>DSS 6.5 van de Europese Commissie</dd>
+        </dl>
+        <p class="eu-geen"><b>Technische validatie, geen goedkeuring.</b> De Commissie kent Vidimus niet en ziet de inhoud niet: haar software rekent na wat u aanlevert.</p>
+        <div class="eu-links">
+          <a class="go" href="assets/eu/dss-qtsa.jpg" target="_blank" rel="noopener">Het detailrapport (QTSA)<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="go" href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" rel="noopener">De validatiesoftware van de Commissie<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="go" href="https://eidas.ec.europa.eu/efda/trust-services/browse/eidas/tls" rel="noopener">De EU-vertrouwenslijst<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </aside>
+    </div>
+    <div class="eu-groot omgekeerd rv">
+      <aside class="eu-uitslag">
+        <span class="lbl">VIDIMUS · DE CONTROLEPAGINA</span>
+        <p class="eu-kop">Dezelfde registratie, voor iedereen</p>
+        <p class="eu-tekst">Elke registratie heeft een publieke pagina die uw klant, verzekeraar of rechter opent zonder account. De inhoud blijft privé, de controles niet.</p>
+        <a class="xbtn" href="https://app.vidimus.be/v/reg_18838643120d"><span>Open deze controlepagina</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </aside>
+      <figure class="eu-shot">
+        <div class="eu-balk" aria-hidden="true"><i></i><i></i><i></i><span>app.vidimus.be/v/reg_18838643120d</span></div>
+        <picture><source media="(max-width: 720px)" srcset="assets/eu/controle-m.webp" type="image/webp"><source srcset="assets/eu/controle.webp" type="image/webp"><img src="assets/eu/controle.jpg" width="1100" height="711" loading="lazy" decoding="async" alt="Controlepagina van Vidimus voor registratie reg_18838643120d: integriteit vastgesteld, verankerd op 29 september 2026 om 15:38:38 UTC met een Sectigo-tijdstempel en gekwalificeerd bevestigd door GLOBALTRUST."></picture>
+      </figure>
+    </div>
+    <p class="eu-noot rv">Onder eIDAS (art. 41) geldt voor een gekwalificeerde elektronische tijdstempel het vermoeden dat datum en tijd juist zijn en dat de gegevens waaraan hij hangt sindsdien niet veranderden. Voor deze demo zetten we het stempel meteen; bij klantregistraties volgt het binnen zes uur. De online tool van de Commissie is om te testen; voor een zaak gebruikt u de versie op uw eigen computer.</p>
+  </div>
+</section>
+
+<!-- ══ 03 · VERANDER ÉÉN TEKEN · dezelfde echte registratie in de browser, daarna PASSED tegenover FAILED en zelf doen (29/09) ══ -->
 <section class="sec" id="demo" aria-labelledby="demo-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
-      <h2 id="demo-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M14 8h16l8 8v28H14z"/><path class="ln" d="M30 8v8h8"/><path class="ln" d="M20 26h12M20 34h8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Vervals het<span class="dot">.</span></span></h2>
-      <span class="lbl">01 · DE DEMO · 30 SECONDEN</span>
-      <p class="side"><b>Uw klant zegt 23 paletten. U zegt 26. Wie heeft gelijk?</b> Laat een collega de vrachtbrief aanpassen, of klik zelf op een waarde en typ. Geen animatie: de vingerafdruk wordt live in uw browser berekend, met echte SHA-256.</p>
+      <h2 id="demo-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M14 8h16l8 8v28H14z"/><path class="ln" d="M30 8v8h8"/><path class="ln" d="M20 26h12M20 34h8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Verander één teken<span class="dot">.</span></span></h2>
+      <span class="lbl">03 · DE DEMO · 30 SECONDEN</span>
+      <p class="side"><b>Uw klant zegt 17 paletten. Uw systeem zegt 18.</b> Hieronder staat dezelfde registratie, precies zoals ze werd vastgelegd. Laat een collega er 17 van maken, of klik zelf op een waarde en typ. De vingerafdruk wordt live in uw browser berekend en naast het echte anker gelegd.</p>
     </div>
     <div class="demo-grid">
       <div class="glass kaart rv" id="tamperDoc">
-        <div class="kop"><span class="lbl">CMR · AFL-2026-0913</span><span class="lbl">ORIGINEEL · 04.09.2026</span></div>
-        <h3>Aflevering — CMR</h3>
-        <p class="doc-sub">Kaai 913, Antwerpen · getekend door chauffeur en ontvanger, elk op eigen toestel</p>
+        <div class="kop"><span class="lbl">AFLEVERING · DEMO-EU-0001</span><span class="lbl">UIT HET TMS · 29.09.2026</span></div>
+        <h3>Aflevering</h3>
+        <p class="doc-sub">Zoals het TMS ze doorstuurde, getekend met de systeemsleutel · demodata</p>
         <dl class="kv" id="tamperFields">
-          <dt>Afzender</dt><dd contenteditable="true" spellcheck="false" data-f>Verhelst Transport BV</dd>
-          <dt>Ontvanger</dt><dd contenteditable="true" spellcheck="false" data-f>Nova Logistics NV</dd>
-          <dt>Colli</dt><dd contenteditable="true" spellcheck="false" data-f>26 paletten · zonder voorbehoud</dd>
-          <dt>Afgeleverd</dt><dd contenteditable="true" spellcheck="false" data-f>4 september 2026 — 15:12</dd>
-          <dt>Plaats · toestel</dt><dd contenteditable="true" spellcheck="false" data-f>51.2302 N · 4.4160 E · ±6 m</dd>
+          <dt>Lading</dt><dd contenteditable="true" spellcheck="false" data-f="lading">18 paletten diepvries</dd>
+          <dt>Van</dt><dd contenteditable="true" spellcheck="false" data-f="van">Demo Koeltransport BV</dd>
+          <dt>Naar</dt><dd contenteditable="true" spellcheck="false" data-f="naar">Demo Retail NV, Halle</dd>
+          <dt>Afgeleverd (UTC)</dt><dd contenteditable="true" spellcheck="false" data-f="afgeleverd_op">2026-09-29T15:38:25Z</dd>
+          <dt>Temperatuur °C</dt><dd contenteditable="true" spellcheck="false" data-f="temperatuur_bij_aflevering_c" data-getal>-19.4</dd>
+          <dt>Voorbehoud</dt><dd contenteditable="true" spellcheck="false" data-f="voorbehoud">geen</dd>
+          <dt>Referentie</dt><dd contenteditable="true" spellcheck="false" data-f="referentie">DEMO-EU-0001</dd>
         </dl>
-        <div class="doc-acties"><button class="xbtn red" type="button" id="tamper23"><span>Laat een collega 23 typen</span></button><p class="doc-foot"><svg aria-hidden="true"><use href="#i-edit"/></svg>of klik zelf op een waarde en typ, zoals iemand dat weken later zou proberen</p></div>
+        <div class="doc-acties"><button class="xbtn red" type="button" id="tamper17"><span>Laat een collega 17 typen</span></button><p class="doc-foot"><svg aria-hidden="true"><use href="#i-edit"/></svg>of klik zelf op een waarde en typ. Ook de soort, een opmerking en het kenmerk van de organisatie zitten in de vingerafdruk.</p></div>
       </div>
       <div class="glass lade rv">
         <div class="kop"><span class="lbl">BEWIJS · <b style="color:var(--ink)">ANKER</b></span><span class="st ok" id="ladeSt">KLOPT</span></div>
-        <h3 class="mono">reg_0a4edeb47d59</h3>
+        <h3 class="mono">reg_18838643120d</h3>
         <div class="verdict" id="verdictBlok">
           <p class="kt-verdict ok" id="verdict" role="status">KLOPT</p>
-          <p class="vsub" id="verdictSub">Dit is exact wat op 4 september om 15:13 werd vastgelegd, getekend door chauffeur én ontvanger.</p>
+          <p class="vsub" id="verdictSub">Dit is exact wat op 29 september om 15:38 werd vastgelegd.</p>
         </div>
         <dl class="kv">
-          <dt>Vastgelegd</dt><dd>4 september 2026 · 15:13:22 (UTC)</dd>
-          <dt>Tijdstempel</dt><dd>onafhankelijk bij verankering · gekwalificeerd (eIDAS) binnen 6 uur</dd>
+          <dt>Vastgelegd</dt><dd>29 september 2026 · 15:38:38 UTC</dd>
+          <dt>Tijdstempel</dt><dd>gekwalificeerd (eIDAS) om 15:38:56 UTC</dd>
         </dl>
         <details class="tech-klap">
           <summary><span class="lbl">TECHNISCHE DETAILS</span><span class="tech-sum">vingerafdrukken</span><i aria-hidden="true">+</i></summary>
           <dl class="kv">
-            <dt>Anker</dt><dd><code class="vd-hash match lock" id="anchorHash">berekenen…</code></dd>
+            <dt>Anker (echt)</dt><dd><code class="vd-hash match lock" id="anchorHash">berekenen…</code></dd>
             <dt>Huidige inhoud</dt><dd><code class="vd-hash lock" id="liveHash">berekenen…</code></dd>
           </dl>
         </details>
         <details class="zes-klap" id="zesKlap">
         <summary><span class="lbl zes">DE CONTROLES</span><span class="zes-sum" id="zesSum">6 × klopt</span><i aria-hidden="true">+</i></summary>
         <div class="checkrows" id="checks">
-          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Inhoud ongewijzigd</b><span class="feit">sha-256 herrekend over de vijf velden, naast het anker gelegd</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>De sha-256 over de vijf velden is exact de vingerafdruk in het anker. Dezelfde bytes geven dezelfde 64 tekens; een andere inhoud met dezelfde vingerafdruk vinden is met SHA-256 praktisch onmogelijk.</p><p data-bad hidden>De vijf velden geven nu een andere vingerafdruk dan het anker. Eén teken verschil, 26 → 23, en de hele hash verandert. Welk veld? Zie hierboven in blauw: {velden}.</p></div></div>
-          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Handtekening chauffeur</b><span class="feit">ed25519 · sleutel op het toestel van de chauffeur</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>De Ed25519-handtekening klopt bij de vingerafdruk én bij de sleutel die op het toestel van de chauffeur staat. Die sleutel verlaat het toestel nooit.</p><p data-bad hidden>De handtekening hoort bij de oorspronkelijke vingerafdruk, niet bij deze inhoud. Wie de tekst wijzigt, heeft geen handtekening van de chauffeur over de nieuwe tekst.</p></div></div>
-          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Handtekening ontvanger</b><span class="feit">ed25519 · sleutel op het toestel van de ontvanger</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>Ook de ontvanger tekende dezelfde vingerafdruk, met een eigen sleutel op een eigen toestel. Twee partijen, één inhoud.</p><p data-bad hidden>De ontvanger tekende de oorspronkelijke inhoud. Deze gewijzigde versie is door niemand getekend.</p></div></div>
-          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Gekwalificeerde tijdstempel</b><span class="feit">rfc 3161 · 2026-09-04 15:13:22Z · binnen zes uur eidas</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>Een externe tijdstempeldienst tekende de batchwortel op 04.09.2026 15:13:22Z. Binnen zes uur bevestigde een erkende, gekwalificeerde vertrouwensdienst ze (eIDAS). Dat moment kan niemand verplaatsen, ook Vidimus niet.</p><p data-bad hidden>Het tijdstempel geldt voor de wortel waarin de oorspronkelijke vingerafdruk zit. Voor deze inhoud bestaat geen tijdstempel.</p></div></div>
-          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Zit in de verankerde batch</b><span class="feit">merkle-pad herrekend naar de wortel van de batch</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>Via het Merkle-pad is herrekend dat deze vingerafdruk in de verankerde wortel zit. Dat lukt alleen met exact deze vingerafdruk.</p><p data-bad hidden>Met een andere vingerafdruk komt het Merkle-pad niet meer uit op de wortel. De inhoud zit dus niet in de verankerde batch.</p></div></div>
-          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Grootboekrecord</b><span class="feit">hash-keten · elk record hasht het vorige</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>De wortel staat in het grootboek en elk record hasht het vorige. Eén record aanpassen breekt de hele keten erna.</p><p data-bad hidden>Het grootboek kent alleen de oorspronkelijke wortel. Deze inhoud komt nergens in de keten voor.</p></div></div>
+          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Inhoud ongewijzigd</b><span class="feit">sha-256 herrekend over de inhoud, naast het anker gelegd</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>De sha-256 over de inhoud is exact de vingerafdruk in het anker, 7787f6c9…. Dezelfde bytes geven dezelfde 64 tekens; een andere inhoud met dezelfde vingerafdruk vinden is met SHA-256 praktisch onmogelijk.</p><p data-bad hidden>De inhoud geeft nu een andere vingerafdruk dan het anker. Eén teken verschil, 18 → 17, en de hele hash verandert. Welk veld? Zie links in blauw: {velden}.</p></div></div>
+          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Handtekening van de bron</b><span class="feit">ed25519 · systeemsleutel van het TMS van VO Initiatives</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>De Ed25519-handtekening klopt bij de vingerafdruk en bij de sleutel van dit TMS. De organisatie erachter is met eID geïdentificeerd.</p><p data-bad hidden>De handtekening hoort bij de oorspronkelijke vingerafdruk. Voor deze inhoud bestaat geen handtekening van het TMS.</p></div></div>
+          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Zit in de verankerde batch</b><span class="feit">batch 29/09/2026 15:38:37 · merkle-pad naar de wortel</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>Via het Merkle-pad is herrekend dat deze vingerafdruk in de verankerde wortel zit. Dat lukt alleen met exact deze vingerafdruk.</p><p data-bad hidden>Met een andere vingerafdruk komt het Merkle-pad niet meer uit op de wortel. De inhoud zit dus niet in de verankerde batch.</p></div></div>
+          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Tijdstempel</b><span class="feit">rfc 3161 · sectigo · 15:38:38 utc</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>Een externe tijdstempeldienst tekende de batchwortel om 15:38:38 UTC. Niet onze serverklok bepaalt het moment.</p><p data-bad hidden>Het tijdstempel geldt voor de wortel waarin de oorspronkelijke vingerafdruk zit. Voor deze inhoud bestaat geen tijdstempel.</p></div></div>
+          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Gekwalificeerde tijdstempel</b><span class="feit">globaltrust · 15:38:56 utc · eu-validatie passed</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>Een gekwalificeerde vertrouwensdienst op de EU-vertrouwenslijst tekende 18 seconden later. De validatiesoftware van de Europese Commissie gaf voor deze inhoud PASSED.</p><p data-bad hidden>Voor deze inhoud gaf dezelfde Europese software FAILED · HASH_FAILURE: het stempel hoort bij de oorspronkelijke inhoud.</p></div></div>
+          <div class="checkrow klik" data-c role="button" tabindex="0" aria-expanded="false"><span><b>Grootboekrecord</b><span class="feit">record 105 · elk record hasht het vorige</span></span><span class="st ok">KLOPT</span><div class="chk-uitleg" hidden><p data-ok>De wortel staat in het grootboek en elk record hasht het vorige. Eén record aanpassen breekt de hele keten erna.</p><p data-bad hidden>Het grootboek kent alleen de oorspronkelijke wortel. Deze inhoud komt nergens in de keten voor.</p></div></div>
         </div>
         </details>
         <button class="xbtn" id="tamperReset" type="button"><span>Herstel origineel</span></button>
       </div>
     </div>
-    <div class="states rv">
-      <div class="glass state"><span class="kt-verdict ok">Klopt</span><p>De vingerafdruk komt overeen met het anker. U ziet wat er vastligt: het moment volgens de onafhankelijke tijdstempel, wie tekende, de plaats volgens het toestel.</p></div>
-      <div class="glass state"><span class="kt-verdict bad">Klopt niet</span><p>Deze inhoud komt met geen enkel anker overeen. Meer zegt Vidimus niet: niet wat er veranderde, niet door wie. Er bestaat geen "lijkt op".</p></div>
-      <p class="states-foot">Zo eindigt de discussie over 23 of 26 paletten: niet bij wie de mooiste pdf heeft, maar bij één controle die iedereen zelf doet. <b>Vidimus oordeelt niet, het vergelijkt</b>, op een controlepagina die uw klant opent zonder account en zonder ons te moeten geloven.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ EUROPESE VALIDATIE · één echte demoregistratie, van inhoud tot het rapport van de EU-software, met de bestanden erbij (29/09) ══ -->
-<section class="sec" id="eu" aria-labelledby="eu-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="eu-h"><span>Niet geloven<span class="dot">.</span> <span class="thin">Zelf controleren.</span></span></h2>
-      <span class="lbl">EUROPESE VALIDATIE · EIDAS</span>
-      <p class="side">De verankering van Vidimus is technisch na te rekenen met de eIDAS-validatiesoftware van de Europese Commissie (DSS). Die software controleert de gekwalificeerde tijdstempel en de vertrouwensketen tot de EU-vertrouwenslijst; de vingerafdruk is het gegeven waaraan die tijdstempel hangt. <b>Hieronder één echte registratie, van begin tot eind. De bestanden staan erbij: doe het zelf.</b></p>
-    </div>
-    <ol class="eu-keten rv" aria-label="Van registratie tot Europese validatie">
-      <li><span class="lbl">01 · REGISTRATIE</span><b>18 paletten diepvries</b><span>Demo Koeltransport → Demo Retail, Halle · 29/09/2026 15:38:25 UTC</span></li>
-      <li><span class="lbl">02 · SHA-256</span><b class="mono" title="7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba">7787f6c9…15e657ba</b><span>de vingerafdruk van de inhoud</span></li>
-      <li><span class="lbl">03 · MERKLE-WORTEL</span><b class="mono" title="282bf1cd4271e524d7a8296362afa80d69b49998f6b866e58d645227bfb85b40">282bf1cd…bfb85b40</b><span>over 6 batches, in 3 stappen</span></li>
-      <li><span class="lbl">04 · GEKWALIFICEERDE TIJDSTEMPEL</span><b>GLOBALTRUST</b><span>29/09/2026 15:38:56 UTC · op de EU-vertrouwenslijst</span></li>
-      <li class="eind"><span class="lbl">05 · EUROPESE VALIDATIE</span><b>PASSED · QTSA</b><span>DSS 6.5 van de Europese Commissie</span></li>
-    </ol>
-    <div class="eu-shots">
-      <figure class="eu-shot rv">
-        <div class="eu-balk" aria-hidden="true"><i></i><i></i><i></i><span>app.vidimus.be/v/reg_18838643120d</span></div>
-        <picture><source media="(max-width: 720px)" srcset="assets/eu/controle-m.webp" type="image/webp"><source srcset="assets/eu/controle.webp" type="image/webp"><img src="assets/eu/controle.jpg" width="1100" height="711" loading="lazy" decoding="async" alt="Controlepagina van Vidimus voor registratie reg_18838643120d: integriteit vastgesteld, verankerd op 29 september 2026 om 15:38:38 UTC met een Sectigo-tijdstempel en gekwalificeerd bevestigd door GLOBALTRUST."></picture>
-        <figcaption><b>1 · Vidimus</b> De publieke controlepagina van de registratie. Iedereen opent ze, zonder account.</figcaption>
-      </figure>
-      <figure class="eu-shot hoofd rv">
-        <div class="eu-balk" aria-hidden="true"><i></i><i></i><i></i><span>ec.europa.eu · DSS Demonstration WebApp 6.5</span></div>
-        <picture><source srcset="assets/eu/dss.webp" type="image/webp"><img src="assets/eu/dss.jpg" width="1000" height="699" loading="lazy" decoding="async" alt="Rapport van de DSS-validatiesoftware van de Europese Commissie: Evidence Record van GLOBALTRUST 2015 Qualified Timestamp Service 005, indicatie PASSED, POE time 29 september 2026 15:38:56 UTC, scope vingerafdruk-invoer.json."></picture>
-        <picture><source srcset="assets/eu/dss-qtsa.webp" type="image/webp"><img src="assets/eu/dss-qtsa.jpg" width="1000" height="649" loading="lazy" decoding="async" alt="Detailrapport van DSS: Time-stamp Qualification QTSA, de dienst heeft status granted op de EU-vertrouwenslijst op het moment van de tijdstempel."></picture>
-        <figcaption><b>2 · Europese Commissie</b> Evidence Record en inhoud: <b>PASSED</b>, bestaan bewezen op 29/09/2026 15:38:56 UTC. Eronder het detailrapport: <b>QTSA</b>, een gekwalificeerde dienst met status "granted" op de EU-vertrouwenslijst.</figcaption>
-      </figure>
-      <figure class="eu-shot extra rv">
-        <div class="eu-balk" aria-hidden="true"><i></i><i></i><i></i><span>app.vidimus.be/v/reg_18838643120d · controles</span></div>
-        <picture><source srcset="assets/eu/controles.webp" type="image/webp"><img src="assets/eu/controles.jpg" width="1100" height="657" loading="lazy" decoding="async" alt="De acht controles van dezelfde registratie: inhoud, batch, handtekening indiener, handtekening Vidimus, grootboek, tijdstempel en gekwalificeerde tijdstempel vastgesteld; Bitcoin wacht op een blok."></picture>
-        <figcaption><b>3 · Vidimus</b> Dezelfde registratie, acht controles. Bitcoin volgt een paar uur later, als het blok gemijnd is.</figcaption>
-      </figure>
+    <div class="eu-duel rv">
+      <figure class="duel ok"><figcaption><span class="lbl">ORIGINEEL · 18 PALETTEN</span><b>PASSED</b></figcaption><picture><source srcset="assets/eu/dss-passed-kaart.webp" type="image/webp"><img src="assets/eu/dss-passed-kaart.jpg" width="1000" height="341" loading="lazy" decoding="async" alt="DSS van de Europese Commissie met het originele bestand: Evidence Record PASSED, POE time 29 september 2026 15:38:56 UTC."></picture></figure>
+      <figure class="duel bad"><figcaption><span class="lbl">ÉÉN TEKEN ANDERS · 17 PALETTEN</span><b>FAILED</b></figcaption><picture><source srcset="assets/eu/dss-failed-kaart.webp" type="image/webp"><img src="assets/eu/dss-failed-kaart.jpg" width="1000" height="341" loading="lazy" decoding="async" alt="DSS van de Europese Commissie met hetzelfde bewijs en 18 veranderd in 17: Evidence Record FAILED, HASH_FAILURE, the reference data object is not intact."></picture></figure>
+      <p class="duel-voet">Dezelfde bewijs.ers in de software van de Europese Commissie; alleen 18 werd 17. <b>Eerst PASSED. Daarna FAILED.</b> Zo eindigt de discussie over 17 of 18 paletten: niet bij wie de mooiste pdf heeft, maar bij één controle die iedereen zelf doet.</p>
     </div>
     <div class="eu-zelf glass rv" id="eu-zelf">
       <div class="eu-zelf-kop">
-        <span class="lbl">DOE HET ZELF · 2 MINUTEN</span>
-        <h3>Dezelfde controle, op uw scherm</h3>
-        <p>Demodata, geen persoonsgegevens. Kies in stap 3 SHA256: dan verlaat alleen de vingerafdruk uw computer.</p>
+        <span class="lbl">DOE HET ZELF · 2 MINUTEN · GEEN ACCOUNT</span>
+        <h3>Denkt u dat we dit zomaar beweren? Controleer het zelf.</h3>
+        <p>Demodata, geen persoonsgegevens. Kies in stap 4 SHA256: dan verlaat alleen de vingerafdruk uw computer.</p>
         <div class="eu-dl">
           <a class="xbtn red" href="assets/eu/demo/bewijs.ers" download="vidimus-demo-bewijs.ers"><span>bewijs.ers</span><small class="duur">3 kB</small></a>
           <a class="xbtn" href="assets/eu/demo/vingerafdruk-invoer.json" download="vidimus-demo-vingerafdruk-invoer.json"><span>vingerafdruk-invoer.json</span><small class="duur">1 kB</small></a>
         </div>
       </div>
       <ol class="eu-stappen">
-        <li><b>Download de twee bestanden</b><span>het Evidence Record (RFC 4998) en de exacte inhoud die gehasht werd</span></li>
+        <li><b>Download het bewijs</b><span>bewijs.ers, het Evidence Record (RFC 4998)</span></li>
+        <li><b>Download de oorspronkelijke gegevens</b><span>vingerafdruk-invoer.json, de exacte inhoud die gehasht werd</span></li>
         <li><b>Open de software van de Commissie</b><span><a href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" rel="noopener">DSS · Validate a signature</a>, of de versie op uw eigen computer</span></li>
-        <li><b>Signed file: bewijs.ers · Original file(s): vingerafdruk-invoer.json</b><span>verstuur als SHA256, laat de rest staan en klik Submit</span></li>
-        <li><b>Lees het rapport</b><span>PASSED, POE time 2026-09-29 15:38:56 (UTC); in Detailed Report: Time-stamp Qualification QTSA</span></li>
-        <li><b>Wijzig één teken in het json-bestand en probeer opnieuw</b><span>dan klopt het niet meer: zo werkt het bewijs</span></li>
+        <li><b>Controleer</b><span>Signed file: bewijs.ers · Original file(s): het json-bestand · verstuur als SHA256 · Submit → PASSED</span></li>
+        <li><b>Verander 18 in 17 in het json-bestand</b><span>met gelijk welke teksteditor</span></li>
+        <li><b>Controleer opnieuw</b><span>FAILED · HASH_FAILURE: het bewijs past niet meer</span></li>
       </ol>
-    </div>
-    <div class="eu-voet rv">
-      <div class="eu-noot">
-        <p><b>Wat dit is, en wat niet.</b> De Commissie keurt Vidimus niet goed en ziet de inhoud niet: haar software rekent na wat u aanlevert. Onder eIDAS (art. 41) geldt voor een gekwalificeerde elektronische tijdstempel het vermoeden dat datum en tijd juist zijn en dat de gegevens waaraan hij hangt sindsdien niet veranderden.</p>
-        <p>Voor deze demo zetten we het gekwalificeerde stempel meteen; bij klantregistraties volgt het binnen zes uur. De online demo van de Commissie is om te testen; voor een zaak gebruikt u de versie op uw eigen computer.</p>
-      </div>
-      <div class="hero-actions">
-        <a class="xbtn" href="https://app.vidimus.be/v/reg_18838643120d"><span>Open deze controlepagina</span></a>
-        <a class="go" href="verificatie.html#officieel">De volledige handleiding<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      </div>
     </div>
   </div>
 </section>
@@ -267,7 +297,7 @@
         <span class="lbl">WEL</span>
         <ul>
           <li>Dat deze inhoud op dat moment bestond</li>
-          <li>Wie ze vastlegde: welk toestel, welke firma</li>
+          <li>Via welke bron, welk toestel en welke organisatie ze werd vastgelegd</li>
           <li>Dat ze sindsdien niet veranderde</li>
           <li>Dat de tegenpartij meetekende, als ze dat deed</li>
         </ul>
@@ -277,7 +307,7 @@
         <ul>
           <li>Dat de inhoud waar is</li>
           <li>Dat een sensor juist meet</li>
-          <li>Wat er veranderde, als iets niet meer klopt</li>
+          <li>Welke wijziging achteraf werd aangebracht</li>
         </ul>
       </div>
       <div class="grens-voet">
@@ -293,7 +323,7 @@
   <div class="wrap">
     <div class="sec-lbl kop rv">
       <h2 id="app-h"><span>De app<span class="dot">.</span> Van firma tot handtekening<span class="dot">.</span></span></h2>
-      <span class="lbl">02 · DE APP</span>
+      <span class="lbl">04 · DE APP</span>
       <p class="side">Vidimus legt zelf registraties vast: elke overgave, elke meting, elk document, getekend door wie het in handen had. <b>Heeft u geen systeem dat registraties opneemt? Gebruik onze infrastructuur:</b> de app op elke telefoon en het bureau in de browser, zonder installatie. Scrol en de telefoon draait mee door de zes schermen, van eID-mandaat tot de controlepagina die uw tegenpartij ziet.</p>
     </div>
   </div>
@@ -416,7 +446,7 @@ POST /measurements
   <div class="wrap">
     <div class="sec-lbl kop rv">
       <h2 id="calc-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 12h32"/><path class="ln" d="M10 24h32"/><path class="ln" d="M10 36h16"/><path class="ln" d="M14 8v8M14 20v8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Wat kost woord tegen woord u<span class="dot">?</span></span></h2>
-      <span class="lbl">03 · DE REKENSOM</span>
+      <span class="lbl">05 · DE REKENSOM</span>
       <p class="side">Wij beweren niets. Vul uw eigen cijfers in — de som is van u.</p>
     </div>
     <div class="calc-grid">
@@ -442,7 +472,7 @@ POST /measurements
   <div class="wrap">
     <div class="sec-lbl kop rv">
       <h2 id="prijs-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M8 10h16l20 20-12 12L12 22z"/><path class="ln" d="M16 16a2 2 0 1 0 .01 0"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Gratis starten<span class="dot">.</span> <span class="thin">Daarna betaalt u per gebruik.</span></span></h2>
-      <span class="lbl">04 · DE PRIJS</span>
+      <span class="lbl">06 · DE PRIJS</span>
     </div>
     <div class="glass price rv">
       <div class="plan">

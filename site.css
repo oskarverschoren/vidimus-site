@@ -678,40 +678,27 @@ header.site > .menu-knop { display: none; }
 .eu-keten li.eind .lbl { color: var(--ok); }
 .eu-keten li.eind b { display: inline-flex; align-items: center; gap: 8px; color: var(--ok); }
 .eu-keten li.eind b::before { content: ""; flex: none; width: 18px; height: 18px; border-radius: 50%; background: var(--ok) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; }
-.eu-shots { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; align-items: start; }
 .eu-shot { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; min-width: 0; }
 .eu-shot img { max-width: 100%; }
 .eu-shot > picture { display: block; }
 .eu-shot { border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid var(--glass-edge); box-shadow: 0 30px 60px -38px rgba(11, 15, 23, .45), 0 8px 18px -12px rgba(11, 15, 23, .18); padding-bottom: 14px; }
-.eu-shot.hoofd { transform: translateY(-10px); box-shadow: 0 40px 80px -40px rgba(30, 79, 216, .45), 0 10px 24px -14px rgba(11, 15, 23, .22); }
 .eu-balk { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: var(--bg-2); border-bottom: 1px solid var(--line); }
 .eu-balk i { width: 8px; height: 8px; border-radius: 50%; background: var(--line-2); flex: none; }
 .eu-balk span { margin-left: 8px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 500 11px/1 var(--mono); color: var(--ink-3); letter-spacing: .02em; }
 .eu-shot img { display: block; width: 100%; height: auto; }
 .eu-shot figcaption { padding: 0 14px; font-size: 13px; line-height: 1.5; color: var(--ink-2); }
 .eu-shot figcaption b:first-child { display: block; font: 500 10px/1.8 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--act); }
-.eu-voet { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px clamp(24px, 4vw, 56px); align-items: end; margin-top: clamp(22px, 3vw, 34px); }
-.eu-noot { display: grid; gap: 8px; max-width: 72ch; }
-.eu-noot p { font-size: 14px; line-height: 1.6; color: var(--ink-3); }
-.eu-noot p b { color: var(--ink); font-weight: 600; }
 @media (max-width: 1100px) {
   .eu-keten { grid-template-columns: 1fr; gap: 8px; }
   .eu-keten li { grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); column-gap: 16px; align-items: baseline; padding: 12px 16px; }
   .eu-keten li .lbl { grid-row: 1 / 3; }
   .eu-keten li:not(:last-child)::after { right: auto; left: 28px; top: auto; bottom: -9px; transform: rotate(90deg); }
-  .eu-shots { grid-template-columns: 1fr 1fr; }
-  .eu-shot.hoofd { grid-column: 1 / -1; grid-row: 1; transform: none; width: 100%; max-width: 720px; justify-self: center; }
-  .eu-voet { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
   .eu-keten li { grid-template-columns: 1fr; }
   .eu-keten li .lbl { grid-row: auto; }
-  .eu-shots { grid-template-columns: minmax(0, 1fr); }
-  .eu-shot.extra { display: none; }
-  .eu-shot img { aspect-ratio: auto; }
 }
 /* doe het zelf: de twee bestanden en vijf stappen naar het rapport van de Commissie */
-.eu-shot.hoofd picture + picture { border-top: 1px solid var(--line); }
 .eu-zelf { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(20px, 3vw, 44px); margin-top: clamp(24px, 3.4vw, 40px); padding: clamp(22px, 3vw, 34px); border-radius: 24px; }
 .eu-zelf-kop { display: grid; gap: 10px; align-content: start; }
 .eu-zelf-kop h3 { font-size: clamp(22px, 1.2rem + .6vw, 28px); font-weight: 600; letter-spacing: -.03em; line-height: 1.15; }
@@ -725,5 +712,64 @@ header.site > .menu-knop { display: none; }
 .eu-stappen b { font-size: 15px; font-weight: 600; letter-spacing: -.01em; overflow-wrap: anywhere; }
 .eu-stappen span { grid-column: 2; font-size: 14px; line-height: 1.5; color: var(--ink-3); overflow-wrap: anywhere; }
 .eu-stappen a { color: var(--act); }
-.eu-voet .hero-actions { align-items: center; }
 @media (max-width: 900px) { .eu-zelf { grid-template-columns: 1fr; } }
+
+/* ══ 29/09 · het verhaal in lagen: eerst gewone taal, dan het bewijs groot, dan één teken veranderen ══ */
+.bw-flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 34px); }
+.bw-flow li { position: relative; display: grid; gap: 10px; align-content: start; padding: clamp(20px, 2.6vw, 30px); border-radius: 22px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+.bw-flow li:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: calc(-1 * clamp(14px, 2.4vw, 34px) / 2 - 8px); width: 16px; height: 16px; transform: translateY(-50%); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8h10M9 4l4 4-4 4' fill='none' stroke='%231E4FD8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; z-index: 1; }
+.bw-flow b { font-size: clamp(22px, 1.1rem + 1vw, 32px); font-weight: 600; letter-spacing: -.035em; line-height: 1.1; color: var(--ink); }
+.bw-flow li > span:last-child { font-size: 15px; line-height: 1.5; color: var(--ink-3); }
+.bw-flow li.eind { background: rgba(46, 107, 85, .08); border-color: rgba(46, 107, 85, .24); }
+.bw-flow li.eind .lbl { color: var(--ok); }
+.bw-flow li.eind b { display: flex; align-items: center; gap: 12px; color: var(--ok); }
+.bw-flow li.eind b::before { content: ""; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--ok) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; }
+.bw-tech { margin-top: 18px; border-top: 1px solid var(--line); }
+.bw-tech summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 14px 0; }
+.bw-tech summary::-webkit-details-marker { display: none; }
+.bw-tech .tech-sum { font: 500 12px/1.5 var(--mono); color: var(--ink-3); letter-spacing: .04em; }
+.bw-tech summary i { font: 500 16px/1 var(--mono); font-style: normal; color: var(--ink-3); transition: transform 200ms var(--site-ease); }
+.bw-tech[open] summary i { transform: rotate(45deg); }
+.bw-tech .eu-keten { margin: 4px 0 8px; }
+
+.eu-groot { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, .85fr); gap: clamp(20px, 3vw, 44px); align-items: center; }
+.eu-groot + .eu-groot { margin-top: clamp(28px, 4vw, 56px); }
+.eu-groot.omgekeerd { grid-template-columns: minmax(0, .85fr) minmax(0, 1.45fr); }
+.eu-groot .eu-shot { box-shadow: 0 50px 90px -46px rgba(30, 79, 216, .45), 0 12px 28px -16px rgba(11, 15, 23, .22); }
+.eu-uitslag { display: grid; gap: 14px; align-content: center; }
+.eu-groen { display: flex; align-items: flex-start; gap: 14px; font-size: clamp(28px, 1.2rem + 1.6vw, 42px); font-weight: 600; letter-spacing: -.04em; line-height: 1.04; color: var(--ok); text-wrap: balance; }
+.eu-groen::before { content: ""; flex: none; width: 40px; height: 40px; margin-top: 2px; border-radius: 50%; background: var(--ok) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; box-shadow: 0 0 0 6px rgba(46, 107, 85, .12); }
+.eu-feiten { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 7px 16px; margin: 4px 0 0; font-size: 14px; line-height: 1.45; }
+.eu-feiten dt { font: 500 11px/1.9 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.eu-feiten dd { margin: 0; color: var(--ink); }
+.eu-geen { font-size: 14px; line-height: 1.55; color: var(--ink-2); padding: 12px 14px; border-radius: 14px; background: rgba(11, 15, 23, .04); }
+.eu-geen b { color: var(--ink); }
+.eu-links { display: grid; gap: 8px; justify-items: start; }
+.eu-kop { font-size: clamp(24px, 1.1rem + 1vw, 32px); font-weight: 600; letter-spacing: -.035em; line-height: 1.1; }
+.eu-tekst { font-size: 15px; line-height: 1.6; color: var(--ink-2); max-width: 40ch; }
+.eu-uitslag .xbtn { justify-self: start; height: 46px; padding-inline: 20px; }
+p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.6; color: var(--ink-3); max-width: 80ch; }
+
+.eu-duel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: clamp(28px, 4vw, 48px); }
+.duel { margin: 0; border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid var(--glass-edge); box-shadow: 0 30px 60px -40px rgba(11, 15, 23, .45); display: grid; grid-template-columns: minmax(0, 1fr); }
+.duel figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.duel figcaption b { font-size: clamp(20px, 1rem + .8vw, 28px); font-weight: 700; letter-spacing: -.03em; }
+.duel.ok figcaption { background: rgba(46, 107, 85, .07); } .duel.ok figcaption b, .duel.ok .lbl { color: var(--ok); }
+.duel.bad figcaption { background: rgba(179, 35, 64, .07); } .duel.bad figcaption b, .duel.bad .lbl { color: var(--bad); }
+.duel img { display: block; width: 100%; height: auto; }
+.duel-voet { grid-column: 1 / -1; font-size: 15px; line-height: 1.6; color: var(--ink-2); max-width: 78ch; }
+.duel-voet b { color: var(--ink); }
+#demo .eu-zelf { margin-top: clamp(22px, 3vw, 34px); }
+@media (max-width: 1000px) {
+  .bw-flow { grid-template-columns: 1fr; }
+  .bw-flow li:not(:last-child)::after { top: auto; bottom: -13px; right: auto; left: 34px; transform: rotate(90deg); }
+  .eu-groot, .eu-groot.omgekeerd { grid-template-columns: 1fr; }
+  .eu-groot.omgekeerd .eu-shot { grid-row: 1; }
+}
+@media (max-width: 720px) {
+  .eu-duel { grid-template-columns: 1fr; }
+  .eu-feiten { grid-template-columns: 1fr; gap: 0; }
+  .eu-feiten dd { margin-bottom: 8px; }
+  .bw-tech summary { grid-template-columns: minmax(0, 1fr) auto; }
+  .bw-tech .tech-sum { display: none; }
+}

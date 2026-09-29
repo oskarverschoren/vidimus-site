@@ -157,9 +157,19 @@
      Twee uitkomsten, nooit een oordeel over wie liegt: KLOPT of KLOPT NIET (29/09, was IDENTIEK / ONBEKEND). */
   const fields = $$("#tamperFields [data-f]");
   if (fields.length) {
-    const ANCHOR_AT = "4 september om 15:13";
+    /* 29/09: de demo is de echte publieke demoregistratie reg_18838643120d. De vingerafdruk wordt berekend over exact dezelfde
+       canonieke json als assets/eu/demo/vingerafdruk-invoer.json (sleutels gesorteerd, geen spaties) en naast het echte anker gelegd. */
+    const ANCHOR_AT = "29 september om 15:38";
+    const ANKER = "7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba";
+    const VAST = { soort: "aflevering", opmerking: "Publieke demoregistratie van Vidimus voor de controle met de EU-validatiesoftware op vidimus.be. Geen echte levering, geen persoonsgegevens." };
+    const ORG = "bb2c43946181d940cd3ab4adcf847d311a4ca6b8fa1d36c60ee5a3714b3addaf";
     const original = fields.map((f) => f.textContent);
-    const payload = () => fields.map((f) => f.textContent.trim()).join("|");
+    const waarde = (f) => { const v = f.textContent.trim(); return "getal" in f.dataset && /^-?\d+(\.\d+)?$/.test(v) ? Number(v) : v; };
+    const payload = () => {
+      const p = { ...VAST }; fields.forEach((f) => { p[f.dataset.f] = waarde(f); });
+      const gesorteerd = Object.fromEntries(Object.keys(p).sort().map((k) => [k, p[k]]));
+      return JSON.stringify({ attachments: {}, canon: "vidimus-json-2", org: ORG, payload: gesorteerd });
+    };
     let anchored = "", wasSame = true;
 
     async function verify() {
@@ -172,12 +182,12 @@
       v.textContent = same ? "KLOPT" : "KLOPT NIET";
       v.classList.toggle("ok", same);
       v.classList.toggle("bad", !same);
-      const naamVan = (f) => (f.dataset.f || f.previousElementSibling?.textContent || f.closest("div,tr,li")?.querySelector("dt,.k,.lbl")?.textContent || "veld").trim().toLowerCase();
+      const naamVan = (f) => (f.previousElementSibling?.textContent || f.dataset.f || "veld").trim().toLowerCase();
       const anders = fields.map((f, i) => [f, i]).filter(([f, i]) => f.textContent !== original[i]);
       const gewijzigd = anders.map(([f]) => naamVan(f)).join(", ") || "—";
       $("#verdictSub").textContent = same
-        ? `Dit is exact wat op ${ANCHOR_AT} werd vastgelegd, getekend door chauffeur én ontvanger.`
-        : `Deze versie werd nooit zo vastgelegd. Wat op ${ANCHOR_AT} vastligt, getekend door chauffeur én ontvanger: `
+        ? `Dit is exact wat op ${ANCHOR_AT} werd vastgelegd.`
+        : `Deze versie werd nooit zo vastgelegd. Wat op ${ANCHOR_AT} vastligt: `
           + (anders.length ? anders.map(([f, i]) => `${naamVan(f)} ${original[i].trim()}`).join(" · ") : "een andere inhoud") + ".";
       const st = $("#ladeSt");
       st.textContent = same ? "KLOPT" : "KLOPT NIET";
@@ -209,23 +219,21 @@
       });
     });
     $("#tamperReset").addEventListener("click", () => { fields.forEach((f, i) => (f.textContent = original[i])); verify(); });
-    /* één klik: een collega maakt van 26 paletten 23; staat het oordeel niet in beeld (op een gsm staat het onder de kaart), dan schuift het erin */
+    /* één klik: een collega maakt van 18 paletten 17; staat het oordeel niet in beeld (op een gsm staat het onder de kaart), dan schuift het erin */
     const toonOordeel = () => {
       const r = $("#verdictBlok").getBoundingClientRect();
       if (r.top < 72 || r.bottom > innerHeight) $("#verdictBlok").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     };
     const colli = fields.find((f) => /paletten/.test(f.textContent));
-    $("#tamper23").addEventListener("click", async () => {
+    $("#tamper17").addEventListener("click", async () => {
       fields.forEach((f, i) => (f.textContent = original[i]));
-      if (colli) colli.textContent = colli.textContent.replace(/\b26\b/, "23");
+      if (colli) colli.textContent = colli.textContent.replace(/\b18\b/, "17");
       await verify(); toonOordeel();
     });
     fields.forEach((f, i) => f.addEventListener("blur", () => { if (f.textContent !== original[i]) setTimeout(toonOordeel, 200); }));
-    sha256(payload()).then((h) => {
-      anchored = h;
-      lockHash($("#anchorHash"), h, 9);
-      verify();
-    });
+    anchored = ANKER;
+    lockHash($("#anchorHash"), ANKER, 9);
+    verify();
   }
 
   /* ── schermafbeeldingen: nette plaatshouder tot de beelden er zijn ── */
