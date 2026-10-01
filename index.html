@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app-huis.css?v=20260917b">
 <link rel="stylesheet" href="app-huis-pages.css?v=20260916d">
-<link rel="stylesheet" href="site.css?v=20261001d">
+<link rel="stylesheet" href="site.css?v=20261001e">
 
 <link rel="canonical" href="https://vidimus.be/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
@@ -129,15 +129,15 @@
       <span class="lbl">DE BEWIJSLAAG · NAAST UW SYSTEMEN</span>
       <p class="side">Vidimus vervangt uw audit trail niet en is geen blockchain. <b>Vidimus maakt van een geselecteerde registratie een onafhankelijk verifieerbaar bewijs van integriteit en tijd.</b> Dat vult precies de plekken waar logging binnen één systeem ophoudt.</p>
     </div>
-    <div class="vs-tabel rv" role="table" aria-label="Waar Vidimus het verschil maakt">
-      <div class="vs-rij vs-kop" role="row"><span role="columnheader">Waar</span><span role="columnheader">Het probleem</span><span role="columnheader">Vidimus</span></div>
-      <div class="vs-rij" role="row"><b role="cell">Onafhankelijkheid</b><span role="cell">De audit trail zit in hetzelfde systeem als de gegevens.</span><span role="cell">Een cryptografische verankering buiten uw systeem.</span></div>
-      <div class="vs-rij" role="row"><b role="cell">Bewijs delen</b><span role="cell">Uw tegenpartij moet uw systeem op uw woord geloven.</span><span role="cell">Een bewijs dat zij zelf controleert, zonder account.</span></div>
-      <div class="vs-rij" role="row"><b role="cell">Meerdere systemen</b><span role="cell">TMS, WMS, sensoren, foto's en ERP loggen elk apart.</span><span role="cell">Eén bewijslaag over al die registraties.</span></div>
-      <div class="vs-rij" role="row"><b role="cell">Sensormetingen</b><span role="cell">Een meetwaarde wordt weken later betwist.</span><span role="cell">De verankerde registratie van wat de sensor doorstuurde.</span></div>
-      <div class="vs-rij" role="row"><b role="cell">Audit</b><span role="cell">De auditor moet het bewijs uit exports reconstrueren.</span><span role="cell">Een bewijsbundel die hij zelf narekent.</span></div>
-      <div class="vs-rij" role="row"><b role="cell">Kmo</b><span role="cell">Eigen onveranderbare infrastructuur bouwen is duur.</span><span role="cell">Een dienst met API en app, gratis te starten.</span></div>
-      <div class="vs-rij" role="row"><b role="cell">Discussies</b><span role="cell">"Welke versie klopt?"</span><span role="cell">De registratie zoals ze op dat tijdstip werd vastgelegd.</span></div>
+    <div class="vs-tabel rv">
+      <div class="vs-rij vs-kop" aria-hidden="true"><span>Waar</span><span>Het probleem</span><span>Vidimus</span></div>
+      <details class="vs-klap"><summary class="vs-rij"><b>Onafhankelijkheid</b><span>De audit trail zit in hetzelfde systeem als de gegevens.</span><span>Een cryptografische verankering buiten uw systeem.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>De tegenpartij zegt: “Dat is uw eigen systeem, daar kan u alles in aanpassen.” Uw audit trail is waardevol, maar staat in datzelfde systeem.</span></p></details>
+      <details class="vs-klap"><summary class="vs-rij"><b>Bewijs delen</b><span>Uw tegenpartij moet uw systeem op uw woord geloven.</span><span>Een bewijs dat zij zelf controleert, zonder account.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>U stuurt een export of een schermafdruk. Het antwoord: “Dat kan iedereen maken.” Toegang tot uw systeem om het na te kijken heeft uw klant niet, en die wilt u ook niet geven.</span></p></details>
+      <details class="vs-klap"><summary class="vs-rij"><b>Meerdere systemen</b><span>TMS, WMS, sensoren, foto's en ERP loggen elk apart.</span><span>Eén bewijslaag over al die registraties.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>De levering staat in het TMS, de foto's in een gedeelde map, de temperatuur in een sensorportaal. Bij een claim puzzelt iemand dagenlang om er één verhaal van te maken.</span></p></details>
+      <details class="vs-klap"><summary class="vs-rij"><b>Sensormetingen</b><span>Een meetwaarde wordt weken later betwist.</span><span>De verankerde registratie van wat de sensor doorstuurde.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>Een klant weigert een lading: de koeling zou uitgevallen zijn. Uw logger zegt van niet, maar de grafiek komt uit uw eigen portaal, en daar twijfelt de klant aan.</span></p></details>
+      <details class="vs-klap"><summary class="vs-rij"><b>Audit</b><span>De auditor moet het bewijs uit exports reconstrueren.</span><span>Een bewijsbundel die hij zelf narekent.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>Elk jaar dezelfde oefening voor ISO, FAVV of een klantaudit: exports uit drie systemen, steekproeven, en de vraag of er intussen niets werd aangepast.</span></p></details>
+      <details class="vs-klap"><summary class="vs-rij"><b>Kmo</b><span>Eigen onveranderbare infrastructuur bouwen is duur.</span><span>Een dienst met API en app, gratis te starten.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>Een eigen onveranderbaar archief of een blockchainproject kost maanden en een IT-team. Dus blijft het bij pdf's, mails en goede hoop.</span></p></details>
+      <details class="vs-klap"><summary class="vs-rij"><b>Discussies</b><span>"Welke versie klopt?"</span><span>De registratie zoals ze op dat tijdstip werd vastgelegd.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>Twee versies van dezelfde vrachtbrief, inspectie of goedkeuring, en iedereen is zeker van de zijne. Het gesprek gaat dan niet meer over de feiten, maar over wie u gelooft.</span></p></details>
     </div>
     <div class="vs-systemen rv">
       <p class="vs-systemen-kop"><span class="lbl">HETZELFDE BEWIJS, VOOR ELK SYSTEEM</span></p>
@@ -221,8 +221,8 @@
         <h3>Denkt u dat we dit zomaar beweren? Controleer het zelf.</h3>
         <p>Demodata, geen persoonsgegevens. Kies in stap 4 SHA256: dan verlaat alleen de vingerafdruk uw computer.</p>
         <div class="eu-dl">
-          <div class="eu-dl-item"><a class="xbtn red" href="assets/eu/demo/bewijs.ers" download="vidimus-demo-bewijs.ers"><span>bewijs.ers</span><small class="duur">3 kB</small></a><span class="eu-dl-veld">→ in DSS bij <b>Signed file</b></span></div>
-          <div class="eu-dl-item"><a class="xbtn" href="assets/eu/demo/vingerafdruk-invoer.json" download="vidimus-demo-vingerafdruk-invoer.json"><span>vingerafdruk-invoer.json</span><small class="duur">1 kB</small></a><span class="eu-dl-veld">→ in DSS bij <b>Original file(s)</b></span></div>
+          <div class="eu-dl-item"><a class="xbtn red" href="assets/eu/demo/bewijs.ers" download="vidimus-demo-bewijs.ers"><span>bewijs.ers</span><small class="duur">3 kB</small></a><span class="eu-dl-veld">→ in DSS: <b>Signed file</b></span></div>
+          <div class="eu-dl-item"><a class="xbtn" href="assets/eu/demo/vingerafdruk-invoer.json" download="vidimus-demo-vingerafdruk-invoer.json"><span>vingerafdruk-invoer.json</span><small class="duur">1 kB</small></a><span class="eu-dl-veld">→ in DSS: <b>Original file(s)</b></span></div>
         </div>
       </div>
       <ol class="eu-stappen">
@@ -270,13 +270,10 @@
           <dt>Vastgelegd</dt><dd>4 september 2026 · 15:13:22 (UTC)</dd>
           <dt>Tijdstempel</dt><dd>onafhankelijk bij verankering · gekwalificeerd (eIDAS) binnen 6 uur</dd>
         </dl>
-        <details class="tech-klap">
-          <summary><span class="lbl">TECHNISCHE DETAILS</span><span class="tech-sum">vingerafdrukken</span><i aria-hidden="true">+</i></summary>
-          <dl class="kv">
-            <dt>Anker</dt><dd><code class="vd-hash match lock" id="anchorHash">berekenen…</code></dd>
-            <dt>Huidige inhoud</dt><dd><code class="vd-hash lock" id="liveHash">berekenen…</code></dd>
-          </dl>
-        </details>
+        <dl class="kv vd-hashes">
+          <dt>Anker</dt><dd><code class="vd-hash match lock" id="anchorHash">berekenen…</code></dd>
+          <dt>Huidige inhoud</dt><dd><code class="vd-hash lock" id="liveHash">berekenen…</code></dd>
+        </dl>
         <details class="zes-klap" id="zesKlap">
         <summary><span class="lbl zes">DE CONTROLES</span><span class="zes-sum" id="zesSum">6 × klopt</span><i aria-hidden="true">+</i></summary>
         <div class="checkrows" id="checks">
@@ -648,6 +645,6 @@ POST /measurements
   <a href="tel:+32466474115">+32 466 47 41 15</a>
 </footer>
 
-<script src="script.js?v=20261001d" defer></script>
+<script src="script.js?v=20261001e" defer></script>
 </body>
 </html>

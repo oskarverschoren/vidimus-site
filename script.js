@@ -393,3 +393,24 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   s.src = "https://app.vidimus.be/webapp/terug.js"; s.defer = true;
   document.head.append(s);
 })();
+
+/* 01/10 (Oskar: "bij het klikken van elke knop een nieuw tabblad, niet de browser opnieuw laden"): elke knop of link naar een
+   andere pagina of site opent in een nieuw tabblad, zodat deze pagina blijft staan waar u was. Sprongen binnen de pagina (#…),
+   downloads, mail en het menu bovenaan en onderaan blijven gewoon. In de app niet: daar regelt terug.js de weg terug. */
+(function () {
+  if (/VidimusApp/.test(navigator.userAgent)) return;
+  const naarElders = (a) => {
+    const h = a.getAttribute("href") || "";
+    if (!h || h.startsWith("#") || /^(mailto|tel|sms|javascript):/i.test(h) || a.hasAttribute("download")) return false;
+    if (a.closest("header.site, .mob-menu, footer")) return false;
+    const u = new URL(a.href, location.href);
+    return !(u.origin === location.origin && u.pathname === location.pathname);
+  };
+  const zet = (a) => {
+    if (!naarElders(a)) return;
+    a.target = "_blank";
+    a.rel = [...new Set((a.rel || "").split(/\s+/).filter(Boolean).concat("noopener"))].join(" ");
+  };
+  document.querySelectorAll("a[href]").forEach(zet);
+  document.addEventListener("click", (e) => { const a = e.target.closest && e.target.closest("a[href]"); if (a) zet(a); }, true);
+})();

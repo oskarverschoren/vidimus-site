@@ -943,3 +943,36 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 .vw-slot a { color: var(--act); font-weight: 500; margin-left: 6px; }
 @media (max-width: 900px) { .vw-lijst { grid-template-columns: 1fr 1fr; } .vw-lijst li:nth-child(3) { border-left: 0; padding-left: 0; } .vw-lijst li:nth-child(n+3) { border-top: 1px solid var(--line); } }
 @media (max-width: 560px) { .vw-lijst { grid-template-columns: 1fr; } .vw-lijst li, .vw-lijst li + li { padding-left: 0; border-left: 0; } .vw-lijst li + li { border-top: 1px solid var(--line); } }
+
+/* ══ 01/10 (Oskar) · KLOPT rustiger en de vingerafdrukken altijd zichtbaar; fijnere downloads naast elkaar; de zeven gaten klikbaar ══ */
+.lade .verdict, .lade .verdict:has(.bad) { margin: 16px 0 4px; padding: 0; gap: 6px; background: none; border: 0; }
+.lade .verdict .kt-verdict, .lade .verdict .kt-verdict.ok, .lade .verdict .kt-verdict.bad { gap: 8px; font: 500 11.5px/1.4 var(--mono); letter-spacing: .14em; color: var(--ink-2); }
+.lade .verdict .kt-verdict.bad { color: var(--bad); }
+.lade .verdict .kt-verdict::before, .lade .verdict .kt-verdict.bad::before { width: 6px; height: 6px; box-shadow: none; }
+.lade .verdict .vsub { font: 400 15px/1.55 var(--ui); color: var(--ink); max-width: 52ch; }
+.lade .vd-hashes { margin-top: 4px; }
+.lade .vd-hashes dd { overflow-wrap: anywhere; }
+
+.eu-dl { flex-wrap: wrap; gap: 12px 14px; }
+.eu-dl .xbtn { height: 34px; padding-inline: 13px; gap: 8px; font-size: 12px; letter-spacing: 0; box-shadow: none; }
+.eu-dl .xbtn .duur { font-size: 10.5px; }
+.eu-dl-veld { font-size: 10.5px; padding-left: 2px; }
+
+.vs-klap { border-bottom: 1px solid var(--line); }
+.vs-klap > summary { list-style: none; cursor: pointer; position: relative; padding-right: 36px; border-bottom: 0; }
+.vs-klap > summary::-webkit-details-marker { display: none; }
+.vs-klap > summary::after { content: "+"; position: absolute; right: 6px; top: 50%; translate: 0 -50%; font: 500 17px/1 var(--mono); color: var(--ink-3); transition: rotate 200ms var(--site-ease), color 200ms; }
+.vs-klap[open] > summary::after { rotate: 45deg; color: var(--act); }
+.vs-klap > summary:hover::after { color: var(--act); }
+.vs-klap > summary:focus-visible { outline: 2px solid var(--act); outline-offset: 2px; border-radius: 6px; }
+.vs-kop { padding-right: 36px; }
+.vs-pijn { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 2.5fr); gap: 0 clamp(18px, 3vw, 44px); margin: 0; padding: 0 36px 20px 0; }
+.vs-pijn .lbl { color: var(--act); padding-top: 3px; }
+.vs-pijn > span:last-child { font-size: 15.5px; line-height: 1.6; color: var(--ink); max-width: 72ch; padding: 14px 18px; border-left: 2px solid var(--act); background: rgba(30, 79, 216, .04); border-radius: 0 12px 12px 0; }
+@media (max-width: 720px) {
+  .vs-pijn { grid-template-columns: 1fr; gap: 8px; padding-right: 0; }
+}
+#eu .eu-zelf { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.eu-dl { flex-wrap: nowrap; }
+.eu-dl .xbtn { height: 32px; padding-inline: 12px; font-size: 11.5px; }
+@media (max-width: 860px) { #eu .eu-zelf { grid-template-columns: 1fr; } .eu-dl { flex-wrap: wrap; } }
