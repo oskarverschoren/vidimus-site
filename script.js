@@ -32,7 +32,6 @@
     const ctx = canvas.getContext("2d");
     const HEX = "0123456789abcdef";
     const TRAIL = 14;
-    const DONKER = !!canvas.closest(".donker");   // 01/10: donkere held → lichte tekens
     let cols = [], fs = 14, W = 0, H = 0, dpr = 1;
     function size() {
       dpr = Math.min(2, devicePixelRatio || 1);
@@ -59,7 +58,7 @@
           const y = c.y - i * step;
           if (y < -fs || y > H + fs) continue;
           const a = 0.08 * (1 - i / TRAIL);
-          ctx.fillStyle = i === 0 && Math.random() < 0.02 ? (DONKER ? `rgba(143,176,255,${Math.max(a, 0.3)})` : `rgba(30,79,216,${Math.max(a, 0.22)})`) : (DONKER ? `rgba(233,236,242,${a * 0.9})` : `rgba(11,15,23,${a})`);
+          ctx.fillStyle = i === 0 && Math.random() < 0.02 ? `rgba(30,79,216,${Math.max(a, 0.22)})` : `rgba(11,15,23,${a})`;
           ctx.fillText(c.glyphs[i], c.x, y);
         }
         c.y += c.v * step;
@@ -396,11 +395,4 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   const s = document.createElement("script");
   s.src = "https://app.vidimus.be/webapp/terug.js"; s.defer = true;
   document.head.append(s);
-})();
-
-/* 01/10 (Oskar): donkere held bovenaan; de kop kleurt mee zolang de held eronder ligt */
-(function () {
-  const held = document.querySelector(".hero.donker"), kop = document.querySelector("header.site"); if (!held || !kop) return;
-  const zet = () => { const r = held.getBoundingClientRect(); kop.classList.toggle("op-donker", r.bottom > 30); };
-  addEventListener("scroll", zet, { passive: true }); addEventListener("resize", zet); zet();
 })();
