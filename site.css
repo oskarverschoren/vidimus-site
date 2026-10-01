@@ -897,3 +897,36 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 .vs-systemen li { min-width: 0; } .vs-systemen li span { overflow-wrap: anywhere; hyphens: auto; }
 @media (max-width: 380px) { .vs-systemen li { padding: 14px 12px; } .vs-systemen li span { font-size: 14.5px; } }
 .vs-systemen li { align-content: start; }
+
+/* ══ 01/10 · donkere held (zoals de Play-afbeelding): alleen bovenaan, de rest van de pagina blijft licht ══ */
+.hero.donker { --d-ink: #E9ECF2; --d-mute: rgba(233, 236, 242, .62); color: var(--d-ink);
+  background: radial-gradient(1100px 600px at 92% -12%, rgba(30, 79, 216, .42), transparent 62%), radial-gradient(800px 460px at -6% 112%, rgba(95, 211, 160, .13), transparent 60%), #0B0F17;
+  margin-top: -60px; padding-top: calc(clamp(28px, 4.2vw, 64px) + 60px); }
+.hero.donker .hero-kicker { color: var(--d-mute); }
+.hero.donker .hero-kicker i { background: #5FD3A0; }
+.hero.donker .hero-title { color: #fff; }
+.hero.donker .hero-title .blauw, .hero.donker .hero-title .dot { color: #8FB0FF; }
+.hero.donker .hero-under .sub { color: var(--d-mute); }
+.hero.donker .hero-under .sub .sub-lead { color: #fff; }
+.hero.donker .hero-micro { color: rgba(233, 236, 242, .5); }
+.hero.donker .xbtn.red.steel { background: #fff; color: #0B0F17; border-color: #fff; box-shadow: 0 14px 34px -16px rgba(143, 176, 255, .55); }
+.hero.donker .xbtn.red.steel span { text-shadow: none; }
+.hero.donker .xbtn.red.steel:hover { background: #E9ECF2; }
+.hero.donker .xbtn:not(.red) { background: rgba(255, 255, 255, .06); color: #fff; border-color: rgba(255, 255, 255, .16); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; }
+.hero.donker .xbtn:not(.red):hover { background: rgba(255, 255, 255, .12); }
+.hero.donker .xbtn .duur { color: rgba(233, 236, 242, .5); }
+.hero.donker .ht-telefoon { box-shadow: 0 50px 100px -40px rgba(0, 0, 0, .85), 0 0 0 1px rgba(255, 255, 255, .08); }
+/* de kop boven de donkere held */
+header.site { transition: background 240ms, border-color 240ms; }
+header.site.op-donker { background: rgba(11, 15, 23, .55); border-bottom-color: rgba(255, 255, 255, .06); }
+header.site.op-donker .brand span { color: #fff; } header.site.op-donker .brand small { color: rgba(233, 236, 242, .5); }
+header.site.op-donker .brand svg { filter: invert(1) hue-rotate(180deg); }
+header.site.op-donker .topnav a { color: rgba(233, 236, 242, .72); }
+header.site.op-donker .topnav a:hover { color: #fff; background: rgba(255, 255, 255, .08); }
+header.site.op-donker .top-login { color: rgba(233, 236, 242, .8); }
+header.site.op-donker .top-start { background: #fff; color: #0B0F17; border-color: #fff; }
+header.site.op-donker .top-start span { text-shadow: none; }
+header.site.op-donker .menu-knop { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .16); }
+header.site.op-donker .menu-knop span { background: #fff; }
+.hero.donker .ht-kaart { color: var(--ink); }
+.hero.donker .ht-kaart li b { color: var(--ink); }
