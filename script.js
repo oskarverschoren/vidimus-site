@@ -290,7 +290,7 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
 /* het probleem: woord per woord oplichten bij scroll (de oorspronkelijke statement, nu in de app-typografie) */
 (function () {
   const stmt = document.getElementById("stmt"); if (!stmt) return;
-  const hot = ["achteraf", "aantonen", "stond?"];
+  const hot = ["achteraf", "bewijzen", "stond?"];
   const kop = stmt.querySelector(".sr-only"); const kopHtml = kop ? kop.outerHTML : ""; if (kop) kop.remove();
   stmt.innerHTML = kopHtml + stmt.textContent.trim().split(/\s+/).map((w) => `<span class="w${hot.includes(w.toLowerCase()) ? " hot" : ""}">${w}</span>`).join(" ");
   const words = [...stmt.querySelectorAll(".w")];
