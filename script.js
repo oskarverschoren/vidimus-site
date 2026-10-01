@@ -157,19 +157,9 @@
      Twee uitkomsten, nooit een oordeel over wie liegt: KLOPT of KLOPT NIET (29/09, was IDENTIEK / ONBEKEND). */
   const fields = $$("#tamperFields [data-f]");
   if (fields.length) {
-    /* 29/09: de demo is de echte publieke demoregistratie reg_18838643120d. De vingerafdruk wordt berekend over exact dezelfde
-       canonieke json als assets/eu/demo/vingerafdruk-invoer.json (sleutels gesorteerd, geen spaties) en naast het echte anker gelegd. */
-    const ANCHOR_AT = "29 september om 15:38";
-    const ANKER = "7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba";
-    const VAST = { soort: "aflevering", opmerking: "Publieke demoregistratie van Vidimus voor de controle met de EU-validatiesoftware op vidimus.be. Geen echte levering, geen persoonsgegevens." };
-    const ORG = "bb2c43946181d940cd3ab4adcf847d311a4ca6b8fa1d36c60ee5a3714b3addaf";
+    const ANCHOR_AT = "4 september om 15:13";
     const original = fields.map((f) => f.textContent);
-    const waarde = (f) => { const v = f.textContent.trim(); return "getal" in f.dataset && /^-?\d+(\.\d+)?$/.test(v) ? Number(v) : v; };
-    const payload = () => {
-      const p = { ...VAST }; fields.forEach((f) => { p[f.dataset.f] = waarde(f); });
-      const gesorteerd = Object.fromEntries(Object.keys(p).sort().map((k) => [k, p[k]]));
-      return JSON.stringify({ attachments: {}, canon: "vidimus-json-2", org: ORG, payload: gesorteerd });
-    };
+    const payload = () => fields.map((f) => f.textContent.trim()).join("|");
     let anchored = "", wasSame = true;
 
     async function verify() {
@@ -182,12 +172,12 @@
       v.textContent = same ? "KLOPT" : "KLOPT NIET";
       v.classList.toggle("ok", same);
       v.classList.toggle("bad", !same);
-      const naamVan = (f) => (f.previousElementSibling?.textContent || f.dataset.f || "veld").trim().toLowerCase();
+      const naamVan = (f) => (f.dataset.f || f.previousElementSibling?.textContent || f.closest("div,tr,li")?.querySelector("dt,.k,.lbl")?.textContent || "veld").trim().toLowerCase();
       const anders = fields.map((f, i) => [f, i]).filter(([f, i]) => f.textContent !== original[i]);
       const gewijzigd = anders.map(([f]) => naamVan(f)).join(", ") || "—";
       $("#verdictSub").textContent = same
-        ? `Dit is exact wat op ${ANCHOR_AT} werd vastgelegd.`
-        : `Deze versie werd nooit zo vastgelegd. Wat op ${ANCHOR_AT} vastligt: `
+        ? `Dit is exact wat op ${ANCHOR_AT} werd vastgelegd, getekend door chauffeur én ontvanger.`
+        : `Deze versie werd nooit zo vastgelegd. Wat op ${ANCHOR_AT} vastligt, getekend door chauffeur én ontvanger: `
           + (anders.length ? anders.map(([f, i]) => `${naamVan(f)} ${original[i].trim()}`).join(" · ") : "een andere inhoud") + ".";
       const st = $("#ladeSt");
       st.textContent = same ? "KLOPT" : "KLOPT NIET";
@@ -219,21 +209,23 @@
       });
     });
     $("#tamperReset").addEventListener("click", () => { fields.forEach((f, i) => (f.textContent = original[i])); verify(); });
-    /* één klik: een collega maakt van 18 paletten 17; staat het oordeel niet in beeld (op een gsm staat het onder de kaart), dan schuift het erin */
+    /* één klik: een collega maakt van 26 paletten 23; staat het oordeel niet in beeld (op een gsm staat het onder de kaart), dan schuift het erin */
     const toonOordeel = () => {
       const r = $("#verdictBlok").getBoundingClientRect();
       if (r.top < 72 || r.bottom > innerHeight) $("#verdictBlok").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     };
     const colli = fields.find((f) => /paletten/.test(f.textContent));
-    $("#tamper17").addEventListener("click", async () => {
+    $("#tamper23").addEventListener("click", async () => {
       fields.forEach((f, i) => (f.textContent = original[i]));
-      if (colli) colli.textContent = colli.textContent.replace(/\b18\b/, "17");
+      if (colli) colli.textContent = colli.textContent.replace(/\b26\b/, "23");
       await verify(); toonOordeel();
     });
     fields.forEach((f, i) => f.addEventListener("blur", () => { if (f.textContent !== original[i]) setTimeout(toonOordeel, 200); }));
-    anchored = ANKER;
-    lockHash($("#anchorHash"), ANKER, 9);
-    verify();
+    sha256(payload()).then((h) => {
+      anchored = h;
+      lockHash($("#anchorHash"), h, 9);
+      verify();
+    });
   }
 
   /* ── schermafbeeldingen: nette plaatshouder tot de beelden er zijn ── */
@@ -308,38 +300,43 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   addEventListener("scroll", tick, { passive: true }); tick();
 })();
 
-/* één registratie, twee lagen (29/09, adviseur): links uw systeem mét audit trail — dat erkennen we —, rechts de verankering
-   buiten uw systeem. De vraag is niet of uw systeem wijzigingen bijhoudt, maar wie buiten uw systeem kan nakijken wat er stond. */
+/* één record, twee levens: dezelfde registratie, links herschrijfbaar, rechts verankerd — stap voor stap */
 (function () {
   const root = document.getElementById("tweeLevens"); if (!root) return;
   const db = root.querySelector('[data-kant="db"]'), an = root.querySelector('[data-kant="anker"]');
-  const zet = (kaart, sel, tekst, klasse) => { const el = kaart.querySelector(sel); el.textContent = tekst; if (klasse !== undefined) el.className = klasse; };
-  const lading = db.querySelector('[data-f="lading"]'), log = db.querySelector("[data-extra]"), ext = an.querySelector("[data-extra]");
+  const f = (k, key) => k.querySelector(`[data-f="${key}"]`);
   const STAPPEN = [
-    () => { // 01 vastgelegd
-      lading.textContent = "18 paletten diepvries"; lading.className = ""; log.hidden = true; ext.hidden = true;
-      zet(db, "[data-v]", "versie 1 · 15:38:25", "tl-versie"); zet(db, "[data-noot]", "Uw systeem legt de registratie vast. Zoals het hoort.", "tl-noot");
-      zet(an, "[data-noot]", "Op hetzelfde moment: vingerafdruk 7787f6c9…, tijdstempel om 15:38:38, gekwalificeerd om 15:38:56.", "tl-noot");
+    () => { // 01 aangemaakt
+      f(db, "colli").textContent = "26 paletten · zonder voorbehoud"; f(db, "colli").className = ""; f(db, "plaats").textContent = "51.2302 N · 4.4160 E · ±6 m"; f(db, "plaats").className = "";
+      db.querySelector("[data-v]").textContent = "record · 1 versie"; db.querySelector("[data-v]").className = "tl-versie";
+      db.querySelector("[data-noot]").textContent = "Netjes vastgelegd. Zoals het hoort."; db.querySelector("[data-noot]").className = "tl-noot";
+      an.querySelector("[data-extra]").hidden = true; an.querySelector("[data-noot]").textContent = "Vingerafdruk 80f4ec95… zit in het anker van 04.09.2026 15:13:22Z."; an.querySelector("[data-noot]").className = "tl-noot";
     },
-    () => { // 02 later gewijzigd — de audit trail doet zijn werk
-      lading.textContent = "17 paletten diepvries"; lading.className = "wijzig";
-      log.hidden = false; log.innerHTML = "<span><b>audit trail ✓</b> · 15:52:10 · registratie 18 → 17 paletten</span><span>wie, wat en wanneer: netjes bijgehouden in uw systeem</span>";
-      zet(db, "[data-v]", "versie 2 · 15:52:10", "tl-versie"); zet(db, "[data-noot]", "Een correctie, een migratie, een fout: de registratie wordt aangepast. Uw audit trail houdt het bij.", "tl-noot");
-      ext.hidden = true; zet(an, "[data-noot]", "Het anker verandert niet mee: het ligt buiten uw systeem. De oorspronkelijke 18 blijft narekenbaar.", "tl-noot ok");
+    () => { // 02 "gecorrigeerd"
+      f(db, "colli").textContent = "23 paletten · zonder voorbehoud"; f(db, "colli").className = "wijzig";
+      db.querySelector("[data-v]").textContent = "record · overschreven · geen geschiedenis"; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = "Een collega \"corrigeert\" 26 naar 23. Het oude cijfer bestaat niet meer. Wie het deed en wanneer: onbekend."; db.querySelector("[data-noot]").className = "tl-noot bad";
+      const x = an.querySelector("[data-extra]"); x.hidden = false; x.innerHTML = "<span><b>+ reg_7c1d…</b> · correctie · 23 paletten · 06.09.2026 09:41:03Z</span><span>het origineel blijft staan; de correctie is een nieuwe registratie mét eigen anker</span>";
+      an.querySelector("[data-noot]").textContent = "Twee registraties, allebei verankerd. Iedereen ziet wat eerst was en wat later kwam."; an.querySelector("[data-noot]").className = "tl-noot ok";
     },
-    () => { // 03 wie kan het nakijken?
-      zet(db, "[data-v]", "audit trail · binnen uw systeem", "tl-versie");
-      zet(db, "[data-noot]", "Een klant, verzekeraar of rechter vraagt wat er om 15:38:25 stond. Het antwoord komt uit hetzelfde systeem dat ook de wijziging bevat.", "tl-noot vraag");
-      ext.hidden = false; ext.innerHTML = "<span><b>SHA-256</b> 7787f6c9… → <b>gekwalificeerd tijdstempel</b> 15:38:56 → <b>anker</b> buiten uw systeem</span><span>Europese validatiesoftware: PASSED · de controlepagina opent zonder account</span>";
-      zet(an, "[data-noot]", "Iedereen kan het nakijken, zonder account en zonder ons: de oorspronkelijke 18 paletten klopt met het anker van 15:38:25.", "tl-noot ok");
+    () => { // 03 migratie
+      f(db, "plaats").textContent = "51.2302 N · 4.4160 E · ±6 m"; f(db, "plaats").className = "weg";
+      db.querySelector("[data-v]").textContent = "record · overschreven · veld verloren"; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = "Bij de migratie naar het nieuwe systeem verdwijnt het plaatsveld. Stil. Niemand merkt het tot het nodig is."; db.querySelector("[data-noot]").className = "tl-noot bad";
+      an.querySelector("[data-noot]").textContent = "Het anker staat buiten uw systeem. Migreer, crash, herinstalleer: de vingerafdruk van 04.09.2026 blijft narekenbaar."; an.querySelector("[data-noot]").className = "tl-noot ok";
+    },
+    () => { // 04 het geschil
+      db.querySelector("[data-v]").textContent = "export · 3 weken later"; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = "De ontvanger claimt 23 paletten. Uw export zegt óók 23, zonder plaats. Welke versie was de echte? Woord tegen woord."; db.querySelector("[data-noot]").className = "tl-noot bad";
+      an.querySelector("[data-noot]").textContent = "Vingerafdruk van het origineel komt overeen met het anker van 04.09.2026 15:13:22Z: 26 paletten, op de kade, om 15:12. IDENTIEK."; an.querySelector("[data-noot]").className = "tl-noot ok";
     },
   ];
-  const knoppen = [...root.querySelectorAll(".tl-stap")]; let auto = null, geraakt = false;
-  const ga = (i) => { STAPPEN[i](); knoppen.forEach((b, k) => { b.classList.toggle("cur", k === i); b.setAttribute("aria-selected", String(k === i)); });
+  const knoppen = [...root.querySelectorAll(".tl-stap")]; let cur = 0, auto = null, geraakt = false;
+  const ga = (i) => { cur = i; STAPPEN[i](); knoppen.forEach((b, k) => { b.classList.toggle("cur", k === i); b.setAttribute("aria-selected", String(k === i)); });
     root.querySelector('[data-u="db"]').classList.toggle("aan", i >= 1); root.querySelector('[data-u="anker"]').classList.toggle("aan", i >= 1); };
   knoppen.forEach((b, i) => b.addEventListener("click", () => { geraakt = true; clearInterval(auto); ga(i); }));
   // speelt één keer vanzelf af zodra het in beeld komt; wie klikt, neemt over
-  const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting && !auto && !geraakt) { let i = 0; auto = setInterval(() => { i++; if (i >= STAPPEN.length) { clearInterval(auto); return; } ga(i); }, 3200); io.disconnect(); } }); }, { threshold: .6 });
+  const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting && !auto && !geraakt) { let i = 0; auto = setInterval(() => { i++; if (i >= STAPPEN.length) { clearInterval(auto); return; } ga(i); }, 2600); io.disconnect(); } }); }, { threshold: .6 });
   io.observe(root); ga(0);
 })();
 
