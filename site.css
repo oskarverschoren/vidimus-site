@@ -897,3 +897,30 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 .vs-systemen li { min-width: 0; } .vs-systemen li span { overflow-wrap: anywhere; hyphens: auto; }
 @media (max-width: 380px) { .vs-systemen li { padding: 14px 12px; } .vs-systemen li span { font-size: 14.5px; } }
 .vs-systemen li { align-content: start; }
+
+/* ══ 01/10 · vertrouwenskaart (geen schermbeelden van de Commissie op de landing; details op de controlepagina) ══ */
+.vt-kaart { max-width: 920px; margin-inline: auto; display: grid; gap: 22px; padding: clamp(24px, 3.4vw, 40px); border-radius: 24px; background: #fff; border: 1px solid rgba(11, 15, 23, .08); box-shadow: 0 30px 70px -56px rgba(11, 15, 23, .45); }
+.vt-kop { display: flex; gap: 16px; align-items: center; }
+.vt-schild { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: var(--ink); color: #fff; }
+.vt-schild svg { width: 26px; height: 26px; }
+.vt-kop h2 { font-size: clamp(24px, 1.1rem + 1.2vw, 34px); font-weight: 600; letter-spacing: -.035em; line-height: 1.1; }
+.vt-sub { margin: 4px 0 0; font-size: 14px; color: var(--ink-3); }
+.vt-tekst { margin: 0; font-size: clamp(16px, .95rem + .25vw, 18px); line-height: 1.6; color: var(--ink-2); max-width: 64ch; }
+.vt-punten { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.vt-punten li { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.vt-punten b { display: block; font-size: 16px; font-weight: 600; letter-spacing: -.015em; color: var(--ink); }
+.vt-punten li span:not(.vt-ico) { display: block; margin-top: 2px; font-size: 14px; line-height: 1.5; color: var(--ink-3); }
+.vt-ico { flex: none; width: 24px; height: 24px; margin-top: 1px; color: var(--ink-2); } .vt-ico.ok { color: var(--ok); }
+.vt-ico svg { width: 24px; height: 24px; display: block; }
+.vt-acties { display: flex; flex-wrap: wrap; gap: 10px; }
+.vt-acties .xbtn { height: 48px; padding-inline: 20px; }
+.vt-acties .vt-uit { width: 14px; height: 14px; }
+.vt-noot { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-3); max-width: 72ch; }
+.vt-noot a { color: var(--act); }
+.vt-duel { margin-top: clamp(24px, 3.4vw, 40px); display: grid; gap: 0; border-top: 1px solid var(--line); }
+.vt-uit-rij { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.vt-uit-rij b { font-size: 15px; font-weight: 600; color: var(--ink); }
+.vt-uit-rij span:last-child { font: 600 12.5px/1 var(--mono); letter-spacing: .08em; color: var(--ink); }
+.vt-stip { width: 8px; height: 8px; border-radius: 50%; } .vt-stip.ok { background: var(--ok); box-shadow: 0 0 0 4px rgba(46, 107, 85, .12); } .vt-stip.bad { background: var(--bad); box-shadow: 0 0 0 4px rgba(179, 35, 64, .12); }
+.vt-duel p { margin: 14px 0 0; font-size: 15px; line-height: 1.6; color: var(--ink-2); max-width: 78ch; }
+@media (max-width: 720px) { .vt-acties .xbtn { width: 100%; } .vt-uit-rij { grid-template-columns: 12px minmax(0, 1fr); } .vt-uit-rij span:last-child { grid-column: 2; } }
