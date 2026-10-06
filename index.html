@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app-huis.css?v=20260917b">
 <link rel="stylesheet" href="app-huis-pages.css?v=20261002a">
-<link rel="stylesheet" href="site.css?v=20261002a">
+<link rel="stylesheet" href="site.css?v=20261006a">
 
 <link rel="canonical" href="https://vidimus.be/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
@@ -52,19 +52,18 @@
 
 <main id="top">
 
-<!-- ══ HELD ═══════════════════════════════════════════════════ -->
 <section class="hero" aria-labelledby="hero-h">
   <canvas id="hashrain" aria-hidden="true"></canvas>
   <div class="wrap">
     <p class="hero-kicker lbl"><i aria-hidden="true"></i>de onafhankelijke bewijslaag voor bedrijfsregistraties</p>
-    <h1 class="hero-title" id="hero-h">Van registratie<br> <span class="blauw">naar bewijs</span><span class="dot">.</span></h1>
+    <h1 class="hero-title" id="hero-h">Niet alleen vastleggen<br> <span class="blauw">wat er gebeurde</span><span class="dot">.</span></h1>
     <div class="hero-under">
-      <p class="sub"><b class="sub-lead">Elke registratie die telt, cryptografisch vastgelegd en onafhankelijk verifieerbaar:</b> een levering, foto, meting of handtekening, uit uw TMS, WMS, ERP of onze app. Past iemand later iets aan, dan ziet uw klant, auditor, verzekeraar of rechter dat meteen. Ook zonder ons.</p>
+      <p class="sub"><b class="sub-lead">Vastleggen wat er op dat moment geregistreerd stond, en achteraf kunnen bewijzen dat het sindsdien niet is veranderd.</b> Een levering, foto, meting of handtekening, uit uw TMS, WMS, ERP of onze app. Uw klant, auditor of verzekeraar controleert het zelf, ook zonder ons.</p>
       <div class="hero-actions">
         <a class="xbtn red steel" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="xbtn" href="#demo"><span>Probeer het te vervalsen <small class="duur">30 s</small></span></a>
+        <a class="xbtn" href="#kies"><span>Hoe wilt u registreren?</span></a>
       </div>
-      <p class="hero-micro">eerste 100 registraties per maand gratis · geen betaalgegevens</p>
+      <p class="hero-micro">eerste 100 registraties per maand gratis · geen betaalgegevens · maandelijks opzegbaar</p>
     </div>
     <figure class="hero-toestel" aria-label="De Vidimus-app op de werkvloer">
       <div class="ht-telefoon"><picture><source srcset="assets/app/hero-wallet.webp" type="image/webp"><img src="assets/app/hero-wallet.jpg" width="390" height="844" alt="Vidimus-app: de volgende opdracht, klaar om te tekenen" loading="eager" fetchpriority="high"></picture></div>
@@ -75,12 +74,101 @@
     </figure>
   </div>
 </section>
-<!-- ══ DE VRAAG · audit trails bestaan; de vraag is wie buiten uw systeem kan nakijken wat er stond (29/09, adviseur) ══ -->
+
+<!-- ══ HOE WILT U REGISTREREN · twee wegen, zelfde bewijs (06/10, Oskar: "App of API" als eerste keuze, Telenet-model) ══ -->
+<section class="sec" id="kies" aria-labelledby="kies-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="kies-h"><span>Hoe wilt u registreren<span class="dot">?</span></span></h2>
+      <span class="lbl">TWEE WEGEN · HETZELFDE BEWIJS</span>
+      <p class="side">Uw systeem blijft registreren zoals het vandaag doet. Vidimus legt de geselecteerde registraties vast als onafhankelijk controleerbaar bewijs.</p>
+    </div>
+    <div class="kies-grid rv">
+      <a class="kies-tegel" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><svg class="kies-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><em>VIA DE VIDIMUS-APP</em><b>Voor foto's, overdrachten en handtekeningen.</b><span>Registreer rechtstreeks in de app. Uw mensen tekenen met hun eigen telefoon; de ontvanger bevestigt ter plaatse, zonder account en zonder app.</span><i class="go">Start met de app<svg aria-hidden="true"><use href="#i-arrow"/></svg></i></a>
+      <a class="kies-tegel" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><svg class="kies-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v4M15 3v4"/><path d="M6.5 7h11v3.5a5.5 5.5 0 0 1-11 0z"/><path d="M12 16v5"/></svg><em>VIA DE API</em><b>Voor IoT, TMS, WMS, ERP en sensordata.</b><span>Verbind uw systeem met Vidimus. Wilt u dat zelfs wij niets kunnen lezen? Dan versleutelt en tekent uw systeem alles zelf, met een eigen sleutel.</span><i class="go">Koppel uw systeem<svg aria-hidden="true"><use href="#i-arrow"/></svg></i></a>
+    </div>
+    <a class="kies-partner rv" href="partners.html"><em>VOOR SOFTWARELEVERANCIERS</em><b>Bouwt u zelf een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product, zonder iets te bouwen: referral, reseller of integrator.</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
+<!-- ══ STEL ZELF SAMEN · live prijs, maandelijks of jaarcontract (06/10, zelfde rekensom als billing.py en prijzen.html) ══ -->
+<section class="sec" id="samenstellen" aria-labelledby="sam-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="sam-h"><span>Stel zelf samen<span class="dot">.</span></span></h2>
+      <span class="lbl">LIVE PRIJS · EXCL. BTW</span>
+      <p class="side">Schuif wat u verwacht. U betaalt alleen wat u gebruikt, en de eerste 100 registraties per maand zijn altijd gratis.</p>
+    </div>
+    <div class="glass sam rv">
+      <div class="sam-in">
+        <label class="sam-fld"><span class="sam-kop"><span class="lbl">REGISTRATIES PER MAAND</span><output id="samNUit" for="samN">500</output></span>
+          <input type="range" id="samN" min="0" max="24" step="1" value="6" aria-describedby="samNUitleg"></label>
+        <p class="dc-note" id="samNUitleg">Een levering, foto, inspectie of document is één registratie, ook met tien foto's erbij.</p>
+        <label class="sam-fld"><span class="sam-kop"><span class="lbl">MEETTOESTELLEN</span><output id="samBUit" for="samB">0</output></span>
+          <input type="range" id="samB" min="0" max="30" step="1" value="0"></label>
+        <p class="dc-note">Sensor, logger of weegbrug: metingen onbeperkt. Het eerste toestel is gratis.</p>
+        <div class="sam-term" role="radiogroup" aria-label="Looptijd">
+          <label><input type="radio" name="samT" value="maand" checked><span><b>Maandelijks</b><small>opzegbaar per maand</small></span></label>
+          <label><input type="radio" name="samT" value="jaar"><span><b>Jaarcontract</b><small>maandelijks betaald · 10 maanden voor 12</small></span></label>
+        </div>
+      </div>
+      <div class="sam-uit" aria-live="polite">
+        <span class="lbl">U BETAALT PER MAAND</span>
+        <p class="sam-bedrag" id="samBedrag">€ 19</p>
+        <p class="sam-detail" id="samDetail"></p>
+        <div class="hero-actions">
+          <a class="xbtn red steel" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="xbtn" href="prijzen.html"><span>Alle schijven</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STARTPAKKETTEN · drie manieren om te starten (06/10, Telenet-model) ══ -->
+<section class="sec" id="pakketten" aria-labelledby="pak-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="pak-h"><span>Drie manieren om te starten<span class="dot">.</span></span></h2>
+      <span class="lbl">STARTPAKKETTEN · ALLES INBEGREPEN</span>
+    </div>
+    <div class="pak-grid">
+      <article class="glass pak rv">
+        <span class="lbl">WERKVLOER · APP</span>
+        <h3>Leveringen, vaststellingen en handtekeningen</h3>
+        <p class="pak-prijs">Gratis<small>tot 100 registraties per maand</small></p>
+        <ul><li>de app voor uw mensen, zonder installatie</li><li>de ontvanger bevestigt via een QR-code, zonder account</li><li>foto, plaats en tijd in elk bewijs</li><li>één tik naar Waze of Google Maps</li></ul>
+        <a class="xbtn red" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><span>Start met de app</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="glass pak rv">
+        <span class="lbl">SYSTEEM · API</span>
+        <h3>Uw TMS, WMS, ERP of sensoren</h3>
+        <p class="pak-prijs">€ 0,08<small>per registratie na de eerste 100, goedkoper bij volume</small></p>
+        <ul><li>één sleutel per systeem, apart in te trekken</li><li>eigen sleutel en versleuteling: wij lezen niets</li><li>meldingen naar uw systeem bij elke verankering</li><li>Python-voorbeeld en sandbox</li></ul>
+        <a class="xbtn" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><span>Koppel uw systeem</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="glass pak rv">
+        <span class="lbl">KETEN · SAMEN MET PARTNERS</span>
+        <h3>Klanten, vervoerders en onderaannemers</h3>
+        <p class="pak-prijs">Partners gratis<small>wie meetekent, betaalt niets</small></p>
+        <ul><li>één referentie door de hele keten</li><li>elke partij tekent met haar eigen sleutel</li><li>een publiek ketendossier per referentie</li><li>jaarcontract: 10 maanden betalen voor 12</li></ul>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="waarom" aria-labelledby="waarom-h">
   <div class="wrap">
     <span class="lbl">DE VRAAG</span>
     <p class="statement" id="stmt" aria-labelledby="waarom-h"><span id="waarom-h" class="sr-only">De vraag</span>Kan uw systeem achteraf bewijzen wat er stond?</p>
     <p class="statement-foot"><b>→</b> ook aan wie uw systeem niet hoeft te vertrouwen</p>
+    <ul class="waarom-drie rv" aria-label="Waarom bedrijven Vidimus nemen">
+      <li><b>Snellere audits</b><span>De auditor rekent het bewijs zelf na, in plaats van exports te reconstrueren.</span></li>
+      <li><b>Minder discussies</b><span>Niet "welke versie klopt?", maar de registratie zoals ze toen vastlag.</span></li>
+      <li><b>Eén gedeelde waarheid</b><span>U, uw klant en uw partners kijken naar hetzelfde bewijs.</span></li>
+    </ul>
+    <p class="waarom-slot rv">U neemt Vidimus om <b>uzelf te beschermen</b>: wie vooraf vastlegt, moet achteraf niet op zijn woord geloofd worden.</p>
     <div class="probleem-tekst rv">
       <p>Veel bedrijfssoftware registreert wijzigingen uitgebreid binnen haar eigen omgeving: wie, wat, wanneer, soms met de waarde ervoor en erna. Dat is nuttig. <b>Maar het is niet hetzelfde als een onafhankelijk verifieerbare verankering van één specifieke registratie.</b></p>
       <p>Uw systemen blijven de bron. Vidimus voegt een onafhankelijke cryptografische bewijslaag toe aan de registraties die voor u belangrijk zijn: een levering, een meting, een inspectie, een foto, een goedkeuring.</p>
@@ -121,45 +209,48 @@
   </div>
 </section>
 
-<!-- ══ WAAR HET VERSCHIL ZIT · de gaten tussen audit trail en onafhankelijk bewijs, en dezelfde bewijslaag voor elk systeem (29/09, positionering) ══ -->
-<section class="sec" id="verschil" aria-labelledby="verschil-h">
+<section class="sec" id="wanneer" aria-labelledby="wanneer-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
-      <h2 id="verschil-h"><span>Waar het verschil zit<span class="dot">.</span></span></h2>
-      <span class="lbl">DE BEWIJSLAAG · NAAST UW SYSTEMEN</span>
-      <p class="side">Vidimus vervangt uw audit trail niet en is geen blockchain. <b>Vidimus maakt van een geselecteerde registratie een onafhankelijk verifieerbaar bewijs van integriteit en tijd.</b> Dat vult precies de plekken waar logging binnen één systeem ophoudt.</p>
+      <h2 id="wanneer-h"><span>Wanneer Vidimus geen luxe is<span class="dot">.</span></span></h2>
+      <span class="lbl">VIER VRAGEN</span>
+      <p class="side">Niet elke registratie heeft een bewijslaag nodig. Deze vier vragen maken het verschil.</p>
     </div>
-    <div class="vs-tabel rv">
-      <div class="vs-rij vs-kop" aria-hidden="true"><span>Waar</span><span>Het probleem</span><span>Vidimus</span></div>
-      <details class="vs-klap"><summary class="vs-rij"><b>Onafhankelijkheid</b><span>De audit trail zit in hetzelfde systeem als de gegevens.</span><span>Een cryptografische verankering buiten uw systeem.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>De tegenpartij zegt: “Dat is uw eigen systeem, daar kan u alles in aanpassen.” Uw audit trail is waardevol, maar staat in datzelfde systeem.</span></p></details>
-      <details class="vs-klap"><summary class="vs-rij"><b>Bewijs delen</b><span>Uw tegenpartij moet uw systeem op uw woord geloven.</span><span>Een bewijs dat zij zelf controleert, zonder account.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>U stuurt een export of een schermafdruk. Het antwoord: “Dat kan iedereen maken.” Toegang tot uw systeem om het na te kijken heeft uw klant niet, en die wilt u ook niet geven.</span></p></details>
-      <details class="vs-klap"><summary class="vs-rij"><b>Meerdere systemen</b><span>TMS, WMS, sensoren, foto's en ERP loggen elk apart.</span><span>Eén bewijslaag over al die registraties.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>De levering staat in het TMS, de foto's in een gedeelde map, de temperatuur in een sensorportaal. Bij een claim puzzelt iemand dagenlang om er één verhaal van te maken.</span></p></details>
-      <details class="vs-klap"><summary class="vs-rij"><b>Sensormetingen</b><span>Een meetwaarde wordt weken later betwist.</span><span>De verankerde registratie van wat de sensor doorstuurde.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>Een klant weigert een lading: de koeling zou uitgevallen zijn. Uw logger zegt van niet, maar de grafiek komt uit uw eigen portaal, en daar twijfelt de klant aan.</span></p></details>
-      <details class="vs-klap"><summary class="vs-rij"><b>Audit</b><span>De auditor moet het bewijs uit exports reconstrueren.</span><span>Een bewijsbundel die hij zelf narekent.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>Elk jaar dezelfde oefening voor ISO, FAVV of een klantaudit: exports uit drie systemen, steekproeven, en de vraag of er intussen niets werd aangepast.</span></p></details>
-      <details class="vs-klap"><summary class="vs-rij"><b>Kmo</b><span>Eigen onveranderbare infrastructuur bouwen is duur.</span><span>Een dienst met API en app, gratis te starten.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>Een eigen onveranderbaar archief of een blockchainproject kost maanden en een IT-team. Dus blijft het bij pdf's, mails en goede hoop.</span></p></details>
-      <details class="vs-klap"><summary class="vs-rij"><b>Discussies</b><span>"Welke versie klopt?"</span><span>De registratie zoals ze op dat tijdstip werd vastgelegd.</span></summary><p class="vs-pijn"><span class="lbl">ZO GAAT HET VAAK</span><span>Twee versies van dezelfde vrachtbrief, inspectie of goedkeuring, en iedereen is zeker van de zijne. Het gesprek gaat dan niet meer over de feiten, maar over wie u gelooft.</span></p></details>
+    <ol class="vw-lijst rv">
+      <li><b>Is er een tegenpartij die kan betwisten?</b><span>Een klant, verzekeraar, inspecteur, huurder of onderaannemer. Registraties die alleen intern blijven, hebben Vidimus niet nodig.</span></li>
+      <li><b>Kost één incident veel meer dan € 19 per maand?</b><span>Een geweigerde lading, een franchise, een boete, een terugroeping, een ingehouden waarborg.</span></li>
+      <li><b>Wordt het vastgelegd vóór er een geschil is?</b><span>En door iemand die later niet zomaar geloofd wordt: een chauffeur, een sensor, een aannemer. Wie pas na het probleem bewijs zoekt, heeft er geen.</span></li>
+      <li><b>Zit er tijd tussen vastleggen en betwisten?</b><span>Weken tot jaren. Dan is "hoe zag het er toen uit?" de hele vraag.</span></li>
+    </ol>
+    <p class="vw-slot rv"><b>Gelden alle vier? Dan is Vidimus geen nice-to-have, maar de goedkoopste uitweg uit een terugkerend verlies.</b> <a href="#samenstellen">Stel zelf samen</a></p>
+  </div>
+</section>
+
+<!-- ══ 03 · REKENSOM ══════════════════════════════════════════ -->
+
+<section class="sec" id="hoe" aria-labelledby="hoe-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="hoe-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M22 26a8 8 0 0 1 8-8h6a8 8 0 0 1 0 16h-6"/><path class="ln" d="M30 26a8 8 0 0 1-8 8h-6a8 8 0 0 1 0-16h6"/><path class="ln" d="M21 26h10"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Uw systeem blijft de bron<span class="dot">.</span></span></h2>
+      <span class="lbl">PROTOCOL · 3 STAPPEN</span>
+      <p class="side">Geen migratie, geen vervanging. Eén dunne laag bovenop wat u al hebt.</p>
     </div>
-    <div class="vs-systemen rv">
-      <p class="vs-systemen-kop"><span class="lbl">HETZELFDE BEWIJS, VOOR ELK SYSTEEM</span></p>
+    <div class="stroom-grid how-grid">
+      <div class="stroom rv"><div class="kop"><h3>Koppelen</h3><span class="kind">01</span></div><span class="lbl">BRON: UW TMS OF ERP → API · WEBHOOK</span><p>Uw systeem stuurt elke registratie door via API of webhook. Geen systeem? Dan de app: foto, plaats, handtekening — telefoon en QR, geen installatie.</p></div>
+      <div class="stroom rv"><div class="kop"><h3>Verankeren</h3><span class="kind">02</span></div><span class="lbl">ANKER: MERKLE-ROOT → TSA → GROOTBOEK</span><p>Gehasht, getekend, per batch gebundeld en van een gekwalificeerde tijdstempel voorzien. Daarna in een grootboek waar alleen iets bij kan, nooit iets af — ook niet door ons.</p></div>
+      <div class="stroom rv"><div class="kop"><h3>Verifiëren</h3><span class="kind">03</span></div><span class="lbl">VERIFY: PUBLIEK · GEEN ACCOUNT</span><p>De tegenpartij, een verzekeraar, een rechter — jaren later nog. Verificatiepagina of bewijsbundel met controlescript; het bewijs hangt niet aan ons platform.</p></div>
+    </div>
+    <div class="niemand rv">
+      <p class="niemand-kop"><span class="lbl">WAT NIEMAND KAN, OOK WIJ NIET</span></p>
       <ul>
-        <li><b>TMS</b><span>leveringen</span></li>
-        <li><b>WMS</b><span>goederenbewegingen</span></li>
-        <li><b>Sensoren</b><span>metingen</span></li>
-        <li><b>ERP</b><span>transacties</span></li>
-        <li><b>Kwaliteit</b><span>inspecties</span></li>
-        <li><b>Bouw</b><span>werfregistraties</span></li>
-        <li><b>Voeding</b><span>temperatuur en traceerbaarheid</span></li>
-        <li><b>Farma</b><span>koudeketen</span></li>
-        <li><b>HR</b><span>registraties</span></li>
-        <li><b>Verzekering</b><span>schadevaststellingen</span></li>
-        <li><b>Juridisch</b><span>bewijsbundels</span></li>
-        <li><b>Audit</b><span>controleerbare registraties</span></li>
+        <li><b>Antidateren of achteraf wijzigen</b><span>Het tijdstip komt van een onafhankelijke tijdstempeldienst en van een Bitcoin-blok, niet van onze klok. Eén letter anders en de controle toont het.</span></li>
+        <li><b>In uw naam tekenen</b><span>Wie tekent, doet dat met een eigen sleutel: op de telefoon, of voor uw systeem met een eigen sleutel via onze SDK. Die sleutel zien wij nooit.</span></li>
+        <li><b>Uw inhoud lezen</b><span>Kies een vertrouwelijke stroom of laat uw systeem zelf versleutelen: dan zien wij alleen vingerafdrukken. Het bewijs blijft volledig.</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ══ 01 · VAN REGISTRATIE NAAR BEWIJS · één echte registratie, eerst in gewone taal, de techniek eronder (29/09) ══ -->
 <section class="sec" id="bewijs" aria-labelledby="bewijs-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
@@ -191,53 +282,6 @@
   </div>
 </section>
 
-<!-- ══ 02 · NIET ALLEEN BEWEREN, ZELF VERIFIËREN · één vertrouwenskaart zonder schermbeelden; de details staan op de controlepagina (01/10, Oskar) ══ -->
-<section class="sec" id="eu" aria-labelledby="eu-h">
-  <div class="wrap">
-    <article class="vt-kaart rv" aria-labelledby="eu-h">
-      <header class="vt-kop">
-        <span class="vt-schild" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <div><h2 id="eu-h">Niet alleen beweren<span class="dot">.</span> <span class="thin">Zelf verifiëren.</span></h2><p class="vt-sub">Onafhankelijke technische controle</p></div>
-      </header>
-      <p class="vt-tekst">Uw registratie wordt cryptografisch verankerd met een gekwalificeerd elektronisch tijdstempel. Dat tijdstempel kan technisch worden gecontroleerd met de Digital Signature Services (DSS)-software van de Europese Commissie.</p>
-      <ul class="vt-punten">
-        <li><span class="vt-ico ok" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.3 12.3l2.5 2.5 4.9-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Gekwalificeerd tijdstempel</b><span>Technisch controleerbaar, van een dienst op de EU-vertrouwenslijst</span></div></li>
-        <li><span class="vt-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 0-8 8M12 4a8 8 0 0 1 8 8v1M7.5 9a5.5 5.5 0 0 1 10 3.2v1.3M9.6 11.6a2.5 2.5 0 0 1 4.9.6c0 2.5-.6 4.7-1.7 6.6M12 12.2c0 3-1 5.6-2.6 7.6M6.6 15.5c.3-1.1.4-2.2.4-3.4M17.6 17.2c-.3.9-.7 1.8-1.2 2.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><div><b>Cryptografische integriteit</b><span>Controleer of de registratie overeenkomt met het vastgelegde bewijs</span></div></li>
-      </ul>
-      <div class="vt-acties">
-        <a class="xbtn red" href="https://app.vidimus.be/v/reg_18838643120d"><span>Bekijk een voorbeeldverificatie</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="xbtn" href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" target="_blank" rel="noopener"><span>Controleer het tijdstempel technisch</span><svg aria-hidden="true" class="vt-uit" viewBox="0 0 16 16"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
-      <p class="vt-noot">De Europese Commissie beschrijft DSS als software om elektronische handtekeningen en tijdstempels te maken en te valideren. Dat is technische validatie, geen goedkeuring of certificering van Vidimus. <a href="verificatie.html#officieel">Zo doet u het stap voor stap</a></p>
-    </article>
-    <div class="vt-duel rv" aria-label="Dezelfde controle in de software van de Europese Commissie">
-      <div class="vt-uit-rij"><span class="vt-stip ok" aria-hidden="true"></span><b>Origineel · 18 paletten</b><span>PASSED</span></div>
-      <div class="vt-uit-rij"><span class="vt-stip bad" aria-hidden="true"></span><b>Eén teken anders · 17 paletten</b><span>FAILED · HASH_FAILURE</span></div>
-      <p>Dezelfde bewijs.ers in de DSS-software van de Europese Commissie; alleen 18 werd 17. Zo eindigt een discussie over wat er stond: niet bij wie de mooiste export heeft, maar bij één controle die iedereen zelf doet.</p>
-    </div>
-    <div class="eu-zelf glass rv" id="eu-zelf">
-      <div class="eu-zelf-kop">
-        <span class="lbl">DOE HET ZELF · 2 MINUTEN · GEEN ACCOUNT</span>
-        <h3>Denkt u dat we dit zomaar beweren? Controleer het zelf.</h3>
-        <p>Demodata, geen persoonsgegevens. Kies in stap 4 SHA256: dan verlaat alleen de vingerafdruk uw computer.</p>
-        <div class="eu-dl">
-          <div class="eu-dl-item"><a class="xbtn red" href="assets/eu/demo/bewijs.ers" download="vidimus-demo-bewijs.ers"><span>bewijs.ers</span><small class="duur">3 kB</small></a><span class="eu-dl-veld">→ in DSS: <b>Signed file</b></span></div>
-          <div class="eu-dl-item"><a class="xbtn" href="assets/eu/demo/vingerafdruk-invoer.json" download="vidimus-demo-vingerafdruk-invoer.json"><span>vingerafdruk-invoer.json</span><small class="duur">1 kB</small></a><span class="eu-dl-veld">→ in DSS: <b>Original file(s)</b></span></div>
-        </div>
-      </div>
-      <ol class="eu-stappen">
-        <li><b>Download het bewijs</b><span>bewijs.ers, het Evidence Record (RFC 4998)</span></li>
-        <li><b>Download de oorspronkelijke gegevens</b><span>vingerafdruk-invoer.json, de exacte inhoud die gehasht werd</span></li>
-        <li><b>Open de software van de Commissie</b><span><a href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" rel="noopener">DSS · Validate a signature</a>, of de versie op uw eigen computer</span></li>
-        <li><b>Controleer</b><span>Signed file: bewijs.ers · Original file(s): het json-bestand · verstuur als SHA256 · Submit → PASSED</span></li>
-        <li><b>Verander 18 in 17 in het json-bestand</b><span>met gelijk welke teksteditor</span></li>
-        <li><b>Controleer opnieuw</b><span>FAILED · HASH_FAILURE: het bewijs past niet meer</span></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 03 · DE DEMO · vervals het (origineel, terug op vraag van Oskar 01/10) ══ -->
 <section class="sec" id="demo" aria-labelledby="demo-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
@@ -296,7 +340,51 @@
   </div>
 </section>
 
-<!-- ══ WAT VIDIMUS BEWIJST — EN WAT NIET (audit 29/09: de grens staat op de homepage, niet alleen op juridisch.html) ══ -->
+<section class="sec" id="eu" aria-labelledby="eu-h">
+  <div class="wrap">
+    <article class="vt-kaart rv" aria-labelledby="eu-h">
+      <header class="vt-kop">
+        <span class="vt-schild" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><h2 id="eu-h">Niet alleen beweren<span class="dot">.</span> <span class="thin">Zelf verifiëren.</span></h2><p class="vt-sub">Onafhankelijke technische controle</p></div>
+      </header>
+      <p class="vt-tekst">Uw registratie wordt cryptografisch verankerd met een gekwalificeerd elektronisch tijdstempel. Dat tijdstempel kan technisch worden gecontroleerd met de Digital Signature Services (DSS)-software van de Europese Commissie.</p>
+      <ul class="vt-punten">
+        <li><span class="vt-ico ok" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.3 12.3l2.5 2.5 4.9-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Gekwalificeerd tijdstempel</b><span>Technisch controleerbaar, van een dienst op de EU-vertrouwenslijst</span></div></li>
+        <li><span class="vt-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 0-8 8M12 4a8 8 0 0 1 8 8v1M7.5 9a5.5 5.5 0 0 1 10 3.2v1.3M9.6 11.6a2.5 2.5 0 0 1 4.9.6c0 2.5-.6 4.7-1.7 6.6M12 12.2c0 3-1 5.6-2.6 7.6M6.6 15.5c.3-1.1.4-2.2.4-3.4M17.6 17.2c-.3.9-.7 1.8-1.2 2.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><div><b>Cryptografische integriteit</b><span>Controleer of de registratie overeenkomt met het vastgelegde bewijs</span></div></li>
+      </ul>
+      <div class="vt-acties">
+        <a class="xbtn red" href="https://app.vidimus.be/v/reg_18838643120d"><span>Bekijk een voorbeeldverificatie</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" target="_blank" rel="noopener"><span>Controleer het tijdstempel technisch</span><svg aria-hidden="true" class="vt-uit" viewBox="0 0 16 16"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <p class="vt-noot">De Europese Commissie beschrijft DSS als software om elektronische handtekeningen en tijdstempels te maken en te valideren. Dat is technische validatie, geen goedkeuring of certificering van Vidimus. <a href="verificatie.html#officieel">Zo doet u het stap voor stap</a></p>
+    </article>
+    <div class="vt-duel rv" aria-label="Dezelfde controle in de software van de Europese Commissie">
+      <div class="vt-uit-rij"><span class="vt-stip ok" aria-hidden="true"></span><b>Origineel · 18 paletten</b><span>PASSED</span></div>
+      <div class="vt-uit-rij"><span class="vt-stip bad" aria-hidden="true"></span><b>Eén teken anders · 17 paletten</b><span>FAILED · HASH_FAILURE</span></div>
+      <p>Dezelfde bewijs.ers in de DSS-software van de Europese Commissie; alleen 18 werd 17. Zo eindigt een discussie over wat er stond: niet bij wie de mooiste export heeft, maar bij één controle die iedereen zelf doet.</p>
+    </div>
+    <div class="eu-zelf glass rv" id="eu-zelf">
+      <div class="eu-zelf-kop">
+        <span class="lbl">DOE HET ZELF · 2 MINUTEN · GEEN ACCOUNT</span>
+        <h3>Denkt u dat we dit zomaar beweren? Controleer het zelf.</h3>
+        <p>Demodata, geen persoonsgegevens. Kies in stap 4 SHA256: dan verlaat alleen de vingerafdruk uw computer.</p>
+        <div class="eu-dl">
+          <div class="eu-dl-item"><a class="xbtn red" href="assets/eu/demo/bewijs.ers" download="vidimus-demo-bewijs.ers"><span>bewijs.ers</span><small class="duur">3 kB</small></a><span class="eu-dl-veld">→ in DSS: <b>Signed file</b></span></div>
+          <div class="eu-dl-item"><a class="xbtn" href="assets/eu/demo/vingerafdruk-invoer.json" download="vidimus-demo-vingerafdruk-invoer.json"><span>vingerafdruk-invoer.json</span><small class="duur">1 kB</small></a><span class="eu-dl-veld">→ in DSS: <b>Original file(s)</b></span></div>
+        </div>
+      </div>
+      <ol class="eu-stappen">
+        <li><b>Download het bewijs</b><span>bewijs.ers, het Evidence Record (RFC 4998)</span></li>
+        <li><b>Download de oorspronkelijke gegevens</b><span>vingerafdruk-invoer.json, de exacte inhoud die gehasht werd</span></li>
+        <li><b>Open de software van de Commissie</b><span><a href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" rel="noopener">DSS · Validate a signature</a>, of de versie op uw eigen computer</span></li>
+        <li><b>Controleer</b><span>Signed file: bewijs.ers · Original file(s): het json-bestand · verstuur als SHA256 · Submit → PASSED</span></li>
+        <li><b>Verander 18 in 17 in het json-bestand</b><span>met gelijk welke teksteditor</span></li>
+        <li><b>Controleer opnieuw</b><span>FAILED · HASH_FAILURE: het bewijs past niet meer</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="bewijst" aria-labelledby="bewijst-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
@@ -330,233 +418,6 @@
   </div>
 </section>
 
-<!-- ══ 01 · DE APP · 3D-presentatie (14/09, Oskar: 'alsof we een nieuwe iPhone voorstellen') ══════ -->
-<section class="sec app3d" id="app" aria-labelledby="app-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="app-h"><span>De app<span class="dot">.</span> Van firma tot handtekening<span class="dot">.</span></span></h2>
-      <span class="lbl">04 · DE APP</span>
-      <p class="side">Vidimus legt zelf registraties vast: elke overgave, elke meting, elk document, getekend door wie het in handen had. <b>Heeft u geen systeem dat registraties opneemt? Gebruik onze infrastructuur:</b> de app op elke telefoon en het bureau in de browser, zonder installatie. Scrol en de telefoon draait mee door de zes schermen, van eID-mandaat tot de controlepagina die uw tegenpartij ziet.</p>
-    </div>
-  </div>
-  <div class="stage-wrap" id="stageWrap">
-    <div class="stage">
-      <div class="glow" aria-hidden="true"></div>
-      <svg class="ring3d" viewBox="0 0 300 300" aria-hidden="true"><defs><path id="ring3dpad" d="M150,150 m-128,0 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/></defs><text><textPath href="#ring3dpad" textLength="800">3D92A709 8B2D670C F7A6E3B6 894BE7B1 5F00393B 13E419E5 F8DE96B9 9DDAFC0D 3D92A709</textPath></text></svg>
-      <div class="tel" id="tel"><picture class="tel-frame" aria-hidden="true"><source srcset="assets/app/frame.webp" type="image/webp"><img src="assets/app/frame.png" alt="" width="1019" height="2101" loading="eager" fetchpriority="high"></picture>
-        <div class="tel-screen"><span class="phone-island"></span>
-          <picture class="scherm is-on" data-i="0"><source srcset="assets/app/app-bedrijf.webp" type="image/webp"><img src="assets/app/app-bedrijf.webp" width="390" height="844" alt="Publieke organisatiepagina: ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met eID, organisatiekenmerk" loading="eager" fetchpriority="high"></picture>
-          <picture class="scherm" data-i="1"><source srcset="assets/app/app-koppel.webp" type="image/webp"><img src="assets/app/app-koppel.webp" width="390" height="844" alt="Uitnodiging: de telefoon van de medewerker wordt zijn sleutel, met verklaring van de werkgever en Face ID" loading="lazy"></picture>
-          <picture class="scherm" data-i="2"><source srcset="assets/app/app-wallet.webp" type="image/webp"><img src="assets/app/app-wallet.png" width="390" height="844" alt="Wallet: opdrachten van het bureau en een bevestiging om te tekenen" loading="lazy"></picture>
-          <picture class="scherm" data-i="3"><source srcset="assets/app/app-stroom.webp" type="image/webp"><img src="assets/app/app-stroom.png" width="390" height="844" alt="Opdracht met vrachtbrief als document, klaar om te controleren en te tekenen" loading="lazy"></picture>
-          <picture class="scherm" data-i="4"><source srcset="assets/app/app-anker.webp" type="image/webp"><img src="assets/app/app-anker.png" width="390" height="844" alt="Voltooid: het logo met de vingerafdruk errond, getekend met Face ID" loading="lazy"></picture>
-          <picture class="scherm" data-i="5"><source srcset="assets/app/app-verificatie.webp" type="image/webp"><img src="assets/app/app-verificatie.webp" width="390" height="844" alt="Publieke controlepagina: integriteit vastgesteld, acht controles" loading="lazy"></picture>
-        </div>
-        <span class="tel-glans" aria-hidden="true"></span>
-      </div>
-      <ol class="stappen" id="stappen">
-        <li class="is-on"><span class="lbl">01 · HET BEDRIJF</span><b>Eén firma, één kenmerk</b><p>Ondernemingsnummer gecontroleerd in de KBO, mandaat getekend met de eID van de bestuurder. Uw ketenpartners doen hetzelfde: elke schakel is een geïdentificeerde firma met een eigen kenmerk.</p></li>
-        <li><span class="lbl">02 · DE SLEUTEL</span><b>De telefoon wordt de sleutel</b><p>Geen wachtwoord, maar een cryptografische sleutel die het toestel nooit verlaat. De verklaring van de werkgever wordt ermee getekend en verankerd; Face ID is het slot.</p></li>
-        <li><span class="lbl">03 · SCAN</span><b>Opdracht op de telefoon</b><p>Het bureau of het TMS zet de vrachtbrief klaar, met de vingerafdruk van het document erbij. De chauffeur scant of tikt, niets typen.</p></li>
-        <li><span class="lbl">04 · CONTROLEER</span><b>Document, foto, Face ID</b><p>Dit is geen scan die ergens wordt opgeslagen. Foto, plaats, tijd en document worden samen gehasht; de sleutel tekent die vingerafdruk na Face ID.</p></li>
-        <li><span class="lbl">05 · VOLTOOID</span><b>Getekend en verankerd</b><p>Tijdstempel, locatie, firma, overgave, sensordata: alles in één vingerafdruk, met een gekwalificeerde tijdstempel verankerd en in Bitcoin. Achteraf wijzigen valt altijd op, ook als wij het zouden proberen. Uw ketenpartners tekenen dezelfde inhoud mee.</p></li>
-        <li><span class="lbl">06 · CONTROLE</span><b>Wat de tegenpartij ziet</b><p>Acht controles, elk na te rekenen zonder Vidimus. Eén teken anders en de vingerafdruk klopt niet meer met het anker: <b>wijzigen achteraf is altijd detecteerbaar.</b></p></li>
-      </ol>
-      <a class="app-badge" href="https://cal.com/oskar-verschoren-vhygeu/15min" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-mark"/></svg><span><small>VIDIMUS VOOR IPHONE</small><b>Via TestFlight</b></span></a>
-      <div class="punten" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i><i></i><i></i></div>
-    </div>
-  </div>
-  <div class="wrap stage-na rv">
-    <span class="law"><b>CMR art. 30</b> zonder voorbehoud bij aflevering geldt een vermoeden van correcte levering</span>
-    <a class="go" href="aflevering-betwist-cmr.html">Levering, tijdstip en staat bewijzen<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-  </div>
-</section>
-
-<!-- ══ VIDEO · het waarom in twee minuten ═══════════════════════ -->
-<section class="sec video-los" aria-label="Het waarom in twee minuten">
-  <div class="wrap">
-    <div class="waarom rv">
-    <div class="sec-lbl kop"><h2><span>Geen magie<span class="dot">.</span> Cryptografie<span class="dot">.</span></span></h2><span class="lbl">HET WAAROM · 2:00</span><p class="side">Twee minuten uitleg waarom cryptografie het woord-tegen-woord-probleem oplost: van vingerafdruk tot verankering. Geen verkooppraatje.</p></div>
-    <figure class="glass vcard"><div class="vslot"><video src="video/vidimus-uitleg-v2.mp4" poster="video/vidimus-uitleg-v2-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: Geen magie. Cryptografie."><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 2:00</span></button></div><figcaption><span class="lbl">HET WAAROM · 2:00</span>Geen magie. Cryptografie.</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ══ VIDEO · twee ketens, één regel ═══════════════════════════ -->
-<section class="sec video-duo-sec" aria-label="Twee ketens">
-  <div class="wrap">
-    <div class="sens-kop rv">
-      <div class="sec-lbl kop"><h2><span>De vaccinketen<span class="dot">.</span></span></h2><span class="lbl">FARMA · 1:00</span><p class="side">Van lab tot ziekenhuis: elke overgave, elke temperatuur en elk document onderweg gehasht en verankerd. Wijzigt iemand later iets, dan komt de vingerafdruk niet meer overeen.</p></div>
-      <figure class="glass vcard sens-video"><div class="vslot"><video src="video/vidimus-vaccinketen.mp4" poster="video/vidimus-vaccinketen-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: De vaccinketen: van flacon tot ziekenhuis"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 1:00</span></button></div><figcaption><span class="lbl">FARMA · 1:00</span>De vaccinketen: van flacon tot ziekenhuis</figcaption></figure>
-    </div>
-    <div class="sens-kop rv" style="margin-top: clamp(28px, 4vw, 56px)">
-      <div class="sec-lbl kop"><h2><span>De voedselketen<span class="dot">.</span></span></h2><span class="lbl">VOEDING · 1:00</span><p class="side">Van veld tot rek: oogstrapport, koeling en aflevering in één keten van vingerafdrukken. Eén regel voor iedereen die het in handen had.</p></div>
-      <figure class="glass vcard sens-video"><div class="vslot"><video src="video/vidimus-voedselketen.mp4" poster="video/vidimus-voedselketen-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: De voedselketen: van veld tot rek"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 1:00</span></button></div><figcaption><span class="lbl">VOEDING · 1:00</span>De voedselketen: van veld tot rek</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="sensordata" aria-labelledby="sens-h">
-  <div class="wrap">
-<div class="sens-kop">
-    <div class="sec-lbl kop rv">
-      <h2 id="sens-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M8 34c6 0 6-14 12-14s6 14 12 14 6-14 12-14"/><path class="ln" d="M8 42h36"/><circle class="seal" cx="41" cy="40" r="7"/><path class="seal-check" d="M38 40l2 2 4-4.5"/></svg>Alleen sensordata<span class="dot">?</span></h2>
-      <span class="lbl">SENSOR · API · ELK KWARTIER</span>
-      <p class="side">Geen foto's, geen handtekeningen: alleen de metingen van uw loggers, sensoren of weegbruggen. Elk toestel wordt een meetbron, met een eenheid en een bereik, en stuurt zijn metingen via de API met zijn eigen sleutel; elke waarde wordt gehasht en getekend op het moment dat ze binnenkomt, zit binnen vijf minuten in een anker en krijgt binnen zes uur een gekwalificeerde tijdstempel. Wat de sensor doorstuurde, staat vast — ook als de logger later zoek is.</p>
-    </div>
-<figure class="glass vcard sens-video rv"><div class="vslot"><video src="video/vidimus-api-sensordata.mp4" poster="video/vidimus-api-sensordata-poster.jpg" preload="none" playsinline controls></video><button class="playcover vplay" aria-label="Speel af: API en sensordata"><span class="playchip"><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 0:50</span></button></div><figcaption><span class="lbl">ZIE HET BINNENKOMEN · 0:50</span>API- &amp; sensordata</figcaption></figure>
-    </div>
-
-    <div class="sens-grid">
-      <div class="glass sens-kaart rv">
-        <span class="lbl">DE PIJNPUNTEN</span>
-        <ul class="sens-lijst">
-          <li><b>Twee loggers, twee waarheden.</b> De ontvanger meet 8,9 °C bij het openen; uw logger zegt 6,1 °C tot aan de aflevering. Wie de CSV het laatst opende, wint.</li>
-          <li><b>Het log leeft in de cloud van de leverancier.</b> Exporteren kan, maar niemand kan bewijzen dat de export is wat de sensor toen zag.</li>
-          <li><b>Gaten en correcties.</b> Een reeks met een uur ontbrekend, een waarde "gecorrigeerd" na kalibratie: achteraf niet meer te onderscheiden van knoeien.</li>
-          <li><b>De claim komt weken later.</b> Tegen dan is de logger hergebruikt, het geheugen overschreven en de chauffeur ergens anders.</li>
-        </ul>
-      </div>
-      <div class="glass sens-kaart rv">
-        <span class="lbl">WAT VIDIMUS DOET</span>
-        <ul class="sens-lijst ok">
-          <li><b>Elke meting een vingerafdruk.</b> Elke meetbron stuurt haar waarden naar <code>/measurements</code> in een vast schema: bron, tijdstip en de waarde per kanaal (temperatuur, vocht, deur). Vidimus hasht elke waarde en tekent ze met de sleutel van die meetbron, nooit met een systeemsleutel.</li>
-          <li><b>Binnen vijf minuten verankerd.</b> Elke meting wordt bij binnenkomst gehasht en getekend; het automatische anker bundelt alles van de laatste vijf minuten in één Merkle-wortel met een extern tijdstempel; binnen zes uur volgt de gekwalificeerde tijdstempel (eIDAS). Wijzigt iemand daarna een waarde, dan valt dat op, ook als wij het zouden zijn.</li>
-          <li><b>Gaten zijn zichtbaar.</b> Het bewijs is de reeks per meetbron, met de tijd altijd oplopend. Ontbreekt een kwartier, dan ontbreekt het anker: de reeks toont zelf waar ze onderbroken was.</li>
-          <li><b>Metingen tellen niet per stuk.</b> Een meetbron — logger, sensor, weegbrug, GPS — kost € 15 in een maand waarin ze minstens één meting stuurde, de eerste gratis, met onbeperkt metingen. Zie <a href="prijzen.html">de prijzen</a>.</li>
-        </ul>
-        <div class="sens-code"><span class="lbl">EERST DE MEETBRON, DAN DE METING</span><pre>POST /sources
-{"naam": "TL-0917", "soort": "meet",
- "eenheid": "°C", "min": -30, "max": 30}
-
-POST /measurements
-{"source_id": "TL-0917", "ts": "2026-09-17T09:41:03Z",
- "value": 4.1, "unit": "°C"}</pre></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="hoe" aria-labelledby="hoe-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="hoe-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M22 26a8 8 0 0 1 8-8h6a8 8 0 0 1 0 16h-6"/><path class="ln" d="M30 26a8 8 0 0 1-8 8h-6a8 8 0 0 1 0-16h6"/><path class="ln" d="M21 26h10"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Uw systeem blijft de bron<span class="dot">.</span></span></h2>
-      <span class="lbl">PROTOCOL · 3 STAPPEN</span>
-      <p class="side">Geen migratie, geen vervanging. Eén dunne laag bovenop wat u al hebt.</p>
-    </div>
-    <div class="stroom-grid how-grid">
-      <div class="stroom rv"><div class="kop"><h3>Koppelen</h3><span class="kind">01</span></div><span class="lbl">BRON: UW TMS OF ERP → API · WEBHOOK</span><p>Uw systeem stuurt elke registratie door via API of webhook. Geen systeem? Dan de app: foto, plaats, handtekening — telefoon en QR, geen installatie.</p></div>
-      <div class="stroom rv"><div class="kop"><h3>Verankeren</h3><span class="kind">02</span></div><span class="lbl">ANKER: MERKLE-ROOT → TSA → GROOTBOEK</span><p>Gehasht, getekend, per batch gebundeld en van een gekwalificeerde tijdstempel voorzien. Daarna in een grootboek waar alleen iets bij kan, nooit iets af — ook niet door ons.</p></div>
-      <div class="stroom rv"><div class="kop"><h3>Verifiëren</h3><span class="kind">03</span></div><span class="lbl">VERIFY: PUBLIEK · GEEN ACCOUNT</span><p>De tegenpartij, een verzekeraar, een rechter — jaren later nog. Verificatiepagina of bewijsbundel met controlescript; het bewijs hangt niet aan ons platform.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ WANNEER HET LOONT · vier voorwaarden; waar ze alle vier gelden, is Vidimus de goedkoopste uitweg (01/10) ══ -->
-<section class="sec" id="wanneer" aria-labelledby="wanneer-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="wanneer-h"><span>Wanneer Vidimus geen luxe is<span class="dot">.</span></span></h2>
-      <span class="lbl">VIER VRAGEN</span>
-      <p class="side">Niet elke registratie heeft een bewijslaag nodig. Deze vier vragen maken het verschil.</p>
-    </div>
-    <ol class="vw-lijst rv">
-      <li><b>Is er een tegenpartij die kan betwisten?</b><span>Een klant, verzekeraar, inspecteur, huurder of onderaannemer. Registraties die alleen intern blijven, hebben Vidimus niet nodig.</span></li>
-      <li><b>Kost één incident veel meer dan € 19 per maand?</b><span>Een geweigerde lading, een franchise, een boete, een terugroeping, een ingehouden waarborg.</span></li>
-      <li><b>Wordt het vastgelegd vóór er een geschil is?</b><span>En door iemand die later niet zomaar geloofd wordt: een chauffeur, een sensor, een aannemer. Wie pas na het probleem bewijs zoekt, heeft er geen.</span></li>
-      <li><b>Zit er tijd tussen vastleggen en betwisten?</b><span>Weken tot jaren. Dan is "hoe zag het er toen uit?" de hele vraag.</span></li>
-    </ol>
-    <p class="vw-slot rv"><b>Gelden alle vier? Dan is Vidimus geen nice-to-have, maar de goedkoopste uitweg uit een terugkerend verlies.</b> <a href="#rekensom">Reken het uit</a></p>
-  </div>
-</section>
-
-<!-- ══ 03 · REKENSOM ══════════════════════════════════════════ -->
-
-<section class="sec" id="rekensom" aria-labelledby="calc-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="calc-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 12h32"/><path class="ln" d="M10 24h32"/><path class="ln" d="M10 36h16"/><path class="ln" d="M14 8v8M14 20v8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Wat kost woord tegen woord u<span class="dot">?</span></span></h2>
-      <span class="lbl">05 · DE REKENSOM</span>
-      <p class="side">Wij beweren niets. Vul uw eigen cijfers in — de som is van u.</p>
-    </div>
-    <div class="calc-grid">
-      <div class="glass calc-in rv">
-        <label class="fld"><span class="lbl">Betwiste registraties per jaar</span><input type="number" id="cN" value="6" min="0" inputmode="numeric"></label>
-        <label class="fld"><span class="lbl">Gemiddeld betwist bedrag — €</span><input type="number" id="cBedrag" value="1500" min="0" step="100" inputmode="numeric"></label>
-        <label class="fld"><span class="lbl">Uren per discussie</span><input type="number" id="cUren" value="8" min="0" inputmode="numeric"></label>
-        <label class="fld"><span class="lbl">Interne uurkost — €</span><input type="number" id="cUurkost" value="75" min="0" step="5" inputmode="numeric"></label>
-        <p class="dc-note calc-priv"><b>Privé</b> — alles wordt in uw browser berekend. Er wordt niets opgeslagen, verstuurd of bijgehouden.</p>
-      </div>
-      <div class="calc-out rv">
-        <div class="tiles">
-          <div class="tile"><output id="oTijd">€ 3 600 <span class="u">/ JAAR</span></output><span>interne tijd die discussies u kosten</span></div>
-          <div class="tile"><output id="oBedrag">€ 9 000 <span class="u">/ JAAR</span></output><span>bedrag dat jaarlijks ter discussie staat</span></div>
-        </div>
-        <p class="dc-note">Ter vergelijking: 150 registraties per maand kosten <b>€ 19</b> — en van elke verankerde registratie staan inhoud, bron en moment vast.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="prijs" aria-labelledby="prijs-h">
-  <div class="wrap">
-    <div class="sec-lbl kop rv">
-      <h2 id="prijs-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M8 10h16l20 20-12 12L12 22z"/><path class="ln" d="M16 16a2 2 0 1 0 .01 0"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Gratis starten<span class="dot">.</span> <span class="thin">Daarna betaalt u per gebruik.</span></span></h2>
-      <span class="lbl">06 · DE PRIJS</span>
-    </div>
-    <div class="glass price rv">
-      <div class="plan">
-        <span class="lbl">DE REGEL</span>
-        <p class="amt">€ 0<small>tot 100 registraties per maand en één meettoestel</small></p>
-        <p class="regel">Daarboven € 0,08 per registratie, goedkoper bij volume, en € 15 per extra meettoestel per maand. Zodra u iets betaalt, is het minstens € 19 per maand.</p>
-        <table class="facturen" aria-label="Voorbeelden van een maandfactuur">
-          <tbody>
-            <tr><th scope="row">80 registraties per maand</th><td>€ 0</td></tr>
-            <tr><th scope="row">300 registraties</th><td>€ 19</td></tr>
-            <tr><th scope="row">1 000 registraties</th><td>€ 72</td></tr>
-            <tr><th scope="row">1 000 registraties en 3 meettoestellen</th><td>€ 102</td></tr>
-          </tbody>
-        </table>
-        <p class="regel klein">Waarom € 19 bij 300 registraties? Het minimum geldt vanaf de eerste betaalde eenheid: de 101ste registratie of het tweede meettoestel. Alle bedragen excl. btw.</p>
-        <a class="xbtn red" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      </div>
-      <div class="plan-after">
-        <span class="lbl">WAT TELT</span>
-        <p><b>Eén registratie is één vastgelegd moment.</b> Een foto, een levering, een inspectie, een document of een goedkeuring. Eén foto is één registratie; tien foto's bij dezelfde levering, met de handtekening erbij, zijn samen ook één registratie. Wat een ERP, TMS of WMS doorstuurt, telt net zo.</p>
-        <p><b>Metingen van een meettoestel tellen niet apart.</b> Een sensor, logger of weegbrug kost € 15 in een maand waarin hij iets stuurde, met onbeperkt metingen.</p>
-        <p><b>Uw tegenpartij tekent gratis mee.</b> Bureau, app, Face ID, API en bewijsbundels zitten er voor iedereen in. Boven een miljoen registraties per maand op offerte.</p>
-        <a class="go" href="prijzen.html">Alle schijven en de rekenhulp<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ BEGIN · één knop naar registreren; de wizard doet de rest (29/09: geen formulier met e-mail in de URL meer) ═══ -->
-<section class="sec" id="start" aria-labelledby="start-h">
-  <div class="wrap">
-    <div class="glass startkaart rv">
-      <div class="start-tekst">
-        <span class="lbl">BEGIN NU · DRIE MINUTEN</span>
-        <h2 id="start-h">Start gratis<span class="huisdot" aria-hidden="true"></span></h2>
-        <p class="side">Maak uw account aan. De wizard vraagt eerst wat u wilt vastleggen en zet daarna alles klaar: uw systeem koppelen of de app gebruiken, wie meetekent en wie een bevestiging krijgt.</p>
-        <p class="dc-note">Tot 100 registraties per maand gratis, zonder betaalgegevens. Daarna per registratie en per meetbron, minimum € 19 per maand.</p>
-      </div>
-      <div class="start-acties">
-        <ol class="start-stappen">
-          <li><b>Account</b><span>naam, organisatie, e-mail</span></li>
-          <li><b>Wat legt u vast?</b><span>leveringen, foto's, metingen of documenten</span></li>
-          <li><b>Eerste registratie</b><span>met een controlepagina voor uw klant</span></li>
-        </ol>
-        <div class="hero-actions">
-          <a class="xbtn red steel" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ SPECIFICATIE ═══════════════════════════════════════════ -->
 <section class="sec" id="specificatie" aria-labelledby="tech-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
@@ -564,7 +425,7 @@ POST /measurements
       <span class="lbl">SPECIFICATIE · WAT VANDAAG DRAAIT</span>
       <p class="side"><b>Eerlijk over waar we staan</b> is de regel van deze sectie: elke rij hieronder is live. Wat hier niet staat, claimen we niet.</p>
     </div>
-    <div class="rv">
+    <details class="spec-klap rv"><summary>Toon de volledige specificatie</summary>
       <table class="rg-table spec" aria-label="Specificatie">
         <thead><tr><th>Wat</th><th>Techniek</th><th>Toelichting</th></tr></thead>
         <tbody>
@@ -578,12 +439,13 @@ POST /measurements
           <tr><td class="k">onafhankelijk</td><td class="v">Bewijsbundel</td><td><p>Verificatie-URL plus een bundel met meegeleverd controlescript — verifieerbaar zonder Vidimus, grotendeels offline. Data blijft in de EU.</p></td></tr>
         </tbody>
       </table>
+    </details>
+    <div class="rv">
       <p class="glass honest dc-note"><b>Twee getuigen, geen gedoe.</b> Het bewijs steunt op een gekwalificeerde tijdstempel van een erkende vertrouwensdienst (eIDAS) én op een publieke verankering in de Bitcoin-blockchain via OpenTimestamps. Voor u verandert er niets: geen token, geen wallet, geen consortium. U krijgt een bewijs dat u binnen én buiten Vidimus kunt controleren: op de controlepagina, of met de bundel en open gereedschap, zonder ons.</p>
     </div>
   </div>
 </section>
 
-<!-- ══ OPRICHTER ══════════════════════════════════════════════ -->
 <section class="sec" aria-label="Wie hier tekent">
   <div class="wrap">
     <div class="glass foundr rv">
@@ -603,17 +465,6 @@ POST /measurements
   </div>
 </section>
 
-<!-- ══ TWEE ROUTES (29/09: onderaan; de klant eerst, de partner als tweede weg) ═══════════ -->
-<section class="sec" aria-label="Kies uw route">
-  <div class="wrap">
-    <div class="routes rv">
-      <a href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><em>VOOR BEDRIJVEN</em><b>Wat krijg ik?</b><span>Elke levering, foto, meting en handtekening met een tijdstempel en een vingerafdruk. Wijzigt iemand later iets, dan ziet iedereen dat. Uw tegenpartij controleert het zonder account.</span></a>
-      <a class="partner" href="partners.html"><em>VOOR PARTNERS · TMS · WMS · ERP · IOT</em><b>Wat verdien ik?</b><span>U bouwt niets: twee API-calls en uw product levert bewijs. Referral 20 %, reseller 30 %, integrator 30–40 % plus implementatie. Overeenkomst, sleutel en sandbox in vijf minuten.</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ SLOT ═══════════════════════════════════════════════════ -->
 <section class="sec final" aria-labelledby="final-h">
   <div class="wrap rv">
     <h2 id="final-h"><span class="thin">Begin met</span><br>wat u nooit meer betwist wil zien<span class="dot">.</span></h2>
@@ -646,5 +497,6 @@ POST /measurements
 </footer>
 
 <script src="script.js?v=20261002a" defer></script>
+<script src="samenstellen.js?v=20261006a" defer></script>
 </body>
 </html>
