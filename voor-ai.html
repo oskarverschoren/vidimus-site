@@ -83,12 +83,8 @@
 <pre class="ai-pre">{"mcpServers": {"vidimus": {
   "type": "http", "url": "https://app.vidimus.be/mcp",
   "headers": {"x-api-key": "vks_…de sleutel van uw agent…"}}}}</pre>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Liever lokaal, met toegang tot bestanden op uw eigen computer (bundels controleren, bestanden opzoeken op hash, bijlagen mee verankeren):</p>
-<pre class="ai-pre">{"mcpServers": {"vidimus": {
-  "command": "python3", "args": ["-m", "vidimus.mcp_server"],
-  "env": {"VIDIMUS_URL": "https://app.vidimus.be",
-          "VIDIMUS_API_KEY": "vks_…de sleutel van uw agent (Ontwikkelaars › Sleutels)…"}}}}</pre>
-    <p style="max-width:70ch;color:var(--dim);font-size:.82rem;margin-top:1rem"><b style="color:var(--paper-dim)">Tools:</b> verify_registration · passport · verify_bundle_file · list_registrations · list_streams · get_dossier · get_content · download_bundle · lookup_file · register · create_share · tamper_check · usage · explain. Vereist Python 3.11+.</p>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Let op:</b> er bestaat géén Vidimus-pakket op PyPI van ons. Wie <code>pip install vidimus</code> doet, installeert de code van iemand anders. Gebruik alleen het adres hierboven.</p>
+    <p style="max-width:70ch;color:var(--dim);font-size:.82rem;margin-top:1rem"><b style="color:var(--paper-dim)">Tools:</b> verify_registration · passport · verify_bundle_file · list_registrations · list_streams · get_dossier · get_content · download_bundle · lookup_file · register · create_share · tamper_check · usage · explain.</p>
 <pre class="ai-pre"><b>Gebruiker:</b> "Bezorg me het bewijs van de betwiste aflevering van vrijdag, container MSKU 452 118-0."
 <b>Agent:</b>  passport("MSKU 452 118-0")   → vindt de aflevering + de bevestiging van de terminal
         get_dossier(reg_…)           → het leesbare dossier
@@ -114,7 +110,7 @@ https://eidas.ec.europa.eu/efda/tl-browser/             →  uitgever van gekwal
   <span>VIDIMUS · SITE</span>
   <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
   <a href="colofon.html">Colofon &amp; privacy</a>
-  <a href="voorwaarden.html">Voorwaarden</a> <a href="beveiliging.html">Beveiliging</a>
+  <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
   <a href="scenarios.html">Scenario's</a>
   <a href="cases.html">Cases</a>
   <a href="vragen.html">Vragen</a>
