@@ -92,34 +92,35 @@
 </section>
 
 <!-- ══ STEL ZELF SAMEN · live prijs, maandelijks of jaarcontract (06/10, zelfde rekensom als billing.py en prijzen.html) ══ -->
-<section class="sec" id="samenstellen" aria-labelledby="sam-h">
+<section class="sec" id="prijs" aria-labelledby="prijs-h">
   <div class="wrap">
     <div class="sec-lbl kop rv">
-      <h2 id="sam-h"><span>Stel zelf samen<span class="dot">.</span></span></h2>
-      <span class="lbl">LIVE PRIJS · EXCL. BTW</span>
-      <p class="side">Schuif wat u verwacht. U betaalt alleen wat u gebruikt, en de eerste 100 registraties per maand zijn altijd gratis.</p>
+      <h2 id="prijs-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M8 10h16l20 20-12 12L12 22z"/><path class="ln" d="M16 16a2 2 0 1 0 .01 0"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Gratis starten<span class="dot">.</span> <span class="thin">Daarna betaalt u per gebruik.</span></span></h2>
+      <span class="lbl">DE PRIJS · EXCL. BTW</span>
     </div>
-    <div class="glass sam rv">
-      <div class="sam-in">
-        <label class="sam-fld"><span class="sam-kop"><span class="lbl">REGISTRATIES PER MAAND</span><output id="samNUit" for="samN">500</output></span>
-          <input type="range" id="samN" min="0" max="24" step="1" value="6" aria-describedby="samNUitleg"></label>
-        <p class="dc-note" id="samNUitleg">Een levering, foto, inspectie of document is één registratie, ook met tien foto's erbij.</p>
-        <label class="sam-fld"><span class="sam-kop"><span class="lbl">MEETTOESTELLEN</span><output id="samBUit" for="samB">0</output></span>
-          <input type="range" id="samB" min="0" max="30" step="1" value="0"></label>
-        <p class="dc-note">Sensor, logger of weegbrug: metingen onbeperkt. Het eerste toestel is gratis.</p>
-        <div class="sam-term" role="radiogroup" aria-label="Looptijd">
-          <label><input type="radio" name="samT" value="maand" checked><span><b>Maandelijks</b><small>opzegbaar per maand</small></span></label>
-          <label><input type="radio" name="samT" value="jaar"><span><b>Jaarcontract</b><small>maandelijks betaald · 10 maanden voor 12</small></span></label>
-        </div>
+    <div class="glass price rv">
+      <div class="plan">
+        <span class="lbl">DE REGEL</span>
+        <p class="amt">€ 0<small>tot 100 registraties per maand en één meettoestel</small></p>
+        <p class="regel">Daarboven € 0,08 per registratie, goedkoper bij volume, en € 15 per extra meettoestel per maand. Zodra u iets betaalt, is het minstens € 19 per maand.</p>
+        <table class="facturen" aria-label="Voorbeelden van een maandfactuur">
+          <tbody>
+            <tr><th scope="row">80 registraties per maand</th><td>€ 0</td></tr>
+            <tr><th scope="row">300 registraties</th><td>€ 19</td></tr>
+            <tr><th scope="row">1 000 registraties</th><td>€ 72</td></tr>
+            <tr><th scope="row">1 000 registraties en 3 meettoestellen</th><td>€ 102</td></tr>
+          </tbody>
+        </table>
+        <p class="regel klein">Waarom € 19 bij 300 registraties? Het minimum geldt vanaf de eerste betaalde eenheid: de 101ste registratie of het tweede meettoestel. Alle bedragen excl. btw.</p>
+        <a class="xbtn red" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="sam-uit" aria-live="polite">
-        <span class="lbl">U BETAALT PER MAAND</span>
-        <p class="sam-bedrag" id="samBedrag">€ 19</p>
-        <p class="sam-detail" id="samDetail"></p>
-        <div class="hero-actions">
-          <a class="xbtn red steel" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="xbtn" href="prijzen.html"><span>Alle schijven</span></a>
-        </div>
+      <div class="plan-after">
+        <span class="lbl">WAT TELT</span>
+        <p><b>Eén registratie is één vastgelegd moment.</b> Een foto, een levering, een inspectie, een document of een goedkeuring. Eén foto is één registratie; tien foto's bij dezelfde levering, met de handtekening erbij, zijn samen ook één registratie. Wat een ERP, TMS of WMS doorstuurt, telt net zo.</p>
+        <p><b>Metingen van een meettoestel tellen niet apart.</b> Een sensor, logger of weegbrug kost € 15 in een maand waarin hij iets stuurde, met onbeperkt metingen.</p>
+        <p><b>Uw tegenpartij tekent gratis mee.</b> Bureau, app, Face ID, API en bewijsbundels zitten er voor iedereen in. Boven een miljoen registraties per maand op offerte.</p>
+        <p><b>Liever een vast bedrag?</b> Met een jaarcontract betaalt u tien maanden verbruik, verspreid over twaalf maanden en maandelijks gefactureerd. U sluit het zelf af in de app.</p>
+        <a class="go" href="prijzen.html">Alle schijven en de rekenhulp<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </div>
@@ -222,11 +223,38 @@
       <li><b>Wordt het vastgelegd vóór er een geschil is?</b><span>En door iemand die later niet zomaar geloofd wordt: een chauffeur, een sensor, een aannemer. Wie pas na het probleem bewijs zoekt, heeft er geen.</span></li>
       <li><b>Zit er tijd tussen vastleggen en betwisten?</b><span>Weken tot jaren. Dan is "hoe zag het er toen uit?" de hele vraag.</span></li>
     </ol>
-    <p class="vw-slot rv"><b>Gelden alle vier? Dan is Vidimus geen nice-to-have, maar de goedkoopste uitweg uit een terugkerend verlies.</b> <a href="#samenstellen">Stel zelf samen</a></p>
+    <p class="vw-slot rv"><b>Gelden alle vier? Dan is Vidimus geen nice-to-have, maar de goedkoopste uitweg uit een terugkerend verlies.</b> <a href="#rekensom">Reken het uit</a></p>
   </div>
 </section>
 
 <!-- ══ 03 · REKENSOM ══════════════════════════════════════════ -->
+
+<section class="sec" id="rekensom" aria-labelledby="calc-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="calc-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 12h32"/><path class="ln" d="M10 24h32"/><path class="ln" d="M10 36h16"/><path class="ln" d="M14 8v8M14 20v8"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Wat kost woord tegen woord u<span class="dot">?</span></span></h2>
+      <span class="lbl">DE REKENSOM · PRIVÉ</span>
+      <p class="side">Wij beweren niets. Vul uw eigen cijfers in — de som is van u.</p>
+    </div>
+    <div class="calc-grid">
+      <div class="glass calc-in rv">
+        <label class="fld"><span class="lbl">Betwiste registraties per jaar</span><input type="number" id="cN" value="6" min="0" inputmode="numeric"></label>
+        <label class="fld"><span class="lbl">Gemiddeld betwist bedrag — €</span><input type="number" id="cBedrag" value="1500" min="0" step="100" inputmode="numeric"></label>
+        <label class="fld"><span class="lbl">Uren per discussie</span><input type="number" id="cUren" value="8" min="0" inputmode="numeric"></label>
+        <label class="fld"><span class="lbl">Interne uurkost — €</span><input type="number" id="cUurkost" value="75" min="0" step="5" inputmode="numeric"></label>
+        <p class="dc-note calc-priv"><b>Privé</b> — alles wordt in uw browser berekend. Er wordt niets opgeslagen, verstuurd of bijgehouden.</p>
+      </div>
+      <div class="calc-out rv">
+        <div class="tiles">
+          <div class="tile"><output id="oTijd">€ 3 600 <span class="u">/ JAAR</span></output><span>interne tijd die discussies u kosten</span></div>
+          <div class="tile"><output id="oBedrag">€ 9 000 <span class="u">/ JAAR</span></output><span>bedrag dat jaarlijks ter discussie staat</span></div>
+        </div>
+        <p class="dc-note">Ter vergelijking: 150 registraties per maand kosten <b>€ 19</b> — en van elke verankerde registratie staan inhoud, bron en moment vast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="sec" id="hoe" aria-labelledby="hoe-h">
   <div class="wrap">
@@ -497,6 +525,5 @@
 </footer>
 
 <script src="script.js?v=20261002a" defer></script>
-<script src="samenstellen.js?v=20261006a" defer></script>
 </body>
 </html>

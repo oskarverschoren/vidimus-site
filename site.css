@@ -1057,3 +1057,20 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 #hoe .how-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }   /* 06/10: even breed als 'wat niemand kan' eronder */
 @media (max-width: 860px) { #hoe .how-grid { grid-template-columns: 1fr; } }
 .waarom-slot { margin-bottom: 28px; padding-left: 16px; border-left: 3px solid var(--ink); }
+
+/* ══ 06/10 (Oskar): blauw als hoofdkleur, minder zwart. Knoppen, icoontegels en de donkere vlakken worden merkblauw;
+   code en de telefoon blijven donker. ══ */
+:root { --hoofd: #1E4FD8; --hoofd-2: #173FB0; --hoofd-diep: #0F2C86; }
+.xbtn.red, .xbtn.red.steel, .top-start { background: var(--hoofd); background-image: none; border-color: var(--hoofd-2); color: #fff;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .2) inset, 0 12px 26px -14px rgba(30, 79, 216, .75); }
+.xbtn.red:hover, .xbtn.red.steel:hover, .top-start:hover { background: var(--hoofd-2); }
+.xbtn.red:focus-visible, .top-start:focus-visible { outline: 2px solid var(--hoofd); outline-offset: 3px; }
+.kies-ico { background: var(--hoofd); box-shadow: 0 10px 22px -12px rgba(30, 79, 216, .8); }
+.niemand li { background: linear-gradient(160deg, #2659E8 0%, var(--hoofd-2) 100%); box-shadow: 0 18px 36px -22px rgba(30, 79, 216, .7); }
+.niemand li span { color: rgba(255, 255, 255, .86); }
+.bw-band { background: radial-gradient(1100px 420px at 92% -30%, rgba(140, 172, 255, .30), transparent 62%), radial-gradient(700px 320px at -8% 130%, rgba(95, 211, 160, .16), transparent 60%),
+  linear-gradient(165deg, #1B44C2 0%, var(--hoofd-diep) 100%); border-color: rgba(255, 255, 255, .10);
+  box-shadow: 0 50px 100px -60px rgba(15, 44, 134, .75), 0 18px 40px -30px rgba(15, 44, 134, .5); }
+.bw-stappen::before { background: linear-gradient(90deg, rgba(255, 255, 255, .30), rgba(170, 196, 255, .95) 58%, rgba(95, 211, 160, .95) 86%, rgba(95, 211, 160, 0)); }
+.bw-stappen li::before { background: #1A42BB; box-shadow: none; }
+.bw-stappen li.eind::before { box-shadow: 0 0 22px rgba(95, 211, 160, .6); }
