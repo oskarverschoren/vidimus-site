@@ -1111,3 +1111,5 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 @media (prefers-reduced-motion: reduce) { .kies-beeld img { transition: none; } .kies-tegel:hover .kies-beeld img { transform: none; } }
 
 .hoe-foto { margin: 0 0 clamp(18px, 2.4vw, 28px); }   /* 06/10: sensormeting boven de drie stappen */
+.calc-foto { margin: 18px 0 0; border-radius: 22px; overflow: hidden; background: #DCE3F0; box-shadow: var(--glass-shadow); }
+.calc-foto img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }   /* 06/10: rechtszaal bij de rekensom */
