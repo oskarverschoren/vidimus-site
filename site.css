@@ -1109,3 +1109,5 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 .final-foto img { display: block; width: 100%; height: auto; aspect-ratio: 640 / 512; object-fit: cover; }
 @media (max-width: 899px) { .final-grid { grid-template-columns: 1fr; } .final-foto { border-radius: 96px 22px 22px 22px; } }
 @media (prefers-reduced-motion: reduce) { .kies-beeld img { transition: none; } .kies-tegel:hover .kies-beeld img { transform: none; } }
+
+.hoe-foto { margin: 0 0 clamp(18px, 2.4vw, 28px); }   /* 06/10: sensormeting boven de drie stappen */
