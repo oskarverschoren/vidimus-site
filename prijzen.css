@@ -1,0 +1,129 @@
+/* ══ Prijzen (07/10/2026) · bovenop home.css (body.home2): zelfde accent, lettertype en radiusschaal 8 / 14 / 20.
+   Mono alleen voor bedragen. Onderdelen: rekenhulp, twee eenheden, schijventabel met balkjes, drie facturen, twaalf maanden. ══ */
+.pz { --pz-zacht: rgba(36, 56, 214, .06); --pz-lijn: rgba(36, 56, 214, .28); }
+.pz .sec { scroll-margin-top: 80px; }
+
+/* ── 1 · held met rekenhulp ─────────────────────────────── */
+.pz-held { padding-block: clamp(40px, 6vw, 96px) clamp(48px, 6vw, 96px); }
+.pz-held .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 30rem); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.pz-held-tekst { display: grid; gap: 22px; align-content: start; }
+.pz .pz-titel { margin: 0; font-size: clamp(40px, 1rem + 4.4vw, 76px); line-height: 1.02; max-width: 13ch; }
+.pz-held .sub { font-size: clamp(17px, 1rem + .3vw, 20px); line-height: 1.55; max-width: 40ch; }
+
+.pz-reken { display: grid; gap: 18px; padding: clamp(20px, 2.4vw, 28px); border-radius: var(--r-l); }
+.pz-reken-kop { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -.015em; }
+.pz-veld { display: grid; gap: 8px; }
+.pz-veld label { font-size: 14px; font-weight: 600; color: var(--ink); }
+.pz-veld input { height: 52px; padding: 0 14px; border-radius: var(--r-m); border: 1.5px solid var(--line); background: #fff; font: 600 22px var(--ui); font-variant-numeric: tabular-nums; color: var(--ink); -moz-appearance: textfield; }
+.pz-veld input::-webkit-outer-spin-button, .pz-veld input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.pz-veld input:focus { outline: none; border-color: var(--act); box-shadow: 0 0 0 3px rgba(36, 56, 214, .16); }
+.pz-veld small { font-size: 13px; line-height: 1.5; color: var(--ink-3); }
+.pz-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pz-chips button { height: 34px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--line-2); background: #fff; font: 500 14px var(--ui); font-variant-numeric: tabular-nums; color: var(--ink-2); cursor: pointer; transition: background 140ms, color 140ms, border-color 140ms; }
+.pz-chips button:hover { border-color: var(--act); color: var(--act); }
+.pz-chips button.cur { background: var(--act); border-color: var(--act); color: #fff; }
+.pz-chips button:focus-visible, .pz-mail:focus-visible { outline: 2px solid var(--act); outline-offset: 2px; }
+
+.pz-jaar { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: var(--r-m); border: 1.5px solid var(--line); background: #fff; cursor: pointer; transition: border-color 140ms, background 140ms; }
+.pz-jaar input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pz-jaar i { flex: none; position: relative; width: 44px; height: 26px; border-radius: 99px; background: var(--line-2); transition: background 160ms; }
+.pz-jaar i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(11, 15, 23, .3); transition: transform 200ms var(--out, ease); }
+.pz-jaar span { display: grid; gap: 1px; }
+.pz-jaar b { font-size: 15px; font-weight: 600; }
+.pz-jaar small { font-size: 13px; color: var(--ink-3); }
+.pz-jaar:has(input:checked) { border-color: var(--act); background: var(--pz-zacht); }
+.pz-jaar input:checked + i { background: var(--act); }
+.pz-jaar input:checked + i::after { transform: translateX(18px); }
+.pz-jaar input:focus-visible + i { outline: 2px solid var(--act); outline-offset: 3px; }
+
+.pz-uit { display: grid; gap: 10px; padding-top: 18px; border-top: 1px solid var(--line); }
+.pz-bedrag { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.pz-bedrag output { font: 600 clamp(44px, 1rem + 3.4vw, 60px)/1 var(--ui); letter-spacing: -.045em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.pz-bedrag span { font-size: 14px; color: var(--ink-3); }
+.pz-regels { margin: 0; display: grid; }
+.pz-regels > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; padding: 7px 0; border-top: 1px dashed var(--line-2); }
+.pz-regels dt { font-size: 14px; color: var(--ink-2); }
+.pz-regels dd { margin: 0; font: 500 14px var(--mono); font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; }
+.pz-noot { margin: 0; font-size: 13px; line-height: 1.5; color: var(--ink-3); }
+.pz-mail { justify-self: start; font-size: 14px; font-weight: 600; color: var(--act); text-decoration: none; }
+.pz-mail:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── 2 · twee eenheden ──────────────────────────────────── */
+.pz-twee { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.pz-eenheid { display: grid; gap: 10px; align-content: start; padding: clamp(22px, 2.6vw, 32px); border-radius: var(--r-l); background: var(--card); border: 1px solid var(--line); }
+.pz-prijs { margin: 0 0 6px; display: grid; gap: 4px; }
+.pz-prijs b { font: 600 clamp(42px, 1rem + 2.6vw, 58px)/1 var(--ui); letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.pz-prijs span { font-size: 15px; color: var(--ink-2); }
+.pz-eenheid h3 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.02em; }
+.pz-eenheid p:not(.pz-prijs) { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-2); max-width: 52ch; }
+.pz-nooit { margin-top: 16px; padding: clamp(20px, 2.4vw, 28px); border-radius: var(--r-l); background: var(--pz-zacht); border: 1px solid var(--pz-lijn); }
+.pz-nooit h3 { margin: 0 0 14px; font-size: 16px; font-weight: 600; }
+.pz-nooit ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 10px 20px; }
+.pz-nooit li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--ink); }
+.pz-nooit svg { flex: none; width: 20px; height: 20px; padding: 2px; border-radius: 50%; background: var(--act); color: #fff; }
+
+/* ── 3 · schijventabel ──────────────────────────────────── */
+.pz-schijven-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.pz-schijven-wrap .sub { font-size: 17px; line-height: 1.6; }
+.pz-tabel-kader { overflow-x: auto; border-radius: var(--r-l); background: var(--card); border: 1px solid var(--line); }
+.pz-tabel { width: 100%; border-collapse: collapse; }
+.pz-tabel th, .pz-tabel td { padding: 14px 20px; border-top: 1px solid var(--line); text-align: left; vertical-align: baseline; }
+.pz-tabel thead th { border-top: 0; font-size: 13px; font-weight: 600; color: var(--ink-3); }
+.pz-tabel tbody th { font-size: 16px; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pz-tabel td:last-child, .pz-tabel thead th:last-child { text-align: right; white-space: nowrap; }
+.pz-tabel td b { font: 500 16px var(--mono); font-variant-numeric: tabular-nums; }
+.pz-tabel .pz-licht { font: 500 15px var(--ui); color: var(--ink-3); }
+.pz-balk { display: inline-block; width: calc(var(--w) * 7rem); height: 8px; margin-right: 14px; border-radius: 99px; background: var(--act); vertical-align: middle; opacity: .85; }
+.pz-maat td { font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+.pz-maat tbody th { white-space: normal; min-width: 11rem; }
+.pz-maat th small { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--ink-3); }
+.pz-maat td a { color: var(--act); font-weight: 600; }
+.pz-klein { margin: 16px 0 0; max-width: 80ch; font-size: 14px; line-height: 1.6; color: var(--ink-3); }
+
+/* ── 4 · drie facturen ──────────────────────────────────── */
+.pz-facturen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.pz-factuur { display: grid; gap: 14px; padding: 24px; border-radius: var(--r-l); background: var(--card); border: 1px solid var(--line); box-shadow: 0 24px 50px -40px rgba(11, 15, 23, .4); }
+.pz-wie { margin: 0; display: grid; gap: 3px; }
+.pz-wie b { font-size: 18px; font-weight: 600; letter-spacing: -.015em; }
+.pz-wie span { font-size: 14px; color: var(--ink-3); }
+.pz-factuur dl { margin: 0; display: grid; }
+.pz-factuur dl > div { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px dashed var(--line-2); }
+.pz-factuur dt { font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.pz-factuur dd { margin: 0; font: 500 14px var(--mono); white-space: nowrap; }
+.pz-totaal { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 12px; border-top: 2px solid var(--ink); }
+.pz-totaal span { font-size: 14px; font-weight: 600; }
+.pz-totaal b { font: 600 30px/1 var(--mono); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.pz-jaarregel { margin: 0; padding: 10px 12px; border-radius: var(--r-s); background: var(--pz-zacht); font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+
+/* ── 5 · twaalf maanden, twee gratis ────────────────────── */
+.pz-jaar-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+.pz-jaar-wrap .sub { font-size: 17px; line-height: 1.6; }
+.pz-maanden { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.pz-maanden li { aspect-ratio: 1; display: grid; place-items: center; align-content: center; gap: 2px; border-radius: var(--r-m); background: var(--card); border: 1px solid var(--line); font: 600 15px var(--ui); color: var(--ink-2); }
+.pz-maanden li.gratis { border: 1.5px dashed var(--act); background: var(--pz-zacht); color: var(--act); }
+.pz-maanden li.gratis::after { content: "gratis"; font: 500 12px var(--ui); }
+
+/* ── 8 · slot ───────────────────────────────────────────── */
+.pz-slot .wrap { display: grid; justify-items: center; gap: 18px; text-align: center; }
+.pz-slot .kop2 { margin: 0; max-width: 20ch; }
+.pz-slot .hero-actions { justify-content: center; }
+
+@media (max-width: 1000px) {
+  .pz-held .wrap, .pz-schijven-wrap, .pz-jaar-wrap { grid-template-columns: minmax(0, 1fr); }
+  .pz-facturen { grid-template-columns: minmax(0, 1fr); max-width: 34rem; }
+}
+@media (max-width: 720px) {
+  .pz-twee { grid-template-columns: minmax(0, 1fr); }
+  .pz-tabel th, .pz-tabel td { padding: 12px 14px; }
+  .pz-balk { width: calc(var(--w) * 4rem); margin-right: 8px; }
+  .pz-maat thead { display: none; }
+  .pz-maat tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; padding: 12px 14px; border-top: 1px solid var(--line); }
+  .pz-maat tbody tr:first-child { border-top: 0; }
+  .pz-maat th, .pz-maat td { padding: 0; border: 0; }
+  .pz-maat td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; margin-top: 6px; }
+  .pz-maanden li { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .pz-chips button, .pz-jaar, .pz-jaar i, .pz-jaar i::after { transition: none; } }
+.pz-totaal span { flex: 1 1 auto; min-width: 0; }
+.pz-totaal b { flex: none; white-space: nowrap; }
+@media (max-width: 1000px) { .pz-maanden { max-width: 30rem; } }

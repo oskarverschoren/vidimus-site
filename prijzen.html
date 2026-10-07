@@ -2,40 +2,35 @@
 <html lang="nl" class="js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F2F3F6">
-<title>Prijzen — alles inbegrepen, per eenheid | Vidimus</title>
-<meta name="description" content="Alles inbegrepen, betalen per eenheid. Meetbronnen: de eerste gratis, daarna € 15 per maand met onbeperkt metingen. Registraties: de eerste 100 per maand gratis, daarna € 0,08 per stuk, dalend tot € 0,003. Minimum € 19; boven een miljoen per maand op offerte. Gekwalificeerde tijdstempel inbegrepen.">
+<title>Prijzen — gratis beginnen, betalen per gebruik | Vidimus</title>
+<meta name="description" content="De eerste 100 registraties per maand zijn gratis. Daarna € 0,08 per registratie, goedkoper bij volume tot € 0,003. Sensor of logger: € 15 per maand, het eerste gratis, metingen onbeperkt. Minimum € 19 zodra u iets betaalt. Jaarcontract: 12 maanden voor de prijs van 10. Prijzen excl. btw.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="favicon-48.png?v=3" sizes="48x48">
+<link rel="icon" type="image/png" href="favicon-192.png?v=3" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261002a">
-<link rel="stylesheet" href="inner.css?v=20260925">
-<style>
-.ingang { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(1.4rem, 3vw, 2rem); }
-@media (max-width: 1000px) { .ingang { grid-template-columns: 1fr 1fr; } }
-.ingang article { display: grid; gap: 8px; align-content: start; padding: 22px 24px; border-radius: 22px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
-.ingang .no { font: 500 10px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); }
-.ingang .amt { font: 500 clamp(26px, 2.6vw, 34px)/1 var(--mono); letter-spacing: -.04em; color: var(--ink); font-variant-numeric: tabular-nums; }
-.ingang .amt small { font: 500 11px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-left: 8px; }
-.ingang h3 { font-size: 19px; font-weight: 600; letter-spacing: -.025em; }
-.ingang p { font-size: 14px; line-height: 1.55; color: var(--ink-2); }
-.ingang p b { color: var(--ink); font-weight: 600; }
-@media (max-width: 720px) { .ingang { grid-template-columns: 1fr; } }
-</style>
+<link rel="stylesheet" href="app-huis.css?v=20260917b">
+<link rel="stylesheet" href="app-huis-pages.css?v=20261002a">
+<link rel="stylesheet" href="site.css?v=20261006a">
+<link rel="stylesheet" href="home.css?v=20261007a">
+<link rel="stylesheet" href="prijzen.css?v=20261007a">
 
 <link rel="canonical" href="https://vidimus.be/prijzen.html">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
-<meta property="og:title" content="Prijzen — alles inbegrepen, per eenheid | Vidimus"><meta property="og:description" content="Geen formules. Meetbronnen: eerste gratis, daarna € 15 per maand, metingen onbeperkt. Registraties: eerste 100 per maand gratis, daarna € 0,08 per stuk, dalend tot € 0,003. Minimum € 19; boven een miljoen per maand op offerte."><meta property="og:url" content="https://vidimus.be/prijzen.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:title" content="Prijzen — gratis beginnen, betalen per gebruik | Vidimus"><meta property="og:description" content="De eerste 100 registraties per maand gratis. Daarna € 0,08 per stuk, goedkoper bij volume. Sensor of logger € 15 per maand, metingen onbeperkt. Reken uw prijs uit in tien seconden."><meta property="og:url" content="https://vidimus.be/prijzen.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.jpg">
 </head>
-<body>
+<body class="home2 pz">
 <div class="ambient" aria-hidden="true"></div>
-
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+<symbol id="i-vink" viewBox="0 0 16 16"><path d="M3.5 8.4l2.8 2.8L12.5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 
 <header class="site">
@@ -47,248 +42,245 @@
   </nav>
   <div class="top-cta">
     <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
-    <a class="top-start" href="https://app.vidimus.be/login?tab=register&amp;next=/onboarding">Start gratis</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
   </div>
 </header>
 
-<main>
-<section class="page-hero">
-  <div class="wrap">
-    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="prijzen.html">PRIJZEN</a></p>
-    <h1 class="disp">Alles inbegrepen<span class="thin">, per eenheid</span><span style="color:var(--red)">.</span></h1>
-    <p class="intro">Alles zit erin: bureau, telefoon, tekenen met Face ID, meetekenen, API, kluis, bewijsbundels, verificatie, gekwalificeerde tijdstempel en Bitcoin-anker. U betaalt voor <b>twee dingen: registraties en meetbronnen</b>. Rechtstreeks, of via uw softwareleverancier.</p>
-    <div class="hero-actions">
-      <a class="xbtn red" href="https://app.vidimus.be/login"><span>Begin gratis — geen betaalgegevens</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="xbtn" href="#reken"><span>Reken uw prijs uit</span></a>
-    </div>
-    <p style="margin-top:1rem" class="lbl">eerste 100 registraties en eerste meetbron gratis · minimum € 19 · boven een miljoen registraties per maand op offerte · richtprijzen excl. btw</p>
-    <div class="ingang rv">
-      <article>
-        <span class="no">1 · PER REGISTRATIE</span>
-        <span class="amt">€ 0,08<small>per stuk</small></span>
-        <h3>Registraties</h3>
-        <p>Een aflevering, foto, document, handtekening of gebeurtenis, door een mens of door uw systeem ingestuurd. <b>De eerste 100 per maand gratis</b>, daarna € 0,08 per stuk, dalend tot € 0,003 bij grote aantallen.</p>
-      </article>
-      <article>
-        <span class="no">2 · PER MEETBRON</span>
-        <span class="amt">€ 15<small>per meetbron / maand</small></span>
-        <h3>Meetbronnen</h3>
-        <p>Een sensor, logger, weegbrug of GPS die metingen stuurt, aangemaakt met zijn kanalen: een getal met eenheid en bereik, een teller (kWh, draaiuren) of een status (deur, zegel). Eén toestel is één meetbron, hoeveel kanalen het ook heeft. <b>Metingen onbeperkt</b>, elke meting apart verankerd. Een meetbron telt alleen in een maand waarin ze meet; de eerste is gratis.</p>
-      </article>
-      <article>
-        <span class="no">3 · VIA UW SOFTWAREPARTNER</span>
-        <span class="amt">in uw TMS<small>WMS · ERP · IoT</small></span>
-        <h3>Ingebouwd in wat u al hebt</h3>
-        <p>Uw softwareleverancier bouwt Vidimus in en factureert u. Zelfde bewijs, zelfde verificatie, één factuur bij de partner die u al kent. <a href="partners.html" style="color:var(--ink)">Voor leveranciers: word partner</a></p>
-      </article>
-    </div>
-  </div>
-</section>
+<main id="top">
+<!-- ══ 07/10/2026 · prijzen herbouwd volgens Vidimus-web-design-claude-code.md en docs/onderzoek-homepage/4-prijzen-en-rekenmodules.md
+     (43 prijspagina's en rekenmodules): gratis deel eerst, één eenheidsprijs met wat telt en wat niet, volle schijventabel,
+     uitgewerkte voorbeelden met totaal, rekenhulp zonder formulier, jaarcontract als twee gratis maanden, vragen onderaan.
+     De bedragen komen uit prijs.js, dezelfde rekensom als de facturatie (vidimus/billing.py). ══ -->
 
-<section style="padding-block:var(--space)">
+<!-- 1 · HELD: de belofte links, de rekenhulp rechts, meteen ingevuld -->
+<section class="sec pz-held" aria-labelledby="pz-h">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="idx">01 / DE PRIJZEN</span>
-      <h2 class="disp">Eén tabel<span style="color:var(--red)">.</span></h2>
-      <p class="side">Op het einde van de maand telt de meter wat u verankerde, over al uw stromen samen. Elke regel groeit mee met het gebruik en maakt nooit een sprong. Onbeperkt gebruikers, onbeperkt stromen, onbeperkt metingen per meetbron.</p>
-    </div>
-    <table class="dtable rv">
-      <thead><tr><th>Eenheid</th><th>Wat het is</th><th>Prijs</th></tr></thead>
-      <tbody>
-        <tr><td>Registratie<span class="sub">eerste 100 per maand gratis</span></td><td>een document, een foto, een handtekening, een gebeurtenis — door een mens of door een systeem ingestuurd</td><td class="pr">€ 0,08<span class="sub">per schijf: € 0,04 van 3 001 tot 10 000 · € 0,01 tot 100 000 · € 0,003 daarboven · boven 1 miljoen op offerte</span></td></tr>
-        <tr><td>Meetbron<span class="sub">eerste gratis</span></td><td>een sensor, een logger, een weegbrug, een GPS: een toestel dat metingen stuurt, aangemaakt met zijn kanalen: een getal met eenheid en bereik, een teller (kWh, draaiuren) of een status (deur, zegel). Eén toestel is één meetbron, hoeveel kanalen het ook heeft. Telt in een maand waarin ze minstens één meting stuurde. Metingen onbeperkt; elke meting blijft apart gehasht, getekend en verankerd</td><td class="pr">€ 15 / maand</td></tr>
-        <tr><td>Minimum</td><td>zodra er iets wordt aangerekend</td><td class="pr">€ 19 / maand</td></tr>
-      </tbody>
-    </table>
-    <p class="law-note"><b style="color:var(--ink)">Wat nooit meetelt:</b> gebruikers, stromen, systemen en telefoons als bron (wat zij sturen, telt als registratie), metingen per meetbron, bewijsbundels downloaden, verificaties door uw tegenpartij, deellinks, wissen, opslag tot 50 GB. <b style="color:var(--ink)">Altijd inbegrepen:</b> de gekwalificeerde tijdstempel (eIDAS) en het Bitcoin-anker. Eén meter, één rekening.</p>
-    <p class="law-note"><b style="color:var(--ink)">Uw partners in de keten</b> (vervoerder, leverancier, aannemer) tekenen gratis mee op uw stromen. Wil een partner een eigen bureau en eigen stromen, dan maakt hij zelf een account aan en betaalt hij zijn eigen verbruik.</p>
-    <p class="law-note"><b style="color:var(--ink)">Documenten zijn geen metingen.</b> Stuurt uw systeem documenten in (loonbrieven, facturen, contracten: met het bestand erbij, zelf versleuteld, of alleen de vingerafdruk), dan telt elk document als één registratie. Een meting is één getal (temperatuur, gewicht, positie) van een meetbron die u aanmaakte met een eenheid en een bereik, via <code>/measurements</code>. Iets waar later iemand voor betaalt of over procedeert (een overtreding, een beslissing, een kloktijd) is een registratie, ook zonder bijlage. Wat telt, hangt aan de bron, niet aan de stroom: alles wat een systeem of telefoon stuurt, is een registratie, ook via het oude <code>/ingest</code>.</p>
-    <p class="law-note"><b style="color:var(--ink)">Een registratie vermomd als meting telt niet als meting.</b> Het meetpunt aanvaardt alleen het vaste schema (bron, tijdstip, één getal, eenheid), binnen de eenheid en het bereik van de meetbron, hoogstens één meting per tien seconden per bron, in oplopende tijd en niet ouder dan 24 uur, en alleen met de sleutel van die meetbron, nooit met een systeemsleutel. Een meting krijgt geen deellink en geen bevestiging door een tegenpartij: het bewijs is de reeks per bron. Een nachtelijke controle kijkt alleen naar tellers, nooit naar waarden. Wie het meetpunt toch misbruikt, krijgt die metingen na verwittiging als registraties aangerekend.</p>
-    <p class="law-note"><b style="color:var(--ink)">Alleen meetbronnen?</b> Dan betaalt u alleen meetbronnen. Vier koelcellen: € 45 per maand, metingen onbeperkt, bewijsbundels en verificatie inbegrepen.</p>
-  </div>
-</section>
-
-<!-- 07/10/2026: verhuisd van de homepage (startpakketten), in de opmaak van deze pagina -->
-<section style="padding-block:0 var(--space)" id="pakketten">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="idx">02 / DRIE MANIEREN OM TE STARTEN</span>
-      <h2 class="disp">Drie manieren om te starten<span style="color:var(--red)">.</span></h2>
-      <p class="side">Alles inbegrepen. Kies wat bij u past; u kunt later altijd uitbreiden.</p>
-    </div>
-    <table class="dtable rv">
-      <thead><tr><th>Start</th><th>Inbegrepen</th><th>Prijs</th></tr></thead>
-      <tbody>
-        <tr><td>Werkvloer · app<span class="sub">leveringen, vaststellingen en handtekeningen</span></td><td>de app voor uw mensen, zonder installatie · de ontvanger bevestigt via een QR-code, zonder account · foto, plaats en tijd in elk bewijs · één tik naar Waze of Google Maps<span class="sub"><a href="https://app.vidimus.be/login?tab=register&amp;next=%2Fonboarding%3Fkanaal%3Dapp">Start met de app →</a></span></td><td class="pr">gratis<span class="sub">tot 100 registraties per maand</span></td></tr>
-        <tr><td>Systeem · API<span class="sub">uw TMS, WMS, ERP of sensoren</span></td><td>één sleutel per systeem, apart in te trekken · eigen sleutel en versleuteling: wij lezen niets · meldingen naar uw systeem bij elke verankering · Python-voorbeeld en sandbox<span class="sub"><a href="https://app.vidimus.be/login?tab=register&amp;next=%2Fonboarding%3Fkanaal%3Dapi">Koppel uw systeem →</a></span></td><td class="pr">€ 0,08<span class="sub">per registratie na de eerste 100, goedkoper bij volume</span></td></tr>
-        <tr><td>Keten · samen met partners<span class="sub">klanten, vervoerders en onderaannemers</span></td><td>één referentie door de hele keten · elke partij tekent met haar eigen sleutel · een publiek ketendossier per referentie · jaarcontract: 10 maanden betalen voor 12<span class="sub"><a href="https://cal.com/oskar-verschoren-vhygeu/15min">Plan 15 minuten →</a></span></td><td class="pr">partners gratis<span class="sub">wie meetekent, betaalt niets</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section style="padding-block:0 var(--space)">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="idx">03 / BEGINNEN</span>
-      <h2 class="disp">Gratis, of begeleid<span style="color:var(--red)">.</span></h2>
-      <p class="side">Een account aanmaken vraagt geen betaalgegevens en verankert tot 100 registraties per maand; die bewijsbundels blijven geldig. Activeren doet u zelf, wanneer u wilt. Wie liever niet alleen begint, kiest de begeleide start.</p>
-    </div>
-    <table class="dtable rv">
-      <thead><tr><th>Start</th><th>Inbegrepen</th><th>Prijs</th></tr></thead>
-      <tbody>
-        <tr><td>Zelf</td><td>account, eerste stroom via de wizard, telefoon-QR, 100 registraties en één meetbron per maand gratis, zonder einddatum</td><td class="pr">€ 0</td></tr>
-        <tr><td>Begeleide start<span class="sub">30 dagen · één proces</span></td><td>intake ½ dag · één stroom of de tekenmodule in gebruik bij uw mensen · bewijsbundel doorgenomen · evaluatiegesprek<span class="sub">± 2 dagen begeleiding, verrekend met de eerste drie maanden</span></td><td class="pr">€ 1 900</td></tr>
-        <tr><td>Begeleide start met koppeling</td><td>idem + systeemkoppeling (API/webhook met uw poort-, sensor- of ERP-systeem) · uw beveiligingsvragenlijst ingevuld voor uw IT · DPO-gesprek (verwerkersovereenkomst) · 2 workshops<span class="sub">± 5 dagen begeleiding</span></td><td class="pr">€ 3 500 – 4 900</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section style="padding-block:0 var(--space)">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="idx">04 / OP MAAT</span>
-      <h2 class="disp">Voor wie meer nodig heeft<span style="color:var(--red)">.</span></h2>
-    </div>
-    <table class="dtable rv">
-      <thead><tr><th>Wat</th><th>Wanneer</th><th>Prijs</th></tr></thead>
-      <tbody>
-        <tr><td>Jaarcontract</td><td>u wilt een vast maandbedrag: twaalf maanden, maandelijks betaald, tien maanden verbruik verspreid over twaalf (twee maanden voordeel). Meer verbruik dan afgesproken wordt per kwartaal bijgerekend; daarna loopt het gewoon maandelijks door. U sluit het zelf in de app, onder Verbruik</td><td class="pr">10 voor 12</td></tr>
-        <tr><td>SLA</td><td>u verankert structureel meer dan een miljoen registraties per maand, of wilt een reactietijd van vier werkuren, 99,5 % beschikbaarheid met creditregeling, een kwartaalrapport en een vaste contactpersoon. Zonder SLA geldt voor iedereen: antwoord binnen één werkdag, storing binnen vier werkuren opgepakt, nachtelijke back-up en een getest herstelplan</td><td class="pr">offerte</td></tr>
-        <tr><td>Partner<span class="sub">softwareleverancier, sector of federatie</span></td><td>uw software maakt zelf aansluitingen aan voor eindklanten (partner-API), met één factuur bij u en verbruik per klant. Referral 20 % van de klantfactuur (24 maanden), reseller 30 % korting op inkoop, integrator 30–40 % plus uw implementatie. <a href="partners.html" style="color:var(--ink)">Alles over partner worden</a></td><td class="pr">partnertarief</td></tr>
-      </tbody>
-    </table>
-    <p class="law-note">Ook op aanvraag: verificatiepagina in uw huisstijl, bewijsbundel-op-maat voor de rechtbank (€ 450), opslag boven 50 GB (€ 25 per begonnen 100 GB per maand).</p>
-  </div>
-</section>
-
-<section style="padding-block:0 var(--space)" id="reken">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="idx">05 / REKEN ZELF</span>
-      <h2 class="disp">Wat wordt uw factuur<span style="color:var(--red)">?</span></h2>
-      <p class="side">Twee getallen, één richtprijs. <b>U hoeft het niet exact te weten:</b> dit is een schatting. De meter telt wat u echt verankert en de factuur groeit daarmee mee — een rustige maand kost minder, een drukke meer, nooit met een sprong. Uw meterstand ziet u elke dag live in het bureau.</p>
-    </div>
-    <div class="cq rv">
-      <form class="cq-form" onsubmit="return false">
-        <div class="cq-step" role="group">
-          <h3 class="cq-h"><i>01</i>Registraties</h3>
-          <label class="cq-num" for="qN"><span class="lbl">Registraties per maand</span>
-            <span class="cq-in"><input type="number" id="qN" value="800" min="0" step="50" inputmode="numeric"><em>/ maand</em></span></label>
-          <div class="cq-chips" data-for="qN"><button type="button" data-v="80">80</button><button type="button" data-v="800">800</button><button type="button" data-v="2500">2 500</button><button type="button" data-v="10000">10 000</button></div>
-          <p class="cq-help">Foto's, handtekeningen, documenten en gebeurtenissen. Ongeveer 10 per dag is een paar per werkdag; 300 per dag is elk kwartier iets. De eerste 100 per maand zijn gratis.</p>
-        </div>
-        <div class="cq-step" role="group">
-          <h3 class="cq-h"><i>02</i>Meetbronnen</h3>
-          <label class="cq-num" for="qBron"><span class="lbl">Sensoren, loggers, weegbruggen</span>
-            <span class="cq-in"><input type="number" id="qBron" value="0" min="0" inputmode="numeric"><em>meetbronnen</em></span></label>
-          <div class="cq-chips" data-for="qBron"><button type="button" data-v="0">geen</button><button type="button" data-v="4">4</button><button type="button" data-v="25">25</button><button type="button" data-v="60">60</button></div>
-          <p class="cq-help">Een logger, een sensor, een weegbrug, een GPS: elk is één meetbron. De eerste gratis, daarna € 15 per meetbron per maand waarin ze meet. Metingen onbeperkt. Een TMS, ERP of telefoon is geen meetbron: wat die sturen, telt bij de registraties.</p>
-        </div>
-        <div class="cq-step" role="group">
-          <h3 class="cq-h"><i>03</i>Contract</h3>
-          <div class="cq-seg" role="radiogroup" aria-label="Contract">
-            <label><input type="radio" name="qTerm" value="12" checked><span>Per maand<small>opzegbaar, betalen naar verbruik</small></span></label>
-            <label><input type="radio" name="qTerm" value="10"><span>Jaarcontract<small>lager maandbedrag, vaste prijs</small></span></label>
-          </div>
-        </div>
-        <p class="cq-priv"><b>PRIVÉ</b> — deze berekening gebeurt volledig in uw browser. Er wordt niets opgeslagen of verstuurd tot ú op de offerteknop drukt.</p>
-      </form>
-      <aside class="cq-bill" aria-live="polite">
-        <span class="lbl">Uw richtprijs</span>
-        <div class="cq-total"><output id="oMnd">€ 0</output><em>/ maand</em></div>
-        <p class="cq-schijf" id="oSchijf"></p>
-        <dl class="cq-lines" id="oLines"></dl>
-        <a class="xbtn red" id="offerteBtn" href="mailto:oskar@vo-initiatives.com?subject=Offerte%20Vidimus"><span>Vraag een offerte met deze samenstelling</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <p class="cq-note">U krijgt dezelfde samenstelling per mail; Oskar belt u binnen één werkdag. Richtprijs excl. btw. Of begin gewoon gratis en laat de meter het werk doen.</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- 07/10/2026: verhuisd van de homepage (vier vragen), in de opmaak van deze pagina -->
-<section style="padding-block:0 var(--space)" id="wanneer">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="idx">06 / VIER VRAGEN</span>
-      <h2 class="disp">Wanneer Vidimus geen luxe is<span style="color:var(--red)">.</span></h2>
-      <p class="side">Niet elke registratie heeft een bewijslaag nodig. Deze vier vragen maken het verschil.</p>
-    </div>
-    <table class="dtable rv">
-      <thead><tr><th>Vraag</th><th>Waarom het telt</th></tr></thead>
-      <tbody>
-        <tr><td>Is er een tegenpartij die kan betwisten?</td><td>Een klant, verzekeraar, inspecteur, huurder of onderaannemer. Registraties die alleen intern blijven, hebben Vidimus niet nodig.</td></tr>
-        <tr><td>Kost één incident veel meer dan € 19 per maand?</td><td>Een geweigerde lading, een franchise, een boete, een terugroeping, een ingehouden waarborg.</td></tr>
-        <tr><td>Wordt het vastgelegd vóór er een geschil is?</td><td>En door iemand die later niet zomaar geloofd wordt: een chauffeur, een sensor, een aannemer. Wie pas na het probleem bewijs zoekt, heeft er geen.</td></tr>
-        <tr><td>Zit er tijd tussen vastleggen en betwisten?</td><td>Weken tot jaren. Dan is "hoe zag het er toen uit?" de hele vraag.</td></tr>
-      </tbody>
-    </table>
-    <p class="law-note"><b>Gelden alle vier? Dan is Vidimus geen nice-to-have, maar de goedkoopste uitweg uit een terugkerend verlies.</b> <a href="index.html#rekensom">Reken het uit</a></p>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap">
-    <h2 class="disp">Twijfel over welke stromen? <span>Begin met de duurste discussie.</span></h2>
-    <div class="final-under">
-      <p>Reken één stroom uit — de meerwerkbonnen, de afgiftestaten, de poortscans — en zet die tegenover wat één verloren discussie u kost. Meestal is het antwoord er dan al.</p>
+    <div class="pz-held-tekst">
+      <h1 class="kop2 pz-titel" id="pz-h">Gratis beginnen<span class="dot">.</span> <span class="thin">Betalen per gebruik.</span></h1>
+      <p class="sub">De eerste 100 registraties per maand zijn gratis. Daarna betaalt u per registratie, goedkoper naarmate het er meer zijn. Alles zit erin.</p>
       <div class="hero-actions">
-        <a class="xbtn red" href="index.html#rekensom"><span>Reken het uit</span></a>
-        <a class="xbtn" href="partners.html"><span>Softwareleverancier? Word partner</span></a>
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
       </div>
+      <p class="hero-micro">Geen betaalgegevens nodig. Prijzen excl. btw.</p>
+    </div>
+
+    <form class="glass pz-reken" id="reken" aria-labelledby="reken-h" onsubmit="return false">
+      <h2 class="pz-reken-kop" id="reken-h">Reken uw prijs uit</h2>
+      <div class="pz-veld">
+        <label for="rN">Registraties per maand</label>
+        <input id="rN" type="number" inputmode="numeric" min="0" max="5000000" step="10" value="800">
+        <div class="pz-chips" data-voor="rN" role="group" aria-label="Snel kiezen"><button type="button" data-v="80">80</button><button type="button" data-v="800">800</button><button type="button" data-v="2500">2 500</button><button type="button" data-v="10000">10 000</button></div>
+        <small>Een levering met foto's en handtekening telt als één. Twintig per werkdag is ongeveer 440 per maand.</small>
+      </div>
+      <div class="pz-veld">
+        <label for="rB">Sensoren of loggers</label>
+        <input id="rB" type="number" inputmode="numeric" min="0" max="10000" value="0">
+        <div class="pz-chips" data-voor="rB" role="group" aria-label="Snel kiezen"><button type="button" data-v="0">geen</button><button type="button" data-v="4">4</button><button type="button" data-v="25">25</button></div>
+      </div>
+      <label class="pz-jaar"><input type="checkbox" id="rJ" role="switch"><i aria-hidden="true"></i><span><b>Jaarcontract</b><small>12 maanden voor de prijs van 10</small></span></label>
+      <div class="pz-uit" aria-live="polite">
+        <p class="pz-bedrag"><output id="rBedrag" for="rN rB rJ">€&nbsp;72</output><span id="rPer">per maand</span></p>
+        <dl class="pz-regels" id="rRegels"></dl>
+        <p class="pz-noot" id="rNoot">Een schatting. U betaalt altijd wat u echt gebruikt.</p>
+        <a class="pz-mail" id="rMail" href="mailto:oskar@vo-initiatives.com">Stuur mij deze berekening als offerte</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- 2 · WAT KOST GELD: twee eenheden, en wat nooit meetelt -->
+<section class="sec" id="eenheden" aria-labelledby="eenheden-h">
+  <div class="wrap">
+    <h2 id="eenheden-h" class="kop2">U betaalt voor twee dingen<span class="dot">.</span></h2>
+    <div class="pz-twee rv">
+      <article class="pz-eenheid">
+        <p class="pz-prijs"><b>€&nbsp;0,08</b><span>per registratie, na de eerste 100 per maand</span></p>
+        <h3>Registraties</h3>
+        <p>Eén vastgelegd moment: een levering, foto, inspectie, document of handtekening, van uw mensen of uit uw software. Tien foto's van dezelfde levering, met de handtekening erbij, zijn samen één registratie.</p>
+      </article>
+      <article class="pz-eenheid">
+        <p class="pz-prijs"><b>€&nbsp;15</b><span>per sensor of logger per maand, de eerste gratis</span></p>
+        <h3>Sensoren en loggers</h3>
+        <p>Een logger, weegbrug of GPS die zelf meet. Metingen onbeperkt, elke meting apart verzegeld. Een toestel dat een maand niets meet, kost die maand niets.</p>
+      </article>
+    </div>
+    <div class="pz-nooit rv">
+      <h3>Altijd inbegrepen, nooit apart betaald</h3>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-vink"/></svg>Gebruikers en stromen, onbeperkt</li>
+        <li><svg aria-hidden="true"><use href="#i-vink"/></svg>De app voor uw mensen</li>
+        <li><svg aria-hidden="true"><use href="#i-vink"/></svg>Partners die meetekenen</li>
+        <li><svg aria-hidden="true"><use href="#i-vink"/></svg>Controles door uw tegenpartij</li>
+        <li><svg aria-hidden="true"><use href="#i-vink"/></svg>Gekwalificeerde tijdstempel (eIDAS)</li>
+        <li><svg aria-hidden="true"><use href="#i-vink"/></svg>Bitcoin-anker</li>
+        <li><svg aria-hidden="true"><use href="#i-vink"/></svg>Bewijsbundels en deellinks</li>
+        <li><svg aria-hidden="true"><use href="#i-vink"/></svg>Opslag tot 50 GB</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · DE VOLLE SCHIJVENTABEL: met getallen, nooit alleen "contacteer ons" -->
+<section class="sec" id="schijven" aria-labelledby="schijven-h">
+  <div class="wrap pz-schijven-wrap">
+    <div>
+      <h2 id="schijven-h" class="kop2">Hoe meer, hoe goedkoper per stuk<span class="dot">.</span></h2>
+      <p class="sub">Elke prijs geldt alleen voor de registraties in die schijf. Uw factuur groeit dus geleidelijk mee, zonder sprongen. Zodra u iets betaalt, is het minstens €&nbsp;19 per maand; wie binnen het gratis deel blijft, betaalt niets.</p>
+    </div>
+    <div class="pz-tabel-kader rv">
+      <table class="pz-tabel">
+        <caption class="sr-only">Prijs per registratie, per schijf, per maand</caption>
+        <thead><tr><th scope="col">Registraties per maand</th><th scope="col">Per stuk</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1 – 100</th><td><span class="pz-balk" style="--w:0"></span><b>gratis</b></td></tr>
+          <tr><th scope="row">101 – 3 000</th><td><span class="pz-balk" style="--w:1"></span><b>€&nbsp;0,08</b></td></tr>
+          <tr><th scope="row">3 001 – 10 000</th><td><span class="pz-balk" style="--w:.5"></span><b>€&nbsp;0,04</b></td></tr>
+          <tr><th scope="row">10 001 – 100 000</th><td><span class="pz-balk" style="--w:.125"></span><b>€&nbsp;0,01</b></td></tr>
+          <tr><th scope="row">boven 100 000</th><td><span class="pz-balk" style="--w:.0375"></span><b>€&nbsp;0,003</b></td></tr>
+          <tr><th scope="row">boven 1 miljoen</th><td><b class="pz-licht">op offerte</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · VOORBEELDEN: drie bedrijven, drie facturen met totaal (bedragen nagerekend in tests/test_site_prijzen.py) -->
+<section class="sec" id="voorbeelden" aria-labelledby="voorbeelden-h">
+  <div class="wrap">
+    <h2 id="voorbeelden-h" class="kop2">Drie bedrijven, drie facturen<span class="dot">.</span></h2>
+    <div class="pz-facturen rv">
+      <article class="pz-factuur" data-reg="330" data-bron="0" data-maand="19">
+        <p class="pz-wie"><b>Kleine vervoerder</b><span>6 chauffeurs met de app, ± 15 leveringen per dag</span></p>
+        <dl>
+          <div><dt>330 registraties</dt><dd>€&nbsp;18,40</dd></div>
+          <div><dt>Aangevuld tot het minimum</dt><dd>+ €&nbsp;0,60</dd></div>
+        </dl>
+        <p class="pz-totaal"><span>Per maand</span><b>€&nbsp;19</b></p>
+      </article>
+      <article class="pz-factuur" data-reg="1500" data-bron="12" data-maand="277" data-jaar="230.83">
+        <p class="pz-wie"><b>Koeltransport</b><span>leveringen met de app, 12 temperatuurloggers</span></p>
+        <dl>
+          <div><dt>1 500 registraties</dt><dd>€&nbsp;112</dd></div>
+          <div><dt>12 loggers, de eerste gratis</dt><dd>€&nbsp;165</dd></div>
+        </dl>
+        <p class="pz-totaal"><span>Per maand</span><b>€&nbsp;277</b></p>
+        <p class="pz-jaarregel">Met jaarcontract €&nbsp;230,83 per maand: u bespaart €&nbsp;554 per jaar.</p>
+      </article>
+      <article class="pz-factuur" data-reg="20000" data-bron="0" data-maand="612" data-jaar="510">
+        <p class="pz-wie"><b>Logistiek centrum</b><span>het WMS stuurt elke ontvangst en verzending door</span></p>
+        <dl>
+          <div><dt>de eerste 100</dt><dd>€&nbsp;0</dd></div>
+          <div><dt>2 900 × €&nbsp;0,08</dt><dd>€&nbsp;232</dd></div>
+          <div><dt>7 000 × €&nbsp;0,04</dt><dd>€&nbsp;280</dd></div>
+          <div><dt>10 000 × €&nbsp;0,01</dt><dd>€&nbsp;100</dd></div>
+        </dl>
+        <p class="pz-totaal"><span>Per maand, 20 000 registraties</span><b>€&nbsp;612</b></p>
+        <p class="pz-jaarregel">Met jaarcontract €&nbsp;510 per maand: u bespaart €&nbsp;1 224 per jaar.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · JAARCONTRACT: als twee gratis maanden, met de regels -->
+<section class="sec" id="jaarcontract" aria-labelledby="jaar-h">
+  <div class="wrap pz-jaar-wrap">
+    <div>
+      <h2 id="jaar-h" class="kop2">Twee maanden gratis met een jaarcontract<span class="dot">.</span></h2>
+      <p class="sub">Twaalf maanden, maandelijks betaald, voor de prijs van tien. U kiest een volume en betaalt elke maand hetzelfde bedrag. Meer gebruik wordt per kwartaal verrekend aan de gewone prijs. U sluit het zelf in de app, onder Verbruik, zodra uw aansluiting actief is.</p>
+    </div>
+    <ol class="pz-maanden rv" aria-label="Twaalf maanden, waarvan u er tien betaalt">
+      <li>jan</li><li>feb</li><li>maa</li><li>apr</li><li>mei</li><li>jun</li><li>jul</li><li>aug</li><li>sep</li><li>okt</li><li class="gratis">nov</li><li class="gratis">dec</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6 · BEGELEID OF OP MAAT -->
+<section class="sec" id="opmaat" aria-labelledby="opmaat-h">
+  <div class="wrap">
+    <h2 id="opmaat-h" class="kop2">Liever begeleid, of meer nodig<span class="dot">?</span></h2>
+    <div class="pz-tabel-kader rv">
+      <table class="pz-tabel pz-maat">
+        <caption class="sr-only">Begeleide start en maatwerk</caption>
+        <thead><tr><th scope="col">Wat</th><th scope="col">Wat u krijgt</th><th scope="col">Prijs</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Begeleide start<small>30 dagen, één proces</small></th><td>Intake van een halve dag, één stroom in gebruik bij uw mensen, de bewijsbundel samen doorgenomen en een evaluatiegesprek. Verrekend met de eerste drie maanden.</td><td><b>€&nbsp;1 900</b></td></tr>
+          <tr><th scope="row">Begeleide start met koppeling</th><td>Hetzelfde, plus de koppeling met uw systeem, uw beveiligingsvragenlijst ingevuld, een gesprek met uw DPO en twee workshops.</td><td><b>€&nbsp;3 500 – 4 900</b></td></tr>
+          <tr><th scope="row">SLA</th><td>Meer dan een miljoen registraties per maand, of een reactietijd van vier werkuren, 99,5 % beschikbaarheid met creditregeling, een kwartaalrapport en een vaste contactpersoon.</td><td><b class="pz-licht">offerte</b></td></tr>
+          <tr><th scope="row">Softwareleverancier</th><td>Bouw Vidimus in uw eigen software en factureer uw klanten zelf. <a href="partners.html">Zo werkt partner worden</a></td><td><b class="pz-licht">partnertarief</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pz-klein rv">Zonder SLA geldt voor iedereen: antwoord binnen één werkdag, een storing binnen vier werkuren opgepakt, elke nacht een back-up en een getest herstelplan. Ook op aanvraag: een controlepagina in uw huisstijl, een bewijsbundel op maat voor de rechtbank (€&nbsp;450) en opslag boven 50 GB (€&nbsp;25 per begonnen 100 GB per maand).</p>
+  </div>
+</section>
+
+<!-- 7 · VRAGEN: ook alles wat vroeger als lange voetnoot op deze pagina stond -->
+<section class="sec" id="vragen" aria-labelledby="vragen-h">
+  <div class="wrap">
+    <h2 id="vragen-h" class="kop2">Vragen over de factuur<span class="dot">.</span></h2>
+    <div class="vragen rv">
+      <details><summary>Wat telt als één registratie?</summary>
+        <p>Eén vastgelegd moment: een levering, foto, inspectie, document of handtekening. Tien foto's van dezelfde levering, met de handtekening erbij, zijn samen één registratie. Stuurt uw systeem documenten in, zoals loonbrieven, facturen of contracten, dan telt elk document als één registratie, met het bestand erbij, versleuteld of alleen de vingerafdruk. Iets waar later iemand voor betaalt of over procedeert, zoals een overtreding, een beslissing of een kloktijd, is ook een registratie, zonder bijlage.</p></details>
+      <details><summary>Wat is een meting, en wat niet?</summary>
+        <p>Een meting is één getal, zoals een temperatuur, gewicht of positie, van een sensor of logger die u aanmaakte met een eenheid en een bereik. U betaalt per toestel, niet per meting. Wat telt, hangt aan de bron: alles wat een systeem of telefoon stuurt, is een registratie.</p>
+        <p>Een registratie vermomd als meting telt niet als meting. Het meetpunt aanvaardt alleen het vaste schema (bron, tijdstip, één getal, eenheid), binnen de eenheid en het bereik van het toestel, hoogstens één meting per tien seconden per toestel, in oplopende tijd, niet ouder dan 24 uur en alleen met de sleutel van dat toestel. Een meting krijgt geen deellink en geen bevestiging door een tegenpartij: het bewijs is de reeks per toestel. Wie het meetpunt toch misbruikt, krijgt die metingen na verwittiging als registraties aangerekend.</p></details>
+      <details><summary>Wanneer betaal ik het minimum van €&nbsp;19?</summary>
+        <p>Alleen in een maand waarin u meer gebruikt dan het gratis deel. Gebruikt u voor €&nbsp;8, dan betaalt u €&nbsp;19. Blijft u binnen de gratis 100 registraties en het gratis toestel, dan betaalt u niets.</p></details>
+      <details><summary>Wat gebeurt er na de gratis 100 registraties?</summary>
+        <p>De gratis aansluiting heeft geen einddatum. Vanaf de 101ste registratie in een maand vraagt Vidimus u uw aansluiting te activeren; tot dan wordt er die maand niets meer vastgelegd. Activeren vraagt uw ondernemingsnummer, het mandaat van uw bestuurder (met eID) en een betaalwijze. Alles wat al vastligt, blijft geldig.</p></details>
+      <details><summary>Hoe en wanneer betaal ik?</summary>
+        <p>Achteraf, per maand, voor wat u die maand gebruikte. Uw meterstand ziet u elke dag in de app. Alle prijzen zijn exclusief btw.</p></details>
+      <details><summary>Kan ik stoppen?</summary>
+        <p>Ja, per maand. Uw bewijs blijft controleerbaar zonder Vidimus, en bij stopzetting hebt u negentig dagen om alles mee te nemen. Een jaarcontract loopt twaalf maanden: wie vroeger stopt, betaalt de rest van dat jaar.</p></details>
+      <details><summary>Betalen mijn partners in de keten mee?</summary>
+        <p>Nee. Een vervoerder, leverancier of aannemer die meetekent op uw stromen, betaalt niets. Wil een partner een eigen bureau en eigen stromen, dan maakt hij een eigen account en betaalt hij zijn eigen gebruik.</p></details>
+      <details><summary>Kan het via mijn softwareleverancier?</summary>
+        <p>Ja. Bouwt uw TMS, WMS of ERP Vidimus in, dan factureert uw leverancier u. Zelfde bewijs, zelfde controle. Bent u zelf leverancier? <a href="partners.html">Lees hoe partner worden werkt</a>.</p></details>
+      <details><summary>Alleen sensoren, geen registraties?</summary>
+        <p>Dan betaalt u alleen toestellen. Vier koelcellen kosten €&nbsp;45 per maand: het eerste toestel is gratis, metingen onbeperkt, bewijsbundels en controle inbegrepen.</p></details>
+      <details><summary>Heb ik Vidimus nodig?</summary>
+        <p>Vier vragen maken het verschil. Is er een tegenpartij die kan betwisten, zoals een klant, verzekeraar, inspecteur of onderaannemer? Kost één incident veel meer dan €&nbsp;19 per maand, zoals een geweigerde lading, een franchise of een boete? Wordt het vastgelegd vóór er een geschil is? En zit er tijd tussen vastleggen en betwisten? Geldt alles, dan is Vidimus de goedkoopste uitweg uit een terugkerend verlies. <a href="index.html#rekensom">Reken het uit</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · SLOT -->
+<section class="sec pz-slot" aria-labelledby="slot-h">
+  <div class="wrap">
+    <h2 id="slot-h" class="kop2"><span class="thin">Begin met</span> wat u nooit meer wil betwisten<span class="dot">.</span></h2>
+    <p class="sub">Uw eerste stroom staat in drie minuten, zonder betaalgegevens.</p>
+    <div class="hero-actions">
+      <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
     </div>
   </div>
 </section>
 </main>
 
 <footer class="app-voet">
-  <span>VIDIMUS · SITE</span>
-  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
-  <a href="colofon.html">Colofon &amp; privacy</a>
-  <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
-  <a href="scenarios.html">Scenario's</a>
+  <span>© 2026 VO Initiatives BV · Antwerpen</span>
+  <a href="techniek.html">Techniek</a>
+  <a href="hoe-het-werkt.html">Hoe het werkt</a>
+  <a href="beveiliging.html">Beveiliging</a>
+  <a href="verificatie.html">Zelf narekenen</a>
+  <a href="partners.html">Partners</a>
   <a href="cases.html">Cases</a>
+  <a href="scenarios.html">Scenario's</a>
+  <a href="juridisch.html">Juridisch</a>
+  <a href="help.html">Uitlegvideo's</a>
   <a href="vragen.html">Vragen</a>
-  <a href="verificatie.html">Verificatie</a>
+  <a href="voor-ai.html">Voor AI-agents</a>
+  <a href="voorwaarden.html">Voorwaarden</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="colofon.html">Colofon</a>
   <span class="sp"></span>
-  <span>Richtprijzen · offerte na intake</span>
   <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <a href="tel:+32466474115">+32 466 47 41 15</a>
 </footer>
 
 <script src="script.js?v=20261002a" defer></script>
-<script defer>
-addEventListener("DOMContentLoaded", () => {
-  const $ = (s) => document.querySelector(s);
-  const eur = (n) => "€ " + (Number.isInteger(n) ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f") : n.toFixed(2).replace(".", ","));
-  const num = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f");
-  // v5 (25/09): zelfde cijfers als vidimus/billing.py — eerste 100 registraties gratis, dan per schijf 0,08 → 0,04 (3 001–10 000) → 0,01 (tot 100 000) → 0,003; meetbron: eerste gratis, dan € 15; minimum 19; geen plafond; boven 1 miljoen offerte
-  const GRATIS = 100, BRON = 15, MIN = 19, OFFERTE = 1000000;
-  const regPrijs = (n) => { if (n <= GRATIS) return 0; let t = 0, prev = GRATIS; for (const [lim, rate] of [[3000, .08], [10000, .04], [100000, .01], [null, .003]]) { const top = lim === null ? n : Math.min(n, lim); if (top > prev) t += (top - prev) * rate; if (lim === null || n <= lim) break; prev = lim; } return Math.round(t * 100) / 100; };
-  const line = (l, v, sub, cls) => `<div${cls ? ` class="${cls}"` : ""}><dt>${l}${sub ? `<small>${sub}</small>` : ""}</dt><dd>${v}</dd></div>`;
-  function chips() { document.querySelectorAll(".cq-chips").forEach((c) => { const v = String(parseInt($("#" + c.dataset.for).value) || 0); c.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.v === v)); }); }
-  function calc() {
-    const n = Math.max(0, parseInt($("#qN").value) || 0), nb = Math.max(0, parseInt($("#qBron").value) || 0);
-    const jaar = document.querySelector("input[name=qTerm]:checked").value === "10", months = jaar ? 10 : 12;
-    chips();
-    const r = regPrijs(n), b = Math.max(0, nb - 1) * BRON, som = Math.round((r + b) * 100) / 100;
-    const mv = som === 0 ? 0 : som < MIN ? MIN : som;   // maandprijs naar verbruik (v5: geen plafond)
-    const m = jaar ? Math.round(mv * 10 / 12 * 100) / 100 : mv;              // jaarcontract: 10 maanden betalen voor 12 → lager maandbedrag
-    $("#oSchijf").textContent = som === 0 ? "binnen de gratis laag — geen factuur" : som < MIN ? `verbruik ${eur(som)} — u betaalt het minimum` : n > OFFERTE ? `verbruik ${eur(som)} — boven een miljoen registraties werken we met een jaarcontract op offerte` : jaar ? "vaste prijs voor een jaar, op basis van deze schatting" : "betalen naar verbruik, geen sprongen";
-    let h = line("Registraties", eur(r), n <= GRATIS ? `${num(n)} — de eerste 100 gratis` : `${num(n)}, waarvan 100 gratis`);
-    h += line("Meetbronnen", eur(b), nb ? `${nb} ${nb === 1 ? "meetbron" : "meetbronnen"}, de eerste gratis, metingen onbeperkt` : "geen");
-    if (som !== 0 && som < MIN) h += line("Minimum", eur(MIN));
-    h += line("Per maand", eur(m), jaar ? `jaarcontract · ${eur(mv)} naar verbruik, 2 maanden gratis verrekend` : "maandelijks, naar verbruik", "cq-sum");
-    $("#oLines").innerHTML = h; $("#oMnd").textContent = eur(m);
-    
-    const body = `Dag Oskar,%0A%0AGraag een offerte voor deze samenstelling:%0A- Registraties per maand: ${n} → ${eur(r)}%0A- Meetbronnen: ${nb} → ${eur(b)}%0A- Contract: ${jaar ? "jaarcontract" : "per maand"}%0A- Richtprijs: ${eur(m)} per maand${jaar ? " (jaarcontract)" : ""}%0A%0AMijn organisatie en telefoonnummer:%0A`;
-    $("#offerteBtn").href = `mailto:oskar@vo-initiatives.com?subject=${encodeURIComponent("Offerte Vidimus — " + n + " registraties, " + nb + " meetbronnen")}&body=${body}`;
-  }
-  document.querySelectorAll("#reken input").forEach((el) => el.addEventListener("input", calc));
-  document.querySelectorAll(".cq-chips button").forEach((b) => b.addEventListener("click", () => { $("#" + b.closest(".cq-chips").dataset.for).value = b.dataset.v; calc(); }));
-  calc();
-});
-</script>
+<script src="prijs.js?v=20261007a"></script>
+<script src="prijzen.js?v=20261007a" defer></script>
 </body>
 </html>
