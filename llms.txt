@@ -11,8 +11,9 @@
 - Uitleg voor agents en mensen: https://vidimus.be/voor-ai
 
 ## Pagina's
-- [Home](https://vidimus.be/): live demo (SHA-256 in de browser), het afleveringsmoment (foto → anker in drie tikken, GPS + nauwkeurigheid verplicht, twee handtekeningen op eigen toestel), specificatie van wat live is
+- [Home](https://vidimus.be/): wat Vidimus doet in acht stukken: het probleem (woord tegen woord) met een vergelijkingstabel, een live demo (vervals een vrachtbrief; SHA-256 in de browser), zo werkt het in drie stappen, een rekensom, de prijs in drie regels, vragen (rechter, stopzetting, privacy) en de oprichter
 - [Hoe het werkt](https://vidimus.be/hoe-het-werkt): zeven stappen van registratie tot bewijs
+- [Techniek](https://vidimus.be/techniek.html): waarom een databank dit niet kan, één registratie van begin tot bewijs, zelf verifiëren met de software van de Europese Commissie (DSS), wat Vidimus wel en niet bewijst, het bewijs ontleed
 - [Scenario's](https://vidimus.be/scenarios): partnerverhalen + advocaat van de duivel (canonicalisatie, origineel in kluis, herexport)
 - [Cases](https://vidimus.be/cases): fictieve scenario's zonder/met verankering — geen klantverhalen
 - [Prijzen](https://vidimus.be/prijzen): meetbron (sensor, logger, weegbrug, GPS) € 15 per maand waarin ze minstens één meting stuurde, eerste gratis, metingen onbeperkt; systemen en telefoons hebben geen bronprijs, wat zij sturen telt per registratie; registraties eerste 100 per maand gratis, dan per schijf € 0,08 / 0,04 / 0,01 / 0,003, boven 1 miljoen offerte; minimum € 19, geen plafond. Gekwalificeerde tijdstempel inbegrepen. Een ketenpartner tekent gratis mee; wil hij een eigen bureau, dan maakt hij zelf een account aan.
