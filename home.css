@@ -15,6 +15,10 @@ body.home2 { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438
 
 /* held */
 .home2 .hero-title { max-width: 11ch; }
+/* 08/10: nieuwe, langere belofte ("De verankeringslaag voor uw registraties.") — kleiner, zodat ze in twee regels naast het beeld past */
+.home2 .hero-title { font-size: clamp(40px, 1rem + 4.6vw, 84px); max-width: 13.5em; letter-spacing: -.03em; }
+.home2 .hero-title .blauw { display: inline; }
+@media (max-width: 720px) { .home2 .hero-title { font-size: clamp(34px, 9.6vw, 46px); } }
 .home2 .hero-under .sub { max-width: 34ch; font-size: clamp(18px, 1rem + .4vw, 21px); line-height: 1.5; color: var(--ink-2); }
 .home2 .hero-micro { font: 400 14px/1.5 var(--ui); letter-spacing: 0; text-transform: none; color: var(--ink-3); }
 .home2 .hero-micro a { color: var(--act); font-weight: 600; text-decoration: none; white-space: nowrap; }
@@ -31,7 +35,12 @@ body.home2 { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438
 .home2 #waarom .statement { margin-top: 0; }
 .home2 .waarom-lead { max-width: 52ch; margin: 18px 0 clamp(28px, 3.6vw, 44px); font-size: clamp(18px, 1rem + .35vw, 21px); line-height: 1.55; color: var(--ink-2); }
 .home2 .vs-tabel .vs-kop span, .home2 .vs-pijn .lbl, .home2 .vs-rij .lbl { font: 600 13px/1.4 var(--ui); letter-spacing: 0; text-transform: none; }
-.home2 .waarom-foto { margin-top: clamp(28px, 4vw, 48px); border-radius: var(--r-l); }
+/* 08/10: de foto staat klein naast de zin die ze vertelt (Oskar: 'veel te groot') — twee vrachtbrieven, 26 tegen 23 */
+.home2 .waarom-duo { display: grid; gap: clamp(18px, 3vw, 44px); align-items: center; margin: 18px 0 clamp(28px, 3.6vw, 44px); }
+.home2 .waarom-duo .waarom-lead { margin: 0; }
+.home2 .waarom-duo .waarom-foto { margin: 0; border-radius: var(--r-l); max-width: 520px; }
+.home2 .waarom-duo .waarom-foto img { aspect-ratio: 3 / 2; }
+@media (min-width: 900px) { .home2 .waarom-duo { grid-template-columns: minmax(0, 1fr) 440px; } }
 
 /* zo werkt het: drie stappen */
 .drie-stappen { list-style: none; margin: 0 0 clamp(40px, 5vw, 64px); padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -91,3 +100,24 @@ body.home2 { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438
 
 /* vergelijkingstabel op de gsm: het woordje "Probleem" in gewone letters, niet in mono-hoofdletters */
 @media (max-width: 1000px) { .home2 .vs-rij > span:first-of-type::before { font: 600 13px/1.4 var(--ui); letter-spacing: 0; text-transform: none; color: var(--ink-2); } }
+
+/* ── 08/10 (Oskar: "grote letters met felle kleuren zijn kitsch") — de demo-controle spreekt rustig:
+   een klein vierkant + het woord in gewone letters, merkblauw voor klopt, ingetogen rood voor klopt niet (geen groen, geen hoofdletters) ── */
+.home2 #demo .st, .home2 #demo .checkrow .st { gap: 7px; font: 500 13.5px/1.2 var(--ui); letter-spacing: 0; text-transform: none; color: var(--ink-2); }
+.home2 #demo .st::before { width: 7px; height: 7px; border-radius: 1.5px; box-shadow: none; }
+.home2 #demo .st.ok { color: #2438D6; } .home2 #demo .st.ok::before { background: #2438D6; }
+.home2 #demo .st.bad { color: #A3200F; } .home2 #demo .st.bad::before { background: #A3200F; }
+.home2 #demo .lade .verdict .kt-verdict, .home2 #demo .lade .verdict .kt-verdict.ok, .home2 #demo .lade .verdict .kt-verdict.bad {
+  gap: 8px; font: 600 17px/1.3 var(--ui); letter-spacing: -.01em; text-transform: none; color: var(--ink); }
+.home2 #demo .lade .verdict .kt-verdict::before { width: 8px; height: 8px; border-radius: 2px; background: #2438D6; box-shadow: none; }
+.home2 #demo .lade .verdict .kt-verdict.bad::before { background: #A3200F; box-shadow: none; }
+.home2 #demo .zes-klap .zes-sum { font: 500 13px/1 var(--ui); letter-spacing: 0; color: #2438D6; }
+.home2 #demo .zes-klap .zes-sum.bad { color: #A3200F; }
+.home2 .state .kt-verdict::before { border-radius: 2px; box-shadow: none; }
+.home2 .state .kt-verdict.ok { color: #2438D6; } .home2 .state .kt-verdict.bad { color: #A3200F; }
+/* het bewijs bij elke controle: de waarde zelf, klein en rustig onder de uitleg */
+.home2 #demo .checkrow .bewijs { display: block; margin-top: 3px; font: 400 11.5px/1.5 var(--mono); color: var(--ink-2); letter-spacing: 0; overflow-wrap: anywhere; }
+.home2 #demo .checkrow .bewijs b { font-weight: 500; color: var(--ink); }
+.home2 #demo .checkrow .bewijs b.anders { color: #A3200F; }
+.home2 #demo .checkrow .bewijs b::before { content: none; }
+.home2 #demo .vd-hash.match { color: #2438D6; }

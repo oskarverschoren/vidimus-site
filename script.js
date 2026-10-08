@@ -154,7 +154,7 @@
   $$(".rv").forEach((el) => io.observe(el));
 
   /* ── de demo: vervals het ─────────────────────────────────────
-     Twee uitkomsten, nooit een oordeel over wie liegt: KLOPT of KLOPT NIET (29/09, was IDENTIEK / ONBEKEND). */
+     Twee uitkomsten, nooit een oordeel over wie liegt: klopt of klopt niet (29/09, was IDENTIEK / ONBEKEND; 08/10 gewone letters). */
   const fields = $$("#tamperFields [data-f]");
   if (fields.length) {
     const ANCHOR_AT = "4 september om 15:13";
@@ -169,7 +169,7 @@
       lockHash(liveEl, live, same ? 7 : 4);
       liveEl.classList.toggle("match", same);
       const v = $("#verdict");
-      v.textContent = same ? "KLOPT" : "KLOPT NIET";
+      v.textContent = same ? "klopt" : "klopt niet";
       v.classList.toggle("ok", same);
       v.classList.toggle("bad", !same);
       const naamVan = (f) => (f.dataset.f || f.previousElementSibling?.textContent || f.closest("div,tr,li")?.querySelector("dt,.k,.lbl")?.textContent || "veld").trim().toLowerCase();
@@ -180,18 +180,22 @@
         : `Deze versie werd nooit zo vastgelegd. Wat op ${ANCHOR_AT} vastligt, getekend door chauffeur én ontvanger: `
           + (anders.length ? anders.map(([f, i]) => `${naamVan(f)} ${original[i].trim()}`).join(" · ") : "een andere inhoud") + ".";
       const st = $("#ladeSt");
-      st.textContent = same ? "KLOPT" : "KLOPT NIET";
+      st.textContent = same ? "klopt" : "klopt niet";
       st.classList.toggle("ok", same);
       st.classList.toggle("bad", !same);
       $$("#checks [data-c]").forEach((row) => {
         const s = row.querySelector(".st");
-        s.textContent = same ? "KLOPT" : "KLOPT NIET";
+        s.textContent = same ? "klopt" : "klopt niet";
         s.classList.toggle("ok", same);
         s.classList.toggle("bad", !same);
         const ok = row.querySelector("[data-ok]"), bad = row.querySelector("[data-bad]");
         if (ok && bad) { ok.hidden = !same; bad.hidden = same; if (!bad.dataset.tpl) bad.dataset.tpl = bad.textContent; bad.textContent = bad.dataset.tpl.replace("{velden}", gewijzigd); }
       });
       fields.forEach((f, i) => f.classList.toggle("changed", f.textContent !== original[i]));
+      // 08/10: het bewijs bij de controle — de twee vingerafdrukken, kort (eerste 8 … laatste 4)
+      const kort = (h) => (h ? `${h.slice(0, 8)}…${h.slice(-4)}` : "…");
+      document.querySelectorAll("[data-h=anker]").forEach((b) => { b.textContent = kort(anchored); });
+      document.querySelectorAll("[data-h=nu]").forEach((b) => { b.textContent = kort(live); b.classList.toggle("anders", !same); });
       if (!same && wasSame && !reduceMotion) {
         const doc = $("#tamperDoc");
         doc.classList.remove("shake"); void doc.offsetWidth; doc.classList.add("shake");
