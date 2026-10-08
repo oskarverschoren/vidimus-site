@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261002a">
+<link rel="stylesheet" href="styles.css?v=20261008b">
 <link rel="stylesheet" href="inner.css?v=20260925">
 
 <link rel="canonical" href="https://vidimus.be/juridisch.html">
@@ -34,6 +34,7 @@
     <a href="juridisch.html" aria-current="page">Juridisch</a>
   </nav>
   <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
     <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
     <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
   </div>
@@ -52,9 +53,13 @@
   </div>
 </section>
 
-<section class="sec" aria-label="Video: de auditor hoeft ons niet te geloven" style="padding-block:0 var(--space)">
+<section class="sec" aria-label="Video's: voor de rechter en voor de auditor" style="padding-block:0 var(--space)">
   <div class="wrap">
-    <div class="vgrid" style="grid-template-columns:minmax(0,760px)">
+    <div class="vgrid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))">
+      <article class="vcard rv">
+        <div class="vslot"><video src="video/vidimus-rechtszaal.mp4" poster="video/vidimus-rechtszaal-poster.jpg" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: wat stond er toen?"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Afspelen — 1:00</span></button></div>
+        <div class="vbody"><span class="lbl">VOOR DE RECHTER · 1:00</span><h3>Wat stond er toen?</h3><p>Acht maanden later tonen twee partijen dezelfde registratie, maar ze verschillen. De rechter rekent zelf na welke versie toen werd vastgelegd, zonder Vidimus te moeten geloven.</p></div>
+      </article>
       <article class="vcard rv">
         <div class="vslot"><video src="video/vidimus-audit.mp4" poster="video/vidimus-audit-poster.jpg" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: de auditor hoeft ons niet te geloven"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Afspelen — 1:00</span></button></div>
         <div class="vbody"><span class="lbl">VOOR DE AUDITOR · 1:00</span><h3>De auditor hoeft ons niet te geloven</h3><p>Bewijs komt uit systemen, Excels, pdf's en mails. Maar wanneer bestond het, en is het sindsdien gewijzigd? De auditor opent de verificatie en rekent het zelf na.</p></div>
@@ -201,6 +206,6 @@
   <span>Geen juridisch advies · bewijsmateriaal</span>
 </footer>
 
-<script src="script.js?v=20261002a" defer></script>
+<script src="script.js?v=20261008b" defer></script>
 </body>
 </html>

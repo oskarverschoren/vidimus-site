@@ -378,6 +378,8 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   const paneel = document.createElement("nav");
   paneel.className = "mob-menu"; paneel.hidden = true; paneel.setAttribute("aria-label", "Menu");
   paneel.innerHTML = nav.innerHTML;
+  const help = kop.querySelector(".top-help");
+  if (help) { const a = help.cloneNode(true); a.className = "mob-help"; paneel.append(a); }   // 08/10: uitlegvideo's ook in het gsm-menu
   const login = kop.querySelector(".top-login");
   if (login) { const a = login.cloneNode(true); a.className = "mob-login"; paneel.append(a); }
   kop.append(knop); kop.after(paneel);

@@ -1113,3 +1113,12 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 .hoe-foto { margin: 0 0 clamp(18px, 2.4vw, 28px); }   /* 06/10: sensormeting boven de drie stappen */
 .calc-foto { margin: 18px 0 0; border-radius: 22px; overflow: hidden; background: #DCE3F0; box-shadow: var(--glass-shadow); }
 .calc-foto img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }   /* 06/10: rechtszaal bij de rekensom */
+
+/* 08/10 (Oskar): de uitlegvideo's altijd bij de hand — rechts in de kop, naast Inloggen; op de gsm in het menu */
+.top-help { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; color: var(--ink-3); font-size: 14px; font-weight: 500; padding: 6px 10px; border-radius: var(--r-btn, 8px); white-space: nowrap; transition: color 140ms, background 140ms; }
+.top-help svg { width: 9px; height: 9px; flex: none; color: var(--act); }
+.top-help:hover, .top-help[aria-current] { color: var(--ink); background: var(--bg-2); }
+.top-help:focus-visible { outline: 2px solid var(--act); outline-offset: 2px; }
+@media (max-width: 720px) { header.site .top-help { display: none; } }
+.mob-menu .mob-help { display: flex !important; align-items: center; gap: 10px; }
+.mob-menu .mob-help svg { width: 10px; height: 10px; color: var(--act); }
