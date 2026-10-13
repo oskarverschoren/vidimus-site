@@ -65,7 +65,7 @@
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">04</span>
       <h3>Handtekening en tijd<small>ED25519 · ELKE 5 MINUTEN EEN MERKLE-BOOM · GEKWALIFICEERDE TIJDSTEMPEL — NIET ONZE KLOK</small></h3>
-      <p>De indiener tekent de vingerafdruk met zijn sleutel (ontworpen naar de vereisten van een geavanceerde elektronische handtekening). Elke vijf minuten gaan alle nieuwe vingerafdrukken in één Merkle-boom met een extern tijdstempel; binnen zes uur krijgen die wortels samen een gekwalificeerde tijdstempel (eIDAS). <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een gekwalificeerde vertrouwensdienst.</em></p>
+      <p>De indiener tekent de vingerafdruk met zijn sleutel (ontworpen naar de vereisten van een geavanceerde elektronische handtekening). Elke vijf minuten gaan alle nieuwe vingerafdrukken in één Merkle-boom met een extern tijdstempel; doorgaans binnen zes uur krijgen die wortels samen een gekwalificeerde tijdstempel (eIDAS). <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een gekwalificeerde vertrouwensdienst.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">05</span>
       <h3>Verankeren<small>GROOTBOEK (HASH-KETEN) → OPENTIMESTAMPS → BITCOIN</small></h3>
@@ -167,7 +167,7 @@
     </div>
     <div class="faq rv">
       <details><summary>Moeten onze documenten naar jullie cloud?</summary><p class="a"><b>Alleen als u dat wilt.</b> Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Stuurt u alleen de hash, dan blijft het document waar het staat. Stuurt u het origineel mee, dan ligt het versleuteld in de kluis (eigen sleutel per document, sleutel per organisatie, in de EU) en kunt u het later laten wissen. Ketenpartners en softwarepartners lezen het nooit; leest onze server het voor een dossier of bundel, dan staat dat in uw logboek.</p></details>
-      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen wallet, geen consortium.</b> Wij gebruiken Bitcoin alleen als publieke, onwisbare klok: de Merkle-wortel van elke batch gaat via OpenTimestamps in een Bitcoin-blok, en het bewijs (.ots) is tegen Bitcoin zelf na te rekenen. Daarnaast komt dezelfde wortel binnen zes uur onder een gekwalificeerde tijdstempel van een erkende vertrouwensdienst. Twee getuigen, geen token.</p></details>
+      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen wallet, geen consortium.</b> Wij gebruiken Bitcoin alleen als publieke, onwisbare klok: de Merkle-wortel van elke batch gaat via OpenTimestamps in een Bitcoin-blok, en het bewijs (.ots) is tegen Bitcoin zelf na te rekenen. Daarnaast komt dezelfde wortel doorgaans binnen zes uur onder een gekwalificeerde tijdstempel van een erkende vertrouwensdienst. Twee getuigen, geen token.</p></details>
       <details><summary>En persoonsgegevens dan (AVG)?</summary><p class="a">Op de keten staan <b>geen persoonsgegevens</b> — alleen hashes, en voor persoonsgebonden registraties hashes met een geheim zout per registratie, die zonder dat zout naar niets te herleiden zijn. Het zout staat niet op de keten en nooit op een publieke pagina; het zit alleen in de bewijsbundel van die ene registratie. Het recht op gegevenswissing blijft uitvoerbaar: het dossier is off-chain versleuteld en wordt gewist door de sleutel te vernietigen.</p></details>
       <details><summary>Wat als we stoppen — of als Vidimus verdwijnt?</summary><p class="a">De bewijsbundels zijn <b>al van u</b>: exporteerbaar en zelfstandig verifieerbaar met standaardcryptografie (SHA-256, RFC 3161, Merkle-bewijs). Ze hangen niet aan ons platform en blijven ook na een stopzetting geldig.</p></details>
       <details><summary>Hoe zwaar is de koppeling voor ons team?</summary><p class="a"><b>Eén REST-endpoint of webhook per datastroom.</b> In een pilot koppelen we bewust één stroom; de intake duurt een half uur en daarna merkt uw team er alleen het tekenmoment van.</p></details>
@@ -183,7 +183,7 @@
   <div class="wrap">
     <h2 class="disp">Zo starten we: <span>uw stroom vandaag, de eerste 100 registraties gratis.</span></h2>
     <div class="final-under">
-      <p>Uw eerste stroom staat in drie minuten, zonder betaalgegevens. Daarna betaalt u per registratie of per meetbron, met een minimum van € 19 per maand. Liever niet alleen beginnen? De begeleide start van 30 dagen kost € 1 900 en wordt verrekend met de eerste drie maanden.</p>
+      <p>Uw eerste stroom staat in drie minuten, zonder betaalgegevens. De eerste 100 registraties per maand en de eerste meetbron zijn gratis. Daarna betaalt u per registratie of per meetbron, met een minimum van € 19 per maand.</p>
       <div class="hero-actions">
         <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Maak een stroom aan</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
