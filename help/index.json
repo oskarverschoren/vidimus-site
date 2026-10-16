@@ -5,7 +5,7 @@
   "sub": "Wat u ziet als u aanmeldt.",
   "seconds": 35,
   "script": [
-   "Dit is het Start-scherm. Zolang u nog niet begonnen bent, ziet u drie stappen: uw account en sleutel, uw eerste stroom, uw eerste registratie.",
+   "Dit is het Start-scherm. Zolang u nog niet begonnen bent, ziet u vier stappen: uw account, uw bedrijf identificeren met de eID, uw eerste stroom, uw eerste registratie.",
    "Daarna wordt Start uw overzicht: hoeveel registraties deze maand, wat nog wacht op een anker of handtekening, welke deellinks nog geen antwoord kregen, betwistingen en alarmen.",
    "Rechts staat de meter van uw aansluiting en snelknoppen. Onderaan rechts kunt u altijd iets vragen aan de assistent."
   ]
@@ -17,7 +17,7 @@
   "seconds": 35,
   "script": [
    "Een stroom is één soort registratie die u laat verankeren: uw meerwerkbonnen, uw afgiftestaten, de temperatuur van koelcel twee.",
-   "Nieuwe stroom starten opent een doorloop in zes stappen: wat, naam, wie legt vast, partners, tijdstempel, samenvatting. Wij zetten bewaartermijn en privacy goed.",
+   "Nieuwe stroom starten begint met Vooraf: uw bedrijf, zolang een bestuurder het mandaat met de eID nog niet tekende. Daarna enkele vragen: wie legt vast, wat, koppelen, foto, tekenen, en een overzicht met de prijs. Wij zetten bewaartermijn en privacy goed.",
    "Klik op een stroom om haar registraties, alarmregels en de koppeling voor uw systeem te zien. Onderaan staan de sleutels: wie tekent."
   ]
  },
