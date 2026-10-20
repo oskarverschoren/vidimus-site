@@ -104,7 +104,7 @@ body.home2 { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438
 @media (max-width: 1000px) { .home2 .vs-rij > span:first-of-type::before { font: 600 13px/1.4 var(--ui); letter-spacing: 0; text-transform: none; color: var(--ink-2); } }
 
 /* ── 08/10 (Oskar: "grote letters met felle kleuren zijn kitsch") — de demo-controle spreekt rustig:
-   een klein vierkant + het woord in gewone letters, merkblauw voor klopt, ingetogen rood voor klopt niet (geen groen, geen hoofdletters) ── */
+   een klein vierkant + het woord in gewone letters, merkblauw voor ongewijzigd / stemt overeen, ingetogen rood voor gewijzigd / wijkt af (geen groen, geen hoofdletters) ── */
 .home2 #demo .st, .home2 #demo .checkrow .st { gap: 7px; font: 500 13.5px/1.2 var(--ui); letter-spacing: 0; text-transform: none; color: var(--ink-2); }
 .home2 #demo .st::before { width: 7px; height: 7px; border-radius: 1.5px; box-shadow: none; }
 .home2 #demo .st.ok { color: #2438D6; } .home2 #demo .st.ok::before { background: #2438D6; }

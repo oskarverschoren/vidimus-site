@@ -40,7 +40,7 @@
   "script": [
    "Elke registratie heeft haar eigen bewijs. Bovenaan de tijdlijn: geregistreerd, getekend, verankerd, gedeeld, bevestigd.",
    "Links wat werd vastgelegd; rechts het volledige dossier, de bewijsbundel en de publieke verificatiepagina die alleen feiten toont.",
-   "Test het zelf: verander een waarde en klik Controleer. U ziet meteen dat de vingerafdruk niet meer klopt en welk veld verschilt. Zo ziet een tegenpartij of rechter het later ook.",
+   "Test het zelf: verander een waarde en klik Controleer. U ziet meteen dat de vingerafdruk afwijkt en welk veld verschilt. Zo ziet een tegenpartij of rechter het later ook.",
    "Onderaan: de controles, de deellink of QR om een tegenpartij te laten bevestigen, en het wissen van de inhoud na de bewaartermijn."
   ]
  },

@@ -119,7 +119,7 @@ if (docCard && verifyCard) {
       setTimeout(() => li.classList.add('is-done'), STEP_DELAY * (i + 1))
     })
     setTimeout(() => {
-      setPill('status-valid', 'Geldig')
+      setPill('status-valid', 'ongewijzigd')
       verdictEl.textContent =
         'Hashes komen overeen. Dit document is sinds de verankering met geen byte gewijzigd.'
     }, STEP_DELAY * (steps.length + 1))
@@ -140,12 +140,12 @@ if (docCard && verifyCard) {
     })
 
     if (tampered) {
-      setPill('status-broken', 'Ongeldig')
+      setPill('status-broken', 'gewijzigd')
       verdictEl.textContent =
         'Wijziging gedetecteerd — de huidige hash komt niet overeen met de verankerde hash. ' +
         'Dit document is niet meer het document dat getekend werd.'
     } else {
-      setPill('status-valid', 'Geldig')
+      setPill('status-valid', 'ongewijzigd')
       verdictEl.textContent =
         'Hashes komen overeen. Dit document is sinds de verankering met geen byte gewijzigd.'
     }

@@ -154,7 +154,7 @@
   $$(".rv").forEach((el) => io.observe(el));
 
   /* ── de demo: vervals het ─────────────────────────────────────
-     Twee uitkomsten, nooit een oordeel over wie liegt: klopt of klopt niet (29/09, was IDENTIEK / ONBEKEND; 08/10 gewone letters). */
+     Twee uitkomsten, nooit een oordeel over wie liegt: ongewijzigd of gewijzigd, per controle stemt overeen of wijkt af (29/09, was IDENTIEK / ONBEKEND; 08/10 gewone letters; 20/10 woordenlijst B1, nooit "klopt"). */
   const fields = $$("#tamperFields [data-f]");
   if (fields.length) {
     const ANCHOR_AT = "4 september om 15:13";
@@ -169,7 +169,7 @@
       lockHash(liveEl, live, same ? 7 : 4);
       liveEl.classList.toggle("match", same);
       const v = $("#verdict");
-      v.textContent = same ? "klopt" : "klopt niet";
+      v.textContent = same ? "ongewijzigd" : "gewijzigd";
       v.classList.toggle("ok", same);
       v.classList.toggle("bad", !same);
       const naamVan = (f) => (f.dataset.f || f.previousElementSibling?.textContent || f.closest("div,tr,li")?.querySelector("dt,.k,.lbl")?.textContent || "veld").trim().toLowerCase();
@@ -180,12 +180,12 @@
         : `Deze versie werd nooit zo vastgelegd. Wat op ${ANCHOR_AT} vastligt, getekend door chauffeur én ontvanger: `
           + (anders.length ? anders.map(([f, i]) => `${naamVan(f)} ${original[i].trim()}`).join(" · ") : "een andere inhoud") + ".";
       const st = $("#ladeSt");
-      st.textContent = same ? "klopt" : "klopt niet";
+      st.textContent = same ? "ongewijzigd" : "gewijzigd";
       st.classList.toggle("ok", same);
       st.classList.toggle("bad", !same);
       $$("#checks [data-c]").forEach((row) => {
         const s = row.querySelector(".st");
-        s.textContent = same ? "klopt" : "klopt niet";
+        s.textContent = same ? "stemt overeen" : "wijkt af";
         s.classList.toggle("ok", same);
         s.classList.toggle("bad", !same);
         const ok = row.querySelector("[data-ok]"), bad = row.querySelector("[data-bad]");
@@ -269,10 +269,10 @@
   setTimeout(() => els.forEach(toon), 6000);   // vangnet: na zes seconden staat alles hoe dan ook
 })();
 
-/* samenvatting op de ingeklapte controles: 6 × klopt / n × klopt niet, volgt de demo */
+/* samenvatting op de ingeklapte controles: "6 van 6 controles stemmen overeen" / "0 van 6 controles stemmen overeen · 6 wijken af" (telling zoals verify.py), volgt de demo */
 (function () {
   const sum = document.getElementById("zesSum"); if (!sum) return;
-  const upd = () => { const bad = document.querySelectorAll("#checks .st.bad").length; sum.textContent = bad ? `${bad} × klopt niet` : "6 × klopt"; sum.classList.toggle("bad", bad > 0); };
+  const upd = () => { const n = document.querySelectorAll("#checks .st").length, bad = document.querySelectorAll("#checks .st.bad").length; sum.textContent = `${n - bad} van ${n} controles stemmen overeen` + (bad ? ` · ${bad} ${bad === 1 ? "wijkt" : "wijken"} af` : ""); sum.classList.toggle("bad", bad > 0); };
   new MutationObserver(upd).observe(document.getElementById("checks"), { subtree: true, childList: true, characterData: true, attributes: true }); upd();
 })();
 
