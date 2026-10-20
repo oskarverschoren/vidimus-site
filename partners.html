@@ -116,7 +116,7 @@
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">03</span>
       <h3>Klaar<small>VERIFICATIEPAGINA · BEWIJSBUNDEL · DOSSIER</small></h3>
-      <p>Elke registratie krijgt een publieke controlepagina en een bewijsbundel die iedereen zonder Vidimus kan narekenen. U toont de link in uw eigen scherm. <b>"Integriteit vastgesteld"</b> — dat is wat uw klant en zijn tegenpartij zien.</p>
+      <p>Elke registratie krijgt een publieke controlepagina en een bewijsbundel die iedereen zonder Vidimus kan narekenen. U toont de link in uw eigen scherm. <b>"Ongewijzigd"</b> — dat is wat uw klant en zijn tegenpartij zien.</p>
     </div>
     <div class="codecard rv" style="margin-top:1rem"><span class="k">POST</span>/partner/eindklanten<br><span class="k">body</span>{"naam":"Transport Peeters BV","extern_id":"klant-001","kbo":"BE0123456789","stroom":{"name":"CMR"},"systeem":"tms-koppeling"}<br><span class="k">antwoord</span>org_id · api_key · systeemsleutel.id · stroom: null (wacht op het mandaat)<br><span class="k">tekenlink</span>POST /partner/eindklanten/{org_id}/mandaat/tekenlink {"email":"bestuurder@klant.be"}<br><span class="k">na het tekenen</span>dezelfde POST /partner/eindklanten → stroom.id<br><span class="k">daarna</span>POST /registrations met die api_key → <span class="gr">hash · handtekening · tijdstempel · anker · verificatielink</span></div>
     <p class="law-note">Volledige beschrijving met voorbeelden per systeemtype in de <a href="https://app.vidimus.be/ontwikkelaars" style="color:var(--ink)">ontwikkelaarsdocumentatie</a>. Sandbox en sleutel krijgt u meteen na het aanvaarden van de overeenkomst.</p>
@@ -233,7 +233,7 @@
       <div class="flow-step hit"><span class="when">Dag 0</span><h4>Gesprek van 30 minuten</h4><p>Wat u verkoopt, aan wie, welke laag past. Daarna krijgt u uw persoonlijke link.</p></div>
       <div class="flow-step hit"><span class="when">5 minuten</span><h4>Laag kiezen en overeenkomst aanvaarden</h4><p>Digitaal, in de app. De aanvaarding wordt verankerd met de hash van de tekst: beide partijen kunnen ze later narekenen.</p><span class="meta">overeenkomst versie 2026-09 · <b>verankerd als akkoord</b></span></div>
       <div class="flow-step hit"><span class="when">meteen</span><h4>Sleutel en sandbox</h4><p>Uw partnersleutel, een sandbox-eindklant met teststroom en het eerste curl-commando. Geen betaalgegevens.</p></div>
-      <div class="flow-step hit"><span class="when">10 minuten, in de sandbox</span><h4>Eerste testregistratie</h4><p>Eén POST. Enkele minuten later opent u de controlepagina en ziet u "Integriteit vastgesteld" — wat uw klanten straks zien. De sandbox heeft geen mandaat nodig; een echte klant wel.</p></div>
+      <div class="flow-step hit"><span class="when">10 minuten, in de sandbox</span><h4>Eerste testregistratie</h4><p>Eén POST. Enkele minuten later opent u de controlepagina en ziet u "ongewijzigd" — wat uw klanten straks zien. De sandbox heeft geen mandaat nodig; een echte klant wel.</p></div>
       <div class="flow-step"><span class="when">uw tempo</span><h4>Koppeling en go-live-checklist</h4><p>Documentatie per systeemtype. Het portaal toont wat nog open staat: overeenkomst, sandbox, verankerde test, eerste echte klant.</p></div>
       <div class="flow-step"><span class="when">daarna</span><h4>Uw klanten, uw marge, uw uitlegpakket</h4><p>Eindklanten met verbruik en los tarief, uw inkoop of aandeel per maand, het prijsblad, en de vragen die u wel en niet mag beantwoorden.</p></div>
     </div>
