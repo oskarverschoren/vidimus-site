@@ -1,13 +1,4 @@
 <!doctype html>
-<!--
-  NIET LIVE (21-10-2026). Klaar voor golf 8; staat op branch 'productpaspoort', niet op main.
-  Vóór live nakijken:
-  1. Antwoord advocaat vraag 2: volstaat een verankerd testverslag met QR voor bijlage XIV? (sectie 04, law-note)
-  2. De overdracht (beide partijen tekenen) en de QR-pagina per object zijn gebouwd en live (golf 8, levenslijn fase 0–2).
-  3. FAQ "label gekopieerd": klopt met hoe golf 8 de houder bepaalt.
-  4. Beelden zijn gegenereerd (Higgsfield, 21-10, bron in strategie/studie-paspoort/beelden/); de werkbank in sectie 02 vervangen door de echte foto van pilot 0.
-  5. robots noindex weghalen, link op de homepage (één kaart, niet in de hero) en in de footer zetten.
--->
 <html lang="nl" class="js">
 <head>
 <meta charset="utf-8">
@@ -103,7 +94,6 @@
         <div class="flow-step hit"><span class="when">02 · bij overdracht</span><h4>Overdragen</h4><p>Wie overdraagt en wie ontvangt, tekenen samen de staat, elk op de eigen telefoon. De ontvanger heeft geen abonnement nodig. Tekent hij zonder eID-mandaat van zijn bedrijf, dan staat er <b>mandaat niet geverifieerd</b> bij.</p><span class="meta">overdrachtsbewijs</span></div>
         <div class="flow-step hit"><span class="when">03 · op elk moment</span><h4>Controleren</h4><p>Iedereen scant de QR en ziet de lijn van overdrachten: wie, wanneer en in welke staat. Zonder account. Met de bewijsbundel zelfs volledig zonder Vidimus.</p><span class="meta"><b>ongewijzigd</b> · 6 van 6 controles stemmen overeen</span></div>
       </div>
-      <!-- FOTO PILOT 0: vervangt dit beeld zodra er een echte foto is -->
       <div class="pp-zij">
       <figure class="pp-foto"><img src="assets/foto/paspoort-werkbank-560.webp" srcset="assets/foto/paspoort-werkbank-560.webp 560w, assets/foto/paspoort-werkbank-900.webp 900w" sizes="(min-width: 760px) 45vw, 100vw" width="560" height="700" alt="Een gebruikte EV-batterijmodule in een open transportkist met een QR-label; ernaast een telefoon met een blauw vinkje" loading="lazy" decoding="async"></figure>
       <div class="codecard" role="group" aria-label="Voorbeeld van een overdrachtsbewijs"><span class="k">object</span>EV-module · batterij-ID BM-2291-0417<br><span class="k">testverslag</span>gezondheid 84 % · tester, type test, datum<br><span class="k">staat</span>8 foto's (sha-256) · <span class="gr">geen schade</span><br><span class="k">overdracht 1</span>Demontage NV → Herbruik BV<br><span class="k">getekend</span>beide partijen · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + bitcoin-anker</span></div>
@@ -141,7 +131,6 @@
       <div class="law-block"><span class="art">Vo. 2023/1542, art. 77</span><p>EV-batterijen, batterijen van lichte voertuigen (e-bikes, steps) en industriële batterijen boven 2 kWh die vanaf 18-02-2027 op de markt komen, krijgen een batterijpaspoort. Dat maakt de fabrikant, meestal met een paspoortplatform.</p></div>
       <div class="law-block"><span class="art">Vo. 2024/1781 (ESPR)</span><p>Andere productgroepen volgen, ten vroegste rond 2028–2029. Tot dan draait het om eigen nut: minder discussie bij overdracht, en een staat die een koper of verzekeraar kan nakijken.</p></div>
     </div>
-    <!-- TODO vóór live: zin over bijlage XIV aanpassen aan het antwoord van de advocaat (vraag 2) -->
     <p class="law-note">Algemene informatie, geen juridisch advies. Vidimus vervangt geen paspoortplatform en maakt u niet in orde met de wet. Het verslag zelf maakt de tester; Vidimus maakt het narekenbaar. Of een verankerd verslag met QR volstaat voor bijlage XIV, laat u best nakijken.</p>
   </div>
 </section>
@@ -184,7 +173,6 @@
       <details><summary>Is een overdrachtsbewijs een eigendomsbewijs?</summary><p class="a"><b>Nee.</b> Het toont wie het object op welk moment overdroeg en aanvaardde, en in welke staat. Wie eigenaar is, regelt uw contract.</p></details>
       <details><summary>Vervangt dit ons paspoortplatform?</summary><p class="a"><b>Nee.</b> Uw platform blijft het paspoort. Vidimus legt eronder vast wat er bij elke overdracht gebeurde, via de API of met de app ernaast.</p></details>
       <details><summary>Moet de ontvanger iets betalen of installeren?</summary><p class="a"><b>Nee.</b> Ontvangen en controleren zijn gratis. Tekenen kan op elke telefoon.</p></details>
-      <!-- TODO vóór live: nakijken tegen de bouw van golf 8 (wie mag een overdracht tekenen) -->
       <details><summary>Wat als iemand het label kopieert?</summary><p class="a">Een kopie toont dezelfde lijn van overdrachten. Een nieuwe overdracht tekenen kan alleen de partij die het object volgens die lijn nu heeft.</p></details>
     </div>
     <div class="related rv">
