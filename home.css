@@ -123,3 +123,6 @@ body.home2 { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438
 .home2 #demo .checkrow .bewijs b.anders { color: #A3200F; }
 .home2 #demo .checkrow .bewijs b::before { content: none; }
 .home2 #demo .vd-hash.match { color: #2438D6; }
+
+/* 21-10-2026: vinkje in de pictogrammen blauw (huisaccent), niet groen */
+.home2 .pict .seal { fill: #2438D6; }
