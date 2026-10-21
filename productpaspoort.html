@@ -5,7 +5,7 @@
   1. Antwoord advocaat vraag 2: volstaat een verankerd testverslag met QR voor bijlage XIV? (sectie 04, law-note)
   2. De overdracht (beide partijen tekenen) en de QR-pagina per object zijn gebouwd en live (golf 8, levenslijn fase 0–2).
   3. FAQ "label gekopieerd": klopt met hoe golf 8 de houder bepaalt.
-  4. Foto van pilot 0 (batterij met label + QR, gescand met een telefoon) in de figuur van sectie 02; geen stockfoto.
+  4. Beelden zijn gegenereerd (Higgsfield, 21-10, bron in strategie/studie-paspoort/beelden/); de werkbank in sectie 02 vervangen door de echte foto van pilot 0.
   5. robots noindex weghalen, link op de homepage (één kaart, niet in de hero) en in de footer zetten.
 -->
 <html lang="nl" class="js">
@@ -30,6 +30,11 @@
   .pp-tabel td.licht { color: var(--dim); font-weight: 400; }
   .pp-twee { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 3rem); align-items: start; }
   .pp-twee .flow { margin-top: 0; }
+  .pp-foto { margin: 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); background: var(--void-2); }
+  .pp-foto img { display: block; width: 100%; height: auto; }
+  .pp-hero-foto { margin-top: clamp(2rem, 4vw, 3rem); aspect-ratio: 16 / 9; }
+  .pp-hero-foto img { height: 100%; object-fit: cover; }
+  .pp-zij { display: grid; gap: 16px; align-content: start; }
   @media (max-width: 760px) { .pp-twee { grid-template-columns: 1fr; } }
 </style>
 
@@ -68,6 +73,7 @@
     <h1 class="disp">Het paspoort zegt wat het is. <span class="thin">Vidimus bewijst in welke staat het van hand wisselde</span><span style="color:var(--red)">.</span></h1>
     <p class="intro">Een batterij, een machine, een container: elk object met een serienummer wisselt vaak van eigenaar of gebruiker. Vidimus legt bij elke overdracht vast in welke staat het vertrok, <b>getekend door beide partijen</b> en voor iedereen te controleren via de QR op het object.</p>
     <div class="recog"><p>Gebruikte EV-module, verzonden naar een herbruiker. Testverslag bij vertrek: gezondheid 84 %. Bij aankomst: <span>"Wij meten 71 %. Uw verslag is na verzending aangepast."</span> Het verschil is € 2 600 waard. Uw bewijs: een pdf die u zelf kunt maken en aanpassen.</p></div>
+    <figure class="pp-foto pp-hero-foto"><img src="assets/foto/paspoort-overdracht-1600.webp" srcset="assets/foto/paspoort-overdracht-900.webp 900w, assets/foto/paspoort-overdracht-1600.webp 1600w" sizes="(min-width: 1300px) 1200px, 100vw" width="1600" height="905" alt="Aan een laaddok scant een medewerker de QR op een transportkist met een batterij; de ontvanger staat klaar met zijn telefoon" loading="eager" fetchpriority="high" decoding="async"></figure>
   </div>
 </section>
 
@@ -97,8 +103,11 @@
         <div class="flow-step hit"><span class="when">02 · bij overdracht</span><h4>Overdragen</h4><p>Wie overdraagt en wie ontvangt, tekenen samen de staat, elk op de eigen telefoon. De ontvanger heeft geen abonnement nodig. Tekent hij zonder eID-mandaat van zijn bedrijf, dan staat er <b>mandaat niet geverifieerd</b> bij.</p><span class="meta">overdrachtsbewijs</span></div>
         <div class="flow-step hit"><span class="when">03 · op elk moment</span><h4>Controleren</h4><p>Iedereen scant de QR en ziet de lijn van overdrachten: wie, wanneer en in welke staat. Zonder account. Met de bewijsbundel zelfs volledig zonder Vidimus.</p><span class="meta"><b>ongewijzigd</b> · 6 van 6 controles stemmen overeen</span></div>
       </div>
-      <!-- FOTO PILOT 0: batterij met label en QR, gescand met een telefoon (vervangt of staat boven deze kaart) -->
+      <!-- FOTO PILOT 0: vervangt dit beeld zodra er een echte foto is -->
+      <div class="pp-zij">
+      <figure class="pp-foto"><img src="assets/foto/paspoort-werkbank-560.webp" srcset="assets/foto/paspoort-werkbank-560.webp 560w, assets/foto/paspoort-werkbank-900.webp 900w" sizes="(min-width: 760px) 45vw, 100vw" width="560" height="700" alt="Een gebruikte EV-batterijmodule in een open transportkist met een QR-label; ernaast een telefoon met een blauw vinkje" loading="lazy" decoding="async"></figure>
       <div class="codecard" role="group" aria-label="Voorbeeld van een overdrachtsbewijs"><span class="k">object</span>EV-module · batterij-ID BM-2291-0417<br><span class="k">testverslag</span>gezondheid 84 % · tester, type test, datum<br><span class="k">staat</span>8 foto's (sha-256) · <span class="gr">geen schade</span><br><span class="k">overdracht 1</span>Demontage NV → Herbruik BV<br><span class="k">getekend</span>beide partijen · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + bitcoin-anker</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -109,12 +118,15 @@
       <span class="idx">03 / VOOR WELK OBJECT</span>
       <h2 class="disp">Voor elk object met een serienummer<span style="color:var(--red)">.</span></h2>
     </div>
-    <ul class="todo rv">
+    <div class="pp-twee rv">
+    <ul class="todo" style="margin-top:0">
       <li><span><b>Gebruikte batterijen.</b> Testen, tweede leven, revisie en recyclage: het testverslag per batterij, en de overdracht naar de volgende partij.</span></li>
       <li><span><b>Machines en toestellen.</b> Onderhoud, keuring en verkoop van tweedehands toestellen.</span></li>
       <li><span><b>Verhuurmaterieel, opleggers en containers.</b> De staat bij afgifte en bij teruggave, telkens opnieuw.</span></li>
       <li><span><b>Werkt u met een paspoortplatform?</b> Vidimus komt eronder, via de API. Uw platform blijft het paspoort, Vidimus legt de overdrachten vast.</span></li>
     </ul>
+    <figure class="pp-foto"><img src="assets/foto/paspoort-qrscan-760.webp" srcset="assets/foto/paspoort-qrscan-760.webp 760w, assets/foto/paspoort-qrscan-1200.webp 1200w" sizes="(min-width: 760px) 45vw, 100vw" width="760" height="505" alt="Een hand houdt een telefoon met een blauw vinkje naast het QR-label op een grijze kist" loading="lazy" decoding="async"></figure>
+    </div>
   </div>
 </section>
 
