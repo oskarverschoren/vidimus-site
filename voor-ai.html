@@ -94,7 +94,7 @@
 <section style="padding-block: clamp(2rem, 4vw, 5rem)">
   <div class="wrap">
     <div class="sec-head"><span class="lbl">03 · ZONDER VIDIMUS TE VERTROUWEN</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, Python 3 met het pakket cryptography) en de tijdstempeltokens (RFC 3161), waaronder de gekwalificeerde tijdstempel van een erkende vertrouwensdienst. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, Python 3 met het pakket cryptography) en de tijdstempeltokens (RFC 3161), waaronder de gekwalificeerde tijdstempel van een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
 <pre class="ai-pre">python3 verify_bundle.py bundel.zip     →  GELDIG · 7 van 8 nagerekend (het Bitcoin-blok vergelijkt u online)
 openssl ts -reply -token_in -in tijdstempel.tsr -text   →  tijdstip + Merkle-wortel van de tijdstempeldienst
 https://eidas.ec.europa.eu/efda/tl-browser/             →  uitgever van gekwalificeerd.tsr staat als gekwalificeerd op de EU-vertrouwenslijst</pre>
