@@ -126,3 +126,28 @@ body.home2 { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438
 
 /* 21-10-2026: vinkje in de pictogrammen blauw (huisaccent), niet groen */
 .home2 .pict .seal { fill: #2438D6; }
+
+/* 22-10-2026 · proef: elementen uit de stijl van de paspoortpagina */
+.home2 .herken { position: relative; max-width: 60ch; padding: clamp(22px, 3vw, 34px); border: 1px solid var(--line); border-radius: var(--r-l, 20px); background: var(--card, #fff); }
+.home2 .herken-lbl { position: absolute; top: -9px; left: 20px; padding: 0 8px; background: var(--bg, #F2F3F6); font: 500 12px/1.4 var(--ui); color: #2438D6; }
+.home2 .herken p { margin: 0; font-size: clamp(19px, 1rem + .6vw, 25px); line-height: 1.35; font-style: italic; letter-spacing: -.01em; color: var(--ink); }
+.home2 .herken p span { color: #2438D6; }
+.home2 .hoe-breed { margin: 0 0 clamp(28px, 4vw, 48px); border-radius: var(--r-l, 20px); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 1600 / 686; background: var(--card, #fff); }
+.home2 .hoe-breed img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.home2 .hoe-twee { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; margin-bottom: clamp(40px, 5vw, 64px); }
+.home2 .tijdlijn { list-style: none; margin: 0; padding: 0 0 0 clamp(22px, 2.6vw, 34px); border-left: 1px solid var(--line); display: grid; gap: clamp(26px, 3vw, 38px); }
+.home2 .tijdlijn li { position: relative; display: grid; gap: 6px; }
+.home2 .tijdlijn li::before { content: ""; position: absolute; left: calc(-1 * clamp(22px, 2.6vw, 34px) - 6px); top: 4px; width: 11px; height: 11px; border-radius: 50%; background: #2438D6; box-shadow: 0 0 0 3px var(--bg, #F2F3F6); }
+.home2 .tijdlijn .wanneer { font: 500 13px/1.3 var(--ui); color: #2438D6; }
+.home2 .tijdlijn b { font-size: 21px; font-weight: 600; letter-spacing: -.02em; }
+.home2 .tijdlijn p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--ink-2); max-width: 52ch; }
+.home2 .tijdlijn .pil { justify-self: start; margin-top: 4px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--card, #fff); font: 400 12.5px/1.5 var(--mono); color: var(--ink-2); max-width: 100%; overflow-wrap: anywhere; }
+.home2 .tijdlijn .pil em, .home2 .bewijskaart em { font-style: normal; color: #2438D6; }
+.home2 .hoe-zij { display: grid; gap: 16px; }
+.home2 .hoe-foto2 { margin: 0; border-radius: var(--r-l, 20px); overflow: hidden; border: 1px solid var(--line); }
+.home2 .hoe-foto2 img { display: block; width: 100%; height: auto; }
+.home2 .bewijskaart { padding: 20px 22px; border-radius: 14px; border: 1px solid var(--line); background: var(--card, #fff); box-shadow: 0 18px 40px -24px rgba(11, 15, 23, .35); font: 500 13px/1.9 var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+.home2 .bewijskaart .k { display: inline-block; min-width: 8.5rem; color: var(--ink-3); font-weight: 400; }
+.home2 .slot-groot { font-size: clamp(36px, 1.2rem + 4vw, 72px); font-weight: 500; letter-spacing: -.04em; line-height: 1.02; text-wrap: balance; }
+.home2 .slot-groot span { color: #2438D6; }
+@media (max-width: 760px) { .home2 .hoe-twee { grid-template-columns: minmax(0, 1fr); } .home2 .bewijskaart { line-height: 1.5; } .home2 .bewijskaart .k { display: block; min-width: 0; margin-top: 8px; font-size: 11.5px; } }
