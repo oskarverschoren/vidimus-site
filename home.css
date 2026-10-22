@@ -166,3 +166,13 @@ body.home2 { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438
 .home2 .anders-links svg { width: 14px; height: 14px; }
 @media (max-width: 1000px) { .home2 .anders-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .home2 .anders-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* 22-10-2026 · officiële winkelknoppen (Apple en Google), ongewijzigd gebruikt */
+.home2 .kies-apps { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 14px 0 0; font-size: 15px; color: var(--ink-2); }
+.home2 .winkels { display: inline-flex; align-items: center; gap: 10px; }
+.home2 .winkels a { display: inline-flex; border-radius: 8px; }
+.home2 .winkels a:focus-visible { outline: 2px solid #2438D6; outline-offset: 3px; }
+.home2 .winkels img[src$=".svg"] { height: 40px; width: auto; }
+.home2 .winkels img[src$=".png"] { height: 52px; width: auto; margin: -6px -8px; }   /* de Google-knop heeft zelf witruimte rondom */
+.home2 .winkels.voet img[src$=".svg"] { height: 32px; }
+.home2 .winkels.voet img[src$=".png"] { height: 42px; margin: -5px -6px; }
