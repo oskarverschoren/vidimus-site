@@ -152,21 +152,6 @@ body.home2 { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438
 .home2 .slot-groot span { color: #2438D6; }
 @media (max-width: 760px) { .home2 .hoe-twee { grid-template-columns: minmax(0, 1fr); } .home2 .bewijskaart { line-height: 1.5; } .home2 .bewijskaart .k { display: block; min-width: 0; margin-top: 8px; font-size: 11.5px; } }
 
-/* 22-10-2026 · Wat Vidimus anders maakt: kort, met verwijzing naar /beveiliging en /techniek */
-.home2 .anders { margin-top: clamp(40px, 5vw, 64px); padding: clamp(22px, 3vw, 36px); border-radius: var(--r-l, 20px); background: var(--card, #fff); border: 1px solid var(--line); }
-.home2 .anders-kop { margin: 0 0 clamp(18px, 2.4vw, 28px); font-size: clamp(22px, 1rem + 1vw, 30px); font-weight: 500; letter-spacing: -.025em; line-height: 1.15; text-wrap: balance; }
-.home2 .anders-kop .thin { color: var(--ink-3); font-weight: 400; }
-.home2 .anders-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); }
-.home2 .anders-grid li { display: grid; gap: 6px; align-content: start; padding-top: 14px; border-top: 2px solid #2438D6; }
-.home2 .anders-grid b { font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
-.home2 .anders-grid p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
-.home2 .anders-links { margin: clamp(20px, 2.6vw, 30px) 0 0; display: flex; flex-wrap: wrap; gap: 10px 28px; }
-.home2 .anders-links a { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; color: #2438D6; text-decoration: none; }
-.home2 .anders-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.home2 .anders-links svg { width: 14px; height: 14px; }
-@media (max-width: 1000px) { .home2 .anders-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .home2 .anders-grid { grid-template-columns: minmax(0, 1fr); } }
-
 /* 22-10-2026 · officiële winkelknoppen (Apple en Google), ongewijzigd gebruikt */
 .home2 .kies-apps { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 14px 0 0; font-size: 15px; color: var(--ink-2); }
 .home2 .winkels { display: inline-flex; align-items: center; gap: 10px; }
