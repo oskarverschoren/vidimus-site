@@ -53,7 +53,7 @@
   <div class="wrap">
     <div class="how-row rv"><span class="how-num" aria-hidden="true">01</span>
       <h3>Identiteit<small>KBO · EID-MANDAAT · SLEUTEL OP HET TOESTEL · CERTIFICAAT OP NAAM VAN DE FIRMA</small></h3>
-      <p>Elke organisatie wordt gecontroleerd in de KBO en tekent een mandaat met de eID van haar bestuurder; daaruit volgt een organisatiekenmerk (SHA-256) dat in elke bundel terugkomt. Elke medewerker krijgt een Ed25519-sleutel die op zijn telefoon wordt aangemaakt en die nooit verlaat, met een certificaat op naam van de firma; Face ID is het slot. Systemen — TMS, WMS, ERP, poort — tekenen met een systeemsleutel van de organisatie; een meetbron — sensor, logger, weegbrug — met haar eigen sleutel. <em style="color:var(--ink);font-style:normal">Wie tekent, is geen loginnaam maar een sleutel met een geïdentificeerde firma erachter.</em></p>
+      <p>Elke organisatie wordt gecontroleerd in de KBO en tekent een mandaat met de eID van haar bestuurder; daaruit volgt een organisatiekenmerk (SHA-256) dat in elke bundel terugkomt. Elke medewerker krijgt een Ed25519-sleutel die op zijn telefoon wordt aangemaakt en die het toestel niet verlaat, met een certificaat op naam van de firma; Face ID is het slot. Systemen — TMS, WMS, ERP, poort — tekenen met een systeemsleutel van de organisatie; een meetbron — sensor, logger, weegbrug — met haar eigen sleutel. <em style="color:var(--ink);font-style:normal">Wie tekent, is geen loginnaam maar een sleutel met een geïdentificeerde firma erachter.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">02</span>
       <h3>Registratie<small>APP OF API · /registrations PER STUK · /measurements PER MEETBRON</small></h3>
@@ -140,7 +140,7 @@
     </div>
     <div style="display:grid;gap:3rem;margin-top:1rem">
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
-        <div><p class="lbl"><b>01</b> · MATERIEEL- &amp; MACHINEVERHUUR</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">De afgiftestaat</h3><p style="font-size:.86rem;color:var(--paper-dim)">Bij afgifte én terugname tekenen beide partijen de staatopname op een telefoon; foto's gaan als hash mee de verankering in. Een schadediscussie wordt een vergelijking van twee documenten waarvan inhoud en moment vaststaan.</p></div>
+        <div><p class="lbl"><b>01</b> · MATERIEEL- &amp; MACHINEVERHUUR</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">De afgiftestaat</h3><p style="font-size:.86rem;color:var(--paper-dim)">Bij afgifte én terugname tekenen beide partijen de staatopname op een telefoon; foto's gaan als hash mee de verankering in. Een schadediscussie wordt een vergelijking van twee documenten waarvan na te gaan is dat ze ongewijzigd zijn en uiterlijk op hun verankerd tijdstip bestonden.</p></div>
         <div class="codecard"><span class="k">registratie</span>afgiftestaat AFG-0182<br><span class="k">machine</span>hoogwerker · serienr + urenteller<br><span class="k">staat</span>6 foto's (sha-256) · opmerkingen<br><span class="k">getekend</span>verhuurder + huurder · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + bitcoin-anker</span></div>
       </div>
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
