@@ -46,7 +46,7 @@
     <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><span class="lbl" style="color:var(--red)">NA EEN INBRAAK</span></p>
     <h1 class="disp">De patch staat erop. <span class="thin">Wat veranderde er in uw gegevens</span><span style="color:var(--red)">?</span></h1>
     <p class="intro">Op 21 oktober 2026 kwam PHP met een dringende patch voor twee lekken, samen "php2shell" genoemd. Een aanvaller kon er zonder wachtwoord eigen code mee uitvoeren op de webserver. Amazon zag al op 17 oktober een eerste aanval, vier dagen vóór de patch. <b>Patchen sluit de deur. Het zegt niet wat er binnen gebeurde.</b></p>
-    <div class="recog"><p>Maandag, na de patch. Uw IT-partner vraagt: <span>"Kunnen we aantonen dat de facturen en vrachtbrieven in de databank nog dezelfde zijn als vorige week?"</span> De logboeken staan op dezelfde server. De back-up komt uit hetzelfde systeem. Niemand kan het met zekerheid zeggen.</p></div>
+    <div class="recog"><p>Maandag, na de patch. Uw IT-partner vraagt: <span>"Kunnen we aantonen dat de facturen en vrachtbrieven in de databank nog dezelfde zijn als vorige week?"</span> De historiek staat op dezelfde server. De back-up komt uit hetzelfde systeem. Niemand kan het met zekerheid zeggen.</p></div>
   </div>
 </section>
 
@@ -54,11 +54,11 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="idx">01 / EERST DIT</span>
-      <h2 class="disp">Wat u nu doet, ook zonder ons<span style="color:var(--red)">.</span></h2>
+      <h2 class="disp">Wat u nu doet, ook zonder Vidimus<span style="color:var(--red)">.</span></h2>
     </div>
     <ul class="todo rv">
       <li><span><b>Patch elke server met PHP</b> naar 8.5.12, 8.4.27, 8.3.36 of 8.2.35, of hoger. Vraag het na bij uw hostingpartij: ook webshops, portalen en oude interne toepassingen draaien vaak op PHP.</span></li>
-      <li><span><b>Kijk de logboeken na vanaf 17 oktober</b>: onbekende bestanden, nieuwe beheerders, vreemde uitgaande verbindingen.</span></li>
+      <li><span><b>Kijk de historiek van de server na vanaf 17 oktober</b>: onbekende bestanden, nieuwe beheerders, vreemde uitgaande verbindingen.</span></li>
       <li><span><b>Vervang wachtwoorden en sleutels</b> die op die servers stonden, zoals database- en API-sleutels.</span></li>
       <li><span><b>Melden.</b> Valt u onder NIS2, dan doet u binnen 24 uur een eerste melding bij het CCB. Lekten er persoonsgegevens, dan meldt u binnen 72 uur aan de Gegevensbeschermingsautoriteit.</span></li>
     </ul>
@@ -72,7 +72,7 @@
       <h2 class="disp">Waarom niemand kan zeggen wat er veranderde<span style="color:var(--red)">.</span></h2>
     </div>
     <div class="why-grid rv">
-      <article><span class="no">A</span><h3>Het logboek staat op dezelfde server</h3><p>Wie code kan uitvoeren op de server, kan ook het logboek aanpassen. Het bewijst dus niets over wat de aanvaller deed.</p></article>
+      <article><span class="no">A</span><h3>De historiek staat op dezelfde server</h3><p>Wie code kan uitvoeren op de server, kan ook de historiek aanpassen. Het bewijst dus niets over wat de aanvaller deed.</p></article>
       <article><span class="no">B</span><h3>De back-up komt uit hetzelfde systeem</h3><p>Een back-up toont hoe het was. Ze bewijst niet dat ze zelf ongewijzigd bleef, en niet wanneer een wijziging gebeurde.</p></article>
       <article><span class="no">C</span><h3>Uw klant moet u geloven</h3><p>Na een inbraak vraagt een klant of verzekeraar: hoe weet u dat dit nog hetzelfde is als vóór de inbraak? Uw antwoord komt uit het systeem dat werd gekraakt.</p></article>
     </div>
@@ -86,7 +86,7 @@
       <h2 class="disp">Een momentopname buiten uw systeem<span style="color:var(--red)">.</span></h2>
     </div>
     <div class="flow rv">
-      <div class="flow-step hit"><span class="when">01 · vandaag</span><h4>Een eerste momentopname</h4><p>U exporteert uw databank of een map. Elk bestand krijgt bij u een vingerafdruk; alleen die vingerafdrukken gaan naar Vidimus, uw gegevens niet. Vidimus verankert ze binnen enkele minuten, met een tijdstempel van een onafhankelijke dienst.</p><span class="meta">één registratie voor de hele export</span></div>
+      <div class="flow-step hit"><span class="when">01 · vandaag</span><h4>Een eerste momentopname</h4><p>U exporteert uw databank of een map. Elke rij en elk bestand krijgt bij u een vingerafdruk. Voor een databank gaan naar Vidimus alleen vingerafdrukken, de namen van tabellen en kolommen, en aantallen; met de rijsleutel ook geen sleutelwaarden. Voor een map zijn dat de vingerafdrukken en de bestandsnamen. Vidimus verankert ze binnen enkele minuten, met een tijdstempel van een onafhankelijke dienst.</p><span class="meta">één registratie voor de hele export</span></div>
       <div class="flow-step"><span class="when">02 · in opbouw</span><h4>Elke nacht automatisch</h4><p>Dezelfde export loopt elke nacht vanzelf. Zo hebt u voor elke dag een vast vertrekpunt.</p></div>
       <div class="flow-step"><span class="when">03 · in opbouw</span><h4>Vergelijken na een incident</h4><p>U legt de huidige export naast de momentopname van vóór het incident. Per rij of bestand ziet u: ongewijzigd, gewijzigd of nieuw sinds die dag. Uw klant of verzekeraar kan het zelf narekenen, zonder account.</p></div>
     </div>
@@ -102,7 +102,7 @@
     </div>
     <div class="faq rv">
       <details><summary>Was Vidimus zelf geraakt door php2shell?</summary><p class="a"><b>Nee.</b> Vidimus draait geen PHP. De site staat op GitHub Pages, de dienst draait op Python.</p></details>
-      <details><summary>Moeten we onze databank naar Vidimus uploaden?</summary><p class="a"><b>Nee.</b> De vingerafdrukken worden bij u berekend. Vidimus ontvangt alleen die vingerafdrukken en de bestandsnamen in het overzicht, niet de inhoud.</p></details>
+      <details><summary>Moeten we onze databank naar Vidimus uploaden?</summary><p class="a"><b>Nee.</b> De vingerafdrukken worden bij u berekend. Voor een databank ontvangt Vidimus alleen vingerafdrukken, de namen van tabellen en kolommen, en aantallen; met de rijsleutel ook geen sleutelwaarden. Voor een map zijn dat de vingerafdrukken en de bestandsnamen. De inhoud zelf niet.</p></details>
       <details><summary>Kan het ook voor gegevens van vóór het incident?</summary><p class="a"><b>Alleen als ze toen al verankerd waren.</b> Een momentopname van vandaag bewijst hoe uw gegevens er vandaag uitzien, en dat ze daarna ongewijzigd bleven. Daarom begint u best nu.</p></details>
       <details><summary>Wat kost het?</summary><p class="a">Eén momentopname per dag is één registratie per dag. Dat past ruim in de eerste 100 registraties per maand, die gratis zijn.</p></details>
     </div>
