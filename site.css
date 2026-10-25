@@ -1122,3 +1122,36 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
 @media (max-width: 720px) { header.site .top-help { display: none; } }
 .mob-menu .mob-help { display: flex !important; align-items: center; gap: 10px; }
 .mob-menu .mob-help svg { width: 10px; height: 10px; color: var(--act); }
+
+/* ── golf 7 (24/10/2026, bouwplan golf 7 §5.1) ─────────────────────────────────────────────────────────────
+   /techniek: labels als een zin met een kleine letter, geen mono-hoofdletters; de sprite zonder inline stijl;
+   de lijst met hulpmiddelen en hun SHA-256 (breekt op elke breedte, geen horizontaal scrollen). */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.zinlabels .lbl, .zinlabels .bw-lbl, .zinlabels .bw-spec-kop, .zinlabels .bw-spec dt, .zinlabels .tl-u,
+.zinlabels .rg-table th, .zinlabels .rg-table.spec td.k, .zinlabels .kv dt, .zinlabels .app-voet {
+  font-family: var(--ui); letter-spacing: 0; text-transform: none;
+}
+.zinlabels .lbl, .zinlabels .bw-lbl { font-size: 13px; font-weight: 500; line-height: 1.4; }
+.zinlabels .bw-lbl i { letter-spacing: 0; }
+.zinlabels .rg-table.spec td.k, .zinlabels .kv dt { font-size: 13px; }
+.zinlabels .tl-u { font-size: 14px; }
+.hulp-lijst { display: grid; gap: 14px; }
+.hulp-tabel { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 15px; }
+.hulp-tabel th, .hulp-tabel td { text-align: left; vertical-align: top; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); line-height: 1.5; }
+.hulp-tabel thead th { font: 500 13px/1.4 var(--ui); color: var(--ink-3); border-bottom-color: var(--line-2); }
+.hulp-tabel thead th:nth-child(1) { width: 26%; } .hulp-tabel thead th:nth-child(2) { width: 34%; }
+.hulp-tabel tbody th { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.hulp-tabel td { color: var(--ink-2); }
+.hulp-tabel a { color: inherit; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.hulp-tabel a:hover { color: var(--act); }
+.hulp-tabel a:focus-visible { outline: 2px solid var(--act); outline-offset: 2px; border-radius: 4px; }
+.hulp-tabel code.hash { display: block; font: 400 12.5px/1.55 var(--mono); color: var(--ink); overflow-wrap: anywhere; word-break: break-all; }
+#hulpmiddelen .side code { white-space: nowrap; }
+.hulp-noot { margin: 0; max-width: 74ch; font-size: 14px; line-height: 1.6; color: var(--ink-3); }
+@media (max-width: 720px) {
+  .hulp-tabel, .hulp-tabel tbody, .hulp-tabel tr, .hulp-tabel th, .hulp-tabel td { display: block; width: auto; }
+  .hulp-tabel thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .hulp-tabel tr { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .hulp-tabel th, .hulp-tabel td { padding: 2px 0; border: 0; }
+  .hulp-tabel td:last-child { margin-top: 6px; }
+}
