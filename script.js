@@ -157,7 +157,7 @@
      Twee uitkomsten, nooit een oordeel over wie liegt: ongewijzigd of gewijzigd, per controle stemt overeen of wijkt af (29/09, was IDENTIEK / ONBEKEND; 08/10 gewone letters; 20/10 woordenlijst B1, nooit "klopt"). */
   const fields = $$("#tamperFields [data-f]");
   if (fields.length) {
-    const ANCHOR_AT = "4 september om 15:13";
+    const ANCHOR_AT = "4 september om 15:13 (UTC+2)";
     const original = fields.map((f) => f.textContent);
     const payload = () => fields.map((f) => f.textContent.trim()).join("|");
     let anchored = "", wasSame = true;
@@ -314,7 +314,7 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
       f(db, "colli").textContent = "26 paletten · zonder voorbehoud"; f(db, "colli").className = ""; f(db, "plaats").textContent = "51.2302 N · 4.4160 E · ±6 m"; f(db, "plaats").className = "";
       db.querySelector("[data-v]").textContent = "record · 1 versie"; db.querySelector("[data-v]").className = "tl-versie";
       db.querySelector("[data-noot]").textContent = "Netjes vastgelegd. Zoals het hoort."; db.querySelector("[data-noot]").className = "tl-noot";
-      an.querySelector("[data-extra]").hidden = true; an.querySelector("[data-noot]").textContent = "Vingerafdruk 80f4ec95… zit in het anker van 4 september 2026, 15:13:22 (UTC+2)."; an.querySelector("[data-noot]").className = "tl-noot";
+      an.querySelector("[data-extra]").hidden = true; an.querySelector("[data-noot]").textContent = "Vingerafdruk fa6ca8ec… zit in het anker van 4 september 2026, 15:13:22 (UTC+2)."; an.querySelector("[data-noot]").className = "tl-noot";
     },
     () => { // 02 "gecorrigeerd"
       f(db, "colli").textContent = "23 paletten · zonder voorbehoud"; f(db, "colli").className = "wijzig";
@@ -332,7 +332,7 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
     () => { // 04 het geschil
       db.querySelector("[data-v]").textContent = "export · 3 weken later"; db.querySelector("[data-v]").className = "tl-versie bad";
       db.querySelector("[data-noot]").textContent = "De ontvanger claimt 23 paletten. Uw export zegt óók 23, zonder plaats. Welke versie was de echte? Woord tegen woord."; db.querySelector("[data-noot]").className = "tl-noot bad";
-      an.querySelector("[data-noot]").textContent = "De vingerafdruk van het origineel stemt overeen met het anker van 4 september 2026, 15:13:22 (UTC+2): 26 paletten, op de kade, om 15:12. Ongewijzigd."; an.querySelector("[data-noot]").className = "tl-noot ok";
+      an.querySelector("[data-noot]").textContent = "De vingerafdruk van het origineel stemt overeen met het anker van 4 september 2026, 15:13:22 (UTC+2): 26 paletten, op de kade, om 15:12 (UTC+2). Ongewijzigd."; an.querySelector("[data-noot]").className = "tl-noot ok";
     },
   ];
   const knoppen = [...root.querySelectorAll(".tl-stap")]; let cur = 0, auto = null, geraakt = false;
