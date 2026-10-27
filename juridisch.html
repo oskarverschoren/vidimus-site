@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F2F3F6">
 <title>Juridisch en audit — wat een auditor, advocaat of rechter kan controleren | Vidimus</title>
-<meta name="description" content="De bewijsketen van Vidimus stap voor stap: onderneming, sleutel, registratie, vingerafdruk, Merkle-wortel, gekwalificeerde tijdstempel, grootboek, Bitcoin, verificatie. Wat het bewijst, wat niet, en hoe u het zelf narekent.">
+<meta name="description" content="Wat een auditor, advocaat of rechter zelf narekent: vingerafdruk, handtekening, Merkle-pad, tijdstempel en Bitcoin. Wat het bewijst, en wat niet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,6 +16,70 @@
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
 <meta property="og:title" content="Juridisch en audit — wat een auditor, advocaat of rechter kan controleren | Vidimus"><meta property="og:description" content="De bewijsketen van Vidimus stap voor stap, wat ze bewijst en wat niet, en hoe u ze zelf narekent."><meta property="og:url" content="https://vidimus.be/juridisch.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/juridisch.html#faq",
+ "url": "https://vidimus.be/juridisch.html",
+ "inLanguage": "nl-BE",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Kan Vidimus zelf een registratie vervalsen of antidateren?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Niet zonder dat het opvalt. Tekent een mens, dan komt de handtekening van een sleutel die zijn toestel nooit verlaat. Een gekoppeld systeem (TMS, ERP, sensor) houdt zijn sleutel zelf, of laat ons die bewaren; dat laatste staat dan in elke bundel. Een registratie achteraf wijzigen of een vroeger verankeringstijdstip geven kan niemand, ook wij niet: dat tijdstip komt van externe tijdstempels en van Bitcoin, en het grootboek is een hash-keten. Wat wij met een bewaarde systeemsleutel wel zouden kunnen: een nieuwe registratie in naam van dat systeem maken, met het verankeringstijdstip van nu. Wilt u dat uitsluiten, laat uw systeem dan zelf de sleutel houden."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "De klant heeft zelf ingestuurd. Kan hij zijn eigen bewijs manipuleren?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Hij kan een verkeerde inhoud insturen — dat blijft \"dit werd toen gemeld\". Hij kan die inhoud achteraf niet wijzigen, terugtrekken of antidateren: elke registratie is verankerd op het moment van insturen, en een correctie is een nieuwe registratie met eigen tijdstip, naast de oude. Wat een tegenpartij mee tekende via deellink, tekende hij met een eigen sleutel op een eigen toestel."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "De foto zit als hash in de bundel. Is dat bewijs?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "De bundel bevat de foto zelf én de hash die op het moment van registreren verankerd werd. Wie de foto vandaag opnieuw hasht en dezelfde waarde vindt, weet dat dit exacte bestand toen bestond en sindsdien niet veranderde. Wat de foto toont, beoordeelt de rechter — zoals bij elke foto."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Persoonsgegevens in de registratie: kan de tegenpartij die zien?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Publiek staat alleen het wiskundige bewijs; nooit inhoud. Bij stromen met persoonsgegevens zit er een geheim zout per registratie in de vingerafdruk; dat zout zit alleen in de bundel van die ene registratie en zegt niets over de andere. Wie de bundel krijgt, krijgt ze van de klant — niet van ons."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wat als Vidimus niet meer bestaat op het moment van het geschil?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "De bundel is van de klant en hangt niet aan ons platform: open formaten, standaardcryptografie, gepubliceerde stappen. Tijdstempeltoken en Bitcoin-bewijs zijn tegen hun eigen bron na te rekenen. Bij stopzetting hebben klanten negentig dagen om alles mee te nemen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is een toestelsleutel een gekwalificeerde handtekening?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. De sleutel wordt op het toestel gemaakt en verlaat het niet. Of dat een geavanceerde elektronische handtekening is (art. 26), beoordeelt de rechter. Het mandaat van de bestuurder wordt getekend met de Belgische eID; of die handtekening gekwalificeerd is, zegt een validatie van het certificaat (bijvoorbeeld met DSS van de Europese Commissie), niet Vidimus. Een gekwalificeerde handtekening per registratie (bijvoorbeeld via itsme) bieden we vandaag niet aan."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
