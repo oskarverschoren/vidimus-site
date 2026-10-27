@@ -36,8 +36,9 @@
   - [Vastgoed en verhuur: plaatsbeschrijving betwist](https://vidimus.be/plaatsbeschrijving-betwist.html)
   - [Bouw en renovatie: meerwerk bewijzen](https://vidimus.be/meerwerk-bewijzen.html)
   - [Verhuur van materieel: de afgiftestaat](https://vidimus.be/afgiftestaat-schade.html)
-  - [IT en databanken: na een inbraak (php2shell), welke gegevens veranderden](https://vidimus.be/na-een-inbraak.html)
+  - [Webpagina vastleggen als bewijs: HTML, headers en schermbeeld, opgehaald door onze server](https://vidimus.be/webpagina-vastleggen.html)
   - [Koelketen en andere fictieve scenario's zonder en met verankering (geen klantverhalen)](https://vidimus.be/cases.html) · [Scenario's](https://vidimus.be/scenarios.html)
+- [Vidimus, ProofSnap en TrueScreen: feitelijke vergelijking met bronnen (27-10-2026)](https://vidimus.be/vergelijking-proofsnap-truescreen.html)
 - [Voor AI-agents](https://vidimus.be/voor-ai.html) · [Uitlegvideo's](https://vidimus.be/help.html) · [Voorwaarden](https://vidimus.be/voorwaarden.html) · [Privacy](https://vidimus.be/privacy.html) · [Colofon](https://vidimus.be/colofon.html)
 - English: [Home](https://vidimus.be/en/) · [Pricing](https://vidimus.be/en/pricing.html) (other pages in Dutch for now)
 

@@ -147,7 +147,7 @@
       <div class="flow-step hit"><span class="when">5 · Merkle-wortel</span><h4>Elke vijf minuten één boom</h4><p>Alle nieuwe vingerafdrukken samen in één Merkle-boom. Het pad van uw vingerafdruk naar de wortel staat in de bundel; wie het naloopt, komt exact op de wortel uit — alleen met déze vingerafdruk.</p><span class="meta">controle: Merkle-pad herrekenen</span></div>
       <div class="flow-step hit"><span class="when">6 · Tijdstempel</span><h4>Een gekwalificeerde vertrouwensdienst tekent de wortel</h4><p>Niet onze serverklok. Binnen vijf minuten krijgt de wortel een extern tijdstempel (RFC 3161), te controleren tot een rootcertificaat dat al op uw computer staat. Zitten er registraties van klantorganisaties bij, dan krijgen alle nieuwe wortels samen doorgaans binnen zes uur een gekwalificeerde tijdstempel in de zin van eIDAS, van een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst. Beide tokens zitten in de bundel, met de wortel en het tijdstip.</p><span class="meta">controle: <b>openssl ts</b> en <b>openssl cms -verify</b></span></div>
       <div class="flow-step hit"><span class="when">7 · Grootboek</span><h4>Append-only, elk record hasht het vorige</h4><p>De wortel komt in ons grootboek. Eén record wijzigen breekt de hele keten erna — zichtbaar voor iedereen die het grootboekrecord in de bundel naast het vorige legt.</p></div>
-      <div class="flow-step hit"><span class="when">8 · Bitcoin</span><h4>Dezelfde wortel in een publiek register</h4><p>Via OpenTimestamps gaat de wortel in een Bitcoin-blok. Duizenden partijen houden dat register tegelijk bij; wijzigen of wissen zou door iedereen opgemerkt worden, ook als wij het zouden proberen. Bitcoin bewijst dat de wortel vóór dat blok bestond; het precieze tijdstip komt van schakel 6.</p><span class="meta">controle: <b>ots verify</b> + blockstream.info of mempool.space</span></div>
+      <div class="flow-step hit"><span class="when">8 · Bitcoin</span><h4>Dezelfde wortel in een publiek register</h4><p>Via <a href="https://opentimestamps.org" rel="noopener noreferrer">OpenTimestamps</a>, een open standaard om iets in Bitcoin te verankeren, gaat de wortel in een Bitcoin-blok. Duizenden partijen houden dat register tegelijk bij; wijzigen of wissen zou door iedereen opgemerkt worden, ook als wij het zouden proberen. Bitcoin bewijst dat de wortel vóór dat blok bestond; het precieze tijdstip komt van schakel 6.</p><span class="meta">controle: <b>ots verify</b> + blockstream.info of mempool.space</span></div>
       <div class="flow-step hit"><span class="when">9 · Verificatie</span><h4>Wie · wat · wanneer · gewijzigd?</h4><p>De publieke controlepagina en de bewijsbundel geven per controle een uitkomst. Het bewijs hangt niet aan Vidimus: de bundel is van de klant, het script is open, de tools zijn standaard.</p><span class="meta">uitkomst: <b>ongewijzigd · stemt overeen</b> — of niet</span></div>
     </div>
   </div>
@@ -259,7 +259,7 @@
 
 <footer class="app-voet">
   <span>VIDIMUS · SITE</span>
-  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
   <a href="colofon.html">Colofon &amp; privacy</a>
   <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
   <a href="verificatie.html">Verificatie</a>
