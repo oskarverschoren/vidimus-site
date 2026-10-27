@@ -81,6 +81,7 @@
           <div class="tl-kop"><span class="lbl">Gewone databank</span><span class="tl-versie" data-v>record · 1 versie</span></div>
           <dl class="kv">
             <dt>afzender</dt><dd data-f="afzender">Verhelst Transport BV</dd>
+            <dt>ontvanger</dt><dd data-f="ontvanger">Nova Logistics NV</dd>
             <dt>colli</dt><dd data-f="colli">26 paletten · zonder voorbehoud</dd>
             <dt>afgeleverd</dt><dd data-f="tijd">4 september 2026, 15:12 (UTC+2)</dd>
             <dt>plaats · toestel</dt><dd data-f="plaats">51.2302 N · 4.4160 E · ±6 m</dd>
@@ -91,6 +92,7 @@
           <div class="tl-kop"><span class="lbl">Met de verankeringslaag</span><span class="tl-versie ok" data-v>voorbeeld · verankerd om 15:13:22 (UTC+2)</span></div>
           <dl class="kv">
             <dt>afzender</dt><dd data-f="afzender">Verhelst Transport BV</dd>
+            <dt>ontvanger</dt><dd data-f="ontvanger">Nova Logistics NV</dd>
             <dt>colli</dt><dd data-f="colli">26 paletten · zonder voorbehoud</dd>
             <dt>afgeleverd</dt><dd data-f="tijd">4 september 2026, 15:12 (UTC+2)</dd>
             <dt>plaats · toestel</dt><dd data-f="plaats">51.2302 N · 4.4160 E · ±6 m</dd>
@@ -138,7 +140,7 @@
     <div class="bw-band rv">
       <ol class="bw-stappen drie" aria-label="Eén demoregistratie: vastgelegd, verankerd, later gecontroleerd">
         <li><span class="bw-lbl"><i>01</i>Bijvoorbeeld</span><b>18 paletten diepvries</b><span class="bw-sub">Halle · 29/09/2026 · 17:38:25 (UTC+2) · demoregistratie</span></li>
-        <li><span class="bw-lbl"><i>02</i>Verankerd</span><b>Vingerafdruk, Merkle-wortel en tijdstempels</b><span class="bw-sub">buiten uw systeem · gekwalificeerde tijdstempel van GLOBALTRUST om 17:38:56 (UTC+2)</span></li>
+        <li><span class="bw-lbl"><i>02</i>Verankerd</span><b>Vingerafdruk, Merkle-wortel en tijdstempels</b><span class="bw-sub">buiten uw systeem · gekwalificeerde tijdstempel van GLOBALTRUST om 17:38:56 (UTC+2) · deze demoregistratie is van Vidimus zelf en het stempel werd hier met de hand aangevraagd; voor klantorganisaties volgt het per groep doorgaans binnen zes uur</span></li>
         <li class="eind"><span class="bw-lbl"><i>03</i>Later gecontroleerd</span><b>Ongewijzigd</b><span class="bw-sub">De gecontroleerde registratie stemt overeen met wat werd verankerd.</span></li>
       </ol>
       <details class="bw-spec">
@@ -148,7 +150,7 @@
           <dt>Vingerafdruk</dt><dd class="hash">7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba</dd>
           <dt>Merkle-wortel</dt><dd class="hash">282bf1cd4271e524d7a8296362afa80d69b49998f6b866e58d645227bfb85b40 <span>· pad van 3 stappen</span></dd>
           <dt>Tijdstempel</dt><dd>Sectigo · RFC 3161 · binnen enkele minuten na de groep</dd>
-          <dt>Gekwalificeerd</dt><dd>GLOBALTRUST · QTSA · EU-vertrouwenslijst · 2026-09-29 15:38:56 UTC</dd>
+          <dt>Gekwalificeerd</dt><dd>GLOBALTRUST · QTSA · EU-vertrouwenslijst · 2026-09-29 15:38:56 UTC · met de hand aangevraagd voor deze demo van Vidimus zelf; voor klantorganisaties per groep doorgaans binnen zes uur</dd>
           <dt>DSS</dt><dd>Uitkomst in DSS (software van de Europese Commissie) · Evidence Record PASSED · 29 september 2026</dd>
           <dt>Bitcoin</dt><dd>OpenTimestamps · het blok en zijn tijd staan op de controlepagina</dd>
         </dl>
@@ -278,7 +280,7 @@
         <thead><tr><th scope="col">Bestand</th><th scope="col">Wat het is</th><th scope="col">SHA-256</th></tr></thead>
         <tbody>
           <tr><th scope="row"><a href="https://app.vidimus.be/verify_bundle.py">verify_bundle.py</a></th><td>Het controlescript, Python 3. De server geeft dezelfde waarde op <a href="https://app.vidimus.be/verify_bundle.py.sha256">verify_bundle.py.sha256</a>.</td><td><code class="hash" data-sha256-van="verify_bundle.py">e620c7c40feb2f2874b7c58a81f904210baa881c3b31a3577613b22593e1942a</code></td></tr>
-          <tr><th scope="row"><a href="voorbeeldbundel.zip">voorbeeldbundel.zip</a></th><td>Een bewijsbundel van een demoregistratie, om het script op te proberen.</td><td><code class="hash" data-sha256-van="voorbeeldbundel.zip">b9be9288ece96e2ebc732254328e1f1af62ab0cf07f96ac8aed954938126d43b</code></td></tr>
+          <tr><th scope="row"><a href="voorbeeldbundel.zip">voorbeeldbundel.zip</a></th><td>Een bewijsbundel van een demoregistratie, om het script op te proberen. Het script dat in deze voorbeeldbundel zit, is de versie van 13 oktober 2026 en heeft daarom een andere SHA-256; gebruik het script uit deze lijst.</td><td><code class="hash" data-sha256-van="voorbeeldbundel.zip">b9be9288ece96e2ebc732254328e1f1af62ab0cf07f96ac8aed954938126d43b</code></td></tr>
           <tr><th scope="row"><a href="assets/eu/demo/bewijs.ers" download="vidimus-demo-bewijs.ers">bewijs.ers</a></th><td>Het Evidence Record van de demoregistratie hierboven, voor DSS.</td><td><code class="hash" data-sha256-van="bewijs.ers">a951bf3a21ca712c2401868fffee02bb2a4153324a8e81fb3328acdd450146b2</code></td></tr>
           <tr><th scope="row"><a href="assets/eu/demo/vingerafdruk-invoer.json" download="vidimus-demo-vingerafdruk-invoer.json">vingerafdruk-invoer.json</a></th><td>De inhoud die gehasht werd; zijn SHA-256 is de vingerafdruk van de registratie.</td><td><code class="hash" data-sha256-van="vingerafdruk-invoer.json">7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba</code></td></tr>
         </tbody>
