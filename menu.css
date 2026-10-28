@@ -1,0 +1,85 @@
+/* ══ Menu Producten (28/10/2026) · op elke pagina van de site, na site.css (direct of via styles.css) ══
+   Knop met aria-expanded opent een paneel onder de kop: vier productlijnen en Voor software. Op de gsm kopieert
+   script.js de navigatie naar het mobiele menu; daar klapt hetzelfde paneel open als een lijst. Alleen opacity en
+   transform bewegen, en niets bij prefers-reduced-motion. */
+:root {
+  --mn-blauw: #2438D6;
+  --mn-navy: #0B0F17;
+  --mn-wacht: #A15C0E;
+  --mn-wacht-bg: #FBF3E8;
+  --mn-r-s: 8px; --mn-r-m: 14px; --mn-r-l: 20px;
+  --mn-uit: cubic-bezier(.16, 1, .3, 1);
+}
+
+/* ── de knop in de kopbalk ─────────────────────────────────────── */
+.nav-prod { display: flex; align-items: center; }
+.nav-prod-knop { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 0; border-radius: var(--mn-r-s); background: none; color: var(--ink-3); font: 500 14px/1.5 var(--ui); cursor: pointer; white-space: nowrap; transition: color 140ms, background 140ms; }
+.nav-prod-knop:hover, .nav-prod-knop[aria-expanded="true"] { color: var(--ink); background: var(--bg-2); }
+.nav-prod-knop.cur { color: var(--ink); }
+.nav-prod-knop:focus-visible { outline: 2px solid var(--mn-blauw); outline-offset: 2px; }
+.nav-prod-knop .nav-pijl { width: 10px; height: 10px; transition: transform 180ms var(--mn-uit); }
+.nav-prod-knop[aria-expanded="true"] .nav-pijl { transform: rotate(180deg); }
+@media (max-width: 900px) { .nav-prod-knop { padding: 6px 7px; font-size: 13px; } }
+
+/* ── het paneel (vanaf 721 px): wit vlak onder de kop, producten links, software rechts ── */
+.mega { position: absolute; top: calc(100% + 8px); left: var(--gutter); z-index: 70; width: min(940px, calc(100vw - 2 * var(--gutter)));
+  display: grid; grid-template-columns: minmax(0, 1fr) 248px; gap: 8px; padding: 8px; border-radius: var(--mn-r-l);
+  background: #fff; border: 1px solid rgba(11, 15, 23, .08); box-shadow: 0 2px 6px rgba(11, 15, 23, .06), 0 40px 80px -40px rgba(11, 15, 23, .45); }
+.mega[hidden] { display: none; }
+.mega-lijst { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+.topnav .mega-item, .mob-menu .mega-item { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 14px; align-items: start; padding: 14px; border-radius: var(--mn-r-m); color: var(--ink); text-decoration: none; white-space: normal; font-size: 15px; transition: background 140ms; }
+.topnav .mega-item:hover, .topnav .mega-item:focus-visible, .mob-menu .mega-item:hover { background: #F2F4F8; color: var(--ink); }
+.topnav .mega-item:focus-visible { outline: 2px solid var(--mn-blauw); outline-offset: -2px; }
+.topnav .mega-item[aria-current], .mob-menu .mega-item[aria-current] { background: #EEF1FD; }
+.mega-ico { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--mn-navy); color: #fff; box-shadow: 0 8px 18px -10px rgba(11, 15, 23, .7); }
+.mega-ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.mega-tekst { display: grid; gap: 3px; min-width: 0; }
+/* site.css zet .topnav a b in mono en verbergt b in het mobiele menu: hier staat de productnaam in gewone letters */
+.topnav .mega-tekst b, .mob-menu .mega-item .mega-tekst b { display: flex; margin: 0; font: 600 15px/1.3 var(--ui); letter-spacing: -.01em; color: var(--ink); text-transform: none; }
+.mega-tekst b { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 15px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; }
+.mega-tekst > span { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.mega-wacht { display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px 2px 7px; border-radius: 999px; background: var(--mn-wacht-bg); color: var(--mn-wacht); font: 600 11.5px/1.5 var(--ui); font-style: normal; letter-spacing: 0; }
+.mega-wacht::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: currentColor; }
+
+/* rechts: de donkere kolom met Voor software en de vergelijking */
+.mega-zij { display: grid; align-content: space-between; gap: 18px; padding: 18px; border-radius: var(--mn-r-m); background: var(--mn-navy); color: #fff; }
+.topnav .mega-zij a, .mob-menu .mega-zij a { color: #fff; text-decoration: none; white-space: normal; }
+.topnav .mega-soft, .mob-menu .mega-soft { display: grid; gap: 6px; padding: 0; font-size: 15px; border-radius: var(--mn-r-s); }
+.mega-soft em { font: 500 11px/1.4 var(--mono); letter-spacing: .08em; color: rgba(255, 255, 255, .62); font-style: normal; }
+.topnav .mega-zij a:hover, .mob-menu .mega-zij a:hover { background: none; color: #fff; }
+.topnav .mega-zij a:hover b, .topnav .mega-soft b, .mob-menu .mega-soft b { display: block; margin: 0; font: 600 16px/1.3 var(--ui); letter-spacing: -.01em; color: #fff; }
+.topnav .mega-item:hover .mega-tekst b { color: var(--mn-blauw); }
+.mega-soft b { font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
+.mega-soft span { font-size: 13.5px; line-height: 1.45; color: rgba(255, 255, 255, .78); }
+.mega-soft i { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-style: normal; font-weight: 600; font-size: 13.5px; color: #B9C6FF; }
+.mega-soft i svg, .mega-alle svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform 150ms var(--mn-uit); }
+.topnav .mega-soft:hover i svg, .topnav .mega-alle:hover svg { transform: translateX(3px); }
+.topnav .mega-soft:focus-visible, .topnav .mega-alle:focus-visible { outline: 2px solid #B9C6FF; outline-offset: 4px; }
+.topnav .mega-alle, .mob-menu .mega-alle { display: inline-flex; align-items: center; gap: 8px; padding: 10px 0 0; border-top: 1px solid rgba(255, 255, 255, .14); border-radius: 0; font-size: 13.5px; font-weight: 600; color: rgba(255, 255, 255, .86); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .mega:not([hidden]) { animation: megaIn 200ms var(--mn-uit); }
+  @keyframes megaIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+}
+@media (max-width: 900px) and (min-width: 721px) {
+  .mega { grid-template-columns: minmax(0, 1fr); }
+  .mega-zij { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+}
+/* tussen 721 en 1000 px: Uitlegvideo's staat in de voet en in het mobiele menu, de kop blijft op één regel */
+@media (max-width: 1000px) and (min-width: 721px) { header.site .top-help { display: none; } }
+
+/* ── mobiel menu (tot 720 px): dezelfde knop en hetzelfde paneel, als lijst die openklapt ── */
+@media (max-width: 720px) {
+  .mob-menu { max-height: calc(100dvh - 82px); overflow-y: auto; overscroll-behavior: contain; }
+  .mob-menu .nav-prod { display: block; }
+  .mob-menu .nav-prod-knop { display: flex; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 12px; color: var(--ink); font-size: 16px; }
+  .mob-menu .nav-prod-knop .nav-pijl { width: 12px; height: 12px; }
+  .mob-menu .mega { position: static; width: auto; grid-template-columns: minmax(0, 1fr); gap: 6px; margin: 2px 0 8px; padding: 4px; border: 0; border-radius: 16px; background: #F4F5F8; box-shadow: none; animation: none; }
+  .mob-menu .mega-lijst { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .mob-menu .mega-item { grid-template-columns: 34px minmax(0, 1fr); gap: 2px 12px; padding: 11px 10px; }
+  .mob-menu .mega-ico { width: 34px; height: 34px; border-radius: 10px; }
+  .mob-menu .mega-ico svg { width: 18px; height: 18px; }
+  .mob-menu .mega-tekst b { font-size: 15px; }
+  .mob-menu .mega-tekst > span { font-size: 13px; }
+  .mob-menu .mega-zij { padding: 14px; gap: 12px; }
+}

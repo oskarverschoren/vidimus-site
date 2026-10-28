@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="site.css?v=20261028a">
 <link rel="stylesheet" href="home.css?v=20261022c">
 <link rel="stylesheet" href="home-origineel.css?v=20261028a">
+<link rel="stylesheet" href="product.css?v=20261028a">
+<link rel="stylesheet" href="menu.css?v=20261028a">
 
 <link rel="canonical" href="https://vidimus.be/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
@@ -248,6 +250,21 @@
 <header class="site">
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
   <nav class="topnav" aria-label="Hoofdnavigatie">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
+          <li><a class="mega-item" href="productpaspoort.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Overdrachtsbewijs <em class="mega-wacht">In opbouw</em></b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
     <a href="hoe-het-werkt.html">Hoe het werkt</a>
     <a href="prijzen.html">Prijzen</a>
     <a href="juridisch.html">Juridisch</a>
@@ -297,6 +314,53 @@
       <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.4l3 3 6-6.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ook verankerd in Bitcoin</span></li>
       <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.4l3 3 6-6.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Servers in de EU</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- 1b · PRODUCTOVERZICHT (28/10): vier productlijnen met de eigen renders, één bewijs; de hele tegel is een link (product.css) -->
+<section class="sec" id="producten" aria-labelledby="producten-h">
+  <div class="wrap">
+    <h2 class="kop2" id="producten-h">Vier producten<span class="dot">,</span> <span class="thin">één bewijs</span><span class="dot">.</span></h2>
+    <p class="kop2-sub">Hoe een registratie ook binnenkomt: ze krijgt dezelfde vingerafdruk, handtekening, tijdstempel en hetzelfde anker.</p>
+    <ul class="pl-tegels rv">
+      <li class="pl-tegel">
+        <div class="pl-beeld"><img src="assets/illustratie/app-900.webp" width="900" height="763" alt="" loading="lazy" decoding="async"><span class="pr-live">Live</span></div>
+        <div class="pl-tekst">
+          <h3><a class="pl-link" href="app.html">Vidimus App</a></h3>
+          <p>Leveringen, schade, overdrachten en inspecties ter plekke, getekend door beide partijen.</p>
+          <ul class="pl-spec"><li>foto · plaats · handtekening</li><li>iPhone · Android · webapp</li><li>verankerd binnen vijf minuten</li></ul>
+        </div>
+        <p class="pl-voet"><span><b>Vanaf € 0</b> · 100 registraties per maand gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></p>
+      </li>
+      <li class="pl-tegel">
+        <div class="pl-beeld"><img src="assets/illustratie/sensor-900.webp" width="900" height="763" alt="" loading="lazy" decoding="async"><span class="pr-live">Live</span></div>
+        <div class="pl-tekst">
+          <h3><a class="pl-link" href="sensor.html">Vidimus Sensor</a></h3>
+          <p>Loggers, meters en weegbruggen sturen hun metingen; elke meting wordt apart verankerd.</p>
+          <ul class="pl-spec"><li>HTTPS · REST-API · JSON</li><li>één sleutel per meetbron</li><li>metingen onbeperkt</li></ul>
+        </div>
+        <p class="pl-voet"><span><b>€ 15</b> per toestel per maand · de eerste gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></p>
+      </li>
+      <li class="pl-tegel">
+        <div class="pl-beeld"><img src="assets/illustratie/data-900.webp" width="900" height="763" alt="" loading="lazy" decoding="async"><span class="pr-live">Live</span></div>
+        <div class="pl-tekst">
+          <h3><a class="pl-link" href="data.html">Vidimus Data</a></h3>
+          <p>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</p>
+          <ul class="pl-spec"><li>vingerafdrukken bij u berekend</li><li>databank · map · webpagina</li><li>elke nacht automatisch: in opbouw</li></ul>
+        </div>
+        <p class="pl-voet"><span><b>Vanaf € 0</b> · één momentopname is één registratie</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></p>
+      </li>
+      <li class="pl-tegel">
+        <div class="pl-beeld"><img src="assets/illustratie/paspoort-900.webp" width="900" height="763" alt="" loading="lazy" decoding="async"><span class="pr-opbouw">In opbouw</span></div>
+        <div class="pl-tekst">
+          <h3><a class="pl-link" href="productpaspoort.html">Vidimus Overdrachtsbewijs</a></h3>
+          <p>Een code met QR&#8209;label per object, een lijn van overdrachten en één houder.</p>
+          <ul class="pl-spec"><li>QR-label op het object</li><li>houder en ontvanger tekenen</li><li>bekijken zonder account</li></ul>
+        </div>
+        <p class="pl-voet"><span class="wacht">In opbouw · eerste pilots vanaf december</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></p>
+      </li>
+    </ul>
+    <a class="pl-soft rv" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg aria-hidden="true"><use href="#i-arrow"/></svg></i></a>
   </div>
 </section>
 
@@ -577,6 +641,6 @@
   <span class="taal"><b lang="nl">NL</b><a href="en/" hreflang="en" lang="en">EN</a></span>
 </footer>
 
-<script src="script.js?v=20261028a" defer></script>
+<script src="script.js?v=20261028b" defer></script>
 </body>
 </html>

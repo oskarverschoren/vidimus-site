@@ -368,6 +368,37 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   addEventListener("scroll", vraag, { passive: true }); addEventListener("resize", vraag); teken();
 })();
 
+/* 28/10: menu Producten — een knop met aria-expanded opent het paneel; Escape sluit het en zet de focus terug op de knop;
+   een klik of de focus ernaast sluit het ook. Werkt voor de kop én voor de kopie in het mobiele menu (event delegation). */
+(function () {
+  const knoppen = () => [...document.querySelectorAll(".nav-prod-knop")];
+  const isOpen = (k) => k.getAttribute("aria-expanded") === "true";
+  const zet = (k, open) => {
+    const p = document.getElementById(k.getAttribute("aria-controls"));
+    if (!p) return;
+    p.hidden = !open;
+    k.setAttribute("aria-expanded", String(open));
+  };
+  const sluit = (behalve) => knoppen().forEach((k) => { if (k !== behalve && isOpen(k)) zet(k, false); });
+  document.addEventListener("click", (e) => {
+    const doel = e.target instanceof Element ? e.target : null;
+    const k = doel && doel.closest(".nav-prod-knop");
+    if (k) { sluit(k); zet(k, !isOpen(k)); return; }
+    if (!doel || !doel.closest(".nav-prod")) sluit();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const k = knoppen().find(isOpen);
+    if (!k) return;
+    const binnen = k.closest(".nav-prod").contains(document.activeElement);
+    zet(k, false);
+    if (binnen) k.focus();
+  });
+  document.addEventListener("focusin", (e) => {
+    knoppen().forEach((k) => { if (isOpen(k) && !k.closest(".nav-prod").contains(e.target)) zet(k, false); });
+  });
+})();
+
 /* 26/09: mobiel menu — de bovenste navigatie staat op een gsm verborgen; één knop opent dezelfde links plus inloggen */
 (function () {
   const kop = document.querySelector("header.site"), nav = kop && kop.querySelector(".topnav");
@@ -378,6 +409,9 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   const paneel = document.createElement("nav");
   paneel.className = "mob-menu"; paneel.hidden = true; paneel.setAttribute("aria-label", "Menu");
   paneel.innerHTML = nav.innerHTML;
+  // 28/10: het menu Producten staat ook in de kopie; elke id krijgt -m zodat aria-controls naar het eigen paneel wijst
+  paneel.querySelectorAll("[id]").forEach((el) => { el.id += "-m"; });
+  paneel.querySelectorAll("[aria-controls]").forEach((el) => el.setAttribute("aria-controls", el.getAttribute("aria-controls") + "-m"));
   const help = kop.querySelector(".top-help");
   if (help) { const a = help.cloneNode(true); a.className = "mob-help"; paneel.append(a); }   // 08/10: uitlegvideo's ook in het gsm-menu
   const login = kop.querySelector(".top-login");
