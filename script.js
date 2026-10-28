@@ -420,3 +420,14 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   document.querySelectorAll("a[href]").forEach(zet);
   document.addEventListener("click", (e) => { const a = e.target.closest && e.target.closest("a[href]"); if (a) zet(a); }, true);
 })();
+
+/* Een link naar een vraag (#id op een <details>) opent die vraag meteen (homepage → hoe-het-werkt.html#webpagina). */
+(() => {
+  const open = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const d = id && document.getElementById(id);
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView({ block: "start" }); }
+  };
+  open();
+  window.addEventListener("hashchange", open);
+})();
