@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F2F3F6">
 <title>Voor AI-agents — Vidimus vanuit Claude, ChatGPT of uw eigen agent</title>
-<meta name="description" content="Hoe een AI-agent Vidimus gebruikt: publieke verificatie zonder sleutel, organisatie-API met sleutel, OpenAPI, llms.txt en een MCP-server met kant-en-klare tools.">
+<meta name="description" content="Hoe een AI-agent Vidimus gebruikt: publieke verificatie zonder sleutel, de API met een eigen sleutel per agent of systeem, OpenAPI, llms.txt en een MCP-server met kant-en-klare tools.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 
 <link rel="canonical" href="https://vidimus.be/voor-ai.html">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
-<meta property="og:title" content="Voor AI-agents — Vidimus vanuit Claude, ChatGPT of uw eigen agent"><meta property="og:description" content="Hoe een AI-agent Vidimus gebruikt: publieke verificatie zonder sleutel, organisatie-API met sleutel, OpenAPI, llms.txt en een MCP-server met kant-en-klare tools."><meta property="og:url" content="https://vidimus.be/voor-ai.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:title" content="Voor AI-agents — Vidimus vanuit Claude, ChatGPT of uw eigen agent"><meta property="og:description" content="Hoe een AI-agent Vidimus gebruikt: publieke verificatie zonder sleutel, de API met een eigen sleutel per agent of systeem, OpenAPI, llms.txt en een MCP-server met kant-en-klare tools."><meta property="og:url" content="https://vidimus.be/voor-ai.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.jpg">
 </head>
 <body>
@@ -52,7 +52,7 @@
   <div class="wrap">
     <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="voor-ai.html">VOOR AI-AGENTS</a></p>
     <h1 class="disp">Laat uw agent het bewijs <span class="thin">ophalen</span><span style="color:var(--red)">.</span></h1>
-    <p class="intro">"Ga naar Vidimus en bezorg me het bewijs van dit betwiste geval." Vidimus is gebouwd om óók door agents gebruikt te worden — Claude, ChatGPT of uw eigen automatisering. Drie lagen: een leesbare samenvatting voor modellen (<a href="llms.txt" style="color:var(--ink)">llms.txt</a>), een volledig beschreven API (<a href="https://app.vidimus.be/openapi.json" style="color:var(--ink)" rel="noopener">OpenAPI</a> · <a href="https://app.vidimus.be/docs" style="color:var(--ink)" rel="noopener">Swagger</a>) en een MCP-server met kant-en-klare tools. Publieke feiten zonder sleutel; uw eigen dossiers met de API-sleutel van uw organisatie.</p>
+    <p class="intro">"Ga naar Vidimus en bezorg me het bewijs van dit betwiste geval." Vidimus is gebouwd om óók door agents gebruikt te worden — Claude, ChatGPT of uw eigen automatisering. Drie lagen: een leesbare samenvatting voor modellen (<a href="llms.txt" style="color:var(--ink)">llms.txt</a>), een volledig beschreven API (<a href="https://app.vidimus.be/openapi.json" style="color:var(--ink)" rel="noopener">OpenAPI</a> · <a href="https://app.vidimus.be/docs" style="color:var(--ink)" rel="noopener">Swagger</a>) en een MCP-server met kant-en-klare tools. Publieke feiten zonder sleutel; uw eigen dossiers met een eigen sleutel voor uw agent, nooit de sleutel van uw organisatie.</p>
   </div>
 </section>
 
@@ -75,19 +75,24 @@
 
 <section style="padding-block: clamp(2rem, 4vw, 4rem)">
   <div class="wrap">
-    <div class="sec-head"><span class="lbl">02 · MCP-SERVER (CLAUDE, CHATGPT, CURSOR, EIGEN AGENTS)</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Gehost, niets te installeren.</b> Geef uw agent één adres en een eigen sleutel (in de app: Ontwikkelaars › Sleutels). Een leessleutel als hij alleen opzoekt en nakijkt; een bronsleutel als hij ook vastlegt, dan legt hij vast als die ene bron. Intrekken werkt meteen, zonder uw systemen te raken. Zonder sleutel werken enkel de publieke tools.</p>
+    <div class="sec-head"><span class="lbl">02 · MCP-SERVER (CLAUDE CODE, CURSOR, VS CODE, CODEX)</span></div>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Gehost, niets te installeren.</b> Geef uw agent één adres en een eigen sleutel, nooit de sleutel van uw organisatie. U maakt hem in de app, onder Verbinden. Op het tabblad AI-assistent krijgt uw assistent een sleutel die opzoekt en controleert, of een sleutel die vastlegt in één stroom en dan alleen ziet wat hij zelf vastlegde. Intrekken werkt meteen, zonder uw systemen te raken. Zonder sleutel werken alleen de publieke tools.</p>
 <pre class="ai-pre">{"mcpServers": {"vidimus": {
   "type": "http", "url": "https://app.vidimus.be/mcp",
-  "headers": {"x-api-key": "vks_…de sleutel van uw agent…"}}}}</pre>
+  "headers": {"x-api-key": "${VIDIMUS_MCP_KEY}"}}}}</pre>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1rem">De sleutel staat altijd in de header <code>x-api-key</code> (of <code>Authorization: Bearer</code>), het liefst uit een omgevingsvariabele, nooit in een adres.</p>
+    <table class="dtable" style="margin-top:1.4rem">
+      <tr><th>Programma</th><th>Werkt het?</th></tr>
+      <tr><td>Claude Code, Cursor, VS Code, Codex</td><td>Ja, met de sleutel in de header. In de app staat per programma het fragment om te kopiëren.</td></tr>
+      <tr><td>Claude in de browser, de Claude-app, ChatGPT</td><td>Nog niet: die vragen een aanmelding in plaats van een sleutel. Daar werken we aan. Tot dan werken ze alleen voor publieke controles.</td></tr>
+    </table>
+    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.6rem"><b style="color:var(--ink)">Een koppeling bouwen met uw agent.</b> Voor een systeem of toestel (TMS, WMS, sensor) maakt de beheerder het eerst aan onder Verbinden. Dan krijgt uw agent een <b style="color:var(--ink)">testsleutel</b> (<code>vks_test_…</code>, servernaam <code>vidimus-test</code>, omgevingsvariabele <code>VIDIMUS_TEST_KEY</code>): die legt niets vast, en elk antwoord bevat <code>"proef": true</code>. De agent kijkt met <code>connection_status</code> wat er klaarstaat en test met <code>test_measurement</code> of <code>test_registration</code> tot het antwoord <code>"aanvaard": true</code> bevat. Daarna stuurt de code van het systeem zelf één bericht met de testsleutel. Pas dan staat er "Test geslaagd" en maakt de beheerder de <b style="color:var(--ink)">echte sleutel</b>. Die hoort in het systeem als <code>VIDIMUS_API_KEY</code>, nooit in de chat, in code of in een MCP-verbinding.</p>
     <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Let op:</b> er bestaat géén Vidimus-pakket op PyPI van ons. Wie <code>pip install vidimus</code> doet, installeert de code van iemand anders. Gebruik alleen het adres hierboven.</p>
-    <p style="max-width:70ch;color:var(--dim);font-size:.82rem;margin-top:1rem"><b style="color:var(--paper-dim)">Tools:</b> verify_registration · passport · verify_bundle_file · list_registrations · list_streams · get_dossier · get_content · download_bundle · lookup_file · register · create_share · tamper_check · usage · explain.</p>
+    <p style="max-width:70ch;color:var(--dim);font-size:.82rem;margin-top:1rem"><b style="color:var(--paper-dim)">Tools:</b> verify_registration · passport · list_registrations · list_streams · get_dossier · get_content · register · connection_status · test_measurement · test_registration · create_share · tamper_check · usage · explain.</p>
 <pre class="ai-pre"><b>Gebruiker:</b> "Bezorg me het bewijs van de betwiste aflevering van vrijdag, container MSKU 452 118-0."
-<b>Agent:</b>  passport("MSKU 452 118-0")   → vindt de aflevering + de bevestiging van de terminal
-        get_dossier(reg_…)           → het leesbare dossier
-        download_bundle(reg_…)       → de cryptografische bewijsbundel (.zip)
-        verify_bundle_file(zip)      → "geldig — inhoud, handtekeningen, Merkle-pad,
-                                        grootboek en beide tijdstempels kloppen."</pre>
+<b>Agent:</b>  passport("MSKU 452 118-0")    → vindt de aflevering + de bevestiging van de terminal
+        get_dossier(reg_…)            → het leesbare dossier
+        verify_registration(reg_…)    → "GELDIG: inhoud, handtekeningen en tijdstempels kloppen."</pre>
   </div>
 </section>
 
