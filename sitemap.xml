@@ -20,4 +20,11 @@
   <url><loc>https://vidimus.be/partners.html</loc><lastmod>2026-09-28</lastmod></url>
   <url><loc>https://vidimus.be/juridisch.html</loc><lastmod>2026-09-28</lastmod></url>
   <url><loc>https://vidimus.be/vragen.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://vidimus.be/webpagina-vastleggen.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://vidimus.be/vergelijking-proofsnap-truescreen.html</loc><lastmod>2026-10-27</lastmod></url>
+  <!-- /na-een-inbraak.html: pas na de testweek van de momentopname (besluit 9, 27-10) -->
+  <!-- seo-1: Engelse pagina's pas opnemen samen met het weghalen van noindex in en/index.html en en/pricing.html:
+  <url><loc>https://vidimus.be/en/</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://vidimus.be/en/pricing.html</loc><lastmod>2026-10-27</lastmod></url>
+  -->
 </urlset>

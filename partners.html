@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F2F3F6">
 <title>Partners — uw software registreert, Vidimus maakt het bewijsbaar | Vidimus</title>
-<meta name="description" content="Voor TMS-, WMS-, ERP- en IoT-leveranciers: bouw niets, zet één bewijslaag onder uw product en verdien recurring marge. Referral 20 %, reseller 30 %, integrator 30–40 % plus implementatie.">
+<meta name="description" content="Voor leveranciers van TMS, WMS, ERP en IoT: zet Vidimus onder uw product zonder zelf een bewijslaag te bouwen. Referral 20 %, reseller 30 %, integrator 30–40 %.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -35,6 +35,86 @@
 @media (max-width: 1080px) { .lagen { grid-template-columns: 1fr; } }
 @media (max-width: 720px) { .band { grid-template-columns: 1fr; } }
 </style>
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/partners.html#faq",
+ "url": "https://vidimus.be/partners.html",
+ "inLanguage": "nl-BE",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Mag ik het onder mijn eigen naam verkopen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja. Co-branding (\"uw bewijslaag — powered by Vidimus\") mag in uw product en documentatie. Alleen de verificatie zelf blijft op het Vidimus-domein: een controlepagina met enkel uw logo zou de onafhankelijkheid ondermijnen, en die onafhankelijkheid is precies wat uw klant koopt."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie factureert de klant?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Reseller en integrator: u. U krijgt van ons één maandfactuur met de korting van uw laag als aparte regel. Referral: wij factureren de klant en betalen uw aandeel per kwartaal uit; het bedrag staat elke maand in uw portaal."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wat als mijn klant rechtstreeks of naar een andere partner wil?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dan mag dat. Hij neemt zijn registraties, sleutels en verificatielinks mee; u werkt mee aan de overdracht. Lopende referral-aandelen lopen door tot het einde van hun 24 maanden."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ben ik een handelsagent?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. U verkoopt in eigen naam (reseller, integrator) of brengt klanten aan tegen een vergoeding die in de tijd beperkt is (referral). Er is geen exclusiviteit en geen uitwinnings- of cliënteelvergoeding. Dat staat zo in de overeenkomst."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wat mag ik wel en niet zeggen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Wel: wie, wat, wanneer en of er nadien iets gewijzigd is, staat vast en is zonder Vidimus na te rekenen. Niet: dat Vidimus de inhoud certificeert, dat er een \"blockchaingarantie\" is, of dat een rechter het bewijs móét aanvaarden. De rechter weegt; wij maken het narekenbaar. Het uitlegpakket in het portaal heeft de juiste formuleringen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Meting of registratie — wat telt voor de prijs?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Metingen van een meetbron (sensor, logger, weegbrug, GPS) zijn onbeperkt inbegrepen in € 15 per meetbron per maand waarin ze meet, de eerste gratis, via /measurements. Een meetbron maakt u aan met een naam, een eenheid en een bereik (POST /sources, of per eindklant via de partner-API); alleen haar eigen sleutel mag meten. Alles met eigen inhoud of ID — levering, foto, CMR, goedkeuring — is een registratie en telt per stuk, per schijf, via /registrations: ook wat uw systeem stuurt, en ook wat nog via het oude /ingest binnenkomt. Zie de prijzen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie leest de inhoud van mijn klanten?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Elke organisatie heeft een eigen sleutel; originelen zijn per document versleuteld (AES-256-GCM). Uw partnersleutel leest nooit inhoud. Leest onze server inhoud voor een dossier of bundel, dan staat dat in het inzage-logboek dat de klant zelf ziet."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wat als Vidimus stopt?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Bewijsbundels zijn open formaten met gepubliceerde verificatiestappen (SHA-256, RFC 3161, Merkle, OpenTimestamps). Ze blijven zonder Vidimus na te rekenen. Dat staat in de overeenkomst en in de verificatie-uitleg."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
@@ -277,7 +357,7 @@
 
 <footer class="app-voet">
   <span>VIDIMUS · SITE</span>
-  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — ANTWERPEN</span>
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
   <a href="colofon.html">Colofon &amp; privacy</a>
   <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
   <a href="scenarios.html">Scenario's</a>

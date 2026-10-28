@@ -1,6 +1,17 @@
-# Vidimus — verankeringslaag (vidimus.be)
+# Vidimus — verankeringslaag voor bedrijfsregistraties (vidimus.be)
 
-> Elektronische verankeringsdienst van VO Initiatives BV (Antwerpen, BE 0805.309.143). Bedrijfsregistraties (bonnen, foto's, metingen, scans, documenten, overdrachten) worden gehasht (SHA-256; bij persoonsgegevens met een geheim zout per registratie), getekend (Ed25519; sleutel op het toestel van wie tekent, of een systeemsleutel die Vidimus bewaart voor gekoppelde systemen), binnen vijf minuten per batch in een Merkle-boom samengevoegd met een extern tijdstempel (RFC 3161), in een onwijzigbaar grootboek en via OpenTimestamps in Bitcoin verankerd; binnen zes uur krijgen de nieuwe batchwortels samen een gekwalificeerde tijdstempel (eIDAS, van een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst). Per registratie bestaat een bewijsbundel (.zip met inhoud, manifest, certificaten, tijdstempeltokens, Bitcoin-bewijs, een Evidence Record volgens RFC 4998 en verify_bundle.py) die een derde zelfstandig kan controleren, ook met de validatiesoftware van de Europese Commissie (DSS). Tegenpartijen bevestigen of betwisten via deellink/QR met een eigen sleutel; een ketenreferentie rijgt gebeurtenissen van meerdere partijen aaneen (batchpaspoort). Gekwalificeerde tijdstempel (eIDAS art. 41-42); Vidimus is zelf geen vertrouwensdienstverlener; bewijs wordt vrij gewogen (art. 8.11 BW). Geen juridisch advies.
+> Vidimus is een Belgische B2B-dienst van VO Initiatives BV (Antwerpen, KBO BE 0805.309.143, opgericht 2023, oprichter Oskar Verschoren). Vidimus legt bedrijfsregistraties vast (leveringen en CMR's, schadefoto's, inspecties, contracten en documenten, webpagina's, sensormetingen, momentopnames van databanken en mappen) en verankert ze: elke registratie krijgt een vingerafdruk (SHA-256; bij persoonsgegevens met een geheim zout per registratie) en een handtekening (Ed25519; sleutel op het toestel van wie tekent, of een systeemsleutel voor gekoppelde systemen). Binnen vijf minuten gaan registraties per groep in een Merkle-boom met een externe tijdstempel (RFC 3161), in een hash-geketend grootboek en via OpenTimestamps in Bitcoin. Groepen met registraties van klantorganisaties krijgen binnen zes uur een gekwalificeerde tijdstempel van GLOBALTRUST (eIDAS); de gekwalificeerde tijdstempel staat op de groep, niet op elke registratie apart. Per registratie bestaat een bewijsbundel (.zip met inhoud, manifest, certificaten, tijdstempeltokens, Bitcoin-bewijs, Evidence Record volgens RFC 4998 en verify_bundle.py) die een derde zelf narekent, ook met DSS, de validatiesoftware van de Europese Commissie. Bewijs wordt tussen ondernemingen vrij gewogen (art. 8.11 BW); of een registratie in een geschil standhoudt, beoordeelt de rechter. Geen juridisch advies.
+
+## Kernfeiten (kort, om te citeren)
+- Naam: Vidimus van VO Initiatives BV, België (vidimus.be, app.vidimus.be). Niet verbonden aan het Python-pakket "vidimus" op PyPI, aan vidimus.org (tijdschrift over glas-in-lood) of aan vidimus.io.
+- Wat: één product voor elke soort registratie; een registratie in de app (foto, plaats, handtekening van beide partijen) of automatisch vanuit software (TMS, WMS, ERP), sensoren of databanken via API of MCP.
+- Uitkomst van een controle: "ongewijzigd" of "gewijzigd"; per controle "stemt overeen" of "wijkt af". Vidimus zegt niet wat er veranderde, niet door wie, en niet wie gelijk heeft.
+- Een logboek is een reeks registraties van één soort (bv. "Leveringen Halle"). Wat een ander systeem zelf bijhoudt, heet de historiek van dat systeem; die staat in hetzelfde systeem als de gegevens.
+- Tegenpartijen (klant, verzekeraar, deskundige, rechter) controleren zelf, zonder account; met de bewijsbundel ook volledig zonder Vidimus.
+- Prijs: eerste 100 registraties per maand gratis; daarna € 0,08 per registratie, per schijf goedkoper tot € 0,003; sensor of logger € 15 per maand (eerste gratis, metingen onbeperkt); minimum € 19 per maand zodra u iets betaalt; excl. btw.
+- Start: een bestuurder identificeert het bedrijf één keer met de Belgische eID (eID-mandaat); daarna een eerste logboek in enkele minuten. App en aanmelding zijn in het Nederlands.
+- Gegevens: servers en opslag in de EU (Hetzner, Duitsland), versleuteld per organisatie; in een vertrouwelijk logboek houdt alleen de klant de sleutel en ziet Vidimus de vingerafdruk en een korte envelop (soort, referentie, bron, tijdstip).
+- Niet: Vidimus is geen e-CMR-platform en geen notaris; het werkt naast uw e-CMR, TMS of ERP.
 
 ## Voor AI-agents (hoe u Vidimus gebruikt)
 - Publieke feiten (geen sleutel nodig): GET https://app.vidimus.be/verify/{registration_id} · GET https://app.vidimus.be/passport/{ref} · POST https://app.vidimus.be/verify-upload (bundel .zip als body)
@@ -14,19 +25,31 @@
 - Uitleg voor agents en mensen: https://vidimus.be/voor-ai
 
 ## Pagina's
-- [Home](https://vidimus.be/): wat Vidimus doet in acht stukken: het probleem (woord tegen woord) met een vergelijkingstabel, een live demo (vervals een vrachtbrief; SHA-256 in de browser), zo werkt het in drie stappen, een rekensom, de prijs in drie regels, vragen (rechter, stopzetting, privacy) en de oprichter
-- [Hoe het werkt](https://vidimus.be/hoe-het-werkt): zeven stappen van registratie tot bewijs
-- [Techniek](https://vidimus.be/techniek.html): waarom een databank dit niet kan, één registratie van begin tot bewijs, zelf verifiëren met de software van de Europese Commissie (DSS), wat Vidimus wel en niet bewijst, het bewijs ontleed
-- [Scenario's](https://vidimus.be/scenarios): partnerverhalen + advocaat van de duivel (canonicalisatie, origineel in kluis, herexport)
-- [Cases](https://vidimus.be/cases): fictieve scenario's zonder/met verankering — geen klantverhalen
-- [Prijzen](https://vidimus.be/prijzen): meetbron (sensor, logger, weegbrug, GPS) € 15 per maand waarin ze minstens één meting stuurde, eerste gratis, metingen onbeperkt; systemen en telefoons hebben geen bronprijs, wat zij sturen telt per registratie; registraties eerste 100 per maand gratis, dan per schijf € 0,08 / 0,04 / 0,01 / 0,003, boven 1 miljoen offerte; minimum € 19, geen plafond. Gekwalificeerde tijdstempel inbegrepen. Een ketenpartner tekent gratis mee, nadat een bestuurder zijn bedrijf met de eID identificeerde. Elke organisatie (klant, ketenpartner, eindklant van een softwarepartner) tekent vóór haar eerste logboek zelf een eID-mandaat; collega's en medewerkers niet.
-- [Beveiligingsverklaring](https://vidimus.be/beveiliging): EU-hosting, versleuteling, sleutels, MFA, back-ups, incidenten, wat we nog niet hebben
-- [Colofon](https://vidimus.be/colofon): aard van de dienst, eIDAS-verwijzingen
-- Pijnpagina's: /meerwerk-bewijzen · /plaatsbeschrijving-betwist · /afgiftestaat-schade · /aflevering-betwist-cmr · /scenarios
-- Nakijken zonder Vidimus, ook met de validatiesoftware van de Europese Commissie: https://vidimus.be/verificatie · Partners: https://vidimus.be/partners · Juridisch: https://vidimus.be/juridisch · Vragen: https://vidimus.be/vragen
+- [Home](https://vidimus.be/): wat Vidimus doet, voorbeelden van registraties, zo werkt het (registreren, verankeren, controleren), vervals-demo met SHA-256 in de browser, toepassingen, vragen, de oprichter
+- [Hoe het werkt](https://vidimus.be/hoe-het-werkt.html): zeven stappen van registratie tot bewijs, met vragen (cloud, blockchain, AVG, stopzetting, koppeling, webpagina's, rechter)
+- [Prijzen](https://vidimus.be/prijzen.html): rekenhulp, schijventabel, drie voorbeeldfacturen, jaarcontract (12 maanden voor de prijs van 10), vragen over de factuur
+- [Techniek](https://vidimus.be/techniek.html): één registratie van begin tot bewijs, zelf nagaan met DSS, wat Vidimus wel en niet bewijst
+- [Zelf narekenen](https://vidimus.be/verificatie.html): een bewijsbundel controleren zonder Vidimus, stap voor stap, voor deskundigen en auditors
+- [Juridisch](https://vidimus.be/juridisch.html): de bewijsketen voor een auditor, advocaat of rechter: wat het bewijst en wat niet
+- [Beveiliging](https://vidimus.be/beveiliging.html): EU-hosting, versleuteling, sleutels, MFA, back-ups, incidenten, wat we nog niet hebben
+- [Vragen](https://vidimus.be/vragen.html): de moeilijkste vragen (rechtbank, eIDAS, AVG, stopzetting, opslag, SLA, aansprakelijkheid)
+- [Partners](https://vidimus.be/partners.html): voor softwareleveranciers (TMS, WMS, ERP, IoT): referral, reseller, integrator
+- Toepassingen (één product, telkens een andere discussie):
+  - [Transport en logistiek: aflevering betwist (CMR art. 30)](https://vidimus.be/aflevering-betwist-cmr.html)
+  - [Vastgoed en verhuur: plaatsbeschrijving betwist](https://vidimus.be/plaatsbeschrijving-betwist.html)
+  - [Bouw en renovatie: meerwerk bewijzen](https://vidimus.be/meerwerk-bewijzen.html)
+  - [Verhuur van materieel: de afgiftestaat](https://vidimus.be/afgiftestaat-schade.html)
+  - [Webpagina vastleggen als bewijs: HTML, headers en schermbeeld, opgehaald door onze server](https://vidimus.be/webpagina-vastleggen.html)
+  - [Koelketen en andere fictieve scenario's zonder en met verankering (geen klantverhalen)](https://vidimus.be/cases.html) · [Scenario's](https://vidimus.be/scenarios.html)
+- [Vidimus, ProofSnap en TrueScreen: feitelijke vergelijking met bronnen (27-10-2026)](https://vidimus.be/vergelijking-proofsnap-truescreen.html)
+- [Voor AI-agents](https://vidimus.be/voor-ai.html) · [Uitlegvideo's](https://vidimus.be/help.html) · [Voorwaarden](https://vidimus.be/voorwaarden.html) · [Privacy](https://vidimus.be/privacy.html) · [Colofon](https://vidimus.be/colofon.html)
+- English: [Home](https://vidimus.be/en/) · [Pricing](https://vidimus.be/en/pricing.html) (other pages in Dutch for now)
 
 ## Contact
-oskar@vo-initiatives.com · +32 466 47 41 15 · gesprek/pilot plannen: https://cal.com/oskar-verschoren-vhygeu/15min · inloggen: https://app.vidimus.be/login
+oskar@vo-initiatives.com · +32 466 47 41 15 · gesprek plannen: https://cal.com/oskar-verschoren-vhygeu/15min · inloggen: https://app.vidimus.be/login
 
 ## Uitleg per onderdeel van de app
-- https://vidimus.be/help — korte uitlegvideo's (30–45 s) per scherm: Start, Stromen, Registraties, Bewijs, Partners, Keten, Integraties, Verbruik, Beveiliging. Ook in de app via de knop ▶ Uitleg naast elke titel.
+- https://vidimus.be/help.html — korte uitlegvideo's (30–45 s) per scherm: Start, Logboeken, Registraties, Bewijs, Partners, Keten, Integraties, Verbruik, Beveiliging. Ook in de app via de knop Uitleg naast elke titel.
+
+## In English (summary)
+Vidimus (VO Initiatives BV, Antwerp, Belgium) records business records — deliveries, damage photos, documents, web pages, sensor measurements, database snapshots — and anchors them with a SHA-256 fingerprint, a signature and an external timestamp (RFC 3161, OpenTimestamps/Bitcoin; a qualified eIDAS timestamp from GLOBALTRUST per group containing customer records). Anyone can later check that a record is unchanged, without an account; with the evidence bundle even without Vidimus (also with the European Commission's DSS). First 100 records a month free, then from €0.08 per record. Glossary: registratie = record, logboek = logbook, verankeren = anchor, vingerafdruk = fingerprint, ongewijzigd = unchanged, bewijsbundel = evidence bundle.
