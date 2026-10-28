@@ -1155,3 +1155,5 @@ p.eu-noot { margin-top: clamp(22px, 3vw, 34px); font-size: 13px; line-height: 1.
   .hulp-tabel th, .hulp-tabel td { padding: 2px 0; border: 0; }
   .hulp-tabel td:last-child { margin-top: 6px; }
 }
+/* golf 7, acceptatie Q (28/10/2026): op /techniek raakte de onderlengte van 'bewijs' (de j) de eerste regel van de ondertitel */
+.techniek-held .hero-title + .sub { margin-top: clamp(20px, 2.6vw, 36px); }
