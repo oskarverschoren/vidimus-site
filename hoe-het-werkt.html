@@ -45,7 +45,7 @@
   <div class="wrap">
     <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="hoe-het-werkt.html">HOE HET WERKT</a></p>
     <h1 class="disp">Van registratie tot bewijs<span style="color:var(--red)">,</span><br><span class="thin">in zeven stappen</span><span style="color:var(--red)">.</span></h1>
-    <p class="intro">Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag; wij leggen er een verankeringslaag onder die van elke registratie vastlegt <b>wat er stond, wanneer, en door wie</b> — zo dat niemand het achteraf nog kan wijzigen. <b>Ook wij niet.</b></p>
+    <p class="intro">Vidimus vervangt niets. Uw team scant, meet en tekent zoals vandaag; wij leggen er een verankeringslaag onder die van elke registratie vastlegt <b>wat er stond, wanneer, en door wie</b> — zo dat niemand het achteraf nog ongemerkt kan wijzigen. <b>Ook wij niet.</b></p>
   </div>
 </section>
 
@@ -53,7 +53,7 @@
   <div class="wrap">
     <div class="how-row rv"><span class="how-num" aria-hidden="true">01</span>
       <h3>Identiteit<small>KBO · EID-MANDAAT · SLEUTEL OP HET TOESTEL · CERTIFICAAT OP NAAM VAN DE FIRMA</small></h3>
-      <p>Elke organisatie wordt gecontroleerd in de KBO en tekent een mandaat met de eID van haar bestuurder; daaruit volgt een organisatiekenmerk (SHA-256) dat in elke bundel terugkomt. Elke medewerker krijgt een Ed25519-sleutel die op zijn telefoon wordt aangemaakt en die nooit verlaat, met een certificaat op naam van de firma; Face ID is het slot. Systemen — TMS, WMS, ERP, poort — tekenen met een systeemsleutel van de organisatie; een meetbron — sensor, logger, weegbrug — met haar eigen sleutel. <em style="color:var(--ink);font-style:normal">Wie tekent, is geen loginnaam maar een sleutel met een geïdentificeerde firma erachter.</em></p>
+      <p>Elke organisatie wordt gecontroleerd in de KBO en tekent een mandaat met de eID van haar bestuurder; daaruit volgt een organisatiekenmerk (SHA-256) dat in elke bundel terugkomt. Elke medewerker krijgt een Ed25519-sleutel die op zijn telefoon wordt aangemaakt en die het toestel niet verlaat, met een certificaat op naam van de firma; Face ID is het slot. Systemen — TMS, WMS, ERP, poort — tekenen met een systeemsleutel van de organisatie; een meetbron — sensor, logger, weegbrug — met haar eigen sleutel. <em style="color:var(--ink);font-style:normal">Wie tekent, is geen loginnaam maar een sleutel met een geïdentificeerde firma erachter.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">02</span>
       <h3>Registratie<small>APP OF API · /registrations PER STUK · /measurements PER MEETBRON</small></h3>
@@ -61,23 +61,23 @@
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">03</span>
       <h3>Vingerafdruk<small>SHA-256 · CANONIEKE JSON · ELKE BIJLAGE OP HASH</small></h3>
-      <p>Op dat moment wordt SHA-256 berekend over de canonieke inhoud, de hash van elke bijlage én het organisatiekenmerk van de indienende onderneming. Eén byte anders geeft een andere afdruk; uit de afdruk valt de inhoud nooit te reconstrueren. Bij stromen met persoonsgegevens zit er een geheim zout van die ene registratie in de berekening: niemand kan namen raden door zelf te hashen, en wie de bundel krijgt, rekent de afdruk toch na met gewone SHA-256.</p>
+      <p>Op dat moment wordt SHA-256 berekend over de canonieke inhoud, de hash van elke bijlage én het organisatiekenmerk van de indienende onderneming. Eén byte anders geeft een andere afdruk; uit de afdruk valt de inhoud nooit te reconstrueren. Bij logboeken met persoonsgegevens zit er een geheim zout van die ene registratie in de berekening: niemand kan namen raden door zelf te hashen, en wie de bundel krijgt, rekent de afdruk toch na met gewone SHA-256.</p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">04</span>
-      <h3>Handtekening en tijd<small>ED25519 · ELKE 5 MINUTEN EEN MERKLE-BOOM · GEKWALIFICEERDE TIJDSTEMPEL — NIET ONZE KLOK</small></h3>
-      <p>De indiener tekent de vingerafdruk met zijn sleutel (die wordt op het toestel gemaakt en verlaat het niet). Elke vijf minuten gaan alle nieuwe vingerafdrukken in één Merkle-boom met een extern tijdstempel; doorgaans binnen zes uur krijgen die wortels samen een gekwalificeerde tijdstempel (eIDAS). <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 was — dat van een gekwalificeerde vertrouwensdienst.</em></p>
+      <h3>Handtekening en tijd<small>ED25519 · ELKE 5 MINUTEN EEN MERKLE-BOOM · EXTERNE TIJDSTEMPEL, NIET ONZE KLOK</small></h3>
+      <p>De indiener tekent de vingerafdruk met zijn sleutel (die wordt op het toestel gemaakt en verlaat het niet). Elke vijf minuten gaan alle nieuwe vingerafdrukken in één Merkle-boom met een extern tijdstempel; zitten er registraties van klantorganisaties bij, dan krijgen die wortels samen doorgaans binnen zes uur ook een gekwalificeerde tijdstempel (eIDAS) van GLOBALTRUST, en elke registratie is ermee verbonden via haar Merkle-pad. <em style="color:var(--ink);font-style:normal">Niet ons woord dat het 14:02 (UTC+2) was — dat van een externe tijdstempeldienst.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">05</span>
       <h3>Verankeren<small>GROOTBOEK (HASH-KETEN) → OPENTIMESTAMPS → BITCOIN</small></h3>
-      <p>Dezelfde wortel komt in ons append-only grootboek — elk record hasht het vorige — en gaat via OpenTimestamps in een Bitcoin-blok: een publiek register dat door duizenden partijen tegelijk wordt bijgehouden. Wijzigen of wissen zou door iedereen opgemerkt worden, ook als wij het zouden proberen. <em style="color:var(--ink);font-style:normal">Twee getuigen: een gekwalificeerde vertrouwensdienstverlener en een publieke keten. Alle partijen kijken naar hetzelfde bewijs.</em></p>
+      <p>Dezelfde wortel komt in ons grootboek, waaraan alleen iets wordt toegevoegd — elk record hasht het vorige — en gaat via OpenTimestamps in een Bitcoin-blok: een publiek register dat door duizenden partijen tegelijk wordt bijgehouden. Wijzigen of wissen valt op voor wie het nakijkt, ook als wij het zouden proberen. <em style="color:var(--ink);font-style:normal">Twee getuigen buiten Vidimus: de tijdstempeldienst (voor klantorganisaties ook de gekwalificeerde van GLOBALTRUST) en een publieke keten. Alle partijen kijken naar hetzelfde bewijs.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">06</span>
       <h3>De kluis<small>AES-256-GCM PER DOCUMENT · SLEUTEL PER ORGANISATIE · WRITE-ONCE · OBJECT LOCK IN DE EU</small></h3>
-      <p>Stuurt u originelen mee — foto's, pdf's, CMR's — dan liggen ze versleuteld in de kluis: een eigen sleutel per document, gewikkeld onder de sleutel van uw organisatie. Elk bestand wordt één keer geschreven en gaat ook naar opslag met Object Lock (Hetzner, Duitsland) die tijdens de bewaartermijn niemand kan overschrijven. Leest onze server inhoud voor een dossier of bundel, dan staat dat in een logboek dat u zelf ziet. <em style="color:var(--ink);font-style:normal">Vervangen kan niemand, ook wij niet.</em></p>
+      <p>Stuurt u originelen mee — foto's, pdf's, CMR's — dan liggen ze versleuteld in de kluis: een eigen sleutel per document, gewikkeld onder de sleutel van uw organisatie. Elk bestand wordt één keer geschreven en gaat ook naar opslag met Object Lock (Hetzner, Duitsland), die tijdens de bewaartermijn geen overschrijven toelaat, ook niet op ons verzoek. Leest onze server inhoud voor een dossier of bundel, dan staat dat in uw inzagen, die u zelf ziet. <em style="color:var(--ink);font-style:normal">Een vervangen origineel valt op: zijn vingerafdruk past niet meer.</em></p>
     </div>
     <div class="how-row rv"><span class="how-num" aria-hidden="true">07</span>
       <h3>Verifiëren en wissen<small>ACHT CONTROLES ZONDER VIDIMUS · AVG · CRYPTO-SHREDDING</small></h3>
-      <p>Elke registratie krijgt een publieke controlepagina en een bewijsbundel met script: inhoud, batch, handtekening van de indiener, tijdstempel, gekwalificeerde tijdstempel, grootboek, Bitcoin, handtekening van Vidimus — na te rekenen met open gereedschap, ook met de validatiesoftware van de Europese Commissie, <a href="verificatie.html">zonder ons</a>. Na de bewaartermijn of bij een beroep op gegevenswissing vernietigen we de documentsleutel: het bestand wordt ruis, de vingerafdruk blijft aantonen <em style="color:var(--ink);font-style:normal">dát</em> er iets was, wanneer en door wie. <em style="color:var(--ink);font-style:normal">Bewijs en privacy sluiten elkaar niet uit.</em></p>
+      <p>Elke registratie krijgt een publieke controlepagina en een bewijsbundel met script: inhoud, batch, handtekening van de indiener, tijdstempel, gekwalificeerde tijdstempel, grootboek, Bitcoin, handtekening van Vidimus — na te rekenen met open gereedschap, ook met de validatiesoftware van de Europese Commissie, <a href="verificatie.html">zonder Vidimus</a>. Na de bewaartermijn of bij een beroep op gegevenswissing vernietigen we de documentsleutel: het bestand wordt ruis, de vingerafdruk blijft aantonen <em style="color:var(--ink);font-style:normal">dát</em> er iets was, wanneer en door wie. <em style="color:var(--ink);font-style:normal">Bewijs en privacy sluiten elkaar niet uit.</em></p>
     </div>
   </div>
 </section>
@@ -90,9 +90,9 @@
     </div>
     <div class="why-grid rv" style="grid-template-columns:repeat(4,1fr)">
       <article><span class="no">A</span><h3>De inhoud</h3><p>Het document of de meting zelf: een afgiftestaat, een meerwerk-akkoord, een gate-event. Foto's gaan mee als hash — het beeld blijft bij u.</p></article>
-      <article><span class="no">B</span><h3>Het moment</h3><p>Niet onze serverklok maar externe tijdstempels bepalen wanneer: binnen vijf minuten een tijdstempel, doorgaans binnen zes uur een gekwalificeerde tijdstempel van GLOBALTRUST, een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst. Niemand kan een registratie een vroeger verankeringstijdstip geven, ook wij niet. De tijd in de registratie zelf is wat het toestel opgaf.</p></article>
+      <article><span class="no">B</span><h3>Het moment</h3><p>Niet onze serverklok maar externe tijdstempels bepalen wanneer: binnen vijf minuten een tijdstempel, en voor klantorganisaties doorgaans binnen zes uur ook een gekwalificeerde tijdstempel van GLOBALTRUST op de groep, een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst. Niemand kan een registratie een vroeger verankeringstijdstip geven, ook wij niet. De tijd in de registratie zelf is wat het toestel opgaf.</p></article>
       <article><span class="no">C</span><h3>De ondertekenaars</h3><p>Ed25519-handtekeningen met X.509-certificaten per organisatie, medewerker en systeem. De sleutel wordt op het toestel of in het systeem gemaakt en verlaat het niet, tenzij u ons de sleutel van een systeem laat bewaren; dat staat dan in elke bundel. Of dit een geavanceerde elektronische handtekening is (eIDAS art. 26), beoordeelt de rechter. Namen in toestelcertificaten zijn opgegeven door de werkgever, niet door Vidimus geverifieerd. De organisatie zelf via een mandaat dat de bestuurder met zijn eID tekent.</p></article>
-      <article><span class="no">D</span><h3>De geschiedenis</h3><p>Elke actie erna — bekijken, exporteren, delen — komt in een audittrail die zelf SHA-256-gechaind is.</p></article>
+      <article><span class="no">D</span><h3>De geschiedenis</h3><p>Elke actie erna — bekijken, exporteren, delen — komt in een historiek op het platform die zelf SHA-256-geketend is.</p></article>
     </div>
   </div>
 </section>
@@ -110,7 +110,7 @@
         <ul>
           <li>Een record kan achteraf bijgewerkt worden — een collega bewaart de verkeerde versie, een meting wordt "gecorrigeerd".</li>
           <li>Een record kan verdwijnen — per ongeluk of niet. Een migratie of servercrash wist stil een stuk geschiedenis.</li>
-          <li>Niemand kan bewijzen wie wat wijzigde — of zelfs dát er iets gewijzigd is.</li>
+          <li>Niemand kan aantonen wie wat wijzigde — of zelfs dát er iets gewijzigd is.</li>
           <li>Bij een geschil komt uw export uit hetzelfde systeem dat ter discussie staat.</li>
           <li>Uw tegenpartij heeft haar eigen databank — met exact dezelfde eigenschappen.</li>
         </ul>
@@ -120,12 +120,12 @@
         <h3>Met de verankeringslaag</h3>
         <ul>
           <li>Elke registratie wordt bij aanmaak vastgezet — een correctie is een nieuwe registratie, het origineel blijft bestaan.</li>
-          <li>Wissen of aanpassen is onafhankelijk detecteerbaar — ook door ons, ook door een beheerder met alle rechten.</li>
+          <li>Wissen of aanpassen valt op voor wie het nakijkt — ook als wij het doen, of een beheerder met alle rechten.</li>
           <li>Elke wijziging achteraf breekt de hash zichtbaar — de verificatie slaat rood uit, voor iedereen.</li>
           <li>De bewijsbundel is zelfstandig verifieerbaar, buiten ons platform om.</li>
           <li>Beide partijen kijken naar hetzelfde verankerde record.</li>
         </ul>
-        <p class="cost">= WISKUNDE TEGEN WOORD</p>
+        <p class="cost">= rekenwerk tegen woord</p>
       </div>
     </div>
   </div>
@@ -135,12 +135,12 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="idx">CONCREET</span>
-      <h2 class="disp">Eén datastroom per sector<span style="color:var(--red)">.</span></h2>
-      <p class="side">Fictieve voorbeelden, geen klantcases. Per sector: wat er verankerd wordt, en wat de discussie daarna nog kan zijn. Spoiler: weinig.</p>
+      <h2 class="disp">Eén voorbeeld per sector<span style="color:var(--red)">.</span></h2>
+      <p class="side">Fictieve voorbeelden, geen klantcases. Per sector: wat er verankerd wordt, en waarover de discussie daarna nog kan gaan.</p>
     </div>
     <div style="display:grid;gap:3rem;margin-top:1rem">
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
-        <div><p class="lbl"><b>01</b> · MATERIEEL- &amp; MACHINEVERHUUR</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">De afgiftestaat</h3><p style="font-size:.86rem;color:var(--paper-dim)">Bij afgifte én terugname tekenen beide partijen de staatopname op een telefoon; foto's gaan als hash mee de verankering in. Een schadediscussie wordt een vergelijking van twee documenten waarvan inhoud en moment vaststaan.</p></div>
+        <div><p class="lbl"><b>01</b> · MATERIEEL- &amp; MACHINEVERHUUR</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">De afgiftestaat</h3><p style="font-size:.86rem;color:var(--paper-dim)">Bij afgifte én terugname tekenen beide partijen de staatopname op een telefoon; foto's gaan als hash mee de verankering in. Een schadediscussie wordt een vergelijking van twee documenten waarvan na te gaan is dat ze ongewijzigd zijn en uiterlijk op hun verankerd tijdstip bestonden.</p></div>
         <div class="codecard"><span class="k">registratie</span>afgiftestaat AFG-0182<br><span class="k">machine</span>hoogwerker · serienr + urenteller<br><span class="k">staat</span>6 foto's (sha-256) · opmerkingen<br><span class="k">getekend</span>verhuurder + huurder · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + bitcoin-anker</span></div>
       </div>
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
@@ -152,8 +152,8 @@
         <div class="codecard"><span class="k">registratie</span>plaatsbeschrijving PB-2026-013<br><span class="k">pand</span>appartement · 4 ruimtes<br><span class="k">staat</span>38 foto's (sha-256) · meterstanden<br><span class="k">getekend</span>verhuurder + huurder · bij intrede<br><span class="k">verankerd</span><span class="gr">tijdstempel + bitcoin-anker</span></div>
       </div>
       <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
-        <div><p class="lbl"><b>04</b> · HAVEN &amp; LOGISTIEK</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">Het gate-event</h3><p style="font-size:.86rem;color:var(--paper-dim)">Elke passcan of gate-beweging die uw poortsysteem registreert, wordt meteen mee verankerd. Alle partijen in de keten kijken naar één gedeelde bewijslaag in plaats van elk naar hun eigen logs.</p></div>
-        <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span>09:41:03 utc · gekwalificeerd<br><span class="k">verankerd</span><span class="gr">merkle-root + bitcoin-anker</span></div>
+        <div><p class="lbl"><b>04</b> · HAVEN &amp; LOGISTIEK</p><h3 class="disp" style="font-size:clamp(1.3rem,2.4vw,2rem);margin:.8rem 0 .6rem">Het gate-event</h3><p style="font-size:.86rem;color:var(--paper-dim)">Elke passcan of gate-beweging die uw poortsysteem registreert, wordt meteen mee verankerd. Alle partijen in de keten kijken naar één gedeelde bewijslaag in plaats van elk naar de eigen historiek.</p></div>
+        <div class="codecard"><span class="k">registratie</span>gate-in GI-88412<br><span class="k">voertuig</span>kenteken + containernr<br><span class="k">bron</span>poortsysteem · automatisch via api<br><span class="k">moment</span>09:41:03 (UTC+2) · verankerd binnen 5 min.<br><span class="k">verankerd</span><span class="gr">merkle-wortel + tijdstempel + bitcoin-anker</span></div>
       </div>
     </div>
   </div>
@@ -166,13 +166,13 @@
       <h2 class="disp">De vragen die uw IT'er gaat stellen<span style="color:var(--red)">.</span></h2>
     </div>
     <div class="faq rv">
-      <details><summary>Moeten onze documenten naar jullie cloud?</summary><p class="a"><b>Alleen als u dat wilt.</b> Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Stuurt u alleen de hash, dan blijft het document waar het staat. Stuurt u het origineel mee, dan ligt het versleuteld in de kluis (eigen sleutel per document, sleutel per organisatie, in de EU) en kunt u het later laten wissen. Ketenpartners en softwarepartners lezen het nooit; leest onze server het voor een dossier of bundel, dan staat dat in uw logboek.</p></details>
-      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen wallet, geen consortium.</b> Wij gebruiken Bitcoin alleen als publieke klok die duizenden partijen tegelijk bijhouden: de Merkle-wortel van elke batch gaat via OpenTimestamps in een Bitcoin-blok, en het bewijs (.ots) is tegen Bitcoin zelf na te rekenen. Daarnaast komt dezelfde wortel doorgaans binnen zes uur onder een gekwalificeerde tijdstempel van GLOBALTRUST, een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst. Twee getuigen, geen token.</p></details>
+      <details><summary>Moeten onze documenten naar jullie cloud?</summary><p class="a"><b>Alleen als u dat wilt.</b> Wat verankerd wordt is de hash — een vingerafdruk waaruit het document niet te reconstrueren valt. Stuurt u alleen de hash, dan blijft het document waar het staat. Stuurt u het origineel mee, dan ligt het versleuteld in de kluis (eigen sleutel per document, sleutel per organisatie, in de EU) en kunt u het later laten wissen. Ketenpartners en softwarepartners lezen het nooit; leest onze server het voor een dossier of bundel, dan staat dat in uw inzagen.</p></details>
+      <details><summary>Is dit "blockchain" zoals in crypto?</summary><p class="a"><b>Geen munt, geen wallet, geen consortium.</b> Wij gebruiken Bitcoin alleen als publieke klok die duizenden partijen tegelijk bijhouden: de Merkle-wortel van elke groep gaat via OpenTimestamps in een Bitcoin-blok, en het bewijs (.ots) is tegen Bitcoin zelf na te rekenen. Zitten er registraties van klantorganisaties in de groep, dan komt dezelfde wortel doorgaans binnen zes uur ook onder een gekwalificeerde tijdstempel van GLOBALTRUST, een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst. Twee getuigen, geen token.</p></details>
       <details><summary>En persoonsgegevens dan (AVG)?</summary><p class="a">Op de keten staan <b>geen leesbare persoonsgegevens</b> — alleen hashes, en voor persoonsgebonden registraties hashes met een geheim zout per registratie, die zonder dat zout naar niets te herleiden zijn. Het zout staat niet op de keten en nooit op een publieke pagina; het zit alleen in de bewijsbundel van die ene registratie. Het recht op gegevenswissing blijft uitvoerbaar: het dossier is off-chain versleuteld en wordt gewist door de sleutel te vernietigen.</p></details>
       <details><summary>Wat als we stoppen — of als Vidimus verdwijnt?</summary><p class="a">De bewijsbundels zijn <b>al van u</b>: exporteerbaar en zelfstandig verifieerbaar met standaardcryptografie (SHA-256, RFC 3161, Merkle-bewijs). Ze hangen niet aan ons platform en blijven ook na een stopzetting na te rekenen.</p></details>
-      <details><summary>Hoe zwaar is de koppeling voor ons team?</summary><p class="a"><b>Eén REST-endpoint of webhook per datastroom.</b> In een pilot koppelt u bewust één stroom; daarna merkt uw team er alleen het tekenmoment van.</p></details>
-      <details><summary>Wij maken zelf software (TMS, ERP, WMS, payroll). Kunnen we dit inbouwen?</summary><p class="a"><b>Ja, via de partner-API.</b> Uw software maakt per eindklant een eigen aansluiting aan — met eigen sleutel, stroom en kluis, volledig gescheiden van andere eindklanten — en registreert daarna met de sleutel van die eindklant. Het verbruik staat per eindklant uitgesplitst op uw meter. Uw partnersleutel beheert en telt, maar leest geen inhoud van eindklanten. Lagen, marge en de lopende band staan op <a href="partners.html">de partnerpagina</a>.</p></details>
-      <details><summary>Een hele map in één keer — een dossier, een jaarafsluiting, een archief?</summary><p class="a"><b>Ja, zonder één bestand te uploaden.</b> Elk bestand krijgt op uw eigen computer een vingerafdruk (SHA-256); naar ons gaat alleen de lijst met bestandsnamen en vingerafdrukken, als één registratie. Later legt u één bestand of de hele map ernaast: wat identiek, gewijzigd, verplaatst of verdwenen is, ziet u meteen. In het bureau door de map te slepen, of met een klein script voor wie het buiten de browser wil.</p></details>
+      <details><summary>Hoe zwaar is de koppeling voor ons team?</summary><p class="a"><b>Eén REST-endpoint of webhook per soort registratie.</b> In een pilot koppelt u bewust één logboek; daarna merkt uw team er alleen het tekenmoment van.</p></details>
+      <details><summary>Wij maken zelf software (TMS, ERP, WMS, payroll). Kunnen we dit inbouwen?</summary><p class="a"><b>Ja, via de partner-API.</b> Uw software maakt per eindklant een eigen aansluiting aan — met eigen sleutel, logboek en kluis, volledig gescheiden van andere eindklanten — en registreert daarna met de sleutel van die eindklant. Het verbruik staat per eindklant uitgesplitst op uw meter. Uw partnersleutel beheert en telt, maar leest geen inhoud van eindklanten. Lagen, marge en de lopende band staan op <a href="partners.html">de partnerpagina</a>.</p></details>
+      <details><summary>Een hele map in één keer — een dossier, een jaarafsluiting, een archief?</summary><p class="a"><b>Ja, zonder één bestand te uploaden.</b> Elk bestand krijgt op uw eigen computer een vingerafdruk (SHA-256); naar ons gaat alleen de lijst met bestandsnamen en vingerafdrukken, als één registratie. Later legt u één bestand of de hele map ernaast: wat ongewijzigd, gewijzigd, verplaatst of verdwenen is, ziet u meteen. In het bureau door de map te slepen, of met een klein script voor wie het buiten de browser wil.</p></details>
       <details><summary>Kan een webpagina worden vastgelegd, als bewijs dat iets gepubliceerd stond?</summary><p class="a"><b>Ja.</b> Onze server haalt het adres op en legt als één registratie vast wat hij ontvangt: de HTML, de antwoordheaders en het certificaat van de site, en een schermbeeld. Dat toont wat op dat adres op dat moment aan onze server werd aangeboden; wat een andere bezoeker zag (aanmelding, land, personalisatie) kan verschillen, en dat staat ook zo in de registratie.</p></details>
       <details><summary>Aanvaardt een rechter dit?</summary><p class="a">Vidimus levert bewijsmateriaal, geen juridisch advies. Elke handtekening komt van een sleutel van de indiener, en elke verankering komt met een bundel die een expert zelfstandig kan verifiëren — <b>sterker dan een schermafdruk uit om het even welk systeem.</b></p></details>
     </div>
@@ -181,9 +181,9 @@
 
 <section class="cta-band">
   <div class="wrap">
-    <h2 class="disp">Zo starten we: <span>uw stroom vandaag, de eerste 100 registraties gratis.</span></h2>
+    <h2 class="disp">Zo starten we: <span>uw eerste logboek vandaag, de eerste 100 registraties gratis.</span></h2>
     <div class="final-under">
-      <p>Uw account maakt u in twee minuten, zonder betaalgegevens. Een bestuurder identificeert uw bedrijf één keer met de eID; dan maakt u uw eerste stroom in enkele minuten. De eerste 100 registraties per maand en de eerste meetbron zijn gratis. Daarna betaalt u per registratie of per meetbron, met een minimum van € 19 per maand.</p>
+      <p>Uw account maakt u in twee minuten, zonder betaalgegevens. Een bestuurder identificeert uw bedrijf één keer met de eID; dan maakt u uw eerste logboek in enkele minuten. De eerste 100 registraties per maand en de eerste meetbron zijn gratis. Daarna betaalt u per registratie of per meetbron, met een minimum van € 19 per maand.</p>
       <div class="hero-actions">
         <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Maak uw account</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>

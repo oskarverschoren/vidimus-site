@@ -5,20 +5,21 @@
   "sub": "Wat u ziet als u aanmeldt.",
   "seconds": 35,
   "script": [
-   "Dit is het Start-scherm. Zolang u nog niet begonnen bent, ziet u vier stappen: uw account, uw bedrijf identificeren met de eID, uw eerste stroom, uw eerste registratie.",
+   "Dit is het Start-scherm. Zolang u nog niet begonnen bent, ziet u vier stappen: uw account, uw bedrijf identificeren met de eID, uw eerste logboek, uw eerste registratie.",
    "Daarna wordt Start uw overzicht: hoeveel registraties deze maand, wat nog wacht op een anker of handtekening, welke deellinks nog geen antwoord kregen, betwistingen en alarmen.",
    "Rechts staat de meter van uw aansluiting en snelknoppen. Onderaan rechts kunt u altijd iets vragen aan de assistent."
   ]
  },
  {
   "key": "stromen",
-  "title": "Stromen",
-  "sub": "Uw ordening: één soort registratie per stroom.",
+  "title": "Logboeken",
+  "sub": "Uw ordening: één soort registratie per logboek.",
+  "zoektermen": ["stroom", "stromen"],
   "seconds": 35,
   "script": [
-   "Een stroom is één soort registratie die u laat verankeren: uw meerwerkbonnen, uw afgiftestaten, de temperatuur van koelcel twee.",
-   "Nieuwe stroom starten begint met Vooraf: uw bedrijf, zolang een bestuurder het mandaat met de eID nog niet tekende. Daarna enkele vragen: wie legt vast, wat, koppelen, foto, tekenen, en een overzicht met de prijs. Wij zetten bewaartermijn en privacy goed.",
-   "Klik op een stroom om haar registraties, alarmregels en de koppeling voor uw systeem te zien. Onderaan staan de sleutels: wie tekent."
+   "Een logboek houdt één soort registratie bij die u laat verankeren: uw meerwerkbonnen, uw afgiftestaten, de temperatuur van koelcel twee.",
+   "Een nieuw logboek starten begint met Vooraf: uw bedrijf, zolang een bestuurder het mandaat met de eID nog niet tekende. Daarna enkele vragen: wie legt vast, wat, koppelen, foto, tekenen, en een overzicht met de prijs. Wij zetten bewaartermijn en privacy goed.",
+   "Klik op een logboek om zijn registraties, alarmregels en de koppeling voor uw systeem te zien. Onderaan staan de sleutels: wie tekent."
   ]
  },
  {
@@ -27,8 +28,8 @@
   "sub": "Alles wat u vastlegt — handmatig of via de API.",
   "seconds": 40,
   "script": [
-   "Hier staat alles wat uw organisatie vastlegde, met stroom, referentie, indiener, moment en status. Verankerd betekent: tijdstempel en grootboek; doorgaans binnen zes uur volgt de gekwalificeerde tijdstempel.",
-   "Bovenaan zoekt u op alles: bonnummer, id, vingerafdruk, datum, indiener. Rechts legt u handmatig iets vast: kies de stroom, vul de velden in, voeg foto's of pdf toe, registreren.",
+   "Hier staat alles wat uw organisatie vastlegde, met logboek, referentie, indiener, moment en status. Verankerd betekent: tijdstempel en grootboek; voor klantorganisaties krijgt de groep doorgaans binnen zes uur ook de gekwalificeerde tijdstempel.",
+   "Bovenaan zoekt u op alles: bonnummer, id, vingerafdruk, datum, indiener. Rechts legt u handmatig iets vast: kies het logboek, vul de velden in, voeg foto's of pdf toe, registreren.",
    "De verankering gebeurt automatisch, elke paar minuten. Met Auditpakket downloadt u alle bewijsbundels van een maand of periode."
   ]
  },
@@ -58,10 +59,10 @@
  {
   "key": "keten",
   "title": "Keten",
-  "sub": "Eén referentie door meerdere stromen en partijen.",
+  "sub": "Eén referentie door meerdere logboeken en partijen.",
   "seconds": 33,
   "script": [
-   "Een keten rijgt registraties van verschillende stromen én partijen aan elkaar met één referentie: een batch, een zending, een dossier.",
+   "Een keten rijgt registraties uit verschillende logboeken én van verschillende partijen aan elkaar met één referentie: een batch, een zending, een dossier.",
    "Vrijgave, transport, metingen, overdrachten met beide handtekeningen, ontvangst: alles op één tijdlijn. Uw eigen registraties tonen inhoud, die van partners alleen de feiten.",
    "Elke keten heeft een publiek batchpaspoort dat u aan een klant, inspecteur of verzekeraar kunt geven."
   ]
@@ -73,8 +74,8 @@
   "seconds": 36,
   "script": [
    "Integraties is voor uw IT. Bovenaan de API-sleutel van uw organisatie en uw systeemsleutels; daaronder een voorbeeld dat u kunt plakken.",
-   "Webhooks: geef een URL op en wij verwittigen uw ERP of WMS bij elke registratie, verankering, bevestiging of alarm — getekend, met een log van de leveringen.",
-   "Alarmregels stelt u in per stroom: bijvoorbeeld temperatuur boven acht graden. Een treffer wordt zelf verankerd, gemaild en doorgestuurd."
+   "Webhooks: geef een URL op en wij verwittigen uw ERP of WMS bij elke registratie, verankering, bevestiging of alarm — getekend, met een overzicht van de leveringen.",
+   "Alarmregels stelt u in per logboek: bijvoorbeeld temperatuur boven acht graden. Een treffer wordt zelf verankerd, gemaild en doorgestuurd."
   ]
  },
  {
@@ -83,7 +84,7 @@
   "sub": "De meter en de aansluiting.",
   "seconds": 31,
   "script": [
-   "Verbruik toont de meter: hoeveel registraties deze maand, in welke schijf u zit en wat dat kost. Eén aansluiting, alle stromen samen; geen gebruikerslicenties.",
+   "Verbruik toont de meter: hoeveel registraties deze maand, in welke schijf u zit en wat dat kost. Eén aansluiting, alle logboeken samen; geen gebruikerslicenties.",
    "Met een proefaansluiting is alles gratis tot honderd registraties per maand. Meer nodig? Activeer de aansluiting hier. Daarna betaalt u per registratie en per bron, met een minimum van negentien euro per maand, factuur achteraf."
   ]
  },
