@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home2.css?v=20261027a">
+<link rel="stylesheet" href="home2.css?v=20261028a">
 
 <link rel="canonical" href="https://vidimus.be/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
@@ -189,7 +189,8 @@
 <!-- 2 · WAT U VASTLEGT: één product, elke soort registratie (veegrij) -->
 <section class="sec tint-grijs" id="wat" aria-labelledby="wat-h">
   <div class="wrap">
-    <h2 class="kop2" id="wat-h">Eén bewijs voor alles wat u <span class="blauw">registreert.</span></h2>
+    <p class="oog"><span aria-hidden="true"><b>01</b> <i>/</i> </span>Wat u vastlegt</p>
+    <h2 class="kop2" id="wat-h">Eén bewijs voor alles<br> <span class="grijs">wat u registreert</span><span class="blauw">.</span></h2>
     <p class="kop2-sub">Een levering of een webpagina: voor Vidimus is het een registratie. Dezelfde vastlegging, dezelfde controle. <span class="stil">Voorbeelden.</span></p>
   </div>
   <div class="veeg" tabindex="0" aria-label="Voorbeelden van registraties, veeg opzij">
@@ -230,7 +231,8 @@
 <section class="sec" id="waarom" aria-labelledby="waarom-h">
   <div class="wrap twee">
     <div>
-      <h2 class="kop2" id="waarom-h">Kan uw systeem achteraf bewijzen wat er stond?</h2>
+      <p class="oog"><span aria-hidden="true"><b>02</b> <i>/</i> </span>Het probleem</p>
+      <h2 class="kop2" id="waarom-h">Kan uw systeem<br> <span class="grijs">achteraf bewijzen <span class="nw">wat er stond</span></span><span class="blauw">?</span></h2>
       <div class="herken">
         <span class="herken-lbl">Herkent u dit?</span>
         <p>Vrijdag, levering van 26 paletten. Maandag mailt de klant: <span class="blauw">“Wij hebben er maar 23 ontvangen.”</span> Uw vrachtbrief zegt 26, de zijne 23. Zonder bewijs dat u zelf niet kunt wijzigen, betaalt u: de creditnota, de uren van uw planner, soms de klant.</p>
@@ -246,43 +248,53 @@
   </div>
 </section>
 
-<!-- 4 · ZO WERKT HET: tijdlijn als veegrij + bewijskaart -->
+<!-- 4 · ZO WERKT HET: genummerde kaarten zoals /hoe-het-werkt (28/10, Oskar: "gebruik deze stijl meer") + voorbeeldregistratie + kanalen -->
 <section class="sec tint-blauw" id="hoe" aria-labelledby="hoe-h">
   <div class="wrap">
-    <h2 class="kop2" id="hoe-h">Zo werkt het<span class="blauw">.</span></h2>
-  </div>
-  <ol class="veeg tijdlijn" tabindex="0" aria-label="Drie stappen, veeg opzij">
-    <li class="stap"><span class="stap-lijn" aria-hidden="true"><i></i></span><span class="wanneer">Op het moment zelf</span><b><span class="nr">1</span>Registreren</b><p>In de app met foto, plaats en handtekening. Of automatisch vanuit uw software, sensoren of databank.</p><span class="pil">elke partij op de eigen telefoon</span></li>
-    <li class="stap"><span class="stap-lijn" aria-hidden="true"><i></i></span><span class="wanneer">Binnen enkele minuten</span><b><span class="nr">2</span>Verankeren</b><p>Elke registratie krijgt meteen haar vingerafdruk en handtekening. Daarna volgt een tijdstempel van een onafhankelijke dienst. De tijd komt niet van u en niet van ons.</p><span class="pil">tijdstempel + Bitcoin-anker</span></li>
-    <li class="stap"><span class="stap-lijn laatste" aria-hidden="true"><i></i></span><span class="wanneer">Op elk moment</span><b><span class="nr">3</span>Controleren</b><p>Uw klant, verzekeraar of rechter controleert het zelf, zonder account. Met de bewijsbundel zelfs volledig zonder Vidimus.</p><span class="pil"><em>ongewijzigd</em> · alle controles stemmen overeen</span></li>
-  </ol>
-  <div class="wrap hoe-onder">
-    <div class="bewijskaart" role="group" aria-label="Voorbeeld van een registratie">
-      <p class="bk-kop"><span>Voorbeeld · registratie</span><span class="st licht">ongewijzigd</span></p>
-      <dl>
-        <dt>wat</dt><dd>plaatsbeschrijving bij intrede</dd>
-        <dt>bevat</dt><dd>14 foto's · 3 meterstanden</dd>
-        <dt>getekend</dt><dd>huurder + verhuurder · ter plekke</dd>
-        <dt>plaats</dt><dd>Kerkstraat 12, Gent</dd>
-        <dt>verankerd</dt><dd><em>tijdstempel + Bitcoin-anker</em></dd>
-      </dl>
-      <p class="bk-voet">alle controles stemmen overeen</p>
+    <p class="oog"><span aria-hidden="true"><b>03</b> <i>/</i> </span>Hoe het werkt</p>
+    <h2 class="kop2" id="hoe-h">Zo werkt het<span class="blauw">,</span><br> <span class="grijs">in drie stappen</span><span class="blauw">.</span></h2>
+    <div class="hoe-raster">
+      <ol class="stappen">
+        <li class="stap-kaart"><span class="stap-nr" aria-hidden="true">01</span>
+          <h3>Registreren<small>App · API · MCP</small></h3>
+          <p>Op het moment zelf: in de app met foto, plaats en handtekening, elke partij op de eigen telefoon. Of automatisch vanuit uw software, sensoren of databank.</p></li>
+        <li class="stap-kaart"><span class="stap-nr" aria-hidden="true">02</span>
+          <h3>Verankeren<small>SHA-256 · externe tijdstempel · binnen 5 minuten</small></h3>
+          <p>Elke registratie krijgt meteen haar vingerafdruk en handtekening. Daarna volgt een tijdstempel van een onafhankelijke dienst, en een Bitcoin-anker. De tijd komt niet van u en niet van ons.</p></li>
+        <li class="stap-kaart"><span class="stap-nr" aria-hidden="true">03</span>
+          <h3>Controleren<small>Zonder account · bewijsbundel · ook zonder Vidimus</small></h3>
+          <p>Uw klant, verzekeraar of rechter controleert het op elk moment zelf, zonder account. Met de bewijsbundel zelfs volledig zonder Vidimus.</p></li>
+      </ol>
+      <div class="bewijskaart" role="group" aria-label="Voorbeeld van een registratie">
+        <p class="bk-kop"><span>Voorbeeld · registratie</span><span class="st licht">ongewijzigd</span></p>
+        <dl>
+          <dt>wat</dt><dd>plaatsbeschrijving bij intrede</dd>
+          <dt>bevat</dt><dd>14 foto's · 3 meterstanden</dd>
+          <dt>getekend</dt><dd>huurder + verhuurder · ter plekke</dd>
+          <dt>plaats</dt><dd>Kerkstraat 12, Gent</dd>
+          <dt>verankerd</dt><dd><em>tijdstempel + <span class="nw">Bitcoin-anker</span></em></dd>
+        </dl>
+        <p class="bk-voet">alle controles stemmen overeen</p>
+      </div>
     </div>
     <div class="stapel hoe-kanaal">
       <h3 class="stapel-titel">Hoe registreert u?</h3>
-      <div class="stapel-rij"><span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><div><b>Via de Vidimus-app</b><p>Voor foto's, overdrachten en handtekeningen. De andere partij bevestigt ter plaatse, zonder account en zonder app.</p>
-        <p class="winkels"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download in de App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Ontdek het op Google Play" loading="lazy"></a></p></div></div>
-      <a class="stapel-rij link" href="https://app.vidimus.be/aanmelden?hoe=software"><span class="ico"><svg aria-hidden="true"><use href="#i-plug"/></svg></span><div><b>Via de API</b><p>Voor software, sensoren en databanken. Uw systeem blijft de bron.</p></div><svg class="pijl" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="stapel-rij link" href="partners.html"><span class="ico"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><div><b>Voor softwareleveranciers</b><p>Lever bewijs in uw eigen product, zonder iets te bouwen.</p></div><svg class="pijl" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <div class="kanaal-rijen">
+        <div class="stapel-rij"><span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><div><b>Via de Vidimus-app</b><p>Voor foto's, overdrachten en handtekeningen. De andere partij bevestigt ter plaatse, zonder account en zonder app.</p>
+          <p class="winkels"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download in de App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Ontdek het op Google Play" loading="lazy"></a></p></div></div>
+        <a class="stapel-rij link" href="https://app.vidimus.be/aanmelden?hoe=software"><span class="ico"><svg aria-hidden="true"><use href="#i-plug"/></svg></span><div><b>Via de API</b><p>Voor software, sensoren en databanken. Uw systeem blijft de bron.</p></div><svg class="pijl" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="stapel-rij link" href="partners.html"><span class="ico"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><div><b>Voor softwareleveranciers</b><p>Lever bewijs in uw eigen product, zonder iets te bouwen.</p></div><svg class="pijl" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
     </div>
+    <p class="meer-rij"><a class="meer-link" href="hoe-het-werkt.html">De zeven stappen in detail <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="meer-link" href="beveiliging.html"><svg class="lead" aria-hidden="true"><use href="#i-shield"/></svg>Beveiliging en uw gegevens <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
   </div>
-  <div class="wrap"><a class="meer-link" href="beveiliging.html"><svg class="lead" aria-hidden="true"><use href="#i-shield"/></svg>Beveiliging en uw gegevens <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
 </section>
 
 <!-- 5 · VERVALS HET: mini-demo, echte SHA-256 in de browser -->
 <section class="sec" id="demo" aria-labelledby="vervals-h">
   <div class="wrap twee">
     <div>
+      <p class="oog"><span aria-hidden="true"><b>04</b> <i>/</i> </span>Zelf proberen</p>
       <h2 class="kop2" id="vervals-h">Vervals het<span class="blauw">.</span></h2>
       <p class="kop2-sub">Verander het aantal paletten op deze vrachtbrief en kijk wat er met het bewijs gebeurt. Alles wordt live in uw browser berekend.</p>
       <a class="meer-link vol" href="https://app.vidimus.be/v/reg_18838643120d">Bekijk een voorbeeldcontrole <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -314,27 +326,93 @@
   </div>
 </section>
 
-<!-- 6 · TOEPASSINGEN: één product, telkens een andere discussie (veegrij) -->
+<!-- 6 · TOEPASSINGEN: één voorbeeld per sector, zoals /hoe-het-werkt (tekst links, registratie rechts); de twee andere sectoren als links -->
 <section class="sec tint-grijs" id="toepassingen" aria-labelledby="toep-h">
   <div class="wrap">
-    <h2 class="kop2" id="toep-h">Toepassingen<span class="blauw">.</span></h2>
-    <p class="kop2-sub">Eén product. Telkens een andere discussie, en telkens dezelfde vraag: wat stond er, en wanneer?</p>
+    <p class="oog"><span aria-hidden="true"><b>05</b> <i>/</i> </span>Toepassingen</p>
+    <h2 class="kop2" id="toep-h">Eén product<span class="blauw">,</span><br> <span class="grijs">telkens een andere discussie</span><span class="blauw">.</span></h2>
+    <p class="kop2-sub">En telkens dezelfde vraag: wat stond er, en wanneer? <span class="stil">Fictieve voorbeelden.</span></p>
+    <div class="toep-rijen">
+      <article class="toep-rij">
+        <div class="toep-tekst">
+          <p class="toep-lbl"><b>01</b> · Transport en logistiek</p>
+          <h3><a class="toep-link" href="aflevering-betwist-cmr.html"><q>Wij hebben er maar 23 ontvangen.</q></a></h3>
+          <p>Levering, tijdstip en staat, door beide partijen getekend.</p>
+          <span class="lees" aria-hidden="true">Lees de toepassing <svg><use href="#i-arrow"/></svg></span>
+        </div>
+        <div class="record" role="group" aria-label="Fictief voorbeeld: transport en logistiek">
+          <dl>
+            <dt>registratie</dt><dd>levering · CMR 44127</dd>
+            <dt>colli</dt><dd>26 paletten · zonder voorbehoud</dd>
+            <dt>getekend</dt><dd>chauffeur + ontvanger · ter plekke</dd>
+            <dt>verankerd</dt><dd><em>tijdstempel + <span class="nw">Bitcoin-anker</span></em></dd>
+          </dl>
+        </div>
+      </article>
+      <article class="toep-rij">
+        <div class="toep-tekst">
+          <p class="toep-lbl"><b>02</b> · Bouw en renovatie</p>
+          <h3><a class="toep-link" href="meerwerk-bewijzen.html"><q>Dat meerwerk hebben we nooit gevraagd.</q></a></h3>
+          <p>Het akkoord op het moment zelf, met foto en handtekening.</p>
+          <span class="lees" aria-hidden="true">Lees de toepassing <svg><use href="#i-arrow"/></svg></span>
+        </div>
+        <div class="record" role="group" aria-label="Fictief voorbeeld: bouw en renovatie">
+          <dl>
+            <dt>registratie</dt><dd>meerwerk MW-0047</dd>
+            <dt>omschrijving</dt><dd>extra funderingswerk · blok B</dd>
+            <dt>getekend</dt><dd>aannemer + bouwheer · op de werf</dd>
+            <dt>verankerd</dt><dd><em>tijdstempel + <span class="nw">Bitcoin-anker</span></em></dd>
+          </dl>
+        </div>
+      </article>
+      <article class="toep-rij">
+        <div class="toep-tekst">
+          <p class="toep-lbl"><b>03</b> · Verhuur van materieel</p>
+          <h3><a class="toep-link" href="afgiftestaat-schade.html"><q>Die deuk zat er al.</q></a></h3>
+          <p>De afgiftestaat bij vertrek en bij terugname, door beide partijen getekend.</p>
+          <span class="lees" aria-hidden="true">Lees de toepassing <svg><use href="#i-arrow"/></svg></span>
+        </div>
+        <div class="record" role="group" aria-label="Fictief voorbeeld: verhuur van materieel">
+          <dl>
+            <dt>registratie</dt><dd>afgiftestaat AFG-0182</dd>
+            <dt>staat</dt><dd>6 foto's · opmerkingen</dd>
+            <dt>getekend</dt><dd>verhuurder + huurder · bij terugname</dd>
+            <dt>verankerd</dt><dd><em>tijdstempel + <span class="nw">Bitcoin-anker</span></em></dd>
+          </dl>
+        </div>
+      </article>
+      <article class="toep-rij">
+        <div class="toep-tekst">
+          <p class="toep-lbl"><b>04</b> · Koelketen en zorg</p>
+          <h3><a class="toep-link" href="cases.html"><q>De koeling is onderweg uitgevallen.</q></a></h3>
+          <p>Wat de sensor doorstuurde, op het moment zelf vastgelegd.</p>
+          <span class="lees" aria-hidden="true">Lees de toepassing <svg><use href="#i-arrow"/></svg></span>
+        </div>
+        <div class="record" role="group" aria-label="Fictief voorbeeld: koelketen en zorg">
+          <dl>
+            <dt>meting</dt><dd>koelcel · 2,4 °C</dd>
+            <dt>grens</dt><dd>8 °C</dd>
+            <dt>bron</dt><dd>sensor · automatisch via de API</dd>
+            <dt>verankerd</dt><dd><em>tijdstempel + <span class="nw">Bitcoin-anker</span></em></dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <nav class="toep-ook" aria-label="Meer toepassingen">
+      <a href="plaatsbeschrijving-betwist.html"><svg aria-hidden="true"><use href="#i-house"/></svg>Vastgoed en verhuur</a>
+      <a href="na-een-inbraak.html"><svg aria-hidden="true"><use href="#i-server"/></svg>IT en databanken</a>
+      <a class="alle" href="scenarios.html">Alle scenario's <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </nav>
   </div>
-  <div class="veeg toep" tabindex="0" aria-label="Toepassingen, veeg opzij">
-    <a class="toep-kaart" href="aflevering-betwist-cmr.html"><span class="sector"><svg aria-hidden="true"><use href="#i-box"/></svg>Transport en logistiek</span><q>Wij hebben er maar 23 ontvangen.</q><p>Levering, tijdstip en staat, door beide partijen getekend.</p><span class="lees">Lees de toepassing <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <a class="toep-kaart" href="plaatsbeschrijving-betwist.html"><span class="sector"><svg aria-hidden="true"><use href="#i-house"/></svg>Vastgoed en verhuur</span><q>Die schade was er al bij de intrede.</q><p>De plaatsbeschrijving bij intrede én uittrede, voor beide partijen na te rekenen.</p><span class="lees">Lees de toepassing <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <a class="toep-kaart" href="meerwerk-bewijzen.html"><span class="sector"><svg aria-hidden="true"><use href="#i-helmet"/></svg>Bouw en renovatie</span><q>Dat meerwerk hebben we nooit gevraagd.</q><p>Het akkoord op het moment zelf, met foto en handtekening.</p><span class="lees">Lees de toepassing <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <a class="toep-kaart" href="afgiftestaat-schade.html"><span class="sector"><svg aria-hidden="true"><use href="#i-tool"/></svg>Verhuur van materieel</span><q>Die deuk zat er al.</q><p>De afgiftestaat bij vertrek en bij terugname, door beide partijen getekend.</p><span class="lees">Lees de toepassing <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <a class="toep-kaart" href="na-een-inbraak.html"><span class="sector"><svg aria-hidden="true"><use href="#i-server"/></svg>IT en databanken</span><q>Wat veranderde de aanvaller in onze gegevens?</q><p>De stand van uw gegevens, vastgelegd vóór er iets gebeurt.</p><span class="lees">Lees de toepassing <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <a class="toep-kaart" href="cases.html"><span class="sector"><svg aria-hidden="true"><use href="#i-snow"/></svg>Koelketen en zorg</span><q>De koeling is onderweg uitgevallen.</q><p>Wat de sensor doorstuurde, op het moment zelf vastgelegd.</p><span class="lees">Lees de toepassing <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-  </div>
-  <div class="wrap"><a class="meer-link" href="scenarios.html">Alle scenario's <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
 </section>
 
 <!-- 7 · VRAGEN: afgeronde uitklaprijen -->
 <section class="sec tint-blauw" id="vragen" aria-labelledby="vragen-h">
   <div class="wrap twee vragen-twee">
-    <h2 class="kop2" id="vragen-h">Wat u wil weten<span class="blauw">.</span></h2>
+    <div>
+      <p class="oog"><span aria-hidden="true"><b>06</b> <i>/</i> </span>Vragen</p>
+      <h2 class="kop2" id="vragen-h">Wat u wil weten<span class="blauw">.</span></h2>
+    </div>
     <div class="vragen">
       <details><summary>Aanvaardt een rechter dit?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>De rechter weegt elk bewijs vrij. Uw registratie is via hashberekeningen die u zelf kunt narekenen (Merkle-pad, Evidence Record) verbonden met de wortel van haar groep. Bevat die groep registraties van een klantorganisatie, dan staat op die wortel een gekwalificeerde tijdstempel van GLOBALTRUST. Voor die tijdstempel geldt in de hele EU het vermoeden dat datum en tijd juist zijn (eIDAS, art. 41.2); de registratie bestond dus uiterlijk op dat tijdstip. Of het vermoeden ook voor deze registratie geldt, beoordeelt de rechter. Vidimus toont wat er vastlag; wie gelijk heeft, beslist de rechter.</p></details>
       <details><summary>Moet ik mijn software vervangen?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Nee. Uw eigen software, van ERP tot boekhouding of databank, blijft de bron. Vidimus legt de registraties die ertoe doen vast en verankert ze, via de app of een koppeling.</p></details>
@@ -346,23 +424,15 @@
   </div>
 </section>
 
-<!-- 8 · OPRICHTER EN SLOT -->
+<!-- 8 · SLOT EN OPRICHTER: grote tweekleurige slotkop zoals /hoe-het-werkt ("Zo starten we: …"), daaronder de vraag en de oprichter -->
 <section class="sec" id="slot" aria-labelledby="slot-h">
+  <div class="wrap">
+    <p class="oog"><span aria-hidden="true"><b>07</b> <i>/</i> </span>Starten</p>
+    <h2 class="slot-kop" id="slot-h">Wat wilt u kunnen bewijzen? <span class="blauw">De eerste 100 registraties per maand zijn gratis.</span></h2>
+  </div>
   <div class="wrap twee slot-twee">
-    <figure class="oprichter">
-      <div class="op-kop">
-        <img src="assets/oskar.jpg" width="640" height="800" alt="Oskar Verschoren, oprichter van Vidimus" loading="lazy" decoding="async">
-        <figcaption><b>Oskar Verschoren</b><span>oprichter · VO Initiatives BV · Antwerpen</span></figcaption>
-      </div>
-      <blockquote>“Wij tekenen met naam en gezicht voor wat we bouwen. <span>U belt niet met een supportdesk, u belt met wie het gebouwd heeft.</span>”</blockquote>
-      <ul class="op-contact">
-        <li><a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a></li>
-        <li><a href="tel:+32466474115">+32 466 47 41 15</a></li>
-      </ul>
-    </figure>
     <div class="slot-kaart">
-      <h2 id="slot-h">Wat wilt u kunnen <span class="blauw">bewijzen?</span></h2>
-      <p>Begin vandaag: de eerste 100 registraties per maand zijn gratis. Een bestuurder identificeert uw bedrijf één keer met de eID; daarna maakt u uw eerste logboek in enkele minuten.</p>
+      <p>Begin vandaag. Een bestuurder identificeert uw bedrijf één keer met de eID; daarna maakt u uw eerste logboek in enkele minuten.</p>
       <form class="vraag vraag-slot" action="https://app.vidimus.be/aanmelden" method="get" data-vraag>
         <label class="sr-only" for="vraag2">Wat wilt u kunnen bewijzen?</label>
         <div class="vraag-veld">
@@ -376,6 +446,17 @@
       </div>
       <p class="slot-micro">Geen betaalgegevens nodig · antwoord binnen één werkdag</p>
     </div>
+    <figure class="oprichter">
+      <div class="op-kop">
+        <img src="assets/oskar.jpg" width="640" height="800" alt="Oskar Verschoren, oprichter van Vidimus" loading="lazy" decoding="async">
+        <figcaption><b>Oskar Verschoren</b><span>oprichter · VO Initiatives BV · Antwerpen</span></figcaption>
+      </div>
+      <blockquote>“Wij tekenen met naam en gezicht voor wat we bouwen. <span>U belt niet met een supportdesk, u belt met wie het gebouwd heeft.</span>”</blockquote>
+      <ul class="op-contact">
+        <li><a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a></li>
+        <li><a href="tel:+32466474115">+32 466 47 41 15</a></li>
+      </ul>
+    </figure>
   </div>
 </section>
 
