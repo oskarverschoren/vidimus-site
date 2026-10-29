@@ -25,12 +25,12 @@
 - Uitleg voor agents en mensen: https://vidimus.be/voor-ai
 
 ## Pagina's
-- [Home](https://vidimus.be/): wat Vidimus doet, voorbeelden van registraties, zo werkt het (registreren, verankeren, controleren), vervals-demo met SHA-256 in de browser, toepassingen, vragen, de oprichter
+- [Home](https://vidimus.be/): de verankeringslaag voor uw data als hub: vier productlijnen en Voor software, zo werkt het bewijs (SHA-256, Ed25519, RFC 3161 binnen vijf minuten, per groep een gekwalificeerde tijdstempel van GLOBALTRUST voor klantorganisaties, Bitcoin via OpenTimestamps), een echte controlepagina en de vervals-demo, Europese controle (EU DSS), beveiliging en hosting (AES-256-GCM, Object Lock, Neurenberg), voorbeelden, prijs met rekenhulp, vragen, de oprichter
 - Producten (één bewijs, vier productlijnen):
   - [Vidimus App](https://vidimus.be/app.html): registraties ter plekke in de app (foto's, plaats, handtekening van beide partijen op de eigen telefoon), zoals leveringen en CMR's, schade, overdrachten en inspecties; de eerste 100 registraties per maand gratis
   - [Vidimus Sensor](https://vidimus.be/sensor.html): sensoren, loggers, meters en weegbruggen sturen metingen via de API (POST /measurements); elke meting apart vastgelegd en verankerd; € 15 per toestel per maand met minstens één meting, de eerste gratis, metingen onbeperkt
   - [Vidimus Data](https://vidimus.be/data.html): momentopnames van databanken en mappen (vingerafdrukken bij de klant berekend, inhoud blijft bij de klant), webpagina's als bewijs; elke nacht automatisch en een databank vergelijken na een incident zijn in opbouw
-  - Vidimus Overdrachtsbewijs: in opbouw, eerste pilots vanaf december 2026 (nog niet in de app)
+  - Vidimus Productpaspoort: in opbouw, eerste pilots vanaf december 2026 (nog niet in de app); legt de lijn van een object vast (code met QR-label, gebeurtenissen, overdrachten getekend door houder en ontvanger); Vidimus geeft zelf geen officieel EU-batterijpaspoort of digitaal productpaspoort uit
   - [Vidimus voor software](https://vidimus.be/partners.html): partner-API voor makers van TMS, WMS en ERP
 - [Hoe het werkt](https://vidimus.be/hoe-het-werkt.html): zeven stappen van registratie tot bewijs, met vragen (cloud, blockchain, AVG, stopzetting, koppeling, webpagina's, rechter)
 - [Prijzen](https://vidimus.be/prijzen.html): rekenhulp, schijventabel, drie voorbeeldfacturen, jaarcontract (12 maanden voor de prijs van 10), vragen over de factuur

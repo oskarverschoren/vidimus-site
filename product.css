@@ -209,3 +209,6 @@ body.prod { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438D
 
 /* lange kop (productpaspoort): kleiner, zodat de held niet hoger wordt dan het beeld */
 .pr-held-lang h1 { font-size: clamp(32px, 1rem + 2.5vw, 50px); max-width: 20ch; }
+
+/* productpaspoort (29/10): de grens in één zin onder de held: Vidimus geeft geen officieel EU-productpaspoort uit */
+.pr-zin.pr-zin-grens { max-width: 52ch; padding-left: 12px; border-left: 2px solid rgba(140, 155, 255, .6); font-size: 14.5px; color: rgba(255, 255, 255, .76); }
