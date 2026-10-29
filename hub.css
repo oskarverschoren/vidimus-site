@@ -97,6 +97,14 @@ html.js body.hub .rv { opacity: 1; transform: none; }
 .hub .hb-micro a::after { content: " →"; }
 .hub .hb-micro a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .hub .hb-micro a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 4px; }
+/* de app in de held: de twee winkelknoppen, zodat meteen duidelijk is dat er een app is */
+.hub .hb-winkels { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin-top: 22px; }
+.hub .hb-winkels span { flex-basis: 100%; font: 500 12.5px/1.2 var(--mono, "JetBrains Mono", ui-monospace, monospace); color: var(--hb-wit-3); }
+.hub .hb-winkels a { display: inline-flex; align-items: center; min-height: 44px; border-radius: 8px; transition: transform 150ms var(--hb-uit); }
+.hub .hb-winkels a:hover { transform: translateY(-1px); }
+.hub .hb-winkels a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.hub .hb-winkels img[src$=".svg"] { height: 40px; width: auto; }
+.hub .hb-winkels img[src$=".png"] { height: 52px; width: auto; margin: -6px -8px -6px -2px; }
 
 /* bewijsbalk: een echte controle, als statusregel onderaan de band */
 .hub .hb-balk-wrap { padding-bottom: clamp(20px, 3vw, 36px); pointer-events: none; }
