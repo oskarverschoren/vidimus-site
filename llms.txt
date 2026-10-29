@@ -51,6 +51,13 @@
 - [Voor AI-agents](https://vidimus.be/voor-ai.html) · [Uitlegvideo's](https://vidimus.be/help.html) · [Voorwaarden](https://vidimus.be/voorwaarden.html) · [Privacy](https://vidimus.be/privacy.html) · [Colofon](https://vidimus.be/colofon.html)
 - English: [Home](https://vidimus.be/en/) · [Pricing](https://vidimus.be/en/pricing.html) (other pages in Dutch for now)
 
+## Vragen en antwoorden (kort antwoord bovenaan, dan de bewijsketen en wat het niet bewijst)
+- [Hoe bewijst u dat een foto niet bewerkt werd?](https://vidimus.be/foto-bewijs-niet-bewerkt.html): vingerafdruk (SHA-256), handtekening van het toestel en externe tijdstempel op het moment zelf; bewijst niet dat het tafereel echt was en herkent geen AI-beelden
+- [Hoe toont u na een hack aan dat uw databank niet gewijzigd werd?](https://vidimus.be/databank-bewijs-na-hack.html): alleen met een verankerde momentopname van vóór het incident (vingerafdruk per rij of bestand, bij de klant berekend); vergelijken per bestand vandaag, per rij in opbouw
+- [Wat bewijst een gekwalificeerde tijdstempel (eIDAS)?](https://vidimus.be/gekwalificeerde-tijdstempel-eidas.html): wettelijk vermoeden van juiste datum en tijd en ongewijzigde gegevens (art. 41.2); bij Vidimus van GLOBALTRUST, per groep, alleen voor groepen met registraties van klantorganisaties; niet wie het document maakte
+- [Temperatuurlogger als bewijs voor verzekeraar en GDP-audit](https://vidimus.be/temperatuurlogger-bewijs.html): elke meting apart verankerd binnen vijf minuten; vervangt geen kalibratie; € 15 per toestel per maand, de eerste gratis
+- [Bewijst WORM-opslag dat niets gewijzigd werd?](https://vidimus.be/worm-opslag-bewijs.html): Object Lock houdt overschrijven en wissen tegen maar is niet door een derde na te rekenen; verankering wel; Vidimus doet beide (Object Lock in compliance-modus, Hetzner Neurenberg)
+
 ## Contact
 oskar@vo-initiatives.com · +32 466 47 41 15 · gesprek plannen: https://cal.com/oskar-verschoren-vhygeu/15min · inloggen: https://app.vidimus.be/login
 

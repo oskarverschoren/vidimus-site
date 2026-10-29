@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="nl" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Temperatuurlogger als bewijs voor verzekeraar en GDP-audit | Vidimus</title>
+<meta name="description" content="Een logger meet, maar wie toont dat de reeks achteraf niet bijgewerkt werd? Zo verankert u elke meting binnen vijf minuten, en wat dat niet vervangt.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="favicon-192.png?v=3" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261008b">
+<link rel="stylesheet" href="inner.css">
+<link rel="stylesheet" href="product.css?v=20261028a">
+<link rel="stylesheet" href="menu.css?v=20261028a">
+<link rel="stylesheet" href="antwoord.css?v=20261029a">
+
+<link rel="canonical" href="https://vidimus.be/temperatuurlogger-bewijs.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
+<meta property="og:title" content="Temperatuurlogger als bewijs voor verzekeraar en GDP-audit | Vidimus"><meta property="og:description" content="Een logger meet, maar wie toont dat de reeks achteraf niet bijgewerkt werd? Zo verankert u elke meting binnen vijf minuten, en wat dat niet vervangt."><meta property="og:url" content="https://vidimus.be/temperatuurlogger-bewijs.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="article:modified_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/temperatuurlogger-bewijs.html#faq",
+ "url": "https://vidimus.be/temperatuurlogger-bewijs.html",
+ "inLanguage": "nl-BE",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Moet ik mijn loggers of meetplatform vervangen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. Uw loggers en uw platform blijven. Het platform of het toestel stuurt elke meting ook naar Vidimus. De koppeling test u eerst met een testsleutel die niets vastlegt; daarna maakt de beheerder de echte sleutel."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wat als de logger een tijd offline is?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Stuur de metingen die het toestel of uw platform intussen bewaarde later samen door via /measurements/batch, in oplopende tijd en niet ouder dan 24 uur. Het tijdstip in de meting is wat het toestel opgaf; de tijdstempel van de groep toont wanneer de meting verankerd werd."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Vervangt dit de validatie of kalibratie die GDP vraagt?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. Vidimus is geen meetsysteem en keurt niets goed. Het helpt bij één vraag van een audit of claim: zijn de gegevens die u vandaag toont dezelfde als wat de logger toen doorgaf?"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wat kost het?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "€ 15 per sensor of logger per maand, alleen in een maand waarin het toestel minstens één meting stuurde. De eerste is gratis en metingen zijn onbeperkt. Zodra u iets betaalt, minstens € 19 per maand. Prijzen excl. btw."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body>
+<!-- 29/10/2026 · antwoordpagina (branch seo-2, marketingchat, NIET live). Alleen wat vandaag live is; 'in opbouw' waar dat zo is. -->
+<div class="ambient" aria-hidden="true"></div>
+
+<svg class="sr-sprite" width="0" height="0" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
+          <li><a class="mega-item" href="productpaspoort.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Overdrachtsbewijs <em class="mega-wacht">In opbouw</em></b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="prijzen.html">Prijzen</a>
+    <a href="juridisch.html">Juridisch</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero" aria-labelledby="vraag-h">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="vragen.html">VRAGEN</a><i>/</i><span class="lbl aw-hier">SENSOREN EN LOGGERS</span></p>
+    <h1 class="disp aw-vraag" id="vraag-h">Hoe toont u een verzekeraar of GDP-auditor dat uw temperatuurmetingen niet aangepast werden?</h1>
+    <p class="aw-kort" id="kort-antwoord"><span class="aw-label">Kort antwoord</span>Door elke meting op het moment zelf buiten uw eigen systeem te verankeren: per meting een vingerafdruk, getekend met de sleutel van die logger, binnen vijf minuten met een externe tijdstempel. Bij een claim of audit toont u de reeks van dat toestel, en <b>rekent de verzekeraar of auditor zelf na dat geen waarde achteraf aangepast werd</b>.</p>
+    <p class="aw-datum">Bijgewerkt op 29 oktober 2026 · Oskar Verschoren, Vidimus (VO Initiatives BV, Antwerpen)</p>
+    <div class="hero-actions">
+      <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s1-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / ZO WERKT HET</span>
+      <h2 class="disp" id="s1-h">Zo werkt het<span class="aw-punt">.</span></h2>
+    </div>
+    <ol class="aw-stappen rv">
+      <li><h3>De meetbron één keer aanmaken<small>eenheid · bereik · eigen sleutel</small></h3><p>In de app maakt u elke logger of sensor aan met een eenheid en een bereik. Een waarde buiten het bereik wordt geweigerd. Uw loggers en uw meetplatform blijven dezelfde.</p></li>
+      <li><h3>Elke meting doorsturen<small>POST /measurements</small></h3><p>Het toestel of uw meetplatform stuurt elke meting naar de API: bron, tijdstip, één getal en de eenheid. Hoogstens één meting per tien seconden per toestel, in oplopende tijd.</p></li>
+      <li><h3>Vingerafdruk en handtekening per meting<small>sha-256 · ed25519</small></h3><p>Elke meting krijgt een eigen vingerafdruk over bron, tijdstip, waarde en eenheid. <b>Een gecorrigeerde waarde geeft een andere afdruk.</b> De meting wordt getekend met de sleutel van die meetbron, die Vidimus voor u bewaart.</p></li>
+      <li><h3>Verankerd binnen vijf minuten<small>rfc 3161 · bitcoin</small></h3><p>Een externe tijdstempeldienst tekent de groep waarin de meting zit; daarna volgt een anker in Bitcoin. Zitten er registraties van klantorganisaties in de groep, dan krijgt de groep daarna ook een gekwalificeerde tijdstempel van GLOBALTRUST (eIDAS), doorgaans binnen zes uur.</p></li>
+      <li><h3>Bij een claim of audit<small>de reeks van het toestel</small></h3><p>U toont de reeks van die meetbron: elke meting met haar vingerafdruk, in oplopende tijd. Een periode zonder metingen blijft zichtbaar als een gat. Wie de bewijsbundels krijgt, rekent ze na met het script dat erbij zit, zonder account.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s2-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / OOK NODIG</span>
+      <h2 class="disp" id="s2-h">Wat u daarnaast nodig hebt<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>Een kalibratiecertificaat</b> van elke logger, herleidbaar naar een meetstandaard. De EU-richtsnoeren voor goede distributiepraktijken (GDP, 2013/C 343/01) vragen onder meer gekalibreerde meetapparatuur en bewaarde, raadpleegbare gegevens.</span></li>
+      <li><span><b>De plaats van de sensor</b> in de koelcel of de trailer, en wie de logger wanneer startte en uitlas.</span></li>
+      <li><span><b>Een alarmprocedure en een verslag per afwijking</b>: wat er gebeurde, wanneer u het merkte en wat u deed.</span></li>
+      <li><span><b>De overdrachten</b> van de lading, bijvoorbeeld met een getekende registratie bij laden en lossen.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s3-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / GRENZEN</span>
+      <h2 class="disp" id="s3-h">Wat het niet bewijst<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>Dat de logger juist mat.</b> Kalibratie en plaatsing blijven uw verantwoordelijkheid. Een foute temperatuur blijft fout, maar wel verankerd als 'dit werd toen gemeld'.</span></li>
+      <li><span><b>Dat het tijdstip in de meting juist is.</b> Dat is de klok van het toestel. De tijdstempel van de groep toont wanneer de meting uiterlijk verankerd werd.</span></li>
+      <li><span><b>Metingen van vóór de koppeling</b>, of metingen die ouder dan 24 uur zijn wanneer ze doorkomen.</span></li>
+      <li><span><b>Dat de goederen in orde of beschadigd zijn</b>, of wie aansprakelijk is. Dat beoordelen uw verzekeraar, de auditor of de rechter.</span></li>
+      <li><span><b>Dat Vidimus nooit iets in naam van de meetbron kan tekenen.</b> Vidimus bewaart de sleutel van de meetbron. Daarmee zou een nieuwe meting gemaakt kunnen worden, maar alleen met het verankeringstijdstip van dat moment, niet met een vroeger; een bestaande meting achteraf wijzigen valt op.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s4-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / SPECIFICATIES</span>
+      <h2 class="disp" id="s4-h">Specificaties en prijs<span class="aw-punt">.</span></h2>
+    </div>
+    <dl class="pr-spec rv">
+      <div><dt>transport</dt><dd>HTTPS · REST-API · sleutel in de header x-api-key</dd></div>
+      <div><dt>eindpunten</dt><dd>POST /measurements · POST /measurements/batch</dd></div>
+      <div><dt>formaat</dt><dd>JSON · bron, tijdstip, één getal, eenheid</dd></div>
+      <div><dt>bereik</dt><dd>per meetbron een eenheid en een bereik; daarbuiten geweigerd</dd></div>
+      <div><dt>ritme</dt><dd>hoogstens één meting per tien seconden per toestel, in oplopende tijd</dd></div>
+      <div><dt>na offline</dt><dd>later samen doorsturen via batch, metingen tot 24 uur oud</dd></div>
+      <div><dt>testen</dt><dd>testsleutel die niets vastlegt; antwoord met "proef": true</dd></div>
+      <div><dt>bewaren</dt><dd>standaard tien jaar per logboek, aanpasbaar</dd></div>
+      <div><dt>prijs</dt><dd>€ 15 per toestel per maand met minstens één meting · de eerste gratis · metingen onbeperkt · excl. btw</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s5-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / VRAGEN</span>
+      <h2 class="disp" id="s5-h">Veelgestelde vragen<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Moet ik mijn loggers of meetplatform vervangen?</summary><p class="a">Nee. Uw loggers en uw platform blijven. Het platform of het toestel stuurt elke meting ook naar Vidimus. De koppeling test u eerst met een testsleutel die niets vastlegt; daarna maakt de beheerder de echte sleutel.</p></details>
+      <details><summary>Wat als de logger een tijd offline is?</summary><p class="a">Stuur de metingen die het toestel of uw platform intussen bewaarde later samen door via /measurements/batch, in oplopende tijd en niet ouder dan 24 uur. Het tijdstip in de meting is wat het toestel opgaf; de tijdstempel van de groep toont wanneer de meting verankerd werd.</p></details>
+      <details><summary>Vervangt dit de validatie of kalibratie die GDP vraagt?</summary><p class="a">Nee. Vidimus is geen meetsysteem en keurt niets goed. Het helpt bij één vraag van een audit of claim: zijn de gegevens die u vandaag toont dezelfde als wat de logger toen doorgaf?</p></details>
+      <details><summary>Wat kost het?</summary><p class="a">€ 15 per sensor of logger per maand, alleen in een maand waarin het toestel minstens één meting stuurde. De eerste is gratis en metingen zijn onbeperkt. Zodra u iets betaalt, minstens € 19 per maand. Prijzen excl. btw.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="verder-h">
+  <div class="wrap">
+    <h2 id="verder-h" class="disp aw-klein">Verder lezen<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="sensor.html"><span class="lbl">PRODUCT</span><b>Vidimus Sensor: elke meting apart verankerd</b></a></li>
+      <li><a href="cases.html"><span class="lbl">KOELKETEN EN ZORG</span><b>“De koeling is onderweg uitgevallen.”</b></a></li>
+      <li><a href="aflevering-betwist-cmr.html"><span class="lbl">TRANSPORT EN LOGISTIEK</span><b>“Wij hebben er maar 23 ontvangen.”</b></a></li>
+      <li><a href="prijzen.html"><span class="lbl">PRIJZEN</span><b>Reken uw prijs uit</b></a></li>
+    </ul>
+    <h2 id="meer-h" class="disp aw-klein">Meer vragen en antwoorden<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="foto-bewijs-niet-bewerkt.html"><span class="lbl">FOTO'S</span><b>Hoe bewijst u dat een foto niet bewerkt werd?</b></a></li>
+      <li><a href="databank-bewijs-na-hack.html"><span class="lbl">DATABANKEN</span><b>Na een hack: is uw databank nog dezelfde?</b></a></li>
+      <li><a href="gekwalificeerde-tijdstempel-eidas.html"><span class="lbl">TIJDSTEMPEL</span><b>Wat bewijst een gekwalificeerde tijdstempel (eIDAS)?</b></a></li>
+      <li><a href="worm-opslag-bewijs.html"><span class="lbl">OPSLAG</span><b>Bewijst WORM-opslag dat niets gewijzigd werd?</b></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Zo starten we: <span>uw eerste logboek vandaag, de eerste 100 registraties gratis.</span></h2>
+    <div class="final-under">
+      <p>Uw account maakt u in twee minuten, zonder betaalgegevens. Een bestuurder identificeert uw bedrijf één keer met de eID; dan maakt u uw eerste logboek in enkele minuten. Liever eerst praten? Plan 15 minuten met de oprichter.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>VIDIMUS · SITE</span>
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
+  <a href="scenarios.html">Scenario's</a>
+  <a href="cases.html">Cases</a>
+  <a href="vragen.html">Vragen</a>
+  <a href="verificatie.html">Verificatie</a>
+  <span class="sp"></span>
+  <span>Fictieve voorbeelden · geen klantreferenties</span>
+</footer>
+
+<script src="script.js?v=20261028b" defer></script>
+</body>
+</html>

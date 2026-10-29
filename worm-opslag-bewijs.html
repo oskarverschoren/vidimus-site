@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="nl" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Bewijst WORM-opslag dat niets gewijzigd werd? | Vidimus</title>
+<meta name="description" content="WORM-opslag (Object Lock) houdt overschrijven en wissen tegen, maar toont niet wanneer iets bestond. Waarom u bewaren én verankeren nodig hebt.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="favicon-192.png?v=3" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261008b">
+<link rel="stylesheet" href="inner.css">
+<link rel="stylesheet" href="product.css?v=20261028a">
+<link rel="stylesheet" href="menu.css?v=20261028a">
+<link rel="stylesheet" href="antwoord.css?v=20261029a">
+
+<link rel="canonical" href="https://vidimus.be/worm-opslag-bewijs.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
+<meta property="og:title" content="Bewijst WORM-opslag dat niets gewijzigd werd? | Vidimus"><meta property="og:description" content="WORM-opslag (Object Lock) houdt overschrijven en wissen tegen, maar toont niet wanneer iets bestond. Waarom u bewaren én verankeren nodig hebt."><meta property="og:url" content="https://vidimus.be/worm-opslag-bewijs.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="article:modified_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/worm-opslag-bewijs.html#faq",
+ "url": "https://vidimus.be/worm-opslag-bewijs.html",
+ "inLanguage": "nl-BE",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Wat is het verschil tussen governance-modus en compliance-modus?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "In governance-modus kan een beheerder met een bijzonder recht de vergrendeling opheffen of inkorten. In compliance-modus kan niemand dat, ook de beheerder van het account niet, tot de bewaartermijn verstrijkt. Vidimus gebruikt compliance-modus."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Hoe gaat WORM samen met het recht op wissing (AVG)?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Door de sleutel te wissen, niet het bestand. Het versleutelde origineel blijft staan, maar zonder zijn documentsleutel is het onleesbaar, ook voor ons. In de versleutelde back-ups staat die sleutel nog hoogstens dertig dagen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Hebt u nog WORM nodig als alles verankerd is?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja, als u het origineel wilt behouden. Een vingerafdruk toont dat iets veranderde of verdween, maar brengt een gewist bestand niet terug. Bewaren en verankeren vullen elkaar aan."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Kan Vidimus zelf een registratie wissen of wijzigen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Niet zonder dat het opvalt. Een wijziging achteraf breekt de vingerafdruk en het grootboek, en het tijdstip komt van externe tijdstempels en Bitcoin. Originelen worden één keer geschreven en gaan naar opslag met Object Lock."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body>
+<!-- 29/10/2026 · antwoordpagina (branch seo-2, marketingchat, NIET live). Alleen wat vandaag live is; 'in opbouw' waar dat zo is. -->
+<div class="ambient" aria-hidden="true"></div>
+
+<svg class="sr-sprite" width="0" height="0" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
+          <li><a class="mega-item" href="productpaspoort.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Overdrachtsbewijs <em class="mega-wacht">In opbouw</em></b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="prijzen.html">Prijzen</a>
+    <a href="juridisch.html">Juridisch</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero" aria-labelledby="vraag-h">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="vragen.html">VRAGEN</a><i>/</i><span class="lbl aw-hier">WORM EN OBJECT LOCK</span></p>
+    <h1 class="disp aw-vraag" id="vraag-h">Bewijst WORM-opslag dat uw gegevens niet gewijzigd werden?</h1>
+    <p class="aw-kort" id="kort-antwoord"><span class="aw-label">Kort antwoord</span>Niet op zich. WORM-opslag (write once, read many, zoals Object Lock in compliance-modus) verhindert dat een bestand tijdens de bewaartermijn overschreven of gewist wordt. Dat is een belofte van de opslagdienst, die een derde niet zelf kan narekenen. <b>Een vingerafdruk met een externe tijdstempel vult dat aan</b>: die rekent iedereen zelf na.</p>
+    <p class="aw-datum">Bijgewerkt op 29 oktober 2026 · Oskar Verschoren, Vidimus (VO Initiatives BV, Antwerpen)</p>
+    <div class="hero-actions">
+      <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s1-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / HET VERSCHIL</span>
+      <h2 class="disp" id="s1-h">Bewaren en bewijzen zijn twee dingen<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="aw-tabel-wrap rv">
+      <table class="aw-tabel">
+        <caption>WORM-opslag en verankering naast elkaar</caption>
+        <thead><tr><th scope="col">vraag</th><th scope="col">WORM-opslag (Object Lock)</th><th scope="col">verankering</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Wat houdt het tegen?</th><td>Overschrijven en wissen bij de opslagdienst, tot de bewaartermijn verstrijkt.</td><td>Niets. Het maakt een wijziging zichtbaar voor wie nakijkt.</td></tr>
+          <tr><th scope="row">Wie kan het narekenen?</th><td>Alleen wie toegang heeft tot de instellingen van de opslag; een derde moet de dienst geloven.</td><td>Iedereen met het bestand en de bewijsbundel, ook zonder Vidimus.</td></tr>
+          <tr><th scope="row">Wanneer bestond het?</th><td>Een datum in de gegevens van de opslagdienst.</td><td>Een tijdstempel van een externe dienst en een Bitcoin-blok.</td></tr>
+          <tr><th scope="row">Wat vóór het wegschrijven?</th><td>Valt erbuiten.</td><td>Valt erbuiten: beide beginnen bij het moment van vastleggen.</td></tr>
+          <tr><th scope="row">Een gewist bestand terug?</th><td>Ja, het blijft bewaard.</td><td>Nee, een vingerafdruk brengt geen bestand terug.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="aw-tekst">Daarom doet Vidimus beide: verankeren, zodat iedereen kan narekenen, en bewaren met Object Lock, zodat het origineel er blijft.</p>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s2-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / ZO WERKT HET</span>
+      <h2 class="disp" id="s2-h">Zo doet Vidimus het<span class="aw-punt">.</span></h2>
+    </div>
+    <ol class="aw-stappen rv">
+      <li><h3>Verankeren<small>sha-256 · ed25519 · rfc 3161 · bitcoin</small></h3><p>Elke registratie krijgt een vingerafdruk en een handtekening, en binnen vijf minuten een tijdstempel van een externe dienst op de groep. De wortel gaat in ons grootboek, waar elk record het vorige hasht, en via OpenTimestamps in Bitcoin.</p></li>
+      <li><h3>Versleuteld bewaren<small>aes-256-gcm</small></h3><p>Originelen en foto's staan versleuteld met een eigen sleutel per document, gewikkeld onder de sleutel van uw organisatie.</p></li>
+      <li><h3>Object Lock in compliance-modus<small>Hetzner Object Storage · Neurenberg</small></h3><p>Elke versleutelde foto en registratie staat ook in opslag met Object Lock in compliance-modus: tot de bewaartermijn van het logboek verstrijkt, laat de opslag geen wissen of overschrijven toe, ook niet op ons verzoek bij de hoster.</p></li>
+      <li><h3>Back-ups<small>elke nacht · dertig dagen</small></h3><p>Elke nacht gaat een versleutelde kopie van databank, grootboek en sleutels naar opslag met Object Lock, dertig dagen bewaard. Elk kwartaal zetten we de laatste back-up terug in een afgeschermde map en rekenen we na dat alles terug te halen is.</p></li>
+      <li><h3>Wissen na de termijn<small>door de sleutel te vernietigen</small></h3><p>Wissen gebeurt door de documentsleutel te vernietigen: het versleutelde bestand blijft staan, maar is zonder sleutel onleesbaar, ook voor ons. Vandaag gebeurt dat op verzoek; automatisch wissen na de bewaartermijn is er nog niet.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s3-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / GRENZEN</span>
+      <h2 class="disp" id="s3-h">Wat het niet bewijst<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>WORM toont niet wanneer een bestand er voor het eerst was.</b> De opslagdatum is een gegeven van de opslagdienst.</span></li>
+      <li><span><b>Wat er vóór het wegschrijven gebeurde.</b> Zowel WORM als verankering beginnen bij het moment van vastleggen.</span></li>
+      <li><span><b>Dat uw eigen systemen niet veranderden.</b> De Object Lock van Vidimus beschermt de kopieën bij Vidimus, niet uw databank of uw bestanden thuis.</span></li>
+      <li><span><b>Dat u aan een bepaalde bewaarplicht voldoet.</b> Welke bewaarregels voor u gelden en of deze opslag daarvoor volstaat, beoordeelt uw raadsman of auditor.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s4-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / SPECIFICATIES</span>
+      <h2 class="disp" id="s4-h">Specificaties<span class="aw-punt">.</span></h2>
+    </div>
+    <dl class="pr-spec rv">
+      <div><dt>object lock</dt><dd>compliance-modus · Hetzner Object Storage, Neurenberg (Duitsland)</dd></div>
+      <div><dt>versleuteling</dt><dd>AES-256-GCM · eigen sleutel per document · sleutel per organisatie</dd></div>
+      <div><dt>bewaartermijn</dt><dd>standaard tien jaar per logboek, instelbaar per organisatie</dd></div>
+      <div><dt>back-ups</dt><dd>elke nacht, versleuteld, met Object Lock, dertig dagen · herstel elk kwartaal getest</dd></div>
+      <div><dt>verankering</dt><dd>SHA-256 · Ed25519 · RFC 3161 per groep van vijf minuten · grootboek als hash-keten · OpenTimestamps → Bitcoin</dd></div>
+      <div><dt>wissen</dt><dd>door de documentsleutel te vernietigen · op verzoek · automatisch na de termijn: nog niet</dd></div>
+      <div><dt>vertrouwelijk logboek</dt><dd>de telefoon versleutelt vóór verzending; alleen u hebt de sleutel</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s5-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / VRAGEN</span>
+      <h2 class="disp" id="s5-h">Veelgestelde vragen<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Wat is het verschil tussen governance-modus en compliance-modus?</summary><p class="a">In governance-modus kan een beheerder met een bijzonder recht de vergrendeling opheffen of inkorten. In compliance-modus kan niemand dat, ook de beheerder van het account niet, tot de bewaartermijn verstrijkt. Vidimus gebruikt compliance-modus.</p></details>
+      <details><summary>Hoe gaat WORM samen met het recht op wissing (AVG)?</summary><p class="a">Door de sleutel te wissen, niet het bestand. Het versleutelde origineel blijft staan, maar zonder zijn documentsleutel is het onleesbaar, ook voor ons. In de versleutelde back-ups staat die sleutel nog hoogstens dertig dagen.</p></details>
+      <details><summary>Hebt u nog WORM nodig als alles verankerd is?</summary><p class="a">Ja, als u het origineel wilt behouden. Een vingerafdruk toont dat iets veranderde of verdween, maar brengt een gewist bestand niet terug. Bewaren en verankeren vullen elkaar aan.</p></details>
+      <details><summary>Kan Vidimus zelf een registratie wissen of wijzigen?</summary><p class="a">Niet zonder dat het opvalt. Een wijziging achteraf breekt de vingerafdruk en het grootboek, en het tijdstip komt van externe tijdstempels en Bitcoin. Originelen worden één keer geschreven en gaan naar opslag met Object Lock.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="verder-h">
+  <div class="wrap">
+    <h2 id="verder-h" class="disp aw-klein">Verder lezen<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="beveiliging.html"><span class="lbl">BEVEILIGING</span><b>Sleutels, versleuteling, opslag en back-ups</b></a></li>
+      <li><a href="data.html"><span class="lbl">PRODUCT</span><b>Vidimus Data: momentopnames van databanken en mappen</b></a></li>
+      <li><a href="vragen.html"><span class="lbl">VRAGEN</span><b>De moeilijkste vragen, van rechtbank tot AVG</b></a></li>
+      <li><a href="techniek.html"><span class="lbl">TECHNIEK</span><b>Eén registratie van begin tot bewijs</b></a></li>
+    </ul>
+    <h2 id="meer-h" class="disp aw-klein">Meer vragen en antwoorden<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="foto-bewijs-niet-bewerkt.html"><span class="lbl">FOTO'S</span><b>Hoe bewijst u dat een foto niet bewerkt werd?</b></a></li>
+      <li><a href="databank-bewijs-na-hack.html"><span class="lbl">DATABANKEN</span><b>Na een hack: is uw databank nog dezelfde?</b></a></li>
+      <li><a href="gekwalificeerde-tijdstempel-eidas.html"><span class="lbl">TIJDSTEMPEL</span><b>Wat bewijst een gekwalificeerde tijdstempel (eIDAS)?</b></a></li>
+      <li><a href="temperatuurlogger-bewijs.html"><span class="lbl">SENSOREN</span><b>Temperatuurmetingen als bewijs voor verzekeraar en audit</b></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Zo starten we: <span>uw eerste logboek vandaag, de eerste 100 registraties gratis.</span></h2>
+    <div class="final-under">
+      <p>Uw account maakt u in twee minuten, zonder betaalgegevens. Een bestuurder identificeert uw bedrijf één keer met de eID; dan maakt u uw eerste logboek in enkele minuten. Liever eerst praten? Plan 15 minuten met de oprichter.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>VIDIMUS · SITE</span>
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
+  <a href="scenarios.html">Scenario's</a>
+  <a href="cases.html">Cases</a>
+  <a href="vragen.html">Vragen</a>
+  <a href="verificatie.html">Verificatie</a>
+  <span class="sp"></span>
+  <span>Fictieve voorbeelden · geen klantreferenties</span>
+</footer>
+
+<script src="script.js?v=20261028b" defer></script>
+</body>
+</html>
