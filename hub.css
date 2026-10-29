@@ -316,7 +316,7 @@ html.js body.hub .rv { opacity: 1; transform: none; }
   .hub .hb-held-tekst { max-width: min(520px, 48%); }
   .hub .hb-held h1 { font-size: clamp(38px, 1rem + 3vw, 52px); }
   .hub .hb-held-beeld { aspect-ratio: auto; left: auto; width: 60%; }
-  .hub .hb-held-beeld img { object-position: 100% 50%; }
+  .hub .hb-held-beeld img { object-position: 84% 50%; }
   .hub .hb-held-beeld::before { width: 36%; }
   .hub .hb-held-beeld::after { left: 50%; top: 40%; width: 46%; }
 }
