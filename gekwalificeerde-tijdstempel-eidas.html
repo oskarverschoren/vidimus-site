@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="nl" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Gekwalificeerde tijdstempel (eIDAS): wat bewijst hij? | Vidimus</title>
+<meta name="description" content="Wat een gekwalificeerde tijdstempel (eIDAS) wel en niet bewijst, hoe u hem zelf narekent, en hoe Vidimus hem per groep gebruikt voor klantorganisaties.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="favicon-192.png?v=3" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261008b">
+<link rel="stylesheet" href="inner.css">
+<link rel="stylesheet" href="product.css?v=20261028a">
+<link rel="stylesheet" href="menu.css?v=20261028a">
+<link rel="stylesheet" href="antwoord.css?v=20261029a">
+
+<link rel="canonical" href="https://vidimus.be/gekwalificeerde-tijdstempel-eidas.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
+<meta property="og:title" content="Gekwalificeerde tijdstempel (eIDAS): wat bewijst hij? | Vidimus"><meta property="og:description" content="Wat een gekwalificeerde tijdstempel (eIDAS) wel en niet bewijst, hoe u hem zelf narekent, en hoe Vidimus hem per groep gebruikt voor klantorganisaties."><meta property="og:url" content="https://vidimus.be/gekwalificeerde-tijdstempel-eidas.html"><meta property="og:image" content="https://vidimus.be/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="article:modified_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/gekwalificeerde-tijdstempel-eidas.html#faq",
+ "url": "https://vidimus.be/gekwalificeerde-tijdstempel-eidas.html",
+ "inLanguage": "nl-BE",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Hoe ziet u of een tijdstempel gekwalificeerd is?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Open het token of de bundel in DSS, de validatiesoftware van de Europese Commissie. Komt de tijdstempel van een gekwalificeerde dienst, dan toont het detailrapport dat. U kunt de dienst ook zelf opzoeken in de EU-vertrouwenslijst."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is een gewone tijdstempel dan waardeloos?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. Een elektronische tijdstempel mag als bewijs niet geweigerd worden louter omdat hij niet gekwalificeerd is. Hij geeft alleen niet hetzelfde wettelijke vermoeden; de rechter weegt hem vrij."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Krijgt elke registratie bij Vidimus een eigen gekwalificeerde tijdstempel?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. De gekwalificeerde tijdstempel staat op de groep (de Merkle-wortel van vijf minuten), en alleen groepen met registraties van klantorganisaties krijgen er een, doorgaans binnen zes uur. Uw registratie is ermee verbonden via haar Merkle-pad. Elke groep krijgt wel binnen vijf minuten een gewone tijdstempel en daarna een anker in Bitcoin."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Hebt u voor bedrijfsdocumenten nog een notaris nodig?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Voor de meeste documenten tussen ondernemingen niet: het bewijs is vrij en een tijdstempel is een bewijsmiddel. Waar de wet een authentieke akte vraagt, blijft de notaris nodig; een tijdstempel vervangt die niet."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Kost de gekwalificeerde tijdstempel extra?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. Hij zit in de prijs per registratie; de eerste 100 registraties per maand zijn gratis."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body>
+<!-- 29/10/2026 · antwoordpagina (branch seo-2, marketingchat, NIET live). Alleen wat vandaag live is; 'in opbouw' waar dat zo is. -->
+<div class="ambient" aria-hidden="true"></div>
+
+<svg class="sr-sprite" width="0" height="0" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
+          <li><a class="mega-item" href="productpaspoort.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Overdrachtsbewijs <em class="mega-wacht">In opbouw</em></b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="prijzen.html">Prijzen</a>
+    <a href="juridisch.html">Juridisch</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero" aria-labelledby="vraag-h">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="vragen.html">VRAGEN</a><i>/</i><span class="lbl aw-hier">TIJDSTEMPEL EN EIDAS</span></p>
+    <h1 class="disp aw-vraag" id="vraag-h">Wat bewijst een gekwalificeerde tijdstempel (eIDAS) voor uw bedrijfsdocumenten?</h1>
+    <p class="aw-kort" id="kort-antwoord"><span class="aw-label">Kort antwoord</span>Een gekwalificeerde elektronische tijdstempel komt van een dienst op de EU-vertrouwenslijst. Volgens eIDAS geldt er in de hele EU een wettelijk vermoeden voor: dat datum en tijd juist zijn en dat de gegevens waaraan hij verbonden is sindsdien niet veranderden. <b>Hij zegt niet wie het document maakte en niet of de inhoud waar is.</b></p>
+    <p class="aw-datum">Bijgewerkt op 29 oktober 2026 · Oskar Verschoren, Vidimus (VO Initiatives BV, Antwerpen)</p>
+    <div class="hero-actions">
+      <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s1-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / ZO WERKT HET</span>
+      <h2 class="disp" id="s1-h">Zo werkt het<span class="aw-punt">.</span></h2>
+    </div>
+    <ol class="aw-stappen rv">
+      <li><h3>Een vingerafdruk van het document<small>sha-256</small></h3><p>Van het document wordt een vingerafdruk berekend. Alleen die vingerafdruk gaat naar de tijdstempeldienst, niet het document zelf.</p></li>
+      <li><h3>De dienst tekent vingerafdruk en tijd<small>rfc 3161</small></h3><p>De tijdstempeldienst tekent de vingerafdruk samen met het tijdstip van haar klok. Het resultaat is een klein token. Gekwalificeerd is het token alleen als de dienst als gekwalificeerde tijdstempeldienst op de EU-vertrouwenslijst staat.</p></li>
+      <li><h3>Later narekenen<small>openssl · DSS · vertrouwenslijst</small></h3><p>Wie het document krijgt, berekent de vingerafdruk opnieuw, controleert het token (met openssl of met DSS, de validatiesoftware van de Europese Commissie) en zoekt de dienst op in de EU-vertrouwenslijst.</p></li>
+      <li><h3>Bij Vidimus: per groep<small>merkle-boom · globaltrust</small></h3><p>Vidimus zet de vingerafdrukken van vijf minuten samen in een Merkle-boom. De wortel van die groep krijgt binnen vijf minuten een tijdstempel van een externe dienst (Sectigo) en daarna een anker in Bitcoin. Groepen met registraties van klantorganisaties krijgen doorgaans binnen zes uur ook een gekwalificeerde tijdstempel van GLOBALTRUST, zolang ons jaarpakket bij GLOBALTRUST ruimte heeft. Uw registratie is daarmee verbonden via haar Merkle-pad, dat u zelf narekent.</p></li>
+      <li><h3>In de bewijsbundel<small>evidence record · rfc 4998</small></h3><p>De bundel bevat beide tokens, het Merkle-pad, het Bitcoin-bewijs en een Evidence Record (RFC 4998) voor DSS. Voor onze demoregistratie gaf DSS de uitkomst PASSED: een technische validatie, geen goedkeuring of certificering.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s2-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / DE WET</span>
+      <h2 class="disp" id="s2-h">Wat de wet zegt<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="law-grid rv">
+      <div class="law-block"><span class="art">eIDAS, art. 41.1</span><p>Een elektronische tijdstempel mag als bewijs niet geweigerd worden louter omdat hij elektronisch is of niet gekwalificeerd. Ook een gewone tijdstempel telt dus mee; de rechter weegt hem vrij.</p></div>
+      <div class="law-block"><span class="art">eIDAS, art. 41.2</span><p>Voor een gekwalificeerde tijdstempel geldt het vermoeden dat datum en tijd juist zijn en dat de gegevens waaraan hij verbonden is ongewijzigd zijn. Bij Vidimus staat die tijdstempel op de groep (de Merkle-wortel); of het vermoeden ook voor uw registratie geldt, beoordeelt de rechter.</p></div>
+      <div class="law-block"><span class="art">eIDAS, art. 41.3</span><p>Een gekwalificeerde tijdstempel uit één lidstaat geldt in elke andere lidstaat als gekwalificeerde tijdstempel.</p></div>
+      <div class="law-block"><span class="art">art. 8.11 BW</span><p>Tussen ondernemingen is het bewijs vrij: alle bewijsmiddelen zijn toegelaten en de rechter weegt ze.</p></div>
+    </div>
+    <p class="law-note">Artikelen samengevat, niet geciteerd. Algemene informatie, geen juridisch advies.</p>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s3-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / GRENZEN</span>
+      <h2 class="disp" id="s3-h">Wat het niet bewijst<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>Wie het document maakte of verstuurde.</b> Daarvoor dient een handtekening. Bij Vidimus tekent het toestel of het systeem met een eigen sleutel (Ed25519); dat is geen gekwalificeerde handtekening.</span></li>
+      <li><span><b>Dat de inhoud waar is.</b> Een foute factuur blijft fout, maar vastgelegd als 'dit bestond toen'.</span></li>
+      <li><span><b>Dat het document niet vroeger bestond.</b> De tijdstempel zegt: uiterlijk op dit moment.</span></li>
+      <li><span><b>Bij Vidimus: een gekwalificeerde tijdstempel per registratie apart.</b> Die staat op de groep, en alleen bij groepen met registraties van klantorganisaties. Interne en demo-organisaties krijgen de gewone tijdstempel, die niet gekwalificeerd is.</span></li>
+      <li><span><b>Dat Vidimus zelf een gekwalificeerde dienst is.</b> De gekwalificeerde tijdstempel komt van GLOBALTRUST, niet van Vidimus.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s4-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / SPECIFICATIES</span>
+      <h2 class="disp" id="s4-h">Specificaties<span class="aw-punt">.</span></h2>
+    </div>
+    <dl class="pr-spec rv">
+      <div><dt>standaard</dt><dd>RFC 3161 (tijdstempeltoken) · eIDAS art. 41 en 42</dd></div>
+      <div><dt>elke groep</dt><dd>tijdstempel van Sectigo, binnen vijf minuten · niet gekwalificeerd</dd></div>
+      <div><dt>gekwalificeerd</dt><dd>GLOBALTRUST · per groep, alleen voor groepen met registraties van klantorganisaties · doorgaans binnen zes uur</dd></div>
+      <div><dt>publiek anker</dt><dd>OpenTimestamps → Bitcoin, binnen enkele uren</dd></div>
+      <div><dt>wat vertrekt</dt><dd>alleen vingerafdrukken; de inhoud blijft in de EU</dd></div>
+      <div><dt>narekenen</dt><dd>openssl ts · DSS van de Europese Commissie · verify_bundle.py in de bundel</dd></div>
+      <div><dt>kost</dt><dd>inbegrepen in de prijs per registratie · eerste 100 per maand gratis</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s5-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / VRAGEN</span>
+      <h2 class="disp" id="s5-h">Veelgestelde vragen<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Hoe ziet u of een tijdstempel gekwalificeerd is?</summary><p class="a">Open het token of de bundel in DSS, de validatiesoftware van de Europese Commissie. Komt de tijdstempel van een gekwalificeerde dienst, dan toont het detailrapport dat. U kunt de dienst ook zelf opzoeken in de EU-vertrouwenslijst.</p></details>
+      <details><summary>Is een gewone tijdstempel dan waardeloos?</summary><p class="a">Nee. Een elektronische tijdstempel mag als bewijs niet geweigerd worden louter omdat hij niet gekwalificeerd is. Hij geeft alleen niet hetzelfde wettelijke vermoeden; de rechter weegt hem vrij.</p></details>
+      <details><summary>Krijgt elke registratie bij Vidimus een eigen gekwalificeerde tijdstempel?</summary><p class="a">Nee. De gekwalificeerde tijdstempel staat op de groep (de Merkle-wortel van vijf minuten), en alleen groepen met registraties van klantorganisaties krijgen er een, doorgaans binnen zes uur. Uw registratie is ermee verbonden via haar Merkle-pad. Elke groep krijgt wel binnen vijf minuten een gewone tijdstempel en daarna een anker in Bitcoin.</p></details>
+      <details><summary>Hebt u voor bedrijfsdocumenten nog een notaris nodig?</summary><p class="a">Voor de meeste documenten tussen ondernemingen niet: het bewijs is vrij en een tijdstempel is een bewijsmiddel. Waar de wet een authentieke akte vraagt, blijft de notaris nodig; een tijdstempel vervangt die niet.</p></details>
+      <details><summary>Kost de gekwalificeerde tijdstempel extra?</summary><p class="a">Nee. Hij zit in de prijs per registratie; de eerste 100 registraties per maand zijn gratis.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="verder-h">
+  <div class="wrap">
+    <h2 id="verder-h" class="disp aw-klein">Verder lezen<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="juridisch.html"><span class="lbl">JURIDISCH</span><b>Wat een auditor, advocaat of rechter kan controleren</b></a></li>
+      <li><a href="verificatie.html"><span class="lbl">ZELF NAREKENEN</span><b>Een bewijsbundel controleren, stap voor stap</b></a></li>
+      <li><a href="techniek.html#eu"><span class="lbl">TECHNIEK</span><b>Zelf nagaan met DSS van de Europese Commissie</b></a></li>
+      <li><a href="hoe-het-werkt.html"><span class="lbl">HOE HET WERKT</span><b>Zeven stappen van registratie tot bewijs</b></a></li>
+    </ul>
+    <h2 id="meer-h" class="disp aw-klein">Meer vragen en antwoorden<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="foto-bewijs-niet-bewerkt.html"><span class="lbl">FOTO'S</span><b>Hoe bewijst u dat een foto niet bewerkt werd?</b></a></li>
+      <li><a href="databank-bewijs-na-hack.html"><span class="lbl">DATABANKEN</span><b>Na een hack: is uw databank nog dezelfde?</b></a></li>
+      <li><a href="temperatuurlogger-bewijs.html"><span class="lbl">SENSOREN</span><b>Temperatuurmetingen als bewijs voor verzekeraar en audit</b></a></li>
+      <li><a href="worm-opslag-bewijs.html"><span class="lbl">OPSLAG</span><b>Bewijst WORM-opslag dat niets gewijzigd werd?</b></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Zo starten we: <span>uw eerste logboek vandaag, de eerste 100 registraties gratis.</span></h2>
+    <div class="final-under">
+      <p>Uw account maakt u in twee minuten, zonder betaalgegevens. Een bestuurder identificeert uw bedrijf één keer met de eID; dan maakt u uw eerste logboek in enkele minuten. Liever eerst praten? Plan 15 minuten met de oprichter.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>VIDIMUS · SITE</span>
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
+  <a href="scenarios.html">Scenario's</a>
+  <a href="cases.html">Cases</a>
+  <a href="vragen.html">Vragen</a>
+  <a href="verificatie.html">Verificatie</a>
+  <span class="sp"></span>
+  <span>Fictieve voorbeelden · geen klantreferenties</span>
+</footer>
+
+<script src="script.js?v=20261028b" defer></script>
+</body>
+</html>

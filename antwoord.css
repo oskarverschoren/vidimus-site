@@ -1,0 +1,61 @@
+/* ══ Vragen en antwoorden (29/10/2026, branch seo-2) ══
+   Antwoordpagina's: één vraag als kop, een kort antwoord bovenaan, dan de bewijsketen, de grenzen, specificaties en vragen.
+   Laadt na styles.css + inner.css + product.css (voor .pr-spec en .sr-sprite). Geen inline stijl in de pagina's: alles hier. */
+:root {
+  --aw-tekst: 62ch;
+  --aw-kader: rgba(36, 56, 214, .16);
+  --aw-kader-bg: rgba(36, 56, 214, .045);
+}
+
+.aw-blok { padding-block: 0 var(--space); }
+.page-hero + .aw-blok { padding-top: clamp(28px, 4.5vw, 72px); }
+.aw-punt { color: var(--red); }
+.page-hero .crumb .aw-hier { color: var(--red); }
+.page-hero h1.aw-vraag { max-width: 26ch; }
+
+/* het korte antwoord: de alinea die een zoekmachine of assistent citeert */
+.aw-kort { position: relative; max-width: var(--aw-tekst); margin: 6px 0 0; padding: 18px 22px 18px 24px; border: 1px solid var(--aw-kader); border-radius: 14px; background: var(--aw-kader-bg); color: var(--ink); font-size: clamp(16px, .95rem + .2vw, 18px); line-height: 1.6; }
+.aw-kort::before { content: ""; position: absolute; inset: 14px auto 14px 0; width: 3px; border-radius: 0 3px 3px 0; background: var(--red); }
+.aw-kort b { font-weight: 600; }
+.aw-label { display: block; margin-bottom: 6px; font: 500 11px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.aw-datum { margin: 2px 0 0; font: 500 12px/1.5 var(--mono); color: var(--ink-3); }
+.page-hero .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* stappen van de bewijsketen: genummerd, met een technisch label */
+.aw-stappen { list-style: none; margin: 0; padding: 0; counter-reset: aw; border-top: 1px solid var(--line); max-width: 62rem; }
+.aw-stappen li { counter-increment: aw; display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 4px 1.2rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
+.aw-stappen li::before { content: counter(aw, decimal-leading-zero); grid-row: 1 / span 2; font: 500 13px/1.7 var(--mono); color: var(--red); }
+.aw-stappen h3 { font-size: 17px; font-weight: 600; letter-spacing: -.01em; line-height: 1.35; color: var(--ink); }
+.aw-stappen h3 small { margin-left: 8px; font: 500 11.5px/1.4 var(--mono); letter-spacing: 0; color: var(--ink-3); }
+.aw-stappen p { grid-column: 2; margin: 0; max-width: var(--aw-tekst); font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.aw-stappen p b { color: var(--ink); font-weight: 600; }
+
+.aw-tekst { max-width: var(--aw-tekst); margin: 0 0 1rem; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.aw-tekst b { color: var(--ink); font-weight: 600; }
+.aw-blok .todo { margin-top: 0; }
+.aw-blok .law-note { margin-top: 1.2rem; }
+
+/* vergelijkingstabel (WORM tegenover verankering) */
+.aw-tabel { width: 100%; max-width: 62rem; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+.aw-tabel caption { caption-side: top; text-align: left; padding-bottom: 10px; font: 500 11px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.aw-tabel th, .aw-tabel td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.aw-tabel thead th { font: 500 12px/1.4 var(--mono); color: var(--ink-3); }
+.aw-tabel tbody th { width: 26%; font-weight: 600; color: var(--ink); }
+.aw-tabel td { color: var(--ink-2); }
+.aw-tabel-wrap { overflow-x: auto; }
+.aw-tabel-wrap + .aw-tekst { margin-top: 1.2rem; }
+
+.aw-blok .related { list-style: none; padding: 0; }
+.aw-blok h2.aw-klein { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.aw-blok .related + h2.aw-klein { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.aw-blok .related { margin-top: clamp(1.2rem, 2.5vw, 1.8rem); }
+.aw-blok .faq { margin-top: 0; }
+
+a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+
+@media (max-width: 720px) {
+  .aw-kort { padding: 16px 16px 16px 18px; }
+  .aw-stappen li { grid-template-columns: 2.4rem minmax(0, 1fr); }
+  .aw-stappen h3 small { display: block; margin: 2px 0 0; }
+  .aw-tabel tbody th { width: auto; }
+}
