@@ -37,7 +37,7 @@
   const CYCLUS = 8;          // s tussen twee pulsen op dezelfde band (= --hm-puls in held-motion.css)
   const TUSSEN = CYCLUS / BANDEN.length;   // s tussen twee aankomsten in de kern
   const EXTRA = [0, 1.2, 2.4, 3.6];        // s, vier extra pulsen op een band die oplicht (om de 1,2 s)
-  const PX_PER_EENHEID = 0.95;             // px per beeldeenheid; kleiner getoond beeld = iets grotere pulsen (tot 1,7 x)
+  const PX_PER_EENHEID = 1.4;              // px per beeldeenheid; kleiner getoond beeld = iets grotere pulsen (tot 2,2 x)
 
   const maak = (tag, attrs, ouder) => {
     const el = document.createElementNS(NS, tag);
@@ -72,8 +72,8 @@
       const dx = sx - x0, dy = sy - y0;   // afstand tot de middellijn, in het gedraaide assenstelsel
       const plek = maak("g", { transform: `translate(${(dx * c + dy * s).toFixed(2)} ${(-dx * s + dy * c).toFixed(2)})` }, p);
       const vorm = maak("g", { class: "hm-vorm" }, plek);
-      maak("rect", { x: -70, y: -1.8, width: 70, height: 3.6, rx: 1.8, fill: "url(#hm-staart)" }, vorm);
-      maak("circle", { r: 18, fill: "url(#hm-kop)" }, vorm);
+      maak("rect", { x: -100, y: -2.4, width: 100, height: 4.8, rx: 2.4, fill: "url(#hm-staart)" }, vorm);
+      maak("circle", { r: 24, fill: "url(#hm-kop)" }, vorm);
       vertraag(vorm, vertraging);
     });
   }
@@ -125,7 +125,7 @@
       const vw = W / s, vh = H / s;
       const x = bron.x + (bron.w - vw) * px, y = bron.y + (bron.h - vh) * py;
       svg.setAttribute("viewBox", `${x.toFixed(2)} ${y.toFixed(2)} ${vw.toFixed(2)} ${vh.toFixed(2)}`);
-      svg.style.setProperty("--hm-k", Math.min(1.7, Math.max(1, PX_PER_EENHEID / s)).toFixed(3));
+      svg.style.setProperty("--hm-k", Math.min(2.2, Math.max(1, PX_PER_EENHEID / s)).toFixed(3));
     };
     kader();
     new ResizeObserver(kader).observe(img);

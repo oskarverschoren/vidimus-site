@@ -41,7 +41,7 @@
 .hub .hm-ring-vorm { transform-box: fill-box; transform-origin: center; transform: scale(1.04); opacity: 0; animation: hmRing var(--hm-ring) linear infinite both; }
 .hub .hm-ring ellipse { fill: none; vector-effect: non-scaling-stroke; }
 .hub .hm-ring-lijn { stroke: #d6defe; stroke-width: 1.1; }
-.hub .hm-ring-zacht { stroke: #7f97ff; stroke-width: 7; stroke-opacity: .16; }
+.hub .hm-ring-zacht { stroke: #7f97ff; stroke-width: 8; stroke-opacity: .24; }
 @keyframes hmRing {
   0% { transform: scale(1.04); opacity: 0; animation-timing-function: cubic-bezier(.2, .55, .35, 1); }
   7% { opacity: .75; }
