@@ -1,0 +1,72 @@
+/* ══ Vidimus Privé (2/11/2026) · alleen /prive.html, na product.css ══
+   Bouwt op de variabelen van product.css. Eén eigen gedachte: het kader uit de illustratie (wat van u is) met een lijn
+   naar buiten (wat onafhankelijk blijft). */
+
+/* ── wat u krijgt: één paneel met dunne lijnen, geen kaartenrij ── */
+.pv-vier { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden; border-radius: var(--pr-r-l); background: var(--card); border: 1px solid var(--line); box-shadow: var(--pr-schaduw); }
+.pv-vier li { display: grid; align-content: start; gap: 10px; padding: clamp(20px, 2.4vw, 28px); }
+.pv-vier li + li { border-left: 1px solid var(--line); }
+.pv-vier .pr-ico { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 6px; border-radius: 50%; background: var(--pr-navy); color: #fff; }
+.pv-vier .pr-ico svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pv-vier h3 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; }
+.pv-vier p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+
+/* ── de kern: in uw kader, en de lijn naar wat daarbuiten blijft ── */
+.pv-kader { --pv-gat: clamp(36px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--pv-gat); padding: clamp(24px, 3.6vw, 48px); border-radius: var(--pr-r-l); background: var(--pr-band); color: #fff; box-shadow: var(--pr-schaduw-hoog); }
+.pv-kader h3 { margin: 0 0 16px; font-size: clamp(20px, 1rem + .6vw, 24px); font-weight: 500; letter-spacing: -.025em; }
+.pv-binnen { position: relative; align-self: center; padding: 24px; border: 1px solid rgba(142, 164, 255, .55); }
+.pv-binnen::before { content: ""; position: absolute; inset: -2px; pointer-events: none;
+  background:
+    linear-gradient(#fff, #fff) 0 0 / 18px 2px, linear-gradient(#fff, #fff) 0 0 / 2px 18px,
+    linear-gradient(#fff, #fff) 100% 0 / 18px 2px, linear-gradient(#fff, #fff) 100% 0 / 2px 18px,
+    linear-gradient(#fff, #fff) 0 100% / 18px 2px, linear-gradient(#fff, #fff) 0 100% / 2px 18px,
+    linear-gradient(#fff, #fff) 100% 100% / 18px 2px, linear-gradient(#fff, #fff) 100% 100% / 2px 18px;
+  background-repeat: no-repeat; }
+.pv-binnen::after { content: ""; position: absolute; top: 50%; left: 100%; width: calc(var(--pv-gat) * .6); height: 2px; background: linear-gradient(90deg, #8EA4FF, #DFE6FF); }
+.pv-binnen ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15.5px; line-height: 1.45; color: rgba(255, 255, 255, .86); }
+.pv-buiten { position: relative; }
+.pv-buiten::before { content: ""; position: absolute; top: 50%; left: calc(-1 * var(--pv-gat) * .4 - 6px); width: 12px; height: 12px; margin-top: -5px; border-radius: 3px; background: #DFE6FF; box-shadow: 0 0 0 4px rgba(127, 151, 255, .3), 0 0 18px rgba(127, 151, 255, .8); }
+.pv-buiten dl { margin: 0; display: grid; }
+.pv-buiten dl > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-top: 1px solid rgba(255, 255, 255, .14); }
+.pv-buiten dt { font-weight: 600; font-size: 15px; }
+.pv-buiten dd { margin: 0; font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, .84); }
+.pv-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 6px; font-weight: 600; font-size: 15px; color: #B9C6FF; text-decoration: none; }
+.pv-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.pv-link:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.pv-link svg { width: 14px; height: 14px; }
+
+/* ── prijs: kleine tabel; op smal scherm staat de soort boven zijn twee bedragen ── */
+.pv-prijs { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: var(--pr-r-l); background: var(--card); border: 1px solid var(--line); box-shadow: var(--pr-schaduw); }
+.pv-prijs caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.pv-prijs thead th { padding: 14px 24px; font-size: 13px; font-weight: 500; text-align: left; color: var(--ink-3); background: #F4F5F8; }
+.pv-prijs tbody th, .pv-prijs td { padding: 18px 24px; text-align: left; vertical-align: middle; border-top: 1px solid var(--line); }
+.pv-prijs tbody th { font-weight: 400; }
+.pv-prijs tbody th b { display: block; font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+.pv-prijs tbody th span { display: block; margin-top: 2px; font-size: 14px; line-height: 1.45; color: var(--ink-3); }
+.pv-prijs td { font: 500 15px/1.45 var(--mono); color: var(--ink); white-space: nowrap; }
+.pv-prijs-voet { margin: 16px 0 0; max-width: 70ch; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+.pv-prijs-voet b { color: var(--ink); font-weight: 600; }
+
+@media (max-width: 1100px) {
+  .pv-vier { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pv-vier li:nth-child(3) { border-left: 0; }
+  .pv-vier li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 860px) {
+  .pv-kader { grid-template-columns: minmax(0, 1fr); }
+  .pv-binnen { align-self: stretch; }
+  .pv-binnen::after { top: 100%; left: 50%; width: 2px; height: calc(var(--pv-gat) * .6); background: linear-gradient(180deg, #8EA4FF, #DFE6FF); }
+  .pv-buiten::before { top: calc(-1 * var(--pv-gat) * .4); left: 50%; margin: -6px 0 0 -5px; }
+}
+@media (max-width: 640px) {
+  .pv-vier { grid-template-columns: minmax(0, 1fr); }
+  .pv-vier li + li { border-left: 0; border-top: 1px solid var(--line); }
+  .pv-buiten dl > div { grid-template-columns: minmax(0, 1fr); }
+  .pv-prijs thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .pv-prijs, .pv-prijs tbody { display: block; }
+  .pv-prijs tbody tr { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px 16px; padding: 18px 20px; }
+  .pv-prijs tbody tr + tr { border-top: 1px solid var(--line); }
+  .pv-prijs tbody th { grid-column: 1 / -1; padding: 0 0 8px; border: 0; }
+  .pv-prijs td { padding: 0; border: 0; font-size: 13px; white-space: normal; }
+  .pv-prijs td::before { content: attr(data-l); display: block; margin-bottom: 2px; font: 500 12.5px/1.4 var(--ui); color: var(--ink-3); }
+}
