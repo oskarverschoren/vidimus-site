@@ -37,6 +37,9 @@
   const CYCLUS = 8;          // s tussen twee pulsen op dezelfde band (= --hm-puls in held-motion.css)
   const TUSSEN = CYCLUS / BANDEN.length;   // s tussen twee aankomsten in de kern
   const EXTRA = [0, 1.2, 2.4, 3.6];        // s, vier extra pulsen op een band die oplicht (om de 1,2 s)
+  // het licht: een zachte kop met een kort spoor van kleinere lichtjes, zoals op de productbeelden (2/11/2026: geen lange staart meer)
+  const KOP_R = 19;
+  const SPOOR = [[-58, 0.34, 0.1], [-42, 0.46, 0.17], [-27, 0.6, 0.28], [-13, 0.78, 0.45], [0, 1, 1]];   // van achter naar voor: [x, schaal, sterkte]
   const PX_PER_EENHEID = 1.4;              // px per beeldeenheid; kleiner getoond beeld = iets grotere pulsen (tot 2,2 x)
 
   const maak = (tag, attrs, ouder) => {
@@ -51,9 +54,6 @@
     const kop = maak("radialGradient", { id: "hm-kop" }, defs);
     [[0, "#ffffff", 1], [0.1, "#f6f8ff", 1], [0.24, "#cdd8ff", 0.78], [0.5, "#7d96ff", 0.32], [1, "#5b7cff", 0]].forEach(([o, c, a]) =>
       maak("stop", { offset: o, "stop-color": c, "stop-opacity": a }, kop));
-    const staart = maak("linearGradient", { id: "hm-staart" }, defs);
-    [[0, "#5b7cff", 0], [0.55, "#8ea4ff", 0.4], [1, "#f0f4ff", 1]].forEach(([o, c, a]) =>
-      maak("stop", { offset: o, "stop-color": c, "stop-opacity": a }, staart));
     const masker = maak("mask", { id: "hm-masker", maskUnits: "userSpaceOnUse", x: 0, y: 0, width: 1600, height: 1000 }, defs);
     maak("rect", { x: 0, y: 0, width: 1600, height: 1000, fill: "#fff" }, masker);
     MASKER.forEach((p) => maak("polygon", { points: p, fill: "#000" }, masker));
@@ -72,8 +72,7 @@
       const dx = sx - x0, dy = sy - y0;   // afstand tot de middellijn, in het gedraaide assenstelsel
       const plek = maak("g", { transform: `translate(${(dx * c + dy * s).toFixed(2)} ${(-dx * s + dy * c).toFixed(2)})` }, p);
       const vorm = maak("g", { class: "hm-vorm" }, plek);
-      maak("rect", { x: -100, y: -2.4, width: 100, height: 4.8, rx: 2.4, fill: "url(#hm-staart)" }, vorm);
-      maak("circle", { r: 24, fill: "url(#hm-kop)" }, vorm);
+      SPOOR.forEach(([x, schaal, sterkte]) => maak("circle", { cx: x, r: KOP_R * schaal, fill: "url(#hm-kop)", opacity: sterkte }, vorm));
       vertraag(vorm, vertraging);
     });
   }
