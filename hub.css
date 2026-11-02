@@ -131,6 +131,31 @@ html.js body.hub .rv { opacity: 1; transform: none; }
 .hub .hb-haakjes .h-2 { grid-column: 2 / span 2; }
 .hub .hb-haakjes .h-3 { grid-column: 4; }
 .hub .hb-soft { margin-top: 16px; }
+/* de band Vidimus Privé: onder de vier kaarten, geen vijfde kaart; het beeld op volle hoogte rechts, zonder afsnijden */
+.hub .hb-prive { position: relative; isolation: isolate; display: flex; justify-content: space-between; align-items: stretch; gap: 24px; overflow: hidden; margin-top: 16px; min-height: 300px; border-radius: var(--hb-r-l); background: var(--pr-band); color: #fff; text-decoration: none; box-shadow: var(--pr-schaduw-hoog); transition: transform 300ms var(--pr-uit); }
+.hub .hb-prive:hover { transform: translateY(-2px); }
+.hub .hb-prive:focus-visible { outline: 2px solid var(--hb-blauw); outline-offset: 3px; }
+.hub .hb-prive-tekst { display: grid; align-content: center; justify-items: start; gap: 12px; min-width: 0; padding: clamp(24px, 3vw, 40px); }
+.hub .hb-prive-tekst em { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; font-style: normal; letter-spacing: -.01em; }
+.hub .hb-prive-tekst b { max-width: 25em; font-size: clamp(21px, 1rem + .9vw, 30px); font-weight: 500; line-height: 1.16; letter-spacing: -.03em; text-wrap: balance; }
+.hub .hb-prive-prijs { font: 500 14px/1.5 var(--mono); color: rgba(255, 255, 255, .78); }
+.hub .hb-prive-tekst i { display: inline-flex; align-items: center; gap: 8px; margin-top: 2px; font-style: normal; font-weight: 600; color: #B9C6FF; }
+.hub .hb-prive-tekst i svg { width: 14px; height: 14px; transition: transform 150ms var(--pr-uit); }
+.hub .hb-prive:hover .hb-prive-tekst i svg { transform: translateX(3px); }
+.hub .hb-prive-beeld { position: relative; flex: 0 0 auto; display: block; }
+.hub .hb-prive-beeld img { display: block; width: auto; height: 100%; min-height: 300px; max-width: none; }
+.hub .hb-prive-beeld::before { content: ""; position: absolute; inset: 0 auto 0 0; z-index: 1; width: 34%; background: linear-gradient(90deg, #00030C, rgba(0, 3, 12, 0)); pointer-events: none; }
+@media (max-width: 720px) {
+  .hub .hb-prive { flex-direction: column-reverse; gap: 0; min-height: 0; }
+  .hub .hb-prive-tekst { padding: 4px 20px 24px; }
+  .hub .hb-prive-prijs { font-size: 12.5px; }
+  .hub .hb-prive-beeld img { width: 100%; height: auto; min-height: 0; }
+  .hub .hb-prive-beeld::before { inset: auto 0 0 0; width: auto; height: 26%; background: linear-gradient(0deg, #00030C, rgba(0, 3, 12, 0)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hub .hb-prive, .hub .hb-prive-tekst i svg { transition: none; }
+  .hub .hb-prive:hover, .hub .hb-prive:hover .hb-prive-tekst i svg { transform: none; }
+}
 .hub .hb-inbegrepen-kop { margin: 28px 0 10px; font: 500 12px/1.3 var(--mono); color: var(--ink-3); }
 .hub .hb-inbegrepen { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; overflow: hidden; border-radius: var(--hb-r-l); border: 1px solid var(--line); background: #fff; }
 .hub .hb-inbegrepen li { display: grid; align-content: start; gap: 4px; padding: 20px 22px; }

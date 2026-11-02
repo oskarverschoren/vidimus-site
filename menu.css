@@ -33,6 +33,7 @@
 .topnav .mega-item[aria-current], .mob-menu .mega-item[aria-current] { background: #EEF1FD; }
 .mega-ico { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--mn-navy); color: #fff; box-shadow: 0 8px 18px -10px rgba(11, 15, 23, .7); }
 .mega-ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.mega-breed { grid-column: 1 / -1; }   /* Vidimus Privé: naast de vier productlijnen, over de volle breedte */
 .mega-tekst { display: grid; gap: 3px; min-width: 0; }
 /* site.css zet .topnav a b in mono en verbergt b in het mobiele menu: hier staat de productnaam in gewone letters */
 .topnav .mega-tekst b, .mob-menu .mega-item .mega-tekst b { display: flex; margin: 0; font: 600 15px/1.3 var(--ui); letter-spacing: -.01em; color: var(--ink); text-transform: none; }
