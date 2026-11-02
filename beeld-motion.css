@@ -64,6 +64,9 @@
 .pl-tegel:hover .pl-beeld .bm { transform: scale(1.03); }
 .pl-tegel:is(:hover, :focus-within) .bm .bm-spoor { opacity: .55; }
 
+/* homepage, de band Vidimus Privé: bij hover of focus verschijnt de route */
+.hub .hb-prive:is(:hover, :focus-visible) .bm .bm-spoor { opacity: .55; }
+
 /* productpagina's: de laag ligt naast de <picture>, onder de tekst; op smal scherm met dezelfde zachte rand bovenaan */
 .pr-held > .bm { z-index: -1; }
 @media (max-width: 720px) {

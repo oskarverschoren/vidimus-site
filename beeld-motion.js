@@ -12,8 +12,8 @@
   if (!DATA || STIL.matches || !("ResizeObserver" in window) || !("IntersectionObserver" in window) || !Element.prototype.animate) return;
 
   const NS = "http://www.w3.org/2000/svg";
-  const BRON = /assets\/illustratie\/(app|sensor|data|paspoort|bewijsketen|kluis|controle)-(\d+)\.webp/;
-  const UITSNEDE = /-(900|1800)\.webp/;      // de mobiele uitsnede van de vier productbeelden
+  const BRON = /assets\/illustratie\/(app|sensor|data|paspoort|bewijsketen|kluis|controle|prive)-(\d+)\.webp/;
+  const UITSNEDE = /-(900|1800)\.webp/;      // de mobiele uitsnede van de productbeelden
   const STAP = 2.5;                           // s minstens tussen de start van twee beelden: wat samen in beeld komt, ademt na elkaar
   const PX_PER_EENHEID = 1.4;                 // zoals de held: kleiner getoond beeld = iets grotere lichtjes
   const K_MAX = 2.4;
