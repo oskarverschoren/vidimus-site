@@ -33,6 +33,47 @@
   // sinus in en uit; de afgelegde fractie f wordt bereikt op tijdsfractie acos(1 - 2f) / pi (zelfde als maak_beeld_data.py)
   const tijdVoor = (f) => Math.acos(1 - 2 * Math.min(1, Math.max(0, f))) / Math.PI;
 
+  /* ---------- het pad van een licht: gelijkmatig herbemonsterd en afgerond, zodat een Z een S wordt ---------- */
+  const PAD_STAP = 8;              // eenheden tussen twee punten tijdens het afronden
+  const PAD_BOCHT = 60;            // halve breedte van het afrondvenster, in eenheden
+  const KOP = 0.8;                 // kop iets kleiner dan de r uit de data
+  const SPOOR = [[0.34, 0.1], [0.46, 0.17], [0.6, 0.28], [0.78, 0.45], [1, 1]];   // van achter naar voor: [schaal, sterkte]
+  const SPOOR_STAP = 0.04;         // seconden tussen twee lichtjes
+  function herbemonster(pp, stap) {
+    const uit = [pp[0]];
+    let rest = stap;
+    for (let i = 1; i < pp.length; i++) {
+      let [x, y] = pp[i - 1];
+      let lengte = Math.hypot(pp[i][0] - x, pp[i][1] - y);
+      while (lengte >= rest && lengte > 0) {
+        const f = rest / lengte;
+        x += (pp[i][0] - x) * f; y += (pp[i][1] - y) * f;
+        uit.push([x, y]);
+        lengte -= rest; rest = stap;
+      }
+      rest -= lengte;
+    }
+    uit.push(pp[pp.length - 1]);
+    return uit;
+  }
+  function gladPad(ruw) {
+    const pp0 = herbemonster(ruw, PAD_STAP);
+    const n = pp0.length;
+    const totaal = (n - 1) * PAD_STAP;
+    const halve = Math.round(Math.min(PAD_BOCHT, totaal * 0.12) / PAD_STAP);
+    // twee keer een lopend gemiddelde; aan de uiteinden krimpt het venster, dus begin en einde blijven op hun plaats
+    const gemiddeld = (bron) => bron.map((_, i) => {
+      const k = Math.min(halve, i, n - 1 - i);
+      let [sx, sy] = [0, 0];
+      for (let j = i - k; j <= i + k; j++) { sx += bron[j][0]; sy += bron[j][1]; }
+      return [sx / (2 * k + 1), sy / (2 * k + 1)];
+    });
+    const pp = herbemonster(gemiddeld(gemiddeld(pp0)), Math.max(PAD_STAP, 14));
+    const lengtes = [0];
+    for (let i = 1; i < pp.length; i++) lengtes.push(lengtes[i - 1] + Math.hypot(pp[i][0] - pp[i - 1][0], pp[i][1] - pp[i - 1][1]));
+    return { pp, lengtes, L: lengtes[lengtes.length - 1] || 1 };
+  }
+
   /* ---------- keyframes: alles binnen één cyclus C, vensters [a, a + d] ---------- */
   function sleutels(C, lijst) {
     // lijst: [[t (s), {props}], ...] -> keyframes met offset; begin en einde vullen we met de eerste en laatste stand
@@ -57,29 +98,21 @@
 
   /* ---------- de elementen ---------- */
   const BOUW = {
-    // een zacht licht met korte staart dat over een pad loopt (kop + staart, zoals op de held)
+    // een zacht licht dat over een afgerond pad glijdt; het spoor zijn kleinere lichtjes die hetzelfde pad volgen,
+    // zodat niets uit de bocht kan zwaaien (2/11/2026: geen stijve staart meer)
     puls(e, ctx) {
-      const pp = paren(e.p);
-      const lengtes = [0];
-      for (let i = 1; i < pp.length; i++) lengtes.push(lengtes[i - 1] + Math.hypot(pp[i][0] - pp[i - 1][0], pp[i][1] - pp[i - 1][1]));
-      const L = lengtes[lengtes.length - 1] || 1;
-      let vorige = null;
-      const hoeken = pp.map((p, i) => {
-        const [a, b] = i < pp.length - 1 ? [p, pp[i + 1]] : [pp[i - 1], p];
-        let h = (Math.atan2(b[1] - a[1], b[0] - a[0]) * 180) / Math.PI;
-        if (vorige !== null) while (h - vorige > 180) h -= 360;
-        if (vorige !== null) while (vorige - h > 180) h += 360;
-        return (vorige = h);
+      const { pp, lengtes, L } = gladPad(paren(e.p));
+      const groep = maak("g", { class: "bm-baan" }, ctx.laag);
+      SPOOR.forEach(([schaal, sterkte], j) => {
+        const baan = maak("g", {}, groep);
+        const vorm = maak("g", { class: "bm-vorm" }, baan);
+        maak("circle", { r: e.r * KOP * schaal, fill: `url(#${ctx.id}-kop)` }, vorm);
+        const na = (SPOOR.length - 1 - j) * SPOOR_STAP;
+        ctx.anim(baan, sleutels(ctx.C, pp.map(([x, y], i) =>
+          [e.a + na + e.d * tijdVoor(lengtes[i] / L), { transform: `translate(${r2(x)}px, ${r2(y)}px)` }])));
+        ctx.anim(vorm, dooft(ctx.C, e.a + na, e.d, (e.o || 1) * sterkte, 0.07, 0.1));
       });
-      const baan = maak("g", { class: "bm-baan" }, ctx.laag);
-      const vorm = maak("g", { class: "bm-vorm" }, baan);
-      const w = Math.max(3, e.r * 0.2);
-      maak("rect", { x: -e.l, y: -w / 2, width: e.l, height: w, rx: w / 2, fill: `url(#${ctx.id}-staart)` }, vorm);
-      maak("circle", { r: e.r, fill: `url(#${ctx.id}-kop)` }, vorm);
-      ctx.anim(baan, sleutels(ctx.C, pp.map(([x, y], i) =>
-        [e.a + e.d * tijdVoor(lengtes[i] / L), { transform: `translate(${r2(x)}px, ${r2(y)}px) rotate(${r2(hoeken[i])}deg)` }])));
-      ctx.anim(vorm, dooft(ctx.C, e.a, e.d, e.o || 1, 0.07, 0.1));
-      return baan;
+      return groep;
     },
     // een dunne ring die uitdijt en dooft; met m ligt hij in een vlak van de scène (bv. de vloer rond het anker)
     ring(e, ctx) {
