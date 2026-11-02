@@ -114,6 +114,15 @@
       });
       return groep;
     },
+    // de binnenrand van een poortboog die oplicht terwijl het licht erdoor gaat: snel aan, langzaam uit
+    poort(e, ctx) {
+      const g = maak("g", { class: "bm-poort" }, ctx.laag);
+      const pp = punten(paren(e.p));
+      maak("polyline", { points: pp, class: "bm-poort-zacht" }, g);
+      maak("polyline", { points: pp, class: "bm-poort-lijn" }, g);
+      ctx.anim(g, sleutels(ctx.C, [[e.a, { opacity: 0 }], [e.a + e.d * 0.2, { opacity: 1 }], [e.a + e.d * 0.42, { opacity: 0.9 }], [e.a + e.d, { opacity: 0 }]]));
+      return g;
+    },
     // een dunne ring die uitdijt en dooft; met m ligt hij in een vlak van de scène (bv. de vloer rond het anker)
     ring(e, ctx) {
       const m = e.m || [1, 0, 0, 1];

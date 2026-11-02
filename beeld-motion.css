@@ -21,6 +21,12 @@
 .bm .bm-golf .bm-ring-lijn { stroke: #d3ddff; stroke-width: 1.3; }
 .bm .bm-golf .bm-ring-zacht { stroke-width: 8; stroke-opacity: .3; }
 
+/* de poort licht op terwijl het licht erdoor gaat */
+.bm .bm-poort { opacity: 0; }
+.bm .bm-poort polyline { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+.bm .bm-poort-zacht { stroke: #7f97ff; stroke-width: 9; stroke-opacity: .42; }
+.bm .bm-poort-lijn { stroke: #eef2ff; stroke-width: 2; }
+
 /* glans over een scherm, een label of het scanvlak */
 .bm .bm-band { opacity: 0; }
 
