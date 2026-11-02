@@ -9,7 +9,7 @@
 - Een logboek is een reeks registraties van één soort (bv. "Leveringen Halle"). Wat een ander systeem zelf bijhoudt, heet de historiek van dat systeem; die staat in hetzelfde systeem als de gegevens.
 - Tegenpartijen (klant, verzekeraar, deskundige, rechter) controleren zelf, zonder account; met de bewijsbundel ook volledig zonder Vidimus.
 - Prijs: eerste 100 registraties per maand gratis; daarna € 0,08 per registratie, per schijf goedkoper tot € 0,003; sensor of logger € 15 per maand (eerste gratis, metingen onbeperkt); minimum € 19 per maand zodra u iets betaalt; excl. btw.
-- Start: een bestuurder identificeert het bedrijf één keer met de Belgische eID (eID-mandaat); daarna een eerste logboek in enkele minuten. App en aanmelding zijn in het Nederlands.
+- Start: echte registraties lopen nadat een bestuurder zijn bedrijf met de eID identificeerde (eID-mandaat, één keer); daarna een eerste logboek in enkele minuten. App en aanmelding zijn in het Nederlands.
 - Gegevens: servers en opslag in de EU (Hetzner, Duitsland), versleuteld per organisatie; in een vertrouwelijk logboek houdt alleen de klant de sleutel en ziet Vidimus de vingerafdruk en een korte envelop (soort, referentie, bron, tijdstip).
 - Niet: Vidimus is geen e-CMR-platform en geen notaris; het werkt naast uw e-CMR, TMS of ERP.
 

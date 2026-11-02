@@ -62,6 +62,14 @@
   },
   {
    "@type": "Question",
+   "name": "Wat kunt u nog tonen als de koelinstallatie gehackt is?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Vidimus houdt geen aanval tegen en vervangt geen beveiliging. Het helpt daarna. Stuurt een aparte logger, los van de aangevallen installatie, elke meting ook naar Vidimus, dan staat die meting binnen vijf minuten ook buiten uw systemen. U kunt dan tonen wanneer de temperatuur opliep, en een gat in de reeks blijft zichtbaar. Een derde rekent dat zelf na. Komt de meting uit de aangevallen installatie zelf, dan wordt verankerd wat die doorgaf, juist of niet. De aanleiding: in de nacht van 1 op 2 november 2026 zette een cyberaanval de koelsystemen van tientallen Belgische supermarkten op ontdooien (VRT NWS, 2 november 2026)."
+   }
+  },
+  {
+   "@type": "Question",
    "name": "Wat kost het?",
    "acceptedAnswer": {
     "@type": "Answer",
@@ -166,6 +174,7 @@
     <ul class="todo rv">
       <li><span><b>Dat de logger juist mat.</b> Kalibratie en plaatsing blijven uw verantwoordelijkheid. Een foute temperatuur blijft fout, maar wel verankerd als 'dit werd toen gemeld'.</span></li>
       <li><span><b>Dat het tijdstip in de meting juist is.</b> Dat is de klok van het toestel. De tijdstempel van de groep toont wanneer de meting uiterlijk verankerd werd.</span></li>
+      <li><span><b>Dat een meting uit een gehackte installatie juist is.</b> Komt de meting uit het systeem dat werd aangevallen, dan wordt verankerd wat dat systeem doorgaf. Gebruik een aparte logger als u daarna wilt tonen wat er gebeurde.</span></li>
       <li><span><b>Metingen van vóór de koppeling</b>, of metingen die ouder dan 24 uur zijn wanneer ze doorkomen.</span></li>
       <li><span><b>Dat de goederen in orde of beschadigd zijn</b>, of wie aansprakelijk is. Dat beoordelen uw verzekeraar, de auditor of de rechter.</span></li>
       <li><span><b>Dat Vidimus nooit iets in naam van de meetbron kan tekenen.</b> Vidimus bewaart de sleutel van de meetbron. Daarmee zou een nieuwe meting gemaakt kunnen worden, maar alleen met het verankeringstijdstip van dat moment, niet met een vroeger; een bestaande meting achteraf wijzigen valt op.</span></li>
@@ -203,6 +212,7 @@
       <details><summary>Moet ik mijn loggers of meetplatform vervangen?</summary><p class="a">Nee. Uw loggers en uw platform blijven. Het platform of het toestel stuurt elke meting ook naar Vidimus. De koppeling test u eerst met een testsleutel die niets vastlegt; daarna maakt de beheerder de echte sleutel.</p></details>
       <details><summary>Wat als de logger een tijd offline is?</summary><p class="a">Stuur de metingen die het toestel of uw platform intussen bewaarde later samen door via /measurements/batch, in oplopende tijd en niet ouder dan 24 uur. Het tijdstip in de meting is wat het toestel opgaf; de tijdstempel van de groep toont wanneer de meting verankerd werd.</p></details>
       <details><summary>Vervangt dit de validatie of kalibratie die GDP vraagt?</summary><p class="a">Nee. Vidimus is geen meetsysteem en keurt niets goed. Het helpt bij één vraag van een audit of claim: zijn de gegevens die u vandaag toont dezelfde als wat de logger toen doorgaf?</p></details>
+      <details><summary>Wat kunt u nog tonen als de koelinstallatie gehackt is?</summary><p class="a">Vidimus houdt geen aanval tegen en vervangt geen beveiliging. Het helpt daarna. Stuurt een aparte logger, los van de aangevallen installatie, elke meting ook naar Vidimus, dan staat die meting binnen vijf minuten ook buiten uw systemen. U kunt dan tonen wanneer de temperatuur opliep, en een gat in de reeks blijft zichtbaar. Een derde rekent dat zelf na. Komt de meting uit de aangevallen installatie zelf, dan wordt verankerd wat die doorgaf, juist of niet. De aanleiding: in de nacht van 1 op 2 november 2026 zette een cyberaanval de koelsystemen van tientallen Belgische supermarkten op ontdooien (VRT NWS, 2 november 2026).</p></details>
       <details><summary>Wat kost het?</summary><p class="a">€ 15 per sensor of logger per maand, alleen in een maand waarin het toestel minstens één meting stuurde. De eerste is gratis en metingen zijn onbeperkt. Zodra u iets betaalt, minstens € 19 per maand. Prijzen excl. btw.</p></details>
     </div>
   </div>
