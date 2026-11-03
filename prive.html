@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="inner.css">
 <link rel="stylesheet" href="product.css?v=20261028a">
 <link rel="stylesheet" href="menu.css?v=20261102a">
-<link rel="stylesheet" href="prive.css?v=20261103b">
+<link rel="stylesheet" href="prive.css?v=20261103c">
 <link rel="stylesheet" href="beeld-motion.css?v=20261102c">
 
 <link rel="canonical" href="https://vidimus.be/prive.html">
@@ -75,7 +75,7 @@
    "name": "Wie houdt de sleutels?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "De inhoudssleutel houdt u, niet Vidimus. Mensen tekenen met hun eigen telefoon. Waar de sleutels van systemen en de certificaten staan, leggen we vast bij de opzet. Bent u sleutel en herstelbestand kwijt, dan kunnen wij de inhoud niet terughalen."
+    "text": "De inhoudssleutel en de CA houdt u, niet Vidimus. Mensen tekenen met hun eigen telefoon en de certificaten komen uit uw eigen CA. Waar de sleutels van systemen en meetbronnen staan, leggen we vast bij de opzet. Bent u sleutel en herstelbestand kwijt, dan kunnen wij de inhoud niet terughalen."
    }
   }
  ]
@@ -151,7 +151,7 @@
     <div class="sec-head"><span class="idx">01 / WAT U KRIJGT</span><h2 class="disp" id="wat-h">Eén omgeving<span class="dot">,</span> <span class="thin">voor één organisatie</span><span class="dot">.</span></h2></div>
     <ul class="pv-vier rv" aria-label="Wat in uw omgeving hoort">
       <li><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/></svg></span><h3>Een eigen omgeving</h3><p>Vidimus, apart opgezet voor uw organisatie en niet gedeeld met andere klanten. Staat ze niet bij u, dan beheert Vidimus de servers.</p></li>
-      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-sleutel"/></svg></span><h3>Eigen sleutels</h3><p>U houdt de sleutel die uw inhoud opent. Waar de andere sleutels staan, leggen we vast bij de opzet.</p></li>
+      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-sleutel"/></svg></span><h3>Eigen sleutels</h3><p>U houdt de sleutel die uw inhoud opent en een eigen certificaatautoriteit (CA). We richten ze in bij de opzet.</p></li>
       <li><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.9 5.2 3.9 8.5s-1.3 6.1-3.9 8.5c-2.6-2.4-3.9-5.2-3.9-8.5s1.3-6.1 3.9-8.5z"/></svg></span><h3>Een eigen adres</h3><p>Uw mensen en uw systemen werken op een adres dat alleen van uw omgeving is.</p></li>
       <li><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 14.5l5-5"/><path d="M11 6.5l1.6-1.6a4 4 0 0 1 5.7 5.7L16.7 12.2M13 17.5l-1.6 1.6a4 4 0 0 1-5.7-5.7L7.3 11.8"/></svg></span><h3>De koppeling, door ons gebouwd</h3><p>Wij bouwen de verbinding tussen uw systeem en uw omgeving.</p></li>
     </ul>
@@ -167,7 +167,7 @@
         <h3>In uw kader</h3>
         <ul>
           <li>de omgeving en haar adres</li>
-          <li>uw sleutels</li>
+          <li>uw sleutels en uw CA</li>
           <li>uw registraties en uw systeem</li>
         </ul>
       </div>
@@ -188,7 +188,7 @@
 <!-- 4 · wie de sleutels houdt -->
 <section class="pr-sec" id="sleutels" aria-labelledby="sleutels-h">
   <div class="wrap">
-    <div class="sec-head"><span class="idx">03 / DE SLEUTELS</span><h2 class="disp" id="sleutels-h">De inhoudssleutel houdt u<span class="dot">,</span> <span class="thin">niet wij</span><span class="dot">.</span></h2><p class="side">Vidimus ontvangt vingerafdrukken, handtekeningen en de versleutelde inhoud, en wat de omgeving nodig heeft om te werken: accounts, certificaten met namen en technische logs. Zonder uw sleutel kunnen wij uw documenten niet openen. De software die de sleutel gebruikt, komt wel van ons.</p></div>
+    <div class="sec-head"><span class="idx">03 / DE SLEUTELS</span><h2 class="disp" id="sleutels-h">De inhoudssleutel en de CA houdt u<span class="dot">,</span> <span class="thin">niet wij</span><span class="dot">.</span></h2><p class="side">Vidimus ontvangt vingerafdrukken, handtekeningen en de versleutelde inhoud, en wat de omgeving nodig heeft om te werken: accounts, certificaten met namen en technische logs. Zonder uw sleutel kunnen wij uw documenten niet openen. De software die de sleutel gebruikt, komt wel van ons.</p></div>
     <table class="pv-prijs pv-sleutels rv" role="table">
       <caption>Wie welke sleutel houdt in Vidimus Privé</caption>
       <thead role="rowgroup">
@@ -197,7 +197,7 @@
       <tbody role="rowgroup">
         <tr role="row"><th scope="row" role="rowheader"><b>Tekensleutel van mensen</b><span>toont wie iets vastlegde</span></th><td role="cell" data-l="Wie houdt ze">Hun eigen telefoon.</td></tr>
         <tr role="row"><th scope="row" role="rowheader"><b>Tekensleutel van systemen en meetbronnen</b><span>toont welk toestel het vastlegde</span></th><td role="cell" data-l="Wie houdt ze">Leggen we vast bij de opzet: in uw systeem of bij Vidimus.</td></tr>
-        <tr role="row"><th scope="row" role="rowheader"><b>Certificaten</b><span>koppelen een sleutel aan een naam</span></th><td role="cell" data-l="Wie houdt ze">Leggen we vast bij de opzet. Zolang Vidimus ze uitgeeft, steunt "wie tekende" mee op Vidimus.</td></tr>
+        <tr role="row"><th scope="row" role="rowheader"><b>Certificaten</b><span>koppelen een sleutel aan een naam</span></th><td role="cell" data-l="Wie houdt ze">U, in een eigen CA die we bij de opzet inrichten. Zo kan Vidimus geen certificaat op uw naam uitgeven.</td></tr>
         <tr role="row"><th scope="row" role="rowheader"><b>Inhoudssleutel</b><span>opent uw documenten</span></th><td role="cell" data-l="Wie houdt ze">U, en wie u de inhoud zelf deelt. Toestellen en systemen versleutelen vóór het verzenden.</td></tr>
         <tr role="row"><th scope="row" role="rowheader"><b>Herstel</b><span>als een sleutel verloren gaat</span></th><td role="cell" data-l="Wie houdt ze">U, in een herstelbestand met een wachtzin. Dat maakt u vóór de start.</td></tr>
       </tbody>
@@ -254,7 +254,7 @@
       <details><summary>Als de omgeving van ons is, waarom is het bewijs dan onafhankelijk?</summary><p class="a">Omdat de tijd en het anker niet bij u liggen. De tijdstempels met bewijswaarde komen van een externe tijdstempeldienst en de ankers staan in Bitcoin. Wat u vastlegt, blijft uw eigen verklaring.</p></details>
       <details><summary>Kan het ook bij ons geïnstalleerd worden?</summary><p class="a"><b>Dat kan op offerte.</b> Er draait nog geen installatie; we bouwen ze na ondertekening. Ook dan komen tijdstempels en ankers van buiten.</p></details>
       <details><summary>Kunnen we in één keer betalen?</summary><p class="a"><b>Voor een vaste termijn wel, op offerte.</b> Met een afgesproken volume en altijd met een einddatum.</p></details>
-      <details><summary>Wie houdt de sleutels?</summary><p class="a"><b>De inhoudssleutel houdt u, niet Vidimus.</b> Mensen tekenen met hun eigen telefoon. Waar de sleutels van systemen en de certificaten staan, leggen we vast bij de opzet. Bent u sleutel en herstelbestand kwijt, dan kunnen wij de inhoud niet terughalen.</p></details>
+      <details><summary>Wie houdt de sleutels?</summary><p class="a"><b>De inhoudssleutel en de CA houdt u, niet Vidimus.</b> Mensen tekenen met hun eigen telefoon en de certificaten komen uit uw eigen CA. Waar de sleutels van systemen en meetbronnen staan, leggen we vast bij de opzet. Bent u sleutel en herstelbestand kwijt, dan kunnen wij de inhoud niet terughalen.</p></details>
     </div>
   </div>
 </section>
