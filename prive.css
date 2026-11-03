@@ -44,6 +44,8 @@
 .pv-prijs tbody th b { display: block; font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
 .pv-prijs tbody th span { display: block; margin-top: 2px; font-size: 14px; line-height: 1.45; color: var(--ink-3); }
 .pv-prijs td { font: 500 15px/1.45 var(--mono); color: var(--ink); white-space: nowrap; }
+.pv-sleutels td { font: 400 15px/1.5 var(--ui); white-space: normal; color: var(--ink-2); }
+.pv-sleutels tbody th { width: 34%; }
 .pv-prijs-voet { margin: 16px 0 0; max-width: 70ch; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
 .pv-prijs-voet b { color: var(--ink); font-weight: 600; }
 
@@ -68,5 +70,8 @@
   .pv-prijs tbody tr + tr { border-top: 1px solid var(--line); }
   .pv-prijs tbody th { grid-column: 1 / -1; padding: 0 0 8px; border: 0; }
   .pv-prijs td { padding: 0; border: 0; font-size: 13px; white-space: normal; }
+  .pv-sleutels tbody th { width: auto; }
+  .pv-sleutels td { grid-column: 1 / -1; font-size: 15px; }
   .pv-prijs td::before { content: attr(data-l); display: block; margin-bottom: 2px; font: 500 12.5px/1.4 var(--ui); color: var(--ink-3); }
+  .pv-sleutels td::before { display: none; }
 }
