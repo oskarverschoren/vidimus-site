@@ -1,40 +1,468 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vidimus.be/</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://vidimus.be/app.html</loc><lastmod>2026-10-28</lastmod></url>
-  <url><loc>https://vidimus.be/sensor.html</loc><lastmod>2026-10-28</lastmod></url>
-  <url><loc>https://vidimus.be/data.html</loc><lastmod>2026-10-28</lastmod></url>
-  <url><loc>https://vidimus.be/productpaspoort.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://vidimus.be/hoe-het-werkt.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/techniek.html</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://vidimus.be/prijzen.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/verificatie.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/beveiliging.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/scenarios.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/cases.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/help.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://vidimus.be/voor-ai.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/aflevering-betwist-cmr.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/afgiftestaat-schade.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/meerwerk-bewijzen.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/plaatsbeschrijving-betwist.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/privacy.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://vidimus.be/voorwaarden.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/colofon.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://vidimus.be/partners.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/juridisch.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/vragen.html</loc><lastmod>2026-09-28</lastmod></url>
-  <url><loc>https://vidimus.be/webpagina-vastleggen.html</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://vidimus.be/vergelijking-proofsnap-truescreen.html</loc><lastmod>2026-10-27</lastmod></url>
-  <!-- vragen en antwoorden (seo-2, 29-10) -->
-  <url><loc>https://vidimus.be/foto-bewijs-niet-bewerkt.html</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://vidimus.be/databank-bewijs-na-hack.html</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://vidimus.be/gekwalificeerde-tijdstempel-eidas.html</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://vidimus.be/koelinstallatie-gehackt.html</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://vidimus.be/temperatuurlogger-bewijs.html</loc><lastmod>2026-11-02</lastmod></url>
-  <url><loc>https://vidimus.be/worm-opslag-bewijs.html</loc><lastmod>2026-10-29</lastmod></url>
-  <!-- /na-een-inbraak.html: pas na de testweek van de momentopname (besluit 9, 27-10) -->
-  <url><loc>https://vidimus.be/en/</loc><lastmod>2026-10-28</lastmod></url>
-  <url><loc>https://vidimus.be/en/pricing.html</loc><lastmod>2026-10-28</lastmod></url>
-  <url><loc>https://vidimus.be/prive.html</loc><lastmod>2026-11-04</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- 16-11: English at the root, Dutch under /nl/; each pair lists both alternates (nl-BE, en, x-default = English).
+       Left out: redirect stubs (old Dutch root names, /en/, koelketen-registratie), 404, and na-een-inbraak / after-a-breach
+       (only after the snapshot test week, decision 9, 27-10). -->
+  <url>
+    <loc>https://vidimus.be/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/app.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/app.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/app.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/app.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/app.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/app.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/app.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/app.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/sensor.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/sensor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/sensor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/sensor.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/sensor.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/sensor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/sensor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/sensor.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/data.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/data.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/data.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/data.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/data.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/data.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/data.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/data.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/product-passport.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/productpaspoort.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/product-passport.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/product-passport.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/productpaspoort.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/productpaspoort.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/product-passport.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/product-passport.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/how-it-works.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/hoe-het-werkt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/how-it-works.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/hoe-het-werkt.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/hoe-het-werkt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/how-it-works.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/technology.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/techniek.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/technology.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/technology.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/techniek.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/techniek.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/technology.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/technology.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/pricing.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/prijzen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/pricing.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/prijzen.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/prijzen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/pricing.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/verify-it-yourself.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/verificatie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/verify-it-yourself.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/verify-it-yourself.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/verificatie.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/verificatie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/verify-it-yourself.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/verify-it-yourself.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/security.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/beveiliging.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/security.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/security.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/beveiliging.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/beveiliging.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/security.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/security.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/scenarios.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/scenarios.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/scenarios.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/scenarios.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/scenarios.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/scenarios.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/scenarios.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/scenarios.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/cases.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/cases.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/cases.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/cases.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/cases.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/cases.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/cases.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/cases.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/help.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/help.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/help.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/help.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/help.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/help.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/help.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/help.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/for-ai-agents.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/voor-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/for-ai-agents.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/for-ai-agents.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/voor-ai.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/voor-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/for-ai-agents.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/for-ai-agents.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/disputed-delivery-cmr.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/aflevering-betwist-cmr.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/disputed-delivery-cmr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/disputed-delivery-cmr.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/aflevering-betwist-cmr.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/aflevering-betwist-cmr.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/disputed-delivery-cmr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/disputed-delivery-cmr.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/equipment-handover-damage.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/afgiftestaat-schade.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/equipment-handover-damage.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/equipment-handover-damage.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/afgiftestaat-schade.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/afgiftestaat-schade.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/equipment-handover-damage.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/equipment-handover-damage.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/proving-extra-work.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/meerwerk-bewijzen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/proving-extra-work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/proving-extra-work.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/meerwerk-bewijzen.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/meerwerk-bewijzen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/proving-extra-work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/proving-extra-work.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/disputed-inspection-report.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/plaatsbeschrijving-betwist.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/disputed-inspection-report.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/disputed-inspection-report.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/plaatsbeschrijving-betwist.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/plaatsbeschrijving-betwist.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/disputed-inspection-report.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/disputed-inspection-report.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/privacy.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/privacy.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/terms.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/voorwaarden.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/terms.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/voorwaarden.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/voorwaarden.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/terms.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/colophon.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/colofon.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/colophon.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/colophon.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/colofon.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/colofon.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/colophon.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/colophon.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/partners.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/partners.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/partners.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/partners.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/partners.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/partners.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/partners.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/partners.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/legal.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/juridisch.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/legal.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/juridisch.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/juridisch.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/legal.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/questions.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/vragen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/questions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/questions.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/vragen.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/vragen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/questions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/questions.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/record-a-web-page.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/webpagina-vastleggen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/record-a-web-page.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/record-a-web-page.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/webpagina-vastleggen.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/webpagina-vastleggen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/record-a-web-page.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/record-a-web-page.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/comparison-proofsnap-truescreen.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/vergelijking-proofsnap-truescreen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/comparison-proofsnap-truescreen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/comparison-proofsnap-truescreen.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/vergelijking-proofsnap-truescreen.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/vergelijking-proofsnap-truescreen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/comparison-proofsnap-truescreen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/comparison-proofsnap-truescreen.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/photo-proof-not-edited.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/foto-bewijs-niet-bewerkt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/photo-proof-not-edited.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/photo-proof-not-edited.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/foto-bewijs-niet-bewerkt.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/foto-bewijs-niet-bewerkt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/photo-proof-not-edited.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/photo-proof-not-edited.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/database-proof-after-hack.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/databank-bewijs-na-hack.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/database-proof-after-hack.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/database-proof-after-hack.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/databank-bewijs-na-hack.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/databank-bewijs-na-hack.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/database-proof-after-hack.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/database-proof-after-hack.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/qualified-timestamp-eidas.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/gekwalificeerde-tijdstempel-eidas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/qualified-timestamp-eidas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/qualified-timestamp-eidas.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/gekwalificeerde-tijdstempel-eidas.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/gekwalificeerde-tijdstempel-eidas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/qualified-timestamp-eidas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/qualified-timestamp-eidas.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/refrigeration-system-hacked.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/koelinstallatie-gehackt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/refrigeration-system-hacked.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/refrigeration-system-hacked.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/koelinstallatie-gehackt.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/koelinstallatie-gehackt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/refrigeration-system-hacked.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/refrigeration-system-hacked.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/temperature-logger-proof.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/temperatuurlogger-bewijs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/temperature-logger-proof.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/temperature-logger-proof.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/temperatuurlogger-bewijs.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/temperatuurlogger-bewijs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/temperature-logger-proof.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/temperature-logger-proof.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/worm-storage-proof.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/worm-opslag-bewijs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/worm-storage-proof.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/worm-storage-proof.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/worm-opslag-bewijs.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/worm-opslag-bewijs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/worm-storage-proof.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/worm-storage-proof.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/private.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/prive.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/private.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/private.html"/>
+  </url>
+  <url>
+    <loc>https://vidimus.be/nl/prive.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/prive.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vidimus.be/private.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidimus.be/private.html"/>
+  </url>
 </urlset>

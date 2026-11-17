@@ -1,21 +1,27 @@
 <!doctype html>
-<html lang="nl" class="js">
+<html lang="en" class="js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F2F3F6">
-<title>Scenario's — zo verloopt een discussie mét verankering | Vidimus</title>
-<meta name="description" content="Vier verhalen, van dag 0 tot de claim jaren later. Wat de partijen doen op het moment zelf, en wat de tegenpartij zelf kan controleren — zonder Vidimus op zijn woord te geloven.">
+<title>Scenarios — how a dispute unfolds with anchoring | Vidimus</title>
+<meta name="description" content="Four stories, from day 0 to the claim years later. What the parties do at the moment itself, and what the counterparty can check for themselves — without taking Vidimus at its word.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=20261008b">
 <link rel="stylesheet" href="inner.css">
 <link rel="stylesheet" href="menu.css?v=20261102a">
+<link rel="stylesheet" href="taal.css?v=20261116a">
 
 <link rel="canonical" href="https://vidimus.be/scenarios.html">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
-<meta property="og:title" content="Scenario's — zo verloopt een discussie mét verankering | Vidimus"><meta property="og:description" content="Vier verhalen, van dag 0 tot de claim jaren later. Wat de partijen doen op het moment zelf, en wat de tegenpartij zelf kan controleren — zonder Vidimus op zijn woord te geloven."><meta property="og:url" content="https://vidimus.be/scenarios.html"><meta property="og:image" content="https://vidimus.be/assets/og/haven.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/scenarios.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/scenarios.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/scenarios.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Scenarios — how a dispute unfolds with anchoring | Vidimus"><meta property="og:description" content="Four stories, from day 0 to the claim years later. What the parties do at the moment itself, and what the counterparty can check for themselves — without taking Vidimus at its word."><meta property="og:url" content="https://vidimus.be/scenarios.html"><meta property="og:image" content="https://vidimus.be/assets/og/haven.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/haven.jpg">
 </head>
 <body>
@@ -29,41 +35,42 @@
 
 <header class="site">
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
-  <nav class="topnav" aria-label="Hoofdnavigatie">
+  <nav class="topnav" aria-label="Main navigation">
     <div class="nav-prod">
-      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Products<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="mega" id="nav-producten" hidden>
         <ul class="mega-lijst">
-          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
-          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
-          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
-          <li><a class="mega-item" href="productpaspoort.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Productpaspoort</b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
-          <li class="mega-breed"><a class="mega-item" href="prive.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Privé <em class="mega-wacht">Op aanvraag</em></b><span>Een eigen omgeving voor één organisatie: eigen sleutels, eigen adres, tijdstempels en ankers van buiten.</span></span></a></li>
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Deliveries, damage and handovers on the spot, signed by both parties.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters and weighbridges send measurements; each measurement is anchored separately.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Snapshots of databases and folders, and web pages as they were online.</span></span></a></li>
+          <li><a class="mega-item" href="product-passport.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Product Passport</b><span>A code with a QR label per object and a line of handovers, signed by holder and recipient.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="private.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Private <em class="mega-wacht">On request</em></b><span>A dedicated environment for one organisation: its own keys, its own address, timestamps and anchors from outside.</span></span></a></li>
         </ul>
         <div class="mega-zij">
-          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
-          <a class="mega-alle" href="index.html#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          <a class="mega-soft" href="partners.html"><em>Vidimus for software</em><b>Are you building a TMS, WMS or ERP?</b><span>Deliver proof in your own product through the partner API: referral, reseller or integrator.</span><i>Become a partner<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">All products side by side<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
         </div>
       </div>
     </div>
-    <a href="hoe-het-werkt.html">Hoe het werkt</a>
-    <a href="prijzen.html">Prijzen</a>
-    <a href="juridisch.html">Juridisch</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="legal.html">Legal</a>
   </nav>
   <div class="top-cta">
-    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
-    <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
-    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Explainer videos</a>
+    <a class="top-taal" href="nl/scenarios.html" hreflang="nl-BE" lang="nl" aria-label="Nederlandse versie van deze pagina">NL</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Log in</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start free</a>
   </div>
 </header>
 
 <main>
 <section class="page-hero">
   <div class="wrap">
-    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="scenarios.html">SCENARIO'S</a></p>
-    <p class="scenario-flag">Scenario, geen klantverhaal — namen, bedrijven en bedragen zijn fictief</p>
-    <h1 class="disp">Wat er gebeurt <span class="thin">als het misgaat</span><span style="color:var(--red)">.</span></h1>
-    <p class="intro">Verankering is pas iets waard op de dag dat iemand twijfelt. Daarom hieronder geen features, maar het verloop: wat de partijen doen op het moment zelf, wat er drie jaar later gebeurt, en wat de tegenpartij <b>zelf kan controleren — zonder Vidimus op zijn woord te geloven</b>. Fictieve namen en bedrijven — scenario's, geen klantverhalen; het verloop is hoe het platform werkt. Liever stap voor stap? <a href="cases.html" style="color:var(--ink)">Doorloop de cases →</a></p>
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="scenarios.html">SCENARIOS</a></p>
+    <p class="scenario-flag">Scenario, not a customer story — names, companies and amounts are fictional</p>
+    <h1 class="disp">What happens <span class="thin">when it goes wrong</span><span style="color:var(--red)">.</span></h1>
+    <p class="intro">Anchoring is only worth something on the day someone has doubts. That is why there are no features below, but the course of events: what the parties do at the moment itself, what happens three years later, and what the counterparty <b>can check for themselves — without taking Vidimus at its word</b>. Fictional names and companies — scenarios, not customer stories; the course of events is how the platform works. Would you rather go step by step? <a href="cases.html" style="color:var(--ink)">Walk through the cases →</a></p>
   </div>
 </section>
 
@@ -72,58 +79,58 @@
 
     <article class="rv" id="transport">
       <div class="sec-head" style="margin-bottom:0">
-        <span class="idx">SC/01 · TRANSPORT &amp; HAVEN · VERVOERDER ↔ TERMINAL</span>
-        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">De lading die "te laat en beschadigd" was<span style="color:var(--red)">.</span></h2>
-        <p class="side">Een transporteur en een terminal delen één logboek afleveringen. Drie jaar later komt een claim.</p>
+        <span class="idx">SC/01 · TRANSPORT &amp; PORT · CARRIER ↔ TERMINAL</span>
+        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">The load that was "too late and damaged"<span style="color:var(--red)">.</span></h2>
+        <p class="side">A haulier and a terminal share one logbook of deliveries. Three years later, a claim comes in.</p>
       </div>
       <div class="flow">
-        <div class="flow-step"><span class="when">dag 0 · 09:41 (UTC+2)</span><h4>Het TMS stuurt de aflevering door</h4><p>Referentie, container, kenteken, tijdstip, afleverbon. Vidimus hasht, tekent met de systeemsleutel, versleutelt de bon in de kluis. Vijf minuten later: de groep verankerd en getijdstempeld; voor klantorganisaties doorgaans binnen zes uur ook gekwalificeerd (eIDAS).</p><span class="meta">registratie AFL-2026-0913 · sha-256 · <b>tsa 09:46 (UTC+2)</b></span></div>
-        <div class="flow-step"><span class="when">dag 0 · 09:50 (UTC+2)</span><h4>De terminal bevestigt op de telefoon</h4><p>De receptie krijgt een deellink en bevestigt: "ontvangen zonder voorbehoud". Getekend met een sleutel op háár toestel. Die bevestiging wordt zelf verankerd — nu staat het in het dossier van beide partijen.</p><span class="meta">bevestiging · eigen sleutel tegenpartij · <b>verankerd</b></span></div>
-        <div class="flow-step hit"><span class="when">3 jaar later</span><h4>De claim — en de twijfel</h4><p>Claim van de ontvanger: te laat, beschadigd. De planner van de vervoerder twijfelt: is die aflevering in het TMS intussen niet aangepast?</p></div>
-        <div class="flow-step"><span class="when">controle · 10 sec</span><h4>Bewijs openen</h4><p>Acht controles, allemaal groen — inhoud herrekend, plaats in de groep, handtekening, handtekening van Vidimus, grootboek, tijdstempel, gekwalificeerde tijdstempel, Bitcoin. Én de bevestiging van de terminal, met tijdstip, staat ernaast.</p><span class="meta"><b>sindsdien niet gewijzigd</b></span></div>
-        <div class="flow-step"><span class="when">uitkomst</span><h4>Wat de vervoerder kan tonen</h4><p>De vervoerder stuurt geen "ons woord" maar de bundel en de verificatielink. De verzekeraar van de tegenpartij kan het door zijn IT laten natellen: ongewijzigd sinds de verankering, met de bevestiging van de terminal ernaast.</p><span class="meta">bundel · verificatielink · <b>zelf na te rekenen</b></span></div>
+        <div class="flow-step"><span class="when">day 0 · 09:41 (UTC+2)</span><h4>The TMS forwards the delivery</h4><p>Reference, container, registration plate, time, delivery note. Vidimus hashes, signs with the system key, encrypts the note in the vault. Five minutes later: the group is anchored and timestamped; for customer organisations, usually also qualified (eIDAS) within six hours.</p><span class="meta">record AFL-2026-0913 · sha-256 · <b>tsa 09:46 (UTC+2)</b></span></div>
+        <div class="flow-step"><span class="when">day 0 · 09:50 (UTC+2)</span><h4>The terminal confirms on the phone</h4><p>Reception receives a share link and confirms: "received without reservation". Signed with a key on the terminal's own device. That confirmation is itself anchored — now it is in the file of both parties.</p><span class="meta">confirmation · counterparty's own key · <b>anchored</b></span></div>
+        <div class="flow-step hit"><span class="when">3 years later</span><h4>The claim — and the doubt</h4><p>Claim from the recipient: too late, damaged. The carrier's planner has doubts: has that delivery in the TMS been changed in the meantime?</p></div>
+        <div class="flow-step"><span class="when">check · 10 sec</span><h4>Open Proof</h4><p>Eight checks, all green — content recomputed, place in the group, signature, Vidimus's signature, ledger, timestamp, qualified timestamp, Bitcoin. And the terminal's confirmation, with its time, is right next to it.</p><span class="meta"><b>not changed since</b></span></div>
+        <div class="flow-step"><span class="when">outcome</span><h4>What the carrier can show</h4><p>The carrier does not send "our word" but the bundle and the verification link. The counterparty's insurer can have its IT people recompute it: unchanged since anchoring, with the terminal's confirmation next to it.</p><span class="meta">bundle · verification link · <b>recompute it yourself</b></span></div>
       </div>
     </article>
 
     <article class="rv" id="bouw">
       <div class="sec-head" style="margin-bottom:0">
-        <span class="idx">SC/02 · BOUW · AANNEMER ↔ BOUWHEER</span>
-        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">Het meerwerk dat "nooit is goedgekeurd"<span style="color:var(--red)">.</span></h2>
-        <p class="side">Op de werf zegt de bouwheer "doe maar". Bij de eindafrekening weet hij van niets.</p>
+        <span class="idx">SC/02 · CONSTRUCTION · CONTRACTOR ↔ CLIENT</span>
+        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">The extra work that was "never approved"<span style="color:var(--red)">.</span></h2>
+        <p class="side">On site, the client says "go ahead". At the final account, he knows nothing about it.</p>
       </div>
       <div class="flow">
-        <div class="flow-step"><span class="when">werf · 10:42 (UTC+2)</span><h4>De bon, ter plekke</h4><p>De werfleider maakt de meerwerkbon in de app: omschrijving, bedrag, foto. Hij tekent met zijn eigen sleutel op zijn telefoon; de bouwheer krijgt meteen de deellink.</p><span class="meta">meerwerk MW-0047 · <b>€ 38 500</b> · foto</span></div>
-        <div class="flow-step"><span class="when">werf · 10:44 (UTC+2)</span><h4>De bouwheer bevestigt op zíjn telefoon</h4><p>Of betwist, met opmerking. Ook dat antwoord wordt verankerd, in een groep die voor klantorganisaties ook een gekwalificeerde tijdstempel krijgt.</p><span class="meta">bevestiging bouwheer · <b>10:44 (UTC+2)</b></span></div>
-        <div class="flow-step hit"><span class="when">eindafrekening</span><h4>"Dat hebben wij nooit gevraagd"</h4><p>De aannemer opent Bewijs: bon, foto, bedrag, tijdstip, en de bevestiging van de bouwheer van 10:44 (UTC+2) diezelfde ochtend.</p></div>
-        <div class="flow-step"><span class="when">uitkomst</span><h4>Een getekend akkoord op tafel</h4><p>Bij vaste prijs vraagt de wet in principe een schriftelijk akkoord (art. 1793 oud BW). De aannemer kan tonen dat de bouwheer deze bon op de werf bevestigde, door beide partijen elektronisch getekend en door elke partij zelf na te rekenen. Of dat volstaat, beoordeelt de rechter.</p><span class="meta">bundel · art. 1793 · <b>bevestiging bouwheer</b></span></div>
+        <div class="flow-step"><span class="when">site · 10:42 (UTC+2)</span><h4>The order, on the spot</h4><p>The site manager creates the extra-work order in the app: description, amount, photo. He signs with his own key on his phone; the client receives the share link immediately.</p><span class="meta">extra work MW-0047 · <b>€38,500</b> · photo</span></div>
+        <div class="flow-step"><span class="when">site · 10:44 (UTC+2)</span><h4>The client confirms on his own phone</h4><p>Or disputes it, with a comment. That answer is also anchored, in a group that also receives a qualified timestamp for customer organisations.</p><span class="meta">client's confirmation · <b>10:44 (UTC+2)</b></span></div>
+        <div class="flow-step hit"><span class="when">final account</span><h4>"We never asked for that"</h4><p>The contractor opens Proof: order, photo, amount, time, and the client's confirmation of 10:44 (UTC+2) that same morning.</p></div>
+        <div class="flow-step"><span class="when">outcome</span><h4>A signed agreement on the table</h4><p>For a fixed price, the law in principle requires written agreement (Art. 1793 of the old Belgian Civil Code). The contractor can show that the client confirmed this order on site, electronically signed by both parties and verifiable by each party itself. Whether that is enough is for the court to decide.</p><span class="meta">bundle · Art. 1793 · <b>client's confirmation</b></span></div>
       </div>
     </article>
 
     <article class="rv" id="verhuur">
       <div class="sec-head" style="margin-bottom:0">
-        <span class="idx">SC/03 · MATERIEELVERHUUR · VERHUURDER ↔ HUURDER</span>
-        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">De deuk die "er al zat"<span style="color:var(--red)">.</span></h2>
-        <p class="side">Een hoogwerker vertrekt in orde en komt beschadigd terug.</p>
+        <span class="idx">SC/03 · EQUIPMENT RENTAL · RENTAL COMPANY ↔ HIRER</span>
+        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">The dent that "was already there"<span style="color:var(--red)">.</span></h2>
+        <p class="side">An aerial work platform leaves in good order and comes back damaged.</p>
       </div>
       <div class="flow">
-        <div class="flow-step"><span class="when">afgifte</span><h4>Staatopname, samen</h4><p>Zes foto's, urenteller, opmerkingen. Beide partijen tekenen op de telefoon; verankerd binnen minuten.</p><span class="meta">afgiftestaat AFG-0182 · 6 foto's · <b>2 handtekeningen</b></span></div>
-        <div class="flow-step"><span class="when">terugname</span><h4>Zelfde discipline</h4><p>Foto's, urenteller, schade. Huurder afwezig? Dan tekent de verhuurdesk en krijgt de huurder de deellink met 24 u om te betwisten — zoals de AV zeggen.</p><span class="meta">terugname · deuk gieklift · <b>deellink</b></span></div>
-        <div class="flow-step hit"><span class="when">discussie</span><h4>"Die deuk zat er al"</h4><p>Twee registraties, elk ongewijzigd sinds de verankering: bij afgifte, om 08:12 (UTC+2), geen schade op foto 4; bij terugname, vrijdag om 16:40 (UTC+2), wél.</p></div>
-        <div class="flow-step"><span class="when">uitkomst</span><h4>Geen woord tegen woord</h4><p>Twee foto's die sinds het vastleggen aantoonbaar ongewijzigd zijn, elk met een verankerd tijdstip. De huurder en zijn verzekeraar kunnen dat zelf nagaan op de verificatiepagina.</p><span class="meta"><b>€ 18 400 herstel</b> · zelf na te gaan</span></div>
+        <div class="flow-step"><span class="when">departure</span><h4>Condition report, together</h4><p>Six photos, hour meter, remarks. Both parties sign on the phone; anchored within minutes.</p><span class="meta">handover report AFG-0182 · 6 photos · <b>2 signatures</b></span></div>
+        <div class="flow-step"><span class="when">return</span><h4>Same discipline</h4><p>Photos, hour meter, damage. Hirer absent? Then the rental desk signs and the hirer receives the share link with 24 hours to dispute — as the general terms and conditions state.</p><span class="meta">return · dent in boom lift · <b>share link</b></span></div>
+        <div class="flow-step hit"><span class="when">dispute</span><h4>"That dent was already there"</h4><p>Two records, each unchanged since anchoring: at departure, at 08:12 (UTC+2), no damage in photo 4; at return, on Friday at 16:40 (UTC+2), there is.</p></div>
+        <div class="flow-step"><span class="when">outcome</span><h4>No more word against word</h4><p>Two photos that are demonstrably unchanged since they were recorded, each with an anchored time. The hirer and their insurer can check that for themselves on the verification page.</p><span class="meta"><b>€18,400 repair</b> · check it yourself</span></div>
       </div>
     </article>
 
     <article class="rv" id="vastgoed">
       <div class="sec-head" style="margin-bottom:0">
-        <span class="idx">SC/04 · VASTGOED · SYNDICUS/VERHUURDER ↔ HUURDER</span>
-        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">Het parket dat "al gekrast was"<span style="color:var(--red)">.</span></h2>
-        <p class="side">Plaatsbeschrijving bij intrede, uittrede drie jaar later.</p>
+        <span class="idx">SC/04 · REAL ESTATE · SYNDIC (BUILDING MANAGER)/LANDLORD ↔ TENANT</span>
+        <h2 class="disp" style="font-size:clamp(1.8rem,3.5vw,3.4rem)">The parquet floor that "was already scratched"<span style="color:var(--red)">.</span></h2>
+        <p class="side">Inspection report at move-in, move-out three years later.</p>
       </div>
       <div class="flow">
-        <div class="flow-step"><span class="when">intrede</span><h4>Ruimte per ruimte</h4><p>Plaatsbeschrijving, 38 foto's, meterstanden. Huurder en verhuurder tekenen elk met een eigen sleutel; het document en de foto-hashes worden verankerd.</p><span class="meta">PB-2026-013 · 38 foto's · <b>2 handtekeningen</b></span></div>
-        <div class="flow-step hit"><span class="when">3 jaar later</span><h4>"Ik heb een andere versie getekend"</h4><p>Uittrede: diepe krassen in het parket. De huurder betwist de versie van het document én de datum van de foto's.</p></div>
-        <div class="flow-step"><span class="when">controle</span><h4>Byte voor byte</h4><p>De versie die getekend werd is exact de versie in de kluis; de handtekening van de huurder staat eronder; het tijdstempel is van de dag van intrede. Foto van de living: geen krassen.</p><span class="meta"><b>versie · handtekening · datum</b> — alles stemt overeen</span></div>
-        <div class="flow-step"><span class="when">uitkomst</span><h4>De vrederechter kan het zelf laten nagaan</h4><p>De verhuurder kan tonen welke plaatsbeschrijving bij intrede getekend werd, door wie, en dat ze uiterlijk op de dag van intrede bestond. Of ze omstandig en tegensprekelijk genoeg is, beoordeelt de vrederechter.</p><span class="meta">art. 1730–1731 · vrederechter · <b>bundel</b></span></div>
+        <div class="flow-step"><span class="when">move-in</span><h4>Room by room</h4><p>Inspection report, 38 photos, meter readings. Tenant and landlord each sign with their own key; the document and the photo hashes are anchored.</p><span class="meta">PB-2026-013 · 38 photos · <b>2 signatures</b></span></div>
+        <div class="flow-step hit"><span class="when">3 years later</span><h4>"I signed a different version"</h4><p>Move-out: deep scratches in the parquet floor. The tenant disputes the version of the document and the date of the photos.</p></div>
+        <div class="flow-step"><span class="when">check</span><h4>Byte for byte</h4><p>The version that was signed is exactly the version in the vault; the tenant's signature is underneath; the timestamp is from the day of move-in. Photo of the living room: no scratches.</p><span class="meta"><b>version · signature · date</b> — everything matches</span></div>
+        <div class="flow-step"><span class="when">outcome</span><h4>The justice of the peace can have it checked independently</h4><p>The landlord can show which inspection report was signed at move-in, by whom, and that it existed no later than the day of move-in. Whether it is detailed enough and was drawn up sufficiently in the presence of both parties is for the justice of the peace (the Belgian local judge who handles rental disputes) to assess.</p><span class="meta">Art. 1730–1731 · justice of the peace · <b>bundle</b></span></div>
       </div>
     </article>
   </div>
@@ -133,24 +140,24 @@
   <div class="wrap">
     <div class="sum-band rv" style="grid-template-columns:1fr">
       <div>
-        <p class="lbl" style="writing-mode:horizontal-tb;margin-bottom:1.2rem"><b>GEEN MOCKUP</b> — DIT IS ECHT GEBEURD OP ONS PLATFORM</p>
-        <p style="max-width:66ch">Het transportscenario hierboven hebben we niet getekend maar <b>uitgevoerd</b>: een demo-vervoerder registreerde drie afleveringen, de batch werd verankerd en extern getijdstempeld, en "Terminal X" bevestigde via de deellink met een sleutel op haar eigen toestel. Daarna hebben we in de bundel één woord op de afleverbon veranderd — <span class="r">en het verificatiescript sloeg rood uit.</span></p>
+        <p class="lbl" style="writing-mode:horizontal-tb;margin-bottom:1.2rem"><b>NOT A MOCKUP</b> — THIS REALLY HAPPENED ON OUR PLATFORM</p>
+        <p style="max-width:66ch">We did not sketch the transport scenario above, we <b>ran</b> it: a demo carrier recorded three deliveries, the batch was anchored and externally timestamped, and "Terminal X" confirmed via the share link with a key on its own device. Then we changed one word on the delivery note in the bundle — <span class="r">and the verification script turned red.</span></p>
         <div style="display:grid;gap:.6rem;margin-top:1.4rem;font:400 .78rem/1.7 var(--mono)">
-          <a href="https://app.vidimus.be/v/reg_66bfbe7909f2" style="color:var(--ink)">Publieke verificatie van de aflevering → app.vidimus.be/v/reg_66bfbe7909f2</a>
-          <a href="https://app.vidimus.be/v/reg_5dcbbd93068e" style="color:var(--ink)">De bevestiging van de terminal, zelf verankerd → app.vidimus.be/v/reg_5dcbbd93068e</a>
+          <a href="https://app.vidimus.be/v/reg_66bfbe7909f2" style="color:var(--ink)">Public verification of the delivery → app.vidimus.be/v/reg_66bfbe7909f2</a>
+          <a href="https://app.vidimus.be/v/reg_5dcbbd93068e" style="color:var(--ink)">The terminal's confirmation, itself anchored → app.vidimus.be/v/reg_5dcbbd93068e</a>
         </div>
-        <p class="law-note">Fictieve organisatie "Demo Transport BV" · geen klantdata</p>
+        <p class="law-note">Fictional organisation "Demo Transport BV" · no customer data</p>
       </div>
     </div>
   </div>
 </section>
 
-<section aria-label="Video: wat stond er toen?" style="padding-block:0 var(--space)">
+<section aria-label="Video: what was there at the time?" style="padding-block:0 var(--space)">
   <div class="wrap">
     <div class="vgrid" style="grid-template-columns:minmax(0,760px)">
       <article class="vcard rv">
-        <div class="vslot"><video src="video/vidimus-rechtszaal.mp4" poster="video/vidimus-rechtszaal-poster.jpg" preload="metadata" playsinline></video><button class="vplay" aria-label="Speel af: wat stond er toen?"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Afspelen — 1:00</span></button></div>
-        <div class="vbody"><span class="lbl">VOOR DE RECHTER · 1:00</span><h3>Wat stond er toen?</h3><p>Acht maanden later tonen twee partijen dezelfde registratie, maar ze verschillen. De rechter rekent zelf na welke versie toen werd vastgelegd, zonder Vidimus te moeten geloven.</p></div>
+        <div class="vslot"><video src="video/vidimus-rechtszaal.mp4" poster="video/vidimus-rechtszaal-poster.jpg" preload="metadata" playsinline></video><button class="vplay" aria-label="Play: what was there at the time? (video in Dutch)"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Play — 1:00</span></button></div>
+        <div class="vbody"><span class="lbl">IN COURT · 1:00 · VIDEO IN DUTCH</span><h3>What was there at the time?</h3><p>Eight months later, two parties show the same record, but the versions differ. The court recomputes for itself which version was recorded at the time, without having to take Vidimus at its word.</p></div>
       </article>
     </div>
   </div>
@@ -159,27 +166,27 @@
 <section style="padding-block:0 var(--space)">
   <div class="wrap">
     <div class="sec-head">
-      <span class="idx">TEGENSPRAAK</span>
-      <h2 class="disp">Advocaat van de duivel<span style="color:var(--red)">.</span></h2>
+      <span class="idx">COUNTER-ARGUMENTS</span>
+      <h2 class="disp">Devil's advocate<span style="color:var(--red)">.</span></h2>
     </div>
     <div class="faq rv">
-      <details><summary>De tegenpartij controleert dezelfde data, maar in een andere volgorde — dan wijkt de hash toch af?</summary><p class="a"><b>Nee:</b> vóór het hashen brengen we elke registratie in een canonieke vorm (sleutels gesorteerd, geen witruimte, vaste encoding). Volgorde bestaat daarna niet meer; dezelfde inhoud geeft altijd dezelfde bytes. Die regel staat met naam en versie in elke bundel én in het verificatiescript. Voor bestanden (foto, pdf) hashen we de bytes zelf — daar is geen volgorde om te veranderen.</p></details>
-      <details><summary>Hebben jullie een kopie van onze data "zoals ze was"? Anders valt er niets te vergelijken.</summary><p class="a"><b>Ja.</b> Bij registratie gaat het origineel (de canonieke registratie én elke bijlage) versleuteld in een write-once-kluis, voor de bewaartermijn van het logboek. Bij twijfel vergelijkt de deskundige met wat wij toen ontvingen — niet met wat uw systeem vandaag exporteert. En omdat de hash op het grootboek staat, kunnen ook wij dat exemplaar niet ongemerkt aanpassen.</p></details>
-      <details><summary>Ons systeem slaat sinds vorig jaar getallen anders op (4.20 → 4.2). Dan is de data "eigenlijk juist" maar de hash wijkt af.</summary><p class="a">Een hash die afwijkt, toont niet dat Vidimus faalde en ook niet dat de data "eigenlijk wel juist" was — hij bewijst dat wat men <b>nú</b> voorlegt niet byte-voor-byte is wat <b>destijds</b> werd vastgelegd. Wat destijds werd vastgelegd, ligt in de kluis en in uw bundel, met de tijdstempels van zijn groep. Dat verschil is geen probleem: het is precies de vaststelling die u wil kunnen doen. Praktisch: stuur het ruwe bericht van uw bronsysteem, niet een bewerkte versie.</p></details>
-      <details><summary>Wat als Vidimus over vijf jaar niet meer bestaat?</summary><p class="a">Uw bundels blijven dan <b>even goed na te rekenen</b>: standaardcryptografie (SHA-256, Ed25519, RFC 3161, Merkle), het verificatiescript zit erin, en het tijdstempeltoken van de gekwalificeerde vertrouwensdienst is zonder Vidimus te controleren. Alleen de app verdwijnt; het bewijs niet. Daarom leveren we een bundel, geen schermafbeelding.</p></details>
-      <details><summary>Wie heeft de sleutels?</summary><p class="a">Wie tekent, heeft <b>zijn eigen sleutel — op zijn eigen toestel</b> (browser/telefoon), niet bij ons; wij zien alleen de publieke helft en geven een certificaat uit. Systemen (TMS, poort) krijgen een systeemsleutel; een meetbron (sensor, logger) krijgt haar eigen sleutel, en alleen die mag meten. Het origineel in de kluis is versleuteld per document; wissen na de bewaartermijn is de sleutel vernietigen — het bestand wordt ruis, de vingerafdruk blijft bewijzen dát er iets was.</p></details>
+      <details><summary>The counterparty checks the same data, but in a different order — does the hash not differ then?</summary><p class="a"><b>No:</b> before hashing, we bring every record into a canonical form (keys sorted, no whitespace, fixed encoding). After that, order no longer exists; the same content always gives the same bytes. That rule is in every bundle, with its name and version, and in the verification script. For files (photo, pdf) we hash the bytes themselves — there is no order to change there.</p></details>
+      <details><summary>Do you have a copy of our data "as it was"? Otherwise there is nothing to compare.</summary><p class="a"><b>Yes.</b> On recording, the original (the canonical record and every attachment) goes encrypted into a write-once vault, for the retention period of the logbook. In case of doubt, the expert compares with what we received at the time — not with what your system exports today. And because the hash is on the ledger, we cannot change that copy unnoticed either.</p></details>
+      <details><summary>Since last year, our system stores numbers differently (4.20 → 4.2). Then the data is "actually right" but the hash differs.</summary><p class="a">A hash that differs does not show that Vidimus failed, nor that the data was "actually right after all" — it proves that what is presented <b>now</b> is not byte for byte what was recorded <b>at the time</b>. What was recorded at the time is in the vault and in your bundle, with the timestamps of its group. That difference is not a problem: it is exactly the finding you want to be able to make. In practice: send the raw message from your source system, not an edited version.</p></details>
+      <details><summary>What if Vidimus no longer exists in five years?</summary><p class="a">Your bundles then remain <b>just as verifiable</b>: standard cryptography (SHA-256, Ed25519, RFC 3161, Merkle), the verification script is included, and the timestamp file (.tsr) of the qualified trust service can be checked without Vidimus. Only the app disappears; the proof does not. That is why we deliver a bundle, not a screenshot.</p></details>
+      <details><summary>Who has the keys?</summary><p class="a">Whoever signs has <b>their own key — on their own device</b> (browser/phone), not with us; we only see the public half and issue a certificate. Systems (TMS, gate) get a system key; a measurement source (sensor, logger) gets its own key, and only that source may measure. The original in the vault is encrypted per document; deleting after the retention period means destroying the key — the file becomes noise, and the fingerprint still proves that something was there.</p></details>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="wrap">
-    <h2 class="disp">Zo starten we: <span>uw eerste logboek vandaag, de eerste 100 registraties gratis.</span></h2>
+    <h2 class="disp">How we start: <span>your first logbook today, the first 100 records free.</span></h2>
     <div class="final-under">
-      <p>Kies de registratie waar de discussies nu het meeste kosten. Binnen een paar weken ligt uw eigen bewijsbundel op tafel — en uw partner heeft dezelfde.</p>
+      <p>Choose the record where disputes currently cost the most. Within a few weeks, your own evidence bundle is on the table — and your partner has the same one.</p>
       <div class="hero-actions">
-        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Maak uw account</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Create your account</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
       </div>
     </div>
   </div>
@@ -187,17 +194,41 @@
 </main>
 
 <footer class="app-voet">
-  <span>VIDIMUS · SITE</span>
-  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
-  <a href="colofon.html">Colofon &amp; privacy</a>
-  <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
+  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerp, Belgium · BE 0805.309.143</span>
+  <a href="technology.html">Technology</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="security.html">Security</a>
+  <a href="verify-it-yourself.html">Verify it yourself</a>
+  <a href="partners.html">Partners</a>
   <a href="cases.html">Cases</a>
-  <a href="vragen.html">Vragen</a>
-  <a href="verificatie.html">Verificatie</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="legal.html">Legal</a>
+  <a href="help.html">Explainer videos</a>
+  <a href="questions.html">Questions</a>
+  <a href="for-ai-agents.html">For AI agents</a>
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="colophon.html">Colophon</a>
+  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Get it on Google Play" loading="lazy"></a></span>
   <span class="sp"></span>
-  <span>Fictieve voorbeelden · geen klantreferenties</span>
+  <span>Fictional examples · no customer references</span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <a href="tel:+32466474115">+32 466 47 41 15</a>
+  <a href="https://www.linkedin.com/company/vidimus-be/" rel="noopener noreferrer">LinkedIn</a>
+  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Use cases</span>
+    <a href="disputed-delivery-cmr.html">Transport and logistics</a>
+    <a href="disputed-inspection-report.html">Real estate and rentals</a>
+    <a href="proving-extra-work.html">Construction and renovation</a>
+    <a href="equipment-handover-damage.html">Equipment rental</a>
+    <a href="record-a-web-page.html">Recording web pages</a>
+    <a href="after-a-breach.html">IT and databases</a>
+    <a href="cases.html">Cold chain and care</a>
+    <a href="comparison-proofsnap-truescreen.html">Comparison with ProofSnap and TrueScreen</a>
+  </nav>
+  <span class="taal" role="group" aria-label="Language / Taal"><a href="nl/scenarios.html" hreflang="nl-BE" lang="nl">NL</a><b lang="en" aria-current="true">EN</b></span>
 </footer>
 
 <script src="script.js?v=20261028b" defer></script>
+<script src="taal.js?v=20261116a" defer></script>
 </body>
 </html>

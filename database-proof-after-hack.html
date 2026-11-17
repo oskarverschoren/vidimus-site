@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>After a hack: showing that your database was not changed | Vidimus</title>
+<meta name="description" content="After a breach, your customer or insurer asks what changed. How an anchored snapshot from before the incident helps, and where the limit lies.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="favicon-192.png?v=3" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261008b">
+<link rel="stylesheet" href="inner.css">
+<link rel="stylesheet" href="product.css?v=20261028a">
+<link rel="stylesheet" href="menu.css?v=20261102a">
+<link rel="stylesheet" href="antwoord.css?v=20261029a">
+<link rel="stylesheet" href="taal.css?v=20261116a">
+
+<link rel="canonical" href="https://vidimus.be/database-proof-after-hack.html">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/databank-bewijs-na-hack.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/database-proof-after-hack.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/database-proof-after-hack.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="article"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="en_GB">
+<meta property="og:title" content="After a hack: showing that your database was not changed | Vidimus"><meta property="og:description" content="After a breach, your customer or insurer asks what changed. How an anchored snapshot from before the incident helps, and where the limit lies."><meta property="og:url" content="https://vidimus.be/database-proof-after-hack.html"><meta property="og:image" content="https://vidimus.be/assets/og/reg-databank.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="article:modified_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/reg-databank.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/database-proof-after-hack.html#faq",
+ "url": "https://vidimus.be/database-proof-after-hack.html",
+ "inLanguage": "en",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do we have to upload our database to Vidimus?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The fingerprints are computed on your side. For a database, Vidimus only receives fingerprints, the names of tables and columns, and counts; with the row key, no key values either. For a folder, it receives the fingerprints and the file names. Not the content itself."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is the server's own history not enough?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It is valuable, but it sits on the same server as the data. Whoever got into that server could also adjust the history. A snapshot anchored outside the server does not depend on that server."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can it also cover data from before the incident?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Only if that data was already anchored at the time. That is why it is best to start before anything happens: one snapshot a day costs nothing within the first 100 records a month."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does Vidimus say which rows changed?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "For a folder, yes: per file unchanged, changed, moved or missing. For a database, the comparison per row is in development. Vidimus does not say who changed something, and not what the right value was."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body>
+<!-- 29/10/2026 · antwoordpagina (branch seo-2, marketingchat, NIET live). Alleen wat vandaag live is; 'in opbouw' waar dat zo is. -->
+<div class="ambient" aria-hidden="true"></div>
+
+<svg class="sr-sprite" width="0" height="0" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Products<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Deliveries, damage and handovers on the spot, signed by both parties.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters and weighbridges send measurements; each measurement is anchored separately.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Snapshots of databases and folders, and web pages as they were online.</span></span></a></li>
+          <li><a class="mega-item" href="product-passport.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Product Passport</b><span>A code with a QR label per object and a line of handovers, signed by holder and recipient.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="private.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Private <em class="mega-wacht">On request</em></b><span>A dedicated environment for one organisation: its own keys, its own address, timestamps and anchors from outside.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus for software</em><b>Are you building a TMS, WMS or ERP?</b><span>Deliver proof in your own product through the partner API: referral, reseller or integrator.</span><i>Become a partner<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">All products side by side<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="legal.html">Legal</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Explainer videos</a>
+    <a class="top-taal" href="nl/databank-bewijs-na-hack.html" hreflang="nl-BE" lang="nl" aria-label="Nederlandse versie van deze pagina">NL</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Log in</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start free</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero" aria-labelledby="vraag-h">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="questions.html">QUESTIONS</a><i>/</i><span class="lbl aw-hier">DATABASES AND FOLDERS</span></p>
+    <h1 class="disp aw-vraag" id="vraag-h">After a hack, how do you show that your database was not changed?</h1>
+    <p class="aw-kort" id="kort-antwoord"><span class="aw-label">Short answer</span>Only with a starting point from before the incident that lies outside the hacked server: a snapshot with a fingerprint per row or per file, anchored with an external timestamp. After the incident, you recompute the same fingerprints and put them side by side: whatever differs, changed. <b>Without such a starting point, your answer comes from the system that was hacked.</b></p>
+    <p class="aw-datum">Updated on 29 October 2026 · Oskar Verschoren, Vidimus (VO Initiatives BV, Antwerp)</p>
+    <div class="hero-actions">
+      <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start free</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s1-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / HOW IT WORKS</span>
+      <h2 class="disp" id="s1-h">How it works<span class="aw-punt">.</span></h2>
+    </div>
+    <ol class="aw-stappen rv">
+      <li><h3>A snapshot before the incident<small>fingerprint per row or per file</small></h3><p>You export your database, or choose a folder. Each row and each file gets a fingerprint (SHA-256) <b>on your own computer</b>. Only the fingerprints, the names of tables and columns, and counts go to Vidimus; with the row key, no key values either. For a folder: file names and fingerprints.</p></li>
+      <li><h3>One record, anchored outside your server<small>ed25519 · rfc 3161 · bitcoin</small></h3><p>The list is signed as one record with the key of your system or device and anchored within five minutes: an external timestamp on the group, our ledger as a hash chain, and Bitcoin via OpenTimestamps. Whoever later gets into your server cannot change that starting point unnoticed.</p></li>
+      <li><h3>After the incident: put them side by side<small>folder today · database in development</small></h3><p>For a folder, you put the current files next to the snapshot: per file you see what is <b>unchanged</b>, <b>changed</b>, moved or missing. For a database, we are building that comparison now (in development); you can already record the snapshot itself today.</p></li>
+      <li><h3>Your customer or insurer verifies it themselves<small>check page · evidence bundle</small></h3><p>Your customer or insurer does not have to take your word for it: the check page works without an account, and the evidence bundle with its script can be recomputed even without Vidimus.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s2-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / RIGHT NOW</span>
+      <h2 class="disp" id="s2-h">What you can do right now<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>Copy the server's history to another place</b>, as soon as possible. Whoever got into the server could also adjust that history.</span></li>
+      <li><span><b>Take a snapshot of the current state now.</b> It says nothing about the past, but from now on every change stands out to whoever checks.</span></li>
+      <li><span>If personal data is involved, check whether you have to report the data breach to the Belgian Data Protection Authority within 72 hours (Art. 33 GDPR). If your organisation falls under NIS2, the CCB (Centre for Cybersecurity Belgium) asks for a first notification within 24 hours for a significant incident.</span></li>
+      <li><span>Bring in a specialised company for the forensic investigation. Vidimus does not detect breaches.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s3-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / LIMITS</span>
+      <h2 class="disp" id="s3-h">What it does not prove<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>Anything about data that was not anchored before the incident.</b> A snapshot from today proves what your data looks like today, not what it looked like yesterday.</span></li>
+      <li><span><b>What changed between your last snapshot and the incident.</b> The more often you record, the smaller that window. Automatic every night is in development.</span></li>
+      <li><span><b>What was read or stolen.</b> A fingerprint shows whether something changed, not who looked at it.</span></li>
+      <li><span><b>Who changed something, and whether the data was accurate</b> when you recorded it.</span></li>
+      <li><span><b>Protection.</b> Vidimus does not prevent breaches, does not detect them and does not replace a patch, a backup or a security company.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s4-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / SPECIFICATIONS</span>
+      <h2 class="disp" id="s4-h">Specifications<span class="aw-punt">.</span></h2>
+    </div>
+    <dl class="pr-spec rv">
+      <div><dt>database</dt><dd>fingerprint per row, computed on your side · to Vidimus: fingerprints, table and column names, counts · with row key no key values</dd></div>
+      <div><dt>folder</dt><dd>fingerprint per file · to Vidimus: file names and fingerprints</dd></div>
+      <div><dt>compare</dt><dd>folder: per file unchanged, changed, moved or missing · database: <span class="wacht">in development</span></dd></div>
+      <div><dt>every night</dt><dd><span class="wacht">in development</span></dd></div>
+      <div><dt>anchored</dt><dd>within five minutes · RFC 3161 per group · ledger · OpenTimestamps → Bitcoin</dd></div>
+      <div><dt>retention</dt><dd>ten years per logbook by default, adjustable</dd></div>
+      <div><dt>counts as</dt><dd>one record per snapshot or folder</dd></div>
+      <div><dt>price</dt><dd>first 100 records a month free · one snapshot a day fits in easily</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s5-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / QUESTIONS</span>
+      <h2 class="disp" id="s5-h">Frequently asked questions<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Do we have to upload our database to Vidimus?</summary><p class="a">No. The fingerprints are computed on your side. For a database, Vidimus only receives fingerprints, the names of tables and columns, and counts; with the row key, no key values either. For a folder, it receives the fingerprints and the file names. Not the content itself.</p></details>
+      <details><summary>Is the server's own history not enough?</summary><p class="a">It is valuable, but it sits on the same server as the data. Whoever got into that server could also adjust the history. A snapshot anchored outside the server does not depend on that server.</p></details>
+      <details><summary>Can it also cover data from before the incident?</summary><p class="a">Only if that data was already anchored at the time. That is why it is best to start before anything happens: one snapshot a day costs nothing within the first 100 records a month.</p></details>
+      <details><summary>Does Vidimus say which rows changed?</summary><p class="a">For a folder, yes: per file unchanged, changed, moved or missing. For a database, the comparison per row is in development. Vidimus does not say who changed something, and not what the right value was.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="verder-h">
+  <div class="wrap">
+    <h2 id="verder-h" class="disp aw-klein">Further reading<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="data.html"><span class="lbl">PRODUCT</span><b>Vidimus Data: snapshots of databases and folders</b></a></li>
+      <li><a href="technology.html#databank"><span class="lbl">TECHNOLOGY</span><b>A snapshot from start to proof</b></a></li>
+      <li><a href="worm-storage-proof.html"><span class="lbl">STORAGE</span><b>WORM storage and anchoring: what the difference is</b></a></li>
+      <li><a href="record-a-web-page.html"><span class="lbl">WEB PAGES</span><b>“That was never there.”</b></a></li>
+    </ul>
+    <h2 id="meer-h" class="disp aw-klein">More questions and answers<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="photo-proof-not-edited.html"><span class="lbl">PHOTOS</span><b>How do you prove that a photo was not edited?</b></a></li>
+      <li><a href="qualified-timestamp-eidas.html"><span class="lbl">TIMESTAMP</span><b>What does a qualified timestamp (eIDAS) prove?</b></a></li>
+      <li><a href="temperature-logger-proof.html"><span class="lbl">SENSORS</span><b>Temperature measurements as proof for insurer and audit</b></a></li>
+      <li><a href="worm-storage-proof.html"><span class="lbl">STORAGE</span><b>Does WORM storage prove that nothing was changed?</b></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">How we start: <span>your first logbook today, the first 100 records free.</span></h2>
+    <div class="final-under">
+      <p>You create your account in two minutes. No payment details needed. A director identifies your company once with the Belgian eID; then you create your first logbook in a few minutes. Would you rather talk first? Book 15 minutes with the founder.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start free</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerp, Belgium · BE 0805.309.143</span>
+  <a href="technology.html">Technology</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="security.html">Security</a>
+  <a href="verify-it-yourself.html">Verify it yourself</a>
+  <a href="partners.html">Partners</a>
+  <a href="cases.html">Cases</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="legal.html">Legal</a>
+  <a href="help.html">Explainer videos</a>
+  <a href="questions.html">Questions</a>
+  <a href="for-ai-agents.html">For AI agents</a>
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="colophon.html">Colophon</a>
+  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Get it on Google Play" loading="lazy"></a></span>
+  <span class="sp"></span>
+  <span>Fictional examples · no customer references</span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <a href="tel:+32466474115">+32 466 47 41 15</a>
+  <a href="https://www.linkedin.com/company/vidimus-be/" rel="noopener noreferrer">LinkedIn</a>
+  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Use cases</span>
+    <a href="disputed-delivery-cmr.html">Transport and logistics</a>
+    <a href="disputed-inspection-report.html">Real estate and rentals</a>
+    <a href="proving-extra-work.html">Construction and renovation</a>
+    <a href="equipment-handover-damage.html">Equipment rental</a>
+    <a href="record-a-web-page.html">Recording web pages</a>
+    <a href="after-a-breach.html">IT and databases</a>
+    <a href="cases.html">Cold chain and care</a>
+    <a href="comparison-proofsnap-truescreen.html">Comparison with ProofSnap and TrueScreen</a>
+  </nav>
+  <span class="taal" role="group" aria-label="Language / Taal"><a href="nl/databank-bewijs-na-hack.html" hreflang="nl-BE" lang="nl">NL</a><b lang="en" aria-current="true">EN</b></span>
+</footer>
+
+<script src="script.js?v=20261028b" defer></script>
+<script src="taal.js?v=20261116a" defer></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="nl" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Beveiliging en vertrouwen — Vidimus</title>
+<meta name="description" content="Hoe Vidimus uw registraties beveiligt: sleutels op uw toestel, externe tijdstempels (voor klantorganisaties per groep ook een gekwalificeerde, eIDAS), hosting in de EU, nachtelijke back-ups, responsible disclosure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20261008b">
+<link rel="stylesheet" href="../inner.css">
+<link rel="stylesheet" href="../menu.css?v=20261102a">
+<link rel="stylesheet" href="../taal.css?v=20261116a">
+
+<link rel="canonical" href="https://vidimus.be/nl/beveiliging.html">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/beveiliging.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/security.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/security.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
+<meta property="og:title" content="Beveiliging en vertrouwen — Vidimus"><meta property="og:description" content="Hoe Vidimus uw registraties beveiligt: sleutels op uw toestel, externe tijdstempels (voor klantorganisaties per groep ook een gekwalificeerde, eIDAS), hosting in de EU, nachtelijke back-ups, responsible disclosure."><meta property="og:url" content="https://vidimus.be/nl/beveiliging.html"><meta property="og:image" content="https://vidimus.be/assets/og/controle-echt.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/controle-echt.jpg">
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
+          <li><a class="mega-item" href="productpaspoort.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Productpaspoort</b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="prive.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Privé <em class="mega-wacht">Op aanvraag</em></b><span>Een eigen omgeving voor één organisatie: eigen sleutels, eigen adres, tijdstempels en ankers van buiten.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="prijzen.html">Prijzen</a>
+    <a href="juridisch.html">Juridisch</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
+    <a class="top-taal" href="../security.html" hreflang="en" lang="en" aria-label="English version of this page">EN</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="beveiliging.html">BEVEILIGING</a></p>
+    <h1 class="disp">Beveiliging en vertrouwen<span class="dot">.</span></h1>
+    <p class="intro">Wat er vandaag staat, zonder claims die er niet zijn. Elke regel hieronder is live en controleerbaar. Wat hier niet staat, hebben we niet.</p>
+    <p class="intro" style="margin-top:1.2rem;color:var(--ink);font-weight:500;max-width:60ch">Publiek staat alleen een wiskundig anker, waarmee na te gaan is of uw logboek achteraf herschreven werd. Wie u bent, wat u vastlegt en met wie, blijft binnen uw organisatie en wie u zelf een link geeft.</p>
+  </div>
+</section>
+<section class="sec" aria-labelledby="s1">
+  <div class="wrap">
+    <div class="sec-lbl kop rv"><h2 id="s1">Sleutels blijven bij u<span class="dot">.</span></h2><span class="lbl">01</span></div>
+    <ul class="todo rv"><li><span><b>Tekenen gebeurt op het toestel.</b> Elke medewerker en elke tegenpartij tekent met een Ed25519-sleutel die op zijn eigen telefoon wordt aangemaakt en die het toestel niet verlaat. Met de sleutel van een medewerker kunnen wij niet tekenen: die verlaat zijn toestel niet. Een nieuwe sleutel op diens naam zou in de bundel als een andere sleutel zichtbaar zijn.</span></li><li><span><b>Systeemsleutels bewaren wij.</b> Stuurt uw TMS, ERP of sensor zelf door, dan tekent een systeemsleutel die Vidimus bewaart, met de naam van dat systeem in het certificaat. Ook dan kan niemand een registratie een vroeger verankeringstijdstip geven, ook wij niet, en een wijziging achteraf valt op: het tijdstip komt van een externe tijdstempeldienst en de bewijsbundel staat bij u.</span></li><li><span><b>Biometrie is optioneel, nooit verplicht.</b> Wie Face ID of Touch ID inschakelt, koppelt een passkey aan de sleutel. Zonder biometrie werkt het toestel gewoon met zijn sleutel; iOS vraagt dan de toegangscode.</span></li><li><span><b>Intrekken is één klik.</b> Verloren telefoon of vertrek: het bureau trekt de sleutel in. Wat eerder getekend werd, blijft verankerd en na te rekenen.</span></li></ul>
+  </div>
+</section>
+<section class="sec" aria-labelledby="s2">
+  <div class="wrap">
+    <div class="sec-lbl kop rv"><h2 id="s2">Wat wij verankeren, en hoe<span class="dot">.</span></h2><span class="lbl">02</span></div>
+    <ul class="todo rv"><li><span><b>Vingerafdruk per registratie:</b> SHA-256 over de canonieke inhoud én de hash van elke bijlage. Eén teken anders geeft een andere vingerafdruk. Hoe een deskundige dit zonder Vidimus narekent: <a href="verificatie.html">verificatiehandleiding</a>.</span></li><li><span><b>Anker elke vijf minuten:</b> alle nieuwe vingerafdrukken in één Merkle-wortel, getekend door Vidimus en extern getijdstempeld. Zitten er registraties van klantorganisaties bij, dan krijgen de nieuwe wortels samen een gekwalificeerde tijdstempel (eIDAS) van GLOBALTRUST, een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst, doorgaans binnen zes uur; elke registratie is ermee verbonden via haar Merkle-pad. De klok is dus niet de onze.</span></li><li><span><b>Publiek anker in Bitcoin:</b> elke wortel wordt ook ingediend bij OpenTimestamps en binnen enkele uren opgenomen in een Bitcoin-blok. Wijzigen of wissen valt daar op voor wie het nakijkt, ook als wij het zouden proberen; het bewijs (.ots) zit in elke bundel en is na te rekenen met <code>ots</code> (opentimestamps-client) en een publieke blockexplorer.</span></li><li><span><b>Grootboek, alleen aanvullen:</b> elk record verwijst naar het vorige; een tussenvoeging of wijziging achteraf breekt de keten zichtbaar.</span></li><li><span><b>Alles zelf narekenbaar:</b> de bewijsbundel (zip) bevat inhoud, handtekeningen, Merkle-pad en tijdstempeltoken. Met openssl en een SHA-256-tool controleert u het zonder Vidimus. <a href="hoe-het-werkt.html">Hoe het werkt →</a></span></li></ul>
+  </div>
+</section>
+<section class="sec" aria-labelledby="s3">
+  <div class="wrap">
+    <div class="sec-lbl kop rv"><h2 id="s3">Waar uw gegevens staan<span class="dot">.</span></h2><span class="lbl">03</span></div>
+    <ul class="todo rv"><li><span><b>Hosting:</b> Hetzner Online GmbH, datacenter Neurenberg, Duitsland (EU). Inhoud blijft in de EU; naar de tijdstempeldiensten en OpenTimestamps gaan alleen vingerafdrukken.</span></li><li><span><b>De kluis:</b> originelen en foto's staan versleuteld (AES-256-GCM) met een eigen sleutel per document, gewikkeld onder de sleutel van uw organisatie; die sleutels staan zelf versleuteld in een aparte sleutelkluis, en elke ontsleuteling door onze server staat in Inzagen, die u zelf ziet. Wilt u dat ook wij de inhoud technisch niet kunnen lezen, kies dan een vertrouwelijk logboek: dan heeft alleen u de sleutel. Bij een <b>vertrouwelijk logboek</b> gaat het zo: elk toestel versleutelt met uw bedrijfssleutel, en alleen uw browser met de private sleutel leest mee. Die sleutel wordt bij u gemaakt en komt nooit bij ons; een herstelbestand met wachtzin bewaart u zelf. Vidimus ziet dan de vingerafdruk en een korte envelop (soort, referentie, bron en tijdstip), niet de inhoud.</span></li><li><span><b>Object lock:</b> elke versleutelde foto en registratie staat ook in Hetzner Object Storage (Neurenberg) met Object Lock in compliance-modus: tot de bewaartermijn van het logboek verstrijkt, laat de opslag geen wissen of overschrijven toe, ook niet op ons verzoek bij de hoster. Wissen na de termijn gebeurt door de sleutel te vernietigen; het bestand blijft ruis.</span></li><li><span><b>Back-ups en herstel:</b> elke nacht een versleutelde kopie van databank, grootboek en sleutels naar Hetzner Object Storage met Object Lock, dertig dagen bewaard, op dezelfde EU-locatie; de herstelprocedure staat op papier, en elk kwartaal zetten we de laatste back-up automatisch terug in een afgeschermde tijdelijke map en rekenen we na dat databank, grootboek en documenten volledig terug te halen zijn. De laatste test slaagde op 8 oktober 2026.</span></li><li><span><b>Bewaartermijn:</b> standaard tien jaar per logboek, instelbaar per organisatie. Een logboek stopzetten geeft een slotwortel; daarna komt er niets meer bij, en wat erin staat, blijft te raadplegen en na te rekenen.</span></li></ul>
+  </div>
+</section>
+<section class="sec" aria-labelledby="s4">
+  <div class="wrap">
+    <div class="sec-lbl kop rv"><h2 id="s4">Toegang en verbinding<span class="dot">.</span></h2><span class="lbl">04</span></div>
+    <ul class="todo rv"><li><span><b>Versleuteld transport</b> met TLS, HSTS ingeschakeld; koppen tegen clickjacking en content-sniffing; camera en locatie alleen voor de app zelf.</span></li><li><span><b>Sessies</b> van twaalf uur, getekende cookies, tweestapsverificatie beschikbaar onder Account.</span></li><li><span><b>API-sleutels</b> per organisatie, intrekbaar; systemen tekenen met een eigen systeemsleutel en meetbronnen met hun eigen sleutel, nooit met een persoonlijke.</span></li><li><span><b>Geen trackers.</b> Geen advertentienetwerken, geen analysediensten. Lettertypen worden geladen van Google Fonts; dat is het enige externe verzoek van uw browser.</span></li></ul>
+  </div>
+</section>
+<section class="sec" aria-labelledby="s5">
+  <div class="wrap">
+    <div class="sec-lbl kop rv"><h2 id="s5">Een kwetsbaarheid melden<span class="dot">.</span></h2><span class="lbl">05</span></div>
+    <ul class="todo rv"><li><span>Mail naar <a href="mailto:security@vo-initiatives.com">security@vo-initiatives.com</a>. U krijgt binnen twee werkdagen antwoord van de mensen die de code schreven, niet van een helpdesk.</span></li><li><span>Wij publiceren <a href="https://app.vidimus.be/.well-known/security.txt">security.txt</a> (RFC 9116) en nemen te goeder trouw gemelde onderzoekers niets kwalijk.</span></li><li><span>Bij een incident dat uw gegevens raakt, verwittigen wij u zonder onredelijke vertraging en uiterlijk binnen 48 uur na kennisname, met wat er gebeurd is en wat wij deden.</span></li></ul>
+  </div>
+</section>
+<section class="sec" aria-labelledby="s6">
+  <div class="wrap">
+    <div class="sec-lbl kop rv"><h2 id="s6">Wat wij niet hebben, en wanneer wel<span class="dot">.</span></h2><span class="lbl">06</span></div>
+    <ul class="todo rv"><li><span><b>Geen ISO 27001-certificaat.</b> Wij werken naar het Belgische CyberFundamentals-kader (CCB) toe; de zelfbeoordeling volgt in 2026. ISO 27001 plannen we zodra een klant het contractueel vraagt.</span></li><li><span><b>Geen gekwalificeerde handtekening per registratie</b> in de zin van eIDAS. Elke registratie is getekend met de sleutel van het toestel of met de systeemsleutel van de organisatie. Groepen met registraties van klantorganisaties krijgen doorgaans binnen zes uur een gekwalificeerde tijdstempel van GLOBALTRUST, een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst, zolang ons jaarpakket bij die dienst ruimte heeft; elke registratie is ermee verbonden via haar Merkle-pad. Demo- en testorganisaties krijgen er geen. Alleen het mandaat van de bestuurder is getekend met zijn Belgische eID; of die handtekening gekwalificeerd is, zegt een validatie van het certificaat, niet Vidimus.</span></li><li><span><b>Geen blockchain-netwerk.</b> Het grootboek is een hash-keten op onze infrastructuur, getekend en getijdstempeld. Sinds 7 september 2026 gaat elke Merkle-wortel bovendien via OpenTimestamps naar Bitcoin: een publieke tweede getuige buiten Vidimus, na te rekenen tegen Bitcoin zelf.</span></li></ul>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>VIDIMUS · SITE</span>
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
+  <a href="index.html">Terug naar de site</a>
+  <a href="scenarios.html">Scenario's</a>
+  <a href="cases.html">Cases</a>
+  <a href="vragen.html">Vragen</a>
+  <a href="verificatie.html">Verificatie</a>
+  <span class="sp"></span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <span class="taal" role="group" aria-label="Taal / Language"><b lang="nl" aria-current="true">NL</b><a href="../security.html" hreflang="en" lang="en">EN</a></span>
+</footer>
+
+<script src="../script.js?v=20261028b" defer></script>
+<script src="../taal.js?v=20261116a" defer></script>
+</body>
+</html>

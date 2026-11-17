@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="nl" class="js">
+<html lang="en" class="js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#00030C">
-<title>Vidimus Data — momentopnames, mappen en webpagina's als bewijs | Vidimus</title>
-<meta name="description" content="Leg de stand van een databank of map vast zonder de inhoud te uploaden, of een webpagina zoals ze online stond. Elke vastlegging is één registratie, verankerd.">
+<title>Vidimus Data — snapshots, folders and web pages as proof | Vidimus</title>
+<meta name="description" content="Record the state of a database or folder without uploading the content, or a web page as it was online. Each recording is one record, anchored.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
 <link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="favicon-48.png?v=3" sizes="48x48">
@@ -20,10 +20,16 @@
 <link rel="stylesheet" href="product.css?v=20261028a">
 <link rel="stylesheet" href="menu.css?v=20261102a">
 <link rel="stylesheet" href="beeld-motion.css?v=20261102c">
+<link rel="stylesheet" href="taal.css?v=20261116a">
 
 <link rel="canonical" href="https://vidimus.be/data.html">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
-<meta property="og:title" content="Vidimus Data — momentopnames, mappen en webpagina's als bewijs | Vidimus"><meta property="og:description" content="Leg de stand van een databank of map vast zonder de inhoud te uploaden, of een webpagina zoals ze online stond. Elke vastlegging is één registratie, verankerd."><meta property="og:url" content="https://vidimus.be/data.html"><meta property="og:image" content="https://vidimus.be/assets/og/laptop-overzicht.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/data.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/data.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/data.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Vidimus Data — snapshots, folders and web pages as proof | Vidimus"><meta property="og:description" content="Record the state of a database or folder without uploading the content, or a web page as it was online. Each recording is one record, anchored."><meta property="og:url" content="https://vidimus.be/data.html"><meta property="og:image" content="https://vidimus.be/assets/og/laptop-overzicht.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/laptop-overzicht.jpg">
 <!-- seo:faq -->
 <script type="application/ld+json">
@@ -32,33 +38,33 @@
  "@type": "FAQPage",
  "@id": "https://vidimus.be/data.html#faq",
  "url": "https://vidimus.be/data.html",
- "inLanguage": "nl-BE",
+ "inLanguage": "en",
  "publisher": {
   "@id": "https://vidimus.be/#organization"
  },
  "mainEntity": [
   {
    "@type": "Question",
-   "name": "Moeten we onze databank naar Vidimus uploaden?",
+   "name": "Do we have to upload our database to Vidimus?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Nee. De vingerafdrukken worden bij u berekend. Voor een databank ontvangt Vidimus alleen vingerafdrukken, de namen van tabellen en kolommen, en aantallen; met de rijsleutel ook geen sleutelwaarden. Voor een map zijn dat de vingerafdrukken en de bestandsnamen. De inhoud zelf niet."
+    "text": "No. The fingerprints are computed on your side. For a database, Vidimus only receives fingerprints, the names of tables and columns, and counts; with the row key, no key values either. For a folder, that is the fingerprints and the file names. Not the content itself."
    }
   },
   {
    "@type": "Question",
-   "name": "Kan het ook voor gegevens van vóór het incident?",
+   "name": "Does it also work for data from before the incident?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Alleen als ze toen al verankerd waren. Een momentopname van vandaag bewijst hoe uw gegevens er vandaag uitzien, en dat ze daarna ongewijzigd bleven. Daarom begint u best nu."
+    "text": "Only if it was already anchored then. A snapshot taken today proves what your data looks like today, and that it has stayed unchanged since. That is why it is best to start now."
    }
   },
   {
    "@type": "Question",
-   "name": "Ziet de tegenpartij precies wat ik zag op een webpagina?",
+   "name": "Does the counterparty see exactly what I saw on a web page?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Niet noodzakelijk. De registratie toont wat op dat adres aan onze server werd aangeboden, vanaf onze server in de EU. Wie vanuit een ander land, in een andere taal of aangemeld kijkt, kan iets anders zien. Dat staat in elke registratie."
+    "text": "Not necessarily. The record shows what was served at that address to our server, from our server in the EU. Someone viewing from another country, in another language or logged in may see something else. Every record says so."
    }
   }
  ]
@@ -79,187 +85,188 @@
 
 <header class="site">
   <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
-  <nav class="topnav" aria-label="Hoofdnavigatie">
+  <nav class="topnav" aria-label="Main navigation">
     <div class="nav-prod">
-      <button class="nav-prod-knop cur" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="nav-prod-knop cur" type="button" aria-expanded="false" aria-controls="nav-producten">Products<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="mega" id="nav-producten" hidden>
         <ul class="mega-lijst">
-          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
-          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
-          <li><a class="mega-item" href="data.html" aria-current="page"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
-          <li><a class="mega-item" href="productpaspoort.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Productpaspoort</b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
-          <li class="mega-breed"><a class="mega-item" href="prive.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Privé <em class="mega-wacht">Op aanvraag</em></b><span>Een eigen omgeving voor één organisatie: eigen sleutels, eigen adres, tijdstempels en ankers van buiten.</span></span></a></li>
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Deliveries, damage and handovers on the spot, signed by both parties.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters and weighbridges send measurements; each measurement is anchored separately.</span></span></a></li>
+          <li><a class="mega-item" href="data.html" aria-current="page"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Snapshots of databases and folders, and web pages as they were online.</span></span></a></li>
+          <li><a class="mega-item" href="product-passport.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Product Passport</b><span>A code with a QR label per object and a line of handovers, signed by holder and recipient.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="private.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Private <em class="mega-wacht">On request</em></b><span>A dedicated environment for one organisation: its own keys, its own address, timestamps and anchors from outside.</span></span></a></li>
         </ul>
         <div class="mega-zij">
-          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
-          <a class="mega-alle" href="index.html#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          <a class="mega-soft" href="partners.html"><em>Vidimus for software</em><b>Are you building a TMS, WMS or ERP?</b><span>Deliver proof in your own product through the partner API: referral, reseller or integrator.</span><i>Become a partner<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">All products side by side<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
         </div>
       </div>
     </div>
-    <a href="hoe-het-werkt.html">Hoe het werkt</a>
-    <a href="prijzen.html">Prijzen</a>
-    <a href="juridisch.html">Juridisch</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="legal.html">Legal</a>
   </nav>
   <div class="top-cta">
-    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
-    <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
-    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Explainer videos</a>
+    <a class="top-taal" href="nl/data.html" hreflang="nl-BE" lang="nl" aria-label="Nederlandse versie van deze pagina">NL</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Log in</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start free</a>
   </div>
 </header>
 
 <main>
-<!-- 1 · held: donkere band met de eigen render rechts (assets/illustratie), tekst links -->
+<!-- 1 · hero: dark band with the own render on the right (assets/illustratie), text on the left -->
 <section class="pr-held" aria-labelledby="pr-h">
   <div class="wrap">
     <div class="pr-held-tekst">
-      <p class="pr-kruimel"><a href="index.html">Vidimus</a><i>/</i><a href="index.html#producten">Producten</a><i>/</i><span>Data</span></p>
+      <p class="pr-kruimel"><a href="index.html">Vidimus</a><i>/</i><a href="index.html#producten">Products</a><i>/</i><span>Data</span></p>
       <p class="pr-kicker"><span class="pr-live">Live</span>Vidimus Data</p>
-      <h1 id="pr-h">De stand van uw gegevens<span class="dot">,</span> <span>vastgelegd buiten uw systeem.</span></h1>
-      <p class="pr-zin">Een momentopname van een databank of map, of een webpagina zoals ze online stond. Voor databanken en mappen berekent u de vingerafdrukken zelf: de inhoud blijft bij u.</p>
+      <h1 id="pr-h">The state of your data<span class="dot">,</span> <span>recorded outside your system.</span></h1>
+      <p class="pr-zin">A snapshot of a database or folder, or a web page as it was online. For databases and folders, you compute the fingerprints yourself: the content stays with you.</p>
       <div class="hero-actions">
-        <a class="xbtn red" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+        <a class="xbtn red" href="https://app.vidimus.be/aanmelden"><span>Start free</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
       </div>
-      <p class="pr-micro">momentopname, map en webpagina: vandaag · elke nacht automatisch: in opbouw</p>
+      <p class="pr-micro">snapshot, folder and web page: today · automatically every night: in development</p>
     </div>
   </div>
   <picture class="pr-beeld">
     <source media="(max-width: 720px)" srcset="assets/illustratie/data-900.webp 900w, assets/illustratie/data-1800.webp 1800w" sizes="100vw" width="900" height="763">
-    <img src="assets/illustratie/data-1600.webp" srcset="assets/illustratie/data-1200.webp 1200w, assets/illustratie/data-1600.webp 1600w, assets/illustratie/data-2400.webp 2400w, assets/illustratie/data-3200.webp 3200w" sizes="(max-width: 720px) 100vw, 64vw" width="1600" height="1000" alt="Een serverkast en een databank in een kader op een platform; de vingerafdrukken gaan door vier poorten: vingerafdruk, sleutel, klok en anker" loading="eager" fetchpriority="high" decoding="async">
+    <img src="assets/illustratie/data-1600.webp" srcset="assets/illustratie/data-1200.webp 1200w, assets/illustratie/data-1600.webp 1600w, assets/illustratie/data-2400.webp 2400w, assets/illustratie/data-3200.webp 3200w" sizes="(max-width: 720px) 100vw, 64vw" width="1600" height="1000" alt="A server cabinet and a database in a frame on a platform; the fingerprints pass through four gates: fingerprint, key, clock and anchor" loading="eager" fetchpriority="high" decoding="async">
   </picture>
 </section>
 
-<!-- 2 · wat het doet (hoogstens 60 woorden) -->
+<!-- 2 · what it does (at most 60 words) -->
 <section class="pr-sec" aria-labelledby="wat-h">
   <div class="wrap">
     <div class="pr-duo">
       <div>
-        <div class="sec-head"><span class="idx">01 / WAT HET DOET</span><h2 class="disp" id="wat-h">Wat het doet<span class="dot">.</span></h2></div>
-        <p class="pr-lead rv">Vidimus Data legt de stand vast van gegevens die al in uw systemen zitten: een databank, een map met bestanden of een webpagina. Voor databanken en mappen berekent u de vingerafdrukken zelf; naar Vidimus gaan alleen vingerafdrukken, namen en aantallen. Elke vastlegging is <b>één registratie</b>, binnen vijf minuten verankerd.</p>
+        <div class="sec-head"><span class="idx">01 / WHAT IT DOES</span><h2 class="disp" id="wat-h">What it does<span class="dot">.</span></h2></div>
+        <p class="pr-lead rv">Vidimus Data records the state of data that is already in your systems: a database, a folder of files or a web page. For databases and folders, you compute the fingerprints yourself; only fingerprints, names and counts go to Vidimus. Each recording is <b>one record</b>, anchored within five minutes.</p>
       </div>
-      <figure class="pr-kaart rv" aria-label="Voorbeeld van een registratie"><figcaption>voorbeeld · fictieve momentopname</figcaption><dl><dt>momentopname</dt><dd>orders · 1 284 rijen</dd><dt>naar Vidimus</dt><dd>vingerafdrukken · tabel- en kolomnamen · aantallen</dd><dt>inhoud</dt><dd>blijft bij u</dd><dt>vastgelegd</dt><dd>30 september 2026 · 00:00 (UTC+2)</dd><dt>telt als</dt><dd>één registratie</dd><dt>uitkomst</dt><dd class="ok">ongewijzigd · tijdstempel + Bitcoin-anker</dd></dl></figure>
+      <figure class="pr-kaart rv" aria-label="Example of a record"><figcaption>example · fictional snapshot</figcaption><dl><dt>snapshot</dt><dd>orders · 1,284 rows</dd><dt>to Vidimus</dt><dd>fingerprints · table and column names · counts</dd><dt>content</dt><dd>stays with you</dd><dt>recorded</dt><dd>30 September 2026 · 00:00 (UTC+2)</dd><dt>counts as</dt><dd>one record</dd><dt>outcome</dt><dd class="ok">unchanged · timestamp + Bitcoin anchor</dd></dl></figure>
     </div>
-    <ul class="pr-vormen rv" aria-label="Wat Vidimus Data vandaag vastlegt">
-      <li><span class="pr-st">vandaag</span><h3>Momentopname van een databank</h3><p>U exporteert uw databank. Elke rij krijgt bij u een vingerafdruk; naar Vidimus gaan alleen vingerafdrukken, de namen van tabellen en kolommen, en aantallen. Met de rijsleutel ook geen sleutelwaarden.</p></li>
-      <li><span class="pr-st">vandaag</span><h3>Een hele map</h3><p>Elk bestand krijgt op uw eigen computer een vingerafdruk; naar Vidimus gaat alleen de lijst met bestandsnamen en vingerafdrukken. In het bureau door de map te slepen, of met een klein script.</p></li>
-      <li><span class="pr-st">vandaag</span><h3>Een webpagina</h3><p>Onze server haalt de pagina zelf op: de HTML byte voor byte, de antwoordheaders, de omleidingen, het TLS-certificaat en een schermbeeld. <a href="webpagina-vastleggen.html">Wat het wel en niet bewijst</a></p></li>
+    <ul class="pr-vormen rv" aria-label="What Vidimus Data records today">
+      <li><span class="pr-st">today</span><h3>Snapshot of a database</h3><p>You export your database. Each row gets a fingerprint on your side; only fingerprints, the names of tables and columns, and counts go to Vidimus. With the row key, no key values either.</p></li>
+      <li><span class="pr-st">today</span><h3>A whole folder</h3><p>Each file gets a fingerprint on your own computer; only the list of file names and fingerprints goes to Vidimus. In the dashboard by dragging in the folder, or with a small script.</p></li>
+      <li><span class="pr-st">today</span><h3>A web page</h3><p>Our server fetches the page itself: the HTML byte for byte, the response headers, the redirects, the TLS certificate and a screenshot. <a href="record-a-web-page.html">What it proves and what it does not</a></p></li>
     </ul>
     <div class="pr-later rv">
-      <p><span class="pr-st wacht">in opbouw</span><b>Elke nacht automatisch</b>Dezelfde export loopt elke nacht vanzelf, zodat u voor elke dag een vast vertrekpunt hebt.</p>
-      <p><span class="pr-st wacht">in opbouw</span><b>Een databank vergelijken na een incident</b>De huidige export naast de momentopname van vóór het incident: per rij ongewijzigd, gewijzigd of nieuw.</p>
+      <p><span class="pr-st wacht">in development</span><b>Automatically every night</b>The same export runs by itself every night, so you have a fixed starting point for every day.</p>
+      <p><span class="pr-st wacht">in development</span><b>Comparing a database after an incident</b>The current export next to the snapshot from before the incident: per row unchanged, changed or new.</p>
     </div>
   </div>
 </section>
 
-<!-- na een incident: wat het doet en wat niet (zie /na-een-inbraak) -->
+<!-- after an incident: what it does and what it does not (see /after-a-breach) -->
 <section class="pr-sec" id="incident" aria-labelledby="incident-h">
   <div class="wrap">
-    <div class="sec-head"><span class="idx">NA EEN INCIDENT</span><h2 class="disp" id="incident-h">Na een inbraak<span class="dot">:</span> <span class="thin">per bestand wat ongewijzigd bleef</span><span class="dot">.</span></h2></div>
+    <div class="sec-head"><span class="idx">AFTER AN INCIDENT</span><h2 class="disp" id="incident-h">After a breach<span class="dot">:</span> <span class="thin">per file, what stayed unchanged</span><span class="dot">.</span></h2></div>
     <div class="pr-incident rv">
       <div>
-        <h3>De historiek staat op dezelfde server. Uw momentopname niet.</h3>
-        <p>Na een inbraak vraagt een klant of verzekeraar: hoe weet u dat dit nog hetzelfde is als vóór de inbraak? Uw antwoord komt dan uit het systeem dat werd gekraakt.</p>
-        <p>Legde u een map vast vóór het incident, dan legt u de huidige bestanden ernaast. Per bestand ziet u wat ongewijzigd, gewijzigd, verplaatst of verdwenen is, en uw klant rekent het zelf na. Voor een databank bouwen we die vergelijking nu; de momentopname zelf legt u vandaag al vast.</p>
+        <h3>The history is on the same server. Your snapshot is not.</h3>
+        <p>After a breach, a customer or insurer asks: how do you know this is still the same as before the breach? Your answer then comes from the system that was broken into.</p>
+        <p>If you recorded a folder before the incident, you put the current files next to it. Per file you see what is unchanged, changed, moved or gone, and your customer recomputes it for themselves. For a database we are building that comparison now; you can already record the snapshot itself today.</p>
       </div>
       <div class="pr-grens">
-        <h3>Wat Vidimus niet doet</h3>
+        <h3>What Vidimus does not do</h3>
         <ul>
-          <li>Het voorkomt geen inbraak en spoort er ook geen op.</li>
-          <li>Het vervangt geen patch, back-up of beveiligingsbedrijf.</li>
-          <li>Het bewijs geldt alleen voor gegevens die vóór het incident verankerd werden.</li>
-          <li><a href="na-een-inbraak.html">Wat u nu doet na een inbraak</a></li>
+          <li>It does not prevent a breach and it does not detect one either.</li>
+          <li>It does not replace a patch, a backup or a security firm.</li>
+          <li>The proof only covers data that was anchored before the incident.</li>
+          <li><a href="after-a-breach.html">What to do now after a breach</a></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3 · zo ontstaat het bewijs: dezelfde vier stappen als op /hoe-het-werkt -->
+<!-- 3 · how the proof comes about: the same four steps as on /how-it-works -->
 <section class="pr-sec" aria-labelledby="keten-h">
   <div class="wrap">
-    <div class="sec-head"><span class="idx">02 / HET BEWIJS</span><h2 class="disp" id="keten-h">Vier stappen<span class="dot">,</span> <span class="thin">voor elke registratie dezelfde</span><span class="dot">.</span></h2></div>
-    <ol class="pr-keten rv" aria-label="vingerafdruk, handtekening, tijdstempel, anker">
-      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-vinger"/></svg></span><span class="nr">01</span><h3>Vingerafdruk</h3><code>sha-256 · per rij of per bestand, bij u berekend</code><p>Uit een vingerafdruk valt de inhoud niet te reconstrueren. Voor een webpagina rekent onze server ze uit over wat hij ophaalde.</p></li>
-      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-sleutel"/></svg></span><span class="nr">02</span><h3>Handtekening</h3><code>ed25519 · sleutel van uw toestel of systeem</code><p>De lijst met vingerafdrukken wordt als één registratie getekend door wie ze vastlegt: uw toestel, of de sleutel van uw systeem.</p></li>
-      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-klok"/></svg></span><span class="nr">03</span><h3>Tijdstempel</h3><code>rfc 3161 · per groep van vijf minuten</code><p>Een externe tijdstempeldienst tekent de groep waarin de registratie zit, elke vijf minuten. De tijd komt niet van u en niet van ons. Daarna volgt de gekwalificeerde tijdstempel van GLOBALTRUST (eIDAS), per groep, voor klantorganisaties, doorgaans binnen zes uur.</p></li>
-      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-anker"/></svg></span><span class="nr">04</span><h3>Anker</h3><code>grootboek (hash-keten) → opentimestamps → bitcoin</code><p>De wortel van de groep gaat in ons grootboek, waar elk record het vorige hasht, en via OpenTimestamps in Bitcoin. Wijzigen of wissen valt op voor wie nakijkt, ook als wij het zouden proberen.</p></li>
+    <div class="sec-head"><span class="idx">02 / THE PROOF</span><h2 class="disp" id="keten-h">Four steps<span class="dot">,</span> <span class="thin">the same for every record</span><span class="dot">.</span></h2></div>
+    <ol class="pr-keten rv" aria-label="fingerprint, signature, timestamp, anchor">
+      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-vinger"/></svg></span><span class="nr">01</span><h3>Fingerprint</h3><code>sha-256 · per row or per file, computed on your side</code><p>The content cannot be reconstructed from a fingerprint. For a web page, our server computes them over what it fetched.</p></li>
+      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-sleutel"/></svg></span><span class="nr">02</span><h3>Signature</h3><code>ed25519 · key of your device or system</code><p>The list of fingerprints is signed as one record by whoever records it: your device, or your system's key.</p></li>
+      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-klok"/></svg></span><span class="nr">03</span><h3>Timestamp</h3><code>rfc 3161 · per five-minute group</code><p>An external timestamping service signs the group that contains the record, every five minutes. The time does not come from you and not from us. After that comes the qualified timestamp from GLOBALTRUST (eIDAS), per group, for customer organisations, usually within six hours.</p></li>
+      <li><span class="pr-ico" aria-hidden="true"><svg><use href="#i-anker"/></svg></span><span class="nr">04</span><h3>Anchor</h3><code>ledger (hash chain) → opentimestamps → bitcoin</code><p>The root of the group goes into our ledger, where each entry hashes the previous one, and via OpenTimestamps into Bitcoin. Anyone who checks will see a change or deletion, even if we were the ones to try it.</p></li>
     </ol>
-    <p class="pr-keten-voet">Elke stap is na te rekenen, ook zonder Vidimus. <a href="hoe-het-werkt.html">Alle zeven stappen, van identiteit tot wissen</a></p>
+    <p class="pr-keten-voet">Every step can be recomputed, even without Vidimus. <a href="how-it-works.html">All seven steps, from identity to erasure</a></p>
   </div>
 </section>
 
-<!-- 4 · specificaties en prijs -->
+<!-- 4 · specifications and price -->
 <section class="pr-sec" id="specificaties" aria-labelledby="spec-h">
   <div class="wrap">
-    <div class="sec-head"><span class="idx">03 / SPECIFICATIES</span><h2 class="disp" id="spec-h">Specificaties en prijs<span class="dot">.</span></h2></div>
+    <div class="sec-head"><span class="idx">03 / SPECIFICATIONS</span><h2 class="disp" id="spec-h">Specifications and price<span class="dot">.</span></h2></div>
     <div class="pr-specprijs">
       <dl class="pr-spec rv">
-      <div><dt>databank</dt><dd>vingerafdruk per rij · naar Vidimus: vingerafdrukken, tabel- en kolomnamen, aantallen · met rijsleutel geen sleutelwaarden</dd></div>
-      <div><dt>map</dt><dd>vingerafdruk per bestand · naar Vidimus: bestandsnamen en vingerafdrukken · in het bureau of met een klein script</dd></div>
-      <div><dt>webpagina</dt><dd>HTML byte voor byte · antwoordheaders · omleidingen · TLS-certificaat · schermbeeld 1280 × 2400</dd></div>
-      <div><dt>grenzen web</dt><dd>alleen publieke pagina's · hoogstens vijf per minuut per organisatie · niet in een vertrouwelijk logboek</dd></div>
-      <div><dt>vergelijken</dt><dd>map: per bestand ongewijzigd, gewijzigd, verplaatst of verdwenen · databank: <span class="wacht">in opbouw</span></dd></div>
-      <div><dt>elke nacht</dt><dd><span class="wacht">in opbouw</span></dd></div>
-      <div><dt>verankerd</dt><dd>binnen vijf minuten verankerd</dd></div>
-      <div><dt>bewaren</dt><dd>standaard tien jaar per logboek, aanpasbaar</dd></div>
-      <div><dt>telt als</dt><dd>één registratie per momentopname, map of webpagina</dd></div>
+      <div><dt>database</dt><dd>fingerprint per row · to Vidimus: fingerprints, table and column names, counts · with row key no key values</dd></div>
+      <div><dt>folder</dt><dd>fingerprint per file · to Vidimus: file names and fingerprints · in the dashboard or with a small script</dd></div>
+      <div><dt>web page</dt><dd>HTML byte for byte · response headers · redirects · TLS certificate · screenshot 1280 × 2400</dd></div>
+      <div><dt>web limits</dt><dd>public pages only · at most five per minute per organisation · not in a confidential logbook</dd></div>
+      <div><dt>compare</dt><dd>folder: per file unchanged, changed, moved or gone · database: <span class="wacht">in development</span></dd></div>
+      <div><dt>every night</dt><dd><span class="wacht">in development</span></dd></div>
+      <div><dt>anchored</dt><dd>anchored within five minutes</dd></div>
+      <div><dt>retention</dt><dd>ten years per logbook by default, adjustable</dd></div>
+      <div><dt>counts as</dt><dd>one record per snapshot, folder or web page</dd></div>
       </dl>
       <aside class="pr-prijs rv" aria-labelledby="prijs-h">
-        <span class="lbl" id="prijs-h">Prijs, excl. btw</span>
-        <p class="pr-bedrag"><small>vanaf</small><b>€&nbsp;0</b><span>per maand</span></p>
-        <p>Een momentopname, een map of een webpagina is één registratie. De eerste 100 per maand zijn gratis; één momentopname per dag past daar ruim in.</p>
+        <span class="lbl" id="prijs-h">Price, excl. VAT</span>
+        <p class="pr-bedrag"><small>from</small><b>€0</b><span>per month</span></p>
+        <p>A snapshot, a folder or a web page is one record. The first 100 a month are free; one snapshot a day fits in easily.</p>
         <table class="pr-schijven">
-          <caption>Per registratie, per schijf, per maand</caption>
+          <caption>Per record, per tier, per month</caption>
           <tbody>
-            <tr><th scope="row">1 – 100</th><td>gratis</td></tr>
-            <tr><th scope="row">101 – 3 000</th><td>€&nbsp;0,08</td></tr>
-            <tr><th scope="row">3 001 – 10 000</th><td>€&nbsp;0,04</td></tr>
-            <tr><th scope="row">10 001 – 100 000</th><td>€&nbsp;0,01</td></tr>
-            <tr><th scope="row">boven 100 000</th><td>€&nbsp;0,003</td></tr>
-            <tr><th scope="row">boven 1 miljoen</th><td>op offerte</td></tr>
+            <tr><th scope="row">1 – 100</th><td>free</td></tr>
+            <tr><th scope="row">101 – 3,000</th><td>€0.08</td></tr>
+            <tr><th scope="row">3,001 – 10,000</th><td>€0.04</td></tr>
+            <tr><th scope="row">10,001 – 100,000</th><td>€0.01</td></tr>
+            <tr><th scope="row">above 100,000</th><td>€0.003</td></tr>
+            <tr><th scope="row">above 1 million</th><td>on quote</td></tr>
           </tbody>
         </table>
-        <p class="klein">Zodra u iets betaalt, minstens €&nbsp;19 per maand. Jaarcontract: 12 maanden voor de prijs van 10.</p>
-        <a class="meer" href="prijzen.html">Reken uw prijs uit<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="klein">Once you pay anything, at least €19 a month. Annual contract: 12 months for the price of 10.</p>
+        <a class="meer" href="pricing.html">Work out your price<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- 5 · toepassingen: sectoren als voorbeeld, één product -->
+<!-- 5 · use cases: sectors as examples, one product -->
 <section class="pr-sec" aria-labelledby="toep-h">
   <div class="wrap">
-    <div class="sec-head"><span class="idx">04 / TOEPASSINGEN</span><h2 class="disp" id="toep-h">Waar het vaak om gaat<span class="dot">.</span></h2><p class="side">Voorbeelden, geen afbakening: Vidimus is één product voor elke soort registratie.</p></div>
+    <div class="sec-head"><span class="idx">04 / USE CASES</span><h2 class="disp" id="toep-h">What it is often about<span class="dot">.</span></h2><p class="side">Examples, not limits: Vidimus is one product for every kind of record.</p></div>
     <ul class="related rv">
-      <li><a href="na-een-inbraak.html"><span class="lbl">IT EN DATABANKEN</span><b>“De patch staat erop. Wat veranderde er?”</b></a></li>
-      <li><a href="webpagina-vastleggen.html"><span class="lbl">WEBPAGINA'S EN PUBLICATIES</span><b>“Dat heeft daar nooit gestaan.”</b></a></li>
-      <li><a href="vergelijking-proofsnap-truescreen.html"><span class="lbl">VERGELIJKING</span><b>Vidimus, ProofSnap en TrueScreen naast elkaar</b></a></li>
+      <li><a href="after-a-breach.html"><span class="lbl">IT AND DATABASES</span><b>“The patch is installed. What changed?”</b></a></li>
+      <li><a href="record-a-web-page.html"><span class="lbl">WEB PAGES AND PUBLICATIONS</span><b>“That was never there.”</b></a></li>
+      <li><a href="comparison-proofsnap-truescreen.html"><span class="lbl">COMPARISON</span><b>Vidimus, ProofSnap and TrueScreen side by side</b></a></li>
     </ul>
   </div>
 </section>
 
-<!-- 6 · vragen -->
+<!-- 6 · questions -->
 <section class="pr-sec" aria-labelledby="vragen-h">
   <div class="wrap">
-    <div class="sec-head"><span class="idx">05 / VRAGEN</span><h2 class="disp" id="vragen-h">Wat u wil weten<span class="dot">.</span></h2></div>
+    <div class="sec-head"><span class="idx">05 / QUESTIONS</span><h2 class="disp" id="vragen-h">What you want to know<span class="dot">.</span></h2></div>
     <div class="faq rv">
-      <details><summary>Moeten we onze databank naar Vidimus uploaden?</summary><p class="a"><b>Nee.</b> De vingerafdrukken worden bij u berekend. Voor een databank ontvangt Vidimus alleen vingerafdrukken, de namen van tabellen en kolommen, en aantallen; met de rijsleutel ook geen sleutelwaarden. Voor een map zijn dat de vingerafdrukken en de bestandsnamen. De inhoud zelf niet.</p></details>
-      <details><summary>Kan het ook voor gegevens van vóór het incident?</summary><p class="a"><b>Alleen als ze toen al verankerd waren.</b> Een momentopname van vandaag bewijst hoe uw gegevens er vandaag uitzien, en dat ze daarna ongewijzigd bleven. Daarom begint u best nu.</p></details>
-      <details><summary>Ziet de tegenpartij precies wat ik zag op een webpagina?</summary><p class="a">Niet noodzakelijk. De registratie toont wat op dat adres aan onze server werd aangeboden, vanaf onze server in de EU. Wie vanuit een ander land, in een andere taal of aangemeld kijkt, kan iets anders zien. Dat staat in elke registratie.</p></details>
+      <details><summary>Do we have to upload our database to Vidimus?</summary><p class="a"><b>No.</b> The fingerprints are computed on your side. For a database, Vidimus only receives fingerprints, the names of tables and columns, and counts; with the row key, no key values either. For a folder, that is the fingerprints and the file names. Not the content itself.</p></details>
+      <details><summary>Does it also work for data from before the incident?</summary><p class="a"><b>Only if it was already anchored then.</b> A snapshot taken today proves what your data looks like today, and that it has stayed unchanged since. That is why it is best to start now.</p></details>
+      <details><summary>Does the counterparty see exactly what I saw on a web page?</summary><p class="a">Not necessarily. The record shows what was served at that address to our server, from our server in the EU. Someone viewing from another country, in another language or logged in may see something else. Every record says so.</p></details>
     </div>
   </div>
 </section>
 
-<!-- 7 · slot -->
+<!-- 7 · closing -->
 <div class="pr-cta">
 <section class="cta-band" aria-labelledby="slot-h">
   <div class="wrap">
-    <h2 class="disp" id="slot-h">Begin vandaag: <span>uw eerste momentopname is gratis.</span></h2>
+    <h2 class="disp" id="slot-h">Start today: <span>your first snapshot is free.</span></h2>
     <div class="final-under">
-      <p>Zonder betaalgegevens. Een bestuurder identificeert uw bedrijf één keer met de eID; daarna legt u uw eerste map, momentopname of webpagina vast. Bent u een hostingpartij of IT-partner? Dan bekijken we samen hoe u het aan uw klanten aanbiedt.</p>
+      <p>No payment details needed. A director identifies your company once with the Belgian eID; after that you record your first folder, snapshot or web page. Are you a hosting provider or IT partner? If so, we will look together at how you can offer it to your customers.</p>
       <div class="hero-actions">
-        <a class="xbtn red" href="https://app.vidimus.be/aanmelden"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+        <a class="xbtn red" href="https://app.vidimus.be/aanmelden"><span>Start free</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
       </div>
     </div>
   </div>
@@ -268,45 +275,49 @@
 </main>
 
 <footer class="app-voet">
-  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerpen · KBO BE 0805.309.143</span>
-  <a href="techniek.html">Techniek</a>
-  <a href="hoe-het-werkt.html">Hoe het werkt</a>
-  <a href="beveiliging.html">Beveiliging</a>
-  <a href="verificatie.html">Zelf narekenen</a>
+  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerp, Belgium · BE 0805.309.143</span>
+  <a href="technology.html">Technology</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="security.html">Security</a>
+  <a href="verify-it-yourself.html">Verify it yourself</a>
   <a href="partners.html">Partners</a>
   <a href="cases.html">Cases</a>
-  <a href="scenarios.html">Scenario's</a>
-  <a href="juridisch.html">Juridisch</a>
-  <a href="help.html">Uitlegvideo's</a>
-  <a href="vragen.html">Vragen</a>
-  <a href="voorwaarden.html">Voorwaarden</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="legal.html">Legal</a>
+  <a href="help.html">Explainer videos</a>
+  <a href="questions.html">Questions</a>
+  <a href="for-ai-agents.html">For AI agents</a>
+  <a href="terms.html">Terms</a>
   <a href="privacy.html">Privacy</a>
-  <a href="colofon.html">Colofon</a>
-  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download in de App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Ontdek het op Google Play" loading="lazy"></a></span>
+  <a href="colophon.html">Colophon</a>
+  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Get it on Google Play" loading="lazy"></a></span>
   <span class="sp"></span>
   <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
   <a href="tel:+32466474115">+32 466 47 41 15</a>
   <a href="https://www.linkedin.com/company/vidimus-be/" rel="noopener noreferrer">LinkedIn</a>
-  <nav class="voet-toep" aria-labelledby="voet-prod-h"><span id="voet-prod-h">Producten</span>
+  <nav class="voet-toep" aria-labelledby="voet-prod-h"><span id="voet-prod-h">Products</span>
     <a href="app.html">Vidimus App</a>
     <a href="sensor.html">Vidimus Sensor</a>
     <a href="data.html">Vidimus Data</a>
-    <a href="prive.html">Vidimus Privé</a>
-    <a href="partners.html">Vidimus voor software</a>
+    <a href="private.html">Vidimus Private</a>
+    <a href="partners.html">Vidimus for software</a>
   </nav>
-  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Toepassingen</span>
-    <a href="aflevering-betwist-cmr.html">Transport en logistiek</a>
-    <a href="plaatsbeschrijving-betwist.html">Vastgoed en verhuur</a>
-    <a href="meerwerk-bewijzen.html">Bouw en renovatie</a>
-    <a href="afgiftestaat-schade.html">Verhuur van materieel</a>
-    <a href="webpagina-vastleggen.html">Webpagina vastleggen</a>
-    <a href="na-een-inbraak.html">IT en databanken</a>
-    <a href="cases.html">Koelketen en zorg</a>
+  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Use cases</span>
+    <a href="disputed-delivery-cmr.html">Transport and logistics</a>
+    <a href="disputed-inspection-report.html">Real estate and rentals</a>
+    <a href="proving-extra-work.html">Construction and renovation</a>
+    <a href="equipment-handover-damage.html">Equipment rental</a>
+    <a href="record-a-web-page.html">Recording web pages</a>
+    <a href="after-a-breach.html">IT and databases</a>
+    <a href="cases.html">Cold chain and care</a>
+    <a href="comparison-proofsnap-truescreen.html">Comparison with ProofSnap and TrueScreen</a>
   </nav>
+  <span class="taal" role="group" aria-label="Language / Taal"><a href="nl/data.html" hreflang="nl-BE" lang="nl">NL</a><b lang="en" aria-current="true">EN</b></span>
 </footer>
 
 <script src="script.js?v=20261028b" defer></script>
 <script src="beeld-motion-data.js?v=20261102c" defer></script>
 <script src="beeld-motion.js?v=20261102c" defer></script>
+<script src="taal.js?v=20261116a" defer></script>
 </body>
 </html>

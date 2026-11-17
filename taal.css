@@ -1,0 +1,65 @@
+/* 16/11: taalwissel NL / EN in de kop en de voet, en de taalbalk van taal.js.
+   Kleuren en maten uit app-huis.css (:root); de kopknop volgt .top-login, de voet volgt .taal op de home. */
+
+/* kop: één knop naar dezelfde pagina in de andere taal, ook op een gsm zichtbaar */
+.top-taal {
+  display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px;
+  color: var(--ink-3); font-size: 14px; font-weight: 500; text-decoration: none;
+  transition: color 140ms, background 140ms;
+}
+.top-taal:hover { color: var(--ink); background: var(--bg-2); }
+.top-taal:focus-visible { outline: 2px solid var(--act); outline-offset: 2px; }
+@media (max-width: 720px) { .top-taal { min-height: 44px; } }
+
+/* voet: NL / EN, de huidige taal als vlak, de andere als link */
+.app-voet .taal { display: inline-flex; align-items: center; gap: 6px; }
+.app-voet .taal b, .app-voet .taal a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: var(--r-s, 8px); }
+.app-voet .taal b { background: var(--card); color: var(--ink); font-weight: 600; box-shadow: 0 0 0 1px var(--line); }
+.app-voet .taal a:hover { background: var(--card); color: var(--ink); }
+.app-voet .taal a:focus-visible { outline: 2px solid var(--act); outline-offset: 2px; }
+
+/* taalbalk: zwevend onderaan, dus geen verschuiving van de pagina */
+.taalbalk {
+  --taalbalk-in: 320ms;
+  position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); z-index: 1000;
+  display: flex; align-items: center; gap: 4px;
+  width: max-content; max-width: calc(100vw - 32px);
+  padding: 4px 4px 4px 18px; border-radius: 999px;
+  background: var(--ink, #0B0F17); color: #fff;
+  box-shadow: 0 12px 32px -12px rgba(11, 15, 23, .45), 0 2px 6px rgba(11, 15, 23, .18);
+  font: 500 14px/1.35 var(--ui, system-ui, sans-serif);
+  opacity: 0; transform: translate(-50%, 12px);
+  transition: opacity var(--taalbalk-in) var(--out, ease-out), transform var(--taalbalk-in) var(--out, ease-out);
+}
+.taalbalk.is-in { opacity: 1; transform: translate(-50%, 0); }
+.taalbalk a {
+  padding: 10px 4px; color: #fff;
+  text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .45); text-underline-offset: 3px;
+}
+.taalbalk a:hover { text-decoration-color: #fff; }
+.taalbalk button {
+  flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 0; border-radius: 50%; background: transparent; color: rgba(255, 255, 255, .78); cursor: pointer;
+  transition: background 140ms, color 140ms;
+}
+.taalbalk button:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+.taalbalk button:active { background: rgba(255, 255, 255, .2); }
+.taalbalk a:focus-visible, .taalbalk button:focus-visible { outline: 2px solid #B9C6FF; outline-offset: 2px; }
+.taalbalk svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+
+@media (prefers-reduced-motion: reduce) { .taalbalk { transition: none; } }
+@media print { .taalbalk { display: none; } }
+
+/* 17/11: tekst die gedeelde stylesheets met content: invoegen, in het Engels op Engelse pagina's (Nederlands ongewijzigd) */
+:lang(en) .pz-maanden li.gratis::after { content: "free"; }                 /* prijzen.css: de twee gratis maanden van het jaarcontract */
+:lang(en) .recog::before { content: "SOUND FAMILIAR?"; }                     /* inner.css: kader 'Herkent u dit?' op de toepassingspagina's */
+@media (max-width: 720px) { :lang(en) .vs-rij > span:first-of-type::before { content: "Problem · "; } }   /* site.css */
+:lang(en) .pick.prev::before, :lang(en) .tpl.prev::before { content: "LAST TIME"; }   /* app-huis-pages.css */
+
+/* 17/11: de Engelse voet heeft op elke pagina de lijst 'Use cases'; die stond alleen opgemaakt onder .home2 en .prod */
+.app-voet .voet-toep { display: flex; flex-wrap: wrap; gap: 4px 20px; width: 100%; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); }
+.app-voet .voet-toep > span { font-weight: 600; color: var(--ink-2); }
+.app-voet .winkels.voet { display: inline-flex; align-items: center; gap: 10px; }
+.app-voet .winkels.voet a { display: inline-flex; border-radius: 8px; }
+.app-voet .winkels.voet img[src$=".svg"] { height: 32px; width: auto; }
+.app-voet .winkels.voet img[src$=".png"] { height: 42px; width: auto; margin: -5px -6px; }

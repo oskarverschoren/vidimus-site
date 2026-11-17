@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F2F3F6">
+<title>Technology — Vidimus</title>
+<meta name="description" content="How Vidimus proof works: what is recorded, how you check it yourself, largely outside Vidimus and also with DSS, the European Commission's software, and what Vidimus does and does not prove.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="favicon-48.png?v=3" sizes="48x48">
+<link rel="icon" type="image/png" href="favicon-192.png?v=3" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app-huis.css?v=20260917b">
+<link rel="stylesheet" href="app-huis-pages.css?v=20261002a">
+<link rel="stylesheet" href="site.css?v=20261024a">
+<link rel="stylesheet" href="menu.css?v=20261102a">
+<link rel="stylesheet" href="taal.css?v=20261116a">
+
+<link rel="canonical" href="https://vidimus.be/technology.html">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/techniek.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/technology.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/technology.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Technology — Vidimus"><meta property="og:description" content="A proof layer outside your system for business records. Your TMS, WMS, ERP, sensors or app remain the source; Vidimus records the ones that count at the moment itself and anchors them within five minutes. The time with evidential value does not come from us. The first 100 records a month are free."><meta property="og:url" content="https://vidimus.be/technology.html"><meta property="og:image" content="https://vidimus.be/assets/og/controle-echt.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/controle-echt.jpg">
+</head>
+<body class="zinlabels">
+<div class="ambient" aria-hidden="true"></div>
+<svg class="sprite" width="0" height="0" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-seal" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.2" fill="currentColor"/></symbol>
+<symbol id="i-play" viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></symbol>
+<symbol id="i-edit" viewBox="0 0 16 16"><path d="M9.8 2.8l3.4 3.4L5.4 14H2v-3.4l7.8-7.8zM8.4 4.2l3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+<symbol id="i-uit" viewBox="0 0 16 16"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Products<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Deliveries, damage and handovers on the spot, signed by both parties.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters and weighbridges send measurements; each measurement is anchored separately.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Snapshots of databases and folders, and web pages as they were online.</span></span></a></li>
+          <li><a class="mega-item" href="product-passport.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Product Passport</b><span>A code with a QR label per object and a line of handovers, signed by holder and recipient.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="private.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Private <em class="mega-wacht">On request</em></b><span>A dedicated environment for one organisation: its own keys, its own address, timestamps and anchors from outside.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus for software</em><b>Are you building a TMS, WMS or ERP?</b><span>Deliver proof in your own product through the partner API: referral, reseller or integrator.</span><i>Become a partner<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">All products side by side<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="legal.html">Legal</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Explainer videos</a>
+    <a class="top-taal" href="nl/techniek.html" hreflang="nl-BE" lang="nl" aria-label="Nederlandse versie van deze pagina">NL</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Log in</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start free</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ══ TECHNOLOGY (English translation of nl/techniek.html, 16/11/2026; Dutch source: golf 7, 24/10/2026) ══ -->
+<section class="sec techniek-held" aria-labelledby="tech-held-h">
+  <div class="wrap">
+    <h1 class="hero-title" id="tech-held-h">How the proof works<span class="dot">.</span></h1>
+    <p class="sub">For anyone who wants to know exactly what happens: what is recorded, how you check it yourself, largely outside Vidimus, and what Vidimus does and does not prove.</p>
+  </div>
+</section>
+
+<section class="sec" id="databank" aria-labelledby="databank-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="databank-h"><span>Why your database cannot do this<span class="dot">.</span></span></h2>
+    </div>
+    <div class="probleem-tekst rv">
+      <p>A lot of business software keeps a detailed history within its own environment (an audit trail): who, what, when, sometimes with the value before and after. That is useful. <b>But that history sits in the same system as the data. It is not the same as anchoring a single record outside that system, which a third party recomputes for themselves.</b></p>
+      <p>Your systems remain the source. Vidimus adds a proof layer outside your system to the records that matter to you: a delivery, a measurement, an inspection, a photo, an agreement. The time with evidential value does not come from us.</p>
+    </div>
+    <!-- one record, two lives: the same CMR record, left in a regular database, right with the anchoring layer (times in Brussels time) -->
+    <div class="tweelevens rv" id="tweeLevens">
+      <div class="tl-stappen" role="tablist" aria-label="What happens to the record">
+        <button type="button" class="tl-stap cur" data-stap="0" role="tab" aria-selected="true"><small>01</small>Created</button>
+        <button type="button" class="tl-stap" data-stap="1" role="tab" aria-selected="false"><small>02</small>"Corrected"</button>
+        <button type="button" class="tl-stap" data-stap="2" role="tab" aria-selected="false"><small>03</small>Migration</button>
+        <button type="button" class="tl-stap" data-stap="3" role="tab" aria-selected="false"><small>04</small>The dispute</button>
+      </div>
+      <div class="tl-grid">
+        <div class="glass tl-kaart" data-kant="db">
+          <div class="tl-kop"><span class="lbl">Regular database</span><span class="tl-versie" data-v>record · 1 version</span></div>
+          <dl class="kv">
+            <dt>sender</dt><dd data-f="afzender">Verhelst Transport BV</dd>
+            <dt>recipient</dt><dd data-f="ontvanger">Nova Logistics NV</dd>
+            <dt>packages</dt><dd data-f="colli">26 pallets · without reservation</dd>
+            <dt>delivered</dt><dd data-f="tijd">4 September 2026, 15:12 (UTC+2)</dd>
+            <dt>location · device</dt><dd data-f="plaats">51.2302 N · 4.4160 E · ±6 m</dd>
+          </dl>
+          <p class="tl-noot" data-noot>Neatly recorded. As it should be.</p>
+        </div>
+        <div class="glass tl-kaart" data-kant="anker">
+          <div class="tl-kop"><span class="lbl">With the anchoring layer</span><span class="tl-versie ok" data-v>example · anchored at 15:13:22 (UTC+2)</span></div>
+          <dl class="kv">
+            <dt>sender</dt><dd data-f="afzender">Verhelst Transport BV</dd>
+            <dt>recipient</dt><dd data-f="ontvanger">Nova Logistics NV</dd>
+            <dt>packages</dt><dd data-f="colli">26 pallets · without reservation</dd>
+            <dt>delivered</dt><dd data-f="tijd">4 September 2026, 15:12 (UTC+2)</dd>
+            <dt>location · device</dt><dd data-f="plaats">51.2302 N · 4.4160 E · ±6 m</dd>
+          </dl>
+          <div class="tl-extra" data-extra hidden></div>
+          <p class="tl-noot" data-noot>Fingerprint fa6ca8ec… is in the anchor of 4 September 2026, 15:13:22 (UTC+2).</p>
+        </div>
+      </div>
+      <div class="tl-uitkomst"><span class="tl-u bad" data-u="db">= word against word</span><span class="tl-u ok" data-u="anker">= calculation against word</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="hoe" aria-labelledby="hoe-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="hoe-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M22 26a8 8 0 0 1 8-8h6a8 8 0 0 1 0 16h-6"/><path class="ln" d="M30 26a8 8 0 0 1-8 8h-6a8 8 0 0 1 0-16h6"/><path class="ln" d="M21 26h10"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>Your system remains the source<span class="dot">.</span></span></h2>
+      <span class="lbl">In three steps</span>
+      <p class="side">No migration, no replacement. One thin layer on top of what you already have.</p>
+    </div>
+    <figure class="waarom-foto hoe-foto rv"><img src="assets/foto/koelwagen-900.webp" srcset="assets/foto/koelwagen-900.webp 900w, assets/foto/koelwagen-1600.webp 1600w" sizes="(min-width: 1400px) 1320px, 100vw" width="900" height="386" alt="A temperature logger in a refrigerated truck reports 2.4 °C; each measurement goes straight to Vidimus" loading="lazy" decoding="async"></figure>
+    <div class="stroom-grid how-grid">
+      <div class="stroom rv"><div class="kop"><h3>Connect</h3><span class="kind">01</span></div><span class="lbl">Source: your TMS or ERP, via API or webhook</span><p>Your system forwards each record. No system? Then the app: photo, location and signature, with a phone and a QR code, without installation. Vidimus scans and installs nothing at the customer's site: the integration is built by your vendor, your IT team or your own AI assistant. The only thing Vidimus fetches is a web address that you provide yourself to be recorded.</p></div>
+      <div class="stroom rv"><div class="kop"><h3>Anchor</h3><span class="kind">02</span></div><span class="lbl">Anchor: every five minutes, outside your system</span><p>Fingerprint and signature, anchored per five-minute group with a timestamp; groups with customer records usually also receive the qualified timestamp from GLOBALTRUST within six hours. Then into a ledger in which each link refers to the previous one: removing or changing something stands out, even if we were to do it.</p></div>
+      <div class="stroom rv"><div class="kop"><h3>Check</h3><span class="kind">03</span></div><span class="lbl">Check: public, without an account</span><p>The counterparty, an insurer, a judge, even years later. On the check page, or with the evidence bundle and its check script; the bundle remains verifiable if our platform no longer exists.</p></div>
+    </div>
+    <div class="niemand rv">
+      <p class="niemand-kop"><span class="lbl">What cannot happen unnoticed, not even by us</span></p>
+      <ul>
+        <li><b>Giving an earlier time or changing it afterwards</b><span>Nobody can give a record an earlier anchoring time, not even us. The time in the record itself is what the device reported. The anchoring time comes from an external timestamping service and from a Bitcoin block, not from our clock. One letter different and the check shows it.</span></li>
+        <li><b>Signing in your name, if you hold the key yourself</b><span>Whoever signs does so with their own key: on the phone, or for your system through our SDK. If your system holds the key itself, we never see it. If you let us keep the key, that is stated in every bundle.</span></li>
+        <li><b>Reading your content</b><span>Everything is stored encrypted (AES&#8209;256). If our server opens your content, for example for an evidence bundle, that shows up in your access log. Choose a confidential logbook or let your system encrypt the content itself: then the key is only with you, and Vidimus sees the fingerprint and a short envelope (type, reference, source and time), not the content. The proof remains verifiable; Vidimus then cannot show the content.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="bewijs" aria-labelledby="bewijs-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="bewijs-h"><span>Your system records<span class="dot">.</span> <span class="thin">Vidimus turns it into proof.</span></span></h2>
+      <span class="lbl">One demo record, really anchored</span>
+      <p class="side">Your TMS, WMS, ERP, sensor or app records what happens. Vidimus captures selected records at the moment itself and anchors them within five minutes. <b>That way, you, your counterparty or an auditor can later check independently whether that record has changed since it was anchored.</b> Below is a public demo record, anchored on the live service.</p>
+    </div>
+    <div class="bw-band rv">
+      <ol class="bw-stappen drie" aria-label="One demo record: recorded, anchored, checked later">
+        <li><span class="bw-lbl"><i>01</i>For example</span><b>18 pallets of frozen goods</b><span class="bw-sub">Halle · 29/09/2026 · 17:38:25 (UTC+2) · demo record</span></li>
+        <li><span class="bw-lbl"><i>02</i>Anchored</span><b>Fingerprint, Merkle root and timestamps</b><span class="bw-sub">outside your system · qualified timestamp from GLOBALTRUST at 17:38:56 (UTC+2) · this demo record belongs to Vidimus itself and the timestamp was requested manually here; for customer organisations it usually follows per group within six hours</span></li>
+        <li class="eind"><span class="bw-lbl"><i>03</i>Checked later</span><b>Unchanged</b><span class="bw-sub">The checked record matches what was anchored.</span></li>
+      </ol>
+      <details class="bw-spec">
+        <summary><span class="bw-spec-kop">Technical details</span><span class="bw-spec-sum">SHA-256 · Merkle · RFC 3161 · QTSA · Bitcoin</span><i aria-hidden="true">+</i></summary>
+        <dl>
+          <dt>Record</dt><dd>reg_18838643120d · public demo record · afgeleverd_op 2026-09-29T15:38:25Z (UTC)</dd>
+          <dt>Fingerprint</dt><dd class="hash">7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba</dd>
+          <dt>Merkle root</dt><dd class="hash">282bf1cd4271e524d7a8296362afa80d69b49998f6b866e58d645227bfb85b40 <span>· path of 3 steps</span></dd>
+          <dt>Timestamp</dt><dd>Sectigo · RFC 3161 · within a few minutes of the group</dd>
+          <dt>Qualified</dt><dd>GLOBALTRUST · QTSA · EU trusted list · 2026-09-29 15:38:56 UTC · requested manually for this demo of Vidimus itself; for customer organisations per group, usually within six hours</dd>
+          <dt>DSS</dt><dd>Outcome in DSS (European Commission software) · Evidence Record PASSED · 29 September 2026</dd>
+          <dt>Bitcoin</dt><dd>OpenTimestamps · the block and its time are on the check page</dd>
+        </dl>
+        <p class="bw-spec-links"><a href="https://app.vidimus.be/v/reg_18838643120d">Check page</a><a href="https://app.vidimus.be/verify/reg_18838643120d">JSON for agents</a><a href="#eu-zelf">The files</a><a href="verify-it-yourself.html">How to read the check</a></p>
+      </details>
+    </div>
+    <p class="bw-eerlijk rv"><b>To be fair:</b> does your system already keep records that cannot be changed, anchored outside that system and recomputable by third parties? Then the overlap with Vidimus is large, and we will tell you so.</p>
+  </div>
+</section>
+
+<section class="sec" id="eu" aria-labelledby="eu-h">
+  <div class="wrap">
+    <article class="vt-kaart rv" aria-labelledby="eu-h">
+      <header class="vt-kop">
+        <span class="vt-schild" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><h2 id="eu-h">Not just claims<span class="dot">.</span> <span class="thin">Check for yourself.</span></h2><p class="vt-sub">Check for yourself, largely outside Vidimus</p></div>
+      </header>
+      <p class="vt-tekst">This record is linked, through hash calculations you can recompute yourself (Merkle path, Evidence Record), to data that carries a qualified timestamp from GLOBALTRUST. GLOBALTRUST timestamps per group, and only groups with records from customer organisations. You check that timestamp technically in DSS (Digital Signature Services), the European Commission's software.</p>
+      <ul class="vt-punten">
+        <li><span class="vt-ico ok" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.3 12.3l2.5 2.5 4.9-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Qualified timestamp from GLOBALTRUST</b><span>Status granted on the EU trusted list, set by the Austrian supervisory body</span></div></li>
+        <li><span class="vt-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 0-8 8M12 4a8 8 0 0 1 8 8v1M7.5 9a5.5 5.5 0 0 1 10 3.2v1.3M9.6 11.6a2.5 2.5 0 0 1 4.9.6c0 2.5-.6 4.7-1.7 6.6M12 12.2c0 3-1 5.6-2.6 7.6M6.6 15.5c.3-1.1.4-2.2.4-3.4M17.6 17.2c-.3.9-.7 1.8-1.2 2.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><div><b>Unchanged since anchoring</b><span>Check whether the record matches what was anchored</span></div></li>
+      </ul>
+      <div class="vt-acties">
+        <a class="xbtn red" href="https://app.vidimus.be/v/reg_18838643120d"><span>See an example check</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" target="_blank" rel="noopener noreferrer"><span>Check the timestamp in DSS</span><svg aria-hidden="true" class="vt-uit"><use href="#i-uit"/></svg></a>
+      </div>
+      <p class="vt-noot">DSS is European Commission software for creating and checking electronic signatures and timestamps. The online version is a demo environment, not an official verification. GLOBALTRUST's granted status on the EU trusted list is set by the Austrian supervisory body, not by the Commission and not by Vidimus. This is a technical check, not an approval or certification of Vidimus. <a href="verify-it-yourself.html#officieel">How to do it, step by step</a></p>
+    </article>
+    <div class="vt-duel rv" aria-label="The same check in DSS, the European Commission's software">
+      <div class="vt-uit-rij"><span class="vt-stip ok" aria-hidden="true"></span><b>Original · 18 pallets</b><span>PASSED</span></div>
+      <div class="vt-uit-rij"><span class="vt-stip bad" aria-hidden="true"></span><b>One character different · 17 pallets</b><span>FAILED · HASH_FAILURE</span></div>
+      <p>The same bewijs.ers in DSS, the European Commission's software; only 18 became 17. That is how you can check what was there: not by who has the nicest export, but with a check that anyone repeats for themselves.</p>
+    </div>
+    <div class="eu-zelf glass rv" id="eu-zelf">
+      <div class="eu-zelf-kop">
+        <span class="lbl">Do it yourself, in two minutes, without an account</span>
+        <h3>Think we are just claiming this? Check it yourself.</h3>
+        <p>Demo data, no personal data. In step 4, choose SHA256: then only the fingerprint leaves your computer.</p>
+        <div class="eu-dl">
+          <div class="eu-dl-item"><a class="xbtn red" href="assets/eu/demo/bewijs.ers" download="vidimus-demo-bewijs.ers"><span>bewijs.ers</span><small class="duur">3 kB</small></a><span class="eu-dl-veld">→ in DSS: <b>Signed file</b></span></div>
+          <div class="eu-dl-item"><a class="xbtn" href="assets/eu/demo/vingerafdruk-invoer.json" download="vidimus-demo-vingerafdruk-invoer.json"><span>vingerafdruk-invoer.json</span><small class="duur">1 kB</small></a><span class="eu-dl-veld">→ in DSS: <b>Original file(s)</b></span></div>
+        </div>
+      </div>
+      <ol class="eu-stappen">
+        <li><b>Download the proof</b><span>bewijs.ers, the Evidence Record (RFC 4998)</span></li>
+        <li><b>Download the original data</b><span>vingerafdruk-invoer.json, the exact content that was hashed</span></li>
+        <li><b>Open DSS</b><span><a href="https://ec.europa.eu/digital-building-blocks/DSS/webapp-demo/validation" target="_blank" rel="noopener noreferrer">DSS · Validate a signature</a>, the Commission's demo environment, or the version on your own computer</span></li>
+        <li><b>Check</b><span>Signed file: bewijs.ers · Original file(s): the JSON file · send as SHA256 · Submit → PASSED</span></li>
+        <li><b>Change 18 to 17 in the JSON file</b><span>with any text editor</span></li>
+        <li><b>Check again</b><span>FAILED · HASH_FAILURE: the proof no longer fits</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="bewijst" aria-labelledby="bewijst-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="bewijst-h"><span>What Vidimus proves<span class="dot">.</span> <span class="thin">And what it does not.</span></span></h2>
+      <span class="lbl">The limit, honestly</span>
+      <p class="side">Vidimus shows: this is the record that was recorded at that moment, and a change to that content stands out afterwards. Not that the driver really delivered 18 pallets, or that the sensor was properly calibrated. The closer to the moment something is recorded and the more parties co-sign, the harder lying becomes. Who is right is for the court to decide.</p>
+    </div>
+    <div class="glass grens rv">
+      <div class="grens-kol wel">
+        <span class="lbl">Proves</span>
+        <ul>
+          <li>That this content existed no later than that moment</li>
+          <li>Through which source, which device and which organisation it was recorded</li>
+          <li>That it has not changed since</li>
+          <li>That the counterparty co-signed, if they did</li>
+        </ul>
+      </div>
+      <div class="grens-kol niet">
+        <span class="lbl">Does not prove</span>
+        <ul>
+          <li>That the content is true</li>
+          <li>That a sensor measures accurately</li>
+          <li>Which change was made afterwards</li>
+        </ul>
+      </div>
+      <div class="grens-voet">
+        <a class="go" href="verify-it-yourself.html">Verify it yourself with the evidence bundle, without Vidimus<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="go" href="questions.html">The sixteen hardest questions, answered honestly<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="specificatie" aria-labelledby="tech-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="tech-h"><svg class="pict" viewBox="0 0 52 52" aria-hidden="true"><path class="ln" d="M10 14h6M22 14h20"/><path class="ln" d="M10 26h6M22 26h20"/><path class="ln" d="M10 38h6M22 38h10"/><circle cx="39" cy="38" r="8" class="seal"/><path d="M35.5 38l2.5 2.5 4.5-5" class="seal-check"/></svg><span>The proof, taken apart<span class="dot">.</span></span></h2>
+      <span class="lbl">Specification: what runs today</span>
+      <p class="side"><b>Being honest about where we stand</b> is the rule of this section: every row below is live. What is not here, we do not claim.</p>
+    </div>
+    <details class="spec-klap rv"><summary>Show the full specification</summary>
+      <table class="rg-table spec" aria-label="Specification">
+        <thead><tr><th>What</th><th>Technology</th><th>Explanation</th></tr></thead>
+        <tbody>
+          <tr><td class="k">what</td><td class="v">SHA-256</td><td><p>Fingerprint over the canonical JSON of the record, including the hashes of every attachment, so the photos too. For logbooks with personal data, a secret salt for that one record is included.</p></td></tr>
+          <tr><td class="k">who</td><td class="v">Ed25519 + X.509</td><td><p>Device keys, created on the phone; anyone who turns on Face ID or a passkey adds, with every signature, a second proof that the user verified themselves on the device. Systems sign with their own system key. Every key has an X.509 certificate under the Vidimus certificate chain; the name in a device certificate is supplied by the employer, not verified by Vidimus.</p></td></tr>
+          <tr><td class="k">when</td><td class="v">RFC 3161 · eIDAS QTSP</td><td><p>A timestamp from Sectigo within about 5 minutes. Groups with records from customer organisations usually also receive a qualified timestamp from GLOBALTRUST within 6 hours; your record is linked to it through its Merkle path. Our server clock does not determine the moment.</p></td></tr>
+          <tr><td class="k">where</td><td class="v">GPS + accuracy</td><td><p>Position and margin of error as the device reports them, as part of the hashed content. We do not measure; we record what the device said.</p></td></tr>
+          <tr><td class="k">bundled</td><td class="v">Merkle root</td><td><p>One root per five-minute group; each anchor proves its own place in the group without revealing the other records.</p></td></tr>
+          <tr><td class="k">chain</td><td class="v">Ledger, append-only</td><td><p>Each entry hashes the previous one. Change one entry and the chain no longer matches from that point on, which you can check with <code>verify_chain</code>.</p></td></tr>
+          <tr><td class="k">public</td><td class="v">OpenTimestamps → Bitcoin</td><td><p>Every root also goes to OpenTimestamps and is included in a Bitcoin block within a few hours: a public register that thousands of parties keep at the same time. Changing or deleting stands out to anyone who checks, even if we were to try it. The proof (.ots) can be recomputed against Bitcoin itself, without Vidimus.</p></td></tr>
+          <tr><td class="k">check</td><td class="v">Evidence bundle</td><td><p>Check page plus a bundle with a check script: recomputable without Vidimus, largely offline. Content stays in the EU; only fingerprints go to the timestamping services and OpenTimestamps.</p></td></tr>
+        </tbody>
+      </table>
+    </details>
+    <div class="rv">
+      <p class="glass honest dc-note"><b>Two witnesses outside Vidimus:</b> the timestamp (and, for customer organisations, the qualified timestamp from GLOBALTRUST) and Bitcoin via OpenTimestamps. For you, nothing changes: no crypto, no wallet, no consortium. You check the proof both inside and outside Vidimus: on the check page, or with the bundle and open tools.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="hulpmiddelen" aria-labelledby="hulp-h">
+  <div class="wrap">
+    <div class="sec-lbl kop rv">
+      <h2 id="hulp-h"><span>The tools and their SHA-256<span class="dot">.</span></span></h2>
+      <span class="lbl">Compare before you run anything</span>
+      <p class="side">Download a tool and compare its SHA-256 with this list, using <code>shasum -a 256</code> or <code>sha256sum</code>. If it differs, do not use it. The check script is also in every evidence bundle; if you do not trust the sender, get it here.</p>
+    </div>
+    <div class="hulp-lijst rv">
+      <table class="hulp-tabel">
+        <caption class="sr-only">Downloadable tools with their SHA-256</caption>
+        <thead><tr><th scope="col">File</th><th scope="col">What it is</th><th scope="col">SHA-256</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="https://app.vidimus.be/verify_bundle.py">verify_bundle.py</a></th><td>The check script, Python 3. The server gives the same value at <a href="https://app.vidimus.be/verify_bundle.py.sha256">verify_bundle.py.sha256</a>.</td><td><code class="hash" data-sha256-van="verify_bundle.py">119d612193fd93a180dd272d1c63b6be3be740e824b11b8053eb0fb1c6f07cb2</code></td></tr>
+          <tr><th scope="row"><a href="voorbeeldbundel.zip">voorbeeldbundel.zip</a></th><td>An evidence bundle of a demo record (the file name is Dutch for “sample bundle”), to try the script on. The script inside this sample bundle is the version of 13 October 2026 and therefore has a different SHA-256; use the script from this list.</td><td><code class="hash" data-sha256-van="voorbeeldbundel.zip">b9be9288ece96e2ebc732254328e1f1af62ab0cf07f96ac8aed954938126d43b</code></td></tr>
+          <tr><th scope="row"><a href="assets/eu/demo/bewijs.ers" download="vidimus-demo-bewijs.ers">bewijs.ers</a></th><td>The Evidence Record of the demo record above, for DSS.</td><td><code class="hash" data-sha256-van="bewijs.ers">a951bf3a21ca712c2401868fffee02bb2a4153324a8e81fb3328acdd450146b2</code></td></tr>
+          <tr><th scope="row"><a href="assets/eu/demo/vingerafdruk-invoer.json" download="vidimus-demo-vingerafdruk-invoer.json">vingerafdruk-invoer.json</a></th><td>The content that was hashed; its SHA-256 is the record's fingerprint.</td><td><code class="hash" data-sha256-van="vingerafdruk-invoer.json">7787f6c988fc9ff90819b300e839ad317dc561b20586b7e66220312615e657ba</code></td></tr>
+        </tbody>
+      </table>
+      <p class="hulp-noot">An evidence bundle you download yourself has a different SHA-256 with every download: the manifest gets the time of the download each time. The record's fingerprint stays the same.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="app-voet">
+  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerp, Belgium · BE 0805.309.143</span>
+  <a href="technology.html">Technology</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="security.html">Security</a>
+  <a href="verify-it-yourself.html">Verify it yourself</a>
+  <a href="partners.html">Partners</a>
+  <a href="cases.html">Cases</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="legal.html">Legal</a>
+  <a href="help.html">Explainer videos</a>
+  <a href="questions.html">Questions</a>
+  <a href="for-ai-agents.html">For AI agents</a>
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="colophon.html">Colophon</a>
+  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Get it on Google Play" loading="lazy"></a></span>
+  <span class="sp"></span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <a href="tel:+32466474115">+32 466 47 41 15</a>
+  <a href="https://www.linkedin.com/company/vidimus-be/" rel="noopener noreferrer">LinkedIn</a>
+  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Use cases</span>
+    <a href="disputed-delivery-cmr.html">Transport and logistics</a>
+    <a href="disputed-inspection-report.html">Real estate and rentals</a>
+    <a href="proving-extra-work.html">Construction and renovation</a>
+    <a href="equipment-handover-damage.html">Equipment rental</a>
+    <a href="record-a-web-page.html">Recording web pages</a>
+    <a href="after-a-breach.html">IT and databases</a>
+    <a href="cases.html">Cold chain and care</a>
+    <a href="comparison-proofsnap-truescreen.html">Comparison with ProofSnap and TrueScreen</a>
+  </nav>
+  <span class="taal" role="group" aria-label="Language / Taal"><a href="nl/techniek.html" hreflang="nl-BE" lang="nl">NL</a><b lang="en" aria-current="true">EN</b></span>
+</footer>
+
+<script src="script.js?v=20261116b" defer></script>
+<script src="taal.js?v=20261116a" defer></script>
+</body>
+</html>

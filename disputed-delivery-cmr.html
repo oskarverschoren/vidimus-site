@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Disputed delivery? Proving delivery, time and condition (CMR Art. 30) | Vidimus</title>
+<meta name="description" content="A load delivered, and weeks later the dispute: too late, damaged, never arrived. How to turn gate scans and proofs of delivery into facts that every party can recompute for themselves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261008b">
+<link rel="stylesheet" href="inner.css">
+<link rel="stylesheet" href="menu.css?v=20261102a">
+<link rel="stylesheet" href="taal.css?v=20261116a">
+
+<link rel="canonical" href="https://vidimus.be/disputed-delivery-cmr.html">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/aflevering-betwist-cmr.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/disputed-delivery-cmr.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/disputed-delivery-cmr.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Disputed delivery? Proving delivery, time and condition (CMR Art. 30) | Vidimus"><meta property="og:description" content="A load delivered, and weeks later the dispute: too late, damaged, never arrived. How to turn gate scans and proofs of delivery into facts that every party can recompute for themselves."><meta property="og:url" content="https://vidimus.be/disputed-delivery-cmr.html"><meta property="og:image" content="https://vidimus.be/assets/og/cmr-versies.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/cmr-versies.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/disputed-delivery-cmr.html#faq",
+ "url": "https://vidimus.be/disputed-delivery-cmr.html",
+ "inLanguage": "en",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do all parties in the chain have to take part?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Anchoring only your own records already strengthens your position: your records are then the only ones for which it can be checked that they have been unchanged since anchoring. If partners take part, everyone looks at the same facts."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does this work with our TMS/terminal system?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes — via API or webhook we forward a copy of every event; nothing in your system changes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What about the e-CMR?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Anchoring complements the (e-)CMR: the consignment note remains the contractual document; we make the records around it — scans, times, photos, reservations — recomputable for every party."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Products<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Deliveries, damage and handovers on the spot, signed by both parties.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters and weighbridges send measurements; each measurement is anchored separately.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Snapshots of databases and folders, and web pages as they were online.</span></span></a></li>
+          <li><a class="mega-item" href="product-passport.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Product Passport</b><span>A code with a QR label per object and a line of handovers, signed by holder and recipient.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="private.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Private <em class="mega-wacht">On request</em></b><span>A dedicated environment for one organisation: its own keys, its own address, timestamps and anchors from outside.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus for software</em><b>Are you building a TMS, WMS or ERP?</b><span>Deliver proof in your own product through the partner API: referral, reseller or integrator.</span><i>Become a partner<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">All products side by side<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="legal.html">Legal</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Explainer videos</a>
+    <a class="top-taal" href="nl/aflevering-betwist-cmr.html" hreflang="nl-BE" lang="nl" aria-label="Nederlandse versie van deze pagina">NL</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Log in</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start free</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="scenarios.html">CASE FILES</a><i>/</i><span class="lbl" style="color:var(--red)">TRANSPORT, PORT &amp; LOGISTICS</span></p>
+    <h1 class="disp">Delivered. <span class="thin">"Never received — or damaged</span><span style="color:var(--red)">.</span><span class="thin">"</span></h1>
+    <p class="intro">A load delivered, a container through the gate, a parcel signed for — and weeks later the dispute: too late, damaged, never arrived. Every link in the chain keeps its own history. This page shows how you create <b>one shared proof layer</b> where carrier, terminal and recipient see the same facts.</p>
+    <div class="recog"><p>Gate-in 09:41 (UTC+2), container at the terminal. The recipient claims: arrived after the cut-off, extra costs. The terminal's history says 09:41 (UTC+2), the carrier's 09:38 (UTC+2), the recipient has an email from 10:15 (UTC+2). <span>Three systems, three clocks — and the costs are split according to who shouts loudest.</span></p></div>
+  </div>
+</section>
+
+<section style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / THE PROBLEM</span>
+      <h2 class="disp">Why this goes wrong so often<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="why-grid rv">
+      <article><span class="no">A</span><h3>Every party its own system, every party its own clock</h3><p>TMS, terminal system, the recipient's ERP: all with their own time, all changeable by their own administrator.</p></article>
+      <article><span class="no">B</span><h3>The reservation comes too late or never</h3><p>Under the CMR, whoever makes no reservation at delivery largely loses their position — but whoever does make one must also be able to prove it.</p></article>
+      <article><span class="no">C</span><h3>The chain is long, memory is short</h3><p>In a claim months later, nobody can still reconstruct exactly what happened when. Whoever is best documented wins.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / TODAY</span>
+      <h2 class="disp">What you can already do now — even without Vidimus<span style="color:var(--red)">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span>At delivery, make a <b>dated reservation on the consignment note</b> for visible damage; for damage that is not visible, in writing within 7 days (CMR Art. 30).</span></li>
+      <li><span>Record gate-in/gate-out and deliveries <b>automatically</b> and keep the <b>raw events</b>, not just daily summaries.</span></li>
+      <li><span>Agree in your contracts <b>which record applies</b> between the parties (evidence clause) and which time source.</span></li>
+      <li><span><b>Take photos at delivery</b> — with the recipient's signature at the same moment.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / THE LAW</span>
+      <h2 class="disp">What the law says<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="law-grid rv">
+      <div class="law-block"><span class="art">CMR Convention Art. 9 &amp; 30</span><p>Until proven otherwise, the consignment note is proof of the contract and of receipt. Without a reservation at delivery, the goods are presumed to have been delivered as described; report visible damage immediately, hidden damage within 7 days. Even a suspected "too late" requires a written reservation within 21 days.</p></div>
+      <div class="law-block"><span class="art">Art. 8.11 of the Belgian Civil Code</span><p>Between businesses, evidence is free: scans, system histories and photos are admissible and are weighed. A record in which none of the parties can change anything unnoticed is stronger.</p></div>
+    </div>
+    <p class="law-note">General information, not legal advice. Vidimus supplies evidence; how much weight it carries is for the court to assess — and that weight is exactly what anchoring increases.</p>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / ANCHORED</span>
+      <h2 class="disp">What changes<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="rv" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center">
+      <ul class="todo" style="margin-top:0">
+        <li><span>Every gate scan, delivery or handover gets a fingerprint when it is created and is anchored within five minutes with an external timestamp; for customer organisations, each group also receives a qualified timestamp (eIDAS), usually within six hours — <b>one clock for the whole chain, belonging to no one in particular.</b></span></li>
+        <li><span>Carrier, terminal and recipient look at <b>the same ledger</b>: no more "my history against yours".</span></li>
+        <li><span>In a physical handover, both parties sign on the phone (QR handover), with photos; <b>anyone can verify the evidence bundle independently.</b></span></li>
+      </ul>
+      <div class="codecard"><span class="k">record</span>gate-in GI-88412<br><span class="k">vehicle</span>registration plate + container no.<br><span class="k">source</span>gate system · automatically via api<br><span class="k">moment</span><span class="hl">09:41:03 (UTC+2) · anchored within 5 min.</span><br><span class="k">anchored</span><span class="gr">merkle root + timestamp + bitcoin anchor</span></div>
+    </div>
+    <div class="sum-band">
+      <span class="lbl">THE MATHS</span>
+      <p>Eight disputed deliveries a year × 6 hours × €75, plus an average of €7,500 in shared costs per dispute ≈ <b class="r">€3,600 in hours and €60,000 in costs</b> that you "absorb" for lack of proof. <b>One shared proof layer makes most disputes unnecessary before they even start.</b></p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / DISSECTED</span>
+      <h2 class="disp">One gate scan, from start to proof<span style="color:var(--red)">.</span></h2>
+      <p class="side">Fictional example: driver Tom Peeters scans at 09:41:03 (UTC+2) at Kaai 1742. On the left what is created technically, on the right what it means in plain language. The fingerprint and the Merkle root really were calculated on this record.</p>
+    </div>
+    <div class="flow rv">
+      <div class="flow-step"><span class="when">01 · the scan</span><h4>What you already have</h4><p>Your gate system already records this today. The problem is not the record, but that it lives in one system that can be changed afterwards.</p><span class="meta">driver Tom Peeters · BADGE-4471 · 1-ABC-123 · MSKU 452 118-0 · gate-in GI-88412 · Kaai 1742 · <b>09:41:03 (UTC+2)</b></span></div>
+      <div class="flow-step"><span class="when">02 · the fingerprint (SHA-256)</span><h4>Like a human fingerprint</h4><p>Unique to exactly this record, and you cannot reconstruct the record from it. Change one character — 09:41:03 (UTC+2) becomes 09:41:04 (UTC+2) — and the whole fingerprint is different. That is how you see later whether anything was changed.</p><span class="meta">f7585ccf75a163b359933be611f97fe68ba39b5ca7e6ec1ece23972ee50203fc</span></div>
+      <div class="flow-step"><span class="when">03 · who: the signature (Ed25519)</span><h4>A signature from whoever holds the key</h4><p>Only whoever holds the key can sign like this; anyone can check that it was them. That establishes who submitted the scan.</p><span class="meta">CN=gate-01.terminal-x.be · signature 3045a1…e8f2 (64 bytes)</span></div>
+      <div class="flow-step"><span class="when">04 · when: the qualified timestamp</span><h4>A postmark — from someone else</h4><p>Not our clock and not yours. Within five minutes, an external timestamping service stamps it; for customer organisations, GLOBALTRUST, a qualified trust service provider on the EU trusted list, also puts a timestamp on the group, usually within six hours. Neither of them has anything to gain from it. Adjusting a time afterwards therefore stands out.</p><span class="meta">external timestamping service (third party) · stamped <b>09:46 (UTC+2)</b> · qualified per group, for customer organisations · serial no. 0x5b3f…21</span></div>
+      <div class="flow-step"><span class="when">05 · anchored: Merkle → ledger</span><h4>One anchor for a whole stack</h4><p>All scans of those minutes are combined into one root fingerprint; it receives the timestamps of step 04 and goes into Bitcoin via OpenTimestamps, a public register in which a change stands out for anyone who checks, even if we were to try. Each individual scan can still be shown, through its place in the stack.</p><span class="meta">root b96f20a5…7ac7e363 · <b>timestamp + Bitcoin anchor (OpenTimestamps)</b></span></div>
+      <div class="flow-step"><span class="when">06 · the original</span><h4>A vault with a retention lock</h4><p>Every original is stored encrypted, in storage that does not allow deletion or overwriting until the end of the retention period, not even at our request. If it has to go after that, or for privacy reasons, the content key is destroyed: the file is unreadable for good, while the fingerprint still proves that something was there.</p><span class="meta">GI-88412.json + gate-foto.jpg · AES-256-GCM · non-overwritable · 7 years</span></div>
+      <div class="flow-step"><span class="when">07 · the evidence bundle</span><h4>A file any expert can check for themselves</h4><p>The counterparty, the auditor or the court does not have to believe us: with standard software, they check that this scan existed at that moment, submitted by gate-01, and has not been changed since.</p><span class="meta">hash recomputed · path → root · root = tx · timestamp — <b>everything matches</b></span></div>
+    </div>
+    <p class="law-note">Person, company, registration plate and container number are made up. The SHA-256 and the Merkle root really were calculated on the record shown; signature, timestamp and tx id are illustrative values.</p>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">06 / QUESTIONS</span>
+      <h2 class="disp">FAQ<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Do all parties in the chain have to take part?</summary><p class="a"><b>No.</b> Anchoring only your own records already strengthens your position: your records are then the only ones for which it can be checked that they have been unchanged since anchoring. If partners take part, everyone looks at the same facts.</p></details>
+      <details><summary>Does this work with our TMS/terminal system?</summary><p class="a"><b>Yes</b> — via API or webhook we forward a copy of every event; nothing in your system changes.</p></details>
+      <details><summary>What about the e-CMR?</summary><p class="a">Anchoring <b>complements the (e-)CMR</b>: the consignment note remains the contractual document; we make the records around it — scans, times, photos, reservations — recomputable for every party.</p></details>
+    </div>
+    <div class="related rv">
+      <a href="equipment-handover-damage.html"><span class="lbl">EQUIPMENT &amp; MACHINE RENTAL</span><b>Damage to rented equipment: the handover report both parties sign</b></a>
+      <a href="cases.html#haven"><span class="lbl">CASE</span><b>Container "too late and damaged" — three years later</b></a>
+      <a href="how-it-works.html"><span class="lbl">BACKGROUND</span><b>How it works — from record to proof, in seven steps</b></a>
+    </div>
+  </div>
+</section>
+
+<!-- seo:toepassingen · interne links tussen alle Toepassingen (marketing, branch seo-1) -->
+<section style="padding-block:0 var(--space)" aria-labelledby="toep-alle-h">
+  <div class="wrap">
+    <h2 id="toep-alle-h" class="disp" style="font-size:clamp(1.3rem,2.4vw,1.7rem)">Other use cases<span style="color:var(--red)">.</span></h2>
+    <ul class="related" style="list-style:none;padding:0">
+      <li><a href="disputed-inspection-report.html"><span class="lbl">REAL ESTATE AND RENTALS</span><b>“That damage was already there at move-in.”</b></a></li>
+      <li><a href="proving-extra-work.html"><span class="lbl">CONSTRUCTION AND RENOVATION</span><b>“We never asked for that extra work.”</b></a></li>
+      <li><a href="equipment-handover-damage.html"><span class="lbl">EQUIPMENT RENTAL</span><b>“That dent was already there.”</b></a></li>
+      <li><a href="record-a-web-page.html"><span class="lbl">WEB PAGES AND PUBLICATIONS</span><b>“That was never there.”</b></a></li>
+      <li><a href="cases.html"><span class="lbl">COLD CHAIN AND CARE</span><b>“The cooling failed on the way.”</b></a></li>
+    </ul>
+  </div>
+</section>
+<!-- /seo:toepassingen -->
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">How we start: <span>your first logbook today, the first 100 records free.</span></h2>
+    <div class="final-under">
+      <p>You create your account in two minutes, no payment details needed. A director identifies your company once with the Belgian eID; then you create your first logbook in a few minutes. The first 100 records a month and the first measurement source are free. After that, you pay per record or per measurement source, with a minimum of €19 a month.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Create your account</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerp, Belgium · BE 0805.309.143</span>
+  <a href="technology.html">Technology</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="security.html">Security</a>
+  <a href="verify-it-yourself.html">Verify it yourself</a>
+  <a href="partners.html">Partners</a>
+  <a href="cases.html">Cases</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="legal.html">Legal</a>
+  <a href="help.html">Explainer videos</a>
+  <a href="questions.html">Questions</a>
+  <a href="for-ai-agents.html">For AI agents</a>
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="colophon.html">Colophon</a>
+  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Get it on Google Play" loading="lazy"></a></span>
+  <span class="sp"></span>
+  <span>Fictional examples · no customer references</span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <a href="tel:+32466474115">+32 466 47 41 15</a>
+  <a href="https://www.linkedin.com/company/vidimus-be/" rel="noopener noreferrer">LinkedIn</a>
+  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Use cases</span>
+    <a href="disputed-delivery-cmr.html">Transport and logistics</a>
+    <a href="disputed-inspection-report.html">Real estate and rentals</a>
+    <a href="proving-extra-work.html">Construction and renovation</a>
+    <a href="equipment-handover-damage.html">Equipment rental</a>
+    <a href="record-a-web-page.html">Recording web pages</a>
+    <a href="after-a-breach.html">IT and databases</a>
+    <a href="cases.html">Cold chain and care</a>
+    <a href="comparison-proofsnap-truescreen.html">Comparison with ProofSnap and TrueScreen</a>
+  </nav>
+  <span class="taal" role="group" aria-label="Language / Taal"><a href="nl/aflevering-betwist-cmr.html" hreflang="nl-BE" lang="nl">NL</a><b lang="en" aria-current="true">EN</b></span>
+</footer>
+
+<script src="script.js?v=20261028b" defer></script>
+<script src="taal.js?v=20261116a" defer></script>
+</body>
+</html>

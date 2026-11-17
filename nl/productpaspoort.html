@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="nl" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Productpaspoort — de lijn van elk object, getekend bij elke overdracht | Vidimus</title>
+<meta name="description" content="Vidimus legt de lijn van een object vast: code en QR-label, gebeurtenissen en overdrachten getekend door beide houders. Geen officieel EU-productpaspoort.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20261008b">
+<link rel="stylesheet" href="../inner.css">
+<link rel="stylesheet" href="../product.css?v=20261028a">
+<link rel="stylesheet" href="../menu.css?v=20261102a">
+<link rel="stylesheet" href="../beeld-motion.css?v=20261102c">
+<link rel="stylesheet" href="../taal.css?v=20261116a">
+<style>
+  .pp-tabel { width: 100%; max-width: 40rem; border-collapse: collapse; margin-top: clamp(1.6rem, 3vw, 2.4rem); font-size: 0.9rem; }
+  .pp-tabel th, .pp-tabel td { text-align: left; padding: 0.85rem 0; border-bottom: 1px solid var(--line-soft); }
+  .pp-tabel thead th { font: 500 0.66rem/1.4 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); border-bottom-color: var(--line); }
+  .pp-tabel tbody th { font-weight: 500; color: var(--paper-dim); font-variant-numeric: tabular-nums; }
+  .pp-tabel td { text-align: right; font: 500 0.88rem/1.4 var(--mono); color: var(--ink); }
+  .pp-tabel td.licht { color: var(--dim); font-weight: 400; }
+  .pp-twee { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 3rem); align-items: start; }
+  .pp-twee .flow { margin-top: 0; }
+  .pp-foto { margin: 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); background: var(--void-2); }
+  .pp-foto img { display: block; width: 100%; height: auto; }
+  .pp-hero-foto { margin-top: clamp(2rem, 4vw, 3rem); aspect-ratio: 16 / 9; }
+  .pp-hero-foto img { height: 100%; object-fit: cover; }
+  .pp-zij { display: grid; gap: 16px; align-content: start; }
+  @media (max-width: 760px) { .pp-twee { grid-template-columns: 1fr; } }
+</style>
+
+<link rel="canonical" href="https://vidimus.be/nl/productpaspoort.html">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/productpaspoort.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/product-passport.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/product-passport.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
+<meta property="og:title" content="Productpaspoort — de lijn van elk object, getekend bij elke overdracht | Vidimus"><meta property="og:description" content="Vidimus legt de lijn van een object vast: code en QR-label, gebeurtenissen en overdrachten getekend door beide houders. Geen officieel EU-productpaspoort."><meta property="og:url" content="https://vidimus.be/nl/productpaspoort.html"><meta property="og:image" content="https://vidimus.be/assets/og/paspoort-overdracht.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/paspoort-overdracht.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/nl/productpaspoort.html#faq",
+ "url": "https://vidimus.be/nl/productpaspoort.html",
+ "inLanguage": "nl-BE",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is een overdrachtsbewijs een eigendomsbewijs?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. Het toont wie het object op welk moment overdroeg en aanvaardde, en in welke staat. Wie eigenaar is, regelt uw contract."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Vervangt dit ons paspoortplatform?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. Uw platform blijft het paspoort. Vidimus legt eronder vast wat er bij elke overdracht gebeurde, via de API of met de app ernaast."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Moet de ontvanger iets betalen of installeren?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nee. Ontvangen en controleren zijn gratis. Tekenen kan op elke recente telefoon."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Kunnen schok- en temperatuurdata mee?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja. Een logger in de kist of op het object wordt een meetbron: elke meting krijgt een vingerafdruk en wordt verankerd. Bij een discussie over schade legt u de metingen naast de overdracht. Dan ziet iedereen wanneer de schok was, en of dat vóór of na de overdracht gebeurde."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wat als iemand het label kopieert?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Een kopie toont dezelfde lijn van overdrachten. Een nieuwe overdracht tekenen kan alleen de partij die het object volgens die lijn nu heeft. Kijk daarom altijd het serienummer op het object zelf na; de pagina toont het."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body class="prod">
+<div class="ambient" aria-hidden="true"></div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <div class="nav-prod">
+      <button class="nav-prod-knop cur" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
+          <li><a class="mega-item" href="productpaspoort.html" aria-current="page"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Productpaspoort</b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="prive.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Privé <em class="mega-wacht">Op aanvraag</em></b><span>Een eigen omgeving voor één organisatie: eigen sleutels, eigen adres, tijdstempels en ankers van buiten.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="hoe-het-werkt.html">Hoe het werkt</a>
+    <a href="prijzen.html">Prijzen</a>
+    <a href="juridisch.html">Juridisch</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
+    <a class="top-taal" href="../product-passport.html" hreflang="en" lang="en" aria-label="English version of this page">EN</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
+  </div>
+</header>
+
+<main>
+<!-- 28/10: kop als donkere band met de eigen render (assets/illustratie/paspoort), zoals /app, /sensor en /data; sinds 05-11-2026 live -->
+<section class="pr-held pr-held-lang" aria-labelledby="pp-h">
+  <div class="wrap">
+    <div class="pr-held-tekst">
+      <p class="pr-kruimel"><a href="index.html">Vidimus</a><i>/</i><a href="index.html#producten">Producten</a><i>/</i><span>Productpaspoort</span></p>
+      <p class="pr-kicker"><span class="pr-live">Live</span>Vidimus Productpaspoort</p>
+      <h1 class="disp" id="pp-h">Het paspoort zegt wat het is. <span>Vidimus legt vast in welke staat het van hand wisselde</span><span class="dot">.</span></h1>
+      <p class="pr-zin">Een batterij, een machine, een container: elk object met een serienummer wisselt vaak van hand. Vidimus legt bij elke overdracht vast in welke staat het vertrok, <b>getekend door beide partijen</b> en voor iedereen te controleren via de QR op het object.</p>
+      <p class="pr-zin pr-zin-grens">Vidimus geeft zelf geen officieel EU-productpaspoort uit. Het legt de lijn van een object vast: een code met QR&#8209;label, gebeurtenissen, en overdrachten getekend door beide houders.</p>
+      <div class="hero-actions">
+        <a class="xbtn red" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <p class="pr-micro">Tien objecten per jaar zijn gratis. Ontvangen en controleren altijd.</p>
+    </div>
+  </div>
+  <picture class="pr-beeld">
+    <source media="(max-width: 720px)" srcset="../assets/illustratie/paspoort-900.webp 900w, ../assets/illustratie/paspoort-1800.webp 1800w" sizes="100vw" width="900" height="763">
+    <img src="../assets/illustratie/paspoort-1600.webp" srcset="../assets/illustratie/paspoort-1200.webp 1200w, ../assets/illustratie/paspoort-1600.webp 1600w, ../assets/illustratie/paspoort-2400.webp 2400w, ../assets/illustratie/paspoort-3200.webp 3200w" sizes="(max-width: 720px) 100vw, 64vw" width="1600" height="1000" alt="Een container met QR-label op een platform; twee mensen geven een object aan elkaar door, en de overdracht gaat door vier poorten: vingerafdruk, sleutel, klok en anker" loading="eager" fetchpriority="high" decoding="async">
+  </picture>
+</section>
+
+<section class="page-hero pp-na-held">
+  <div class="wrap">
+    <div class="recog"><p>Gebruikte EV-module, verzonden naar een herbruiker. Testverslag bij vertrek: gezondheid 84 %. Bij aankomst: <span>"Wij meten 71 %. Uw verslag is na verzending aangepast."</span> Het verschil is € 2 600 waard. Uw bewijs: een pdf die u zelf kunt maken en aanpassen.</p></div>
+    <figure class="pp-foto pp-hero-foto"><img src="../assets/foto/paspoort-overdracht-1600.webp" srcset="../assets/foto/paspoort-overdracht-900.webp 900w, ../assets/foto/paspoort-overdracht-1600.webp 1600w" sizes="(min-width: 1300px) 1200px, 100vw" width="1600" height="905" alt="Aan een laaddok scant een medewerker de QR op een transportkist met een batterij; de ontvanger staat klaar met zijn telefoon" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<section style="padding-block:var(--space-half,4rem) var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / HET PROBLEEM</span>
+      <h2 class="disp">Waarom een paspoort alleen niet volstaat<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="why-grid rv">
+      <article><span class="no">A</span><h3>Een paspoort is een fiche</h3><p>Het beschrijft het product: model, samenstelling, herkomst. Het zegt niet in welke staat dit ene exemplaar op een bepaalde dag vertrok.</p></article>
+      <article><span class="no">B</span><h3>Het verslag is uw eigen document</h3><p>Een testverslag of afgiftestaat komt uit uw systeem. De koper moet u op uw woord geloven.</p></article>
+      <article><span class="no">C</span><h3>Elke partij heeft een eigen versie</h3><p>Verkoper, vervoerder en koper werken in andere systemen. Bij een discussie staan twee versies tegenover elkaar.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / HOE HET WERKT</span>
+      <h2 class="disp">Vastleggen, overdragen, controleren<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="pp-twee rv">
+      <div class="flow">
+        <div class="flow-step hit"><span class="when">01 · bij vertrek</span><h4>Vastleggen</h4><p>Met de app: het serienummer, foto's en het testverslag met de naam van de tester, het type test, het resultaat en de datum. Vidimus geeft alles een vingerafdruk en een handtekening, en verankert het binnen enkele minuten.</p><span class="meta">label met QR op het object of de verpakking</span></div>
+        <div class="flow-step hit"><span class="when">02 · bij overdracht</span><h4>Overdragen</h4><p>Wie overdraagt en wie ontvangt, tekenen samen de staat, elk op de eigen telefoon. De ontvanger heeft geen abonnement nodig. Tekent hij zonder eID-mandaat van zijn bedrijf, dan staat er <b>mandaat niet geverifieerd</b> bij.</p><span class="meta">overdrachtsbewijs</span></div>
+        <div class="flow-step hit"><span class="when">03 · op elk moment</span><h4>Controleren</h4><p>Iedereen scant de QR en ziet de lijn van overdrachten: welke organisatie (of dat ze haar naam afschermt), wanneer en in welke staat. Zonder account. Met de bewijsbundel, die de houder met u kan delen, zelfs volledig zonder Vidimus.</p><span class="meta"><b>ongewijzigd</b> · de lijn sluit aan</span></div>
+      </div>
+      <div class="pp-zij">
+      <figure class="pp-foto"><img src="../assets/foto/paspoort-werkbank-560.webp" srcset="../assets/foto/paspoort-werkbank-560.webp 560w, ../assets/foto/paspoort-werkbank-900.webp 900w" sizes="(min-width: 760px) 45vw, 100vw" width="560" height="700" alt="Een gebruikte EV-batterijmodule in een open transportkist met een QR-label; ernaast een telefoon met een blauw vinkje" loading="lazy" decoding="async"></figure>
+      <div class="codecard" role="group" aria-label="Voorbeeld van een overdrachtsbewijs"><span class="k">object</span>EV-module · batterij-ID BM-2291-0417<br><span class="k">testverslag</span>gezondheid 84 % · tester, type test, datum<br><span class="k">staat</span>8 foto's (sha-256) · <span class="gr">geen schade</span><br><span class="k">overdracht 1</span>Demontage NV → Herbruik BV<br><span class="k">onderweg</span>schoklogger · 412 metingen · <span class="gr">geen schok boven 5 g</span><br><span class="k">getekend</span>beide partijen · ter plekke<br><span class="k">verankerd</span><span class="gr">tijdstempel + openbaar anker</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / VOOR WELK OBJECT</span>
+      <h2 class="disp">Voor elk object met een serienummer<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="pp-twee rv">
+    <ul class="todo" style="margin-top:0">
+      <li><span><b>Gebruikte batterijen.</b> Testen, tweede leven, revisie en recyclage: het testverslag per batterij, en de overdracht naar de volgende partij.</span></li>
+      <li><span><b>Machines en toestellen.</b> Onderhoud, keuring en verkoop van tweedehands toestellen.</span></li>
+      <li><span><b>Met sensoren.</b> Een schok- of temperatuurlogger in de kist stuurt zijn metingen mee. Zo staat ook vast wat er onderweg gebeurde.</span></li>
+      <li><span><b>Verhuurmaterieel, opleggers en containers.</b> De staat bij afgifte en bij teruggave, met de afgiftestaat in de app, getekend door verhuurder en huurder.</span></li>
+      <li><span><b>Werkt u met een paspoortplatform?</b> Vidimus komt eronder, via de API. Uw platform blijft het paspoort, Vidimus legt de overdrachten vast.</span></li>
+    </ul>
+    <figure class="pp-foto"><img src="../assets/foto/paspoort-qrscan-760.webp" srcset="../assets/foto/paspoort-qrscan-760.webp 760w, ../assets/foto/paspoort-qrscan-1200.webp 1200w" sizes="(min-width: 760px) 45vw, 100vw" width="760" height="505" alt="Een hand houdt een telefoon met een blauw vinkje naast het QR-label op een grijze kist" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / DE WET</span>
+      <h2 class="disp">Wat de wet vraagt<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="law-grid rv">
+      <div class="law-block"><span class="art">Vo. 2023/1542, art. 72, 96 en bijlage XIV</span><p>Wie een gebruikte batterij verzendt die geen afval is, heeft per batterij een testverslag nodig: de tester, het type test, het resultaat en de datum, vast op de batterij of de verpakking. Dat geldt sinds 18-08-2025.</p></div>
+      <div class="law-block"><span class="art">Vo. 2023/1542, art. 77</span><p>EV-batterijen, batterijen van lichte voertuigen (e-bikes, steps) en industriële batterijen boven 2 kWh die vanaf 18-02-2027 op de markt komen, krijgen een batterijpaspoort. Dat maakt de fabrikant, meestal met een paspoortplatform.</p></div>
+      <div class="law-block"><span class="art">Vo. 2024/1781 (ESPR)</span><p>Andere productgroepen volgen, ten vroegste rond 2028–2029. Tot dan draait het om eigen nut: minder discussie bij overdracht, en een staat die een koper of verzekeraar kan nakijken.</p></div>
+    </div>
+    <p class="law-note">Algemene informatie, geen juridisch advies. Vidimus vervangt geen paspoortplatform en maakt u niet in orde met de wet. Het verslag zelf maakt de tester; Vidimus maakt het narekenbaar. Of een verankerd verslag met QR volstaat voor bijlage XIV, laat u best nakijken.</p>
+    <p class="law-note">Vidimus maakt geen batterijpaspoort (art. 77); dat doet de fabrikant met een paspoortplatform.</p>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / PRIJS</span>
+      <h2 class="disp">Eén keer per object<span style="color:var(--red)">.</span> <span class="thin">Ontvangen en controleren altijd gratis.</span></h2>
+    </div>
+    <div class="pp-twee rv">
+      <table class="pp-tabel">
+        <caption class="sr-only">Prijs per object, eenmalig, per schijf, per organisatie per kalenderjaar</caption>
+        <thead><tr><th scope="col">Nieuwe objecten per jaar</th><th scope="col">Per object, eenmalig</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1 – 10</th><td>gratis</td></tr>
+          <tr><th scope="row">11 – 1 000</th><td>€&nbsp;2,00</td></tr>
+          <tr><th scope="row">1 001 – 10 000</th><td>€&nbsp;1,00</td></tr>
+          <tr><th scope="row">10 001 – 100 000</th><td>€&nbsp;0,40</td></tr>
+          <tr><th scope="row">boven 100 000</th><td>€&nbsp;0,15</td></tr>
+          <tr><th scope="row">boven 1 miljoen</th><td class="licht">op offerte</td></tr>
+        </tbody>
+      </table>
+      <ul class="todo" style="margin-top:clamp(1.6rem,3vw,2.4rem)">
+        <li><span><b>Overdracht: € 0,50.</b> Betaald door wie overdraagt, ongeacht hoeveel objecten er in één overdracht zitten.</span></li>
+        <li><span><b>Eén keer betalen.</b> Een object blijft zolang het bestaat, ook als u het al lang verkocht hebt. Honderd gebeurtenissen per object per jaar zijn inbegrepen.</span></li>
+        <li><span><b>Grotere aantallen</b> lopen via een jaarcontract. Alle prijzen excl. btw.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">06 / VRAGEN</span>
+      <h2 class="disp">Veelgesteld<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Is een overdrachtsbewijs een eigendomsbewijs?</summary><p class="a"><b>Nee.</b> Het toont wie het object op welk moment overdroeg en aanvaardde, en in welke staat. Wie eigenaar is, regelt uw contract.</p></details>
+      <details><summary>Vervangt dit ons paspoortplatform?</summary><p class="a"><b>Nee.</b> Uw platform blijft het paspoort. Vidimus legt eronder vast wat er bij elke overdracht gebeurde, via de API of met de app ernaast.</p></details>
+      <details><summary>Moet de ontvanger iets betalen of installeren?</summary><p class="a"><b>Nee.</b> Ontvangen en controleren zijn gratis. Tekenen kan op elke recente telefoon.</p></details>
+      <details><summary>Kunnen schok- en temperatuurdata mee?</summary><p class="a"><b>Ja.</b> Een logger in de kist of op het object wordt een meetbron: elke meting krijgt een vingerafdruk en wordt verankerd. Bij een discussie over schade legt u de metingen naast de overdracht. Dan ziet iedereen wanneer de schok was, en of dat vóór of na de overdracht gebeurde.</p></details>
+      <details><summary>Wat als iemand het label kopieert?</summary><p class="a">Een kopie toont dezelfde lijn van overdrachten. Een nieuwe overdracht tekenen kan alleen de partij die het object volgens die lijn nu heeft. Kijk daarom altijd het serienummer op het object zelf na; de pagina toont het.</p></details>
+    </div>
+    <div class="related rv">
+      <a href="afgiftestaat-schade.html"><span class="lbl">MATERIEEL- &amp; MACHINEVERHUUR</span><b>De deuk die "er al zat": de afgiftestaat die beide partijen tekenen</b></a>
+      <a href="hoe-het-werkt.html"><span class="lbl">ACHTERGROND</span><b>Hoe het werkt: van registratie tot bewijs, in zeven stappen</b></a>
+      <a href="verificatie.html"><span class="lbl">CONTROLE</span><b>Zo controleert u een registratie zelf</b></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Begin met een pilot: <span>tien objecten per jaar zijn gratis.</span></h2>
+    <div class="final-under">
+      <p>Uw account maakt u in twee minuten, zonder betaalgegevens. Een bestuurder identificeert uw bedrijf één keer met de eID. Daarna legt u uw eerste object vast met de app. Werkt u met batterijen of toestellen in grotere aantallen? Dan bekijken we samen hoe het in uw systeem past.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden?wat=objecten"><span>Start gratis</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Plan 15 minuten</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>VIDIMUS · SITE</span>
+  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
+  <a href="colofon.html">Colofon &amp; privacy</a>
+  <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
+  <a href="scenarios.html">Scenario's</a>
+  <a href="cases.html">Cases</a>
+  <a href="vragen.html">Vragen</a>
+  <a href="verificatie.html">Verificatie</a>
+  <span class="sp"></span>
+  <span>Fictieve voorbeelden · geen klantreferenties</span>
+  <span class="taal" role="group" aria-label="Taal / Language"><b lang="nl" aria-current="true">NL</b><a href="../product-passport.html" hreflang="en" lang="en">EN</a></span>
+</footer>
+
+<script src="../script.js?v=20261028b" defer></script>
+<script src="../beeld-motion-data.js?v=20261102c" defer></script>
+<script src="../beeld-motion.js?v=20261102c" defer></script>
+<script src="../taal.js?v=20261116a" defer></script>
+</body>
+</html>

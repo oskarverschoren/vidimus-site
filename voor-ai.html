@@ -1,143 +1,15 @@
 <!doctype html>
-<html lang="nl" class="js">
+<html lang="nl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F2F3F6">
-<title>Voor AI-agents — Vidimus vanuit Claude, ChatGPT of uw eigen agent</title>
-<meta name="description" content="Hoe een AI-agent Vidimus gebruikt: publieke verificatie zonder sleutel, de API met een eigen sleutel per agent of systeem, OpenAPI, llms.txt en een MCP-server met kant-en-klare tools.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261008b">
-<link rel="stylesheet" href="inner.css">
-<link rel="stylesheet" href="menu.css?v=20261102a">
-<style>
-.ai-pre { background: var(--void-2); border: 1px solid var(--line); padding: 1rem 1.2rem; overflow-x: auto;
-  font: 500 0.76rem/1.7 var(--mono); color: var(--paper-dim); margin-top: 1rem; white-space: pre; }
-@media (max-width: 600px) { .ai-pre { white-space: pre-wrap; overflow-wrap: anywhere; } }   /* 29/09: code breekt af op een telefoon */
-.ai-pre b { color:var(--ink); font-weight: 700; }
-.dtable td code { font: 500 0.74rem/1.6 var(--mono); color: var(--paper-dim); }
-</style>
-
-<link rel="canonical" href="https://vidimus.be/voor-ai.html">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="nl_BE">
-<meta property="og:title" content="Voor AI-agents — Vidimus vanuit Claude, ChatGPT of uw eigen agent"><meta property="og:description" content="Hoe een AI-agent Vidimus gebruikt: publieke verificatie zonder sleutel, de API met een eigen sleutel per agent of systeem, OpenAPI, llms.txt en een MCP-server met kant-en-klare tools."><meta property="og:url" content="https://vidimus.be/voor-ai.html"><meta property="og:image" content="https://vidimus.be/assets/og/controle-echt.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/controle-echt.jpg">
+<title>Verhuisd · Vidimus</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://vidimus.be/nl/voor-ai.html">
+<script>location.replace("/nl/voor-ai.html" + location.search + location.hash)</script>
+<meta http-equiv="refresh" content="0; url=/nl/voor-ai.html">
 </head>
-<body>
-<div class="ambient" aria-hidden="true"></div>
-
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
-</defs></svg>
-
-<header class="site">
-  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
-  <nav class="topnav" aria-label="Hoofdnavigatie">
-    <div class="nav-prod">
-      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Producten<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="mega" id="nav-producten" hidden>
-        <ul class="mega-lijst">
-          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Leveringen, schade en overdrachten ter plekke, getekend door beide partijen.</span></span></a></li>
-          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters en weegbruggen sturen metingen; elke meting apart verankerd.</span></span></a></li>
-          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Momentopnames van databanken en mappen, en webpagina's zoals ze online stonden.</span></span></a></li>
-          <li><a class="mega-item" href="productpaspoort.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Productpaspoort</b><span>Een code met QR-label per object en een lijn van overdrachten, getekend door houder en ontvanger.</span></span></a></li>
-          <li class="mega-breed"><a class="mega-item" href="prive.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Privé <em class="mega-wacht">Op aanvraag</em></b><span>Een eigen omgeving voor één organisatie: eigen sleutels, eigen adres, tijdstempels en ankers van buiten.</span></span></a></li>
-        </ul>
-        <div class="mega-zij">
-          <a class="mega-soft" href="partners.html"><em>Vidimus voor software</em><b>Bouwt u een TMS, WMS of ERP?</b><span>Lever bewijs in uw eigen product via de partner-API: referral, reseller of integrator.</span><i>Partner worden<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
-          <a class="mega-alle" href="index.html#producten">Alle producten naast elkaar<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
-        </div>
-      </div>
-    </div>
-    <a href="hoe-het-werkt.html">Hoe het werkt</a>
-    <a href="prijzen.html">Prijzen</a>
-    <a href="juridisch.html">Juridisch</a>
-  </nav>
-  <div class="top-cta">
-    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Uitlegvideo's</a>
-    <a class="top-login" href="https://app.vidimus.be/login">Inloggen</a>
-    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start gratis</a>
-  </div>
-</header>
-
-<main>
-<section class="page-hero">
-  <div class="wrap">
-    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="voor-ai.html">VOOR AI-AGENTS</a></p>
-    <h1 class="disp">Laat uw agent het bewijs <span class="thin">ophalen</span><span style="color:var(--red)">.</span></h1>
-    <p class="intro">"Ga naar Vidimus en bezorg me het bewijs van dit betwiste geval." Vidimus is gebouwd om óók door agents gebruikt te worden — Claude, ChatGPT of uw eigen automatisering. Drie lagen: een leesbare samenvatting voor modellen (<a href="llms.txt" style="color:var(--ink)">llms.txt</a>), een volledig beschreven API (<a href="https://app.vidimus.be/openapi.json" style="color:var(--ink)" rel="noopener">OpenAPI</a> · <a href="https://app.vidimus.be/docs" style="color:var(--ink)" rel="noopener">Swagger</a>) en een MCP-server met kant-en-klare tools. Publieke feiten zonder sleutel; uw eigen dossiers met een eigen sleutel voor uw agent, nooit de sleutel van uw organisatie.</p>
-  </div>
-</section>
-
-<section style="padding-block: clamp(2rem, 4vw, 4rem)">
-  <div class="wrap">
-    <div class="sec-head"><span class="lbl">01 · WAT EEN AGENT KAN DOEN</span></div>
-    <table class="dtable">
-      <tr><th>Opdracht van de gebruiker</th><th>Wat de agent doet</th><th>Sleutel</th></tr>
-      <tr><td>"Is registratie reg_… nog geldig en onaangeraakt?"</td><td><code>GET /verify/{id}</code> → alle controles, ook de gekwalificeerde tijdstempel</td><td>nee</td></tr>
-      <tr><td>"Toon me alles over zending VAC-2026-007."</td><td><code>GET /passport/{ref}</code> → tijdlijn over alle partijen (alleen feiten)</td><td>nee</td></tr>
-      <tr><td>"Controleer deze bewijsbundel van een leverancier."</td><td><code>POST /verify-upload</code> (zip) → oordeel + controles</td><td>nee</td></tr>
-      <tr><td>"Bezorg me het bewijs van de meerwerkbon van blok B."</td><td><code>GET /registrations?ref=…</code> → <code>/dossier</code> → <code>/bundle</code></td><td>ja</td></tr>
-      <tr><td>"Is deze pdf de versie die we destijds vastlegden?"</td><td>SHA-256 lokaal → <code>POST /lookup</code> → match + bewijs</td><td>ja</td></tr>
-      <tr><td>"Leg deze afleverbon vast en laat de ontvanger tekenen."</td><td><code>POST /registrations</code> → <code>POST /registrations/{id}/share</code> (QR/mail)</td><td>ja</td></tr>
-      <tr><td>"Toon de temperatuurreeks van logger TL-0917."</td><td><code>GET /sources/{id}/reeks</code> → elke meting van die meetbron met haar vingerafdruk (een meting heeft geen deellink)</td><td>ja</td></tr>
-      <tr><td>"Zet een opdracht klaar voor de chauffeur."</td><td><code>POST /streams/{id}/opdracht</code> → wallet-link, gemaild of als QR</td><td>ja</td></tr>
-    </table>
-  </div>
-</section>
-
-<section style="padding-block: clamp(2rem, 4vw, 4rem)">
-  <div class="wrap">
-    <div class="sec-head"><span class="lbl">02 · MCP-SERVER (CLAUDE CODE, CURSOR, VS CODE, CODEX)</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Gehost, niets te installeren.</b> Geef uw agent één adres en een eigen sleutel, nooit de sleutel van uw organisatie. U maakt hem in de app, onder Verbinden. Op het tabblad AI-assistent krijgt uw assistent een sleutel die opzoekt en controleert, of een sleutel die vastlegt in één logboek en dan alleen ziet wat hij zelf vastlegde. Intrekken werkt meteen, zonder uw systemen te raken. Zonder sleutel werken alleen de publieke tools.</p>
-<pre class="ai-pre">{"mcpServers": {"vidimus": {
-  "type": "http", "url": "https://app.vidimus.be/mcp",
-  "headers": {"x-api-key": "${VIDIMUS_MCP_KEY}"}}}}</pre>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1rem">De sleutel staat altijd in de header <code>x-api-key</code> (of <code>Authorization: Bearer</code>), het liefst uit een omgevingsvariabele, nooit in een adres.</p>
-    <table class="dtable" style="margin-top:1.4rem">
-      <tr><th>Programma</th><th>Werkt het?</th></tr>
-      <tr><td>Claude Code, Cursor, VS Code, Codex</td><td>Ja, met de sleutel in de header. In de app staat per programma het fragment om te kopiëren.</td></tr>
-      <tr><td>Claude in de browser, de Claude-app, ChatGPT</td><td>Nog niet: die vragen een aanmelding in plaats van een sleutel. Daar werken we aan. Tot dan werken ze alleen voor publieke controles.</td></tr>
-    </table>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.6rem"><b style="color:var(--ink)">Een koppeling bouwen met uw agent.</b> Voor een systeem of toestel (TMS, WMS, sensor) maakt de beheerder het eerst aan onder Verbinden. Dan krijgt uw agent een <b style="color:var(--ink)">testsleutel</b> (<code>vks_test_…</code>, servernaam <code>vidimus-test</code>, omgevingsvariabele <code>VIDIMUS_TEST_KEY</code>): die legt niets vast, en elk antwoord bevat <code>"proef": true</code>. De agent kijkt met <code>connection_status</code> wat er klaarstaat en test met <code>test_measurement</code> of <code>test_registration</code> tot het antwoord <code>"aanvaard": true</code> bevat. Daarna stuurt de code van het systeem zelf één bericht met de testsleutel. Pas dan staat er "Test geslaagd" en maakt de beheerder de <b style="color:var(--ink)">echte sleutel</b>. Die hoort in het systeem als <code>VIDIMUS_API_KEY</code>, nooit in de chat, in code of in een MCP-verbinding.</p>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem"><b style="color:var(--ink)">Let op:</b> er bestaat géén Vidimus-pakket op PyPI van ons. Wie <code>pip install vidimus</code> doet, installeert de code van iemand anders. Gebruik alleen het adres hierboven.</p>
-    <p style="max-width:70ch;color:var(--dim);font-size:.82rem;margin-top:1rem"><b style="color:var(--paper-dim)">Tools:</b> verify_registration · passport · list_registrations · list_streams · get_dossier · get_content · register · connection_status · test_measurement · test_registration · create_share · tamper_check · usage · explain.</p>
-<pre class="ai-pre"><b>Gebruiker:</b> "Bezorg me het bewijs van de betwiste aflevering van vrijdag, container MSKU 452 118-0."
-<b>Agent:</b>  passport("MSKU 452 118-0")    → vindt de aflevering + de bevestiging van de terminal
-        get_dossier(reg_…)            → het leesbare dossier
-        verify_registration(reg_…)    → "GELDIG: inhoud, handtekeningen en tijdstempels kloppen."</pre>
-  </div>
-</section>
-
-<section style="padding-block: clamp(2rem, 4vw, 5rem)">
-  <div class="wrap">
-    <div class="sec-head"><span class="lbl">03 · ZONDER VIDIMUS TE VERTROUWEN</span></div>
-    <p style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Elke bewijsbundel bevat een zelfstandig controlescript (<code>verify_bundle.py</code>, Python 3 met het pakket cryptography) en de tijdstempeltokens (RFC 3161), waaronder de gekwalificeerde tijdstempel van een gekwalificeerde vertrouwensdienstverlener op de EU-vertrouwenslijst. Een agent — of uw IT — controleert dus zonder één verbinding met ons:</p>
-<pre class="ai-pre">python3 verify_bundle.py bundel.zip     →  GELDIG · 7 van 8 nagerekend (het Bitcoin-blok vergelijkt u online)
-openssl ts -reply -token_in -in tijdstempel.tsr -text   →  tijdstip + Merkle-wortel van de tijdstempeldienst
-https://eidas.ec.europa.eu/efda/tl-browser/             →  uitgever van gekwalificeerd.tsr staat als gekwalificeerd op de EU-vertrouwenslijst</pre>
-    <p style="margin-top:1.4rem"><a class="xbtn" href="https://app.vidimus.be/docs" rel="noopener"><span>Open de volledige API-referentie</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
-  </div>
-</section>
-</main>
-
-<footer class="app-voet">
-  <span>VIDIMUS · SITE</span>
-  <span>© 2026 VO INITIATIVES BV — KBO BE 0805.309.143 — RIGASTRAAT 30, 2000 ANTWERPEN</span>
-  <a href="colofon.html">Colofon &amp; privacy</a>
-  <a href="voorwaarden.html">Voorwaarden</a> <a href="privacy.html">Privacy</a> <a href="beveiliging.html">Beveiliging</a>
-  <a href="scenarios.html">Scenario's</a>
-  <a href="cases.html">Cases</a>
-  <a href="vragen.html">Vragen</a>
-  <a href="verificatie.html">Verificatie</a>
-  <span class="sp"></span>
-  <span>Beveiligingsverklaring v0.2</span>
-</footer>
-
-<script src="script.js?v=20261028b" defer></script>
+<body style="font-family:'Instrument Sans',system-ui,sans-serif;padding:2rem;color:#0B0F17;background:#F2F3F6">
+<p>Deze pagina is verhuisd naar <a href="/nl/voor-ai.html" style="color:#0B0F17">vidimus.be/nl/voor-ai.html</a>.</p>
 </body>
 </html>

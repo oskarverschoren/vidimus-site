@@ -2,6 +2,20 @@
 'use strict'
 
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+// 16/11: op een Engelse pagina (<html lang="en">) Engelse teksten in de demo; Nederlands ongewijzigd
+const TEKST = Object.freeze(/^en\b/i.test(document.documentElement.lang || '') ? {
+  ongewijzigd: 'unchanged',
+  gewijzigd: 'changed',
+  zelfde: 'Hashes match. This document has not changed by a single byte since it was anchored.',
+  anders: 'Change detected — the current hash does not match the anchored hash. ' +
+    'This document is no longer the document that was signed.',
+} : {
+  ongewijzigd: 'ongewijzigd',
+  gewijzigd: 'gewijzigd',
+  zelfde: 'Hashes komen overeen. Dit document is sinds de verankering met geen byte gewijzigd.',
+  anders: 'Wijziging gedetecteerd — de huidige hash komt niet overeen met de verankerde hash. ' +
+    'Dit document is niet meer het document dat getekend werd.',
+})
 
 /* ── Compacte synchronische SHA-256 (werkt ook op file://) ──── */
 function sha256Hex(input) {
@@ -119,9 +133,8 @@ if (docCard && verifyCard) {
       setTimeout(() => li.classList.add('is-done'), STEP_DELAY * (i + 1))
     })
     setTimeout(() => {
-      setPill('status-valid', 'ongewijzigd')
-      verdictEl.textContent =
-        'Hashes komen overeen. Dit document is sinds de verankering met geen byte gewijzigd.'
+      setPill('status-valid', TEKST.ongewijzigd)
+      verdictEl.textContent = TEKST.zelfde
     }, STEP_DELAY * (steps.length + 1))
   }
 
@@ -140,14 +153,11 @@ if (docCard && verifyCard) {
     })
 
     if (tampered) {
-      setPill('status-broken', 'gewijzigd')
-      verdictEl.textContent =
-        'Wijziging gedetecteerd — de huidige hash komt niet overeen met de verankerde hash. ' +
-        'Dit document is niet meer het document dat getekend werd.'
+      setPill('status-broken', TEKST.gewijzigd)
+      verdictEl.textContent = TEKST.anders
     } else {
-      setPill('status-valid', 'ongewijzigd')
-      verdictEl.textContent =
-        'Hashes komen overeen. Dit document is sinds de verankering met geen byte gewijzigd.'
+      setPill('status-valid', TEKST.ongewijzigd)
+      verdictEl.textContent = TEKST.zelfde
     }
   }
 

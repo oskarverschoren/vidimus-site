@@ -12,21 +12,50 @@
     ['documenten', ['contract', 'document', 'factuur', 'pdf', 'webpagina', 'website', 'pagina', 'voorwaarden', 'offerte']],
     ['overdrachten', ['sleutel', 'overdracht', 'afgifte', 'huur', 'verhuur', 'overhandig']],
   ]);
-  const watCategorie = (tekst) => {
+  // 16/11: dezelfde categorieën voor wie in het Engels typt (zoals en/home-en.js); de waarden blijven Nederlands, de app verwacht ze zo
+  const WAT_REGELS_EN = Object.freeze([
+    ['leveringen', ['deliver', 'cmr', 'pallet', 'freight', 'shipment', 'consignment', 'parcel', 'load']],
+    ['fotos', ['photo', 'picture', 'damage', 'dent', 'inspection', 'condition', 'scratch']],
+    ['documenten', ['contract', 'document', 'invoice', 'pdf', 'webpage', 'website', 'web', 'page', 'terms', 'quote']],
+    ['overdrachten', ['key', 'handover', 'hand', 'rental', 'rent', 'lease']],
+  ]);
+  const maakCategorie = (regels) => (tekst) => {
     const t = String(tekst || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
     if (!t) return '';
     const woorden = t.split(/[^a-z0-9]+/).filter(Boolean);
-    for (const [cat, trefwoorden] of WAT_REGELS) {
+    for (const [cat, trefwoorden] of regels) {
       if (woorden.some((w) => trefwoorden.some((k) => w.startsWith(k)))) return cat;
     }
     return 'anders';
   };
+  const watCategorie = maakCategorie(WAT_REGELS);
   if (typeof document === 'undefined') { module.exports = { watCategorie }; return; }   // tests/test_home2_wat.py (node)
+
+  // 16/11: op een Engelse pagina (<html lang="en">) Engelse teksten; Nederlands ongewijzigd
+  const EN = /^en\b/i.test(document.documentElement.lang || '');
+  const categorie = EN ? maakCategorie(WAT_REGELS_EN) : watCategorie;
+  const T = Object.freeze(EN ? {
+    menuSluiten: 'Close menu', menuOpenen: 'Open menu', ongewijzigd: 'unchanged', gewijzigd: 'changed',
+    zinAf: 'This content does not match the anchor. Vidimus says no more than that: not what changed, not by whom.',
+    geenCrypto: 'Web Crypto is not available here (https only).',
+  } : {
+    menuSluiten: 'Menu sluiten', menuOpenen: 'Menu openen', ongewijzigd: 'ongewijzigd', gewijzigd: 'gewijzigd',
+    zinAf: 'Deze inhoud komt met het anker niet overeen. Meer zegt Vidimus niet: niet wat er veranderde, niet door wie.',
+    geenCrypto: 'Web Crypto is hier niet beschikbaar (alleen via https).',
+  });
 
   const IN_APP = /VidimusApp/.test(navigator.userAgent);
   const WISSEL_MS = 2800;
   const VERVAAG_MS = 220;
-  const VOORBEELDEN = Object.freeze([
+  const VOORBEELDEN = Object.freeze(EN ? [
+    'a delivery of 26 pallets',
+    'the condition of a rented home',
+    'a web page before it disappears',
+    'the temperature in the cold store',
+    'extra work that was approved',
+    'the version of a contract',
+    'the state of a database',
+  ] : [
     'een levering van 26 paletten',
     'de staat van een huurwoning',
     'een webpagina vóór ze verdwijnt',
@@ -44,7 +73,7 @@
   const zetMenu = (open) => {
     if (!menuKnop || !menu) return;
     menuKnop.setAttribute('aria-expanded', String(open));
-    menuKnop.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    menuKnop.setAttribute('aria-label', open ? T.menuSluiten : T.menuOpenen);
     menu.hidden = !open;
   };
   if (menuKnop && menu) {
@@ -82,7 +111,7 @@
     if (!IN_APP) { form.target = '_blank'; form.rel = 'noopener'; }
     form.addEventListener('submit', () => {
       if (!wat) return;
-      const cat = watCategorie(veld ? veld.value : '');
+      const cat = categorie(veld ? veld.value : '');
       wat.value = cat;
       wat.disabled = !cat;
     });
@@ -104,7 +133,7 @@
   if (!aantal || !knop23 || !knopReset || !st || !zin || !ankerEl || !nuEl || velden.length !== 5) return;
   const ORIGINEEL = aantal.defaultValue;
   const ZIN_OK = zin.textContent;
-  const ZIN_AF = 'Deze inhoud komt met het anker niet overeen. Meer zegt Vidimus niet: niet wat er veranderde, niet door wie.';
+  const ZIN_AF = T.zinAf;
 
   const veldTekst = (dd) => {
     const inv = dd.querySelector('input');
@@ -114,7 +143,7 @@
   };
   const inhoud = () => velden.map(veldTekst).join('|');
   const sha256 = async (tekst) => {
-    if (!window.crypto || !window.crypto.subtle) throw new Error('Web Crypto is hier niet beschikbaar (alleen via https).');
+    if (!window.crypto || !window.crypto.subtle) throw new Error(T.geenCrypto);
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(tekst));
     return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, '0')).join('');
   };
@@ -126,7 +155,7 @@
       const gelijk = nu === anker;
       nuEl.textContent = nu;
       nuEl.classList.toggle('af', !gelijk);
-      st.textContent = gelijk ? 'ongewijzigd' : 'gewijzigd';
+      st.textContent = gelijk ? T.ongewijzigd : T.gewijzigd;
       st.classList.toggle('af', !gelijk);
       zin.textContent = gelijk ? ZIN_OK : ZIN_AF;
       demo.classList.toggle('is-af', !gelijk);

@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Legal and audit — what an auditor, lawyer or judge can check | Vidimus</title>
+<meta name="description" content="The Vidimus chain of evidence step by step: company, key, record, fingerprint, Merkle root, timestamps (qualified per group for customer organisations), ledger, Bitcoin, verification. What it proves, what it does not, and how you verify it yourself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261008b">
+<link rel="stylesheet" href="inner.css?v=20260925">
+<link rel="stylesheet" href="menu.css?v=20261102a">
+<link rel="stylesheet" href="taal.css?v=20261116a">
+
+<link rel="canonical" href="https://vidimus.be/legal.html">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/juridisch.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/legal.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/legal.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Legal and audit — what an auditor, lawyer or judge can check | Vidimus"><meta property="og:description" content="The Vidimus chain of evidence step by step, what it proves and what it does not, and how you verify it yourself."><meta property="og:url" content="https://vidimus.be/legal.html"><meta property="og:image" content="https://vidimus.be/assets/og/rechtszaal-vlaggen.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/rechtszaal-vlaggen.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/legal.html#faq",
+ "url": "https://vidimus.be/legal.html",
+ "inLanguage": "en",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Can Vidimus itself forge or backdate a record?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Not without it being noticed. If a person signs, the signature comes from a key that does not leave their device. A connected system (TMS, ERP, sensor) holds its own key, or lets us keep it; in that case, that is stated in every bundle. Nobody can give a record an earlier anchoring time, not even us, and a later change is noticed: that time comes from external timestamps and from Bitcoin, and the ledger is a hash chain. What we could do with a stored system key: create a new record in the name of that system, with the current time as its anchoring time. If you want to rule that out, let your system hold the key itself."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "The customer submitted it themselves. Can they manipulate their own proof?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "They can submit wrong content — that remains \"this was reported at the time\". They cannot change, withdraw or backdate that content afterwards: each record is anchored at the moment it is submitted, and a correction is a new record with its own time, next to the old one. What a counterparty co-signed through a share link, they signed with their own key on their own device."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "The photo is in the bundle as a hash. Is that proof?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The bundle contains the photo itself and the hash that was anchored at the moment of recording. Anyone who hashes the photo again today and finds the same value knows that this exact file existed then and has not changed since. What the photo shows is for the court to assess — as with any photo."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Personal data in the record: can the counterparty see it?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Only a mathematical anchor is public, which lets anyone check whether your logbook was rewritten afterwards. Who you are, what you record and with whom stays within your organisation and with the people you give a link to yourself. In logbooks with personal data, a secret salt per record goes into the fingerprint; that salt is only in the bundle of that one record and says nothing about the others. Whoever receives the bundle gets it from the customer — not from us."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What if Vidimus no longer exists at the time of the dispute?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The bundle belongs to the customer and does not depend on our platform: open formats, standard cryptography, published steps. The timestamp file (.tsr) and the Bitcoin proof can be recomputed against their own source. If Vidimus stops voluntarily, customers have ninety days to take everything with them; in a bankruptcy, the bankruptcy trustee decides. The bundles remain verifiable."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is a device key a qualified signature?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The key is created on the device and does not leave it. Whether that is an advanced electronic signature (Art. 26) is for the court to assess. The director's mandate is signed with the Belgian eID; whether that signature is qualified is shown by a check of the certificate (for example with the European Commission's DSS), not by Vidimus. We do not offer a qualified signature per record (for example through itsme) today."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-play" viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Products<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Deliveries, damage and handovers on the spot, signed by both parties.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters and weighbridges send measurements; each measurement is anchored separately.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Snapshots of databases and folders, and web pages as they were online.</span></span></a></li>
+          <li><a class="mega-item" href="product-passport.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Product Passport</b><span>A code with a QR label per object and a line of handovers, signed by holder and recipient.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="private.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Private <em class="mega-wacht">On request</em></b><span>A dedicated environment for one organisation: its own keys, its own address, timestamps and anchors from outside.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus for software</em><b>Are you building a TMS, WMS or ERP?</b><span>Deliver proof in your own product through the partner API: referral, reseller or integrator.</span><i>Become a partner<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">All products side by side<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="legal.html" aria-current="page">Legal</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Explainer videos</a>
+    <a class="top-taal" href="nl/juridisch.html" hreflang="nl-BE" lang="nl" aria-label="Nederlandse versie van deze pagina">NL</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Log in</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start free</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="legal.html">LEGAL &amp; AUDIT</a></p>
+    <h1 class="disp">What an auditor, lawyer or judge can check<span style="color:var(--red)">.</span></h1>
+    <p class="law-note" style="margin-top:0">This is a translation. The <a href="nl/juridisch.html" hreflang="nl-BE" style="color:var(--ink)">Dutch version</a> prevails.</p>
+    <p class="intro">Vidimus provides evidence material, not a verdict and not legal advice. What it provides is a chain of checkable facts: <b>who</b> recorded, <b>what</b> exactly was there, <b>when</b> according to an external timestamp (for customer organisations, per group, a qualified one as well), and <b>whether anything has changed since</b>. Each link can be recomputed with open tools, without Vidimus and without having to take anyone's word for it.</p>
+    <div class="hero-actions">
+      <a class="xbtn red steel" href="verify-it-yourself.html"><span>Verify it yourself, step by step</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="voorbeeldbundel.zip"><span>Example bundle (55 kB)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-label="Videos: for the judge and for the auditor" style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="vgrid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))">
+      <article class="vcard rv">
+        <div class="vslot"><video src="video/vidimus-rechtszaal.mp4" poster="video/vidimus-rechtszaal-poster.jpg" preload="metadata" playsinline></video><button class="vplay" aria-label="Play: what was there at the time? (video in Dutch)"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Play — 1:00</span></button></div>
+        <div class="vbody"><span class="lbl">FOR THE JUDGE · 1:00 · VIDEO IN DUTCH</span><h3>What was there at the time?</h3><p>Eight months later, two parties show the same record, but the versions differ. The judge recomputes for themselves which version was recorded at the time, without having to take Vidimus at its word.</p></div>
+      </article>
+      <article class="vcard rv">
+        <div class="vslot"><video src="video/vidimus-audit.mp4" poster="video/vidimus-audit-poster.jpg" preload="metadata" playsinline></video><button class="vplay" aria-label="Play: the auditor does not have to take our word for it (video in Dutch)"><span><svg aria-hidden="true"><use href="#i-play"/></svg>Play — 1:00</span></button></div>
+        <div class="vbody"><span class="lbl">FOR THE AUDITOR · 1:00 · VIDEO IN DUTCH</span><h3>The auditor does not have to take our word for it</h3><p>Evidence comes from systems, Excel files, PDFs and emails. But when did it exist, and has it changed since? The auditor opens the verification and recomputes it themselves.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 · THE CHAIN OF EVIDENCE</span>
+      <h2 class="disp">Nine links<span style="color:var(--red)">.</span> <span class="thin">Each link is a checkable fact.</span></h2>
+      <p class="side">This is the order in which a record becomes proof. Pull on one link and the rest moves with it: that is exactly what you check.</p>
+    </div>
+    <div class="flow rv">
+      <div class="flow-step hit"><span class="when">1 · Company</span><h4>Checked in the Belgian company register (KBO), mandate signed with eID</h4><p>The director signs a mandate with their Belgian eID. This produces an organisation identifier (SHA-256 over organisation ID, company number and time of creation) that appears on the mandate, in every evidence bundle and on every check page.</p><span class="meta">check: identifier in the mandate = identifier in the bundle</span></div>
+      <div class="flow-step hit"><span class="when">2 · Submitter</span><h4>A key on the device, a certificate in the company's name</h4><p>Every team member signs with an Ed25519 key that was created on their phone and does not leave the device; the certificate is issued in the name of their organisation. Two anchored statements sit behind it: the employer stated who the person is and that they may sign; the person used the same key to sign that the device is theirs. A system (TMS, WMS, ERP, gate) signs with a system key of the organisation, a measurement source (sensor, logger, weighbridge) with its own key: the signature then shows which system or which source submitted, not which person.</p><span class="meta">check: certificate chain in the bundle · <b>manifest.signer.mandaat</b></span></div>
+      <div class="flow-step hit"><span class="when">3 · Record</span><h4>What exactly was there</h4><p>The data plus every attachment (photo, PDF, measurement) as they were submitted on the device or by the system. Not an export from the customer's database, but what was signed at the time.</p></div>
+      <div class="flow-step hit"><span class="when">4 · Fingerprint</span><h4>SHA-256 over content, attachments and organisation identifier</h4><p>One byte different gives a different fingerprint; the company's identifier is part of the input, so the fingerprint demonstrably belongs to one identified company. With personal data, a secret salt of that one record goes into the input, with ordinary SHA-256: the chain remains verifiable, also with the EU software, and the content cannot be guessed. Records from before 28 September 2026 use an HMAC with a key per logbook and remain verifiable that way.</p><span class="meta">check: <b>sha256sum</b> over the attachments and the canonical JSON</span></div>
+      <div class="flow-step hit"><span class="when">5 · Merkle root</span><h4>One tree every five minutes</h4><p>All new fingerprints together in one Merkle tree. The path from your fingerprint to the root is in the bundle; anyone who follows it arrives exactly at the root — but only with this fingerprint.</p><span class="meta">check: recompute the Merkle path</span></div>
+      <div class="flow-step hit"><span class="when">6 · Timestamp</span><h4>An external timestamping service signs the root; for customer organisations, a qualified one as well</h4><p>Not our server clock. Within five minutes, the root receives an external timestamp (RFC 3161), checkable back to a root certificate that is already on your computer. If the group contains records of customer organisations, all new roots together usually receive a qualified timestamp within the meaning of eIDAS within six hours, from a qualified trust service provider on the EU trusted list. Both timestamp files (.tsr) are in the bundle, with the root and the time.</p><span class="meta">check: <b>openssl ts</b> and <b>openssl cms -verify</b></span></div>
+      <div class="flow-step hit"><span class="when">7 · Ledger</span><h4>Append-only, each entry hashes the previous one</h4><p>The root goes into our ledger. A change to one entry shows up in every entry after it — visible to anyone who puts the ledger entry in the bundle next to the previous one.</p></div>
+      <div class="flow-step hit"><span class="when">8 · Bitcoin</span><h4>The same root in a public register</h4><p>Through OpenTimestamps, the root goes into a Bitcoin block. Thousands of parties keep that register at the same time; changing or deleting would be noticed by everyone, even if we were to try. Bitcoin proves that the root existed before that block; the precise time comes from link 6.</p><span class="meta">check: <b>ots verify</b> + blockstream.info or mempool.space</span></div>
+      <div class="flow-step hit"><span class="when">9 · Verification</span><h4>Who · what · when · changed?</h4><p>The public check page and the evidence bundle give an outcome per check. The proof does not depend on Vidimus: the bundle belongs to the customer, the script is open, the tools are standard.</p><span class="meta">outcome: <b>unchanged · matches</b> — or not</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 · WHAT IT PROVES</span>
+      <h2 class="disp">What it proves<span style="color:var(--red)">.</span> <span class="thin">And what it does not.</span></h2>
+      <p class="side">Whoever uses Vidimus properly claims no more than this. Whoever claims more loses the very dispute they wanted to win.</p>
+    </div>
+    <div class="vs-grid rv">
+      <div class="vs-col good-side">
+        <h3>What is established</h3>
+        <ul>
+          <li><b>Existence at a point in time:</b> exactly these data and attachments existed before the Bitcoin block and, if their group received a qualified timestamp (per group, only for groups with records of customer organisations), before the time of that timestamp. For that timestamp, the legal presumption applies that the date and time are accurate and that the data to which it is bound are unchanged (eIDAS Art. 41(2)). The record is linked to it through hash calculations you can recompute yourself (Merkle path, Evidence Record). Whether the presumption also applies to the record itself is for the court to assess.</li>
+          <li><b>Unchanged since:</b> any change afterwards — one byte — breaks the fingerprint and so every link after it.</li>
+          <li><b>Which key signed:</b> a device key of an identified team member, or the key of a system or measurement source of an identified organisation.</li>
+          <li><b>The order:</b> the order of the batches is fixed. Within one five-minute batch, the order follows the device's time.</li>
+          <li><b>Who co-signed:</b> a counterparty who confirmed or disputed through a share link, with their own key on their own device.</li>
+        </ul>
+        <p class="cost">= CHECKABLE WITHOUT VIDIMUS</p>
+      </div>
+      <div class="vs-col bad-side">
+        <h3>What Vidimus does not say</h3>
+        <ul>
+          <li><b>That the content is true.</b> A wrong temperature stays wrong — but anchored as “this was reported at the time”.</li>
+          <li><b>Who physically held the device.</b> The key belongs to the person (Face ID, statements); the bundle says so honestly, and no more.</li>
+          <li><b>A legal qualification.</b> Whether something is a delivery, an acceptance or a formal notice of default is for your legal adviser or the court to assess.</li>
+          <li><b>A legal presumption for the Bitcoin anchoring.</b> It may not be refused as evidence because it is electronic (Art. 41(1)), but the court weighs it freely. The presumption of date and time (Art. 41(2)) rests on the qualified timestamp on the group's root; whether it also applies to a record is for the court to assess.</li>
+        </ul>
+        <p class="cost">= WHAT YOU MUST SHOW YOURSELF</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 · FRAMEWORK</span>
+      <h2 class="disp">What it rests on<span style="color:var(--red)">.</span></h2>
+      <p class="side">Not legal advice, but the articles your legal adviser will look at. Vidimus itself is not a qualified trust service provider and not a notary; the timestamp does come from a qualified trust service.</p>
+    </div>
+    <div class="law-grid rv">
+      <div class="law-block"><span class="art">eIDAS Art. 25</span><p>An electronic signature may not be refused as evidence in legal proceedings solely because it is electronic or not qualified.</p></div>
+      <div class="law-block"><span class="art">eIDAS Art. 26</span><p>The requirements for an advanced electronic signature: uniquely linked to the signatory, capable of identifying the signatory, created using data under the signatory's sole control, and linked in such a way that any subsequent change can be detected. At Vidimus, the key is created on the device and does not leave it. Whether that is an advanced electronic signature is for the court to assess.</p></div>
+      <div class="law-block"><span class="art">eIDAS Art. 41</span><p>An electronic timestamp may not be refused as evidence solely because it is electronic (paragraph 1). A <b>qualified</b> timestamp enjoys the presumption of the accuracy of the date and time it indicates and of the integrity of the data to which it is bound (paragraph 2). At Vidimus, groups with records of customer organisations usually receive a qualified timestamp from GLOBALTRUST within six hours, as long as the annual package with the trust service provider has room left; each record is linked to it through its Merkle path.</p></div>
+      <div class="law-block"><span class="art">eIDAS Art. 46</span><p>An electronic document may not be refused as evidence solely because it is electronic.</p></div>
+      <div class="law-block"><span class="art">Belgian Civil Code, Book 8, Art. 8.11</span><p>Between businesses, there is freedom of evidence: all means of evidence are admissible, and the court weighs them. A checkable evidence bundle carries more weight than a screenshot from a system that is itself in dispute.</p></div>
+      <div class="law-block"><span class="art">CMR Art. 30</span><p>On delivery without reservation, there is a presumption of proper delivery. A signed, anchored delivery with photo and time records that moment — for both parties.</p></div>
+    </div>
+    <p class="law-note">Articles summarised, not quoted. Vidimus does not certify the content of records and does not give legal advice; see also <a href="terms.html" style="color:var(--ink)">the terms</a>.</p>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 · FOR THE AUDITOR</span>
+      <h2 class="disp">What you get to check<span style="color:var(--red)">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>The check page</b> per record, without an account: eight checks with the actual values (fingerprint, root, time, block) and, for each check, what it means. No content; the customer shares that themselves.</span></li>
+      <li><span><b>The evidence bundle</b> (zip): manifest, content and attachments, certificates, timestamp files (.tsr), Bitcoin proof, ledger entry, an Evidence Record (RFC 4998) for the European Commission's software, the reference script and the manual. Verifiable on its own, largely offline.</span></li>
+      <li><span><b>The dossier</b> per record (PDF/HTML): who, what, when, chain of evidence, confirmations from counterparties, checks — for the case file.</span></li>
+      <li><span><b>The series per measurement source</b>: a measurement gets no share link and no confirmation by a counterparty. The proof for measurements is the series of that source, each measurement with its fingerprint, in chronological order.</span></li>
+      <li><span><b>The audit package</b> per logbook or chain: all bundles, an index and the script in one zip. And the <b>double check</b>: the customer's database compared with the anchors: per record, unchanged, changed or missing.</span></li>
+      <li><span><b>The access log</b>: every time our server decrypted content (dossier, bundle, search), with the reason and at whose request. The customer sees it themselves.</span></li>
+      <li><span><b>The history</b> of every action in the platform, itself SHA-256-chained: one changed line breaks the chain.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--space)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 · THE HARD QUESTIONS</span>
+      <h2 class="disp">What a lawyer asks<span style="color:var(--red)">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Can Vidimus itself forge or backdate a record?</summary><p class="a"><b>Not without it being noticed.</b> If a person signs, the signature comes from a key that does not leave their device. A connected system (TMS, ERP, sensor) holds its own key, or lets us keep it; in that case, that is stated in every bundle. Nobody can give a record an earlier anchoring time, not even us, and a later change is noticed: that time comes from external timestamps and from Bitcoin, and the ledger is a hash chain. What we could do with a stored system key: create a new record in the name of that system, with the current time as its anchoring time. If you want to rule that out, let your system hold the key itself.</p></details>
+      <details><summary>The customer submitted it themselves. Can they manipulate their own proof?</summary><p class="a">They can submit wrong content — that remains “this was reported at the time”. They <b>cannot</b> change, withdraw or backdate that content afterwards: each record is anchored at the moment it is submitted, and a correction is a new record with its own time, next to the old one. What a counterparty co-signed through a share link, they signed with their own key on their own device.</p></details>
+      <details><summary>The photo is in the bundle as a hash. Is that proof?</summary><p class="a">The bundle contains the photo itself and the hash that was anchored at the moment of recording. Anyone who hashes the photo again today and finds the same value knows that this exact file existed then and has not changed since. What the photo shows is for the court to assess — as with any photo.</p></details>
+      <details><summary>Personal data in the record: can the counterparty see it?</summary><p class="a">Only a mathematical anchor is public, which lets anyone check whether your logbook was rewritten afterwards. Who you are, what you record and with whom stays within your organisation and with the people you give a link to yourself. In logbooks with personal data, a secret salt per record goes into the fingerprint; that salt is only in the bundle of that one record and says nothing about the others. Whoever receives the bundle gets it from the customer — not from us.</p></details>
+      <details><summary>What if Vidimus no longer exists at the time of the dispute?</summary><p class="a">The bundle belongs to the customer and does not depend on our platform: open formats, standard cryptography, published steps. The timestamp file (.tsr) and the Bitcoin proof can be recomputed against their own source. If Vidimus stops voluntarily, customers have ninety days to take everything with them; in a bankruptcy, the bankruptcy trustee decides. The bundles remain verifiable.</p></details>
+      <details><summary>Is a device key a qualified signature?</summary><p class="a"><b>No.</b> The key is created on the device and does not leave it. Whether that is an advanced electronic signature (Art. 26) is for the court to assess. The director's mandate is signed with the Belgian eID; whether that signature is qualified is shown by a check of the certificate (for example with the European Commission's DSS), not by Vidimus. We do not offer a qualified signature per record (for example through itsme) today.</p></details>
+      <p class="law-note" style="margin-top:1.4rem">More: <a href="questions.html" style="color:var(--ink)">the sixteen hardest questions</a> — evidence in court, eIDAS, GDPR and WORM, what if Vidimus stops, sandbox and limits, key management, SLA, liability.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">Verify it yourself<span style="color:var(--red)">.</span> <span>You do not have to take our word for it.</span></h2>
+    <div class="final-under">
+      <p>Download the example bundle, run the script, or put one file into the hash lab. We answer experts' questions directly.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="verify-it-yourself.html"><span>The verification guide</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://app.vidimus.be/controleer/lab"><span>Hash lab in the browser</span></a>
+        <a class="xbtn" href="mailto:oskar@vo-initiatives.com?subject=Question%20from%20an%20expert"><span>oskar@vo-initiatives.com</span></a>
+      </div>
+    </div>
+    <p class="lbl" style="margin-top:2.5rem">SHA-256 · ED25519 · X.509 · MERKLE · RFC 3161 · OPENTIMESTAMPS / BITCOIN · AES-256-GCM · OBJECT LOCK</p>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerp, Belgium · BE 0805.309.143</span>
+  <a href="technology.html">Technology</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="security.html">Security</a>
+  <a href="verify-it-yourself.html">Verify it yourself</a>
+  <a href="partners.html">Partners</a>
+  <a href="cases.html">Cases</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="legal.html">Legal</a>
+  <a href="help.html">Explainer videos</a>
+  <a href="questions.html">Questions</a>
+  <a href="for-ai-agents.html">For AI agents</a>
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="colophon.html">Colophon</a>
+  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Get it on Google Play" loading="lazy"></a></span>
+  <span class="sp"></span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <a href="tel:+32466474115">+32 466 47 41 15</a>
+  <a href="https://www.linkedin.com/company/vidimus-be/" rel="noopener noreferrer">LinkedIn</a>
+  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Use cases</span>
+    <a href="disputed-delivery-cmr.html">Transport and logistics</a>
+    <a href="disputed-inspection-report.html">Real estate and rentals</a>
+    <a href="proving-extra-work.html">Construction and renovation</a>
+    <a href="equipment-handover-damage.html">Equipment rental</a>
+    <a href="record-a-web-page.html">Recording web pages</a>
+    <a href="after-a-breach.html">IT and databases</a>
+    <a href="cases.html">Cold chain and care</a>
+    <a href="comparison-proofsnap-truescreen.html">Comparison with ProofSnap and TrueScreen</a>
+  </nav>
+  <span class="taal" role="group" aria-label="Language / Taal"><a href="nl/juridisch.html" hreflang="nl-BE" lang="nl">NL</a><b lang="en" aria-current="true">EN</b></span>
+</footer>
+
+<script src="script.js?v=20261028b" defer></script>
+<script src="taal.js?v=20261116a" defer></script>
+</body>
+</html>

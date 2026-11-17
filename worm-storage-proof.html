@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Does WORM storage prove that nothing was changed? | Vidimus</title>
+<meta name="description" content="WORM storage (Object Lock) stops overwriting and deletion, but does not show when something existed. Why you need both storage and anchoring.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="favicon-192.png?v=3" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261008b">
+<link rel="stylesheet" href="inner.css">
+<link rel="stylesheet" href="product.css?v=20261028a">
+<link rel="stylesheet" href="menu.css?v=20261102a">
+<link rel="stylesheet" href="antwoord.css?v=20261029a">
+<link rel="stylesheet" href="taal.css?v=20261116a">
+
+<link rel="canonical" href="https://vidimus.be/worm-storage-proof.html">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/worm-opslag-bewijs.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/worm-storage-proof.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/worm-storage-proof.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="article"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Does WORM storage prove that nothing was changed? | Vidimus"><meta property="og:description" content="WORM storage (Object Lock) stops overwriting and deletion, but does not show when something existed. Why you need both storage and anchoring."><meta property="og:url" content="https://vidimus.be/worm-storage-proof.html"><meta property="og:image" content="https://vidimus.be/assets/og/reg-databank.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="article:modified_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/reg-databank.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/worm-storage-proof.html#faq",
+ "url": "https://vidimus.be/worm-storage-proof.html",
+ "inLanguage": "en",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is the difference between governance mode and compliance mode?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "In governance mode, an administrator with a special permission can lift or shorten the lock. In compliance mode, nobody can, not even the account administrator, until the retention period expires. Vidimus uses Object Lock in compliance mode."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How does WORM fit with the right to erasure (GDPR)?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "By deleting the key, not the file. The encrypted original stays, but without its document key it cannot be read, not even by us. In the encrypted backups, that key remains for at most thirty days."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do you still need WORM if everything is anchored?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, if you want to keep the original. A fingerprint shows that something changed or disappeared, but it does not bring back a deleted file. Storage and anchoring complement each other."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can Vidimus itself delete or change a record?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Not without it being noticed. A change afterwards breaks the fingerprint and the ledger, and the time comes from external timestamps and Bitcoin. Originals are written once and go to storage with Object Lock."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body>
+<!-- 29/10/2026 · antwoordpagina (branch seo-2, marketingchat, NIET live). Alleen wat vandaag live is; 'in opbouw' waar dat zo is. -->
+<div class="ambient" aria-hidden="true"></div>
+
+<svg class="sr-sprite" width="0" height="0" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Products<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Deliveries, damage and handovers on the spot, signed by both parties.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters and weighbridges send measurements; each measurement is anchored separately.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Snapshots of databases and folders, and web pages as they were online.</span></span></a></li>
+          <li><a class="mega-item" href="product-passport.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Product Passport</b><span>A code with a QR label per object and a line of handovers, signed by holder and recipient.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="private.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Private <em class="mega-wacht">On request</em></b><span>A dedicated environment for one organisation: its own keys, its own address, timestamps and anchors from outside.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus for software</em><b>Are you building a TMS, WMS or ERP?</b><span>Deliver proof in your own product through the partner API: referral, reseller or integrator.</span><i>Become a partner<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">All products side by side<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="legal.html">Legal</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Explainer videos</a>
+    <a class="top-taal" href="nl/worm-opslag-bewijs.html" hreflang="nl-BE" lang="nl" aria-label="Nederlandse versie van deze pagina">NL</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Log in</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start free</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero" aria-labelledby="vraag-h">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="questions.html">QUESTIONS</a><i>/</i><span class="lbl aw-hier">WORM AND OBJECT LOCK</span></p>
+    <h1 class="disp aw-vraag" id="vraag-h">Does WORM storage prove that your data was not changed?</h1>
+    <p class="aw-kort" id="kort-antwoord"><span class="aw-label">Short answer</span>Not on its own. WORM storage (write once, read many, such as Object Lock in compliance mode) prevents a file from being overwritten or deleted during the retention period. That is a promise from the storage service, which a third party cannot recompute themselves. <b>A fingerprint with an external timestamp adds to that</b>: anyone can recompute it themselves.</p>
+    <p class="aw-datum">Updated on 29 October 2026 · Oskar Verschoren, Vidimus (VO Initiatives BV, Antwerp)</p>
+    <div class="hero-actions">
+      <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start free</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s1-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / THE DIFFERENCE</span>
+      <h2 class="disp" id="s1-h">Keeping and proving are two different things<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="aw-tabel-wrap rv">
+      <table class="aw-tabel">
+        <caption>WORM storage and anchoring side by side</caption>
+        <thead><tr><th scope="col">question</th><th scope="col">WORM storage (Object Lock)</th><th scope="col">anchoring</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">What does it stop?</th><td>Overwriting and deletion at the storage service, until the retention period expires.</td><td>Nothing. It makes a change visible to whoever checks.</td></tr>
+          <tr><th scope="row">Who can recompute it?</th><td>Only someone with access to the storage settings; a third party has to trust the service.</td><td>Anyone with the file and the evidence bundle, even without Vidimus.</td></tr>
+          <tr><th scope="row">When did it exist?</th><td>A date in the storage service's own data.</td><td>A timestamp from an external service and a Bitcoin block.</td></tr>
+          <tr><th scope="row">What happened before it was written?</th><td>Outside its scope.</td><td>Outside its scope: both start at the moment of recording.</td></tr>
+          <tr><th scope="row">Can a deleted file come back?</th><td>Yes, it stays stored.</td><td>No, a fingerprint does not bring back a file.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="aw-tekst">That is why Vidimus does both: anchoring, so that anyone can recompute, and storage with Object Lock, so that the original stays there.</p>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s2-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / HOW IT WORKS</span>
+      <h2 class="disp" id="s2-h">How Vidimus does it<span class="aw-punt">.</span></h2>
+    </div>
+    <ol class="aw-stappen rv">
+      <li><h3>Anchoring<small>sha-256 · ed25519 · rfc 3161 · bitcoin</small></h3><p>Each record gets a fingerprint and a signature, and within five minutes a timestamp from an external service on the group. The root goes into our ledger, where each entry hashes the previous one, and into Bitcoin via OpenTimestamps.</p></li>
+      <li><h3>Encrypted storage<small>aes-256-gcm</small></h3><p>Originals and photos are stored encrypted with a separate key per document, wrapped under your organisation's key.</p></li>
+      <li><h3>Object Lock in compliance mode<small>Hetzner Object Storage · Nuremberg</small></h3><p>Each encrypted photo and record is also kept in storage with Object Lock in compliance mode: until the logbook's retention period expires, the storage allows no deletion or overwriting, not even at our request to the hosting provider.</p></li>
+      <li><h3>Backups<small>every night · thirty days</small></h3><p>Every night, an encrypted copy of the database, ledger and keys goes to storage with Object Lock, kept for thirty days. Every quarter, we restore the latest backup into a shielded folder and check that everything can be recovered.</p></li>
+      <li><h3>Deletion after the period<small>by destroying the key</small></h3><p>Deletion works by destroying the document key: the encrypted file stays, but without the key it cannot be read, not even by us. Today this happens on request; automatic deletion after the retention period does not exist yet.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s3-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / LIMITS</span>
+      <h2 class="disp" id="s3-h">What it does not prove<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>WORM does not show when a file first existed.</b> The storage date comes from the storage service itself.</span></li>
+      <li><span><b>What happened before it was written.</b> Both WORM and anchoring start at the moment of recording.</span></li>
+      <li><span><b>That your own systems did not change.</b> Vidimus's Object Lock protects the copies at Vidimus, not your database or the files on your side.</span></li>
+      <li><span><b>That you meet a particular retention obligation.</b> Which retention rules apply to you, and whether this storage is enough for them, is for your legal adviser or auditor to assess.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s4-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / SPECIFICATIONS</span>
+      <h2 class="disp" id="s4-h">Specifications<span class="aw-punt">.</span></h2>
+    </div>
+    <dl class="pr-spec rv">
+      <div><dt>object lock</dt><dd>compliance mode · Hetzner Object Storage, Nuremberg (Germany)</dd></div>
+      <div><dt>encryption</dt><dd>AES-256-GCM · separate key per document · key per organisation</dd></div>
+      <div><dt>retention period</dt><dd>ten years per logbook by default, adjustable per organisation</dd></div>
+      <div><dt>backups</dt><dd>every night, encrypted, with Object Lock, thirty days · recovery tested every quarter</dd></div>
+      <div><dt>anchoring</dt><dd>SHA-256 · Ed25519 · RFC 3161 per five-minute group · ledger as a hash chain · OpenTimestamps → Bitcoin</dd></div>
+      <div><dt>deletion</dt><dd>by destroying the document key · on request · automatic after the period: not yet</dd></div>
+      <div><dt>confidential logbook</dt><dd>the phone encrypts before sending; only you have the key</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s5-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / QUESTIONS</span>
+      <h2 class="disp" id="s5-h">Frequently asked questions<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>What is the difference between governance mode and compliance mode?</summary><p class="a">In governance mode, an administrator with a special permission can lift or shorten the lock. In compliance mode, nobody can, not even the account administrator, until the retention period expires. Vidimus uses Object Lock in compliance mode.</p></details>
+      <details><summary>How does WORM fit with the right to erasure (GDPR)?</summary><p class="a">By deleting the key, not the file. The encrypted original stays, but without its document key it cannot be read, not even by us. In the encrypted backups, that key remains for at most thirty days.</p></details>
+      <details><summary>Do you still need WORM if everything is anchored?</summary><p class="a">Yes, if you want to keep the original. A fingerprint shows that something changed or disappeared, but it does not bring back a deleted file. Storage and anchoring complement each other.</p></details>
+      <details><summary>Can Vidimus itself delete or change a record?</summary><p class="a">Not without it being noticed. A change afterwards breaks the fingerprint and the ledger, and the time comes from external timestamps and Bitcoin. Originals are written once and go to storage with Object Lock.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="verder-h">
+  <div class="wrap">
+    <h2 id="verder-h" class="disp aw-klein">Further reading<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="security.html"><span class="lbl">SECURITY</span><b>Keys, encryption, storage and backups</b></a></li>
+      <li><a href="data.html"><span class="lbl">PRODUCT</span><b>Vidimus Data: snapshots of databases and folders</b></a></li>
+      <li><a href="questions.html"><span class="lbl">QUESTIONS</span><b>The hardest questions, from court to GDPR</b></a></li>
+      <li><a href="technology.html"><span class="lbl">TECHNOLOGY</span><b>One record from start to proof</b></a></li>
+    </ul>
+    <h2 id="meer-h" class="disp aw-klein">More questions and answers<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="photo-proof-not-edited.html"><span class="lbl">PHOTOS</span><b>How do you prove that a photo was not edited?</b></a></li>
+      <li><a href="database-proof-after-hack.html"><span class="lbl">DATABASES</span><b>After a hack: is your database still the same?</b></a></li>
+      <li><a href="qualified-timestamp-eidas.html"><span class="lbl">TIMESTAMP</span><b>What does a qualified timestamp (eIDAS) prove?</b></a></li>
+      <li><a href="temperature-logger-proof.html"><span class="lbl">SENSORS</span><b>Temperature measurements as proof for insurer and audit</b></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">How we start: <span>your first logbook today, the first 100 records free.</span></h2>
+    <div class="final-under">
+      <p>You create your account in two minutes. No payment details needed. A director identifies your company once with the Belgian eID; then you create your first logbook in a few minutes. Would you rather talk first? Book 15 minutes with the founder.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start free</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerp, Belgium · BE 0805.309.143</span>
+  <a href="technology.html">Technology</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="security.html">Security</a>
+  <a href="verify-it-yourself.html">Verify it yourself</a>
+  <a href="partners.html">Partners</a>
+  <a href="cases.html">Cases</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="legal.html">Legal</a>
+  <a href="help.html">Explainer videos</a>
+  <a href="questions.html">Questions</a>
+  <a href="for-ai-agents.html">For AI agents</a>
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="colophon.html">Colophon</a>
+  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Get it on Google Play" loading="lazy"></a></span>
+  <span class="sp"></span>
+  <span>Fictional examples · no customer references</span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <a href="tel:+32466474115">+32 466 47 41 15</a>
+  <a href="https://www.linkedin.com/company/vidimus-be/" rel="noopener noreferrer">LinkedIn</a>
+  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Use cases</span>
+    <a href="disputed-delivery-cmr.html">Transport and logistics</a>
+    <a href="disputed-inspection-report.html">Real estate and rentals</a>
+    <a href="proving-extra-work.html">Construction and renovation</a>
+    <a href="equipment-handover-damage.html">Equipment rental</a>
+    <a href="record-a-web-page.html">Recording web pages</a>
+    <a href="after-a-breach.html">IT and databases</a>
+    <a href="cases.html">Cold chain and care</a>
+    <a href="comparison-proofsnap-truescreen.html">Comparison with ProofSnap and TrueScreen</a>
+  </nav>
+  <span class="taal" role="group" aria-label="Language / Taal"><a href="nl/worm-opslag-bewijs.html" hreflang="nl-BE" lang="nl">NL</a><b lang="en" aria-current="true">EN</b></span>
+</footer>
+
+<script src="script.js?v=20261028b" defer></script>
+<script src="taal.js?v=20261116a" defer></script>
+</body>
+</html>

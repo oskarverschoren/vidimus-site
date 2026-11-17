@@ -42,6 +42,12 @@ body.prod { --act: #2438D6; --hoofd: #2438D6; --hoofd-2: #1B2BA8; --blue: #2438D
 .pr-held .xbtn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 .pr-micro { margin: 0; font: 500 12px/1.6 var(--mono); color: rgba(255, 255, 255, .66); }
 @media (max-width: 1100px) and (min-width: 721px) { .pr-held-tekst { max-width: min(520px, 54%); } .pr-beeld::before { width: 30%; } }
+/* 17/11: op een tablet wordt de held door de tekst hoger dan breed; het beeld groeit dan mee naar links, onder de tekst.
+   Een donker verloop over de linkerhelft van de band houdt de tekst leesbaar; het beeld blijft rechts zichtbaar. */
+@media (max-width: 1100px) and (min-width: 721px) {
+  .pr-held::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: linear-gradient(90deg, #00030C 0%, rgba(0, 3, 12, .94) 46%, rgba(0, 3, 12, .55) 60%, rgba(0, 3, 12, 0) 76%); }
+}
 @media (max-width: 720px) {
   .pr-held { display: block; min-height: 0; }
   .pr-held .wrap { padding-block: 36px 8px; }

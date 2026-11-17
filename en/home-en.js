@@ -1,32 +1,56 @@
 /* Vidimus · English homepage (27/10/2026, branch seo-1, draft). Same behaviour as home2.js on the Dutch homepage:
    menu, rotating examples in the input, the question → a category for sign-up, mini demo "Try to forge it".
-   Kept separate because every visible string differs; the category values stay Dutch because the app expects them. */
+   16/11: bilingual, the same code as ../home2.js (English for <html lang="en">, Dutch otherwise); keep both identical.
+   The only difference: in node this file exports the English watCategorie, as it always did. The category values stay
+   Dutch because the app expects them. */
 (() => {
   'use strict';
 
-  /* Only the category travels in the address bar, never the typed text. First matching rule wins;
-     each keyword must start a word. */
+  /* ── de vraag in de held → een categorie voor de aanmelding (Oskar 27/10, keuze 2) ──
+     Alleen de categorie gaat mee in de adresbalk, nooit de getypte tekst. Volgorde telt: de eerste regel die past, wint.
+     Elk trefwoord moet aan het begin van een woord staan ("afgiftestaat" is een afgifte, geen staat). */
   const WAT_REGELS = Object.freeze([
+    ['leveringen', ['levering', 'lever', 'aflever', 'cmr', 'palet', 'vracht', 'zending', 'colli']],
+    ['fotos', ['foto', 'schade', 'deuk', 'inspectie', 'staat', 'kras']],
+    ['documenten', ['contract', 'document', 'factuur', 'pdf', 'webpagina', 'website', 'pagina', 'voorwaarden', 'offerte']],
+    ['overdrachten', ['sleutel', 'overdracht', 'afgifte', 'huur', 'verhuur', 'overhandig']],
+  ]);
+  // 16/11: dezelfde categorieën voor wie in het Engels typt (zoals en/home-en.js); de waarden blijven Nederlands, de app verwacht ze zo
+  const WAT_REGELS_EN = Object.freeze([
     ['leveringen', ['deliver', 'cmr', 'pallet', 'freight', 'shipment', 'consignment', 'parcel', 'load']],
     ['fotos', ['photo', 'picture', 'damage', 'dent', 'inspection', 'condition', 'scratch']],
     ['documenten', ['contract', 'document', 'invoice', 'pdf', 'webpage', 'website', 'web', 'page', 'terms', 'quote']],
     ['overdrachten', ['key', 'handover', 'hand', 'rental', 'rent', 'lease']],
   ]);
-  const watCategorie = (tekst) => {
+  const maakCategorie = (regels) => (tekst) => {
     const t = String(tekst || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
     if (!t) return '';
     const woorden = t.split(/[^a-z0-9]+/).filter(Boolean);
-    for (const [cat, trefwoorden] of WAT_REGELS) {
+    for (const [cat, trefwoorden] of regels) {
       if (woorden.some((w) => trefwoorden.some((k) => w.startsWith(k)))) return cat;
     }
     return 'anders';
   };
-  if (typeof document === 'undefined') { module.exports = { watCategorie }; return; }
+  const watCategorie = maakCategorie(WAT_REGELS);
+  if (typeof document === 'undefined') { module.exports = { watCategorie: maakCategorie(WAT_REGELS_EN) }; return; }
+
+  // 16/11: op een Engelse pagina (<html lang="en">) Engelse teksten; Nederlands ongewijzigd
+  const EN = /^en\b/i.test(document.documentElement.lang || '');
+  const categorie = EN ? maakCategorie(WAT_REGELS_EN) : watCategorie;
+  const T = Object.freeze(EN ? {
+    menuSluiten: 'Close menu', menuOpenen: 'Open menu', ongewijzigd: 'unchanged', gewijzigd: 'changed',
+    zinAf: 'This content does not match the anchor. Vidimus says no more than that: not what changed, not by whom.',
+    geenCrypto: 'Web Crypto is not available here (https only).',
+  } : {
+    menuSluiten: 'Menu sluiten', menuOpenen: 'Menu openen', ongewijzigd: 'ongewijzigd', gewijzigd: 'gewijzigd',
+    zinAf: 'Deze inhoud komt met het anker niet overeen. Meer zegt Vidimus niet: niet wat er veranderde, niet door wie.',
+    geenCrypto: 'Web Crypto is hier niet beschikbaar (alleen via https).',
+  });
 
   const IN_APP = /VidimusApp/.test(navigator.userAgent);
   const WISSEL_MS = 2800;
   const VERVAAG_MS = 220;
-  const VOORBEELDEN = Object.freeze([
+  const VOORBEELDEN = Object.freeze(EN ? [
     'a delivery of 26 pallets',
     'the condition of a rented home',
     'a web page before it disappears',
@@ -34,17 +58,25 @@
     'extra work that was approved',
     'the version of a contract',
     'the state of a database',
+  ] : [
+    'een levering van 26 paletten',
+    'de staat van een huurwoning',
+    'een webpagina vóór ze verdwijnt',
+    'de temperatuur in de koelcel',
+    'meerwerk dat werd goedgekeurd',
+    'de versie van een contract',
+    'de stand van een databank',
   ]);
   const zachteBeweging = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* header: menu + shadow on scroll */
+  /* ── kop: menu + schaduw bij scrollen ─────────────────────── */
   const kop = document.querySelector('.kop');
   const menuKnop = document.querySelector('.kop-menu');
   const menu = document.getElementById('menu');
   const zetMenu = (open) => {
     if (!menuKnop || !menu) return;
     menuKnop.setAttribute('aria-expanded', String(open));
-    menuKnop.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menuKnop.setAttribute('aria-label', open ? T.menuSluiten : T.menuOpenen);
     menu.hidden = !open;
   };
   if (menuKnop && menu) {
@@ -59,7 +91,7 @@
     new IntersectionObserver(([e]) => kop.classList.toggle('gescrold', !e.isIntersecting)).observe(wacht);
   }
 
-  /* input: rotating examples as placeholder */
+  /* ── invoer: voorbeelden wisselen als placeholder ─────────── */
   document.querySelectorAll('input[data-wissel]').forEach((veld, n) => {
     let i = Math.max(0, VOORBEELDEN.indexOf(veld.placeholder));
     if (zachteBeweging) return;
@@ -75,20 +107,22 @@
     window.setTimeout(() => window.setInterval(wissel, WISSEL_MS), n * 700);
   });
 
-  /* the question: ?wat=<category> to /aanmelden; outside the app in a new tab */
+  /* ── de vraag: ?wat=<categorie> naar /aanmelden; buiten de app in een nieuw tabblad (zoals elke knop, 01/10) ── */
   document.querySelectorAll('form[data-vraag]').forEach((form) => {
     const veld = form.querySelector('input[type="text"]');
     const wat = form.querySelector('input[name="wat"]');
     if (!IN_APP) { form.target = '_blank'; form.rel = 'noopener'; }
     form.addEventListener('submit', () => {
       if (!wat) return;
-      const cat = watCategorie(veld ? veld.value : '');
+      const cat = categorie(veld ? veld.value : '');
       wat.value = cat;
       wat.disabled = !cat;
     });
   });
 
-  /* mini demo: real SHA-256 in the browser (five fields, trimmed, joined with '|') */
+  /* ── mini-demo: echte SHA-256 in de browser ───────────────────
+     Dezelfde vijf velden en dezelfde vingerafdruk als de vervals-demo op /techniek ("Vingerafdruk fa6ca8ec…"):
+     tekst getrimd, met '|' verbonden. */
   const demo = document.querySelector('[data-demo]');
   if (!demo) return;
   const aantal = demo.querySelector('#demoAantal');
@@ -102,7 +136,7 @@
   if (!aantal || !knop23 || !knopReset || !st || !zin || !ankerEl || !nuEl || velden.length !== 5) return;
   const ORIGINEEL = aantal.defaultValue;
   const ZIN_OK = zin.textContent;
-  const ZIN_AF = 'This content does not match the anchor. Vidimus says no more than that: not what changed, not by whom.';
+  const ZIN_AF = T.zinAf;
 
   const veldTekst = (dd) => {
     const inv = dd.querySelector('input');
@@ -112,7 +146,7 @@
   };
   const inhoud = () => velden.map(veldTekst).join('|');
   const sha256 = async (tekst) => {
-    if (!window.crypto || !window.crypto.subtle) throw new Error('Web Crypto is not available here (https only).');
+    if (!window.crypto || !window.crypto.subtle) throw new Error(T.geenCrypto);
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(tekst));
     return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, '0')).join('');
   };
@@ -124,7 +158,7 @@
       const gelijk = nu === anker;
       nuEl.textContent = nu;
       nuEl.classList.toggle('af', !gelijk);
-      st.textContent = gelijk ? 'unchanged' : 'changed';
+      st.textContent = gelijk ? T.ongewijzigd : T.gewijzigd;
       st.classList.toggle('af', !gelijk);
       zin.textContent = gelijk ? ZIN_OK : ZIN_AF;
       demo.classList.toggle('is-af', !gelijk);

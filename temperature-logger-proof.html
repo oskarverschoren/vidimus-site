@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F6">
+<title>Temperature logger as proof for insurers and GDP audits | Vidimus</title>
+<meta name="description" content="A logger measures, but who shows that the series was not updated afterwards? How to anchor every measurement within five minutes, and what that does not replace.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="favicon-192.png?v=3" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261008b">
+<link rel="stylesheet" href="inner.css">
+<link rel="stylesheet" href="product.css?v=20261028a">
+<link rel="stylesheet" href="menu.css?v=20261102a">
+<link rel="stylesheet" href="antwoord.css?v=20261029a">
+<link rel="stylesheet" href="taal.css?v=20261116a">
+
+<link rel="canonical" href="https://vidimus.be/temperature-logger-proof.html">
+<!-- seo:hreflang -->
+<link rel="alternate" hreflang="nl-BE" href="https://vidimus.be/nl/temperatuurlogger-bewijs.html">
+<link rel="alternate" hreflang="en" href="https://vidimus.be/temperature-logger-proof.html">
+<link rel="alternate" hreflang="x-default" href="https://vidimus.be/temperature-logger-proof.html">
+<!-- /seo:hreflang -->
+<meta property="og:type" content="article"><meta property="og:site_name" content="Vidimus"><meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Temperature logger as proof for insurers and GDP audits | Vidimus"><meta property="og:description" content="A logger measures, but who shows that the series was not updated afterwards? How to anchor every measurement within five minutes, and what that does not replace."><meta property="og:url" content="https://vidimus.be/temperature-logger-proof.html"><meta property="og:image" content="https://vidimus.be/assets/og/koelwagen.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="article:modified_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://vidimus.be/assets/og/koelwagen.jpg">
+<!-- seo:faq -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://vidimus.be/temperature-logger-proof.html#faq",
+ "url": "https://vidimus.be/temperature-logger-proof.html",
+ "inLanguage": "en",
+ "publisher": {
+  "@id": "https://vidimus.be/#organization"
+ },
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do I have to replace my loggers or measurement platform?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Your loggers and your platform stay. The platform or the device also sends every measurement to Vidimus. You first test the integration with a test key that records nothing; then the administrator creates the live key."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What if the logger is offline for a while?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Send the measurements that the device or your platform stored in the meantime later, together, via /measurements/batch, in ascending time order and no older than 24 hours. The time in the measurement is what the device reported; the group's timestamp shows when the measurement was anchored."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does this replace the validation or calibration that GDP requires?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Vidimus is not a measuring system and approves nothing. It helps with one question in an audit or claim: is the data you show today the same as what the logger passed on at the time?"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What can you still show if the refrigeration system is hacked?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Vidimus does not stop an attack and does not replace security. It helps afterwards. If a separate logger, apart from the attacked system, also sends every measurement to Vidimus, that measurement is also outside your systems within five minutes. You can then show when the temperature rose, and a gap in the series remains visible. A third party recomputes that themselves. If the measurement comes from the attacked system itself, what that system passed on is anchored, accurate or not. The occasion: on the night of 1 to 2 November 2026, a cyberattack set the refrigeration systems of dozens of Belgian supermarkets to defrost (VRT NWS, the news service of the Flemish public broadcaster, 2 November 2026)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does it cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "€15 per sensor or logger per month, only in a month in which the device sent at least one measurement. The first one is free and measurements are unlimited. Once you pay anything, at least €19 a month. Prices excl. VAT."
+   }
+  }
+ ]
+}
+</script>
+<!-- /seo:faq -->
+</head>
+<body>
+<!-- 29/10/2026 · antwoordpagina (branch seo-2, marketingchat, NIET live). Alleen wat vandaag live is; 'in opbouw' waar dat zo is. -->
+<div class="ambient" aria-hidden="true"></div>
+
+<svg class="sr-sprite" width="0" height="0" aria-hidden="true"><defs>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-mark" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="6" fill="#0B0F17"/><path d="M9.5 16.5l3.5 3.5 7-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><rect x="22.2" y="17.3" width="3.4" height="3.4" rx=".5" fill="#1E4FD8"/></symbol>
+</defs></svg>
+
+<header class="site">
+  <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-mark"/></svg><span>Vidimus</span></a>
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="nav-prod">
+      <button class="nav-prod-knop" type="button" aria-expanded="false" aria-controls="nav-producten">Products<svg class="nav-pijl" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mega" id="nav-producten" hidden>
+        <ul class="mega-lijst">
+          <li><a class="mega-item" href="app.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="mega-tekst"><b>Vidimus App</b><span>Deliveries, damage and handovers on the spot, signed by both parties.</span></span></a></li>
+          <li><a class="mega-item" href="sensor.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="8.5" width="14" height="12" rx="2.5"/><path d="M12 8.5V3.5"/><path d="M9 15.5v1.5M12 13v4M15 14v3"/></svg></span><span class="mega-tekst"><b>Vidimus Sensor</b><span>Loggers, meters and weighbridges send measurements; each measurement is anchored separately.</span></span></a></li>
+          <li><a class="mega-item" href="data.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><span class="mega-tekst"><b>Vidimus Data</b><span>Snapshots of databases and folders, and web pages as they were online.</span></span></a></li>
+          <li><a class="mega-item" href="product-passport.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13.5 13.5h2v2h-2z"/></svg></span><span class="mega-tekst"><b>Vidimus Product Passport</b><span>A code with a QR label per object and a line of handovers, signed by holder and recipient.</span></span></a></li>
+          <li class="mega-breed"><a class="mega-item" href="private.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4v-1.4M12 17v-1.4M8.4 12H7M17 12h-1.4"/></svg></span><span class="mega-tekst"><b>Vidimus Private <em class="mega-wacht">On request</em></b><span>A dedicated environment for one organisation: its own keys, its own address, timestamps and anchors from outside.</span></span></a></li>
+        </ul>
+        <div class="mega-zij">
+          <a class="mega-soft" href="partners.html"><em>Vidimus for software</em><b>Are you building a TMS, WMS or ERP?</b><span>Deliver proof in your own product through the partner API: referral, reseller or integrator.</span><i>Become a partner<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
+          <a class="mega-alle" href="index.html#producten">All products side by side<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="legal.html">Legal</a>
+  </nav>
+  <div class="top-cta">
+    <a class="top-help" href="help.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Explainer videos</a>
+    <a class="top-taal" href="nl/temperatuurlogger-bewijs.html" hreflang="nl-BE" lang="nl" aria-label="Nederlandse versie van deze pagina">NL</a>
+    <a class="top-login" href="https://app.vidimus.be/login">Log in</a>
+    <a class="top-start" href="https://app.vidimus.be/aanmelden">Start free</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero" aria-labelledby="vraag-h">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">VIDIMUS</a><i>/</i><a href="questions.html">QUESTIONS</a><i>/</i><span class="lbl aw-hier">SENSORS AND LOGGERS</span></p>
+    <h1 class="disp aw-vraag" id="vraag-h">How do you show an insurer or GDP auditor that your temperature measurements were not adjusted?</h1>
+    <p class="aw-kort" id="kort-antwoord"><span class="aw-label">Short answer</span>By anchoring every measurement outside your own system at the moment itself: a fingerprint per measurement, signed with the key of that logger, with an external timestamp within five minutes. In a claim or audit, you show the series of that device, and <b>the insurer or auditor recomputes for themselves that no value was adjusted afterwards</b>.</p>
+    <p class="aw-datum">Updated on 29 October 2026 · Oskar Verschoren, Vidimus (VO Initiatives BV, Antwerp)</p>
+    <div class="hero-actions">
+      <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start free</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s1-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01 / HOW IT WORKS</span>
+      <h2 class="disp" id="s1-h">How it works<span class="aw-punt">.</span></h2>
+    </div>
+    <ol class="aw-stappen rv">
+      <li><h3>Create the measurement source once<small>unit · range · own key</small></h3><p>In the app, you create each logger or sensor with a unit and a range. A value outside the range is refused. Your loggers and your measurement platform stay the same.</p></li>
+      <li><h3>Send every measurement<small>POST /measurements</small></h3><p>The device or your measurement platform sends every measurement to the API: source, time, one number and the unit. At most one measurement per ten seconds per device, in ascending time order.</p></li>
+      <li><h3>Fingerprint and signature per measurement<small>sha-256 · ed25519</small></h3><p>Each measurement gets its own fingerprint over source, time, value and unit. <b>A corrected value gives a different fingerprint.</b> The measurement is signed with the key of that measurement source, which Vidimus keeps for you.</p></li>
+      <li><h3>Anchored within five minutes<small>rfc 3161 · bitcoin</small></h3><p>An external timestamping service signs the group the measurement is in; an anchor in Bitcoin follows. If the group contains records of customer organisations, the group then also receives a qualified timestamp from GLOBALTRUST (eIDAS), usually within six hours.</p></li>
+      <li><h3>In a claim or audit<small>the series of the device</small></h3><p>You show the series of that measurement source: every measurement with its fingerprint, in ascending time order. A period without measurements remains visible as a gap. Whoever receives the evidence bundles recomputes them with the script that comes with them, without an account.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s2-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02 / ALSO NEEDED</span>
+      <h2 class="disp" id="s2-h">What you need besides this<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>A calibration certificate</b> for each logger, traceable to a measurement standard. The EU guidelines on good distribution practice (GDP, 2013/C 343/01) require, among other things, calibrated measuring equipment and data that is retained and can be consulted.</span></li>
+      <li><span><b>The location of the sensor</b> in the cold store or the trailer, and who started and read out the logger, and when.</span></li>
+      <li><span><b>An alarm procedure and a report per deviation</b>: what happened, when you noticed it and what you did.</span></li>
+      <li><span><b>The handovers</b> of the load, for example with a signed record at loading and unloading.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s3-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03 / LIMITS</span>
+      <h2 class="disp" id="s3-h">What it does not prove<span class="aw-punt">.</span></h2>
+    </div>
+    <ul class="todo rv">
+      <li><span><b>That the logger measured accurately.</b> Calibration and placement remain your responsibility. A wrong temperature stays wrong, but anchored as 'this was reported at the time'.</span></li>
+      <li><span><b>That the time in the measurement is right.</b> That is the device's clock. The group's timestamp shows the latest moment by which the measurement was anchored.</span></li>
+      <li><span><b>That a measurement from a hacked system is accurate.</b> If the measurement comes from the system that was attacked, what that system passed on is anchored. Use a separate logger if you want to show afterwards what happened.</span></li>
+      <li><span><b>Measurements from before the integration</b>, or measurements that are older than 24 hours when they come in.</span></li>
+      <li><span><b>That the goods are in order or damaged</b>, or who is liable. That is for your insurer, the auditor or the court to assess.</span></li>
+      <li><span><b>That Vidimus can never sign anything in the name of the measurement source.</b> Vidimus keeps the key of the measurement source. It could be used to create a new measurement, but only with the anchoring time of that moment, not an earlier one; changing an existing measurement afterwards stands out.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s4-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04 / SPECIFICATIONS</span>
+      <h2 class="disp" id="s4-h">Specifications and price<span class="aw-punt">.</span></h2>
+    </div>
+    <dl class="pr-spec rv">
+      <div><dt>transport</dt><dd>HTTPS · REST API · key in the x-api-key header</dd></div>
+      <div><dt>endpoints</dt><dd>POST /measurements · POST /measurements/batch</dd></div>
+      <div><dt>format</dt><dd>JSON · source, time, one number, unit</dd></div>
+      <div><dt>range</dt><dd>a unit and a range per measurement source; refused outside it</dd></div>
+      <div><dt>rate</dt><dd>at most one measurement per ten seconds per device, in ascending time order</dd></div>
+      <div><dt>after offline</dt><dd>send later together via batch, measurements up to 24 hours old</dd></div>
+      <div><dt>testing</dt><dd>test key that records nothing; response with "proef": true</dd></div>
+      <div><dt>retention</dt><dd>ten years per logbook by default, adjustable</dd></div>
+      <div><dt>price</dt><dd>€15 per device per month with at least one measurement · the first one free · unlimited measurements · excl. VAT</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="s5-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">05 / QUESTIONS</span>
+      <h2 class="disp" id="s5-h">Frequently asked questions<span class="aw-punt">.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Do I have to replace my loggers or measurement platform?</summary><p class="a">No. Your loggers and your platform stay. The platform or the device also sends every measurement to Vidimus. You first test the integration with a test key that records nothing; then the administrator creates the live key.</p></details>
+      <details><summary>What if the logger is offline for a while?</summary><p class="a">Send the measurements that the device or your platform stored in the meantime later, together, via /measurements/batch, in ascending time order and no older than 24 hours. The time in the measurement is what the device reported; the group's timestamp shows when the measurement was anchored.</p></details>
+      <details><summary>Does this replace the validation or calibration that GDP requires?</summary><p class="a">No. Vidimus is not a measuring system and approves nothing. It helps with one question in an audit or claim: is the data you show today the same as what the logger passed on at the time?</p></details>
+      <details><summary>What can you still show if the refrigeration system is hacked?</summary><p class="a">Vidimus does not stop an attack and does not replace security. It helps afterwards. If a separate logger, apart from the attacked system, also sends every measurement to Vidimus, that measurement is also outside your systems within five minutes. You can then show when the temperature rose, and a gap in the series remains visible. A third party recomputes that themselves. If the measurement comes from the attacked system itself, what that system passed on is anchored, accurate or not. The occasion: on the night of 1 to 2 November 2026, a cyberattack set the refrigeration systems of dozens of Belgian supermarkets to defrost (VRT NWS, the news service of the Flemish public broadcaster, 2 November 2026).</p></details>
+      <details><summary>What does it cost?</summary><p class="a">€15 per sensor or logger per month, only in a month in which the device sent at least one measurement. The first one is free and measurements are unlimited. Once you pay anything, at least €19 a month. Prices excl. VAT.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="aw-blok" aria-labelledby="verder-h">
+  <div class="wrap">
+    <h2 id="verder-h" class="disp aw-klein">Further reading<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="sensor.html"><span class="lbl">PRODUCT</span><b>Vidimus Sensor: every measurement anchored separately</b></a></li>
+      <li><a href="cases.html"><span class="lbl">COLD CHAIN AND CARE</span><b>“The cooling failed on the way.”</b></a></li>
+      <li><a href="disputed-delivery-cmr.html"><span class="lbl">TRANSPORT AND LOGISTICS</span><b>“We only received 23.”</b></a></li>
+      <li><a href="pricing.html"><span class="lbl">PRICING</span><b>Work out your price</b></a></li>
+    </ul>
+    <h2 id="meer-h" class="disp aw-klein">More questions and answers<span class="aw-punt">.</span></h2>
+    <ul class="related">
+      <li><a href="refrigeration-system-hacked.html"><span class="lbl">REFRIGERATION</span><b>Refrigeration system hacked: what can you still show afterwards?</b></a></li>
+      <li><a href="photo-proof-not-edited.html"><span class="lbl">PHOTOS</span><b>How do you prove that a photo was not edited?</b></a></li>
+      <li><a href="database-proof-after-hack.html"><span class="lbl">DATABASES</span><b>After a hack: is your database still the same?</b></a></li>
+      <li><a href="qualified-timestamp-eidas.html"><span class="lbl">TIMESTAMP</span><b>What does a qualified timestamp (eIDAS) prove?</b></a></li>
+      <li><a href="worm-storage-proof.html"><span class="lbl">STORAGE</span><b>Does WORM storage prove that nothing was changed?</b></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="disp">How we start: <span>your first logbook today, the first 100 records free.</span></h2>
+    <div class="final-under">
+      <p>You create your account in two minutes, no payment details needed. A director identifies your company once with the Belgian eID; then you create your first logbook in a few minutes. Would you rather talk first? Book 15 minutes with the founder.</p>
+      <div class="hero-actions">
+        <a class="xbtn red steel" href="https://app.vidimus.be/aanmelden"><span>Start free</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="xbtn" href="https://cal.com/oskar-verschoren-vhygeu/15min"><span>Book 15 minutes</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="app-voet">
+  <span>© 2026 VO Initiatives BV · Rigastraat 30, 2000 Antwerp, Belgium · BE 0805.309.143</span>
+  <a href="technology.html">Technology</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="security.html">Security</a>
+  <a href="verify-it-yourself.html">Verify it yourself</a>
+  <a href="partners.html">Partners</a>
+  <a href="cases.html">Cases</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="legal.html">Legal</a>
+  <a href="help.html">Explainer videos</a>
+  <a href="questions.html">Questions</a>
+  <a href="for-ai-agents.html">For AI agents</a>
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="colophon.html">Colophon</a>
+  <span class="winkels voet"><a href="https://apps.apple.com/be/app/vidimus/id6807447618" rel="noopener noreferrer"><img src="assets/badges/app-store-nl.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=be.vidimus.app" rel="noopener noreferrer"><img src="assets/badges/google-play-nl.png" width="134" height="52" alt="Get it on Google Play" loading="lazy"></a></span>
+  <span class="sp"></span>
+  <span>Fictional examples · no customer references</span>
+  <a href="mailto:oskar@vo-initiatives.com">oskar@vo-initiatives.com</a>
+  <a href="tel:+32466474115">+32 466 47 41 15</a>
+  <a href="https://www.linkedin.com/company/vidimus-be/" rel="noopener noreferrer">LinkedIn</a>
+  <nav class="voet-toep" aria-labelledby="voet-toep-h"><span id="voet-toep-h">Use cases</span>
+    <a href="disputed-delivery-cmr.html">Transport and logistics</a>
+    <a href="disputed-inspection-report.html">Real estate and rentals</a>
+    <a href="proving-extra-work.html">Construction and renovation</a>
+    <a href="equipment-handover-damage.html">Equipment rental</a>
+    <a href="record-a-web-page.html">Recording web pages</a>
+    <a href="after-a-breach.html">IT and databases</a>
+    <a href="cases.html">Cold chain and care</a>
+    <a href="comparison-proofsnap-truescreen.html">Comparison with ProofSnap and TrueScreen</a>
+  </nav>
+  <span class="taal" role="group" aria-label="Language / Taal"><a href="nl/temperatuurlogger-bewijs.html" hreflang="nl-BE" lang="nl">NL</a><b lang="en" aria-current="true">EN</b></span>
+</footer>
+
+<script src="script.js?v=20261028b" defer></script>
+<script src="taal.js?v=20261116a" defer></script>
+</body>
+</html>

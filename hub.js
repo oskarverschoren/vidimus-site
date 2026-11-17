@@ -43,8 +43,18 @@
   const P = window.VPRIJS, schuif = $("#hbN");
   if (!P || !schuif) return;
   const STAPPEN = [100, 150, 250, 500, 1000, 2000, 3000, 5000, 10000, 25000, 50000, 100000, 250000];
-  const aantal = (n) => n.toLocaleString("nl-BE").replace(/\./g, " ");
-  const eur = (x) => P.eur(x).replace(/\./g, " ");
+  // 16/11: op de Engelse homepage (lang="en") Engelse tekst en Engelse notatie (€32, 1,000); dezelfde rekensom
+  const EN = /^en\b/i.test(document.documentElement.lang || "");
+  const aantal = (n) => EN ? n.toLocaleString("en-GB") : n.toLocaleString("nl-BE").replace(/\./g, " ");
+  const eur = (x) => EN ? "€" + x.toLocaleString("en-GB", { minimumFractionDigits: x % 1 ? 2 : 0, maximumFractionDigits: 2 })
+    : P.eur(x).replace(/\./g, " ");
+  const T = EN
+    ? { per: "records per month", gratisDeel: "a month: within the free tier", perMaand: "a month, excl. VAT", reg: "records",
+        eerste: (g) => `, the first ${g} free`, bron: (b) => (b === 1 ? "sensor or logger" : "sensors or loggers") + ", the first one free",
+        minimum: (m) => `topped up to the minimum of ${m}` }
+    : { per: "registraties per maand", gratisDeel: "per maand: binnen het gratis deel", perMaand: "per maand, excl. btw", reg: "registraties",
+        eerste: (g) => `, de eerste ${g} gratis`, bron: (b) => (b === 1 ? "sensor of logger" : "sensoren of loggers") + ", de eerste gratis",
+        minimum: (m) => `aangevuld tot het minimum van ${m}` };
   const sensoren = $("#hbB");
   const getal = (el, hi) => { const n = Math.round(Number(el.value)); return Number.isFinite(n) ? Math.max(0, Math.min(hi, n)) : 0; };
 
@@ -52,13 +62,13 @@
     const n = STAPPEN[getal(schuif, STAPPEN.length - 1)], b = getal(sensoren, 999);
     const s = P.schatting(n, b);
     $("#hbNuit").textContent = aantal(n);
-    schuif.setAttribute("aria-valuetext", `${aantal(n)} registraties per maand`);
+    schuif.setAttribute("aria-valuetext", `${aantal(n)} ${T.per}`);
     schuif.style.setProperty("--vul", `${(getal(schuif, STAPPEN.length - 1) / (STAPPEN.length - 1)) * 100}%`);
     $("#hbBedrag").textContent = eur(s.maand);
-    $("#hbPer").textContent = s.maand === 0 ? "per maand: binnen het gratis deel" : "per maand, excl. btw";
-    const regels = [`${aantal(n)} registraties${n <= P.GRATIS ? "" : `, de eerste ${P.GRATIS} gratis`}: ${eur(s.registraties)}`];
-    if (b) regels.push(`${aantal(b)} ${b === 1 ? "sensor of logger" : "sensoren of loggers"}, de eerste gratis: ${eur(s.toestellen)}`);
-    if (s.minimum) regels.push(`aangevuld tot het minimum van ${eur(P.MINIMUM)}`);
+    $("#hbPer").textContent = s.maand === 0 ? T.gratisDeel : T.perMaand;
+    const regels = [`${aantal(n)} ${T.reg}${n <= P.GRATIS ? "" : T.eerste(P.GRATIS)}: ${eur(s.registraties)}`];
+    if (b) regels.push(`${aantal(b)} ${T.bron(b)}: ${eur(s.toestellen)}`);
+    if (s.minimum) regels.push(T.minimum(eur(P.MINIMUM)));
     $("#hbRegels").textContent = regels.join(" · ");
   }
   schuif.addEventListener("input", reken);

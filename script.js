@@ -4,6 +4,9 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // 16/11: Engelse pagina's aan de root (lang="en") krijgen Engelse teksten in de demo; Nederlands blijft ongewijzigd
+  const EN = /^en\b/i.test(document.documentElement.lang || "");
+  const KOPIEER = EN ? "click to copy the full hash" : "klik om de volledige hash te kopiëren";
 
   async function sha256(text) {
     const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
@@ -14,7 +17,7 @@
   const lockTimers = new WeakMap();
   function lockHash(el, hex, stepMs = 7) {
     el.dataset.copy = hex;
-    el.title = "klik om de volledige hash te kopiëren";
+    el.title = KOPIEER;
     if (reduceMotion) { el.textContent = hex; return; }
     clearTimeout(lockTimers.get(el));
     el.replaceChildren(...[...hex].map((ch) => { const i = document.createElement("i"); i.textContent = ch; return i; }));
@@ -76,7 +79,16 @@
   if (track) {
     const ENDPOINT = "https://app.vidimus.be/public/ticker";
     const MAX_ROWS = 12, TIMEOUT_MS = 4000, REFRESH_MS = 90000, PX_PER_S = 48;
-    const SAMPLE = [
+    const SAMPLE = EN ? [
+      { kind: "CMR", plaats: "Antwerp", tijd: "14:32:07", hash: "3f9a" },
+      { kind: "PHOTO", plaats: "Zeebrugge", tijd: "14:29:51", hash: "b81c" },
+      { kind: "HANDOVER", plaats: "Ghent", tijd: "14:21:18", hash: "07d4" },
+      { kind: "CMR", plaats: "Antwerp", tijd: "14:12:40", hash: "e5a2" },
+      { kind: "SENSOR", plaats: "Liège", tijd: "14:00:03", hash: "9c1b" },
+      { kind: "CMR", plaats: "Genk", tijd: "13:47:26", hash: "42f7" },
+      { kind: "PHOTO", plaats: "Antwerp", tijd: "13:38:09", hash: "d6e0" },
+      { kind: "CMR", plaats: "Roeselare", tijd: "13:31:55", hash: "1a8f" },
+    ] : [
       { kind: "CMR", plaats: "Antwerpen", tijd: "14:32:07", hash: "3f9a" },
       { kind: "FOTO", plaats: "Zeebrugge", tijd: "14:29:51", hash: "b81c" },
       { kind: "OVERDRACHT", plaats: "Gent", tijd: "14:21:18", hash: "07d4" },
@@ -86,12 +98,13 @@
       { kind: "FOTO", plaats: "Antwerpen", tijd: "13:38:09", hash: "d6e0" },
       { kind: "CMR", plaats: "Roeselare", tijd: "13:31:55", hash: "1a8f" },
     ];
+    const BAND = EN ? { demo: "ANCHORS · EXAMPLE", live: "ANCHORS · LIVE" } : { demo: "ANKERS · VOORBEELD", live: "ANKERS · LIVE" };
     const clean = (v, n) => String(v == null ? "" : v).replace(/[\x00-\x1f\x7f]/g, "").trim().slice(0, n);
     const fmtTime = (t) => {
       const s = clean(t, 40);
       if (/^\d{2}:\d{2}:\d{2}$/.test(s)) return s;
       const d = new Date(s);
-      return isNaN(d) ? s.slice(0, 8) : d.toLocaleTimeString("nl-BE", { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: "Europe/Brussels" });
+      return isNaN(d) ? s.slice(0, 8) : d.toLocaleTimeString(EN ? "en-GB" : "nl-BE", { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: "Europe/Brussels" });
     };
     const row = (a, demo) => {
       const el = document.createElement("span");
@@ -102,7 +115,7 @@
       const hash = document.createElement("code"); hash.className = "vd-hash";
       const full = clean(a.hash, 128).replace(/[^0-9a-f]/gi, "").toLowerCase();
       hash.textContent = full ? (full.slice(0, 8) + " " + full.slice(8, 16) + " · " + full.slice(-6)) : "········";
-      if (full.length >= 16) { hash.dataset.copy = full; hash.title = "klik om de volledige hash te kopiëren"; }
+      if (full.length >= 16) { hash.dataset.copy = full; hash.title = KOPIEER; }
       const sep = () => { const i = document.createElement("i"); i.textContent = "·"; return i; };
       el.append(kind, sep(), place, sep(), time, sep(), hash);
       return el;
@@ -114,7 +127,7 @@
       track.style.setProperty("--ab-dur", `${Math.max(20, Math.round(w / PX_PER_S))}s`);
       $("#anchorNote").hidden = !demo;
       $("#anchorband").classList.toggle("is-demo", demo);
-      $(".ab-lbl", $("#anchorband")).lastChild.textContent = demo ? "ANKERS · VOORBEELD" : "ANKERS · LIVE";
+      $(".ab-lbl", $("#anchorband")).lastChild.textContent = demo ? BAND.demo : BAND.live;
     }
     async function load() {
       const ctrl = new AbortController();
@@ -157,7 +170,14 @@
      Twee uitkomsten, nooit een oordeel over wie liegt: ongewijzigd of gewijzigd, per controle stemt overeen of wijkt af (29/09, was IDENTIEK / ONBEKEND; 08/10 gewone letters; 20/10 woordenlijst B1, nooit "klopt"). */
   const fields = $$("#tamperFields [data-f]");
   if (fields.length) {
-    const ANCHOR_AT = "4 september om 15:13 (UTC+2)";
+    const ANCHOR_AT = EN ? "4 September at 15:13 (UTC+2)" : "4 september om 15:13 (UTC+2)";
+    const W = EN
+      ? { same: "unchanged", diff: "changed", match: "matches", differs: "differs", veld: "field", ander: "different content",
+          okZin: (t) => `This is exactly what was recorded on ${t}, signed by both driver and recipient.`,
+          afZin: (t) => `This version was never recorded like this. What was recorded on ${t}, signed by both driver and recipient: ` }
+      : { same: "ongewijzigd", diff: "gewijzigd", match: "stemt overeen", differs: "wijkt af", veld: "veld", ander: "een andere inhoud",
+          okZin: (t) => `Dit is exact wat op ${t} werd vastgelegd, getekend door chauffeur én ontvanger.`,
+          afZin: (t) => `Deze versie werd nooit zo vastgelegd. Wat op ${t} vastligt, getekend door chauffeur én ontvanger: ` };
     const original = fields.map((f) => f.textContent);
     const payload = () => fields.map((f) => f.textContent.trim()).join("|");
     let anchored = "", wasSame = true;
@@ -169,23 +189,23 @@
       lockHash(liveEl, live, same ? 7 : 4);
       liveEl.classList.toggle("match", same);
       const v = $("#verdict");
-      v.textContent = same ? "ongewijzigd" : "gewijzigd";
+      v.textContent = same ? W.same : W.diff;
       v.classList.toggle("ok", same);
       v.classList.toggle("bad", !same);
-      const naamVan = (f) => (f.dataset.f || f.previousElementSibling?.textContent || f.closest("div,tr,li")?.querySelector("dt,.k,.lbl")?.textContent || "veld").trim().toLowerCase();
+      const naamVan = (f) => (f.dataset.f || f.previousElementSibling?.textContent || f.closest("div,tr,li")?.querySelector("dt,.k,.lbl")?.textContent || W.veld).trim().toLowerCase();
       const anders = fields.map((f, i) => [f, i]).filter(([f, i]) => f.textContent !== original[i]);
       const gewijzigd = anders.map(([f]) => naamVan(f)).join(", ") || "—";
       $("#verdictSub").textContent = same
-        ? `Dit is exact wat op ${ANCHOR_AT} werd vastgelegd, getekend door chauffeur én ontvanger.`
-        : `Deze versie werd nooit zo vastgelegd. Wat op ${ANCHOR_AT} vastligt, getekend door chauffeur én ontvanger: `
-          + (anders.length ? anders.map(([f, i]) => `${naamVan(f)} ${original[i].trim()}`).join(" · ") : "een andere inhoud") + ".";
+        ? W.okZin(ANCHOR_AT)
+        : W.afZin(ANCHOR_AT)
+          + (anders.length ? anders.map(([f, i]) => `${naamVan(f)} ${original[i].trim()}`).join(" · ") : W.ander) + ".";
       const st = $("#ladeSt");
-      st.textContent = same ? "ongewijzigd" : "gewijzigd";
+      st.textContent = same ? W.same : W.diff;
       st.classList.toggle("ok", same);
       st.classList.toggle("bad", !same);
       $$("#checks [data-c]").forEach((row) => {
         const s = row.querySelector(".st");
-        s.textContent = same ? "stemt overeen" : "wijkt af";
+        s.textContent = same ? W.match : W.differs;
         s.classList.toggle("ok", same);
         s.classList.toggle("bad", !same);
         const ok = row.querySelector("[data-ok]"), bad = row.querySelector("[data-bad]");
@@ -218,7 +238,7 @@
       const r = $("#verdictBlok").getBoundingClientRect();
       if (r.top < 72 || r.bottom > innerHeight) $("#verdictBlok").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     };
-    const colli = fields.find((f) => /paletten/.test(f.textContent));
+    const colli = fields.find((f) => /paletten|pallets/.test(f.textContent));
     $("#tamper23").addEventListener("click", async () => {
       fields.forEach((f, i) => (f.textContent = original[i]));
       if (colli) colli.textContent = colli.textContent.replace(/\b26\b/, "23");
@@ -248,7 +268,9 @@
   /* ── rekensom — alles lokaal ──────────────────────────────── */
   if ($("#cN")) {
     const ids = ["cN", "cBedrag", "cUren", "cUurkost"];
-    const eur = (n) => "€\u00a0" + Math.round(n).toLocaleString("nl-BE").replace(/[ .]/g, "\u00a0") + ' <span class="u">/ JAAR</span>';
+    const eur = EN
+      ? (n) => "€" + Math.round(n).toLocaleString("en-GB") + ' <span class="u">/ YEAR</span>'
+      : (n) => "€\u00a0" + Math.round(n).toLocaleString("nl-BE").replace(/[ .]/g, "\u00a0") + ' <span class="u">/ JAAR</span>';
     function calc() {
       const [n, bedrag, uren, uurkost] = ids.map((id) => Math.max(0, parseFloat($("#" + id).value) || 0));
       $("#oTijd").innerHTML = eur(n * uren * uurkost);
@@ -272,7 +294,11 @@
 /* samenvatting op de ingeklapte controles: "6 van 6 controles stemmen overeen" / "0 van 6 controles stemmen overeen · 6 wijken af" (telling zoals verify.py), volgt de demo */
 (function () {
   const sum = document.getElementById("zesSum"); if (!sum) return;
-  const upd = () => { const n = document.querySelectorAll("#checks .st").length, bad = document.querySelectorAll("#checks .st.bad").length; sum.textContent = `${n - bad} van ${n} controles stemmen overeen` + (bad ? ` · ${bad} ${bad === 1 ? "wijkt" : "wijken"} af` : ""); sum.classList.toggle("bad", bad > 0); };
+  const EN = /^en\b/i.test(document.documentElement.lang || "");   // 16/11: Engelse homepage
+  const upd = () => { const n = document.querySelectorAll("#checks .st").length, bad = document.querySelectorAll("#checks .st.bad").length;
+    sum.textContent = EN ? `${n - bad} of ${n} checks match` + (bad ? ` · ${bad} ${bad === 1 ? "differs" : "differ"}` : "")
+      : `${n - bad} van ${n} controles stemmen overeen` + (bad ? ` · ${bad} ${bad === 1 ? "wijkt" : "wijken"} af` : "");
+    sum.classList.toggle("bad", bad > 0); };
   new MutationObserver(upd).observe(document.getElementById("checks"), { subtree: true, childList: true, characterData: true, attributes: true }); upd();
 })();
 
@@ -286,7 +312,8 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
 /* het probleem: woord per woord oplichten bij scroll (de oorspronkelijke statement, nu in de app-typografie) */
 (function () {
   const stmt = document.getElementById("stmt"); if (!stmt) return;
-  const hot = ["achteraf", "bewijzen", "stond?"];
+  // 16/11: op een Engelse pagina ("Can your system prove afterwards what it said?") de Engelse woorden; Nederlands ongewijzigd
+  const hot = /^en\b/i.test(document.documentElement.lang || "") ? ["afterwards", "prove", "said?"] : ["achteraf", "bewijzen", "stond?"];
   const kop = stmt.querySelector(".sr-only"); const kopHtml = kop ? kop.outerHTML : ""; if (kop) kop.remove();
   stmt.innerHTML = kopHtml + stmt.textContent.trim().split(/\s+/).map((w) => `<span class="w${hot.includes(w.toLowerCase()) ? " hot" : ""}">${w}</span>`).join(" ");
   const words = [...stmt.querySelectorAll(".w")];
@@ -309,30 +336,60 @@ document.querySelectorAll("#checks .checkrow.klik").forEach((row) => {
   const root = document.getElementById("tweeLevens"); if (!root) return;
   const db = root.querySelector('[data-kant="db"]'), an = root.querySelector('[data-kant="anker"]');
   const f = (k, key) => k.querySelector(`[data-f="${key}"]`);
+  // 16/11: de Engelse pagina (technology.html, <html lang="en">) krijgt dezelfde stappen in het Engels; Nederlands ongewijzigd
+  const TEKST = Object.freeze({
+    nl: {
+      colli26: "26 paletten · zonder voorbehoud", colli23: "23 paletten · zonder voorbehoud",
+      v1: "record · 1 versie", v2: "record · overschreven · geen geschiedenis", v3: "record · overschreven · veld verloren", v4: "export · 3 weken later",
+      db1: "Netjes vastgelegd. Zoals het hoort.",
+      an1: "Vingerafdruk fa6ca8ec… zit in het anker van 4 september 2026, 15:13:22 (UTC+2).",
+      db2: "Een collega \"corrigeert\" 26 naar 23. Het oude cijfer bestaat niet meer. Wie het deed en wanneer: onbekend.",
+      extra2: "<span><b>+ reg_7c1d…</b> · correctie · 23 paletten · 6 september 2026, 09:41:03 (UTC+2)</span><span>het origineel blijft staan; de correctie is een nieuwe registratie mét eigen anker</span>",
+      an2: "Twee registraties, allebei verankerd. Iedereen ziet wat eerst was en wat later kwam.",
+      db3: "Bij de migratie naar het nieuwe systeem verdwijnt het plaatsveld. Stil. Niemand merkt het tot het nodig is.",
+      an3: "Het anker staat buiten uw systeem. Migreer, crash, herinstalleer: de vingerafdruk van 4 september 2026 blijft narekenbaar.",
+      db4: "De ontvanger claimt 23 paletten. Uw export zegt óók 23, zonder plaats. Welke versie was de echte? Woord tegen woord.",
+      an4: "De vingerafdruk van het origineel stemt overeen met het anker van 4 september 2026, 15:13:22 (UTC+2): 26 paletten, op de kade, om 15:12 (UTC+2). Ongewijzigd.",
+    },
+    en: {
+      colli26: "26 pallets · without reservation", colli23: "23 pallets · without reservation",
+      v1: "record · 1 version", v2: "record · overwritten · no history", v3: "record · overwritten · field lost", v4: "export · 3 weeks later",
+      db1: "Neatly recorded. As it should be.",
+      an1: "Fingerprint fa6ca8ec… is in the anchor of 4 September 2026, 15:13:22 (UTC+2).",
+      db2: "A colleague \"corrects\" 26 to 23. The old figure no longer exists. Who did it and when: unknown.",
+      extra2: "<span><b>+ reg_7c1d…</b> · correction · 23 pallets · 6 September 2026, 09:41:03 (UTC+2)</span><span>the original stays; the correction is a new record with its own anchor</span>",
+      an2: "Two records, both anchored. Everyone sees what came first and what came later.",
+      db3: "During the migration to the new system, the location field disappears. Silently. Nobody notices until it is needed.",
+      an3: "The anchor sits outside your system. Migrate, crash, reinstall: the fingerprint of 4 September 2026 remains verifiable.",
+      db4: "The recipient claims 23 pallets. Your export also says 23, without a location. Which version was the real one? Word against word.",
+      an4: "The fingerprint of the original matches the anchor of 4 September 2026, 15:13:22 (UTC+2): 26 pallets, on the quay, at 15:12 (UTC+2). Unchanged.",
+    },
+  });
+  const T = (document.documentElement.lang || "").toLowerCase().startsWith("en") ? TEKST.en : TEKST.nl;
   const STAPPEN = [
     () => { // 01 aangemaakt
-      f(db, "colli").textContent = "26 paletten · zonder voorbehoud"; f(db, "colli").className = ""; f(db, "plaats").textContent = "51.2302 N · 4.4160 E · ±6 m"; f(db, "plaats").className = "";
-      db.querySelector("[data-v]").textContent = "record · 1 versie"; db.querySelector("[data-v]").className = "tl-versie";
-      db.querySelector("[data-noot]").textContent = "Netjes vastgelegd. Zoals het hoort."; db.querySelector("[data-noot]").className = "tl-noot";
-      an.querySelector("[data-extra]").hidden = true; an.querySelector("[data-noot]").textContent = "Vingerafdruk fa6ca8ec… zit in het anker van 4 september 2026, 15:13:22 (UTC+2)."; an.querySelector("[data-noot]").className = "tl-noot";
+      f(db, "colli").textContent = T.colli26; f(db, "colli").className = ""; f(db, "plaats").textContent = "51.2302 N · 4.4160 E · ±6 m"; f(db, "plaats").className = "";
+      db.querySelector("[data-v]").textContent = T.v1; db.querySelector("[data-v]").className = "tl-versie";
+      db.querySelector("[data-noot]").textContent = T.db1; db.querySelector("[data-noot]").className = "tl-noot";
+      an.querySelector("[data-extra]").hidden = true; an.querySelector("[data-noot]").textContent = T.an1; an.querySelector("[data-noot]").className = "tl-noot";
     },
     () => { // 02 "gecorrigeerd"
-      f(db, "colli").textContent = "23 paletten · zonder voorbehoud"; f(db, "colli").className = "wijzig";
-      db.querySelector("[data-v]").textContent = "record · overschreven · geen geschiedenis"; db.querySelector("[data-v]").className = "tl-versie bad";
-      db.querySelector("[data-noot]").textContent = "Een collega \"corrigeert\" 26 naar 23. Het oude cijfer bestaat niet meer. Wie het deed en wanneer: onbekend."; db.querySelector("[data-noot]").className = "tl-noot bad";
-      const x = an.querySelector("[data-extra]"); x.hidden = false; x.innerHTML = "<span><b>+ reg_7c1d…</b> · correctie · 23 paletten · 6 september 2026, 09:41:03 (UTC+2)</span><span>het origineel blijft staan; de correctie is een nieuwe registratie mét eigen anker</span>";
-      an.querySelector("[data-noot]").textContent = "Twee registraties, allebei verankerd. Iedereen ziet wat eerst was en wat later kwam."; an.querySelector("[data-noot]").className = "tl-noot ok";
+      f(db, "colli").textContent = T.colli23; f(db, "colli").className = "wijzig";
+      db.querySelector("[data-v]").textContent = T.v2; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = T.db2; db.querySelector("[data-noot]").className = "tl-noot bad";
+      const x = an.querySelector("[data-extra]"); x.hidden = false; x.innerHTML = T.extra2;
+      an.querySelector("[data-noot]").textContent = T.an2; an.querySelector("[data-noot]").className = "tl-noot ok";
     },
     () => { // 03 migratie
       f(db, "plaats").textContent = "51.2302 N · 4.4160 E · ±6 m"; f(db, "plaats").className = "weg";
-      db.querySelector("[data-v]").textContent = "record · overschreven · veld verloren"; db.querySelector("[data-v]").className = "tl-versie bad";
-      db.querySelector("[data-noot]").textContent = "Bij de migratie naar het nieuwe systeem verdwijnt het plaatsveld. Stil. Niemand merkt het tot het nodig is."; db.querySelector("[data-noot]").className = "tl-noot bad";
-      an.querySelector("[data-noot]").textContent = "Het anker staat buiten uw systeem. Migreer, crash, herinstalleer: de vingerafdruk van 4 september 2026 blijft narekenbaar."; an.querySelector("[data-noot]").className = "tl-noot ok";
+      db.querySelector("[data-v]").textContent = T.v3; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = T.db3; db.querySelector("[data-noot]").className = "tl-noot bad";
+      an.querySelector("[data-noot]").textContent = T.an3; an.querySelector("[data-noot]").className = "tl-noot ok";
     },
     () => { // 04 het geschil
-      db.querySelector("[data-v]").textContent = "export · 3 weken later"; db.querySelector("[data-v]").className = "tl-versie bad";
-      db.querySelector("[data-noot]").textContent = "De ontvanger claimt 23 paletten. Uw export zegt óók 23, zonder plaats. Welke versie was de echte? Woord tegen woord."; db.querySelector("[data-noot]").className = "tl-noot bad";
-      an.querySelector("[data-noot]").textContent = "De vingerafdruk van het origineel stemt overeen met het anker van 4 september 2026, 15:13:22 (UTC+2): 26 paletten, op de kade, om 15:12 (UTC+2). Ongewijzigd."; an.querySelector("[data-noot]").className = "tl-noot ok";
+      db.querySelector("[data-v]").textContent = T.v4; db.querySelector("[data-v]").className = "tl-versie bad";
+      db.querySelector("[data-noot]").textContent = T.db4; db.querySelector("[data-noot]").className = "tl-noot bad";
+      an.querySelector("[data-noot]").textContent = T.an4; an.querySelector("[data-noot]").className = "tl-noot ok";
     },
   ];
   const knoppen = [...root.querySelectorAll(".tl-stap")]; let cur = 0, auto = null, geraakt = false;
