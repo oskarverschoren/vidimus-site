@@ -138,7 +138,6 @@ html.js body.hub .rv { opacity: 1; transform: none; }
 .hub .hb-prive-tekst { display: grid; align-content: center; justify-items: start; gap: 12px; min-width: 0; padding: clamp(24px, 3vw, 40px); }
 .hub .hb-prive-tekst em { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; font-style: normal; letter-spacing: -.01em; }
 .hub .hb-prive-tekst b { max-width: 25em; font-size: clamp(21px, 1rem + .9vw, 30px); font-weight: 500; line-height: 1.16; letter-spacing: -.03em; text-wrap: balance; }
-.hub .hb-prive-prijs { font: 500 14px/1.5 var(--mono); color: rgba(255, 255, 255, .78); }
 .hub .hb-prive-tekst i { display: inline-flex; align-items: center; gap: 8px; margin-top: 2px; font-style: normal; font-weight: 600; color: #B9C6FF; }
 .hub .hb-prive-tekst i svg { width: 14px; height: 14px; transition: transform 150ms var(--pr-uit); }
 .hub .hb-prive:hover .hb-prive-tekst i svg { transform: translateX(3px); }
@@ -148,7 +147,6 @@ html.js body.hub .rv { opacity: 1; transform: none; }
 @media (max-width: 720px) {
   .hub .hb-prive { flex-direction: column-reverse; gap: 0; min-height: 0; }
   .hub .hb-prive-tekst { padding: 4px 20px 24px; }
-  .hub .hb-prive-prijs { font-size: 12.5px; }
   .hub .hb-prive-beeld img { width: 100%; height: auto; min-height: 0; }
   .hub .hb-prive-beeld::before { inset: auto 0 0 0; width: auto; height: 26%; background: linear-gradient(0deg, #00030C, rgba(0, 3, 12, 0)); }
 }
